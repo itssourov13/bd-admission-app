@@ -21,20 +21,26 @@ import {
   Fraunces_600SemiBold,
   Fraunces_700Bold
 } from "@expo-google-fonts/fraunces";
-import { LangProvider, useLang } from "@/i18n";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { LangProvider, useLang, useT } from "@/i18n";
+import { DbProvider, useDbState } from "@/db/provider";
+import { ErrorView } from "@/components/common/StateViews";
+import { Screen } from "@/components/ui";
 import { colors } from "@/theme";
 
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
+  const { state, retry } = useDbState();
+  const t = useT();
   const ready = fontsReady && languageReady;
 
   useEffect(() => {
     if (ready) SplashScreen.hideAsync().catch(() => undefined);
   }, [ready]);
 
-  if (!ready) {
+  if (!ready || state.status === "loading") {
     return (
       <View className="flex-1 items-center justify-center bg-body">
         <ActivityIndicator color={colors.brand600} size="large" />
@@ -42,7 +48,20 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
     );
   }
 
-  return <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }} />;
+  if (state.status === "error") {
+    return (
+      <Screen edges={["top", "bottom"]} className="justify-center">
+        <ErrorView title={t("error.dbTitle")} body={t("error.dbBody")} onRetry={retry} />
+      </Screen>
+    );
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }}>
+      <Stack.Screen name="exam/[id]" options={{ gestureEnabled: false }} />
+      <Stack.Screen name="flash/play" options={{ gestureEnabled: false }} />
+    </Stack>
+  );
 }
 
 export default function RootLayout() {
@@ -60,9 +79,13 @@ export default function RootLayout() {
   });
 
   return (
-    <LangProvider>
-      <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
-      <StatusBar style="dark" />
-    </LangProvider>
+    <SafeAreaProvider>
+      <LangProvider>
+        <DbProvider>
+          <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
+          <StatusBar style="dark" />
+        </DbProvider>
+      </LangProvider>
+    </SafeAreaProvider>
   );
 }

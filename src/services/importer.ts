@@ -43,6 +43,19 @@ export function contentHash(q: QuestionPackItem): string {
   return h1.toString(16).padStart(8, "0") + h2.toString(16).padStart(8, "0") + payload.length.toString(16);
 }
 
+/** Fingerprint of a whole pack; lets startup skip packs whose content is unchanged. */
+export function packSignature(pack: unknown): string {
+  const payload = JSON.stringify(pack);
+  let h1 = 0x811c9dc5;
+  let h2 = 0x01000193;
+  for (let i = 0; i < payload.length; i++) {
+    const c = payload.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 16777619) >>> 0;
+    h2 = Math.imul(h2 + c, 2246822519) >>> 0;
+  }
+  return h1.toString(16).padStart(8, "0") + h2.toString(16).padStart(8, "0") + payload.length.toString(16);
+}
+
 function emptyReport(): ImportReport {
   return {
     ok: false, batchId: null, errors: [], warnings: [], rejected: 0,
@@ -79,6 +92,8 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
           [p.batch.id, p.batch.category, p.batch.description ?? null, p.schemaVersion, now, now]
         );
       }
+
+      await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [packSignature(pack), p.batch.id]);
 
       for (const s of p.sourceDocuments) {
         const owner = await tx.getFirstAsync<{ batch_id: string }>("SELECT batch_id FROM source_documents WHERE id = ?", [s.id]);

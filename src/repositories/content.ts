@@ -229,3 +229,18 @@ export async function categoriesWithContent(db: SqlDb): Promise<QuestionCategory
   const rows = await db.getAllAsync<{ category: QuestionCategory }>("SELECT DISTINCT category FROM exam_papers");
   return rows.map((r) => r.category);
 }
+
+/** The single marking rule stored for a paper, or null when none/incomplete. */
+export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringRule | null> {
+  const r = await db.getFirstAsync<RuleRow>("SELECT * FROM exam_rules WHERE paper_id = ? ORDER BY id LIMIT 1", [paperId]);
+  if (!r || r.correct_marks == null) return null;
+  return {
+    correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty ?? 0, unansweredMarks: r.unanswered_marks ?? 0,
+    status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds
+  };
+}
+
+/** The rule that would apply to a practice/exam scope (used to tell the user how scoring will work before starting). */
+export async function scopeRule(db: SqlDb, filter: PoolFilter): Promise<ScoringRule> {
+  return resolveRuleForQuestions(db, await eligibleQuestionIds(db, filter), filter);
+}

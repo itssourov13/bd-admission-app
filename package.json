@@ -15,7 +15,9 @@
     "doctor": "npx expo-doctor",
     "export:android": "expo export --platform android",
     "test": "node --test tests/*.test.ts scripts/tests/*.test.mjs",
-    "test:import": "node --test tests/importer.test.ts scripts/tests/*.test.mjs"
+    "test:import": "node --test tests/importer.test.ts scripts/tests/*.test.mjs",
+    "packs:index": "node scripts/build-pack-index.mjs",
+    "packs:validate": "node scripts/validate-question-pack.mjs"
   },
   "dependencies": {
     "@expo-google-fonts/fraunces": "^0.4.1",

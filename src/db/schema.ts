@@ -165,6 +165,13 @@ CREATE TABLE session_answers (
 );
 CREATE INDEX idx_answers_question ON session_answers(question_id);
 `
+  },
+  {
+    version: 2,
+    name: "batch_pack_signature",
+    sql: `
+ALTER TABLE question_batches ADD COLUMN pack_signature TEXT;
+`
   }
 ];
 

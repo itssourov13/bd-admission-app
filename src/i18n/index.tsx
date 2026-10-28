@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getLocales } from "expo-localization";
 import { translations, type Lang, type TranslationKey } from "./translations";
@@ -48,20 +48,45 @@ export function LangProvider({ children }: { children: ReactNode }) {
     return () => { active = false; };
   }, []);
 
-  const setLang = (language: Lang) => {
+  const setLang = useCallback((language: Lang) => {
     setLangState(language);
     void AsyncStorage.setItem(LANG_STORAGE, language).catch(() => undefined);
-  };
+  }, []);
 
   return <LangContext.Provider value={{ lang, setLang, ready }}>{children}</LangContext.Provider>;
 }
 
 export const useLang = () => useContext(LangContext);
 
-export function useT() {
+const BN_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+/** Renders Latin digits as Bengali digits when the language is Bangla. */
+export function localizeDigits(value: string | number, lang: Lang): string {
+  const text = String(value);
+  return lang === "bn" ? text.replace(/[0-9]/g, (d) => BN_DIGITS[Number(d)]) : text;
+}
+
+export type TParams = Record<string, string | number>;
+export type TFunction = (key: TranslationKey, params?: TParams) => string;
+
+/** Numeric params are digit-localized; string params (names, keys) are inserted untouched. */
+export function translate(lang: Lang, key: TranslationKey, params?: TParams): string {
+  const entry = translations[key];
+  const template: string = entry[lang] ?? entry.en;
+  if (!params) return template;
+  return template.replace(/\{(\w+)\}/g, (match, name: string) => {
+    const value = params[name];
+    if (value === undefined) return match;
+    return typeof value === "number" ? localizeDigits(value, lang) : value;
+  });
+}
+
+export function useT(): TFunction {
   const { lang } = useLang();
-  return (key: TranslationKey): string => {
-    const entry = translations[key];
-    return entry[lang] ?? entry.en;
-  };
+  return useCallback((key, params) => translate(lang, key, params), [lang]);
+}
+
+export function useNum(): (value: string | number) => string {
+  const { lang } = useLang();
+  return useCallback((value) => localizeDigits(value, lang), [lang]);
 }

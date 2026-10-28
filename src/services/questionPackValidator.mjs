@@ -68,8 +68,14 @@ export function validateQuestionPack(pack) {
   }
   if ((pack.batch.sourceDocumentIds ?? []).length === 0) warnings.push("Batch has no source document references.");
 
+  const seenCodes = new Map();
   for (const [index, institution] of pack.institutions.entries()) {
     const at = "institutions[" + index + "]";
+    if (nonEmpty(institution?.code)) {
+      const key = institution.code.trim().toLowerCase();
+      if (seenCodes.has(key)) errors.push(at + ".code duplicates the code of institutions[" + seenCodes.get(key) + "]: " + institution.code + ".");
+      else seenCodes.set(key, index);
+    }
     if (!nonEmpty(institution?.code)) errors.push(at + ".code is required.");
     if (!nonEmpty(institution?.name)) errors.push(at + ".name is required.");
   }
@@ -81,8 +87,13 @@ export function validateQuestionPack(pack) {
     if (!Number.isInteger(paper?.year) || paper.year < 1900 || paper.year > 2100) errors.push(at + ".year must be an integer between 1900 and 2100.");
   }
 
+  const rulePapers = new Set();
   for (const [index, rule] of pack.examRules.entries()) {
     const at = "examRules[" + index + "]";
+    if (nonEmpty(rule?.paperId)) {
+      if (rulePapers.has(rule.paperId)) errors.push(at + " is a second rule for paper " + rule.paperId + "; define exactly one rule per paper.");
+      else rulePapers.add(rule.paperId);
+    }
     if (!paperIds.has(rule?.paperId)) errors.push(at + ".paperId references an unknown paper.");
     if (!ruleStatuses.has(rule?.verificationStatus)) errors.push(at + ".verificationStatus is invalid.");
     for (const field of ["correctMarks", "incorrectPenalty", "unansweredMarks"]) {
@@ -127,8 +138,12 @@ export function validateQuestionPack(pack) {
     if (!Array.isArray(question.appearances) || question.appearances.length === 0) {
       errors.push(at + " must preserve at least one paper appearance.");
     } else {
+      const seenAppearances = new Set();
       for (const [appearanceIndex, appearance] of question.appearances.entries()) {
         const aAt = at + ".appearances[" + appearanceIndex + "]";
+        const appearanceKey = [appearance?.paperId, appearance?.questionNumber ?? 0, appearance?.pageNumber ?? 0].join("|");
+        if (seenAppearances.has(appearanceKey)) errors.push(aAt + " duplicates an earlier appearance (same paper, question number and page).");
+        else seenAppearances.add(appearanceKey);
         if (!paperIds.has(appearance?.paperId)) errors.push(aAt + ".paperId references an unknown paper.");
         if (appearance?.questionNumber != null && !positiveInteger(appearance.questionNumber)) errors.push(aAt + ".questionNumber must be positive when supplied.");
         if (appearance?.pageNumber != null && !positiveInteger(appearance.pageNumber)) errors.push(aAt + ".pageNumber must be positive when supplied.");
@@ -159,6 +174,10 @@ export function validateQuestionPack(pack) {
     if (question.answerVerificationStatus !== "verified" && Array.isArray(question.correctOptionIds) && question.correctOptionIds.length > 0) {
       warnings.push(at + " has answer options but its answer is not marked verified.");
     }
+    if (new Set(question.options.map((o) => (o?.text ?? "").trim())).size !== question.options.length) {
+      warnings.push(at + " has options with identical text; check the transcription.");
+    }
+    if (question.category !== pack.batch.category) warnings.push(at + " category differs from batch category " + pack.batch.category + ".");
     for (const appearance of question.appearances ?? []) {
       const relatedPaper = pack.papers.find((paper) => paper?.id === appearance?.paperId);
       if (relatedPaper && question.category !== relatedPaper.category) warnings.push(at + " category differs from paper " + relatedPaper.id + ".");

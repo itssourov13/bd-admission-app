@@ -8,6 +8,8 @@ export const colors = {
   gold100:p.gold100, gold400:p.gold400, gold500:p.gold500, gold700:p.gold700,
   bgBody:p.body, surface:p.surface, border:p.border, white:p.white
 } as const;
+/** Feedback colors that are not part of the brand palette (incorrect answers, warnings). */
+export const feedback = { danger500: "#B3362A", danger100: "#FCE9E6", danger700: "#8A241B" } as const;
 export const fonts = {
   displaySemibold:"Fraunces_600SemiBold", displayBold:"Fraunces_700Bold",
   body:"Manrope_400Regular", bodyMedium:"Manrope_500Medium", bodySemibold:"Manrope_600SemiBold", bodyBold:"Manrope_700Bold",

@@ -46,3 +46,35 @@ test("rejects duplicated option IDs and a verified answer that points nowhere", 
   assert.ok(result.errors.some((message) => message.includes("duplicate option id")));
   assert.ok(result.errors.some((message) => message.includes("unknown correct option")));
 });
+
+test("rejects duplicate institution codes, a second rule per paper and a repeated appearance", () => {
+  const pack = validPack();
+  pack.institutions.push({ id: "uni-other", code: "ut", name: "Another" });
+  pack.examRules.push({ id: "rule-2", paperId: "paper-test", verificationStatus: "unconfigured" });
+  pack.questions[0].appearances.push({ paperId: "paper-test", questionNumber: 1, pageNumber: 1 });
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((m) => m.includes("duplicates the code")));
+  assert.ok(result.errors.some((m) => m.includes("second rule for paper")));
+  assert.ok(result.errors.some((m) => m.includes("duplicates an earlier appearance")));
+});
+
+test("a verified rule must define every scoring value; unverified answers never need a key", () => {
+  const pack = validPack();
+  pack.examRules[0].verificationStatus = "verified";
+  delete pack.examRules[0].unansweredMarks;
+  pack.questions[0].answerVerificationStatus = "unknown";
+  pack.questions[0].correctOptionIds = null;
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((m) => m.includes("marked verified but does not define all scoring values")));
+  assert.equal(result.errors.some((m) => m.includes("verified answer")), false);
+});
+
+test("rejects unsupported schema versions with an actionable message", () => {
+  const pack = validPack();
+  pack.schemaVersion = 2;
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((m) => m.includes("schemaVersion must be 1")));
+});

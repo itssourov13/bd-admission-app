@@ -297,3 +297,32 @@ test("discarded exam can be abandoned and a new one started", async () => {
   assert.equal(await getActiveExam(db), null);
   assert.equal((await startStandardExam(db, {}, 3)).ok, true);
 });
+
+test("migration: a v1 database upgrades to the latest version without losing content or user data", async () => {
+  const db = openMemoryDb();
+  await migrate(db, MIGRATIONS.slice(0, 1));
+  assert.equal((await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version"))!.user_version, 1);
+  await db.runAsync("INSERT INTO question_batches (id, category, schema_version, imported_at, updated_at) VALUES ('b','varsity',1,1,1)");
+  await db.runAsync("INSERT INTO user_profile (id, display_name, language, flash_seconds, created_at, updated_at) VALUES (1,'Keep','en',45,1,1)");
+  assert.equal(await migrate(db), LATEST_VERSION);
+  assert.equal(await count(db, "question_batches"), 1);
+  assert.equal((await getProfile(db)).displayName, "Keep");
+  const cols = await db.getAllAsync<{ name: string }>("PRAGMA table_info(question_batches)");
+  assert.ok(cols.some((c) => c.name === "pack_signature"));
+});
+
+test("content sync: unchanged packs are skipped, changed packs update, a bad pack does not block the others", async () => {
+  const db = await freshDb();
+  const { syncBundledPacks } = await import("../src/services/contentSync.ts");
+  const good = syntheticPack({}, 2);
+  const bad = { schemaVersion: 1, batch: { id: "bad", category: "varsity", sourceDocumentIds: [] } };
+  const first = await syncBundledPacks(db, [bad, good]);
+  assert.deepEqual(first.map((o) => o.status), ["failed", "imported"]);
+  assert.ok(first[0].errors.length > 0);
+  const second = await syncBundledPacks(db, [good]);
+  assert.deepEqual(second.map((o) => o.status), ["unchanged"]);
+  const changed = syntheticPack({}, 2);
+  changed.questions[0].text = "Edited synthetic question";
+  assert.deepEqual((await syncBundledPacks(db, [changed])).map((o) => o.status), ["imported"]);
+  assert.equal(await count(db, "questions"), 2);
+});
