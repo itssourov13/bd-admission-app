@@ -1,0 +1,41 @@
+export type Lang = "bn" | "en";
+
+export const translations = {
+  "app.name": { bn: "BD Admission", en: "BD Admission" },
+  "common.continue": { bn: "চালিয়ে যান", en: "Continue" },
+  "common.back": { bn: "পেছনে", en: "Back" },
+  "common.cancel": { bn: "বাতিল", en: "Cancel" },
+  "common.save": { bn: "সংরক্ষণ করুন", en: "Save" },
+  "common.retry": { bn: "আবার চেষ্টা করুন", en: "Try again" },
+  "common.comingSoon": { bn: "শীঘ্রই আসছে", en: "Coming soon" },
+  "tab.home": { bn: "হোম", en: "Home" },
+  "tab.varsity": { bn: "ভার্সিটি", en: "Varsity" },
+  "tab.medical": { bn: "মেডিকেল", en: "Medical" },
+  "tab.profile": { bn: "প্রোফাইল", en: "Profile" },
+  "home.eyebrow": { bn: "ভর্তি প্রস্তুতি", en: "ADMISSION PREPARATION" },
+  "home.title": { bn: "লক্ষ্যের পথে, প্রতিদিন এক ধাপ", en: "One focused step toward your goal." },
+  "home.subtitle": { bn: "বাংলাদেশের ভর্তি পরীক্ষার প্রশ্ন অনুশীলন করুন—ইন্টারনেট ছাড়াই।", en: "Practice Bangladesh admission questions, even without internet." },
+  "home.varsityTitle": { bn: "বিশ্ববিদ্যালয় ভর্তি", en: "University admission" },
+  "home.varsitySubtitle": { bn: "বিশ্ববিদ্যালয় ও বিগত বছরের প্রশ্ন", en: "Universities and past questions" },
+  "home.medicalTitle": { bn: "মেডিকেল ভর্তি", en: "Medical admission" },
+  "home.medicalSubtitle": { bn: "মেডিকেল প্রশ্ন ব্যাংক", en: "Medical question bank" },
+  "home.flashTitle": { bn: "Flash Question", en: "Flash Question" },
+  "home.flashSubtitle": { bn: "একবারে একটি প্রশ্ন, দ্রুত অনুশীলন", en: "One question at a time" },
+  "home.examTitle": { bn: "Standard Exam", en: "Standard Exam" },
+  "home.examSubtitle": { bn: "সময় ধরে পূর্ণাঙ্গ মডেল পরীক্ষা", en: "Timed full-length practice" },
+  "home.engineeringTitle": { bn: "ইঞ্জিনিয়ারিং", en: "Engineering" },
+  "home.emptyTitle": { bn: "প্রশ্ন ব্যাংক প্রস্তুত হচ্ছে", en: "Your question bank is being prepared" },
+  "home.emptySubtitle": { bn: "যাচাই করা প্রশ্ন যোগ হলে এখানে অনুশীলন করতে পারবেন।", en: "Practice will become available as verified question packs are added." },
+  "profile.title": { bn: "আপনার প্রোফাইল", en: "Your profile" },
+  "profile.name": { bn: "নাম", en: "Name" },
+  "profile.language": { bn: "অ্যাপের ভাষা", en: "App language" },
+  "profile.localOnly": { bn: "আপনার তথ্য এই ডিভাইসে সংরক্ষিত থাকবে।", en: "Your profile is stored on this device." },
+  "feature.varsityTitle": { bn: "ভার্সিটি প্রশ্ন", en: "Varsity questions" },
+  "feature.varsityBody": { bn: "RU, JU, CU এবং অন্যান্য বিশ্ববিদ্যালয়ের প্রশ্ন বছর ও পরীক্ষার রেফারেন্সসহ এখানে সাজানো হবে।", en: "University question banks will be organized by institution, year, and paper reference." },
+  "feature.medicalTitle": { bn: "মেডিকেল প্রশ্ন", en: "Medical questions" },
+  "feature.medicalBody": { bn: "মেডিকেল ভর্তি পরীক্ষার প্রশ্ন ব্যাংক এই অংশে থাকবে।", en: "Medical admission question packs will appear in this section." },
+  "feature.profileTitle": { bn: "প্রোফাইলের ভিত্তি", en: "Profile foundation" },
+  "feature.profileBody": { bn: "স্থানীয় প্রোফাইল, বুকমার্ক ও অনুশীলনের ইতিহাস পরবর্তী বাস্তবায়নের অংশ।", en: "Local profile, bookmarks, and practice history are part of the upcoming implementation." }
+} as const;
+
+export type TranslationKey = keyof typeof translations;

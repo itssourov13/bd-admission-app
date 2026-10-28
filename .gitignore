@@ -1,0 +1,31 @@
+# Dependencies and generated outputs
+node_modules/
+.expo/
+dist/
+web-build/
+coverage/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Native build / local settings
+android/.gradle/
+android/app/build/
+android/local.properties
+ios/Pods/
+ios/build/
+*.orig.*
+.metro-health-check*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.DS_Store
