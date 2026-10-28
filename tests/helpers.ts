@@ -1,24 +1,21 @@
 import { DatabaseSync } from "node:sqlite";
 import type { SqlDb, SqlParam } from "../src/db/types.ts";
+import { createSqlDb, type RawDb } from "../src/db/adapter.ts";
 import { migrate } from "../src/db/schema.ts";
 import type { QuestionPack } from "../src/types/question-pack.ts";
 
-/** node:sqlite adapter implementing the same SqlDb contract expo-sqlite provides. */
+/** node:sqlite behind the same adapter the app uses for expo-sqlite, so transaction serialization is exercised too. */
 export function openMemoryDb(): SqlDb & { raw: DatabaseSync } {
   const raw = new DatabaseSync(":memory:");
-  let depth = 0;
-  return {
-    raw,
+  const rawDb: RawDb = {
     async execAsync(sql) { raw.exec(sql); },
-    async runAsync(sql, params: SqlParam[] = []) {
+    async runAsync(sql, params: SqlParam[]) {
       const r = raw.prepare(sql).run(...params);
       return { changes: Number(r.changes) };
     },
-    async getAllAsync<T>(sql: string, params: SqlParam[] = []) { return raw.prepare(sql).all(...params) as T[]; },
-    async getFirstAsync<T>(sql: string, params: SqlParam[] = []) { return (raw.prepare(sql).get(...params) as T | undefined) ?? null; },
+    async getAllAsync<T>(sql: string, params: SqlParam[]) { return raw.prepare(sql).all(...params) as T[]; },
+    async getFirstAsync<T>(sql: string, params: SqlParam[]) { return (raw.prepare(sql).get(...params) as T | undefined) ?? null; },
     async withTransactionAsync(task) {
-      if (depth > 0) throw new Error("nested transaction");
-      depth++;
       raw.exec("BEGIN");
       try {
         await task();
@@ -26,11 +23,10 @@ export function openMemoryDb(): SqlDb & { raw: DatabaseSync } {
       } catch (e) {
         raw.exec("ROLLBACK");
         throw e;
-      } finally {
-        depth--;
       }
     }
   };
+  return Object.assign(createSqlDb(rawDb), { raw });
 }
 
 export async function freshDb() {

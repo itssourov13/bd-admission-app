@@ -76,7 +76,7 @@ export interface QuestionPack {
     sourceDocumentIds: string[];
   };
   sourceDocuments: QuestionSourceDocument[];
-  institutions: Array<{ id: string; code: string; name: string }>;
+  institutions: { id: string; code: string; name: string }[];
   papers: QuestionPackPaper[];
   examRules: QuestionPackExamRule[];
   questions: QuestionPackItem[];

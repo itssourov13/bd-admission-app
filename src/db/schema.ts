@@ -6,7 +6,9 @@ import type { SqlDb } from "./types.ts";
  * User-owned tables (user_profile, bookmarks, practice_*, session_*) are never
  * touched by imports, so content updates cannot destroy progress.
  */
-export const MIGRATIONS: ReadonlyArray<{ version: number; name: string; sql: string }> = [
+export interface Migration { version: number; name: string; sql: string }
+
+export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
     name: "initial_schema",
@@ -169,18 +171,19 @@ CREATE INDEX idx_answers_question ON session_answers(question_id);
 export const LATEST_VERSION = MIGRATIONS[MIGRATIONS.length - 1].version;
 
 /** Applies pending migrations, each in its own transaction, tracked by PRAGMA user_version. */
-export async function migrate(db: SqlDb): Promise<number> {
+export async function migrate(db: SqlDb, migrations: readonly Migration[] = MIGRATIONS): Promise<number> {
   await db.execAsync("PRAGMA foreign_keys = ON;");
   const row = await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version");
   let current = row?.user_version ?? 0;
-  if (current > LATEST_VERSION) {
-    throw new Error(`Database version ${current} is newer than this app (${LATEST_VERSION}).`);
+  const latest = migrations[migrations.length - 1]?.version ?? 0;
+  if (current > latest) {
+    throw new Error(`Database version ${current} is newer than this app (${latest}).`);
   }
-  for (const migration of MIGRATIONS) {
+  for (const migration of migrations) {
     if (migration.version <= current) continue;
-    await db.withTransactionAsync(async () => {
-      await db.execAsync(migration.sql);
-      await db.execAsync(`PRAGMA user_version = ${migration.version}`);
+    await db.withTransactionAsync(async (tx) => {
+      await tx.execAsync(migration.sql);
+      await tx.execAsync(`PRAGMA user_version = ${migration.version}`);
     });
     current = migration.version;
   }

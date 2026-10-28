@@ -135,7 +135,7 @@ export function accuracyPercent(correct: number, answered: number): number {
  * Picks one rule for a set of papers. All papers must share an identical rule (same values and
  * status) otherwise the result is the unconfigured fallback — mixed rules are never blended.
  */
-export function resolveRule(rules: Array<ScoringRule | null | undefined>): ScoringRule {
+export function resolveRule(rules: (ScoringRule | null | undefined)[]): ScoringRule {
   if (rules.length === 0 || rules.some((r) => !r)) return UNCONFIGURED_RULE;
   const first = rules[0] as ScoringRule;
   if (first.status === "unconfigured") return UNCONFIGURED_RULE;
@@ -149,4 +149,15 @@ export function resolveRule(rules: Array<ScoringRule | null | undefined>): Scori
     );
   });
   return same ? first : UNCONFIGURED_RULE;
+}
+
+/**
+ * Score for a Flash session under `rule`: correct x marks, minus penalty per incorrect, plus the unanswered value for
+ * each skipped or timed-out question. Returns null when no rule is configured (no score is invented).
+ */
+export function flashScore(counts: { correct: number; incorrect: number; skipped: number; timedOut: number }, rule: ScoringRule): number | null {
+  if (rule.status === "unconfigured") return null;
+  const problems = validateRule(rule);
+  if (problems.length) throw new Error("Invalid scoring rule: " + problems.join("; "));
+  return round(counts.correct * rule.correctMarks - counts.incorrect * rule.incorrectPenalty + (counts.skipped + counts.timedOut) * rule.unansweredMarks);
 }

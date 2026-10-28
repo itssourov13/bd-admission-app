@@ -143,6 +143,12 @@ export function applyFlashEvent(
   return { state: next, applied: true, record };
 }
 
+/** Re-bases the current question's timer, used when the user leaves the feedback view so reading time is not charged. */
+export function restartCurrentTimer(state: FlashState, now: number): FlashState {
+  if (state.status !== "running") return state;
+  return { ...state, shownAt: now, deadline: now + state.perQuestionMs };
+}
+
 /** The question on screen at exit is NOT counted, because it was never resolved. */
 export function finishFlash(state: FlashState): FlashState {
   return state.status === "finished" ? state : { ...state, status: "finished", currentQuestionId: null };
