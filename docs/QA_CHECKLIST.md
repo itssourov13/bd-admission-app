@@ -17,7 +17,7 @@ Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /h
 | Android JS bundle without bytecode | [x] Pass | expo export --platform android --no-bytecode exported `/tmp/bd-admission-final-export`; Android JS bundle is approximately 3.5 MB with both question packs bundled. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
-| Physical device or emulator QA | [ ] Not run | No device run has been performed. |
+| Physical device or emulator QA | [ ] Not run | No device run has been performed. First resolve the observed Expo Go SDK mismatch by installing the matching SDK 57 Android Go build from [expo.dev/go](https://expo.dev/go), or use a dedicated development build. |
 
 The no-bytecode export validates JavaScript bundling only. It does **not** prove a native build, APK/AAB installation, or on-device behavior.
 

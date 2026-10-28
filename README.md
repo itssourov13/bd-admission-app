@@ -42,6 +42,8 @@ Start Expo:
 
     pnpm start
 
+**Expo Go SDK match:** this project uses Expo SDK 57. Every Expo Go build supports its own SDK version, so if Expo Go reports “Project is incompatible with this version of Expo Go”, install the matching **SDK 57 Android** build from [expo.dev/go](https://expo.dev/go), then restart Metro. Do not upgrade package versions just to silence the mismatch; an SDK upgrade should be a separate, tested migration. A dedicated development build is the release-oriented alternative.
+
 Run the native Android development flow on a machine with the required Android toolchain and a connected device/emulator:
 
     pnpm android
