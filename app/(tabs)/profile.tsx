@@ -1,3 +1,4 @@
+import { View } from "react-native";
 import { BRAND } from "@/brand";
 import { Ionicons } from "@expo/vector-icons";
 import { Screen, Txt, Card, Button, Chip } from "@/components/ui";

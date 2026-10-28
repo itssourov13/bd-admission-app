@@ -29,3 +29,6 @@ The target has an independent Git repo and app identity. Selected UI components,
 - The current tab screens are scaffolds, not completed feature screens.
 - No full SQLite runtime schema, practice engine, or complete import-to-database flow is implemented yet.
 - Do not claim install, typecheck, lint, Android export or physical-device verification passed until each is run and inspected.
+
+## Update 2026-10-28
+Implemented and tested: src/db/schema.ts, src/services/{scoring,timer,flash,exam,advice,importer}.ts, tests/. Run with: source ~/.nvm/nvm.sh && nvm use && pnpm test. Next: repositories, SQLiteProvider wiring (onInit calls migrate; use withExclusiveTransactionAsync for import on device), then the UI per TASK_STATE.md. Standard Exam eligibility = answer verified, single_choice, at least 2 options.

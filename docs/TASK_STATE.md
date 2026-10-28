@@ -37,3 +37,14 @@ The observed active Node version during preparation was v24.19.0. The project is
 - [x] Verified there are no source repository path, shared package, Clerk auth-key, or old EAS identity references in runtime/package/build configuration.
 - [ ] Install packages under Node 22.23.1, run Expo config/doctor, typecheck, lint and Android export.
 - [ ] Full question screens, SQLite schema/runtime repositories, Flash and Standard engines remain implementation work.
+
+## Checkpoint 2026-10-28 — domain/database/import (verified)
+- [x] Node 22.23.1 active, pnpm install succeeded, lockfile generated, expo config resolves.
+- [x] SQLite schema + migration runner (tested on node:sqlite, not yet on a device).
+- [x] Scoring, timer, Flash engine, Exam state, advice services with tests.
+- [x] Transactional idempotent importer with rollback, tests.
+- [ ] Repositories (src/repositories) wiring SQL for catalogue, sessions, bookmarks, profile.
+- [ ] SQLiteProvider/migration wiring in app/_layout.tsx.
+- [ ] Real UI: home, varsity/university/paper, medical, question view, Flash, Standard Exam, results, profile, bookmarks, history, Engineering coming-soon.
+- [ ] Lint, expo-doctor, Android export, branding refinement, QA checklist results.
+- Tooling note: the Desktop Commander quota was nearly exhausted, so the UI/repository phases were not started.

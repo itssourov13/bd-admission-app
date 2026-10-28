@@ -62,7 +62,7 @@ export default function RootLayout() {
   return (
     <LangProvider>
       <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
-      <StatusBar style="dark" backgroundColor={colors.bgBody} />
+      <StatusBar style="dark" />
     </LangProvider>
   );
 }

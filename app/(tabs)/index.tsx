@@ -4,7 +4,7 @@ import { useRouter, type Href } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Screen, Txt, Card, Button, Logo, Chip } from "@/components/ui";
-import { useT } from "@/i18n";
+import { useLang, useT } from "@/i18n";
 import { colors, gradients, shadow } from "@/theme";
 
 export default function HomeScreen() {
