@@ -1,6 +1,6 @@
 # QA checklist
 
-Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app.
+Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. Subject-filter and scrollable-exam changes verified in this pass.
 
 ## Automated checks
 
@@ -8,7 +8,7 @@ Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /h
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | pnpm test: **49 passed, 0 failed**; includes source answer-key checks, real-pack import/idempotency, paper-specific timing, section selection and incomplete-section refusal. |
+| Automated tests | [x] Pass | pnpm test: **54 passed, 0 failed**; includes all existing source/import/scoring/session tests plus focused canonical subject ordering, source ordering, subject counts, and serialized answer-selection queue tests. |
 | Real pack validation/index | [x] Pass | Both DU A Unit packs validate with 0 errors/0 warnings; `pnpm packs:index` bundles two packs. |
 | Real pack import integration | [x] Pass | 180 questions, 720 options, 180 source appearances, 2 papers/rules/sources, 1 DU institution; 175 eligible questions, 3 unknown-answer questions and 2 content-unverified questions (one figure-only physics item and one unclear mathematics formula); re-import is idempotent. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
@@ -66,7 +66,7 @@ These rules have passing automated service tests; device-level interaction is st
 - [ ] Long Bangla question text, formulas and multi-line options fit without clipping.
 - [ ] Small-screen options and controls have usable touch targets.
 - [ ] Tab labels, icons, safe areas and system bars display correctly.
-- [ ] Back button, exit confirmation, exam grid and timeout navigation behave correctly.
+- [ ] Back button, exit confirmation, all-question SectionList scrolling, fixed Submit action and timeout navigation behave correctly.
 - [ ] Flash timer refreshes correctly after the app returns from background.
 - [ ] Exam timer, answer changes, auto-submit, result review and relaunch recovery work on device.
 - [ ] Branding, launcher icon and splash are visually confirmed in a native build.

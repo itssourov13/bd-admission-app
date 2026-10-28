@@ -113,13 +113,49 @@ export async function listPapers(db: SqlDb, opts: { institutionId?: string; cate
   return out;
 }
 
-export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: number, offset: number): Promise<string[]> {
+/** Paper question IDs grouped in canonical subject order, then printed order within each subject. */
+export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: number, offset: number, subject?: string): Promise<string[]> {
+  const params: SqlParam[] = [paperId];
+  if (subject) params.push(subject);
+  params.push(limit, offset);
   const rows = await db.getAllAsync<{ question_id: string }>(
-    `SELECT question_id FROM question_appearances WHERE paper_id = ?
-     ORDER BY IFNULL(question_number, 1000000), id LIMIT ? OFFSET ?`,
-    [paperId, limit, offset]
+    `SELECT a.question_id AS question_id FROM question_appearances a
+     JOIN questions q ON q.id = a.question_id
+     WHERE a.paper_id = ?${subject ? " AND q.subject = ?" : ""}
+     ORDER BY
+       CASE
+         WHEN q.subject = 'Physics' THEN 0
+         WHEN q.subject = 'Chemistry' THEN 1
+         WHEN q.subject = 'Biology' THEN 2
+         WHEN q.subject = 'Higher Mathematics' THEN 3
+         WHEN q.subject = 'Bangla' THEN 4
+         WHEN q.subject = 'English' THEN 5
+         WHEN q.subject = 'ICT' THEN 6
+         WHEN q.subject IS NULL THEN 8
+         ELSE 7
+       END,
+       CASE WHEN q.subject IN ('Physics', 'Chemistry', 'Biology', 'Higher Mathematics', 'Bangla', 'English', 'ICT') THEN '' ELSE COALESCE(q.subject, '') END COLLATE NOCASE,
+       IFNULL(a.question_number, 1000000), a.id
+     LIMIT ? OFFSET ?`,
+    params
   );
   return rows.map((r) => r.question_id);
+}
+
+/**
+ * All questions (not only exam-eligible ones, matching what the read-only browser lists) in the scope, in total
+ * and per subject. Questions without a subject count toward the total only.
+ */
+export async function countQuestionsBySubject(db: SqlDb, filter: PoolFilter): Promise<{ total: number; bySubject: Record<string, number> }> {
+  const c = filterClauses({ ...filter, subject: undefined, subjects: undefined });
+  const rows = await db.getAllAsync<{ subject: string | null; n: number }>(
+    `SELECT q.subject AS subject, COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE 1 = 1${c.where} GROUP BY q.subject`,
+    c.params
+  );
+  const totalRow = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE 1 = 1${c.where}`, c.params);
+  const bySubject: Record<string, number> = {};
+  for (const r of rows) if (r.subject) bySubject[r.subject] = Number(r.n);
+  return { total: Number(totalRow?.n ?? 0), bySubject };
 }
 
 export async function listSubjects(db: SqlDb, filter: PoolFilter): Promise<string[]> {

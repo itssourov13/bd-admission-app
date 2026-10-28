@@ -15,6 +15,7 @@ import { abandonSession, getActiveExam } from "@/repositories/sessions";
 import { checkExamEligibility, STANDARD_EXAM_QUESTIONS, STANDARD_EXAM_SECONDS } from "@/services/exam";
 import { startStandardExam } from "@/services/practiceService";
 import type { QuestionCategory } from "@/types/domain";
+import { orderSubjects } from "@/services/subjects";
 
 export default function ExamSetup() {
   const t = useT();
@@ -36,7 +37,7 @@ export default function ExamSetup() {
     const rule = paperPattern ?? await scopeRule(d, effective);
     const selectionConfig = paperPattern?.selectionConfig ?? null;
     const subjectCounts = selectionConfig
-      ? await Promise.all(selectionConfig.subjects.map(async (subject) => ({
+      ? await Promise.all(orderSubjects(selectionConfig.subjects).map(async (subject) => ({
           subject,
           count: await countEligible(d, { ...effective, subject })
         })))

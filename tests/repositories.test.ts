@@ -4,7 +4,7 @@ import { freshDb, openMemoryDb, syntheticPack } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
 import { migrate, MIGRATIONS, LATEST_VERSION } from "../src/db/schema.ts";
 import {
-  contentTotals, countEligible, eligibleQuestionIds, listBatches, listInstitutions, listPapers, loadQuestions, resolveRuleForQuestions
+  contentTotals, countEligible, countQuestionsBySubject, eligibleQuestionIds, listBatches, listInstitutions, listPaperQuestionIds, listPapers, loadQuestions, resolveRuleForQuestions
 } from "../src/repositories/content.ts";
 import { getSession, getSessionAnswers, listHistory, closeStaleFlash, getActiveExam, abandonSession } from "../src/repositories/sessions.ts";
 import { activitySummary, bookmarkedIds, getProfile, toggleBookmark, updateProfile } from "../src/repositories/userData.ts";
@@ -325,4 +325,31 @@ test("content sync: unchanged packs are skipped, changed packs update, a bad pac
   changed.questions[0].text = "Edited synthetic question";
   assert.deepEqual((await syncBundledPacks(db, [changed])).map((o) => o.status), ["imported"]);
   assert.equal(await count(db, "questions"), 2);
+});
+
+
+test("content: browser questions group by canonical subject order then printed order, with truthful per-subject counts", async () => {
+  const db = await freshDb();
+  const pack = syntheticPack({}, 5);
+  const subjects = ["English", "Physics", "Physics", "Higher Mathematics", "Biology"];
+  const printedNumbers = [1, 3, 1, 1, 2];
+  pack.questions.forEach((q, i) => {
+    q.subject = subjects[i];
+    q.appearances[0].questionNumber = printedNumbers[i];
+    q.source.questionNumber = printedNumbers[i];
+  });
+  assert.equal((await importQuestionPack(db, pack)).ok, true);
+
+  const ids = await listPaperQuestionIds(db, "paper-syn-2025", 10, 0);
+  const loaded = await loadQuestions(db, ids);
+  assert.deepEqual(loaded.map((q) => `${q.subject}:${q.appearances[0].questionNumber}`), [
+    "Physics:1", "Physics:3", "Biology:2", "Higher Mathematics:1", "English:1"
+  ]);
+  assert.deepEqual(await listPaperQuestionIds(db, "paper-syn-2025", 10, 0, "Physics"), ["q-syn-3", "q-syn-2"]);
+  const counts = await countQuestionsBySubject(db, { paperId: "paper-syn-2025" });
+  assert.equal(counts.total, 5);
+  assert.deepEqual(
+    [counts.bySubject.Physics, counts.bySubject.Biology, counts.bySubject["Higher Mathematics"], counts.bySubject.English],
+    [2, 1, 1, 1]
+  );
 });

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-28 — Science-first subject filters and scrollable Standard Exam
+- Added the shared canonical subject order (Physics, Chemistry, Biology, Higher Mathematics, Bangla, English, ICT), bilingual subject labels, accurate per-subject counts and explicit unavailable/empty states.
+- Question Browser now filters by subject while preserving bookmarks, sources, pagination and canonical subject/printed-question ordering. Flash setup supports subject-specific eligible-question pools without inventing content.
+- Replaced one-question-at-a-time Standard Exam navigation and numbered question grid with one virtualized, continuously scrollable question list grouped by subject and source order. Options are selectable in place; timer and answer progress remain visible, and Submit is kept at the bottom.
+- Added a serialized answer-write queue for rapid select/change/clear actions. Submission drains queued saves before finalization; timeout still finalizes using answers actually persisted by the deadline. Existing SQLite scoring, exactly-once finalization, session deadline and resume behavior are retained.
+- Added focused tests for canonical ordering, zero-count subject options, repository question ordering/counts and answer queue ordering/failure recovery.
+- Automated verification: 54 tests pass; typecheck and lint pass under Node 22.23.1. Physical Android/device QA remains outstanding.
+
 ## 2026-10-28 — Institution-specific exam-pattern requirement
 - Documented that question count, duration, section constraints and marking rules vary by institution and paper/session.
 - Clarified that the current fixed 100-question/60-minute Standard Exam is an MVP limitation, not a universal rule.
