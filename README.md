@@ -105,3 +105,7 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 - Validate and import content transactionally without damaging attempts or bookmarks.
 - Do not automatically merge questions based only on similar wording.
 - Keep synthetic test fixtures separate from genuine historical question packs.
+
+## RU question-bank research (staged only)
+
+The first Rajshahi University web-research snapshot and 9-question review sample are stored outside this repository at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. See that folder's `README.md`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER.csv` and `REVIEW/ANSWER_AUDIT.csv`. These files are not app content: do not run `pnpm packs:index` for them or copy them into `data/question-packs/` until their paper provenance and answers have been reviewed. RU B commerce/non-commerce and C branch/subject-choice patterns need distinct paper identities and a current official pattern source.

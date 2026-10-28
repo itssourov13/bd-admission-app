@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-29 — RU online research and external staging
+- Reviewed official RU 2025-2026 admission guide/notice, RU public notices, secondary historical-question pages and independent references for selected answers.
+- Created a source register, answer-audit CSV, research report and three schema-v1 external review packs (9 questions) under `/home/kali/gpt-workspace/bd-admission-app-data/ru/`.
+- Kept three A Unit candidate keys unverified; independently checked two B Bangla answers and calculated four C Higher Mathematics answers while keeping third-party historic-paper provenance provisional.
+- Validated all three external packs; no files were copied into app `data/question-packs/`, no pack index was regenerated, and no RU content was imported or bundled.
+- Documented that RU B commerce/non-commerce and RU C branch/subject-selection patterns differ; current RU 2026-2027 calendar reporting is tentative and must be confirmed by an official circular.
+
 ## 2026-10-28 — Science-first subject filters and scrollable Standard Exam
 - Added the shared canonical subject order (Physics, Chemistry, Biology, Higher Mathematics, Bangla, English, ICT), bilingual subject labels, accurate per-subject counts and explicit unavailable/empty states.
 - Question Browser now filters by subject while preserving bookmarks, sources, pagination and canonical subject/printed-question ordering. Flash setup supports subject-specific eligible-question pools without inventing content.

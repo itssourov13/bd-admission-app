@@ -24,3 +24,9 @@ The app foundation and two source-derived DU A Unit question-bank packs are bund
 - Do not invent questions, answers, years, sources or scoring rules.
 - Only verified-answer, single-choice questions with 2+ options feed Flash/Exam.
 - Illustrative/unconfigured rules must never be presented as official.
+
+## RU question research checkpoint
+
+Read `/home/kali/gpt-workspace/bd-admission-app-data/ru/README.md` and `RESEARCH_REPORT.md` before continuing RU data work. Nine review-only questions have been prepared in three external JSON files, with source register and answer audit. Three A Unit suggested answers are explicitly unverified; B/C answers were cross-checked/calculated, but secondary-source question provenance still needs an official scan comparison. They have not been copied to the app repository and are not bundled.
+
+Next: find official RU papers for complete unit/year/group/stream variants, confirm the latest official circular instead of assuming the 2025-2026 rules, perform a human source/answer audit, then approve a complete batch. Only approved JSON should be copied to `data/question-packs/`; then validate, regenerate the pack index and run import tests. Preserve separate B commerce/non-commerce and C science/non-science/subject-choice papers.

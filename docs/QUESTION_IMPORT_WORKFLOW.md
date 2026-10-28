@@ -48,3 +48,20 @@ Store referenced assets in local app content packs with stable relative paths. V
 - Keep the publisher-derived DU A Unit rule `illustrative`: it is known to differ from the official 2025–2026 admission notice (MCQ + written sections). Only replace/verify it with a matching primary source for the exact paper/session.
 - Proper diagram/image option asset support in the question renderer; initial diagram-based choices are described in text where practical.
 - Additional human line-by-line review of the question transcription/display and Android device QA.
+
+## RU research intake checkpoint — 2026-10-29
+
+The initial RU online research and a small review-only sample are stored externally at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`:
+
+- `RESEARCH_REPORT.md` — official 2025-2026 pattern evidence, tentative 2026-2027 schedule status, source-quality assessment and app integration plan.
+- `SOURCE_REGISTER.csv` / `.json` — source URLs, confidence notes and limitations.
+- `REVIEW/ANSWER_AUDIT.csv` — per-question answer state, calculation/source and review note.
+- `staging/ru-a-2024-2025-group-2-review.json` — 3 A Unit candidate keys, all unverified.
+- `staging/ru-b-2023-2024-bangla-review.json` — 2 B Unit Bangla questions with independently cross-checked answers; original paper provenance is still provisional.
+- `staging/ru-c-2024-2025-higher-math-1-review.json` — 4 C Unit Higher Mathematics questions with independently calculated answers; original paper provenance is still provisional.
+
+All 3 packs passed schema-v1 validation on initial draft review; expected warnings appear only for the three deliberately unverified A Unit answer keys. They remain external review material. Nothing was copied into `data/question-packs/`, `pnpm packs:index` was not run for them, and no RU content is bundled in the app as a result of this work.
+
+The official guide found during research describes 2025-2026 as an 80-question/100-mark, one-hour MCQ pattern, with unit-specific subject splits: A uses Bangla/English/GK; B has commerce and non-commerce layouts; C has science subject-choice and non-science variants. Do not assume this exact pattern remains official for 2026-2027. See the external research report for the official PDF URLs and the reported *tentative* dates.
+
+Next intake gate: acquire the official question scan where available, compare every transcription/option/answer and paper identity, then get a human review of `ANSWER_AUDIT.csv`. Only after approval copy a pack into `data/question-packs/`, run `pnpm packs:validate`, `pnpm packs:index`, and focused import tests. Do not use external staged drafts as a release-ready complete paper.

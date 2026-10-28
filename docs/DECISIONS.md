@@ -65,3 +65,8 @@ Question count, duration, subject/section distribution and marking rules must be
 - Evidence: the supplied scanned question-bank pages describe a 60-question MCQ practice set, 45 minutes, and choosing four of six 15-question subjects. The official DU 2025–2026 notice ([primary source](https://www.du.ac.bd/du_post_details/news/25400), 13 October 2025) describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each.
 - Decision: keep the scan-derived marking/pattern metadata `illustrative`; UI labels this paper-specific mode as question-bank practice. Never treat it as a complete official DU admission simulation.
 - General all-catalogue practice retains 100 questions/60 minutes; future university/session packs must store the exact primary-source rules for their paper.
+
+## ADR-014 — Stage RU web research separately before importing
+Status: accepted, 2026-10-29.
+
+RU research drafts live under `/home/kali/gpt-workspace/bd-admission-app-data/ru/`, not in the app bundle. Secondary question-bank pages can support discovery and small review samples but do not by themselves prove official paper provenance or a correct key. Preserve `answerVerificationStatus` separately from source authenticity, leave unverified answers out of scored practice, and do not add an `examRule` until the exact session/unit/group/stream is supported by a matching official source. The 2025-2026 official RU pattern is a historical baseline only; reported 2026-2027 dates were provisional at the research snapshot. Rationale: protect trustworthiness and avoid treating third-party material as official content.

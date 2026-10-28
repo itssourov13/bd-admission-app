@@ -8,7 +8,7 @@ Bangladeshi admission candidates using Android phones, potentially with unreliab
 
 ## Core modes
 - Flash Question: one question at a time; 30-second default with configurable time; continuously cycles through the eligible pool without repeats until a cycle is exhausted; skip and exit; local performance summary.
-- Standard Exam (current MVP behavior): exactly 100 eligible questions and a 60-minute duration, with full-paper navigation, editable answers before submission, timeout auto-submit and configurable negative marking. **These are current implementation constants, not a universal Bangladesh admission-exam pattern.** Institution, academic session/year, unit and paper can differ: for example, RU may use 100 questions while another institution/paper may use 80 or 60. Confirm every pattern from that exact exam's official source before configuring it.
+- Standard Exam: an exact selected paper uses its configured question count, duration and supported subject-selection rule; general all-catalogue practice retains a 100-question/60-minute fallback. This is not a universal Bangladesh admission-exam pattern. RU patterns differ by unit, B commerce/non-commerce, C stream/subject choice and year; configure each exact paper only from its matching official source.
 - Result review: local answers, correct/incorrect/unanswered counts, accuracy and scoring provenance.
 
 ## Product boundaries
@@ -16,3 +16,7 @@ The initial release is single-device and local-first. A sign-in service, hosted 
 
 ## Success criteria
 Fast, readable, offline question practice; accurate source/year metadata; reliable local persistence; deterministic timer/scoring; repeatable and safe question imports; UI components reused from the author's ScholarHub app where appropriate.
+
+## RU question-data research/staging
+
+The current RU research snapshot is documented outside the app repository at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. It contains a source register, a research report and nine review-only staged questions in three schema-v1 JSON files. They are not bundled, indexed or imported. Three A Unit candidate answers remain unverified; B/C answers have independent checks but the secondary-source paper provenance still needs a primary scan comparison. Read `docs/QUESTION_IMPORT_WORKFLOW.md` before moving any external draft into the in-repo `data/question-packs/` directory.

@@ -57,3 +57,9 @@ The app name, slug, app scheme, application ID, taglines and palette are central
 The current identity is provisional and can be renamed by editing brand.config.json. Local brand assets live in assets/brand: app-icon.png, adaptive-icon.png, splash-icon.png, logo-mark.png and brand-mark.svg.
 
 All reusable code needed for the prepared foundation is stored inside this repository. Runtime source files, package configuration and build configuration do not require the original source checkout. docs/REUSE_INVENTORY.md is provenance documentation only.
+
+## External RU question intake (not bundled)
+
+Research and draft question packs for Rajshahi University are staged outside this repository at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. This is intentionally separate from `data/question-packs/`: app startup only syncs packs referenced by the generated in-repository `src/content/bundledPacks.ts`. External drafts can be validated by absolute path but are not imported by validation. Only reviewed, approved files should be copied into `data/question-packs/`, after source/answer review; then `pnpm packs:index` and import tests must be run explicitly.
+
+RU needs unit/group/stream/session-aware paper identity. In particular, distinguish B commerce from non-commerce and preserve C science subject-choice branches. Current schema v1 can use stable paper IDs/titles and `selectionConfig` for supported section-selection mechanics, but exam rules must stay absent/unconfigured until verified against the matching official session guide. Review support for non-science subject filters before broad RU release because the current canonical subject order is science-first.

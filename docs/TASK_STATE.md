@@ -21,3 +21,11 @@
 - [ ] Android on-device QA (docs/QA_CHECKLIST.md "UI/device checks").
 - [ ] Release Android build (the local hermesc binary crashes with SIGILL on this machine, see QA_CHECKLIST.md).
 - [ ] Final app name, store assets, optional Engineering content.
+
+## RU question-data intake (research-only checkpoint, 2026-10-29)
+- [x] Deep web research pass: official 2025-2026 RU guide/notice, source discovery, selected-answer cross-checks, and tentative 2026-2027 schedule status recorded externally.
+- [x] Created three schema-v1 review-only RU staging packs with 9 questions, source register and per-answer audit CSV under `/home/kali/gpt-workspace/bd-admission-app-data/ru/`.
+- [x] Validated each staged pack successfully; the three intentionally unverified A Unit candidate keys produce expected warnings.
+- [ ] Obtain/compare official RU paper scans and do human transcription/answer review before approving any pack.
+- [ ] Confirm official 2026-2027 admission notice and exact paper-pattern details before adding any new exam rule.
+- [ ] After explicit approval only, copy a selected complete pack into `data/question-packs/`, regenerate the index and run the import verification steps. No RU question is in the app bundle yet.

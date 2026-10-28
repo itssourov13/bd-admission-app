@@ -75,3 +75,11 @@ These rules have passing automated service tests; device-level interaction is st
 ## Release gate
 
 Do not describe the app as release-ready until a compatible Android build is installed and exercised, actual question packs are reviewed/imported, verified marking rules are configured where applicable, and the outstanding device checks above are recorded.
+
+## External RU staging validation — 2026-10-29
+
+- [x] Validated 3 external RU schema-v1 draft packs with Node 22.23.1: 0 errors across all packs.
+- [x] Expected warnings retained for the three A Unit answers marked unverified; no other pack warnings.
+- [x] Confirmed 9 questions total (6 answer-verified, 3 unverified) and source/answer audit CSV created.
+- [x] Confirmed external staging path is not the app's `data/question-packs/` directory; no RU pack index was generated and no RU data was imported/bundled.
+- [ ] Obtain official paper scans / validate historical-paper provenance and complete a human transcription review before approving any question for release.

@@ -22,3 +22,9 @@ See the "Verification" section of docs/QA_CHECKLIST.md for the exact commands an
 - **No physical Android device or emulator test** was performed. All UI behavior (layout, touch targets, Bangla rendering, back-button handling, backgrounding) is unverified on a device. The previous Expo Go launch showed an SDK mismatch: this project uses Expo SDK 57 / React Native 0.86.3, and each Expo Go build only supports its matching SDK. On Android, install the matching SDK 57 Expo Go build from [expo.dev/go](https://expo.dev/go) before retrying, or use a dedicated development build. This is a tooling-version mismatch, not evidence of a JS bundle error.
 - SQLite runs through expo-sqlite on device; tests use node:sqlite behind the same SqlDb contract.
 - The final app name remains provisional (see docs/BRANDING.md).
+
+## RU research and staged data (2026-10-29)
+
+Initial web research has been performed and a **9-question review sample** is staged outside the app repository at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. It comprises 3 A Unit 2024-2025 Group 2 questions with unverified third-party keys, 2 B Unit 2023-2024 Bangla questions with independently checked answers, and 4 C Unit 2024-2025 Higher Mathematics questions with independently calculated answers. B/C historic-paper provenance is not yet confirmed by an official scan. Review details are in the external `RESEARCH_REPORT.md`, `SOURCE_REGISTER.csv` and `REVIEW/ANSWER_AUDIT.csv`.
+
+**No RU pack has been imported, bundled, or generated into `src/content/bundledPacks.ts`.** This is an external staging checkpoint only. The official 2025-2026 RU guide is the current documented pattern reference; the reported 2026-2027 calendar remains tentative and no official next-session pattern was located in this research. RU B commerce/non-commerce and RU C stream/subject-choice variants must remain separate when collecting complete batches. See `docs/QUESTION_IMPORT_WORKFLOW.md` for the approval gate.
