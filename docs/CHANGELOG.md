@@ -20,3 +20,17 @@
 - Added transactional, idempotent importer src/services/importer.ts.
 - Added node:test suites in tests/ run against a real SQLite engine (node:sqlite).
 - Fixed three type errors in the starter screens.
+
+## 2026-10-28 — Application pass (resumed session)
+- Committed the previous session's uncommitted catalogue/i18n/pack-index work.
+- Added useNow (wall-clock ticker that refreshes on foreground), TextField, Stat.
+- Added routes: Institution, Paper, Browse, Flash setup/play, Exam setup/play, Result, History, Bookmarks, Engineering; rebuilt Profile with persisted preferences and real progress.
+- Fixed React-compiler lint violations (setState in effects, refs during render) in hooks and screens.
+- Added tests/ui-logic.test.ts (translation parity, navigation param handling).
+- Recorded verification results in docs/QA_CHECKLIST.md.
+
+## 2026-10-28 — Documentation and verification alignment
+- Rewrote README status/setup/verification guidance to reflect the implemented app and its actual release limitations.
+- Updated QA checklist with the 46 passing automated tests, typecheck, lint, Expo config, Expo Doctor and no-bytecode Android bundle result; kept device/release checks explicitly outstanding.
+- Updated branding, question-pack schema and source-reuse inventory to match the current implementation and independence boundary.
+- Corrected architecture state wording and normalized trailing whitespace in DECISIONS.md.

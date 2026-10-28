@@ -1,46 +1,72 @@
 # QA checklist
 
-## Foundation checks already provided
-- [ ] Dependency install under Node 22.23.1.
-- [ ] Expo config/doctor.
-- [ ] TypeScript check.
-- [ ] ESLint.
-- [x] Question-pack validator unit tests added; run in the foundation verification.
-- [ ] Android JavaScript export.
+Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app.
 
-## Question data integrity
-- [ ] Re-importing the identical pack does not duplicate records.
-- [ ] Broken source/paper/option IDs block import.
-- [ ] A failed import rolls back all writes.
-- [ ] Correct-option IDs always refer to existing options.
-- [ ] Original option order and Bengali Unicode survive database insert/read.
-- [ ] Multiple paper appearances remain intact.
-- [ ] Unknown answers remain unknown.
-- [ ] Existing attempts/bookmarks survive question-pack updates.
+## Automated checks
 
-## Offline behavior
-- [ ] Launch and navigate after initialization in airplane mode.
-- [ ] Browse local institution/paper metadata and questions.
-- [ ] Search/filter does not require a network.
-- [ ] Flash and Standard modes persist local state.
-- [ ] App background/resume does not reset timer deadlines.
-- [ ] Results/profile/bookmarks load after force-close and relaunch.
-- [ ] Missing database and migration failure display recoverable states.
+| Check | Result | Notes |
+|---|---|---|
+| Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
+| Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
+| Automated tests | [x] Pass | pnpm test: **46 passed, 0 failed**. |
+| TypeScript | [x] Pass | pnpm typecheck exited successfully. |
+| ESLint | [x] Pass | pnpm lint exited successfully. |
+| Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
+| Android JS bundle without bytecode | [x] Pass | expo export --platform android --no-bytecode exported /tmp/bd-export; Android JS bundle about 3.4 MB. |
+| Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
+| Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
+| Physical device or emulator QA | [ ] Not run | No device run has been performed. |
 
-## Exam correctness
-- [ ] Standard Exam starts only with 100 eligible questions.
-- [ ] Timer defaults to 30 seconds per Flash question and 60 minutes for Standard.
-- [ ] Flash cycle avoids repeats before pool exhaustion.
-- [ ] Skip, timeout and answered states are distinct.
-- [ ] Auto-submit and manual submission cannot finalize twice.
-- [ ] Scoring reads applicable rules and deducts configured penalties correctly.
-- [ ] Illustrative/unconfigured rules are not labelled official.
-- [ ] Empty-answer accuracy avoids divide-by-zero.
+The no-bytecode export validates JavaScript bundling only. It does **not** prove a native build, APK/AAB installation, or on-device behavior.
 
-## UI/device checks
-- [ ] Long Bangla question text and formulas fit.
-- [ ] Small-screen answer options and buttons remain usable.
-- [ ] Tab labels/icons/safe area display correctly.
-- [ ] Light/dark status/navigation bar does not hide content.
-- [ ] Question lists render without loading the entire bank into memory.
-- [ ] Real-device check after build; not completed by the initial workspace preparation.
+## Data integrity
+
+These areas have automated coverage in the passing test suite:
+
+- [x] Re-importing an identical pack is idempotent.
+- [x] Invalid paper/option references and malformed verified-answer references are rejected by validation.
+- [x] A failed/invalid import does not leave partial writes; mid-import errors roll back.
+- [x] Multiple paper appearances are preserved, and similar wording is not used alone to merge questions.
+- [x] Answer/scoring verification state is retained; questions without verified answers are excluded from eligible practice pools.
+- [x] User answers, bookmarks and attempts survive content updates/re-imports.
+- [x] Database migrations are idempotent and failure paths retain the prior version.
+- [ ] Verify a real user-provided pack end to end, including source/page/question numbers, option ordering and Bangla Unicode, when PDFs are available.
+- [ ] Review imported record counts and every source/appearance against the original PDF before release.
+
+## Offline and persistence checks — manual device work still required
+
+- [ ] Launch and navigate in airplane mode after database initialization.
+- [ ] Browse locally imported institution, paper and question metadata.
+- [ ] Confirm search/filter flows do not require network access.
+- [ ] Confirm Flash and Standard sessions persist across force-close and relaunch.
+- [ ] Background/resume does not reset deadline-based timers.
+- [ ] Results, profile, preferences and bookmarks reload after app relaunch.
+- [ ] Missing database and migration failure show a recoverable retry state.
+
+## Exam and scoring behavior
+
+These rules have passing automated service tests; device-level interaction is still unverified:
+
+- [x] Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available.
+- [x] Default Flash timer and Standard Exam deadline logic are covered by focused tests.
+- [x] Flash does not repeat questions before exhausting its eligible pool.
+- [x] Timeout/answer races and exam finalization are guarded against duplicate recording/finalization.
+- [x] Exam selections can be changed or cleared before submission; late selections are refused.
+- [x] Configured negative marking, fractional scores, zero-answer accuracy, and ungraded-question behavior are tested.
+- [x] Illustrative/unconfigured rules are not represented as verified official rules.
+- [ ] Confirm the complete behavior on a real Android device with a real verified question pack and rule set.
+
+## UI and device checklist — outstanding
+
+- [ ] Long Bangla question text, formulas and multi-line options fit without clipping.
+- [ ] Small-screen options and controls have usable touch targets.
+- [ ] Tab labels, icons, safe areas and system bars display correctly.
+- [ ] Back button, exit confirmation, exam grid and timeout navigation behave correctly.
+- [ ] Flash timer refreshes correctly after the app returns from background.
+- [ ] Exam timer, answer changes, auto-submit, result review and relaunch recovery work on device.
+- [ ] Branding, launcher icon and splash are visually confirmed in a native build.
+- [ ] Check accessibility labels and screen-reader focus for key controls.
+
+## Release gate
+
+Do not describe the app as release-ready until a compatible Android build is installed and exercised, actual question packs are reviewed/imported, verified marking rules are configured where applicable, and the outstanding device checks above are recorded.

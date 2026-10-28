@@ -35,7 +35,6 @@ export function DbProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let active = true;
-    setState({ status: "loading", db: null, error: null, importIssues: [] });
     void (async () => {
       try {
         const raw = await openDatabaseAsync(DB_NAME);
@@ -62,7 +61,7 @@ export function DbProvider({ children }: { children: ReactNode }) {
     return () => { active = false; };
   }, [attempt]);
 
-  const retry = useCallback(() => setAttempt((n) => n + 1), []);
+  const retry = useCallback(() => { setState({ status: "loading", db: null, error: null, importIssues: [] }); setAttempt((n) => n + 1); }, []);
   return <DbContext.Provider value={{ state, retry }}>{children}</DbContext.Provider>;
 }
 

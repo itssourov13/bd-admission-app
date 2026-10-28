@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { ScrollView, View } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { Button, Card, Screen, Txt } from "@/components/ui";
+import { ScreenHeader } from "@/components/common/ScreenHeader";
+import { RuleNotice } from "@/components/common/RuleNotice";
+import { TextField } from "@/components/common/TextField";
+import { ChoiceChip } from "@/components/common/Toggle";
+import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
+import { useDb } from "@/db/provider";
+import { useQuery } from "@/hooks/useQuery";
+import { href, scopeFromParams, scopeParams } from "@/features/navigation/links";
+import { useNum, useT } from "@/i18n";
+import { colors, feedback } from "@/theme";
+import { countEligible, getInstitution, listPapers, scopeRule } from "@/repositories/content";
+import { getProfile, updateProfile } from "@/repositories/userData";
+import { clampFlashSeconds, FLASH_DEFAULT_SECONDS, FLASH_MAX_SECONDS, FLASH_MIN_SECONDS, FLASH_PRESETS } from "@/services/timer";
+import type { QuestionCategory } from "@/types/domain";
+
+export default function FlashSetup() {
+  const t = useT();
+  const num = useNum();
+  const db = useDb();
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const scope = scopeFromParams(params);
+  const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
+  const effective = { ...scope, category: scope.institutionId || scope.paperId ? scope.category : category };
+  const [picked, setSeconds] = useState<number | null>(null);
+  const [custom, setCustom] = useState("");
+  const key = JSON.stringify(effective);
+
+  const q = useQuery(async (d) => {
+    const label = effective.paperId
+      ? (await listPapers(d, { paperId: effective.paperId }))[0]?.title ?? null
+      : effective.institutionId ? (await getInstitution(d, effective.institutionId))?.name ?? null : null;
+    return { n: await countEligible(d, effective), rule: await scopeRule(d, effective), label, profile: await getProfile(d) };
+  }, [key]);
+
+  const seconds = picked ?? q.data?.profile.flashSeconds ?? FLASH_DEFAULT_SECONDS;
+
+  const scopeLocked = Boolean(scope.institutionId || scope.paperId);
+  const start = async () => {
+    const s = clampFlashSeconds(custom ? Number(custom) : seconds);
+    try { await updateProfile(db, { flashSeconds: s }); } catch { /* preference only */ }
+    router.replace(href("/flash/play", { ...scopeParams(effective), seconds: s }));
+  };
+  const customInvalid = custom !== "" && (!Number.isFinite(Number(custom)) || Number(custom) < FLASH_MIN_SECONDS || Number(custom) > FLASH_MAX_SECONDS);
+
+  return (
+    <Screen edges={["top", "bottom"]}>
+      <ScreenHeader title={t("flash.setupTitle")} />
+      {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28 }} keyboardShouldPersistTaps="handled">
+          <Txt className="text-ink-500 text-sm leading-6">{t("flash.setupBody")}</Txt>
+          <Txt weight="semibold" className="text-ink-900 mt-5 mb-2">{t("flash.scope")}</Txt>
+          {scopeLocked ? (
+            <Card className="p-3.5"><Txt className="text-ink-900 text-sm">{t("flash.scopeSelected", { name: q.data!.label ?? "" })}</Txt></Card>
+          ) : (
+            <View className="flex-row flex-wrap gap-2">
+              <ChoiceChip label={t("flash.scopeAll")} selected={!category} onPress={() => setCategory(undefined)} />
+              <ChoiceChip label={t("tab.varsity")} selected={category === "varsity"} onPress={() => setCategory("varsity")} />
+              <ChoiceChip label={t("tab.medical")} selected={category === "medical"} onPress={() => setCategory("medical")} />
+            </View>
+          )}
+          <Txt className="text-ink-500 text-xs mt-2">{t("flash.available", { n: q.data!.n })}</Txt>
+
+          {q.data!.n === 0 ? (
+            <EmptyView icon="albums-outline" title={t("flash.emptyTitle")} body={t("flash.emptyBody")} />
+          ) : (
+            <>
+              <Txt weight="semibold" className="text-ink-900 mt-6 mb-2">{t("flash.timer")}</Txt>
+              <View className="flex-row flex-wrap gap-2">
+                {FLASH_PRESETS.map((p) => (
+                  <ChoiceChip key={p} label={t("flash.seconds", { n: p })} selected={!custom && seconds === p} onPress={() => { setCustom(""); setSeconds(p); }} />
+                ))}
+              </View>
+              <Txt className="text-ink-500 text-xs mt-4 mb-1.5">{t("flash.custom")}</Txt>
+              <TextField keyboardType="number-pad" value={custom} maxLength={3} onChangeText={(v) => setCustom(v.replace(/[^0-9]/g, ""))} accessibilityLabel={t("flash.custom")} placeholder={String(num(seconds))} />
+              {customInvalid ? <Txt className="text-xs mt-1" style={{ color: feedback.danger700 }}>{t("flash.custom")}</Txt> : null}
+              <View className="mt-5"><RuleNotice rule={q.data!.rule} /></View>
+              <View className="mt-6">
+                <Button label={t("flash.start")} disabled={customInvalid} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => void start()} />
+              </View>
+            </>
+          )}
+        </ScrollView>
+      )}
+    </Screen>
+  );
+}

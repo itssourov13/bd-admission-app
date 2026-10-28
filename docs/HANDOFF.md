@@ -1,34 +1,25 @@
 # Handoff
 
 ## Workspace
-Target: /home/kali/gpt-workspace/bd-admission-app
-Selected code reuse is already copied locally. The original source path below is historical provenance only; Claude can implement without opening the source checkout.
-Source provenance: /home/kali/gpt-workspace/scholar-hub
-Initial source reference HEAD when inspected: d2bc7b0 on main, clean.
+Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo, branch main; never push from automation).
+ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
-## Current foundation
-The target has an independent Git repo and app identity. Selected UI components, navy/emerald/gold design tokens, locally bundled logo/icon/adaptive/splash assets, central brand configuration, bilingual provider, root layout and four tabs are present. A Node-based question-pack validator and three focused tests are ready. Read README.md and the architecture/reuse/import documents first.
+## State
+The app is functionally complete for the scope in docs/CURRENT_STATE.md, but contains **no real question content** and has **not been run on a device**. Read CURRENT_STATE.md, ARCHITECTURE.md, DECISIONS.md and QA_CHECKLIST.md first.
 
-## Immediate next tasks
-1. Activate Node 22.23.1 using .nvmrc, confirm node -v and pnpm -v.
-2. Install packages with pnpm and generate pnpm-lock.yaml.
-3. Run Expo config/doctor, TypeScript and lint; fix issues from actual output.
-4. Inspect the scaffold and complete the UI.
-5. Implement SQLite migrations and repositories before wiring screens to real data.
-6. Implement timer/scoring services and test them independently.
-7. Complete the runtime transactional import path and validate a synthetic pack.
-8. Implement and test offline persistence, then verify Android export.
-9. Update CURRENT_STATE, TASK_STATE, CHANGELOG, QA_CHECKLIST and HANDOFF with actual results.
-10. Review all changes, commit if gates pass, and do not push.
+## Run
+    source ~/.nvm/nvm.sh && nvm use      # 22.23.1
+    pnpm install
+    pnpm test && pnpm typecheck && pnpm lint && pnpm doctor
+    pnpm android                          # on-device run (not yet done)
 
-## Important boundaries
-- The local target already contains the selected reuse. Do not open the source as a prerequisite to implementation; no runtime/build dependency on it is permitted.
-- The displayed name BD Admission is provisional. See docs/BRANDING.md and change brand.config.json when the owner confirms a final name.
-- Do not edit ScholarHub.
-- No production question PDFs have been supplied yet. Do not fabricate historical questions.
-- The current tab screens are scaffolds, not completed feature screens.
-- No full SQLite runtime schema, practice engine, or complete import-to-database flow is implemented yet.
-- Do not claim install, typecheck, lint, Android export or physical-device verification passed until each is run and inspected.
+## Next steps
+1. When PDFs arrive, build packs per docs/QUESTION_IMPORT_WORKFLOW.md, `pnpm packs:validate <file>`, put them in data/question-packs/, run `pnpm packs:index`, rebuild.
+2. Run the "UI/device checks" in docs/QA_CHECKLIST.md on a real Android device and fix layout issues (especially long Bangla text and the exam grid).
+3. Android release export: hermesc crashes with SIGILL on this ARM/NetHunter host; build on another machine or via EAS.
+4. Confirm the final app name (docs/BRANDING.md).
 
-## Update 2026-10-28
-Implemented and tested: src/db/schema.ts, src/services/{scoring,timer,flash,exam,advice,importer}.ts, tests/. Run with: source ~/.nvm/nvm.sh && nvm use && pnpm test. Next: repositories, SQLiteProvider wiring (onInit calls migrate; use withExclusiveTransactionAsync for import on device), then the UI per TASK_STATE.md. Standard Exam eligibility = answer verified, single_choice, at least 2 options.
+## Boundaries
+- Do not invent questions, answers, years, sources or scoring rules.
+- Only verified-answer, single-choice questions with 2+ options feed Flash/Exam.
+- Illustrative/unconfigured rules must never be presented as official.

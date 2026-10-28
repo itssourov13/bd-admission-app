@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useFocusEffect } from "expo-router";
 import type { SqlDb } from "../db/types";
 import { useDb } from "../db/provider";
@@ -19,7 +19,7 @@ export function useQuery<T>(loader: (db: SqlDb) => Promise<T>, deps: readonly un
   const db = useDb();
   const [state, setState] = useState<{ data: T | null; error: Error | null; loading: boolean }>({ data: null, error: null, loading: true });
   const loaderRef = useRef(loader);
-  loaderRef.current = loader;
+  useEffect(() => { loaderRef.current = loader; });
   const sequence = useRef(0);
   const depsKey = JSON.stringify(deps);
 

@@ -1,50 +1,19 @@
 # Task state
 
-## Completed in this foundation pass
-- [x] Confirmed ScholarHub was clean on main before copying.
-- [x] Created an independent Admission App directory and Git repository.
-- [x] Copied and adapted selected reusable mobile UI/configuration.
-- [x] Created app-specific app identity, theme comments, Logo and language storage key.
-- [x] Set up starter Expo Router root and four-tab shell.
-- [x] Wrote the initial question-pack TypeScript contract.
-- [x] Added a question-pack validator and focused Node tests.
-- [x] Created architecture, product, reuse, import and QA documentation.
+## Done
+- [x] Independent project, branding, i18n, tab shell (earlier passes).
+- [x] Node 22.23.1, pnpm install, lockfile, expo config.
+- [x] SQLite schema + migrations + serialized adapter; provider with loading/error states.
+- [x] Repositories (content, sessions, userData) and services (scoring, timer, flash, flashController, exam, practiceService, advice, importer, contentSync).
+- [x] All essential screens and navigation (see CURRENT_STATE.md).
+- [x] Flash Question and Standard Exam end to end with persistence and exactly-once scoring/finalization.
+- [x] Import pipeline: validator, transactional importer, startup sync, pack index generator.
+- [x] Tests: scoring, timers, Flash, exam, importer, migrations, repositories, validator, pack index, UI logic/translations.
+- [x] TypeScript, ESLint (react-hooks compiler rules) and expo-doctor clean.
 
-## Remaining implementation work
-- [ ] Use Node 22.23.1, install dependencies and generate the lockfile.
-- [ ] Run Expo config/doctor, TypeScript and lint; repair all errors.
-- [ ] Implement SQLite initialization, migrations, schema, indexes and repositories.
-- [ ] Implement complete Varsity/University/Medical/Engineering screens.
-- [ ] Implement complete question view and source/year references.
-- [ ] Implement Flash mode, deadline-based timer, cycling, skip/exit and result summary.
-- [ ] Implement Standard Exam with 100-question eligibility, navigation, 60-minute timer and auto-submit.
-- [ ] Implement verified/configurable marking rules and reviewable results.
-- [ ] Persist profile, bookmarks, sessions and answers.
-- [ ] Connect question-pack validation to a transactional SQLite importer.
-- [ ] Add focused tests for scoring, timers, state transitions, importer and persistence.
-- [ ] Run Android export and document actual result.
-- [ ] Inspect complete diff, finish docs and commit verified implementation.
-
-## Current blocker / environment note
-The observed active Node version during preparation was v24.19.0. The project is pinned to the source project's Node 22.23.1 via .nvmrc and engine range. No dependency installation was attempted in this pass, so no install/build/typecheck result is claimed.
-
-## Branding and source independence pass — 2026-10-28
-- [x] Centralized app identity, taglines and palette in brand.config.json.
-- [x] Configured Expo metadata, app icon, adaptive icon and splash from app.config.js.
-- [x] Added locally bundled PNG/SVG branding assets and a branding guide.
-- [x] Replaced source-style teal/coral tokens with independent navy/emerald/gold tokens in the prepared UI.
-- [x] Removed source-specific Clerk build-policy entries from pnpm configuration.
-- [x] Verified there are no source repository path, shared package, Clerk auth-key, or old EAS identity references in runtime/package/build configuration.
-- [ ] Install packages under Node 22.23.1, run Expo config/doctor, typecheck, lint and Android export.
-- [ ] Full question screens, SQLite schema/runtime repositories, Flash and Standard engines remain implementation work.
-
-## Checkpoint 2026-10-28 — domain/database/import (verified)
-- [x] Node 22.23.1 active, pnpm install succeeded, lockfile generated, expo config resolves.
-- [x] SQLite schema + migration runner (tested on node:sqlite, not yet on a device).
-- [x] Scoring, timer, Flash engine, Exam state, advice services with tests.
-- [x] Transactional idempotent importer with rollback, tests.
-- [ ] Repositories (src/repositories) wiring SQL for catalogue, sessions, bookmarks, profile.
-- [ ] SQLiteProvider/migration wiring in app/_layout.tsx.
-- [ ] Real UI: home, varsity/university/paper, medical, question view, Flash, Standard Exam, results, profile, bookmarks, history, Engineering coming-soon.
-- [ ] Lint, expo-doctor, Android export, branding refinement, QA checklist results.
-- Tooling note: the Desktop Commander quota was nearly exhausted, so the UI/repository phases were not started.
+## Remaining (needs external input)
+- [ ] Real question packs from the user's PDFs (see docs/QUESTION_IMPORT_WORKFLOW.md).
+- [ ] Verified marking rules per institution (supplied with packs; until then scores are hidden/unconfigured).
+- [ ] Android on-device QA (docs/QA_CHECKLIST.md "UI/device checks").
+- [ ] Release Android build (the local hermesc binary crashes with SIGILL on this machine, see QA_CHECKLIST.md).
+- [ ] Final app name, store assets, optional Engineering content.

@@ -47,3 +47,12 @@ Reused files live locally in this repository. App code, app configuration, packa
 ## ADR-012 — Demo data is never historical data
 Status: accepted.
 Synthetic fixtures are isolated from real question packs and explicitly labelled. No historical questions are bundled until supplied and checked.
+
+## 2026-10-28 application-pass decisions
+- **Exactly-once exam finalization** is enforced twice: a ref guard in the screen and a conditional `UPDATE ... WHERE status='active'` inside a transaction in `finalizeExamSession`. Selections are refused in SQL once the deadline has passed, so late taps can never change a result.
+- **Deadlines are absolute wall-clock times** (stored in SQLite for exams); `useNow` re-reads the clock on foreground, so backgrounding cannot extend time. Flash restarts a question's timer after the feedback screen so reading feedback is not charged.
+- **No score without a rule**: with an unconfigured rule results show counts and accuracy only. Illustrative rules are labelled "not official" everywhere.
+- **Practice pools exclude questions without a verified answer** instead of showing them unscored; the UI explains why.
+- **Flash finishing**: the unresolved on-screen question is not counted; leaving the screen by any route closes the session (idempotent).
+- **State for controllers**: the Flash controller is held in React state (mutated only in event handlers, with a revision counter) to satisfy the React compiler lint rules.
+- **Android export**: hermesc crashes with SIGILL on this host, so `expo export --no-bytecode` is used as the bundle validation here; release bytecode export must be built elsewhere.

@@ -1,7 +1,14 @@
 # Question import workflow
 
-## Current preparation
-The version-1 question-pack contract and a standalone validator are present. A runtime SQLite importer is not yet implemented. Real question PDFs will be supplied in later batches, often separately by institution/category.
+## Current status
+Validator, transactional idempotent importer, startup sync and pack index generator are implemented and tested. Real question PDFs will be supplied later in batches by institution/category; none are bundled yet, so the app shows empty states.
+
+## Creating and shipping a pack
+1. Write a version-1 JSON file following docs/QUESTION_DATA_SCHEMA.md (institutions, papers, rules, source documents, questions with options and appearances). Keep year, source filename, page and question number exactly as in the PDF. Mark answers `verified` only when an official key was checked.
+2. Validate: `pnpm packs:validate data/question-packs/<file>.json`. Errors name the offending record; fix them before continuing.
+3. Run `pnpm packs:index` to regenerate src/content/bundledPacks.ts (invalid packs are refused with the same messages).
+4. Rebuild the app. On next launch `syncBundledPacks` imports new/changed packs in one transaction each; unchanged packs are skipped by signature; a failed pack rolls back completely and shows a warning on Home while the rest keep working.
+5. Bookmarks, sessions and answers are keyed by question id and survive re-imports.
 
 ## Validate a pack
 Run from the project root:
@@ -28,5 +35,5 @@ Re-importing the same batch must not create duplicate questions or source appear
 ## Image/diagram questions
 Store referenced assets in local app content packs with stable relative paths. Validate every referenced asset before importing and include it in offline packaging. Do not depend on remote image URLs at question-render time.
 
-## Current status
-Validator implementation and targeted validator tests are present. Extracting real PDFs, runtime import transactions, SQLite schema integration, image packaging and post-import verification are still pending.
+## Still pending
+Extracting real PDFs and image-asset packaging (assets must be bundled and referenced by stable relative paths).

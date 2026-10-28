@@ -1,30 +1,57 @@
 # Branding guide
 
 ## Current provisional identity
-- Display name: BD Admission (provisional until the owner chooses the final product name).
+
+The product identity is centralized in brand.config.json:
+
+- Display name: **BD Admission** (provisional; final name awaits owner decision).
 - Slug: bd-admission-app.
-- Android application ID and iOS bundle identifier: com.admissionbd.app.
+- Android application ID / iOS bundle identifier: com.admissionbd.app.
 - Deep-link scheme: bdadmission.
-- Bangla tagline: ভর্তি প্রস্তুতি, আত্মবিশ্বাসের সাথে.
-- English tagline: Prepare smarter. Move forward..
+- Version: 0.1.0.
+- Bangla tagline: ভর্তি প্রস্তুতি, আত্মবিশ্বাসের সাথে
+- English tagline: Prepare smarter. Move forward.
 
 ## Visual direction
-A fresh academic identity distinct from the original teal/coral look: deep navy for trust and focus, emerald green for learning/progress, and restrained gold accents for achievement. The custom open-book mark has a rising path and progress star. No ScholarHub logo artwork or wordmark is used.
+
+The visual identity is academic and admission-focused: deep navy for trust/focus, emerald green for progress and restrained gold accents for achievement. The custom mark combines an open book, a rising progress path and a star. It is intentionally distinct from the original ScholarHub wordmark and artwork.
 
 ## Single source of truth
-The file brand.config.json owns the name, slug, scheme, application ID, taglines and colors. app.config.js, src/brand.ts, src/theme.ts and tailwind.config.js read from that configuration. Change the central JSON rather than scattering branding values across screens.
+
+brand.config.json owns the app name, slug, scheme, application ID, taglines and palette. app.config.js uses it for Expo identity and asset references; src/brand.ts, src/theme.ts and tailwind.config.js read the same configuration. Change the central JSON rather than scattering branding values across screens.
+
+Palette anchors:
+
+- Navy: #14243A
+- Emerald / primary brand: #16866A
+- Gold accent: #E8AB35
+- Body background: #F5F7FA
+- Surface: #FFFFFF
 
 ## Local assets
-- assets/brand/app-icon.png: 1024x1024 full-bleed launcher/store icon.
-- assets/brand/adaptive-icon.png: transparent Android adaptive foreground.
-- assets/brand/splash-icon.png: transparent splash mark.
-- assets/brand/logo-mark.png: bundled in-app mark.
-- assets/brand/brand-mark.svg: editable vector master.
 
-All branding assets are local; rendering does not require network images or downloads.
+| Asset | Purpose |
+|---|---|
+| assets/brand/app-icon.png | 1024×1024 launcher/store icon |
+| assets/brand/adaptive-icon.png | Transparent Android adaptive foreground |
+| assets/brand/splash-icon.png | Transparent splash mark |
+| assets/brand/logo-mark.png | Bundled in-app logo mark |
+| assets/brand/brand-mark.svg | Editable vector master |
 
-## Choosing a final name
-The current display name is provisional. Once the final name is chosen, update brand.config.json. The icon mark contains no embedded text, so it can remain unless the brand direction changes. If applicationId changes after a native build, generate a new native binary because that identifier is part of app identity.
+Assets are stored locally and do not require remote images during rendering.
+
+## Naming and future changes
+
+The name remains provisional. When the owner chooses the final name, update brand.config.json, then re-check the Expo config, app label, documentation and store assets. The icon mark contains no embedded text, so it can remain unless the visual direction changes.
+
+Changing applicationId after a native build changes the app identity; generate and install a new native binary after any such decision.
 
 ## Verification status
-Assets and config are generated locally. Expo config/doctor and Android export must be run after installing dependencies under Node 22.23.1. Splash/launcher rendering still requires native build/device verification.
+
+- [x] Central brand config resolves through expo config.
+- [x] Expo Doctor passed 21/21 checks during the 2026-10-28 verification pass.
+- [x] The Android JavaScript bundle exported successfully with --no-bytecode.
+- [ ] Launcher icon and splash rendering have not yet been visually checked in an installed native build.
+- [ ] Physical-device appearance, status-bar contrast, safe areas and long Bangla text remain unverified.
+- [ ] Product display name remains provisional.
+- [ ] Production store assets/screenshots have not been finalized.

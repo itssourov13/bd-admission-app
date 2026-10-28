@@ -1,35 +1,31 @@
 # Architecture
 
-## Current foundation
+## Current implementation
 Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and NativeWind. It borrows selected UI primitives and design tokens from the separate ScholarHub mobile client, but has its own branding, app identifiers, localization keys and Git history.
 
-## Intended runtime flow
+## Runtime flow
 
-    Expo Router screens
-        -> feature components and hooks
-        -> repository interfaces
-        -> Expo SQLite database
-        -> local question, source, attempt, answer, bookmark and profile data
+    Expo Router screens (app/)
+        -> hooks (useQuery, useNow) and common components
+        -> services (practiceService, flashController, importer, contentSync; pure: scoring, timer, flash, exam, advice)
+        -> repositories (content, sessions, userData)
+        -> SqlDb adapter (src/db/adapter.ts) -> expo-sqlite
 
-The network is not part of this path. Core browsing and practice must work when the device is offline. A future sync feature, if ever chosen, must remain optional and must not make local practice unavailable.
+The network is not part of this path. `DbProvider` gates the whole app: fonts + language + database must be ready before routes render.
 
-## Routing
-- app/(tabs)/index.tsx: Home
-- app/(tabs)/varsity.tsx: Varsity catalogue entry point
-- app/(tabs)/medical.tsx: Medical catalogue entry point
-- app/(tabs)/profile.tsx: local profile entry point
-- app/university/[id]/: specific university and its papers
-- app/practice/: Flash and Standard session setup/flows
-- app/results/[attemptId]/: saved attempt review
+## Routing (implemented)
+- app/(tabs): index (Home), varsity, medical, profile
+- app/institution/[id], app/paper/[id], app/browse
+- app/flash/setup, app/flash/play
+- app/exam/setup, app/exam/[id] (play)
+- app/result/[id] (Flash and Exam results, also opened from History)
+- app/history, app/bookmarks, app/engineering (Coming Soon)
+Scope (category / institution / paper) travels in query params and is parsed defensively by `scopeFromParams`.
 
-The four tabs are a starter shell. Most deeper routes and feature behavior remain to be implemented.
+## Local database
+Schema and migrations live in src/db/schema.ts (versioned via PRAGMA user_version; a failed migration rolls back and a newer-than-app database is refused). The SqlDb adapter serializes transactions because expo-sqlite shares one connection: statements outside a transaction wait for it, nested transactions are rejected. Questions are separate from paper appearances so one question keeps several verified references. User data (profile, bookmarks, sessions, answers) is keyed by question id and never touched by content re-imports.
 
-## Local database plan
-Use Expo SQLite, ordered schema migrations and a versioned schema contract. Keep question content separate from exam paper appearances so one concept/record can preserve multiple verified historical references. Keep question packs and import batches auditable. Store user-owned attempt answers and bookmarks with stable IDs and avoid destructive content updates.
-
-Use parameterized SQL, indexes for common browse/filter queries and transactions for multi-row imports and attempt finalization. The import must be idempotent. Never replace the entire user-data database to update question content.
-
-Planned entities include institutions, papers, questions, options, question appearances/source references, exam rules, import batches, profile/preferences, bookmarks, practice sessions, session questions and session answers. The final normalized schema and migrations are implementation work, not yet present.
+Eligible practice pool = answer_status verified, single choice, at least 2 options, at least one correct option.
 
 ## Timer and scoring boundaries
 Implement timer deadlines and transitions in pure domain services. Persist an absolute deadline or sufficient timing metadata so background/resume does not silently reset time. Make timeout and submit transitions idempotent.
