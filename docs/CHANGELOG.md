@@ -1,11 +1,11 @@
 # Changelog
 
-## 2026-10-29 — RU online research and external staging
-- Reviewed official RU 2025-2026 admission guide/notice, RU public notices, secondary historical-question pages and independent references for selected answers.
-- Created a source register, answer-audit CSV, research report and three schema-v1 external review packs (9 questions) under `/home/kali/gpt-workspace/bd-admission-app-data/ru/`.
-- Kept three A Unit candidate keys unverified; independently checked two B Bangla answers and calculated four C Higher Mathematics answers while keeping third-party historic-paper provenance provisional.
-- Validated all three external packs; no files were copied into app `data/question-packs/`, no pack index was regenerated, and no RU content was imported or bundled.
-- Documented that RU B commerce/non-commerce and RU C branch/subject-selection patterns differ; current RU 2026-2027 calendar reporting is tentative and must be confirmed by an official circular.
+## 2026-10-29 — RU Unit A source census and review samples
+- Narrowed RU research scope to Unit A only and removed B/C sample packs from external staging.
+- Created a year-by-year ledger for 2010-2011 through 2026-2027 and located twelve third-party session-specific PDF links for 2012-2013 through 2023-2024 plus recent group/shift sources.
+- Expanded A-only external staging to eight sample packs with 21 questions and a per-question answer audit; kept unverified/unknown states explicit and did not claim a complete transcription.
+- Downloaded and visually reviewed both 7-page 2025-2026 Group 1/2 image-only scans, and validated external sample packs; none was copied into app `data/question-packs/`, no index was regenerated and no RU data was imported or bundled.
+- Recorded old 2010-2012 A1-A6 mapping and page-level source review as remaining work.
 
 ## 2026-10-28 — Science-first subject filters and scrollable Standard Exam
 - Added the shared canonical subject order (Physics, Chemistry, Biology, Higher Mathematics, Bangla, English, ICT), bilingual subject labels, accurate per-subject counts and explicit unavailable/empty states.

@@ -49,19 +49,16 @@ Store referenced assets in local app content packs with stable relative paths. V
 - Proper diagram/image option asset support in the question renderer; initial diagram-based choices are described in text where practical.
 - Additional human line-by-line review of the question transcription/display and Android device QA.
 
-## RU research intake checkpoint — 2026-10-29
+## RU Unit A intake checkpoint — 2026-10-29
 
-The initial RU online research and a small review-only sample are stored externally at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`:
+The current A-only research bundle lives outside the app at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`:
 
-- `RESEARCH_REPORT.md` — official 2025-2026 pattern evidence, tentative 2026-2027 schedule status, source-quality assessment and app integration plan.
-- `SOURCE_REGISTER.csv` / `.json` — source URLs, confidence notes and limitations.
-- `REVIEW/ANSWER_AUDIT.csv` — per-question answer state, calculation/source and review note.
-- `staging/ru-a-2024-2025-group-2-review.json` — 3 A Unit candidate keys, all unverified.
-- `staging/ru-b-2023-2024-bangla-review.json` — 2 B Unit Bangla questions with independently cross-checked answers; original paper provenance is still provisional.
-- `staging/ru-c-2024-2025-higher-math-1-review.json` — 4 C Unit Higher Mathematics questions with independently calculated answers; original paper provenance is still provisional.
+- `RESEARCH_REPORT.md` — findings, source quality, collection gaps and app integration plan.
+- `A_UNIT_YEAR_COVERAGE.csv` / `.json` — session coverage from 2010-2011 through 2026-2027.
+- `SOURCE_REGISTER_A_ONLY.csv` / `.json` — official portal, historical pages and twelve third-party PDF links for 2012-2013 through 2023-2024.
+- `REVIEW/ANSWER_AUDIT_A_ONLY.csv` — per-question candidate answer, status and evidence notes.
+- Eight external sample JSON files in `staging/`, with 21 questions across sessions 2012-2013, 2013-2014, publisher-labelled 2018 (academic session unconfirmed), 2019-2020, 2022-2023, 2023-2024, 2024-2025 and 2025-2026.
 
-All 3 packs passed schema-v1 validation on initial draft review; expected warnings appear only for the three deliberately unverified A Unit answer keys. They remain external review material. Nothing was copied into `data/question-packs/`, `pnpm packs:index` was not run for them, and no RU content is bundled in the app as a result of this work.
+The 2012-2013 to 2023-2024 linked historical PDFs were found but the Drive downloads are restricted, so source discovery is not full collection. The 2025-2026 Group 1/2 seven-page image scans have been archived locally but require full transcription and key review. The 2010-2012 combined archive requires old A1-A6 mapping. No pack has been copied into `data/question-packs/`, no index was regenerated, and no RU data is bundled.
 
-The official guide found during research describes 2025-2026 as an 80-question/100-mark, one-hour MCQ pattern, with unit-specific subject splits: A uses Bangla/English/GK; B has commerce and non-commerce layouts; C has science subject-choice and non-science variants. Do not assume this exact pattern remains official for 2026-2027. See the external research report for the official PDF URLs and the reported *tentative* dates.
-
-Next intake gate: acquire the official question scan where available, compare every transcription/option/answer and paper identity, then get a human review of `ANSWER_AUDIT.csv`. Only after approval copy a pack into `data/question-packs/`, run `pnpm packs:validate`, `pnpm packs:index`, and focused import tests. Do not use external staged drafts as a release-ready complete paper.
+Next gate: acquire source papers, compare all questions/options/answers against original pages, preserve group/shift/set variants, then human-review a complete pack. Validate external drafts with `pnpm packs:validate /absolute/path/to/pack.json`. After approval, copy the pack into the app repo, regenerate the index and run importer tests. Do not add scoring/count/time rules without the exact session/paper's official source.

@@ -76,10 +76,10 @@ These rules have passing automated service tests; device-level interaction is st
 
 Do not describe the app as release-ready until a compatible Android build is installed and exercised, actual question packs are reviewed/imported, verified marking rules are configured where applicable, and the outstanding device checks above are recorded.
 
-## External RU staging validation — 2026-10-29
+## External RU Unit A staging validation — 2026-10-29
 
-- [x] Validated 3 external RU schema-v1 draft packs with Node 22.23.1: 0 errors across all packs.
-- [x] Expected warnings retained for the three A Unit answers marked unverified; no other pack warnings.
-- [x] Confirmed 9 questions total (6 answer-verified, 3 unverified) and source/answer audit CSV created.
-- [x] Confirmed external staging path is not the app's `data/question-packs/` directory; no RU pack index was generated and no RU data was imported/bundled.
-- [ ] Obtain official paper scans / validate historical-paper provenance and complete a human transcription review before approving any question for release.
+- [x] Located source pages and twelve session-specific third-party Google Drive PDF links for 2012-2013 through 2023-2024; all twelve direct download attempts returned permission HTML. Downloaded and visually reviewed the two 7-page 2025-2026 Group 1/2 scans; created a ledger for 2010-2011 through 2026-2027.
+- [x] Prepared eight external A-only schema-v1 sample packs containing 21 questions; B/C samples were removed when scope narrowed to Unit A.
+- [x] Validated the eight remaining packs with Node 22.23.1; no schema errors, with expected warnings for third-party answer keys explicitly left unverified.
+- [x] Confirmed staging is outside `data/question-packs/`; no RU pack index was generated and no RU data was imported or bundled.
+- [ ] Inspect 2010-2012 historical A1-A6 sources, obtain/page-audit accessible source papers and independently check answers before claiming year completeness.

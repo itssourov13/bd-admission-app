@@ -106,6 +106,6 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 - Do not automatically merge questions based only on similar wording.
 - Keep synthetic test fixtures separate from genuine historical question packs.
 
-## RU question-bank research (staged only)
+## RU Unit A research (staged only)
 
-The first Rajshahi University web-research snapshot and 9-question review sample are stored outside this repository at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. See that folder's `README.md`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER.csv` and `REVIEW/ANSWER_AUDIT.csv`. These files are not app content: do not run `pnpm packs:index` for them or copy them into `data/question-packs/` until their paper provenance and answers have been reviewed. RU B commerce/non-commerce and C branch/subject-choice patterns need distinct paper identities and a current official pattern source.
+The research folder `/home/kali/gpt-workspace/bd-admission-app-data/ru/` is now scoped to **RU Unit A only**. It contains a source/coverage register for 2010-2011 through the latest completed 2025-2026 session and eight review-only sample packs (21 questions). This is not a complete 15/16-year transcription: the the 2012-2013 to 2023-2024 Drive PDFs remain download-restricted/unreviewed; two 2025-2026 Group 1/2 scans are archived, but not fully transcribed. Read `A_UNIT_YEAR_COVERAGE.csv`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`. Nothing is bundled; do not run `pnpm packs:index` until a complete pack has been reviewed and deliberately copied into `data/question-packs/`.

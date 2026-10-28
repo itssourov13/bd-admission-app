@@ -25,8 +25,8 @@ The app foundation and two source-derived DU A Unit question-bank packs are bund
 - Only verified-answer, single-choice questions with 2+ options feed Flash/Exam.
 - Illustrative/unconfigured rules must never be presented as official.
 
-## RU question research checkpoint
+## RU Unit A research checkpoint
 
-Read `/home/kali/gpt-workspace/bd-admission-app-data/ru/README.md` and `RESEARCH_REPORT.md` before continuing RU data work. Nine review-only questions have been prepared in three external JSON files, with source register and answer audit. Three A Unit suggested answers are explicitly unverified; B/C answers were cross-checked/calculated, but secondary-source question provenance still needs an official scan comparison. They have not been copied to the app repository and are not bundled.
+Read `/home/kali/gpt-workspace/bd-admission-app-data/ru/README.md`, `RESEARCH_REPORT.md` and `A_UNIT_YEAR_COVERAGE.csv`. Scope is RU Unit A only. Eight external review-only JSON packs contain 21 questions. The year ledger covers 2010-2011 to 2026-2027, but complete transcription is not finished. Twelve linked PDFs for 2012-2013 to 2023-2024 were located but the direct downloads are restricted; two 2025-2026 Group 1/2 scanned PDFs are archived in `sources/2025-2026/`. 2010-2012 combined sources need historical A1-A6 mapping. No RU questions are bundled in the app.
 
-Next: find official RU papers for complete unit/year/group/stream variants, confirm the latest official circular instead of assuming the 2025-2026 rules, perform a human source/answer audit, then approve a complete batch. Only approved JSON should be copied to `data/question-packs/`; then validate, regenerate the pack index and run import tests. Preserve separate B commerce/non-commerce and C science/non-science/subject-choice papers.
+Next: acquire/verify each source paper, preserve group/shift/set variants, transcribe every option and source/page reference, and independently review every answer. Only then copy approved full-year/paper packs into `data/question-packs/`, validate, regenerate the index and run importer tests. Do not claim coverage complete until counts and answer states have been compared against original papers.

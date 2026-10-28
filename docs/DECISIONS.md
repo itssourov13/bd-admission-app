@@ -66,7 +66,7 @@ Question count, duration, subject/section distribution and marking rules must be
 - Decision: keep the scan-derived marking/pattern metadata `illustrative`; UI labels this paper-specific mode as question-bank practice. Never treat it as a complete official DU admission simulation.
 - General all-catalogue practice retains 100 questions/60 minutes; future university/session packs must store the exact primary-source rules for their paper.
 
-## ADR-014 — Stage RU web research separately before importing
-Status: accepted, 2026-10-29.
+## ADR-014 — Stage RU Unit A research separately before importing
+Status: accepted, 2026-10-29; scope clarified 2026-10-29.
 
-RU research drafts live under `/home/kali/gpt-workspace/bd-admission-app-data/ru/`, not in the app bundle. Secondary question-bank pages can support discovery and small review samples but do not by themselves prove official paper provenance or a correct key. Preserve `answerVerificationStatus` separately from source authenticity, leave unverified answers out of scored practice, and do not add an `examRule` until the exact session/unit/group/stream is supported by a matching official source. The 2025-2026 official RU pattern is a historical baseline only; reported 2026-2027 dates were provisional at the research snapshot. Rationale: protect trustworthiness and avoid treating third-party material as official content.
+RU research is now Unit A only and lives at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`, outside the app bundle. The folder contains a year coverage ledger, source register, answer audit and eight review-only sample packs (21 questions). Secondary question-bank pages and restricted Drive links are discovery leads, not proof of an official, complete paper or correct answer key. The 2010-2012 archives need historical A1-A6 mapping. Keep `answerVerificationStatus` separate from paper authenticity and keep unverified/unknown answers out of scored practice. Do not add an `examRule` until the exact session/paper's official pattern is checked. Rationale: avoid false coverage claims or treating third-party material as official content.
