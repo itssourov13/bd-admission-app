@@ -1,6 +1,6 @@
 # QA checklist
 
-Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. Subject-filter and scrollable-exam changes verified in this pass.
+Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. RU C Unit candidate import, asset map, and current pack index are included; Android device/release checks remain outstanding.
 
 ## Automated checks
 
@@ -8,13 +8,13 @@ Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /h
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | pnpm test: **54 passed, 0 failed**; includes all existing source/import/scoring/session tests plus focused canonical subject ordering, source ordering, subject counts, and serialized answer-selection queue tests. |
-| Real pack validation/index | [x] Pass | Both DU A Unit packs validate with 0 errors/0 warnings; `pnpm packs:index` bundles two packs. |
-| Real pack import integration | [x] Pass | 180 questions, 720 options, 180 source appearances, 2 papers/rules/sources, 1 DU institution; 175 eligible questions, 3 unknown-answer questions and 2 content-unverified questions (one figure-only physics item and one unclear mathematics formula); re-import is idempotent. |
+| Automated tests | [x] Pass | `pnpm test`: **55 passed, 0 failed**; includes a new RU C import integration test for all 4,009 candidates, unverified statuses, asset references, zero scoring eligibility and idempotent re-import. |
+| Real pack validation/index | [x] Pass | All 46 bundled JSON packs validate with 0 errors; `pnpm packs:index` indexes 46 packs (4,189 total questions). 4,023 RU candidate warnings remain for unverified keys and duplicate-option cases. |
+| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and 0 eligible; re-import is idempotent. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
-| Android JS bundle without bytecode | [x] Pass | expo export --platform android --no-bytecode exported `/tmp/bd-admission-final-export`; Android JS bundle is approximately 3.5 MB with both question packs bundled. |
+| Android JS bundle without bytecode | [x] Pass | `pnpm exec expo export --platform android --no-bytecode` passed with 1,881 modules, a 8.6 MB JS bundle and 122 assets, including all 45 local RU question figures. This is not an APK/AAB build. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
 | Physical device or emulator QA | [ ] Not run | No device run has been performed. First resolve the observed Expo Go SDK mismatch by installing the matching SDK 57 Android Go build from [expo.dev/go](https://expo.dev/go), or use a dedicated development build. |
@@ -90,18 +90,18 @@ Do not describe the app as release-ready until a compatible Android build is ins
 |---|---|---|
 | Lokkho source capture | [x] Pass | 44 source variants fully paginated; extracted record count matches source-reported count for 44/44. Total 4,185 source records. |
 | External question-pack schema validation | [x] Pass | 44/44 curated schema-v1 pack files pass with zero schema errors. 4,009 core-subject records staged; 158 other-subject labels held for review; 18 records with no usable options excluded/logged. There are 4,023 validator warnings for unverified keys and 14 exact duplicate-option records. |
-| Media assets and path references | [x] Pass | 45 assets (2,356,641 bytes); all 46 asset references exist and local file hashes are recorded. Current app renderer does not display `assetPaths`, so visual/use readiness is still blocked. |
+| Media assets and path references | [x] Packaged; visual QA pending | 45 local PNGs are included in the app asset map; all 46 references resolve. `QuestionCard` renders question-level figures; verify visual sizing/readability on Android. |
 | Candidate answer/content review | [ ] Not verified | All 4,009 curated questions and keys remain unverified; zero answer keys were independently checked against an official RU key. The 158 held records need historical subject-scope review. These packs must not be used for scored practice. |
 | App automated tests | [x] Pass | `pnpm test`: 54 passed, 0 failed. |
 | TypeScript | [x] Pass | `pnpm typecheck` exited successfully. |
 | ESLint | [x] Pass | `pnpm lint` exited successfully. |
 | Expo Doctor latest rerun | [ ] Environment/network blocked | The 2026-10-29 run reached Expo Doctor but failed when an Expo API fetch ended with `SocketError: other side closed` / “Could not fetch bundled native modules.” This is a network-dependent check failure, not evidence of an application-code defect. The prior 2026-10-28 21/21 check pass remains unchanged above. |
-| App import or pack-index update | [ ] Not performed | RU C data remains in the external staging directory. `src/content/bundledPacks.ts` and app `data/question-packs/` were not changed by this research task. |
+| App import or pack-index update | [x] Imported for browse/review | 44 RU C Unit candidate packs (4,009 questions) and 45 local PNGs are bundled. All candidate content/answers remain unverified; 0 are practice-eligible and no RU exam rules were added. |
 
-The 44 packs are **schema-staged, not content/key verified**. Before app import, reconcile each variant with its matching original paper, review the 14 duplicate-option cases, verify answer keys, add/test image rendering, and check counts/exclusions. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.
+The 44 packs are **schema-imported, not content/key verified**. Before allowing scored practice, reconcile each variant with its matching original paper, review the 14 duplicate-option cases, independently verify answer keys, and perform Android visual QA for the local images. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.
 
 
-## Fresh local verification — 2026-10-29
+## Pre-import local verification — 2026-10-29
 
 - [x] `pnpm test` — 54 passed, 0 failed.
 - [x] `pnpm typecheck` — passed.
@@ -109,7 +109,7 @@ The 44 packs are **schema-staged, not content/key verified**. Before app import,
 - [x] `git diff --check` — passed.
 - [x] `pnpm packs:validate data/question-packs/du-a-2024-2025.json` — PASS, 0 errors / 0 warnings.
 - [x] `pnpm packs:validate data/question-packs/du-a-2025-2026.json` — PASS, 0 errors / 0 warnings.
-- [x] Confirmed `src/content/bundledPacks.ts` indexes only the two DU A Unit packs. No RU pack was imported or indexed.
+- [x] At this pre-import checkpoint, `src/content/bundledPacks.ts` indexed only the two DU A packs. This was superseded by the later 46-pack C Unit browse/review import recorded below.
 - [ ] Do not interpret these automated checks as device/release QA: physical Android behavior and a native release artifact remain unverified. RU C content/key validation remains outstanding despite schema validation passing.
 
 
@@ -123,3 +123,16 @@ The 44 packs are **schema-staged, not content/key verified**. Before app import,
 - [ ] Review 14 exact duplicate-option cases, 35 third-party answer-text mismatch flags, and 26 repeated-stem overlap groups before any import approval.
 
 Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-unit-c/audit-only/2026-10-29-year-by-year-verification/`. This audit did not edit or import any question data.
+
+
+## Latest RU C Unit app import — 2026-10-29
+
+- [x] Copied 44 candidate packs / 4,009 questions into app data; the generated bundle index now references 46 packs total including the existing DU packs.
+- [x] Copied 45 normalized local PNG figure assets; all 46 asset references resolve.
+- [x] Added QuestionCard figure rendering and a static Metro asset index; no runtime dependencies were added.
+- [x] Verified every RU candidate remains answer/content `unverified`; no RU exam rules are imported; scored eligibility for these candidates is zero.
+- [x] All 46 JSON packs validate with zero errors (4,023 expected warnings); `pnpm test` 55 passed/0 failed; typecheck and lint passed.
+- [x] `pnpm exec expo export --platform android --no-bytecode` succeeded: Android JS bundle about 8.6 MB and 122 bundled assets including the 45 RU figures.
+- [x] 166/166 protected external source/candidate/asset/PDF files were byte-size and SHA-256 identical after import.
+- [ ] Confirm question/option transcription and every candidate answer against matching original papers/answer keys; this import did not verify them.
+- [ ] Exercise figures and long Bangla/formula layout on Android; create and test a native release build. No APK/AAB or physical-device result is claimed.

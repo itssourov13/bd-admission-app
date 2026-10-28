@@ -29,7 +29,7 @@
 - [x] Removed B/C sample packs when scope narrowed to Unit A; validated the eight remaining packs and preserved unverified/unknown answers.
 - [ ] Inspect 2010-2011/2011-2012 combined archive and map historical A1-A6 labels to the requested scope.
 - [ ] Transcribe every question/option and source page for each accessible A Unit year; independently review answers and compare counts with the original paper.
-- [ ] After approval only, copy a complete reviewed year/paper pack to `data/question-packs/`, regenerate the index and run import checks. No RU pack is bundled yet.
+- [ ] After review, copy an approved RU Unit A pack to `data/question-packs/`, regenerate the index and run import checks. No RU Unit A pack is bundled yet; the separate C Unit Science candidate batch is bundled for browse/review only.
 
 
 ## RU C Unit Science Group source collection (2026-10-29)
@@ -41,12 +41,13 @@
 - [x] Completed full-page and left/right-column machine OCR for all 84 indexed question/key pages in the separate third-party scan; OCR is preserved as unverified research aid only.
 - [ ] Independently compare each question and every option with a matching original paper/reliable transcription; resolve 14 duplicate-option flags and question/source authenticity.
 - [ ] Independently verify all 4,009 curated candidate answer keys from a reliable or official matching-session key; until then, every retained answer remains `unverified` and none can be used for scored practice.
-- [ ] Add local image/diagram support to the app renderer and visually verify image-dependent questions before marking them content verified.
+- [x] Add local image/diagram support to the app renderer through a static PNG asset map; [ ] visually verify image-dependent questions on Android before marking them content verified.
 - [ ] Obtain/review missing or restricted original paper sources, classify pages 205-265 of the compilation, and reconcile scan variants with the web-bank variants without merging distinct group/shift/set variants.
-- [ ] Only after content/key review, copy approved packs and assets into `data/question-packs/`, run `pnpm packs:index`, and verify transactional import. No RU C Unit data is currently in the app bundle.
+- [x] Import 44 RU C Unit Science candidate packs into `data/question-packs/` for browse/review as explicitly requested; all records retain unverified statuses and are excluded from scored practice. See the latest import checkpoint below.
+- [ ] Complete original-paper and answer-key review before promoting any candidates to scored practice.
 
 
-## Fresh progress audit — 2026-10-29
+## Pre-import progress audit — 2026-10-29
 - [x] Rechecked repository status: `main` working tree clean; three local commits ahead of `origin/main`; no push performed.
 - [x] Re-ran `pnpm test` (54 pass / 0 fail), `pnpm typecheck`, `pnpm lint`, `git diff --check`, and validators for both bundled DU packs (0 errors / 0 warnings each).
 - [x] Reconciled the actual bundle against staged research: only the two DU A Unit packs are indexed. RU Unit A and RU C Unit remain external research/staging only.
@@ -61,3 +62,13 @@
 - [x] SHA-256 comparison confirmed all 166 protected candidate/source/asset/PDF input files unchanged; no existing question file was changed, removed, moved or imported.
 - [ ] Still unverified: every candidate question's original-paper provenance and all 4,009 answer keys. Similarity results are triage only, not approval.
 - [ ] Review answer-text mismatch rows, 14 duplicate-option records, and 26 cross-variant repeated-stem groups against matching original papers/keys. Reconcile the 12 legacy year-register discrepancies separately without altering staged question files during the audit-only phase.
+
+
+## Latest RU C Unit import checkpoint — 2026-10-29
+- [x] Imported 44 RU C Unit Science candidate JSON packs, 4,009 questions, and 45 local PNG figures into the app for browse/review.
+- [x] Regenerated `src/content/bundledPacks.ts` with all 46 packs (44 RU C + 2 DU A) and added `question-assets:index` for Metro-compatible local asset mapping.
+- [x] Rendered local question-level figures from QuestionCard without adding a runtime package.
+- [x] Added integration coverage for pack counts, idempotent import, local asset path integrity, preserved unverified states, no RU scoring rules, and zero scored eligibility.
+- [x] Verified all 46 JSON pack files (0 schema errors), `pnpm test` (55 passed), typecheck, lint, and Android no-bytecode bundle export.
+- [ ] Review candidate question text/options and independently verify answer keys against matching original papers before promoting anything to scored practice.
+- [ ] Android device QA for figure sizing and long Bangla/formula layout; native APK/AAB build remains outstanding.

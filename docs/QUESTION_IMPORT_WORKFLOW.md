@@ -46,7 +46,7 @@ Store referenced assets in local app content packs with stable relative paths. V
 
 ## Still pending
 - Keep the publisher-derived DU A Unit rule `illustrative`: it is known to differ from the official 2025–2026 admission notice (MCQ + written sections). Only replace/verify it with a matching primary source for the exact paper/session.
-- Proper diagram/image option asset support in the question renderer; initial diagram-based choices are described in text where practical.
+- Android device-level visual review of local question figures remains outstanding; the app now has a generated static local-PNG asset map and QuestionCard rendering.
 - Additional human line-by-line review of the question transcription/display and Android device QA.
 
 ## RU Unit A intake checkpoint — 2026-10-29
@@ -72,8 +72,19 @@ A further 158 records with other source subject labels are retained in `REVIEW/L
 
 Each curated pack validates successfully: 44/44, zero schema errors. There are 4,023 warnings: all 4,009 candidate answer keys remain unverified and 14 records have exact duplicate option text. No answer key was independently verified against an official RU key, and all retained content status fields remain `unverified`. A schema pass does not establish official-paper authenticity, transcription correctness, subject attribution, or answer accuracy.
 
-Forty-five local image/SVG assets are stored under external `import-ready/assets/lokkho/`; all 46 references in curated packs resolve. However, the app's current `QuestionCard` does not render `assetPaths`; add and test local image/diagram support before treating affected records as UI-ready. On an approved future import, copy `import-ready/lokkho/*.json` to app `data/question-packs/` and `import-ready/assets/lokkho/` to `data/question-packs/assets/lokkho/`.
+Forty-five local image/SVG assets are stored under external `import-ready/assets/lokkho/`; all 46 references in curated packs resolve. The later app import normalized the 41 PNGs plus the WebP/SVG assets to 45 local PNGs in the app copy, kept the external originals unchanged, and added a generated static asset map plus `QuestionCard` rendering. Android visual verification of those figures remains outstanding.
 
 A separate 265-page third-party scan indexes 14 additional variants from 2017-2018 through 2024-2025. Full-page and column OCR cover 84 indexed question/key pages, but the text is unverified, pages 205-265 remain unclassified, and this material has not been merged. Some historical year links are Drive-restricted. The 20 SattAcademy first-page sample packs (300 records) remain partial and separate.
 
-**Do not bundle or score this batch yet.** Compare all question text/options to matching originals, review the 158 subject-scope holds by session, independently verify candidate keys, investigate the 14 duplicate-option records, and add/test image rendering. Then re-run `pnpm packs:validate`, reconcile per-paper counts/exclusions, copy only human-approved packs to `data/question-packs/`, regenerate the index with `pnpm packs:index`, and verify transactional import/tests. No RU C Unit pack is currently in the app bundle.
+**Historical staging checkpoint:** before the explicit import request, this batch was not bundled. The current import decision is recorded in the dated checkpoint below; imported candidate data remains unverified and is not approved for scored practice.
+
+
+## RU C Unit Science browse/review import — 2026-10-29
+
+Per explicit request, the 44 curated candidate packs were copied into `data/question-packs/ru-c-*.json` and the 45 local app-copy PNG figures into `data/question-packs/assets/lokkho/`. This imports **4,009 questions for browse/review only**; the original external source captures, curated JSON packs and original assets remain unchanged. One WebP and three SVG source assets were converted to PNG in the app copy only, with corresponding `assetPaths` adjusted; all non-asset question fields are unchanged.
+
+`pnpm question-assets:index` generates `src/content/questionAssets.ts` with static literal `require()` calls for Metro/offline packaging. `QuestionCard` renders the local figures. After changing the packs, run `pnpm question-assets:index` if assets change and `pnpm packs:index` if pack JSON files change.
+
+All 4,009 imported candidate answer and content states remain `unverified`. No RU exam count, duration, section-selection rule, or scoring rule was inferred. The app's eligibility query excludes every candidate from scored Flash/Exam pools while those states are unverified. The 158 other-subject-label records and 18 no-option records remain external in the review/exclusion ledgers; the 14 duplicate-option cases remain unresolved.
+
+Validation after import: 46 JSON packs / 4,189 total questions; 0 schema errors and 4,023 expected warnings; 55 tests passed; TypeScript and ESLint passed; Android JS export with `--no-bytecode` succeeded. Original question provenance and answer-key verification, Android figure visual QA, and native release build remain outstanding.

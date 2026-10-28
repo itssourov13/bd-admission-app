@@ -188,6 +188,7 @@ export const translations = {
   "advice.keepGoing": { bn: "চালিয়ে যান — নিয়মিত অনুশীলনই সবচেয়ে কার্যকর।", en: "Keep going — steady practice works best." },
 
   "question.sources": { bn: "উৎস ও রেফারেন্স", en: "Source and references" },
+  "question.figure": { bn: "প্রশ্নের চিত্র {n}", en: "Question figure {n}" },
   "question.number": { bn: "প্রশ্ন নং {n}", en: "Q{n}" },
   "question.page": { bn: "পৃষ্ঠা {n}", en: "p. {n}" },
   "question.answerUnverified": { bn: "উত্তর যাচাই করা হয়নি — সঠিক/ভুল নির্ধারণ হবে না", en: "Answer not verified — no right/wrong marking" },

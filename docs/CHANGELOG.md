@@ -98,3 +98,11 @@
 - Compared against 20 partial SattAcademy snapshots (300 questions) and existing OCR for 14 third-party scan variants; produced 117 high-confidence text matches, 35 answer-text mismatch review flags and 278 high-OCR-similarity leads. These are not official verification.
 - Identified 14 duplicate-option question records, 26 exact normalized stem repeats across variants, and 12 discrepancies in legacy year-coverage counters.
 - Confirmed 166/166 protected source/candidate/asset/PDF files unchanged. No question files were edited or imported; 0 questions/answer keys were promoted to verified.
+
+
+## 2026-10-29 — Import RU C Unit Science candidates for browse/review
+- Imported 44 schema-v1 RU C Unit Science candidate packs (4,009 questions across 2010–2011 through 2025–2026) while preserving every answer/content status as `unverified`.
+- Added 45 local PNG figures, converted source WebP/SVG assets only in the app copy, generated a static Metro asset index, and added QuestionCard local figure rendering without new runtime dependencies.
+- Regenerated the pack index to 46 packs total (44 RU C + 2 DU A); added an integration test proving idempotent import, asset paths, preserved verification states and zero RU scoring eligibility.
+- Verification: 55 tests passed, typecheck and lint passed, all 46 JSON pack files validate with 0 errors (4,023 expected warnings), Android no-bytecode export passed; 166/166 protected external source/candidate/asset/PDF inputs remained hash-identical.
+- Content/answer verification, Android visual QA, and native APK/AAB build remain outstanding. No push performed.

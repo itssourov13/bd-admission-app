@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-10-29 (RU C Unit Science source census/OCR checkpoint added; no C Unit pack imported).
+Last updated: 2026-10-29 (44 RU C Unit Science candidate packs imported for browse/review; source and answer verification remain outstanding).
 
 ## What exists and is wired end to end
 - **Database**: `DbProvider` (src/db/provider.tsx) opens SQLite, enables WAL, runs versioned migrations, ensures the profile row, closes stale Flash sessions, finalizes an exam that expired while the app was closed, then syncs bundled question packs. Loading and error (with retry) states are rendered by app/_layout.tsx. A bad pack only produces a warning; a DB/migration failure shows a retry screen and deletes nothing.
@@ -27,7 +27,7 @@ See the "Verification" section of docs/QA_CHECKLIST.md for the exact commands an
 
 Initial deep web research for **RU Unit A only** is staged outside the app repo at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. The source ledger covers 2010-2011 through the latest completed 2025-2026 session and records a future 2026-2027 placeholder. Eight review-only sample packs contain 21 questions across sessions 2012-2013, 2013-2014, publisher-labelled 2018, 2019-2020, 2022-2023, 2023-2024, 2024-2025 and 2025-2026. A Unit 2023-2024 and 2024-2025 candidate keys remain unverified; one 2025-2026 answer is unknown. Twelve linked year-specific PDFs (2012-2013 to 2023-2024) were discovered but not downloaded because the Google Drive links are restricted; 2010-2012 archive papers need historical A1-A6 mapping. Two 2025-2026 Group 1/2 scanned PDFs have been archived and visually checked across all seven pages, but neither full paper is transcribed. This is not yet a complete question bank. Details are in the external `RESEARCH_REPORT.md`, `A_UNIT_YEAR_COVERAGE.csv`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`.
 
-**No RU pack has been imported or bundled into `src/content/bundledPacks.ts`.** All files are external review-only staging. Preserve distinct group/shift/set variants and verify exam rules from the matching official paper/session source. See `docs/QUESTION_IMPORT_WORKFLOW.md` for the approval gate.
+**No RU Unit A pack has been imported or bundled into `src/content/bundledPacks.ts`.** This paragraph describes Unit A only; the separate RU C Unit Science candidates are now bundled for browse/review as documented in the latest import checkpoint below. Preserve distinct group/shift/set variants and verify exam rules from the matching official paper/session source.
 
 ## RU C Unit Science Group source collection and import staging (2026-10-29)
 
@@ -37,12 +37,12 @@ The curated `import-ready/lokkho/` folder contains 44 schema-v1 candidate packs 
 
 Validation from `scripts/validate-question-pack.mjs`: 44/44 curated packs pass with 0 schema errors. The validator reported 4,023 warnings: all 4,009 answer keys are unverified, and 14 records have exact duplicate option text. All 4,009 retained question texts and keys remain `unverified`; zero candidate answers were independently checked against an official RU key. The five-subject filter matches the recent C Unit Science structure, but that does not prove identical subject scope for every historical session. The site is third-party, not an official RU paper archive, and source suffixes are preserved rather than inferred to be official group/set names.
 
-The separate 265-page third-party scan indexes 14 variants from 2017-2018 to 2024-2025; full-page and column OCR cover 84 indexed question/key pages, but remain unverified and unmerged. Pages 205-265 are not classified and some historical PDF links are inaccessible. The current app `QuestionCard` does not display `assetPaths`; image-dependent items are not UI-ready without renderer support and visual review.
+The separate 265-page third-party scan indexes 14 variants from 2017-2018 to 2024-2025; full-page and column OCR cover 84 indexed question/key pages, but remain unverified and unmerged. Pages 205-265 are not classified and some historical PDF links are inaccessible. At the initial staging checkpoint, `QuestionCard` did not display `assetPaths`; the subsequent app import added a static local-PNG asset map and question-figure rendering. Android visual verification remains outstanding.
 
-**No RU C Unit Science pack has been copied into app `data/question-packs/` or bundled in `src/content/bundledPacks.ts`.** Do not score or advertise these candidates as verified practice content. Read external `import-ready/README.md`, `research/IMPORT_READINESS.md`, `research/LOKKHO_QUESTION_AUDIT.csv` and this repo's `docs/QUESTION_IMPORT_WORKFLOW.md` before any future import.
+**At the initial staging checkpoint, no RU C Unit Science pack had been copied into app `data/question-packs/` or bundled in `src/content/bundledPacks.ts`.** This historical checkpoint was superseded by the explicit browse/review import recorded later in this document. Do not score or advertise these candidates as verified practice content. Read external `import-ready/README.md`, `research/IMPORT_READINESS.md`, `research/LOKKHO_QUESTION_AUDIT.csv` and this repo's `docs/QUESTION_IMPORT_WORKFLOW.md` for provenance and limits.
 
 
-## Fresh repository/status audit — 2026-10-29
+## Pre-import repository/status audit — 2026-10-29
 
 - App repository is on `main` with a clean working tree and is **3 local commits ahead of `origin/main`** (`7c928da`, `b1be405`, `de9e409`). Nothing was pushed during this audit.
 - Fresh local checks passed: `pnpm test` (54/54), `pnpm typecheck`, `pnpm lint`, `git diff --check`, and validation of both bundled DU A Unit packs (each 0 errors / 0 warnings). The generated bundle index references those two DU packs only.
@@ -54,3 +54,12 @@ The separate 265-page third-party scan indexes 14 variants from 2017-2018 to 202
 ## RU C Unit Science year-by-year audit-only checkpoint — 2026-10-29
 
 An isolated audit report has been generated outside the app bundle at `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-unit-c/audit-only/2026-10-29-year-by-year-verification/` (ZIP beside the folder). It indexes all 4,009 candidate questions over 44 packs, 17 academic-session rows (2010-2011 through 2026-2027), 20 partial SattAcademy snapshots, and 14 variants in the third-party scan index. Cross-source/OCR similarity is triage evidence only: 117 high-confidence text matches were found against partial Satt snapshots, 35 answer-text mismatch flags require review, and 278 stems have high text similarity to scan OCR. These are not official question/key verification. **Zero question contents or answer keys were independently verified** in this audit. Exact duplicate option text remains flagged in 14 records. SHA-256 checks show 166 protected source/candidate/asset files unchanged. No existing question file was edited or imported. Details and per-question IDs/scores are in the isolated audit output.
+
+
+## Latest RU C Unit Science app import — 2026-10-29
+
+- Imported **44 RU C Unit Science candidate packs / 4,009 questions** for browse/review, covering 2010–2011 through 2025–2026. The two existing DU A Unit packs remain, so the generated bundle index has 46 JSON packs and 4,189 total questions.
+- Added 45 local PNG figure assets and a generated static Metro asset map; all 46 candidate asset references resolve. QuestionCard now renders local question figures. Image layout still needs Android/device visual QA.
+- All 4,009 RU questions retain `answerVerificationStatus: unverified` and `contentVerificationStatus: unverified`. No RU exam rules were inferred or added. Scoring eligibility remains zero for RU candidates.
+- The source pack and asset files outside the app were not changed: all 166 protected external files matched pre-import SHA-256 and size checks.
+- Verification after import: all 46 JSON packs validate (0 errors, 4,023 expected warnings); `pnpm test` 55/55; `pnpm typecheck`, `pnpm lint`, and Android `expo export --no-bytecode` passed. No APK/AAB or physical-device test has been produced.

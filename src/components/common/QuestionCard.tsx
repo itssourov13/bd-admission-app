@@ -1,9 +1,10 @@
-import { Pressable, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Chip, Txt } from "@/components/ui";
 import { useT, useNum } from "@/i18n";
 import { colors, feedback } from "@/theme";
 import type { OptionView, QuestionView } from "../../types/domain";
+import { getQuestionAssetSources } from "../../content/questionAssets";
 
 export function optionLabel(o: OptionView): string {
   return o.key.length <= 3 ? o.key.toUpperCase() : String(o.order);
@@ -27,6 +28,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
   const verified = question.answerStatus === "verified";
   const showKey = reveal && verified;
   const sources = question.appearances.slice(0, 3);
+  const questionAssets = getQuestionAssetSources(question.assetPaths);
 
   return (
     <View>
@@ -45,6 +47,22 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
           </Pressable>
         ) : null}
       </View>
+
+      {questionAssets.length > 0 ? (
+        <View className="mt-3 gap-3">
+          {questionAssets.map((source, index) => (
+            <View key={`${question.id}-asset-${index}`} className="rounded-xl border border-sand-200 bg-white p-2">
+              <Image
+                source={source}
+                resizeMode="contain"
+                accessible
+                accessibilityLabel={t("question.figure", { n: num(index + 1) })}
+                style={{ width: "100%", height: 180 }}
+              />
+            </View>
+          ))}
+        </View>
+      ) : null}
 
       {!verified ? (
         <View className="flex-row mt-2"><Chip label={t("question.answerUnverified")} tone="gold" /></View>
