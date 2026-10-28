@@ -91,3 +91,10 @@
 - Re-ran 54 automated tests, typecheck, lint, diff check, and validators for both bundled DU A packs; all passed, with zero pack-validator errors/warnings.
 - Confirmed the bundle still includes only the two DU A Unit packs; RU Unit A and RU C Unit data remain external and unbundled.
 - Updated the current-state, task-state, handoff and QA documents with remaining content-verification, image-rendering, Android-device and release-build gates.
+
+
+## 2026-10-29 — RU C Unit year-by-year audit-only pass
+- Added an isolated year-by-year evidence audit of 4,009 staged RU C Unit Science candidates across 44 packs, with per-question source similarity triage and per-session coverage results.
+- Compared against 20 partial SattAcademy snapshots (300 questions) and existing OCR for 14 third-party scan variants; produced 117 high-confidence text matches, 35 answer-text mismatch review flags and 278 high-OCR-similarity leads. These are not official verification.
+- Identified 14 duplicate-option question records, 26 exact normalized stem repeats across variants, and 12 discrepancies in legacy year-coverage counters.
+- Confirmed 166/166 protected source/candidate/asset/PDF files unchanged. No question files were edited or imported; 0 questions/answer keys were promoted to verified.

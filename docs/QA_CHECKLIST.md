@@ -111,3 +111,15 @@ The 44 packs are **schema-staged, not content/key verified**. Before app import,
 - [x] `pnpm packs:validate data/question-packs/du-a-2025-2026.json` — PASS, 0 errors / 0 warnings.
 - [x] Confirmed `src/content/bundledPacks.ts` indexes only the two DU A Unit packs. No RU pack was imported or indexed.
 - [ ] Do not interpret these automated checks as device/release QA: physical Android behavior and a native release artifact remain unverified. RU C content/key validation remains outstanding despite schema validation passing.
+
+
+## RU C Unit year-by-year audit-only pass — 2026-10-29
+
+- [x] Audited metadata and triage signals for all 4,009 candidates across 44 packs and generated per-session coverage/evidence tables.
+- [x] Compared same-year candidate text with partial third-party snapshots and available OCR; recorded potential matches and answer-text mismatches for manual follow-up.
+- [x] Protected input integrity: 166/166 hashed existing candidate/source/asset/scan inputs remained unchanged.
+- [ ] Original-paper question/options verification: still outstanding for all candidates.
+- [ ] Independent answer-key verification: still outstanding for all 4,009 candidates.
+- [ ] Review 14 exact duplicate-option cases, 35 third-party answer-text mismatch flags, and 26 repeated-stem overlap groups before any import approval.
+
+Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-unit-c/audit-only/2026-10-29-year-by-year-verification/`. This audit did not edit or import any question data.
