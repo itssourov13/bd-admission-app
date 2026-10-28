@@ -43,3 +43,11 @@ See QUESTION_DATA_SCHEMA.md and QUESTION_IMPORT_WORKFLOW.md.
 
 ## Dependencies and environment
 The source mobile project uses Expo SDK 57, React Native 0.86, NativeWind and a pnpm configuration tuned for Android/Termux file behavior. The new app keeps compatible versions and the pnpm configuration; use Node 22 from .nvmrc before installs and checks.
+
+## Branding and source independence
+
+The app name, slug, app scheme, application ID, taglines and palette are centralized in brand.config.json. app.config.js uses that file to define Expo identity, launcher icon, Android adaptive icon and splash image. src/brand.ts, src/theme.ts and tailwind.config.js read the same brand configuration.
+
+The current identity is provisional and can be renamed by editing brand.config.json. Local brand assets live in assets/brand: app-icon.png, adaptive-icon.png, splash-icon.png, logo-mark.png and brand-mark.svg.
+
+All reusable code needed for the prepared foundation is stored inside this repository. Runtime source files, package configuration and build configuration do not require the original source checkout. docs/REUSE_INVENTORY.md is provenance documentation only.

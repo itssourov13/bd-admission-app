@@ -27,3 +27,13 @@
 
 ## Current blocker / environment note
 The observed active Node version during preparation was v24.19.0. The project is pinned to the source project's Node 22.23.1 via .nvmrc and engine range. No dependency installation was attempted in this pass, so no install/build/typecheck result is claimed.
+
+## Branding and source independence pass — 2026-10-28
+- [x] Centralized app identity, taglines and palette in brand.config.json.
+- [x] Configured Expo metadata, app icon, adaptive icon and splash from app.config.js.
+- [x] Added locally bundled PNG/SVG branding assets and a branding guide.
+- [x] Replaced source-style teal/coral tokens with independent navy/emerald/gold tokens in the prepared UI.
+- [x] Removed source-specific Clerk build-policy entries from pnpm configuration.
+- [x] Verified there are no source repository path, shared package, Clerk auth-key, or old EAS identity references in runtime/package/build configuration.
+- [ ] Install packages under Node 22.23.1, run Expo config/doctor, typecheck, lint and Android export.
+- [ ] Full question screens, SQLite schema/runtime repositories, Flash and Standard engines remain implementation work.
