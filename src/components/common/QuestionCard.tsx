@@ -20,13 +20,18 @@ interface Props {
   bookmarked?: boolean;
   onToggleBookmark?: () => void;
   showSources?: boolean;
+  /** Show and provisionally score a source key that has not been independently verified. */
+  provisionalScoring?: boolean;
 }
 
-export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false }: Props) {
+export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false }: Props) {
   const t = useT();
   const num = useNum();
+  // The answer-key status and transcription/content status are separate; preserve a verified key's
+  // existing behavior even when the question text or figure still needs review.
   const verified = question.answerStatus === "verified";
   const showKey = reveal && verified;
+  const sourceKey = question.options.filter((o) => o.isCorrect).map((o) => o.key);
   const sources = question.appearances.slice(0, 3);
   const questionAssets = getQuestionAssetSources(question.assetPaths);
 
@@ -65,10 +70,13 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
       ) : null}
 
       {!verified ? (
-        <View className="flex-row mt-2"><Chip label={t("question.answerUnverified")} tone="gold" /></View>
+        <View className="flex-row mt-2"><Chip label={provisionalScoring ? t("question.answerProvisional") : t("question.answerUnverified")} tone="gold" /></View>
       ) : null}
       {question.contentStatus !== "verified" ? (
         <View className="flex-row mt-2"><Chip label={t("question.contentUnverified")} tone="neutral" /></View>
+      ) : null}
+      {reveal && provisionalScoring && !verified && sourceKey.length === 1 ? (
+        <Txt className="text-ink-700 text-sm mt-2">{t("question.sourceAnswerCandidate", { key: sourceKey[0]!.toUpperCase() })}</Txt>
       ) : null}
       {question.type === "multiple_choice" ? <Txt className="text-ink-500 text-xs mt-2">{t("question.multiple")}</Txt> : null}
 

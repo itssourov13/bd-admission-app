@@ -15,7 +15,7 @@ The supplied publisher scans and printed answer-key states are preserved. Three 
 
 **Verification boundary:** all 4,009 RU candidate question contents and answer keys remain `unverified`. The data originates from a third-party question bank and does not prove each item maps to the exact official paper/session/set. The 158 source records with other subject labels and 18 records without usable options are not part of these 44 packs; they remain preserved in the external review ledgers. Fourteen questions have exact duplicate option text and require review.
 
-The RU packs are included for transparent browsing/review only. The app's scoring eligibility query requires both verified content and a verified answer key, so this batch currently contributes **zero practice-eligible questions**. No historical exam count, duration, subject-selection rule or marking rule has been inferred; RU exam rules are not configured.
+The verified-only pool requires verified content and answer keys, so this batch contributes **zero verified-eligible questions**. A separate provisional mode enables practice from **3,991 structurally safe candidate questions** where no verified pool is available; 18 items with duplicate normalized option text are withheld from provisional scoring. Feedback is based on the third-party source key, may be wrong, and is never described as verified/official. All 4,009 records keep their `unverified` statuses. No historical exam count, duration, subject-selection rule or marking rule has been inferred; RU exam rules are not configured.
 
 Use the validator and generated indexes after changing packs:
 

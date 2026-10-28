@@ -173,6 +173,7 @@ export default function ExamScreen() {
         </View>
       </View>
 
+      {exam.session.filter.reviewUnverified ? <Card className="mx-4 mt-3 p-3.5"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
       {notice ? <Card className="mx-4 mt-3 p-3"><Txt className="text-ink-700 text-sm">{t(notice)}</Txt></Card> : null}
 
       <SectionList
@@ -206,6 +207,7 @@ export default function ExamScreen() {
               <QuestionCard
                 question={question}
                 selected={chosen}
+                provisionalScoring={exam.session.filter.reviewUnverified === true}
                 onSelect={(key) => choose(question.id, key)}
                 disabled={remaining <= 0 || busy}
                 bookmarked={marks.has(question.id)}

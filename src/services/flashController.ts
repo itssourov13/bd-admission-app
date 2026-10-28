@@ -1,6 +1,6 @@
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView } from "../types/domain.ts";
-import { eligibleQuestionIds, loadQuestions, resolveRuleForQuestions } from "../repositories/content.ts";
+import { loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
 import { createSession, finishFlashSession, newSessionId, recordFlashResult } from "../repositories/sessions.ts";
 import {
   applyFlashEvent, finishFlash, restartCurrentTimer, startFlash, summarizeFlash,
@@ -21,6 +21,8 @@ export interface FlashResult {
   advice: AdviceKey[];
   perQuestionSeconds: number;
   poolSize: number;
+  /** True when the score uses unverified source-supplied keys. */
+  provisional: boolean;
 }
 
 export interface FlashFeedback {
@@ -45,6 +47,7 @@ export class FlashController {
   readonly poolSize: number;
   readonly rule: ScoringRule;
   readonly perQuestionSeconds: number;
+  readonly reviewUnverified: boolean;
   phase: FlashPhase = "loading";
   state: FlashState;
   feedback: FlashFeedback | null = null;
@@ -60,28 +63,30 @@ export class FlashController {
   private db: SqlDb;
 
   private constructor(
-    db: SqlDb, sessionId: string, state: FlashState, rule: ScoringRule, poolSize: number, perQuestionSeconds: number, rng: Rng, clock: () => number
+    db: SqlDb, sessionId: string, state: FlashState, rule: ScoringRule, poolSize: number, perQuestionSeconds: number, reviewUnverified: boolean, rng: Rng, clock: () => number
   ) {
     this.db = db;
     this.sessionId = sessionId; this.state = state; this.rule = rule; this.poolSize = poolSize;
-    this.perQuestionSeconds = perQuestionSeconds; this.rng = rng; this.clock = clock;
+    this.perQuestionSeconds = perQuestionSeconds; this.reviewUnverified = reviewUnverified; this.rng = rng; this.clock = clock;
   }
 
   /** Returns null when the filter has no eligible question (the UI shows an empty state). */
   static async start(
     db: SqlDb, filter: PoolFilter, perQuestionSeconds: number,
-    opts: { now?: number; rng?: Rng; clock?: () => number } = {}
+    opts: { now?: number; rng?: Rng; clock?: () => number; includeReviewCandidates?: boolean } = {}
   ): Promise<FlashController | null> {
     const clock = opts.clock ?? (() => Date.now());
     const now = opts.now ?? clock();
     const rng = opts.rng ?? Math.random;
-    const pool = await eligibleQuestionIds(db, filter);
+    const reviewUnverified = opts.includeReviewCandidates === true;
+    const pool = await practiceQuestionIds(db, filter, reviewUnverified);
     const state = startFlash(pool, perQuestionSeconds, now, rng);
     if (!state) return null;
     const rule = await resolveRuleForQuestions(db, state.poolIds, filter);
     const id = newSessionId(now);
-    await createSession(db, { id, mode: "flash", filter, startedAt: now, perQuestionSeconds, rule });
-    const controller = new FlashController(db, id, state, rule, state.poolIds.length, perQuestionSeconds, rng, clock);
+    const sessionFilter = reviewUnverified ? { ...filter, reviewUnverified: true } : filter;
+    await createSession(db, { id, mode: "flash", filter: sessionFilter, startedAt: now, perQuestionSeconds, rule });
+    const controller = new FlashController(db, id, state, rule, state.poolIds.length, perQuestionSeconds, reviewUnverified, rng, clock);
     await controller.load(state.currentQuestionId);
     controller.state = restartCurrentTimer(controller.state, clock());
     controller.phase = "asking";
@@ -112,7 +117,7 @@ export class FlashController {
     let applied;
     if (event.type === "answer") {
       if (event.keys.length === 0 || !q.options.some((o) => o.key === event.keys[0])) return null;
-      const correct = isAnswerCorrect(toScorable(q), event.keys) === true;
+      const correct = isAnswerCorrect(toScorable(q, this.reviewUnverified), event.keys) === true;
       applied = applyFlashEvent(this.state, { type: "answer", position: event.position, selectedKeys: event.keys, correct }, now, this.rng);
     } else {
       applied = applyFlashEvent(this.state, event, now, this.rng);
@@ -192,7 +197,8 @@ export class FlashController {
       rule,
       advice: flashAdvice(summary, this.perQuestionSeconds),
       perQuestionSeconds: this.perQuestionSeconds,
-      poolSize: this.poolSize
+      poolSize: this.poolSize,
+      provisional: this.reviewUnverified
     };
     await finishFlashSession(this.db, this.sessionId, now, JSON.stringify(this.result));
     return this.result;

@@ -13,7 +13,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { href, scopeFromParams, scopeParams } from "@/features/navigation/links";
 import { useNum, useT, type TranslationKey } from "@/i18n";
 import { colors, feedback } from "@/theme";
-import { countEligible, getInstitution, listPapers, scopeRule } from "@/repositories/content";
+import { countEligible, countReviewCandidates, getInstitution, listPapers, scopeRule } from "@/repositories/content";
 import { getProfile, updateProfile } from "@/repositories/userData";
 import { buildSubjectOptions, isCanonicalSubject, SUBJECT_LABEL_KEYS, SCIENCE_SUBJECT_ORDER } from "@/services/subjects";
 import { clampFlashSeconds, FLASH_DEFAULT_SECONDS, FLASH_MAX_SECONDS, FLASH_MIN_SECONDS, FLASH_PRESETS } from "@/services/timer";
@@ -41,13 +41,18 @@ export default function FlashSetup() {
     const label = effective.paperId
       ? (await listPapers(d, { paperId: effective.paperId }))[0]?.title ?? null
       : effective.institutionId ? (await getInstitution(d, effective.institutionId))?.name ?? null : null;
+    const verifiedCount = await countEligible(d, baseScope);
+    const reviewCount = await countReviewCandidates(d, baseScope);
+    const reviewMode = verifiedCount === 0 && reviewCount > 0;
+    const countQuestions = reviewMode ? countReviewCandidates : countEligible;
     const subjectCounts = await Promise.all(SCIENCE_SUBJECT_ORDER.map(async (name) => ({
       subject: name,
-      count: await countEligible(d, { ...baseScope, subject: name })
+      count: await countQuestions(d, { ...baseScope, subject: name })
     })));
     return {
-      n: await countEligible(d, effective),
-      rule: await scopeRule(d, effective),
+      n: await countQuestions(d, effective),
+      reviewMode,
+      rule: await scopeRule(d, effective, reviewMode),
       label,
       profile: await getProfile(d),
       subjectOptions: buildSubjectOptions(Object.fromEntries(subjectCounts.map((item) => [item.subject, item.count] as const)))
@@ -58,7 +63,7 @@ export default function FlashSetup() {
   const start = async () => {
     const s = clampFlashSeconds(custom ? Number(custom) : seconds);
     try { await updateProfile(db, { flashSeconds: s }); } catch { /* Preference only; don't block practice. */ }
-    router.replace(href("/flash/play", { ...scopeParams(effective), seconds: s }));
+    router.replace(href("/flash/play", { ...scopeParams(effective), seconds: s, reviewUnverified: q.data?.reviewMode ? 1 : undefined }));
   };
   const customInvalid = custom !== "" && (!Number.isFinite(Number(custom)) || Number(custom) < FLASH_MIN_SECONDS || Number(custom) > FLASH_MAX_SECONDS);
   const subjectLabel = (name: string) => {
@@ -72,6 +77,7 @@ export default function FlashSetup() {
       {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (
         <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28 }} keyboardShouldPersistTaps="handled">
           <Txt className="text-ink-500 text-sm leading-6">{t("flash.setupBody")}</Txt>
+          {q.data!.reviewMode ? <Card className="p-3.5 mt-3"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
           <Txt weight="semibold" className="text-ink-900 mt-5 mb-2">{t("flash.scope")}</Txt>
           {scopeLocked ? (
             <Card className="p-3.5"><Txt className="text-ink-900 text-sm">{t("flash.scopeSelected", { name: q.data!.label ?? "" })}</Txt></Card>

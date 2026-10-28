@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-29 — Make RU C candidates usable with provisional practice
+- Fixed the gap where all unverified RU candidates were imported but could not start Flash or Standard Exam because both modes only queried the verified pool. Verified-only eligibility remains strict; setup selects a distinct provisional pool when the scope has no verified-eligible questions and displays a warning.
+- Added structural candidate filter (single choice, 2+ options, exactly one source-key option, no duplicate normalized option text): 3,991 of the 4,009 RU candidates available provisionally; 18 records with duplicate normalized option text withheld from provisional scoring. All statuses stay `unverified`; no RU marking rules were invented.
+- Added provisional warnings in BN/EN, source-key feedback and review rendering, catalogue counts, and result banners; added tests for Flash/Standard provisional sessions and status preservation.
+- Verification under Node 22.23.1: 57 tests passed; typecheck, lint and diff-check passed. Native device QA, current-code export, original-paper/answer-key verification, and APK/AAB build remain pending. No push performed.
+
+
 ## 2026-10-29 — RU C Unit Science source collection checkpoint
 - Added a dedicated external research workspace for RU C Unit Science Group, including a SHA-256-tracked 265-page third-party scan and page ranges for 14 distinct paper/set variants (2017-2018 through 2024-2025).
 - Collected 20 partial public-page snapshots (300 questions) and validated their JSON structure; none is a complete paper and no answer key was independently verified.

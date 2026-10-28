@@ -9,7 +9,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { colors } from "@/theme";
-import { getPaperRule, listPapers } from "@/repositories/content";
+import { countReviewCandidates, getPaperRule, listPapers } from "@/repositories/content";
 import { STANDARD_EXAM_QUESTIONS } from "@/services/exam";
 
 export default function PaperScreen() {
@@ -18,16 +18,22 @@ export default function PaperScreen() {
   const router = useRouter();
   const p = useLocalSearchParams<{ id: string }>();
   const id = String(p.id ?? "");
-  const q = useQuery(async (db) => ({ paper: (await listPapers(db, { paperId: id }))[0] ?? null, rule: await getPaperRule(db, id) }), [id]);
+  const q = useQuery(async (db) => ({
+    paper: (await listPapers(db, { paperId: id }))[0] ?? null,
+    rule: await getPaperRule(db, id),
+    reviewCandidates: await countReviewCandidates(db, { paperId: id })
+  }), [id]);
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;
-  const { paper, rule } = q.data!;
+  const { paper, rule, reviewCandidates } = q.data!;
   if (!paper) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("catalog.notFound")} actionLabel={t("common.back")} onAction={() => router.back()} /></Screen>;
 
-  const canPractice = paper.eligibleCount > 0;
+  const reviewMode = paper.eligibleCount === 0 && reviewCandidates > 0;
+  const availableForPractice = reviewMode ? reviewCandidates : paper.eligibleCount;
+  const canPractice = availableForPractice > 0;
   const requiredQuestions = rule?.totalQuestions && rule.totalQuestions > 0 ? rule.totalQuestions : STANDARD_EXAM_QUESTIONS;
-  const canExam = paper.eligibleCount >= requiredQuestions;
+  const canExam = availableForPractice >= requiredQuestions;
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={paper.title ?? `${paper.institutionName} ${num(paper.year)}`} subtitle={paper.institutionName} />
@@ -38,9 +44,10 @@ export default function PaperScreen() {
           {paper.academicSession ? <Chip label={t("paper.session", { session: paper.academicSession })} /> : null}
         </View>
         <Card className="p-4">
-          <Txt className="text-ink-700 text-sm leading-6">{t("paper.meta", { questions: paper.questionCount, eligible: paper.eligibleCount })}</Txt>
+          <Txt className="text-ink-700 text-sm leading-6">{t("paper.meta", { questions: paper.questionCount, eligible: availableForPractice })}</Txt>
         </Card>
         <View className="mt-4"><RuleNotice rule={rule} status={paper.ruleStatus ?? undefined} /></View>
+        {reviewMode ? <Card className="p-3.5 mt-4"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
         <View className="mt-5 gap-2.5">
           <Button label={t("paper.flash")} disabled={!canPractice} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", { paperId: paper.id }))} />
           <Button label={paper.ruleStatus === "illustrative" ? t("paper.practicePattern") : t("paper.exam")} variant="outline" disabled={!canExam} onPress={() => router.push(href("/exam/setup", { paperId: paper.id }))} />

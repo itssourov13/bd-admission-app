@@ -1,6 +1,6 @@
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView, SessionRow } from "../types/domain.ts";
-import { eligibleQuestionIds, getPaperRule, loadQuestions, resolveRuleForQuestions } from "../repositories/content.ts";
+import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
 import {
   addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, type SessionAnswerRow
 } from "../repositories/sessions.ts";
@@ -9,8 +9,15 @@ import { scoreAttempt, isAnswerCorrect, type ExamScore, type ScorableQuestion, t
 import { examAdvice, type AdviceKey } from "./advice.ts";
 import type { Rng } from "./flash.ts";
 
-export function toScorable(q: QuestionView): ScorableQuestion {
-  return { id: q.id, correctKeys: q.options.filter((o) => o.isCorrect).map((o) => o.key), answerVerified: q.answerStatus === "verified", type: q.type };
+export function toScorable(q: QuestionView, allowProvisionalKey = false): ScorableQuestion {
+  const correctKeys = q.options.filter((o) => o.isCorrect).map((o) => o.key);
+  const verified = q.answerStatus === "verified" && q.contentStatus === "verified";
+  return {
+    id: q.id,
+    correctKeys,
+    answerVerified: verified || (allowProvisionalKey && correctKeys.length === 1),
+    type: q.type
+  };
 }
 
 export type StartExamResult =
@@ -22,7 +29,10 @@ export type StartExamResult =
  * general 100-question/60-minute practice mode. Section-selection papers must select the
  * exact subject count, and each selected section must have its required number of graded items.
  */
-export async function startStandardExam(db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng): Promise<StartExamResult> {
+export async function startStandardExam(
+  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean } = {}
+): Promise<StartExamResult> {
+  const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
   const paperPattern = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
   const required = paperPattern?.totalQuestions && paperPattern.totalQuestions > 0
     ? paperPattern.totalQuestions : STANDARD_EXAM_QUESTIONS;
@@ -41,7 +51,7 @@ export async function startStandardExam(db: SqlDb, filter: PoolFilter, now = Dat
 
     const perSubject = selection.questionsPerSubject;
     const sectionPools = await Promise.all(subjects.map((subject) =>
-      eligibleQuestionIds(db, { ...filter, subject, subjects: undefined })
+      getPool({ ...filter, subject, subjects: undefined })
     ));
     available = sectionPools.reduce((sum, ids) => sum + ids.length, 0);
     if (perSubject && sectionPools.some((ids) => ids.length < perSubject)) {
@@ -57,7 +67,7 @@ export async function startStandardExam(db: SqlDb, filter: PoolFilter, now = Dat
     picked = pickExamQuestions(combined, required, rng);
     if (picked && picked.length !== required) picked = null;
   } else {
-    const eligible = await eligibleQuestionIds(db, filter);
+    const eligible = await getPool(filter);
     available = eligible.length;
     picked = pickExamQuestions(eligible, required, rng);
   }
@@ -73,7 +83,8 @@ export async function startStandardExam(db: SqlDb, filter: PoolFilter, now = Dat
     ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
   };
   const id = newSessionId(now);
-  await createSession(db, { id, mode: "exam", filter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
+  const sessionFilter = opts.includeUnverified ? { ...filter, reviewUnverified: true } : filter;
+  await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
   await addExamQuestions(db, id, picked);
   return { ok: true, sessionId: id };
 }
@@ -129,7 +140,7 @@ export async function finalizeStandardExam(db: SqlDb, sessionId: string, reason:
     correctMarks: session.ruleCorrect ?? 1, incorrectPenalty: session.rulePenalty ?? 0, unansweredMarks: session.ruleUnanswered ?? 0,
     status: session.ruleStatus ?? "unconfigured"
   };
-  const scorable = questions.map(toScorable);
+  const scorable = questions.map((q) => toScorable(q, session.filter.reviewUnverified === true));
   const score = scoreAttempt(scorable, selected, rule);
   const outcomes: { questionId: string; outcome: SessionAnswerRow["outcome"] }[] = scorable.map((q) => {
     const sel = selected[q.id] ?? [];

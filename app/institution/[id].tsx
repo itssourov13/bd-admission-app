@@ -8,7 +8,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { colors } from "@/theme";
-import { countEligible, getInstitution, listPapers } from "@/repositories/content";
+import { countEligible, countReviewCandidates, getInstitution, listPapers } from "@/repositories/content";
 
 export default function InstitutionScreen() {
   const t = useT();
@@ -19,12 +19,14 @@ export default function InstitutionScreen() {
   const q = useQuery(async (db) => ({
     inst: await getInstitution(db, id),
     papers: await listPapers(db, { institutionId: id }),
-    eligible: await countEligible(db, { institutionId: id })
+    eligible: await countEligible(db, { institutionId: id }),
+    reviewCandidates: await countReviewCandidates(db, { institutionId: id })
   }), [id]);
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;
-  const { inst, papers, eligible } = q.data!;
+  const { inst, papers, eligible, reviewCandidates } = q.data!;
+  const availableForPractice = eligible > 0 ? eligible : reviewCandidates;
   if (!inst) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("catalog.notFound")} actionLabel={t("common.back")} onAction={() => router.back()} /></Screen>;
 
   return (
@@ -37,10 +39,11 @@ export default function InstitutionScreen() {
         ItemSeparatorComponent={() => <View className="h-3" />}
         ListHeaderComponent={
           <View className="mb-4 gap-2.5">
-            {eligible > 0 ? (
+            {availableForPractice > 0 ? (
               <>
                 <Button label={t("catalog.practiceInstitution")} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", { institutionId: inst.id }))} />
-                <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", { institutionId: inst.id }))} />
+                {availableForPractice >= 100 ? <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", { institutionId: inst.id }))} /> : null}
+                {eligible === 0 && reviewCandidates > 0 ? <Txt className="text-ink-500 text-xs leading-5">{t("practice.provisionalShort")}</Txt> : null}
               </>
             ) : null}
             <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-3">{t("catalog.papers")}</Txt>
@@ -52,7 +55,9 @@ export default function InstitutionScreen() {
             <Card className="p-4 flex-row items-center gap-3">
               <View className="flex-1">
                 <Txt weight="bold" className="text-ink-900 text-base leading-6">{x.title ?? t("paper.title", { year: x.year })}</Txt>
-                <Txt className="text-ink-500 text-xs leading-5 mt-1">{t("paper.meta", { questions: x.questionCount, eligible: x.eligibleCount })}</Txt>
+                <Txt className="text-ink-500 text-xs leading-5 mt-1">{x.eligibleCount === 0 && x.reviewCandidateCount > 0
+                  ? t("catalog.provisionalPaperMeta", { questions: x.questionCount, candidates: x.reviewCandidateCount })
+                  : t("paper.meta", { questions: x.questionCount, eligible: x.eligibleCount })}</Txt>
                 <View className="flex-row flex-wrap gap-2 mt-2">
                   <Chip label={String(num(x.year))} />
                   {x.unit ? <Chip label={t("paper.unit", { unit: x.unit })} /> : null}

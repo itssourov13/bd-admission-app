@@ -44,6 +44,8 @@ export interface PoolFilter {
   subject?: string;
   /** Optional multiple section selection for paper-specific exams. */
   subjects?: string[];
+  /** True only for explicitly provisional practice; scores use the third-party source key. */
+  reviewUnverified?: boolean;
 }
 
 export interface InstitutionSummary {
@@ -53,6 +55,8 @@ export interface InstitutionSummary {
   paperCount: number;
   questionCount: number;
   eligibleCount: number;
+  /** Structurally safe but unverified questions available only in provisional practice. */
+  reviewCandidateCount: number;
 }
 
 export interface PaperSummary {
@@ -67,6 +71,8 @@ export interface PaperSummary {
   title: string | null;
   questionCount: number;
   eligibleCount: number;
+  /** Structurally safe but not independently verified; only used in explicit provisional practice. */
+  reviewCandidateCount: number;
   ruleStatus: RuleStatus | null;
 }
 

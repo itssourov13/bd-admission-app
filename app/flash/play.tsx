@@ -23,6 +23,7 @@ export default function FlashPlay() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const scope = scopeFromParams(params);
+  const reviewUnverified = (Array.isArray(params.reviewUnverified) ? params.reviewUnverified[0] : params.reviewUnverified) === "1";
   const perQuestion = clampFlashSeconds(Number(Array.isArray(params.seconds) ? params.seconds[0] : params.seconds));
 
   const ctl = useRef<FlashController | null>(null);
@@ -36,7 +37,7 @@ export default function FlashPlay() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const begin = useCallback(() => {
-    FlashController.start(db, scope, perQuestion).then(
+    FlashController.start(db, scope, perQuestion, { includeReviewCandidates: reviewUnverified }).then(
       (started) => { if (!started) { setBoot("empty"); return; } ctl.current = started; setC(started); setBoot("run"); },
       () => setBoot("error")
     );
@@ -141,13 +142,17 @@ export default function FlashPlay() {
 
       {c.phase === "loading" || !q ? <LoadingView /> : (
         <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 28 }}>
+          {c.reviewUnverified ? <Card className="p-3.5 mb-3"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
           {notice ? <Card className="p-3 mb-3"><Txt className="text-ink-700 text-sm">{notice}</Txt></Card> : null}
           {c.persistFailures > 0 ? <Card className="p-3 mb-3"><Txt className="text-ink-700 text-sm">{t("flash.persistWarn")}</Txt></Card> : null}
           {fb ? (
             <View className="mb-3 flex-row">
               <Chip
-                tone={fb.record.outcome === "correct" ? "brand" : "gold"}
-                label={fb.record.outcome === "correct" ? t("flash.correct") : fb.record.outcome === "timed_out" ? t("flash.timedOut") : t("flash.incorrect")}
+                tone={c.reviewUnverified ? "gold" : fb.record.outcome === "correct" ? "brand" : "gold"}
+                label={c.reviewUnverified
+                  ? fb.record.outcome === "timed_out" ? t("flash.timedOut")
+                    : fb.record.outcome === "correct" ? t("flash.provisionalMatch") : t("flash.provisionalMismatch")
+                  : fb.record.outcome === "correct" ? t("flash.correct") : fb.record.outcome === "timed_out" ? t("flash.timedOut") : t("flash.incorrect")}
               />
             </View>
           ) : null}
@@ -160,10 +165,11 @@ export default function FlashPlay() {
             bookmarked={marks.has(q.id)}
             onToggleBookmark={() => void toggle(q.id)}
             showSources={Boolean(fb)}
+            provisionalScoring={c.reviewUnverified}
           />
           {fb ? (
             <View className="mt-5 gap-2.5">
-              {fb.correctKeys.length > 0 ? <Txt className="text-ink-700 text-sm">{t("flash.correctAnswer", { key: fb.correctKeys.join(", ").toUpperCase() })}</Txt> : null}
+              {fb.correctKeys.length > 0 && !c.reviewUnverified ? <Txt className="text-ink-700 text-sm">{t("flash.correctAnswer", { key: fb.correctKeys.join(", ").toUpperCase() })}</Txt> : null}
               <Button label={t("flash.next")} icon={<Ionicons name="arrow-forward" size={18} color={colors.white} />} onPress={() => run(c.next())} />
             </View>
           ) : (

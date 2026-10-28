@@ -9,6 +9,16 @@ const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verif
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND EXISTS (SELECT 1 FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1)`;
 
+/** Source-key candidates remain unverified. Exclude ambiguous or structurally unsupported options. */
+const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'
+  AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
+  AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) = 1
+  AND NOT EXISTS (
+    SELECT 1 FROM question_options oa JOIN question_options ob
+      ON oa.question_id = ob.question_id AND oa.option_key < ob.option_key
+    WHERE oa.question_id = q.id AND lower(trim(oa.text)) = lower(trim(ob.text))
+  )`;
+
 function chunk<T>(items: T[], size = 400): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < items.length; i += size) out.push(items.slice(i, i + size));
@@ -37,6 +47,30 @@ export async function eligibleQuestionIds(db: SqlDb, filter: PoolFilter): Promis
   const c = filterClauses(filter);
   const rows = await db.getAllAsync<{ id: string }>(
     `SELECT DISTINCT q.id AS id FROM questions q${c.joins} WHERE ${ELIGIBLE_SQL}${c.where}`,
+    c.params
+  );
+  return rows.map((r) => r.id);
+}
+
+/** Count candidates that may be used only with an explicit provisional-answer warning. */
+export async function countReviewCandidates(db: SqlDb, filter: PoolFilter): Promise<number> {
+  const c = filterClauses(filter);
+  const row = await db.getFirstAsync<{ n: number }>(
+    `SELECT COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE (${REVIEW_CANDIDATE_SQL})${c.where}`,
+    c.params
+  );
+  return Number(row?.n ?? 0);
+}
+
+/**
+ * Return a verified-only pool by default. Provisional mode additionally includes structurally valid
+ * single-choice questions whose third-party source keys or text have not been independently verified.
+ */
+export async function practiceQuestionIds(db: SqlDb, filter: PoolFilter, includeUnverified = false): Promise<string[]> {
+  if (!includeUnverified) return eligibleQuestionIds(db, filter);
+  const c = filterClauses(filter);
+  const rows = await db.getAllAsync<{ id: string }>(
+    `SELECT DISTINCT q.id AS id FROM questions q${c.joins} WHERE ((${ELIGIBLE_SQL}) OR (${REVIEW_CANDIDATE_SQL}))${c.where}`,
     c.params
   );
   return rows.map((r) => r.id);
@@ -73,7 +107,11 @@ export async function listInstitutions(db: SqlDb, category: QuestionCategory): P
       [r.id, category]
     );
     const eligible = await countEligible(db, { category, institutionId: r.id });
-    out.push({ id: r.id, code: r.code, name: r.name, paperCount: Number(r.paper_count), questionCount: Number(total?.n ?? 0), eligibleCount: eligible });
+    const reviewCandidateCount = await countReviewCandidates(db, { category, institutionId: r.id });
+    out.push({
+      id: r.id, code: r.code, name: r.name, paperCount: Number(r.paper_count),
+      questionCount: Number(total?.n ?? 0), eligibleCount: eligible, reviewCandidateCount
+    });
   }
   return out;
 }
@@ -104,10 +142,11 @@ export async function listPapers(db: SqlDb, opts: { institutionId?: string; cate
   const out: PaperSummary[] = [];
   for (const r of rows) {
     const eligible = await countEligible(db, { paperId: r.id });
+    const reviewCandidateCount = await countReviewCandidates(db, { paperId: r.id });
     out.push({
       id: r.id, institutionId: r.institution_id, institutionCode: r.code, institutionName: r.iname, category: r.category,
       year: Number(r.year), academicSession: r.academic_session, unit: r.unit, title: r.title,
-      questionCount: Number(r.qn), eligibleCount: eligible, ruleStatus: r.rule_status
+      questionCount: Number(r.qn), eligibleCount: eligible, reviewCandidateCount, ruleStatus: r.rule_status
     });
   }
   return out;
@@ -283,6 +322,6 @@ export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringR
 }
 
 /** The rule that would apply to a practice/exam scope (used to tell the user how scoring will work before starting). */
-export async function scopeRule(db: SqlDb, filter: PoolFilter): Promise<ScoringRule> {
-  return resolveRuleForQuestions(db, await eligibleQuestionIds(db, filter), filter);
+export async function scopeRule(db: SqlDb, filter: PoolFilter, includeUnverified = false): Promise<ScoringRule> {
+  return resolveRuleForQuestions(db, await practiceQuestionIds(db, filter, includeUnverified), filter);
 }

@@ -40,10 +40,10 @@
 - [x] Ran the app pack validator against every external pack: 44/44 pass, 0 schema errors. Warnings correctly remain for unverified answers and 14 exact duplicate-option records.
 - [x] Completed full-page and left/right-column machine OCR for all 84 indexed question/key pages in the separate third-party scan; OCR is preserved as unverified research aid only.
 - [ ] Independently compare each question and every option with a matching original paper/reliable transcription; resolve 14 duplicate-option flags and question/source authenticity.
-- [ ] Independently verify all 4,009 curated candidate answer keys from a reliable or official matching-session key; until then, every retained answer remains `unverified` and none can be used for scored practice.
+- [ ] Independently verify all 4,009 curated candidate answer keys from a reliable/official matching-session key; until then, every retained answer remains `unverified`. The provisional mode is only for practice against a possibly incorrect third-party key, not verified scoring.
 - [x] Add local image/diagram support to the app renderer through a static PNG asset map; [ ] visually verify image-dependent questions on Android before marking them content verified.
 - [ ] Obtain/review missing or restricted original paper sources, classify pages 205-265 of the compilation, and reconcile scan variants with the web-bank variants without merging distinct group/shift/set variants.
-- [x] Import 44 RU C Unit Science candidate packs into `data/question-packs/` for browse/review as explicitly requested; all records retain unverified statuses and are excluded from scored practice. See the latest import checkpoint below.
+- [x] Import 44 RU C Unit Science candidate packs into `data/question-packs/`; all records retain unverified statuses and are excluded from the verified-only pool. The later provisional practice mode permits clearly warned source-key feedback for a safe subset. See the latest usability checkpoint below.
 - [ ] Complete original-paper and answer-key review before promoting any candidates to scored practice.
 
 
@@ -65,10 +65,19 @@
 
 
 ## Latest RU C Unit import checkpoint — 2026-10-29
-- [x] Imported 44 RU C Unit Science candidate JSON packs, 4,009 questions, and 45 local PNG figures into the app for browse/review.
+- [x] Imported 44 RU C Unit Science candidate JSON packs, 4,009 questions, and 45 local PNG figures into the app; a later follow-up adds separately labelled provisional Flash/Standard practice without changing verification states.
 - [x] Regenerated `src/content/bundledPacks.ts` with all 46 packs (44 RU C + 2 DU A) and added `question-assets:index` for Metro-compatible local asset mapping.
 - [x] Rendered local question-level figures from QuestionCard without adding a runtime package.
-- [x] Added integration coverage for pack counts, idempotent import, local asset path integrity, preserved unverified states, no RU scoring rules, and zero scored eligibility.
+- [x] Added integration coverage for pack counts, idempotent import, local asset integrity, preserved unverified states and no RU scoring rules; follow-up tests cover provisional Flash and 100-question Standard Exam paths and ensure duplicate-option items are withheld.
 - [x] Verified all 46 JSON pack files (0 schema errors), `pnpm test` (55 passed), typecheck, lint, and Android no-bytecode bundle export.
-- [ ] Review candidate question text/options and independently verify answer keys against matching original papers before promoting anything to scored practice.
+- [ ] Review candidate question text/options and independently verify answer keys against matching original papers before promoting anything to verified/official scored practice.
 - [ ] Android device QA for figure sizing and long Bangla/formula layout; native APK/AAB build remains outstanding.
+
+## RU C provisional-practice usability checkpoint — 2026-10-29
+- [x] Fixed the verified-only-only entry gap with an independent provisional pool; normal verified eligibility remains unchanged.
+- [x] Provisional candidates require single-choice type, 2+ options, exactly one source key and no duplicate normalized option text. Actual RU pool: 3,991 available, 18 duplicate-option items withheld, zero verified-eligible.
+- [x] Added BN/EN warnings and labels in setup, Flash feedback, Standard Exam, results/review, and institution/paper catalogue counts. All 4,009 question/content/key statuses remain unverified; RU rules remain unconfigured.
+- [x] Added Flash and Standard integration tests proving provisional sessions can start, record source-key comparisons, retain the session marker and not invent RU scoring rules.
+- [x] Latest checks under Node 22.23.1: `pnpm test` 57/57, `pnpm typecheck`, `pnpm lint`, `git diff --check` pass.
+- [ ] On-device Expo Go smoke test for both modes, candidate figures/long-text layout, and result flow; rerun bundle/export on compatible Node before native build.
+- [ ] Independently verify source-paper transcription and every answer key; build/test a release APK/AAB on a host compatible with Hermes. No release artifact or push is claimed.

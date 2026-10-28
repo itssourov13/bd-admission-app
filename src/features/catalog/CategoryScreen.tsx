@@ -64,7 +64,9 @@ export function CategoryScreen({ category }: { category: Extract<QuestionCategor
                   </View>
                   <View className="flex-1">
                     <Txt weight="bold" className="text-ink-900 text-base leading-6">{i.name}</Txt>
-                    <Txt className="text-ink-500 text-xs leading-5 mt-1">{t("catalog.institutionMeta", { papers: i.paperCount, questions: i.questionCount, eligible: i.eligibleCount })}</Txt>
+                    <Txt className="text-ink-500 text-xs leading-5 mt-1">{i.eligibleCount === 0 && i.reviewCandidateCount > 0
+                      ? t("catalog.provisionalInstitutionMeta", { papers: i.paperCount, questions: i.questionCount, candidates: i.reviewCandidateCount })
+                      : t("catalog.institutionMeta", { papers: i.paperCount, questions: i.questionCount, eligible: i.eligibleCount })}</Txt>
                   </View>
                   <Ionicons name="chevron-forward" size={19} color={colors.ink400} />
                 </Card>
@@ -80,7 +82,9 @@ export function CategoryScreen({ category }: { category: Extract<QuestionCategor
                 </View>
                 <View className="flex-1">
                   <Txt weight="bold" className="text-ink-900 text-base leading-6">{p.title ?? `${p.institutionName} ${num(p.year)}`}</Txt>
-                  <Txt className="text-ink-500 text-xs leading-5 mt-1">{t("paper.meta", { questions: p.questionCount, eligible: p.eligibleCount })}</Txt>
+                  <Txt className="text-ink-500 text-xs leading-5 mt-1">{p.eligibleCount === 0 && p.reviewCandidateCount > 0
+                    ? t("catalog.provisionalPaperMeta", { questions: p.questionCount, candidates: p.reviewCandidateCount })
+                    : t("paper.meta", { questions: p.questionCount, eligible: p.eligibleCount })}</Txt>
                   <View className="flex-row mt-2"><Chip label={String(num(p.year))} /></View>
                 </View>
                 <Ionicons name="chevron-forward" size={19} color={colors.ink400} />

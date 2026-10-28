@@ -43,7 +43,7 @@ export default function ResultScreen() {
   const rule: ScoringRule | null = session.ruleStatus && session.ruleStatus !== "unconfigured" && session.ruleCorrect !== null
     ? { correctMarks: session.ruleCorrect, incorrectPenalty: session.rulePenalty ?? 0, unansweredMarks: session.ruleUnanswered ?? 0, status: session.ruleStatus } : null;
 
-  let scoreLabel: string; let counts: { label: string; value: string; tone?: string }[]; let accuracy: number; let advice: TranslationKey[]; let timeLine: string | null = null; let reason: string | null = null;
+  let scoreLabel: string; let counts: { label: string; value: string; tone?: string }[]; let accuracy: number; let accuracyText: string; let advice: TranslationKey[]; let timeLine: string | null = null; let reason: string | null = null;
   if (isExam) {
     const r = parsed as ExamResult;
     scoreLabel = session.ruleStatus === "unconfigured" || !session.ruleStatus ? t("result.noScore") : t("result.scoreOutOf", { score: num(r.score), max: num(r.maxScore) });
@@ -53,7 +53,9 @@ export default function ResultScreen() {
       { label: t("result.unanswered"), value: num(r.unanswered) },
       ...(r.ungradedQuestions > 0 ? [{ label: t("result.ungraded"), value: num(r.ungradedQuestions) }] : [])
     ];
-    accuracy = r.accuracyPercent; advice = r.advice as TranslationKey[];
+    accuracy = r.accuracyPercent;
+    accuracyText = r.answered === 0 ? t("result.notAvailable") : `${num(accuracy)}%`;
+    advice = r.advice as TranslationKey[];
     timeLine = num(formatClock(r.elapsedSeconds));
     reason = r.reason === "time_expired" ? t("result.reasonExpired") : t("result.reasonSubmitted");
   } else {
@@ -67,7 +69,9 @@ export default function ResultScreen() {
       { label: t("result.answered"), value: num(r.summary.answered) },
       { label: t("result.rounds"), value: num(r.summary.cyclesCompleted) }
     ];
-    accuracy = r.summary.accuracyPercent; advice = r.advice as TranslationKey[];
+    accuracy = r.summary.accuracyPercent;
+    accuracyText = r.provisional && r.summary.answered === 0 ? t("result.notAvailable") : `${num(accuracy)}%`;
+    advice = r.advice as TranslationKey[];
     timeLine = num(formatClock(r.summary.totalSeconds));
   }
 
@@ -79,9 +83,10 @@ export default function ResultScreen() {
           <Txt className="text-ink-500 text-xs">{t("result.score")}</Txt>
           <Txt font="display" weight="bold" className="text-ink-900 text-4xl mt-1">{scoreLabel}</Txt>
           {reason ? <View className="mt-2"><Chip label={reason} /></View> : null}
-          <Txt className="text-ink-700 text-sm mt-3">{t("result.accuracy")}: {num(accuracy)}%</Txt>
+          <Txt className="text-ink-700 text-sm mt-3">{t("result.accuracy")}: {accuracyText}</Txt>
           {timeLine ? <Txt className="text-ink-500 text-xs mt-1">{t("result.time")}: {timeLine}</Txt> : null}
         </Card>
+        {session.filter.reviewUnverified ? <Card className="p-3.5 mt-3"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
         <View className="flex-row flex-wrap gap-2.5 mt-3">{counts.map((c) => <Stat key={c.label} {...c} />)}</View>
         <Txt className="text-ink-400 text-xs leading-5 mt-3">{t("result.accuracyNote")}</Txt>
         <View className="mt-4"><RuleNotice rule={rule} status={session.ruleStatus ?? "unconfigured"} /></View>
@@ -99,7 +104,7 @@ export default function ResultScreen() {
             {exam.questions.map((qv, i) => (
               <Card key={qv.id} className="p-4">
                 <Txt className="text-ink-500 text-xs mb-1">{t("flash.questionNo", { n: i + 1 })}</Txt>
-                <QuestionCard question={qv} selected={exam.selected[qv.id] ?? []} reveal disabled showSources />
+                <QuestionCard question={qv} selected={exam.selected[qv.id] ?? []} reveal disabled showSources provisionalScoring={session.filter.reviewUnverified === true} />
                 {(exam.selected[qv.id] ?? []).length === 0 ? <Txt className="text-ink-500 text-xs mt-2">{t("result.noSelection")}</Txt> : null}
               </Card>
             ))}

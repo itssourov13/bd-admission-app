@@ -70,3 +70,8 @@ Question count, duration, subject/section distribution and marking rules must be
 Status: accepted, 2026-10-29; scope clarified 2026-10-29.
 
 RU research is now Unit A only and lives at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`, outside the app bundle. The folder contains a year coverage ledger, source register, answer audit and eight review-only sample packs (21 questions). Secondary question-bank pages and restricted Drive links are discovery leads, not proof of an official, complete paper or correct answer key. The 2010-2012 archives need historical A1-A6 mapping. Keep `answerVerificationStatus` separate from paper authenticity and keep unverified/unknown answers out of scored practice. Do not add an `examRule` until the exact session/paper's official pattern is checked. Rationale: avoid false coverage claims or treating third-party material as official content.
+
+## ADR-008 — Keep verified and provisional practice pools separate
+Status: accepted (2026-10-29).
+
+The verified pool continues to require verified question content and answer keys. When a selected scope has no verified-eligible questions, the app may offer a visibly labelled provisional pool for structurally safe third-party candidates (single-choice, 2+ options, one source key, no duplicate normalized option text). Provisional feedback is explicitly tied to the unverified source key, candidate metadata remains `unverified`, and no official score or paper-specific rule is invented. This restores question practice while preserving an honest verification boundary; source review is still required before promotion to verified practice.

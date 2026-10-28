@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 import { freshDb } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
 import { validateQuestionPack } from "../src/services/questionPackValidator.mjs";
-import { eligibleQuestionIds } from "../src/repositories/content.ts";
+import { countReviewCandidates, eligibleQuestionIds, practiceQuestionIds } from "../src/repositories/content.ts";
 
 type Pack = {
   schemaVersion: number;
@@ -30,7 +30,7 @@ const loadPacks = (): Pack[] => packFiles.map((name) =>
   JSON.parse(readFileSync(resolve(packDir, name), "utf8")) as Pack
 );
 
-test("RU C Unit Science packs import losslessly as unverified content, with local figures and no scored eligibility", async () => {
+test("RU C Unit Science packs remain unverified, while provisional mode can select safe candidates and hides duplicate-option items", async () => {
   assert.equal(packFiles.length, 44, "all 44 curated RU C pack files should be bundled");
   const packs = loadPacks();
   const allQuestionIds = new Set<string>();
@@ -125,7 +125,12 @@ test("RU C Unit Science packs import losslessly as unverified content, with loca
   assert.equal(totals?.contentStatusesOtherThanUnverified, 0);
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM institutions WHERE code = 'RU'"))?.n, 1);
   assert.equal((await eligibleQuestionIds(db, { category: "varsity" })).length, 0,
-    "unverified candidate answers must never enter scored Flash/Exam pools");
+    "unverified questions are never in the verified-only pool");
+  const reviewCount = await countReviewCandidates(db, { institutionId: "ru" });
+  assert.ok(reviewCount >= 3980 && reviewCount < 4009,
+    "review mode should allow structurally safe candidates while withholding duplicate-option items");
+  assert.equal((await practiceQuestionIds(db, { institutionId: "ru" }, true)).length, reviewCount,
+    "provisional practice must be a separate explicit pool and exclude structurally ambiguous options");
 
   const importedAssets = await db.getAllAsync<{ asset_paths: string }>(
     "SELECT asset_paths FROM questions WHERE asset_paths IS NOT NULL"

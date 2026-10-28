@@ -4,7 +4,7 @@ import { freshDb, openMemoryDb, syntheticPack } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
 import { migrate, MIGRATIONS, LATEST_VERSION } from "../src/db/schema.ts";
 import {
-  contentTotals, countEligible, countQuestionsBySubject, eligibleQuestionIds, listBatches, listInstitutions, listPaperQuestionIds, listPapers, loadQuestions, resolveRuleForQuestions
+  contentTotals, countEligible, countReviewCandidates, countQuestionsBySubject, eligibleQuestionIds, practiceQuestionIds, listBatches, listInstitutions, listPaperQuestionIds, listPapers, loadQuestions, resolveRuleForQuestions
 } from "../src/repositories/content.ts";
 import { getSession, getSessionAnswers, listHistory, closeStaleFlash, getActiveExam, abandonSession } from "../src/repositories/sessions.ts";
 import { activitySummary, bookmarkedIds, getProfile, toggleBookmark, updateProfile } from "../src/repositories/userData.ts";
@@ -93,6 +93,9 @@ test("content: institutions/papers/questions are data-driven; ineligible questio
   assert.equal((await importQuestionPack(db, pack)).ok, true);
   assert.deepEqual((await eligibleQuestionIds(db, { category: "varsity" })).sort(), ["q-syn-1", "q-syn-2"]);
   assert.equal(await countEligible(db, { institutionId: "inst-syn" }), 2);
+  assert.equal(await countReviewCandidates(db, { institutionId: "inst-syn" }), 1);
+  assert.deepEqual((await practiceQuestionIds(db, { institutionId: "inst-syn" }, true)).sort(), ["q-syn-1", "q-syn-2", "q-syn-3"]);
+  assert.deepEqual(await practiceQuestionIds(db, { institutionId: "inst-syn" }), ["q-syn-1", "q-syn-2"]);
   assert.equal(await countEligible(db, { category: "medical" }), 0);
   const [inst] = await listInstitutions(db, "varsity");
   assert.deepEqual([inst.code, inst.paperCount, inst.questionCount, inst.eligibleCount], ["SYN", 1, 4, 2]);
@@ -127,6 +130,71 @@ test("standard exam: refuses to start below 100 eligible questions and creates n
   assert.equal(r.ok, false);
   if (!r.ok) assert.deepEqual([r.eligibility.available, r.eligibility.shortfall], [99, 1]);
   assert.equal(await count(db, "practice_sessions"), 0);
+});
+
+
+test("Flash: explicit provisional mode practices unverified single-choice source keys without verifying the data", async () => {
+  const db = await freshDb();
+  const pack = syntheticPack({}, 2);
+  pack.examRules = [];
+  for (const q of pack.questions) {
+    q.answerVerificationStatus = "unverified";
+    q.contentVerificationStatus = "unverified";
+  }
+  assert.equal((await importQuestionPack(db, pack)).ok, true);
+  assert.equal(await FlashController.start(db, { institutionId: "inst-syn" }, 30, { now: 1, clock: () => 1 }), null,
+    "verified-only practice remains closed by default");
+
+  let now = 10_000;
+  const c = (await FlashController.start(db, { institutionId: "inst-syn" }, 30, {
+    now, clock: () => now, rng: mulberry32(42), includeReviewCandidates: true
+  }))!;
+  assert.equal(c.reviewUnverified, true);
+  assert.equal(c.poolSize, 2);
+  assert.equal(c.question!.answerStatus, "unverified");
+  assert.equal((await getSession(db, c.sessionId))!.filter.reviewUnverified, true);
+  const result = await c.answer(c.state.position, ["b"], now + 1000);
+  assert.equal(result.feedback!.record.outcome, "correct");
+  await c.next();
+  const summary = await c.finish(now + 2000);
+  assert.equal(summary.provisional, true);
+  assert.equal(summary.summary.correct, 1);
+  assert.equal(summary.score, null, "no official RU marking rule is invented");
+  const finishedSession = (await getSession(db, c.sessionId))!;
+  assert.equal(finishedSession.filter.reviewUnverified, true);
+  assert.equal(JSON.parse(finishedSession.resultJson!).provisional, true, "saved Flash result must retain the warning state for Result screen");
+  assert.equal((await loadQuestions(db, ["q-syn-1", "q-syn-2"])).every((q) => q.answerStatus === "unverified" && q.contentStatus === "unverified"), true);
+});
+
+test("Standard Exam: explicit provisional mode can run 100 unverified single-choice candidates without inventing a rule", async () => {
+  const db = await freshDb();
+  const pack = syntheticPack({}, 100);
+  pack.examRules = [];
+  for (const q of pack.questions) {
+    q.answerVerificationStatus = "unverified";
+    q.contentVerificationStatus = "unverified";
+  }
+  assert.equal((await importQuestionPack(db, pack)).ok, true);
+  const filter = { institutionId: "inst-syn" };
+  assert.equal((await startStandardExam(db, filter, 1000, mulberry32(5))).ok, false,
+    "strict Standard Exam continues to require verified keys");
+
+  const started = await startStandardExam(db, filter, 1000, mulberry32(5), { includeUnverified: true });
+  assert.equal(started.ok, true);
+  if (!started.ok) return;
+  const session = (await getSession(db, started.sessionId))!;
+  assert.equal(session.filter.reviewUnverified, true);
+  assert.equal(session.ruleStatus, "unconfigured");
+  const loaded = (await loadExam(db, started.sessionId))!;
+  assert.equal(loaded.questions.length, 100);
+  assert.equal(await persistSelection(db, started.sessionId, loaded.questions[0]!.id, ["b"], 2000), true);
+  const result = await finalizeStandardExam(db, started.sessionId, "submitted", 3000);
+  assert.equal(result?.correct, 1);
+  assert.equal(result?.incorrect, 0);
+  assert.equal(result?.unanswered, 99);
+  assert.equal(result?.ruleStatus, "unconfigured");
+  assert.equal((await getSession(db, started.sessionId))!.filter.reviewUnverified, true);
+  assert.equal((await loadQuestions(db, [loaded.questions[0]!.id]))[0]!.answerStatus, "unverified");
 });
 
 test("standard exam: exactly 100 questions, exactly-once finalization, late input refused, fractional negative marking", async () => {

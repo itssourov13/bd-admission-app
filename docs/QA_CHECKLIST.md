@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. RU C Unit candidate import, asset map, and current pack index are included; Android device/release checks remain outstanding.
+Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The follow-up provisional Flash/Standard path is included; original RU question/answer verification, Android device QA and native release build remain outstanding.
 
 ## Automated checks
 
@@ -8,9 +8,9 @@ Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, works
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | `pnpm test`: **55 passed, 0 failed**; includes a new RU C import integration test for all 4,009 candidates, unverified statuses, asset references, zero scoring eligibility and idempotent re-import. |
+| Automated tests | [x] Pass | `pnpm test`: **57 passed, 0 failed** under Node 22.23.1. Includes provisional Flash and 100-question Standard Exam integration tests, exact candidate filtering and preserved unverified status. |
 | Real pack validation/index | [x] Pass | All 46 bundled JSON packs validate with 0 errors; `pnpm packs:index` indexes 46 packs (4,189 total questions). 4,023 RU candidate warnings remain for unverified keys and duplicate-option cases. |
-| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and 0 eligible; re-import is idempotent. |
+| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. Verified-eligible RU pool: 0; separate provisional pool: 3,991; 18 items with duplicate normalized option text excluded from that pool. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
@@ -29,7 +29,7 @@ These areas have automated coverage in the passing test suite:
 - [x] Invalid paper/option references and malformed verified-answer references are rejected by validation.
 - [x] A failed/invalid import does not leave partial writes; mid-import errors roll back.
 - [x] Multiple paper appearances are preserved, and similar wording is not used alone to merge questions.
-- [x] Answer/scoring verification state is retained; questions without verified answers are excluded from eligible practice pools.
+- [x] Answer/scoring verification state is retained; questions without verified answer/content stay out of the verified pool. A separate provisional pool is labelled, source-key-based and structurally filtered rather than promoting answers to verified.
 - [x] User answers, bookmarks and attempts survive content updates/re-imports.
 - [x] Database migrations are idempotent and failure paths retain the prior version.
 - [x] Validate and import the two supplied real-source packs through the SQLite importer; check total counts, subject counts, Bangla Unicode, source/page/question-number field ranges, answer-key status and idempotent re-import in automated tests.
@@ -49,7 +49,7 @@ These areas have automated coverage in the passing test suite:
 
 These rules have passing automated service tests; device-level interaction is still unverified:
 
-- [x] General all-catalogue Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available; selected-paper exams use the configured paper count/duration where available.
+- [x] General Standard Exam requires 100 questions from the active pool; pool may be verified-only or, only when no verified pool exists, the explicitly warned provisional candidate pool. Selected-paper exams use configured paper count/duration where available.
 - [x] Unit-test paper-specific question count, duration and four-of-six subject selection for a 60-question/45-minute DU pattern; confirm in tests that incomplete sections are refused and no partial exam session is created.
 - [x] Official DU 2025–2026 pattern cross-checked: notice specifies 60 MCQ marks + 40 written marks, 45 minutes each; publisher MCQ-only pattern is intentionally retained as illustrative question-bank practice.
 - [ ] Add and test further 80/100-question patterns when corresponding real paper packs with primary-source rules are added.
@@ -91,14 +91,14 @@ Do not describe the app as release-ready until a compatible Android build is ins
 | Lokkho source capture | [x] Pass | 44 source variants fully paginated; extracted record count matches source-reported count for 44/44. Total 4,185 source records. |
 | External question-pack schema validation | [x] Pass | 44/44 curated schema-v1 pack files pass with zero schema errors. 4,009 core-subject records staged; 158 other-subject labels held for review; 18 records with no usable options excluded/logged. There are 4,023 validator warnings for unverified keys and 14 exact duplicate-option records. |
 | Media assets and path references | [x] Packaged; visual QA pending | 45 local PNGs are included in the app asset map; all 46 references resolve. `QuestionCard` renders question-level figures; verify visual sizing/readability on Android. |
-| Candidate answer/content review | [ ] Not verified | All 4,009 curated questions and keys remain unverified; zero answer keys were independently checked against an official RU key. The 158 held records need historical subject-scope review. These packs must not be used for scored practice. |
+| Candidate answer/content review | [ ] Not verified | All 4,009 curated question texts and keys remain unverified; zero answer keys were independently checked against an official RU key. A provisional mode is available against third-party candidate keys, with an explicit warning; it is not verified/official scoring. The 158 held records need historical subject-scope review. |
 | App automated tests | [x] Pass | `pnpm test`: 54 passed, 0 failed. |
 | TypeScript | [x] Pass | `pnpm typecheck` exited successfully. |
 | ESLint | [x] Pass | `pnpm lint` exited successfully. |
 | Expo Doctor latest rerun | [ ] Environment/network blocked | The 2026-10-29 run reached Expo Doctor but failed when an Expo API fetch ended with `SocketError: other side closed` / “Could not fetch bundled native modules.” This is a network-dependent check failure, not evidence of an application-code defect. The prior 2026-10-28 21/21 check pass remains unchanged above. |
-| App import or pack-index update | [x] Imported for browse/review | 44 RU C Unit candidate packs (4,009 questions) and 45 local PNGs are bundled. All candidate content/answers remain unverified; 0 are practice-eligible and no RU exam rules were added. |
+| App import or pack-index update | [x] Imported; provisional mode implemented | 44 RU C packs (4,009 questions) and 45 local PNGs are bundled. All candidate content/answers remain unverified; verified-eligible count is 0, a separate 3,991-item provisional pool is available, 18 items with duplicate normalized option text are withheld, and no RU exam rules were added. |
 
-The 44 packs are **schema-imported, not content/key verified**. Before allowing scored practice, reconcile each variant with its matching original paper, review the 14 duplicate-option cases, independently verify answer keys, and perform Android visual QA for the local images. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.
+The 44 packs are **schema-imported, not content/key verified**. The provisional pool supports practice against third-party keys, but its feedback/results may be wrong and are not official or verified scores. Before promoting any candidate into the verified pool, reconcile each variant with its matching original paper, review duplicate-option cases, independently verify answer keys, and perform Android visual QA for the local images. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.
 
 
 ## Pre-import local verification — 2026-10-29
@@ -136,3 +136,12 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [x] 166/166 protected external source/candidate/asset/PDF files were byte-size and SHA-256 identical after import.
 - [ ] Confirm question/option transcription and every candidate answer against matching original papers/answer keys; this import did not verify them.
 - [ ] Exercise figures and long Bangla/formula layout on Android; create and test a native release build. No APK/AAB or physical-device result is claimed.
+
+## RU C provisional Flash/Standard mode — 2026-10-29
+
+- [x] Reproduced the issue: all RU C candidates were correctly absent from the verified-only pool, but both setup screens offered no alternative.
+- [x] Added a separate provisional candidate pool. Only single-choice records with 2+ options, exactly one source key and no duplicate normalized option text are included. Counts confirmed against all bundled RU packs in an isolated SQLite import: 4,009 total, 3,991 provisional candidates, 18 withheld, 0 verified-eligible.
+- [x] Flash test: starts from an unverified-only bank when enabled, displays/records source-key comparison, retains provisional session metadata and does not invent a score without an RU marking rule. Standard test: runs 100 candidate questions, grades the selected answer provisionally and retains unverified key status.
+- [x] Latest suite: 57/57 tests passed; Node 22.23.1 `pnpm typecheck` and `pnpm lint` passed; `git diff --check` passed.
+- [ ] Real Expo Go device testing of university navigation, both modes, question images, selection/timeout/results and Android offline behavior. The current Metro Android development bundle compiled successfully (HTTP 200, 2,042 modules); repeat the separate no-bytecode export and obtain a native release build on a compatible host.
+- [ ] Source-paper transcription and all answer-key verification remain outstanding. No official RU scoring rule or final verified status is claimed; APK/AAB release remains outstanding.

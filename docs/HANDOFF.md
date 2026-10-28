@@ -22,12 +22,12 @@ The app foundation and two source-derived DU A Unit question-bank packs are bund
 
 ## Boundaries
 - Do not invent questions, answers, years, sources or scoring rules.
-- Only verified-answer, single-choice questions with 2+ options feed Flash/Exam.
+- By default, only verified-content/answer, single-choice questions with 2+ options feed the verified Flash/Exam pool. RU C has a separate provisional path: it is available with a prominent warning only when no verified pool is available in the selected scope, and it scores against a third-party candidate key. Never call those keys or results verified/official.
 - Illustrative/unconfigured rules must never be presented as official.
 
 ## RU Unit A research checkpoint
 
-Read `/home/kali/gpt-workspace/bd-admission-app-data/ru/README.md`, `RESEARCH_REPORT.md` and `A_UNIT_YEAR_COVERAGE.csv`. Scope is RU Unit A only. Eight external review-only JSON packs contain 21 questions. The year ledger covers 2010-2011 to 2026-2027, but complete transcription is not finished. Twelve linked PDFs for 2012-2013 to 2023-2024 were located but the direct downloads are restricted; two 2025-2026 Group 1/2 scanned PDFs are archived in `sources/2025-2026/`. 2010-2012 combined sources need historical A1-A6 mapping. No RU Unit A questions are bundled in the app; the separate RU C Unit Science candidates are bundled for browse/review only.
+Read `/home/kali/gpt-workspace/bd-admission-app-data/ru/README.md`, `RESEARCH_REPORT.md` and `A_UNIT_YEAR_COVERAGE.csv`. Scope is RU Unit A only. Eight external review-only JSON packs contain 21 questions. The year ledger covers 2010-2011 to 2026-2027, but complete transcription is not finished. Twelve linked PDFs for 2012-2013 to 2023-2024 were located but the direct downloads are restricted; two 2025-2026 Group 1/2 scanned PDFs are archived in `sources/2025-2026/`. 2010-2012 combined sources need historical A1-A6 mapping. No RU Unit A questions are bundled in the app; the separate RU C Unit Science candidates are bundled and available in a clearly labelled provisional practice mode where the selected scope has no verified-eligible questions.
 
 Next: acquire/verify each source paper, preserve group/shift/set variants, transcribe every option and source/page reference, and independently review every answer. Only then copy approved full-year/paper packs into `data/question-packs/`, validate, regenerate the index and run importer tests. Do not claim coverage complete until counts and answer states have been compared against original papers.
 
@@ -57,6 +57,12 @@ Audit output folder: `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-
 
 The app now bundles 44 RU C Unit Science candidate packs containing **4,009 questions** from sessions 2010–2011 through 2025–2026, plus the two DU A packs. There are 45 local PNG figures and 46 resolved asset references. The app index contains 46 JSON packs and 4,189 total questions. Local figures are rendered by QuestionCard via the generated static map in `src/content/questionAssets.ts`; regenerate it with `pnpm question-assets:index` after changing image files, then run `pnpm packs:index` after changing JSON packs.
 
-**Browse/review only:** every imported RU question still has unverified answer and content status; no RU exam rules were added; the candidate set contributes zero scored-practice-eligible questions. Do not promote third-party answer keys based solely on the source bank. Review original-paper provenance, all options/formulae/figures, duplicate options, and keys before allowing scored practice.
+**Verification boundary:** every imported RU question still has unverified answer and content status; no RU exam rules were added. The verified-only pool remains zero. The app now has a distinct provisional mode for 3,991 structurally safe candidates; the 18 records with duplicate normalized option text are withheld from provisional scoring. Answer feedback and accuracy use the third-party source key, may be wrong, and must not be presented as verified or official scoring. Review original-paper provenance, options/formulae/figures, duplicate options and answer keys before promoting any content to verified status.
 
-Latest verification: `pnpm test` 55/55, typecheck pass, lint pass, all 46 pack JSON files validate with zero schema errors, and `pnpm exec expo export --platform android --no-bytecode` succeeds. The export is not a release APK/AAB. Physical Android QA and the host's known Hermes `SIGILL` release-build issue remain open. No push was performed.
+Latest import verification: all 46 pack JSON files validate with zero schema errors. The provisional-mode fix passes `pnpm test` 57/57, typecheck, lint and diff-check on Node 22.23.1. Metro also compiled the current Android development bundle successfully (HTTP 200, 2,042 modules); this is not a release export or APK/AAB. Physical Android QA and the host's known Hermes `SIGILL` release-build issue remain open. No push was performed.
+
+## Latest practice usability fix — 2026-10-29
+
+The previously imported RU C candidates were hidden from both practice modes by the verified-only eligibility query. That gate remains unchanged for normal practice; a separate provisional candidate pool and prominent UI warnings now enable practice where no verified pool exists. Candidate criteria: single-choice, at least two options, exactly one source-key key, no duplicate normalized option text. Current RU pool: 3,991 provisional, 18 withheld, 0 verified. All 4,009 keep their `unverified` states; the app does not configure an official RU scoring rule. Result feedback is explicitly provisional.
+
+Latest tests: 57/57, TypeScript and ESLint pass under Node 22.23.1. Still required: verify original-paper/transcription/answer keys, exercise the actual Android app (including figures and Flash/Standard flows), run a compatible bundle/native release build, and only then release the APK/AAB. Do not push from automation.

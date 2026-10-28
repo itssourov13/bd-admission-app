@@ -10,7 +10,7 @@ import { useDb } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { countEligible, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
+import { countEligible, countReviewCandidates, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
 import { checkExamEligibility, STANDARD_EXAM_QUESTIONS, STANDARD_EXAM_SECONDS } from "@/services/exam";
 import { startStandardExam } from "@/services/practiceService";
@@ -34,20 +34,25 @@ export default function ExamSetup() {
 
   const q = useQuery(async (d) => {
     const paperPattern = effective.paperId ? await getPaperRule(d, effective.paperId) : null;
-    const rule = paperPattern ?? await scopeRule(d, effective);
+    const verifiedCount = await countEligible(d, effective);
+    const reviewCount = await countReviewCandidates(d, effective);
+    const reviewMode = verifiedCount === 0 && reviewCount > 0;
+    const countQuestions = reviewMode ? countReviewCandidates : countEligible;
+    const rule = paperPattern ?? await scopeRule(d, effective, reviewMode);
     const selectionConfig = paperPattern?.selectionConfig ?? null;
     const subjectCounts = selectionConfig
       ? await Promise.all(orderSubjects(selectionConfig.subjects).map(async (subject) => ({
           subject,
-          count: await countEligible(d, { ...effective, subject })
+          count: await countQuestions(d, { ...effective, subject })
         })))
       : [];
     const selectedReady = !selectionConfig || selectedSubjects.length === selectionConfig.subjectCount;
     const n = selectionConfig
-      ? selectedReady ? await countEligible(d, { ...effective, subjects: selectedSubjects }) : 0
-      : await countEligible(d, effective);
+      ? selectedReady ? await countQuestions(d, { ...effective, subjects: selectedSubjects }) : 0
+      : reviewMode ? reviewCount : verifiedCount;
     return {
       n,
+      reviewMode,
       rule,
       selectionConfig,
       subjectCounts,
@@ -61,7 +66,7 @@ export default function ExamSetup() {
     setBusy(true);
     try {
       const examFilter = q.data?.selectionConfig ? { ...effective, subjects: selectedSubjects } : effective;
-      const result = await startStandardExam(db, examFilter);
+      const result = await startStandardExam(db, examFilter, Date.now(), undefined, { includeUnverified: q.data?.reviewMode === true });
       if (result.ok) {
         router.replace(href(`/exam/${result.sessionId}`));
       } else {
@@ -110,6 +115,7 @@ export default function ExamSetup() {
         return (
           <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28 }}>
             <Txt className="text-ink-500 text-sm leading-6">{t("exam.setupMeta", { questions: num(required), minutes: num(Math.ceil(duration / 60)) })}</Txt>
+            {d.reviewMode ? <Card className="p-3.5 mt-3"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
             {d.active ? (
               <Card className="p-4 mt-4">
                 <Txt weight="bold" className="text-ink-900">{t("exam.resumeTitle")}</Txt>
