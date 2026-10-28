@@ -40,3 +40,12 @@ Validation from `scripts/validate-question-pack.mjs`: 44/44 curated packs pass w
 The separate 265-page third-party scan indexes 14 variants from 2017-2018 to 2024-2025; full-page and column OCR cover 84 indexed question/key pages, but remain unverified and unmerged. Pages 205-265 are not classified and some historical PDF links are inaccessible. The current app `QuestionCard` does not display `assetPaths`; image-dependent items are not UI-ready without renderer support and visual review.
 
 **No RU C Unit Science pack has been copied into app `data/question-packs/` or bundled in `src/content/bundledPacks.ts`.** Do not score or advertise these candidates as verified practice content. Read external `import-ready/README.md`, `research/IMPORT_READINESS.md`, `research/LOKKHO_QUESTION_AUDIT.csv` and this repo's `docs/QUESTION_IMPORT_WORKFLOW.md` before any future import.
+
+
+## Fresh repository/status audit — 2026-10-29
+
+- App repository is on `main` with a clean working tree and is **3 local commits ahead of `origin/main`** (`7c928da`, `b1be405`, `de9e409`). Nothing was pushed during this audit.
+- Fresh local checks passed: `pnpm test` (54/54), `pnpm typecheck`, `pnpm lint`, `git diff --check`, and validation of both bundled DU A Unit packs (each 0 errors / 0 warnings). The generated bundle index references those two DU packs only.
+- Current bundled content remains DU A Unit 2024–2025 and 2025–2026, 90 questions each. **No RU Unit A or RU C Unit content is bundled.**
+- RU C Unit Science external staging remains 44 schema-valid candidate packs / 4,009 questions. All question text and answer keys remain unverified; 158 non-core subject-label records require historical/session review; 18 no-option records are separately logged; 14 duplicate-option cases need review. The app renderer still does not display the staged `assetPaths`.
+- Release gates remain: source-by-source question and option review, answer-key verification, C Unit scope/duplicate/media review, approved-pack import only after those checks, real Android device QA, and a proper native release build. Expo Doctor was not re-run in this audit; the previously recorded latest attempt was blocked by an Expo API network fetch error.

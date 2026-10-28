@@ -84,3 +84,10 @@
 - Preserved 4,167 usable-option records in external source capture; curated 44 schema-v1 Science-core candidate packs with 4,009 records, held 158 other-subject labels for session review, and logged 18 no-option rows. Downloaded 45 local images/SVGs and verified all 46 curated asset references.
 - Validated every pack: 44/44 pass, zero schema errors. All retained content and third-party candidate answer keys remain explicitly unverified; 14 records have exact duplicate option text and remain flagged.
 - Updated RU C coverage/import readiness docs and review ledgers. No RU C Unit records were copied into app packs or `src/content/bundledPacks.ts`; answer verification, original-paper comparison and local asset rendering remain release blockers.
+
+
+## 2026-10-29 — Status audit and fresh automated checks
+- Rechecked current Git state: clean `main` working tree, three commits ahead of `origin/main`; no push performed.
+- Re-ran 54 automated tests, typecheck, lint, diff check, and validators for both bundled DU A packs; all passed, with zero pack-validator errors/warnings.
+- Confirmed the bundle still includes only the two DU A Unit packs; RU Unit A and RU C Unit data remain external and unbundled.
+- Updated the current-state, task-state, handoff and QA documents with remaining content-verification, image-rendering, Android-device and release-build gates.

@@ -44,3 +44,12 @@
 - [ ] Add local image/diagram support to the app renderer and visually verify image-dependent questions before marking them content verified.
 - [ ] Obtain/review missing or restricted original paper sources, classify pages 205-265 of the compilation, and reconcile scan variants with the web-bank variants without merging distinct group/shift/set variants.
 - [ ] Only after content/key review, copy approved packs and assets into `data/question-packs/`, run `pnpm packs:index`, and verify transactional import. No RU C Unit data is currently in the app bundle.
+
+
+## Fresh progress audit — 2026-10-29
+- [x] Rechecked repository status: `main` working tree clean; three local commits ahead of `origin/main`; no push performed.
+- [x] Re-ran `pnpm test` (54 pass / 0 fail), `pnpm typecheck`, `pnpm lint`, `git diff --check`, and validators for both bundled DU packs (0 errors / 0 warnings each).
+- [x] Reconciled the actual bundle against staged research: only the two DU A Unit packs are indexed. RU Unit A and RU C Unit remain external research/staging only.
+- [ ] Highest-priority content gate: verify the RU C candidate questions/options against matching source papers, resolve 14 duplicate-option cases and 158 held subject labels, and independently verify answer keys before scored use.
+- [ ] Implement and visually verify local question-image rendering before using image-dependent RU content.
+- [ ] Complete real-device QA, use a compatible SDK 57 Expo Go/development build, and produce a native release build on a host where the local `hermesc` SIGILL does not block the build.

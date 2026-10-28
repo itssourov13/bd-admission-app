@@ -99,3 +99,15 @@ Do not describe the app as release-ready until a compatible Android build is ins
 | App import or pack-index update | [ ] Not performed | RU C data remains in the external staging directory. `src/content/bundledPacks.ts` and app `data/question-packs/` were not changed by this research task. |
 
 The 44 packs are **schema-staged, not content/key verified**. Before app import, reconcile each variant with its matching original paper, review the 14 duplicate-option cases, verify answer keys, add/test image rendering, and check counts/exclusions. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.
+
+
+## Fresh local verification — 2026-10-29
+
+- [x] `pnpm test` — 54 passed, 0 failed.
+- [x] `pnpm typecheck` — passed.
+- [x] `pnpm lint` — passed.
+- [x] `git diff --check` — passed.
+- [x] `pnpm packs:validate data/question-packs/du-a-2024-2025.json` — PASS, 0 errors / 0 warnings.
+- [x] `pnpm packs:validate data/question-packs/du-a-2025-2026.json` — PASS, 0 errors / 0 warnings.
+- [x] Confirmed `src/content/bundledPacks.ts` indexes only the two DU A Unit packs. No RU pack was imported or indexed.
+- [ ] Do not interpret these automated checks as device/release QA: physical Android behavior and a native release artifact remain unverified. RU C content/key validation remains outstanding despite schema validation passing.
