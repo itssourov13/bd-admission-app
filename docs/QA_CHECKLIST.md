@@ -83,3 +83,19 @@ Do not describe the app as release-ready until a compatible Android build is ins
 - [x] Validated the eight remaining packs with Node 22.23.1; no schema errors, with expected warnings for third-party answer keys explicitly left unverified.
 - [x] Confirmed staging is outside `data/question-packs/`; no RU pack index was generated and no RU data was imported or bundled.
 - [ ] Inspect 2010-2012 historical A1-A6 sources, obtain/page-audit accessible source papers and independently check answers before claiming year completeness.
+
+## RU C Unit Science staging verification — 2026-10-29
+
+| Check | Result | Notes |
+|---|---|---|
+| Lokkho source capture | [x] Pass | 44 source variants fully paginated; extracted record count matches source-reported count for 44/44. Total 4,185 source records. |
+| External question-pack schema validation | [x] Pass | 44/44 curated schema-v1 pack files pass with zero schema errors. 4,009 core-subject records staged; 158 other-subject labels held for review; 18 records with no usable options excluded/logged. There are 4,023 validator warnings for unverified keys and 14 exact duplicate-option records. |
+| Media assets and path references | [x] Pass | 45 assets (2,356,641 bytes); all 46 asset references exist and local file hashes are recorded. Current app renderer does not display `assetPaths`, so visual/use readiness is still blocked. |
+| Candidate answer/content review | [ ] Not verified | All 4,009 curated questions and keys remain unverified; zero answer keys were independently checked against an official RU key. The 158 held records need historical subject-scope review. These packs must not be used for scored practice. |
+| App automated tests | [x] Pass | `pnpm test`: 54 passed, 0 failed. |
+| TypeScript | [x] Pass | `pnpm typecheck` exited successfully. |
+| ESLint | [x] Pass | `pnpm lint` exited successfully. |
+| Expo Doctor latest rerun | [ ] Environment/network blocked | The 2026-10-29 run reached Expo Doctor but failed when an Expo API fetch ended with `SocketError: other side closed` / “Could not fetch bundled native modules.” This is a network-dependent check failure, not evidence of an application-code defect. The prior 2026-10-28 21/21 check pass remains unchanged above. |
+| App import or pack-index update | [ ] Not performed | RU C data remains in the external staging directory. `src/content/bundledPacks.ts` and app `data/question-packs/` were not changed by this research task. |
+
+The 44 packs are **schema-staged, not content/key verified**. Before app import, reconcile each variant with its matching original paper, review the 14 duplicate-option cases, verify answer keys, add/test image rendering, and check counts/exclusions. See `docs/QUESTION_IMPORT_WORKFLOW.md` and external `research/IMPORT_READINESS.md`.

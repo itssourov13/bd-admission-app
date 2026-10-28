@@ -30,3 +30,17 @@
 - [ ] Inspect 2010-2011/2011-2012 combined archive and map historical A1-A6 labels to the requested scope.
 - [ ] Transcribe every question/option and source page for each accessible A Unit year; independently review answers and compare counts with the original paper.
 - [ ] After approval only, copy a complete reviewed year/paper pack to `data/question-packs/`, regenerate the index and run import checks. No RU pack is bundled yet.
+
+
+## RU C Unit Science Group source collection (2026-10-29)
+- [x] Created an isolated source workspace at `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-unit-c/` with source/year ledger, scan hashes, source audit and import-readiness documentation.
+- [x] Captured 44 paginated third-party Lokkho C Unit Science source variants for sessions 2010-2011 through 2025-2026; 4,185 records extracted and source-reported counts matched for 44/44 variants.
+- [x] Created 44 full source-capture packs with 4,167 usable-option records; curated 44 Science-core schema-v1 candidates with 4,009 Physics/Chemistry/ICT/Biology/Higher Mathematics records in external `import-ready/lokkho/`. Held 158 other-subject-label records for historical review and logged 18 no-option records as excluded. No option or answer was fabricated.
+- [x] Downloaded 45 image/SVG assets (2,356,641 bytes), recorded source/local SHA-256 metadata, and verified all 46 asset references resolve.
+- [x] Ran the app pack validator against every external pack: 44/44 pass, 0 schema errors. Warnings correctly remain for unverified answers and 14 exact duplicate-option records.
+- [x] Completed full-page and left/right-column machine OCR for all 84 indexed question/key pages in the separate third-party scan; OCR is preserved as unverified research aid only.
+- [ ] Independently compare each question and every option with a matching original paper/reliable transcription; resolve 14 duplicate-option flags and question/source authenticity.
+- [ ] Independently verify all 4,009 curated candidate answer keys from a reliable or official matching-session key; until then, every retained answer remains `unverified` and none can be used for scored practice.
+- [ ] Add local image/diagram support to the app renderer and visually verify image-dependent questions before marking them content verified.
+- [ ] Obtain/review missing or restricted original paper sources, classify pages 205-265 of the compilation, and reconcile scan variants with the web-bank variants without merging distinct group/shift/set variants.
+- [ ] Only after content/key review, copy approved packs and assets into `data/question-packs/`, run `pnpm packs:index`, and verify transactional import. No RU C Unit data is currently in the app bundle.

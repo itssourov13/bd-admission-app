@@ -109,3 +109,8 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 ## RU Unit A research (staged only)
 
 The research folder `/home/kali/gpt-workspace/bd-admission-app-data/ru/` is now scoped to **RU Unit A only**. It contains a source/coverage register for 2010-2011 through the latest completed 2025-2026 session and eight review-only sample packs (21 questions). This is not a complete 15/16-year transcription: the the 2012-2013 to 2023-2024 Drive PDFs remain download-restricted/unreviewed; two 2025-2026 Group 1/2 scans are archived, but not fully transcribed. Read `A_UNIT_YEAR_COVERAGE.csv`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`. Nothing is bundled; do not run `pnpm packs:index` until a complete pack has been reviewed and deliberately copied into `data/question-packs/`.
+
+
+## RU C Unit Science Group status (2026-10-29)
+
+A separate external source workspace is at `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-unit-c/`. It now has 44 full source-capture variants (4,167 usable-option records from 4,185 source records) and 44 curated Science-core packs (4,009 Physics/Chemistry/ICT/Biology/Higher Mathematics records). Another 158 subject-label exceptions are held for review and 18 no-option rows are logged as excluded. The curated packs pass schema validation, but all answer/content states remain unverified, 14 records have duplicate option text, and the app renderer does not display `assetPaths`. The scanned compilation's 14 variants and OCR remain unverified and are not merged. No RU C Unit pack is in the app bundle. Review `docs/CURRENT_STATE.md` and `docs/QUESTION_IMPORT_WORKFLOW.md`; do not advertise this batch as a verified or scored question bank.

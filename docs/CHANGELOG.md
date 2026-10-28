@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-29 — RU C Unit Science source collection checkpoint
+- Added a dedicated external research workspace for RU C Unit Science Group, including a SHA-256-tracked 265-page third-party scan and page ranges for 14 distinct paper/set variants (2017-2018 through 2024-2025).
+- Collected 20 partial public-page snapshots (300 questions) and validated their JSON structure; none is a complete paper and no answer key was independently verified.
+- Completed full-page machine OCR over 84 indexed question/key pages and added source/coverage manifests, answer audit trackers, restricted-download leads, and an explicit import readiness report. OCR remains unverified and is not bundled.
+- Documented the initial scan/source-discovery checkpoint, missing/restricted years, optional Biology/Mathematics paths and the no-app-import gate. The separate scanned-PDF OCR and partial SattAcademy samples remain review-only; later in this changelog, the external `import-ready/lokkho/` folder is populated with the full paginated third-party source capture. No RU C Unit Science content was copied into the app packs or bundled.
+
+
 ## 2026-10-29 — RU Unit A source census and review samples
 - Narrowed RU research scope to Unit A only and removed B/C sample packs from external staging.
 - Created a year-by-year ledger for 2010-2011 through 2026-2027 and located twelve third-party session-specific PDF links for 2012-2013 through 2023-2024 plus recent group/shift sources.
@@ -71,3 +78,9 @@
 ## 2026-10-28 — Document device QA blocker
 - Recorded the observed Expo Go SDK mismatch and the exact recovery path: install the SDK 57 Android Expo Go build from https://expo.dev/go or use a dedicated development build.
 - Device QA remains open; a successful no-bytecode JavaScript export is not an APK/AAB or proof of on-device behavior.
+
+## 2026-10-29 — RU C Unit Science full source-bank capture and staging
+- Captured all currently listed paginated Lokkho C Unit Science source variants: 44 variants, 4,185 source records with source-count reconciliation across all variants.
+- Preserved 4,167 usable-option records in external source capture; curated 44 schema-v1 Science-core candidate packs with 4,009 records, held 158 other-subject labels for session review, and logged 18 no-option rows. Downloaded 45 local images/SVGs and verified all 46 curated asset references.
+- Validated every pack: 44/44 pass, zero schema errors. All retained content and third-party candidate answer keys remain explicitly unverified; 14 records have exact duplicate option text and remain flagged.
+- Updated RU C coverage/import readiness docs and review ledgers. No RU C Unit records were copied into app packs or `src/content/bundledPacks.ts`; answer verification, original-paper comparison and local asset rendering remain release blockers.
