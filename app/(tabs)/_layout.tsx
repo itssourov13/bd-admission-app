@@ -20,7 +20,7 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: colors.teal700,
+        tabBarActiveTintColor: colors.brand700,
         tabBarInactiveTintColor: colors.ink500,
         tabBarLabelStyle: {
           fontFamily: lang === "bn" ? "HindSiliguri_500Medium" : "Manrope_500Medium",

@@ -1,17 +1,17 @@
 import { View, type ViewProps } from "react-native";
 import { Txt } from "./Text";
 
-type Tone = "neutral" | "teal" | "coral";
+type Tone = "neutral" | "brand" | "gold";
 
 const toneBg: Record<Tone, string> = {
   neutral: "bg-sand-100",
-  teal: "bg-teal-100",
-  coral: "bg-coral-100",
+  brand: "bg-brand-100",
+  gold: "bg-gold-100",
 };
 const toneFg: Record<Tone, string> = {
   neutral: "text-ink-700",
-  teal: "text-teal-700",
-  coral: "text-coral-700",
+  brand: "text-brand-700",
+  gold: "text-gold-700",
 };
 
 /** Small pill for meta/tags (country, funding, deadline …). */

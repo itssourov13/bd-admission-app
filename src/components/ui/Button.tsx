@@ -3,20 +3,20 @@ import { Pressable, ActivityIndicator, View, type PressableProps } from "react-n
 import { Txt } from "./Text";
 import { colors, shadow } from "@/theme";
 
-type Variant = "primary" | "coral" | "outline" | "ghost";
+type Variant = "primary" | "accent" | "outline" | "ghost";
 type Size = "md" | "lg";
 
 const bg: Record<Variant, string> = {
-  primary: "bg-teal-500",
-  coral: "bg-coral-500",
+  primary: "bg-brand-500",
+  accent: "bg-gold-500",
   outline: "bg-surface border border-sand-300",
   ghost: "bg-transparent",
 };
 const fg: Record<Variant, string> = {
   primary: "text-white",
-  coral: "text-white",
-  outline: "text-teal-700",
-  ghost: "text-teal-700",
+  accent: "text-navy-900",
+  outline: "text-brand-700",
+  ghost: "text-brand-700",
 };
 const pad: Record<Size, string> = { md: "py-3 px-5", lg: "py-4 px-6" };
 
@@ -42,12 +42,12 @@ export function Button({
   style,
   ...props
 }: ButtonProps) {
-  const elevated = variant === "primary" || variant === "coral";
+  const elevated = variant === "primary" || variant === "accent";
   return (
     <Pressable
       accessibilityRole="button"
       disabled={disabled || loading}
-      style={[elevated ? shadow.teal : undefined, style as object]}
+      style={[elevated ? shadow.brand : undefined, style as object]}
       className={[
         "rounded-full flex-row items-center justify-center gap-2 active:opacity-90",
         bg[variant],
@@ -58,7 +58,7 @@ export function Button({
       {...props}
     >
       {loading ? (
-        <ActivityIndicator color={variant === "outline" || variant === "ghost" ? colors.teal700 : colors.white} />
+        <ActivityIndicator color={variant === "outline" || variant === "ghost" ? colors.brand700 : colors.white} />
       ) : (
         <>
           {icon ? <View>{icon}</View> : null}

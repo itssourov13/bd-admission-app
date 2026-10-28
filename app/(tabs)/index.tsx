@@ -1,3 +1,4 @@
+import { BRAND } from "@/brand";
 import { ScrollView, View, Pressable } from "react-native";
 import { useRouter, type Href } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,6 +9,7 @@ import { colors, gradients, shadow } from "@/theme";
 
 export default function HomeScreen() {
   const t = useT();
+  const { lang } = useLang();
   const router = useRouter();
 
   return (
@@ -19,19 +21,19 @@ export default function HomeScreen() {
         <View className="flex-row items-center gap-3 mb-5">
           <Logo size={46} />
           <View className="flex-1">
-            <Txt weight="bold" className="text-ink-900 text-lg">{t("app.name")}</Txt>
-            <Txt className="text-ink-500 text-xs">ভর্তি প্রস্তুতির সঙ্গী</Txt>
+            <Txt weight="bold" className="text-ink-900 text-lg">{BRAND.name}</Txt>
+            <Txt className="text-ink-500 text-xs">{BRAND.tagline[lang]}</Txt>
           </View>
-          <Chip label="OFFLINE FIRST" tone="teal" />
+          <Chip label="OFFLINE FIRST" tone="brand" />
         </View>
 
         <LinearGradient
           colors={gradients.hero}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          style={[shadow.teal, { borderRadius: 24, padding: 22, overflow: "hidden" }]}
+          style={[shadow.brand, { borderRadius: 24, padding: 22, overflow: "hidden" }]}
         >
-          <Txt weight="bold" className="text-teal-200 text-[11px] uppercase" style={{ letterSpacing: 1.1 }}>
+          <Txt weight="bold" className="text-brand-200 text-[11px] uppercase" style={{ letterSpacing: 1.1 }}>
             {t("home.eyebrow")}
           </Txt>
           <Txt font="display" weight="bold" className="text-white text-[26px] leading-[33px] mt-3">
@@ -47,8 +49,8 @@ export default function HomeScreen() {
 
         <Pressable onPress={() => router.push("/(tabs)/varsity" as Href)} className="mb-3">
           <Card className="p-4 flex-row items-center gap-3">
-            <View className="w-12 h-12 rounded-2xl bg-teal-100 items-center justify-center">
-              <Ionicons name="school-outline" size={25} color={colors.teal700} />
+            <View className="w-12 h-12 rounded-2xl bg-brand-100 items-center justify-center">
+              <Ionicons name="school-outline" size={25} color={colors.brand700} />
             </View>
             <View className="flex-1">
               <Txt weight="bold" className="text-ink-900 text-base">{t("home.varsityTitle")}</Txt>
@@ -60,8 +62,8 @@ export default function HomeScreen() {
 
         <Pressable onPress={() => router.push("/(tabs)/medical" as Href)} className="mb-3">
           <Card className="p-4 flex-row items-center gap-3">
-            <View className="w-12 h-12 rounded-2xl bg-coral-100 items-center justify-center">
-              <Ionicons name="medkit-outline" size={25} color={colors.coral700} />
+            <View className="w-12 h-12 rounded-2xl bg-gold-100 items-center justify-center">
+              <Ionicons name="medkit-outline" size={25} color={colors.gold700} />
             </View>
             <View className="flex-1">
               <Txt weight="bold" className="text-ink-900 text-base">{t("home.medicalTitle")}</Txt>
@@ -73,12 +75,12 @@ export default function HomeScreen() {
 
         <View className="flex-row gap-3 mt-1">
           <Card className="flex-1 p-4">
-            <Ionicons name="flash-outline" size={23} color={colors.teal700} />
+            <Ionicons name="flash-outline" size={23} color={colors.brand700} />
             <Txt weight="bold" className="text-ink-900 mt-2">{t("home.flashTitle")}</Txt>
             <Txt className="text-ink-500 text-xs leading-4 mt-1">{t("home.flashSubtitle")}</Txt>
           </Card>
           <Card className="flex-1 p-4">
-            <Ionicons name="clipboard-outline" size={23} color={colors.coral700} />
+            <Ionicons name="clipboard-outline" size={23} color={colors.gold700} />
             <Txt weight="bold" className="text-ink-900 mt-2">{t("home.examTitle")}</Txt>
             <Txt className="text-ink-500 text-xs leading-4 mt-1">{t("home.examSubtitle")}</Txt>
           </Card>

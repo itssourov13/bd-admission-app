@@ -5,9 +5,9 @@ Build a polished, fully usable offline-first Bangladesh admission preparation ap
 
 ## Workspace boundaries
 - Work only in /home/kali/gpt-workspace/bd-admission-app for this product.
-- The original source project at /home/kali/gpt-workspace/scholar-hub is a read-only reuse reference. Never modify its files, branch, Git index or history.
+- All selected reusable code is already copied/adapted into this repository. Implementation, install and build must work entirely here; do not require opening the original source checkout. Do not add source-path imports, symlinks, workspace links or runtime/build dependencies on it. The source is historical provenance only in docs/REUSE_INVENTORY.md.
 - This is a standalone repository. Do not add @scholarhub/shared, Clerk, ScholarHub API calls, cloud database requirements or ScholarHub EAS/app identity.
-- Reuse adapted source components before adding similar dependencies. Check each component's imports and behavior.
+- Reuse the adapted components already present in src/components/ui and the local design system. Check each component's imports and behavior before adding similar dependencies.
 
 ## Workflow
 1. Inspect Git status and current documentation before substantial changes.

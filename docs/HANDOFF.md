@@ -2,11 +2,12 @@
 
 ## Workspace
 Target: /home/kali/gpt-workspace/bd-admission-app
-Read-only source reference: /home/kali/gpt-workspace/scholar-hub
+Selected code reuse is already copied locally. The original source path below is historical provenance only; Claude can implement without opening the source checkout.
+Source provenance: /home/kali/gpt-workspace/scholar-hub
 Initial source reference HEAD when inspected: d2bc7b0 on main, clean.
 
 ## Current foundation
-The target has an independent app identity and Git repo. Selected mobile UI components and source config are present, along with a fresh bilingual dictionary/provider, light theme, root layout and four tabs. A Node-based question-pack validator and three focused tests are ready. Read README.md and the architecture/reuse/import documents first.
+The target has an independent Git repo and app identity. Selected UI components, navy/emerald/gold design tokens, locally bundled logo/icon/adaptive/splash assets, central brand configuration, bilingual provider, root layout and four tabs are present. A Node-based question-pack validator and three focused tests are ready. Read README.md and the architecture/reuse/import documents first.
 
 ## Immediate next tasks
 1. Activate Node 22.23.1 using .nvmrc, confirm node -v and pnpm -v.
@@ -21,6 +22,8 @@ The target has an independent app identity and Git repo. Selected mobile UI comp
 10. Review all changes, commit if gates pass, and do not push.
 
 ## Important boundaries
+- The local target already contains the selected reuse. Do not open the source as a prerequisite to implementation; no runtime/build dependency on it is permitted.
+- The displayed name BD Admission is provisional. See docs/BRANDING.md and change brand.config.json when the owner confirms a final name.
 - Do not edit ScholarHub.
 - No production question PDFs have been supplied yet. Do not fabricate historical questions.
 - The current tab screens are scaffolds, not completed feature screens.

@@ -1,6 +1,6 @@
 # Current state
 
-Last checked: 2026-10-28.
+Last checked: 2026-10-28 (branding and independence pass).
 
 ## Source inspection
 - Source: /home/kali/gpt-workspace/scholar-hub
@@ -14,9 +14,9 @@ Last checked: 2026-10-28.
 
 ## Foundation prepared in the new repository
 - Independent project directory and Git history.
-- Independent app display name, slug, scheme and Android/iOS bundle identifiers; no ScholarHub EAS project ID or auth/API configuration.
-- Selected UI components and design tokens copied from the mobile source and adapted where necessary.
-- New app-specific logo component; ScholarHub logo artwork was not copied.
+- Independent app display name, slug, scheme and Android/iOS bundle identifiers are centrally configured; no source EAS project ID or auth/API configuration.
+- Selected UI components and design tokens are copied/adapted locally; app/build/runtime use local files and package dependencies.
+- Independent vector logo, launcher icon, adaptive foreground, splash asset and centralized brand configuration are bundled; source logo artwork was not copied.
 - Bangla/English translation dictionary and local language preference provider with a new storage key.
 - Expo Router root layout and four-tab shell with starter screens.
 - TypeScript question-pack interfaces and a Node-based validator with focused tests.

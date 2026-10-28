@@ -1,7 +1,6 @@
 export type Lang = "bn" | "en";
 
 export const translations = {
-  "app.name": { bn: "BD Admission", en: "BD Admission" },
   "common.continue": { bn: "চালিয়ে যান", en: "Continue" },
   "common.back": { bn: "পেছনে", en: "Back" },
   "common.cancel": { bn: "বাতিল", en: "Cancel" },

@@ -37,7 +37,7 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
   if (!ready) {
     return (
       <View className="flex-1 items-center justify-center bg-body">
-        <ActivityIndicator color={colors.teal600} size="large" />
+        <ActivityIndicator color={colors.brand600} size="large" />
       </View>
     );
   }

@@ -36,6 +36,14 @@ Keep the source mobile project's compatible Expo SDK 57 / React Native 0.86 base
 Status: accepted.
 Carry forward the source mobile pnpm workspace settings, including hoisted node linking and copied package imports, because they were added to address file metadata behavior in the user's Termux/F2FS environment.
 
-## ADR-010 — Demo data is never historical data
+## ADR-010 — Give the app its own visual identity
+Status: accepted, 2026-10-28.
+The app has its own provisional name, navy/emerald/gold palette, open-book/progress mark, local icon/adaptive/splash assets and central brand.config.json. app.config.js, theme.ts and Tailwind read the same config. Rationale: avoid inherited visual identity and keep future naming changes straightforward.
+
+## ADR-011 — Source reuse is provenance, not a dependency
+Status: accepted, 2026-10-28.
+Reused files live locally in this repository. App code, app configuration, package.json and pnpm configuration must not import or link to the source checkout. Source details remain only in the reuse inventory for provenance. Rationale: the original source repository must not be needed for future install, build or implementation.
+
+## ADR-012 — Demo data is never historical data
 Status: accepted.
 Synthetic fixtures are isolated from real question packs and explicitly labelled. No historical questions are bundled until supplied and checked.

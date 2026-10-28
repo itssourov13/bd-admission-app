@@ -34,7 +34,7 @@ Run focused validator tests with:
 
 ## Documentation
 
-Read docs/PROJECT_CONTEXT.md, docs/ARCHITECTURE.md, docs/REUSE_INVENTORY.md and docs/HANDOFF.md before continuing implementation.
+Read docs/PROJECT_CONTEXT.md, docs/ARCHITECTURE.md, docs/REUSE_INVENTORY.md, docs/BRANDING.md and docs/HANDOFF.md before continuing implementation.
 
 ## Product principles
 
@@ -43,3 +43,7 @@ Read docs/PROJECT_CONTEXT.md, docs/ARCHITECTURE.md, docs/REUSE_INVENTORY.md and 
 - Unknown answers and unverified scoring rules must remain explicitly unverified.
 - New question packs must be validated and imported idempotently without damaging attempts or bookmarks.
 - The app must not present demo content as historical examination content.
+
+## Branding
+
+The provisional name, app identity, taglines and palette are centralized in brand.config.json. See docs/BRANDING.md for icon, adaptive icon, splash and logo asset details.
