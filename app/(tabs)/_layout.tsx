@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useT } from "@/i18n";
+import { useLang, useT } from "@/i18n";
 import { colors } from "@/theme";
 
 type IconName = keyof typeof Ionicons.glyphMap;
@@ -14,6 +14,7 @@ const tabIcons: Record<string, IconName> = {
 
 export default function TabsLayout() {
   const t = useT();
+  const { lang } = useLang();
 
   return (
     <Tabs
@@ -21,7 +22,11 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarActiveTintColor: colors.teal700,
         tabBarInactiveTintColor: colors.ink500,
-        tabBarLabelStyle: { fontFamily: "HindSiliguri_500Medium", fontSize: 11, marginTop: 1 },
+        tabBarLabelStyle: {
+          fontFamily: lang === "bn" ? "HindSiliguri_500Medium" : "Manrope_500Medium",
+          fontSize: 11,
+          marginTop: 1
+        },
         tabBarStyle: {
           backgroundColor: colors.surface,
           borderTopColor: colors.sand200,
