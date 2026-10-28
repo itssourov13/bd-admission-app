@@ -8,11 +8,13 @@ Last verification pass: **2026-10-28**, Node 22.23.1, pnpm 11.10.0, workspace /h
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | pnpm test: **46 passed, 0 failed**. |
+| Automated tests | [x] Pass | pnpm test: **49 passed, 0 failed**; includes source answer-key checks, real-pack import/idempotency, paper-specific timing, section selection and incomplete-section refusal. |
+| Real pack validation/index | [x] Pass | Both DU A Unit packs validate with 0 errors/0 warnings; `pnpm packs:index` bundles two packs. |
+| Real pack import integration | [x] Pass | 180 questions, 720 options, 180 source appearances, 2 papers/rules/sources, 1 DU institution; 175 eligible questions, 3 unknown-answer questions and 2 content-unverified questions (one figure-only physics item and one unclear mathematics formula); re-import is idempotent. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
-| Android JS bundle without bytecode | [x] Pass | expo export --platform android --no-bytecode exported /tmp/bd-export; Android JS bundle about 3.4 MB. |
+| Android JS bundle without bytecode | [x] Pass | expo export --platform android --no-bytecode exported `/tmp/bd-admission-final-export`; Android JS bundle is approximately 3.5 MB with both question packs bundled. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
 | Physical device or emulator QA | [ ] Not run | No device run has been performed. |
@@ -30,8 +32,8 @@ These areas have automated coverage in the passing test suite:
 - [x] Answer/scoring verification state is retained; questions without verified answers are excluded from eligible practice pools.
 - [x] User answers, bookmarks and attempts survive content updates/re-imports.
 - [x] Database migrations are idempotent and failure paths retain the prior version.
-- [ ] Verify a real user-provided pack end to end, including source/page/question numbers, option ordering and Bangla Unicode, when PDFs are available.
-- [ ] Review imported record counts and every source/appearance against the original PDF before release.
+- [x] Validate and import the two supplied real-source packs through the SQLite importer; check total counts, subject counts, Bangla Unicode, source/page/question-number field ranges, answer-key status and idempotent re-import in automated tests.
+- [ ] Perform a human line-by-line transcription check of every question and option against the scan before release; diagram-based items currently use text descriptions/labels.
 
 ## Offline and persistence checks — manual device work still required
 
@@ -47,8 +49,10 @@ These areas have automated coverage in the passing test suite:
 
 These rules have passing automated service tests; device-level interaction is still unverified:
 
-- [x] Current MVP Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available.
-- [ ] Before release, verify that Standard Exam question count, duration and relevant section rules are selected from the official pattern for the selected institution/paper/year/session; test different patterns (e.g., 100, 80 and 60 questions) rather than assuming one universal format.
+- [x] General all-catalogue Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available; selected-paper exams use the configured paper count/duration where available.
+- [x] Unit-test paper-specific question count, duration and four-of-six subject selection for a 60-question/45-minute DU pattern; confirm in tests that incomplete sections are refused and no partial exam session is created.
+- [x] Official DU 2025–2026 pattern cross-checked: notice specifies 60 MCQ marks + 40 written marks, 45 minutes each; publisher MCQ-only pattern is intentionally retained as illustrative question-bank practice.
+- [ ] Add and test further 80/100-question patterns when corresponding real paper packs with primary-source rules are added.
 - [x] Default Flash timer and Standard Exam deadline logic are covered by focused tests.
 - [x] Flash does not repeat questions before exhausting its eligible pool.
 - [x] Timeout/answer races and exam finalization are guarded against duplicate recording/finalization.

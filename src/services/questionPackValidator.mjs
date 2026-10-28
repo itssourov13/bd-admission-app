@@ -104,6 +104,36 @@ export function validateQuestionPack(pack) {
     for (const field of ["durationSeconds", "totalQuestions"]) {
       if (rule?.[field] != null && !positiveInteger(rule[field])) errors.push(at + "." + field + " must be a positive integer.");
     }
+    if (rule?.selectionConfig != null) {
+      const config = rule.selectionConfig;
+      if (!isObject(config)) {
+        errors.push(at + ".selectionConfig must be an object when supplied.");
+      } else {
+        if (config.mode !== "select_subjects") errors.push(at + ".selectionConfig.mode must be select_subjects.");
+        if (!Array.isArray(config.subjects) || config.subjects.length < 1 || config.subjects.some((s) => !nonEmpty(s))) {
+          errors.push(at + ".selectionConfig.subjects must be a non-empty array of subject names.");
+        } else if (new Set(config.subjects.map((s) => s.trim().toLowerCase())).size !== config.subjects.length) {
+          errors.push(at + ".selectionConfig.subjects must not contain duplicates.");
+        }
+        if (!positiveInteger(config.subjectCount)) errors.push(at + ".selectionConfig.subjectCount must be a positive integer.");
+        else if (Array.isArray(config.subjects) && config.subjectCount > config.subjects.length) errors.push(at + ".selectionConfig.subjectCount cannot exceed the number of available subjects.");
+        if (config.questionsPerSubject != null && !positiveInteger(config.questionsPerSubject)) errors.push(at + ".selectionConfig.questionsPerSubject must be a positive integer when supplied.");
+        if (positiveInteger(config.subjectCount) && positiveInteger(config.questionsPerSubject) && positiveInteger(rule.totalQuestions) && config.subjectCount * config.questionsPerSubject !== rule.totalQuestions) {
+          errors.push(at + ".selectionConfig subjectCount × questionsPerSubject must equal totalQuestions.");
+        }
+        if (Array.isArray(config.subjects) && nonEmpty(rule?.paperId) && Array.isArray(pack.questions)) {
+          const paperSubjects = new Set(pack.questions
+            .filter((question) => (question?.appearances ?? []).some((appearance) => appearance?.paperId === rule.paperId))
+            .map((question) => question?.subject)
+            .filter(nonEmpty));
+          for (const subject of config.subjects) {
+            if (nonEmpty(subject) && !paperSubjects.has(subject)) {
+              errors.push(at + ".selectionConfig references subject with no questions in paper " + rule.paperId + ": " + subject + ".");
+            }
+          }
+        }
+      }
+    }
     if (rule?.verificationStatus === "verified" &&
         (typeof rule.correctMarks !== "number" || typeof rule.incorrectPenalty !== "number" || typeof rule.unansweredMarks !== "number")) {
       errors.push(at + " is marked verified but does not define all scoring values.");

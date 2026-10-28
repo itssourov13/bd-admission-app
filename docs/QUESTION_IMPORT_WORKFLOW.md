@@ -1,7 +1,16 @@
 # Question import workflow
 
 ## Current status
-Validator, transactional idempotent importer, startup sync and pack index generator are implemented and tested. Real question PDFs will be supplied later in batches by institution/category; none are bundled yet, so the app shows empty states.
+Validator, transactional idempotent importer, startup sync and pack index generator are implemented. Two initial DU A Unit packs are bundled from the supplied scanned PDFs: 90 questions for 2024–2025 and 90 for 2025–2026 (15 questions per section for Physics, Chemistry, Higher Mathematics, Biology, Bangla and English). The app auto-imports the generated bundle at startup.
+
+## Initial real-data batch: DU A Unit
+
+| Session | Pack | Questions | Printed answer key missing | Source SHA-256 |
+|---|---|---:|---|---|
+| 2024–2025 | `data/question-packs/du-a-2024-2025.json` | 90 | Physics Q15 | `93d5111f4bdb643ed1b22e02688bea44bb34010635d3c56422dd295ab78991da` |
+| 2025–2026 | `data/question-packs/du-a-2025-2026.json` | 90 | Physics Q4; English Q4 | `74d7b7deed19b134f0966f69935141aae4dae11095349ddfc7d4e7c325487d2b` |
+
+The source prints 15 questions for each of six subject sections and says candidates answer any four sections, for 60 MCQs in 45 minutes, +1 for correct and −0.25 for wrong. The Standard Exam runtime now supports this configured count, duration and four-of-six section selection for the selected paper. The [official DU 2025–2026 admission notice](https://www.du.ac.bd/du_post_details/news/25400), published 13 October 2025, states 60 marks of MCQ and 40 marks of written questions, with 45 minutes for each. The supplied publisher scan instead shows a 60-question MCQ-only mock and an any-four-of-six subject-section scheme. This is a known mismatch, so do not upgrade the publisher-derived rule to `verified`; the app must label this as question-bank practice, not full official DU simulation. The user-provided PDFs are retained unchanged outside the application repository; their hashes above tie each pack to its source. Per task scope, the question facts were not externally re-verified. Source items with figure-based choices are represented by text descriptions where reasonable; a figure-only physics item and an unclear mathematics formula have `contentVerificationStatus: unverified`; both are excluded from scored practice until the missing diagram/clear source transcription is resolved.
 
 ## Creating and shipping a pack
 1. Write a version-1 JSON file following docs/QUESTION_DATA_SCHEMA.md (institutions, papers, rules, source documents, questions with options and appearances). Keep year, source filename, page and question number exactly as in the PDF. Mark answers `verified` only when an official key was checked.
@@ -36,4 +45,6 @@ Re-importing the same batch must not create duplicate questions or source appear
 Store referenced assets in local app content packs with stable relative paths. Validate every referenced asset before importing and include it in offline packaging. Do not depend on remote image URLs at question-render time.
 
 ## Still pending
-Extracting real PDFs and image-asset packaging (assets must be bundled and referenced by stable relative paths).
+- Keep the publisher-derived DU A Unit rule `illustrative`: it is known to differ from the official 2025–2026 admission notice (MCQ + written sections). Only replace/verify it with a matching primary source for the exact paper/session.
+- Proper diagram/image option asset support in the question renderer; initial diagram-based choices are described in text where practical.
+- Additional human line-by-line review of the question transcription/display and Android device QA.

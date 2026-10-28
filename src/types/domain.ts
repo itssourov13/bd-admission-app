@@ -42,6 +42,8 @@ export interface PoolFilter {
   institutionId?: string;
   paperId?: string;
   subject?: string;
+  /** Optional multiple section selection for paper-specific exams. */
+  subjects?: string[];
 }
 
 export interface InstitutionSummary {

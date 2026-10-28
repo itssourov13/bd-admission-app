@@ -39,3 +39,16 @@
 - Updated QA checklist with the 46 passing automated tests, typecheck, lint, Expo config, Expo Doctor and no-bytecode Android bundle result; kept device/release checks explicitly outstanding.
 - Updated branding, question-pack schema and source-reuse inventory to match the current implementation and independence boundary.
 - Corrected architecture state wording and normalized trailing whitespace in DECISIONS.md.
+
+## 2026-10-28 — Initial DU A Unit question import
+- Added the 2024–2025 and 2025–2026 scanned-source packs (90 questions each, six 15-question subject sections).
+- Preserved source filenames and SHA-256 hashes, paper/session/page/question provenance, and the answer-key state. Three items without a printed answer remain unknown.
+- Recorded the printed 60-question/45-minute/+1/−0.25/four-of-six-subject pattern; end-to-end runtime enforcement remains pending.
+- Added an integration test for record counts, eligibility, shared institution upsert behavior and idempotent re-import.
+
+## 2026-10-28 — Paper-specific exam pattern support
+- Added an optional section-selection configuration to the pack and SQLite rule schema with a versioned migration.
+- Standard Exam now uses selected-paper question counts/durations and can require a chosen set of complete subject sections; general scopes retain the 100-question/60-minute fallback.
+- DU A Unit now supports selecting four of six 15-question subject sections for a 60-question/45-minute source-pattern practice attempt. Sections missing a verified answer are not selectable.
+- Updated setup UI/translation copy to show dynamic count/time and label the publisher-scan pattern as illustrative because it differs from the official DU 2025–2026 notice.
+- Added integration coverage for all printed answer keys, migration/import/idempotence, 60-item section distribution, duration and rejection of incomplete sections.

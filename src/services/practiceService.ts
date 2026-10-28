@@ -1,6 +1,6 @@
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView, SessionRow } from "../types/domain.ts";
-import { eligibleQuestionIds, loadQuestions, resolveRuleForQuestions } from "../repositories/content.ts";
+import { eligibleQuestionIds, getPaperRule, loadQuestions, resolveRuleForQuestions } from "../repositories/content.ts";
 import {
   addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, type SessionAnswerRow
 } from "../repositories/sessions.ts";
@@ -15,18 +15,65 @@ export function toScorable(q: QuestionView): ScorableQuestion {
 
 export type StartExamResult =
   | { ok: true; sessionId: string }
-  | { ok: false; eligibility: ExamEligibility };
+  | { ok: false; eligibility: ExamEligibility; reason?: "subject_selection" | "incomplete_section" };
 
-/** Creates a Standard Exam of exactly 100 eligible questions, or reports the shortfall without creating anything. */
+/**
+ * Starts a paper-specific exam when a source-backed pattern exists. Otherwise it keeps the
+ * general 100-question/60-minute practice mode. Section-selection papers must select the
+ * exact subject count, and each selected section must have its required number of graded items.
+ */
 export async function startStandardExam(db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng): Promise<StartExamResult> {
-  const eligible = await eligibleQuestionIds(db, filter);
-  const eligibility = checkExamEligibility(eligible.length);
-  if (!eligibility.ok) return { ok: false, eligibility };
-  const picked = pickExamQuestions(eligible, STANDARD_EXAM_QUESTIONS, rng);
-  if (!picked) return { ok: false, eligibility };
-  const rule = await resolveRuleForQuestions(db, picked, filter);
+  const paperPattern = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
+  const required = paperPattern?.totalQuestions && paperPattern.totalQuestions > 0
+    ? paperPattern.totalQuestions : STANDARD_EXAM_QUESTIONS;
+  const durationSeconds = paperPattern?.durationSeconds && paperPattern.durationSeconds > 0
+    ? paperPattern.durationSeconds : STANDARD_EXAM_SECONDS;
+  const selection = paperPattern?.selectionConfig ?? null;
+  let picked: string[] | null = null;
+  let available = 0;
+
+  if (selection?.mode === "select_subjects") {
+    const subjects = filter.subjects ?? [];
+    if (subjects.length !== selection.subjectCount || new Set(subjects).size !== subjects.length ||
+        subjects.some((subject) => !selection.subjects.includes(subject))) {
+      return { ok: false, eligibility: checkExamEligibility(0, required), reason: "subject_selection" };
+    }
+
+    const perSubject = selection.questionsPerSubject;
+    const sectionPools = await Promise.all(subjects.map((subject) =>
+      eligibleQuestionIds(db, { ...filter, subject, subjects: undefined })
+    ));
+    available = sectionPools.reduce((sum, ids) => sum + ids.length, 0);
+    if (perSubject && sectionPools.some((ids) => ids.length < perSubject)) {
+      return { ok: false, eligibility: checkExamEligibility(available, required), reason: "incomplete_section" };
+    }
+    const combined: string[] = [];
+    for (const sectionIds of sectionPools) {
+      const chosen = perSubject ? pickExamQuestions(sectionIds, perSubject, rng) : sectionIds;
+      if (!chosen) return { ok: false, eligibility: checkExamEligibility(available, required), reason: "incomplete_section" };
+      combined.push(...chosen);
+    }
+    // Keep the subject quota, but mix selected sections into one exam sequence.
+    picked = pickExamQuestions(combined, required, rng);
+    if (picked && picked.length !== required) picked = null;
+  } else {
+    const eligible = await eligibleQuestionIds(db, filter);
+    available = eligible.length;
+    picked = pickExamQuestions(eligible, required, rng);
+  }
+
+  const eligibility = checkExamEligibility(selection?.questionsPerSubject ? (picked?.length ?? 0) : available, required);
+  if (!picked || !eligibility.ok) {
+    return { ok: false, eligibility: checkExamEligibility(available, required), reason: selection ? "incomplete_section" : undefined };
+  }
+
+  const resolved = await resolveRuleForQuestions(db, picked, filter);
+  // Never attach one paper's question-count/section pattern to an all-institution or global mock exam.
+  const rule = filter.paperId ? (paperPattern ?? resolved) : {
+    ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
+  };
   const id = newSessionId(now);
-  await createSession(db, { id, mode: "exam", filter, startedAt: now, deadlineAt: now + STANDARD_EXAM_SECONDS * 1000, durationSeconds: STANDARD_EXAM_SECONDS, rule });
+  await createSession(db, { id, mode: "exam", filter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
   await addExamQuestions(db, id, picked);
   return { ok: true, sessionId: id };
 }

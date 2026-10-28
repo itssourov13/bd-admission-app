@@ -1,3 +1,5 @@
+import type { ExamSelectionConfig } from "../types/question-pack.ts";
+
 export type RuleStatus = "verified" | "illustrative" | "unconfigured";
 
 export interface ScoringRule {
@@ -7,6 +9,7 @@ export interface ScoringRule {
   status: RuleStatus;
   totalQuestions?: number | null;
   durationSeconds?: number | null;
+  selectionConfig?: ExamSelectionConfig | null;
 }
 
 /** Used when no rule is stored. Counts one point per correct answer; NOT an official rule. */
@@ -145,7 +148,10 @@ export function resolveRule(rules: (ScoringRule | null | undefined)[]): ScoringR
       x.status === first.status &&
       x.correctMarks === first.correctMarks &&
       x.incorrectPenalty === first.incorrectPenalty &&
-      x.unansweredMarks === first.unansweredMarks
+      x.unansweredMarks === first.unansweredMarks &&
+      x.totalQuestions === first.totalQuestions &&
+      x.durationSeconds === first.durationSeconds &&
+      JSON.stringify(x.selectionConfig ?? null) === JSON.stringify(first.selectionConfig ?? null)
     );
   });
   return same ? first : UNCONFIGURED_RULE;

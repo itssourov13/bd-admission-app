@@ -5,7 +5,7 @@ Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo, branch 
 ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
 ## State
-The app is functionally complete for the scope in docs/CURRENT_STATE.md, but contains **no real question content** and has **not been run on a device**. Read CURRENT_STATE.md, ARCHITECTURE.md, DECISIONS.md and QA_CHECKLIST.md first.
+The app foundation and two source-derived DU A Unit question-bank packs are bundled (90 questions each for 2024–2025 and 2025–2026). They validate and load through startup sync. Three questions whose printed answer key is blank remain unknown; two additional content-unverified items (one figure-only physics item, one unclear mathematics formula) are excluded from scored practice pending source clarification/diagram support. The scanned four-of-six MCQ practice pattern is known to differ from the official DU 2025–2026 format ([official notice](https://www.du.ac.bd/du_post_details/news/25400)), so keep the rule illustrative and do not describe it as full official-exam simulation. Android physical-device QA is still outstanding. Read CURRENT_STATE.md, QUESTION_IMPORT_WORKFLOW.md, ARCHITECTURE.md, DECISIONS.md and QA_CHECKLIST.md first.
 
 ## Run
     source ~/.nvm/nvm.sh && nvm use      # 22.23.1
@@ -14,12 +14,11 @@ The app is functionally complete for the scope in docs/CURRENT_STATE.md, but con
     pnpm android                          # on-device run (not yet done)
 
 ## Next steps
-1. Before importing each PDF batch, verify and record that exact exam's question count, duration, subject/section pattern and marking rule from the official source. Patterns differ by institution and paper (e.g., some may use 100 questions, others 80 or 60); never copy the RU example as a universal default.
-2. When PDFs arrive, build packs per docs/QUESTION_IMPORT_WORKFLOW.md, `pnpm packs:validate <file>`, put them in data/question-packs/, run `pnpm packs:index`, rebuild.
-3. Implement per-paper exam-pattern configuration end to end before release; current Standard Exam still fixes 100 questions/60 minutes. Include tests for at least different configured question counts and durations, plus section rules if official source formats require them.
-4. Run the "UI/device checks" in docs/QA_CHECKLIST.md on a real Android device and fix layout issues (especially long Bangla text and the exam grid).
-5. Android release export: hermesc crashes with SIGILL on this ARM/NetHunter host; build on another machine or via EAS.
-6. Confirm the final app name (docs/BRANDING.md).
+1. Add future institution/session packs following docs/QUESTION_IMPORT_WORKFLOW.md; the initial DU A Unit 2024–2025 and 2025–2026 packs are already included.
+2. Keep the publisher-derived DU A Unit pattern illustrative: the official DU 2025–2026 notice includes 40 written marks in addition to 60 MCQ marks. The current pattern is a source-bank practice mode only. General scopes retain the 100/60 fallback; new university/session rules must come from the matching primary source.
+3. Run the "UI/device checks" in docs/QA_CHECKLIST.md on a real Android device and fix layout issues (especially long Bangla text and the exam grid).
+4. Android release export: hermesc crashes with SIGILL on this ARM/NetHunter host; build on another machine or via EAS.
+5. Confirm the final app name (docs/BRANDING.md).
 
 ## Boundaries
 - Do not invent questions, answers, years, sources or scoring rules.

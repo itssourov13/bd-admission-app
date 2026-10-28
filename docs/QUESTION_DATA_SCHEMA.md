@@ -1,6 +1,6 @@
 # Question-pack data schema — version 1
 
-This document describes the implemented JSON contract used to import historical admission question batches. A pack is data input, not application code. **No real historical pack is bundled yet.** The current repository has a validator, transactional importer, startup sync and pack-index generator.
+This document describes the implemented JSON contract used to import historical admission question batches. A pack is data input, not application code. Two initial DU A Unit packs are bundled for sessions 2024–2025 and 2025–2026; both were generated from user-supplied scanned PDFs. The repository has a validator, transactional importer, startup sync and pack-index generator.
 
 ## Top-level shape
 

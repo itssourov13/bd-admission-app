@@ -6,14 +6,16 @@ A Bangladesh-focused, offline-first Android admission-preparation app for univer
 
 The core app implementation is wired across the Expo Router screens, SQLite database lifecycle, repositories, practice services, question-pack importer, and local user data. Automated checks pass as recorded in docs/QA_CHECKLIST.md.
 
-This is **not yet a release sign-off**. No real historical question PDFs have been supplied, so the installed app currently has no genuine question catalogue and correctly shows empty-content states. The app has not yet been validated on a physical Android device or emulator, and a normal Hermes bytecode export crashes on this ARM/NetHunter host. The no-bytecode export is a JavaScript bundle check, not an APK/AAB build.
+This is **not yet a release sign-off**. Two DU A Unit packs are now bundled from the supplied scanned question-bank PDFs: 90 questions per session for 2024–2025 and 2025–2026, across six subject sections. The supplied answer-key letters are preserved; three questions without a printed key remain unanswered/unknown rather than guessed. The supplied publisher scan is a question-bank source, not an official DU past-paper notice. The official DU 2025–2026 notice describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each part ([official notice](https://www.du.ac.bd/du_post_details/news/25400)); its complete format differs from the scan’s four-of-six-subject MCQ-only practice pattern. That rule therefore remains **illustrative** and the app labels the selected-paper mode as question-bank practice, not a full official DU exam. Some diagram-based options are represented by text labels because the runtime does not yet render question figures as local assets. Two items are content-unverified and excluded from scored practice: one figure-only physics item and one mathematics formula whose scanned expression is unclear.
+
+The app has not yet been validated on a physical Android device or emulator, and a normal Hermes bytecode export crashes on this ARM/NetHunter host. The successful no-bytecode export is a JavaScript bundle check, not an APK/AAB build.
 
 ## Main features
 
 - **Offline-first data:** SQLite is the local source of truth for question content, paper/source references, exam attempts, answers, bookmarks, profile preferences and activity history.
 - **Varsity and Medical catalogues:** institution/paper selection is driven by imported data; the question browser paginates results and supports bookmarks.
 - **Flash Question:** one question at a time, 30-second default with configurable duration, deadline-based timing, no repeats until a pool cycle is exhausted, skip/exit, answer feedback, summaries and persistent history.
-- **Standard Exam (current MVP):** fixed at 100 eligible questions and 60 minutes; question grid, answer revision/clearing, manual submission confirmation, timeout auto-submit, results and answer review. This is not a universal university pattern: some institutions/papers may have 80 or 60 questions. Per-paper, source-verified configuration is a required pre-release task; do not treat this fixed behavior as release-ready for every institution.
+- **Standard Exam:** uses the selected paper’s configured question count, duration and subject-selection rule when available; the general all-catalogue mode defaults to 100 questions/60 minutes. For the imported DU A Unit packs, select exactly four of the six subjects, with 15 questions per selected section (60 questions, 45 minutes). Subjects with a missing source answer key are unavailable for scored section selection. The publisher-scan pattern is explicitly marked illustrative because it differs from the official DU 2025–2026 notice, which also includes a written section; do not present this question-bank practice mode as a full official university exam. The question grid, answer revision/clearing, submission confirmation, timeout auto-submit, results and review are shared across patterns.
 - **Scoring integrity:** answer keys and marking rules carry verification status. The app does not present illustrative/unconfigured rules as official and does not score questions without a verified correct answer.
 - **Local profile and activity:** Bangla/English preference, preferred Flash duration, progress summary, bookmarks and history persist locally.
 - **Engineering:** intentionally presented as Coming Soon.
@@ -62,14 +64,19 @@ The checks last verified for the application pass are recorded in docs/QA_CHECKL
 
 ## Question data and import
 
-No real historical question records are bundled yet. The user will provide source PDFs in institution/category batches. Do not create fictional content and label it as historical.
+The initial genuine-content packs are:
+
+- `data/question-packs/du-a-2024-2025.json` — 90 DU A Unit questions.
+- `data/question-packs/du-a-2025-2026.json` — 90 DU A Unit questions.
+
+Each pack stores the source PDF name/SHA-256, session, six subject sections, source page/question numbers and answer-key verification state. Three questions have no printed correct-answer letter and are intentionally excluded from scored practice. The original PDF scans remain outside the app repository at `/home/kali/gpt-workspace/bd-admission-app-data/`; they are not included in the mobile bundle.
 
 Read:
 
 - docs/QUESTION_DATA_SCHEMA.md for the version-1 pack contract.
 - docs/QUESTION_IMPORT_WORKFLOW.md for extraction, verification, validation and import steps.
 
-Create a version-1 JSON pack, then validate and index it:
+For a new/updated version-1 JSON pack, validate and regenerate the bundle index:
 
     pnpm packs:validate data/question-packs/your-pack-file.json
     pnpm packs:index

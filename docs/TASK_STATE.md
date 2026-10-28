@@ -11,10 +11,10 @@
 - [x] Tests: scoring, timers, Flash, exam, importer, migrations, repositories, validator, pack index, UI logic/translations.
 - [x] TypeScript, ESLint (react-hooks compiler rules) and expo-doctor clean.
 
-## Remaining (needs external input)
-- [ ] Real question packs from the user's PDFs (see docs/QUESTION_IMPORT_WORKFLOW.md).
-- [ ] Verified exam pattern and marking rules per institution/paper/year/session/unit (question count, duration, subject/section distribution where applicable, and scoring values; supplied with packs, otherwise unconfigured).
-- [ ] Replace the current fixed 100-question/60-minute Standard Exam with source-verified, paper-specific configuration end to end; add schema support for section constraints only where real official patterns require it.
+## Remaining (release follow-through)
+- [x] Initial two real DU A Unit packs imported from the supplied 2024–2025 and 2025–2026 PDF scans; 90 questions per session, six subject banks per session, printed answer-key states retained. See docs/QUESTION_IMPORT_WORKFLOW.md.
+- [x] Paper-specific exam-pattern runtime implemented: selected paper rules control question count, duration and optional subject selection. DU A Unit source-bank practice uses four complete 15-question sections; its pattern remains illustrative because the official 2025–2026 notice describes an MCQ + written test, not the scan’s MCQ-only mock.
+- [x] Add database migration and pack schema support for optional section-selection configuration; preserve a 100-question/60-minute fallback for scopes without a selected paper pattern.
 - [ ] Android on-device QA (docs/QA_CHECKLIST.md "UI/device checks").
 - [ ] Release Android build (the local hermesc binary crashes with SIGILL on this machine, see QA_CHECKLIST.md).
 - [ ] Final app name, store assets, optional Engineering content.

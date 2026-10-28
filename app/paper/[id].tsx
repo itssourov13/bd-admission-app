@@ -26,7 +26,8 @@ export default function PaperScreen() {
   if (!paper) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("catalog.notFound")} actionLabel={t("common.back")} onAction={() => router.back()} /></Screen>;
 
   const canPractice = paper.eligibleCount > 0;
-  const canExam = paper.eligibleCount >= STANDARD_EXAM_QUESTIONS;
+  const requiredQuestions = rule?.totalQuestions && rule.totalQuestions > 0 ? rule.totalQuestions : STANDARD_EXAM_QUESTIONS;
+  const canExam = paper.eligibleCount >= requiredQuestions;
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={paper.title ?? `${paper.institutionName} ${num(paper.year)}`} subtitle={paper.institutionName} />
@@ -42,7 +43,7 @@ export default function PaperScreen() {
         <View className="mt-4"><RuleNotice rule={rule} status={paper.ruleStatus ?? undefined} /></View>
         <View className="mt-5 gap-2.5">
           <Button label={t("paper.flash")} disabled={!canPractice} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", { paperId: paper.id }))} />
-          <Button label={t("paper.exam")} variant="outline" disabled={!canExam} onPress={() => router.push(href("/exam/setup", { paperId: paper.id }))} />
+          <Button label={paper.ruleStatus === "illustrative" ? t("paper.practicePattern") : t("paper.exam")} variant="outline" disabled={!canExam} onPress={() => router.push(href("/exam/setup", { paperId: paper.id }))} />
           {!canExam ? <Txt className="text-ink-500 text-xs leading-5">{t("paper.examNeeds")}</Txt> : null}
           <Button label={t("paper.browse")} variant="ghost" disabled={paper.questionCount === 0} onPress={() => router.push(href("/browse", { paperId: paper.id }))} />
         </View>

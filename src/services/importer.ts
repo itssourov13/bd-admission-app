@@ -135,17 +135,17 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
 
       for (const rule of p.examRules) {
         const row = await tx.getFirstAsync<{ id: string }>("SELECT id FROM exam_rules WHERE id = ?", [rule.id]);
-        const params = [rule.correctMarks ?? null, rule.incorrectPenalty ?? null, rule.unansweredMarks ?? null, rule.durationSeconds ?? null, rule.totalQuestions ?? null, rule.verificationStatus, rule.sourceNote ?? null];
+        const params = [rule.correctMarks ?? null, rule.incorrectPenalty ?? null, rule.unansweredMarks ?? null, rule.durationSeconds ?? null, rule.totalQuestions ?? null, rule.verificationStatus, rule.sourceNote ?? null, rule.selectionConfig ? JSON.stringify(rule.selectionConfig) : null];
         if (!row) {
           await tx.runAsync(
-            "INSERT INTO exam_rules (id, paper_id, correct_marks, incorrect_penalty, unanswered_marks, duration_seconds, total_questions, verification_status, source_note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO exam_rules (id, paper_id, correct_marks, incorrect_penalty, unanswered_marks, duration_seconds, total_questions, verification_status, source_note, selection_config) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [rule.id, rule.paperId, ...params]
           );
           report.examRules.inserted++;
         } else {
           const r = await tx.runAsync(
-            `UPDATE exam_rules SET paper_id = ?, correct_marks = ?, incorrect_penalty = ?, unanswered_marks = ?, duration_seconds = ?, total_questions = ?, verification_status = ?, source_note = ?
-             WHERE id = ? AND (paper_id IS NOT ? OR correct_marks IS NOT ? OR incorrect_penalty IS NOT ? OR unanswered_marks IS NOT ? OR duration_seconds IS NOT ? OR total_questions IS NOT ? OR verification_status IS NOT ? OR source_note IS NOT ?)`,
+            `UPDATE exam_rules SET paper_id = ?, correct_marks = ?, incorrect_penalty = ?, unanswered_marks = ?, duration_seconds = ?, total_questions = ?, verification_status = ?, source_note = ?, selection_config = ?
+             WHERE id = ? AND (paper_id IS NOT ? OR correct_marks IS NOT ? OR incorrect_penalty IS NOT ? OR unanswered_marks IS NOT ? OR duration_seconds IS NOT ? OR total_questions IS NOT ? OR verification_status IS NOT ? OR source_note IS NOT ? OR selection_config IS NOT ?)`,
             [rule.paperId, ...params, rule.id, rule.paperId, ...params]
           );
           if (r.changes > 0) report.examRules.updated++;

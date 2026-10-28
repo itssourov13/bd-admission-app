@@ -4,8 +4,8 @@ import type {
 } from "../types/domain.ts";
 import { resolveRule, UNCONFIGURED_RULE, type ScoringRule } from "../services/scoring.ts";
 
-/** Questions usable for scored practice: single choice, verified answer, 2+ options, at least one correct option. */
-const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.type = 'single_choice'
+/** Scored-practice questions require verified content and key, single-choice type, 2+ options and one correct option. */
+const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND EXISTS (SELECT 1 FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1)`;
 
@@ -21,6 +21,10 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   const where: string[] = [];
   if (filter.category) { where.push("q.category = ?"); params.push(filter.category); }
   if (filter.subject) { where.push("q.subject = ?"); params.push(filter.subject); }
+  if (filter.subjects?.length) {
+    where.push(`q.subject IN (${filter.subjects.map(() => "?").join(",")})`);
+    params.push(...filter.subjects);
+  }
   if (filter.institutionId || filter.paperId) {
     joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id";
     if (filter.institutionId) { where.push("p.institution_id = ?"); params.push(filter.institutionId); }
@@ -174,7 +178,7 @@ export async function loadQuestions(db: SqlDb, ids: string[]): Promise<QuestionV
 
 interface RuleRow {
   paper_id: string; correct_marks: number | null; incorrect_penalty: number | null; unanswered_marks: number | null;
-  duration_seconds: number | null; total_questions: number | null; verification_status: RuleStatus;
+  duration_seconds: number | null; total_questions: number | null; verification_status: RuleStatus; selection_config: string | null;
 }
 
 /**
@@ -201,7 +205,8 @@ export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], 
     if (!r || r.correct_marks == null) { rules.push(null); continue; }
     rules.push({
       correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty ?? 0, unansweredMarks: r.unanswered_marks ?? 0,
-      status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds
+      status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds,
+      selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
     });
   }
   return resolveRule(rules);
@@ -236,7 +241,8 @@ export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringR
   if (!r || r.correct_marks == null) return null;
   return {
     correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty ?? 0, unansweredMarks: r.unanswered_marks ?? 0,
-    status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds
+    status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds,
+    selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
   };
 }
 

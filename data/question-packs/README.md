@@ -1,7 +1,8 @@
 # Question pack input directory
 
-Place reviewed, versioned question-pack JSON files in this directory when the import workflow is ready to consume them.
+Bundled source packs:
 
-The repository currently contains no real historical admission question content. Do not add unverified answers or represent synthetic development fixtures as official questions.
+- `du-a-2024-2025.json` — University of Dhaka A Unit, 90 questions.
+- `du-a-2025-2026.json` — University of Dhaka A Unit, 90 questions.
 
-Before importing a pack, validate it with the validator documented in docs/QUESTION_IMPORT_WORKFLOW.md. The app's SQLite runtime importer and transaction strategy will be implemented in the next application implementation phase.
+Each pack preserves source PDF name/hash, session, section/subject, source page and printed answer-key status. Three items without a printed answer letter remain unknown; do not guess. Keep synthetic fixtures in `data/dev-fixtures/`. Validate any new/changed pack with `pnpm packs:validate`, then regenerate `src/content/bundledPacks.ts` with `pnpm packs:index`. The original scans are stored outside this repository at `/home/kali/gpt-workspace/bd-admission-app-data/` and are not copied into the app bundle.

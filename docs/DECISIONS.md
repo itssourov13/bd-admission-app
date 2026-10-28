@@ -50,7 +50,7 @@ Synthetic fixtures are isolated from real question packs and explicitly labelled
 
 ## ADR-013 — Exam pattern is institution- and paper-specific
 Status: accepted, 2026-10-28.
-Question count, duration, subject/section distribution and marking rules must be configured from the verified pattern for the exact institution, academic year/session, unit and paper (and shift where applicable). There is no assumed all-university format: RU may have a 100-question pattern while other exams may contain 80 or 60 questions. These figures are examples, not defaults to copy blindly. The current app's 100-question/60-minute Standard Exam is a fixed MVP behavior and must not be described as universal or treated as final for all institutions. Before real-data release, make the chosen paper's verified configuration drive the entire Standard Exam flow. Unknown pattern fields remain unconfigured, never guessed.
+Question count, duration, subject/section distribution and marking rules must be configured from the verified pattern for the exact institution, academic year/session, unit and paper (and shift where applicable). There is no assumed all-university format: RU may have a 100-question pattern while other exams may contain 80 or 60 questions. These figures are examples, not defaults to copy blindly. The general all-catalogue Standard Exam may use a 100-question/60-minute fallback, but exact-paper sessions must consume their own question count, duration, marking and any section-selection configuration. Unknown pattern fields remain unconfigured, never guessed; scan-derived or mismatched patterns remain illustrative, not official.
 
 ## 2026-10-28 application-pass decisions
 - **Exactly-once exam finalization** is enforced twice: a ref guard in the screen and a conditional `UPDATE ... WHERE status='active'` inside a transaction in `finalizeExamSession`. Selections are refused in SQL once the deadline has passed, so late taps can never change a result.
@@ -60,3 +60,8 @@ Question count, duration, subject/section distribution and marking rules must be
 - **Flash finishing**: the unresolved on-screen question is not counted; leaving the screen by any route closes the session (idempotent).
 - **State for controllers**: the Flash controller is held in React state (mutated only in event handlers, with a revision counter) to satisfy the React compiler lint rules.
 - **Android export**: hermesc crashes with SIGILL on this host, so `expo export --no-bytecode` is used as the bundle validation here; release bytecode export must be built elsewhere.
+
+## 2026-10-28 — Do not present publisher question-bank pattern as official DU exam
+- Evidence: the supplied scanned question-bank pages describe a 60-question MCQ practice set, 45 minutes, and choosing four of six 15-question subjects. The official DU 2025–2026 notice ([primary source](https://www.du.ac.bd/du_post_details/news/25400), 13 October 2025) describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each.
+- Decision: keep the scan-derived marking/pattern metadata `illustrative`; UI labels this paper-specific mode as question-bank practice. Never treat it as a complete official DU admission simulation.
+- General all-catalogue practice retains 100 questions/60 minutes; future university/session packs must store the exact primary-source rules for their paper.

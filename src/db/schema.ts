@@ -172,6 +172,13 @@ CREATE INDEX idx_answers_question ON session_answers(question_id);
     sql: `
 ALTER TABLE question_batches ADD COLUMN pack_signature TEXT;
 `
+  },
+  {
+    version: 3,
+    name: "exam_section_selection_config",
+    sql: `
+ALTER TABLE exam_rules ADD COLUMN selection_config TEXT;
+`
   }
 ];
 

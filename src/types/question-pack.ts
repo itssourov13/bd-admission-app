@@ -54,6 +54,15 @@ export interface QuestionPackPaper {
   title?: string | null;
 }
 
+export interface ExamSelectionConfig {
+  /** Select a fixed number of subject sections from the listed choices. */
+  mode: "select_subjects";
+  subjects: string[];
+  subjectCount: number;
+  /** When present, draw exactly this many eligible questions from each selected subject. */
+  questionsPerSubject?: number;
+}
+
 export interface QuestionPackExamRule {
   id: string;
   paperId: string;
@@ -62,6 +71,7 @@ export interface QuestionPackExamRule {
   unansweredMarks?: number;
   durationSeconds?: number;
   totalQuestions?: number;
+  selectionConfig?: ExamSelectionConfig | null;
   verificationStatus: "verified" | "illustrative" | "unconfigured";
   sourceDocumentIds?: string[];
   sourceNote?: string | null;
