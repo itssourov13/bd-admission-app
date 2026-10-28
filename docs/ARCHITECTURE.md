@@ -30,10 +30,12 @@ Eligible practice pool = answer_status verified, single choice, at least 2 optio
 ## Timer and scoring boundaries
 Implement timer deadlines and transitions in pure domain services. Persist an absolute deadline or sufficient timing metadata so background/resume does not silently reset time. Make timeout and submit transitions idempotent.
 
-Scoring accepts an explicit exam rule. A rule with unknown or illustrative status must not be presented as an official score. Standard Exam can start only when 100 eligible, sufficiently configured questions are available.
+Scoring accepts an explicit exam rule. A rule with unknown or illustrative status must not be presented as an official score. The current Standard Exam implementation requires 100 eligible questions and uses a 60-minute duration; this is an MVP limitation, not a universal admission rule. Before release with real institution content, exam setup/session creation must derive the required question count and duration from a verified pattern associated with the selected institution, paper, year/session and unit (and shift where applicable), rather than from global constants. The same configuration must drive eligibility thresholds, question selection, grid size, deadline, submission and UI copy.
+
+Exam pattern data should preserve, where officially available: total question count, duration, subject/section allocation, marks for correct answers, penalty for incorrect answers and marks for unanswered questions. Do not combine papers with incompatible patterns into one Standard Exam merely to reach a fixed question threshold. Where section-specific constraints cannot be represented by schema v1, preserve their source and explicitly plan a schema/runtime extension; do not silently flatten them.
 
 ## Question content import
-A versioned question pack is validated before import. The contract records category, batch identity, source documents, institutions, papers, question text/options, correct-answer verification, appearances, source-page metadata and optional scoring rules. Database import should occur in a transaction and return counts for inserted, updated, skipped and rejected records.
+A versioned question pack is validated before import. The contract records category, batch identity, source documents, institutions, papers, question text/options, correct-answer verification, appearances, source-page metadata and optional scoring/exam rules. Each exam pattern must be tied to the appropriate paper identity and verified against its source; do not copy RU's question count, duration or marking scheme to another institution. Database import should occur in a transaction and return counts for inserted, updated, skipped and rejected records.
 
 See QUESTION_DATA_SCHEMA.md and QUESTION_IMPORT_WORKFLOW.md.
 

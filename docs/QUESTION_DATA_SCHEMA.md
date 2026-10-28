@@ -40,10 +40,15 @@ institutionId must reference a declared institution. Keep each paper/year/unit/s
 
 Each rule requires id, paperId and verificationStatus. The status is verified, illustrative or unconfigured. Optional values include correctMarks, incorrectPenalty, unansweredMarks, durationSeconds, totalQuestions, sourceDocumentIds and sourceNote.
 
+Exam patterns vary by institution and by paper/year/session/unit; do not assume all universities use the same number of questions or duration. A 100-question RU exam is not a template for another institution that uses 80 or 60 questions. Attach each rule to the correct paper record and retain the official source document or an auditable source note. The current application still hard-codes Standard Exam to 100 questions/60 minutes, so these fields must not be assumed to configure the full session end to end until the runtime change is implemented and tested.
+
+Schema v1 does not model section-wise question quotas or separate per-section timers as first-class fields. If an official pattern requires those constraints, preserve the source details and extend/version the pack contract and runtime before claiming it is supported; do not silently ignore those constraints.
+
 - A verified scoring rule must contain the complete scoring values required by the validator.
 - Keep supporting source-document references or a note so the rule can be audited.
 - Unknown or unverified rules must not be promoted to official rules.
 - An illustrative rule is never to be presented as an official institution marking scheme.
+- Verify question count, duration and scoring for the exact paper/year/session/unit from an official source; never infer one institution's pattern from another's.
 
 ## Question records
 

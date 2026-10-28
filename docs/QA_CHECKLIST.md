@@ -47,7 +47,8 @@ These areas have automated coverage in the passing test suite:
 
 These rules have passing automated service tests; device-level interaction is still unverified:
 
-- [x] Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available.
+- [x] Current MVP Standard Exam refuses to start below 100 eligible questions and uses exactly 100 when available.
+- [ ] Before release, verify that Standard Exam question count, duration and relevant section rules are selected from the official pattern for the selected institution/paper/year/session; test different patterns (e.g., 100, 80 and 60 questions) rather than assuming one universal format.
 - [x] Default Flash timer and Standard Exam deadline logic are covered by focused tests.
 - [x] Flash does not repeat questions before exhausting its eligible pool.
 - [x] Timeout/answer races and exam finalization are guarded against duplicate recording/finalization.

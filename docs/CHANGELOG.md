@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-28 — Institution-specific exam-pattern requirement
+- Documented that question count, duration, section constraints and marking rules vary by institution and paper/session.
+- Clarified that the current fixed 100-question/60-minute Standard Exam is an MVP limitation, not a universal rule.
+- Added the required pre-release task to wire source-verified paper-specific configuration through the whole exam flow.
+
 ## 2026-10-28 — Initial workspace foundation
 - Created the independent BD Admission workspace and Git repository.
 - Reused/adapted selected UI primitives, theme tokens and mobile configuration from ScholarHub.

@@ -13,7 +13,7 @@ This is **not yet a release sign-off**. No real historical question PDFs have be
 - **Offline-first data:** SQLite is the local source of truth for question content, paper/source references, exam attempts, answers, bookmarks, profile preferences and activity history.
 - **Varsity and Medical catalogues:** institution/paper selection is driven by imported data; the question browser paginates results and supports bookmarks.
 - **Flash Question:** one question at a time, 30-second default with configurable duration, deadline-based timing, no repeats until a pool cycle is exhausted, skip/exit, answer feedback, summaries and persistent history.
-- **Standard Exam:** starts only when 100 eligible questions are available; 60-minute deadline; question grid, answer revision/clearing, manual submission confirmation, timeout auto-submit, results and answer review.
+- **Standard Exam (current MVP):** fixed at 100 eligible questions and 60 minutes; question grid, answer revision/clearing, manual submission confirmation, timeout auto-submit, results and answer review. This is not a universal university pattern: some institutions/papers may have 80 or 60 questions. Per-paper, source-verified configuration is a required pre-release task; do not treat this fixed behavior as release-ready for every institution.
 - **Scoring integrity:** answer keys and marking rules carry verification status. The app does not present illustrative/unconfigured rules as official and does not score questions without a verified correct answer.
 - **Local profile and activity:** Bangla/English preference, preferred Flash duration, progress summary, bookmarks and history persist locally.
 - **Engineering:** intentionally presented as Coming Soon.
@@ -91,6 +91,7 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 
 - Core catalog, practice, scoring, history and preferences must work offline.
 - Preserve institution, paper/year/unit, source document, page and question-number provenance when supplied.
+- Never assume question count, duration, subject distribution or scoring is the same across universities; verify the exact exam pattern from an official source and configure the matching paper/session. Do not fabricate, pad or truncate questions to meet a global count.
 - Unknown answers and unverified marking rules must stay unknown.
 - Validate and import content transactionally without damaging attempts or bookmarks.
 - Do not automatically merge questions based only on similar wording.

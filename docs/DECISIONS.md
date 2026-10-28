@@ -48,6 +48,10 @@ Reused files live locally in this repository. App code, app configuration, packa
 Status: accepted.
 Synthetic fixtures are isolated from real question packs and explicitly labelled. No historical questions are bundled until supplied and checked.
 
+## ADR-013 — Exam pattern is institution- and paper-specific
+Status: accepted, 2026-10-28.
+Question count, duration, subject/section distribution and marking rules must be configured from the verified pattern for the exact institution, academic year/session, unit and paper (and shift where applicable). There is no assumed all-university format: RU may have a 100-question pattern while other exams may contain 80 or 60 questions. These figures are examples, not defaults to copy blindly. The current app's 100-question/60-minute Standard Exam is a fixed MVP behavior and must not be described as universal or treated as final for all institutions. Before real-data release, make the chosen paper's verified configuration drive the entire Standard Exam flow. Unknown pattern fields remain unconfigured, never guessed.
+
 ## 2026-10-28 application-pass decisions
 - **Exactly-once exam finalization** is enforced twice: a ref guard in the screen and a conditional `UPDATE ... WHERE status='active'` inside a transaction in `finalizeExamSession`. Selections are refused in SQL once the deadline has passed, so late taps can never change a result.
 - **Deadlines are absolute wall-clock times** (stored in SQLite for exams); `useNow` re-reads the clock on foreground, so backgrounding cannot extend time. Flash restarts a question's timer after the feedback screen so reading feedback is not charged.

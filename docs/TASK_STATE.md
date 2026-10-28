@@ -13,7 +13,8 @@
 
 ## Remaining (needs external input)
 - [ ] Real question packs from the user's PDFs (see docs/QUESTION_IMPORT_WORKFLOW.md).
-- [ ] Verified marking rules per institution (supplied with packs; until then scores are hidden/unconfigured).
+- [ ] Verified exam pattern and marking rules per institution/paper/year/session/unit (question count, duration, subject/section distribution where applicable, and scoring values; supplied with packs, otherwise unconfigured).
+- [ ] Replace the current fixed 100-question/60-minute Standard Exam with source-verified, paper-specific configuration end to end; add schema support for section constraints only where real official patterns require it.
 - [ ] Android on-device QA (docs/QA_CHECKLIST.md "UI/device checks").
 - [ ] Release Android build (the local hermesc binary crashes with SIGILL on this machine, see QA_CHECKLIST.md).
 - [ ] Final app name, store assets, optional Engineering content.
