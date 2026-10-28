@@ -1,4 +1,3 @@
-import { View, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Screen, Txt, Card, Button, Chip } from "@/components/ui";
 import { useLang, useT } from "@/i18n";
