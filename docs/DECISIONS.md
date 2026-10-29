@@ -75,3 +75,9 @@ RU research is now Unit A only and lives at `/home/kali/gpt-workspace/bd-admissi
 Status: accepted (2026-10-29).
 
 The verified pool continues to require verified question content and answer keys. When a selected scope has no verified-eligible questions, the app may offer a visibly labelled provisional pool for structurally safe third-party candidates (single-choice, 2+ options, one source key, no duplicate normalized option text). Provisional feedback is explicitly tied to the unverified source key, candidate metadata remains `unverified`, and no official score or paper-specific rule is invented. This restores question practice while preserving an honest verification boundary; source review is still required before promotion to verified practice.
+
+
+## ADR-015 — Keep the old RU candidate bank and new verified-source bank separate
+Status: accepted, 2026-10-29.
+
+The existing `ru` institution and its 4,009 candidate questions remain intact and visibly begin with `UNVERIFIED —`. The user-supplied verified-source PDF is imported under a distinct institution ID (`ru-verified-bank`, code `RU-V`) with separate pack/paper/question IDs and page provenance. Do not merge or replace old questions because a source PDF overlaps in year; older questions without matching source coverage must be preserved. Per user instruction, the new source question content is marked verified, but source answer markers that are absent or could not be mapped remain `unknown` rather than being invented. Do not infer RU official scoring/time rules from the question bank.

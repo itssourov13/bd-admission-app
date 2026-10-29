@@ -1,6 +1,18 @@
 # Current state
 
-Last updated: 2026-10-29 (provisional RU C practice is wired and tested; original-paper and answer-key verification and Android device/release QA remain outstanding).
+Last updated: 2026-10-29 (separate RU verified-source bank imported; original RU candidate bank preserved; Android device/release QA remains outstanding).
+
+
+## Latest question-bank snapshot — 2026-10-29
+
+This snapshot supersedes older bundle-count checkpoints further down this file.
+
+- Bundle index: **61 schema-valid JSON packs / 6,004 questions** — 2 DU packs / 180 questions; original RU candidate bank / 44 packs / 4,009 questions; separate user-supplied RU verified-source bank / 15 packs / 1,815 questions.
+- The original RU institution keeps ID `ru` and code `RU`; its display name is `UNVERIFIED — University of Rajshahi`. Existing question text, options, answer states, assets and session coverage are preserved. The only old-pack data edit is the institution display-name metadata.
+- The new RU entry has ID `ru-verified-bank`, code `RU-V`, and display name `Rajshahi University — Verified Question Bank`. It contains the 15 source-unit/set packs present in `RU Question Bank.pdf`, covering sessions 2016–2017 through 2024–2025 and units A/C/D1/F/H as represented by the source.
+- Per user instruction, content in the new source packs is marked verified and was not independently fact-checked. 1,720 questions have a source answer marker mapped; 95 answer states are `unknown` where a key marker was absent or could not be parsed reliably. The 95 remain browseable but are excluded from scored practice. No answer or RU exam rule was invented.
+- 118 extracted question-like blocks that lacked a reliable pair of non-empty options were excluded from the app's choice-question schema and recorded in `/home/kali/gpt-workspace/bd-admission-app-data/ru-verified-question/EXCLUDED_NON_MCQ.csv`. The PDF and complete import audit files remain outside the app bundle.
+- The new RU bank supports institution-level Flash and 100-question/60-minute Standard Exam from its answer-key-complete pool. No official RU session/unit-specific scoring or timing rule was added. Historical questions outside this PDF, especially the older 2010–2011 through 2015–2016 records, remain in the old UNVERIFIED section and were not removed.
 
 ## What exists and is wired end to end
 - **Database**: `DbProvider` (src/db/provider.tsx) opens SQLite, enables WAL, runs versioned migrations, ensures the profile row, closes stale Flash sessions, finalizes an exam that expired while the app was closed, then syncs bundled question packs. Loading and error (with retry) states are rendered by app/_layout.tsx. A bad pack only produces a warning; a DB/migration failure shows a retry screen and deletes nothing.
@@ -27,7 +39,7 @@ See the "Verification" section of docs/QA_CHECKLIST.md for the exact commands an
 
 Initial deep web research for **RU Unit A only** is staged outside the app repo at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`. The source ledger covers 2010-2011 through the latest completed 2025-2026 session and records a future 2026-2027 placeholder. Eight review-only sample packs contain 21 questions across sessions 2012-2013, 2013-2014, publisher-labelled 2018, 2019-2020, 2022-2023, 2023-2024, 2024-2025 and 2025-2026. A Unit 2023-2024 and 2024-2025 candidate keys remain unverified; one 2025-2026 answer is unknown. Twelve linked year-specific PDFs (2012-2013 to 2023-2024) were discovered but not downloaded because the Google Drive links are restricted; 2010-2012 archive papers need historical A1-A6 mapping. Two 2025-2026 Group 1/2 scanned PDFs have been archived and visually checked across all seven pages, but neither full paper is transcribed. This is not yet a complete question bank. Details are in the external `RESEARCH_REPORT.md`, `A_UNIT_YEAR_COVERAGE.csv`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`.
 
-**No RU Unit A pack has been imported or bundled into `src/content/bundledPacks.ts`.** This paragraph describes Unit A only; the separate RU C Unit Science candidates are now bundled for browse/review as documented in the latest import checkpoint below. Preserve distinct group/shift/set variants and verify exam rules from the matching official paper/session source.
+**The separate A-only research sample packs are still not bundled.** The new RU-V PDF import does include the A Unit 2024–2025 sets appearing in that source, but it does not complete the separate historical Unit A ledger. The legacy RU C Science candidates remain the distinct unverified source bank. Preserve set/session variants and do not infer official exam rules.
 
 ## RU C Unit Science Group source collection and import staging (2026-10-29)
 

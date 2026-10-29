@@ -44,7 +44,7 @@ test("RU C Unit Science packs remain unverified, while provisional mode can sele
     assert.equal(pack.schemaVersion, 1);
     assert.equal(pack.batch.id.startsWith("ru-c-"), true);
     assert.equal(pack.institutions.length, 1);
-    assert.deepEqual(pack.institutions[0], { id: "ru", code: "RU", name: "University of Rajshahi" });
+    assert.deepEqual(pack.institutions[0], { id: "ru", code: "RU", name: "UNVERIFIED — University of Rajshahi" });
     assert.equal(pack.papers.length, 1);
     assert.equal(pack.papers[0]!.unit, "C Unit — Science");
     assert.equal(pack.examRules.length, 0, "do not infer historical exam rules from third-party listings");

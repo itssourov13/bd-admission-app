@@ -81,3 +81,12 @@
 - [x] Latest checks under Node 22.23.1: `pnpm test` 57/57, `pnpm typecheck`, `pnpm lint`, `git diff --check` pass.
 - [ ] On-device Expo Go smoke test for both modes, candidate figures/long-text layout, and result flow; rerun bundle/export on compatible Node before native build.
 - [ ] Independently verify source-paper transcription and every answer key; build/test a release APK/AAB on a host compatible with Hermes. No release artifact or push is claimed.
+
+
+## RU verified-source bank import — 2026-10-29
+- [x] Imported the user-supplied `RU Question Bank.pdf` into a completely separate Varsity institution (`ru-verified-bank`, code `RU-V`), with 15 paper/set packs and 1,815 MCQ records from source pages covering 2016–2017 through 2024–2025.
+- [x] Preserved source PDF SHA-256 and per-question source page/question-number provenance. The original PDF and import artifacts are outside the app repo under `/home/kali/gpt-workspace/bd-admission-app-data/ru-verified-question/`.
+- [x] Set new question content status to `verified` per the user's instruction. 1,720 explicit source answer markers map to options; 95 absent/unreadable answer markers remain `unknown`, with no guessed key. 118 incomplete/non-choice extraction blocks are recorded in the external exclusion CSV.
+- [x] Prefixed the original RU institution label with `UNVERIFIED —`; retained all 44 old RU packs and their 4,009 question records without changing question/option/answer content. Earlier questions are not deleted.
+- [x] Regenerated the index with 61 packs / 6,004 question records. Added integration coverage for pack validation, source hashes/provenance, distinct RU IDs, counts, answer states, idempotent import and a 100-question Standard Exam from the new institution.
+- [ ] Physical Android QA and native release build remain outstanding. Do not infer official RU-specific time, marking or unit question-count rules from the PDF; general Standard Exam uses the existing fallback.

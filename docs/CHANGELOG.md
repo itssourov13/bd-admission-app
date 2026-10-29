@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-29 — Import separate RU verified-source bank
+- Added 15 schema-v1 packs (1,815 MCQs) from the user-supplied 156-page `RU Question Bank.pdf`, preserving source PDF SHA-256, session/unit/set, PDF page and printed question number. The pack source and extraction report remain external to the mobile bundle.
+- Per instruction, imported question content as verified without a separate question fact-check. 1,720 question keys were mapped from explicit answer markers; 95 keys remain `unknown` where markers were absent or unreliable. No key or official RU scoring rule was invented. Another 118 incomplete/non-choice blocks are logged externally instead of being forced into the MCQ schema.
+- Created a distinct `RU-V — Rajshahi University — Verified Question Bank` institution (`ru-verified-bank`). Prefixed the old RU institution display name with `UNVERIFIED —` while preserving all 4,009 existing questions and their statuses/content.
+- Regenerated the bundle index: 61 packs / 6,004 total questions (180 DU, 4,009 legacy RU, 1,815 new RU-V). Added integration coverage for provenance, source statuses, distinct IDs, idempotent import and a 100-question Standard Exam.
+- Original question/key review was intentionally not repeated in this task. Android device QA and native release build remain pending; no push was performed.
+
+
 ## 2026-10-29 — Make RU C candidates usable with provisional practice
 - Fixed the gap where all unverified RU candidates were imported but could not start Flash or Standard Exam because both modes only queried the verified pool. Verified-only eligibility remains strict; setup selects a distinct provisional pool when the scope has no verified-eligible questions and displays a warning.
 - Added structural candidate filter (single choice, 2+ options, exactly one source-key option, no duplicate normalized option text): 3,991 of the 4,009 RU candidates available provisionally; 18 records with duplicate normalized option text withheld from provisional scoring. All statuses stay `unverified`; no RU marking rules were invented.

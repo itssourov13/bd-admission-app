@@ -45,5 +45,20 @@ import pack42 from "../../data/question-packs/ru-c-2024-2025-ruc-group1-mcq.json
 import pack43 from "../../data/question-packs/ru-c-2024-2025-ruc-group2-mcq.json";
 import pack44 from "../../data/question-packs/ru-c-2025-2026-ruc-group1-mcq.json";
 import pack45 from "../../data/question-packs/ru-c-2025-2026-ruc-group2-mcq.json";
+import pack46 from "../../data/question-packs/ru-vq-2016-2017-c-odd-p145.json";
+import pack47 from "../../data/question-packs/ru-vq-2016-2017-f-odd-p150.json";
+import pack48 from "../../data/question-packs/ru-vq-2017-2018-c-all-p126.json";
+import pack49 from "../../data/question-packs/ru-vq-2017-2018-f-all-p131.json";
+import pack50 from "../../data/question-packs/ru-vq-2017-2018-h-all-p139.json";
+import pack51 from "../../data/question-packs/ru-vq-2018-2019-c-02-p107.json";
+import pack52 from "../../data/question-packs/ru-vq-2018-2019-d1-01-p113.json";
+import pack53 from "../../data/question-packs/ru-vq-2019-2020-c-all-p098.json";
+import pack54 from "../../data/question-packs/ru-vq-2020-2021-c-all-p089.json";
+import pack55 from "../../data/question-packs/ru-vq-2021-2022-c-all-p067.json";
+import pack56 from "../../data/question-packs/ru-vq-2022-2023-c-all-p044.json";
+import pack57 from "../../data/question-packs/ru-vq-2023-2024-c-noset-p023.json";
+import pack58 from "../../data/question-packs/ru-vq-2023-2024-c-noset-p033.json";
+import pack59 from "../../data/question-packs/ru-vq-2024-2025-a-noset-p001.json";
+import pack60 from "../../data/question-packs/ru-vq-2024-2025-a-noset-p012.json";
 
-export const BUNDLED_PACKS: readonly unknown[] = [pack0, pack1, pack2, pack3, pack4, pack5, pack6, pack7, pack8, pack9, pack10, pack11, pack12, pack13, pack14, pack15, pack16, pack17, pack18, pack19, pack20, pack21, pack22, pack23, pack24, pack25, pack26, pack27, pack28, pack29, pack30, pack31, pack32, pack33, pack34, pack35, pack36, pack37, pack38, pack39, pack40, pack41, pack42, pack43, pack44, pack45];
+export const BUNDLED_PACKS: readonly unknown[] = [pack0, pack1, pack2, pack3, pack4, pack5, pack6, pack7, pack8, pack9, pack10, pack11, pack12, pack13, pack14, pack15, pack16, pack17, pack18, pack19, pack20, pack21, pack22, pack23, pack24, pack25, pack26, pack27, pack28, pack29, pack30, pack31, pack32, pack33, pack34, pack35, pack36, pack37, pack38, pack39, pack40, pack41, pack42, pack43, pack44, pack45, pack46, pack47, pack48, pack49, pack50, pack51, pack52, pack53, pack54, pack55, pack56, pack57, pack58, pack59, pack60];

@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The follow-up provisional Flash/Standard path is included; original RU question/answer verification, Android device QA and native release build remain outstanding.
+Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The separate RU verified-source import is included in the full 58-test suite; physical Android QA and native release build remain outstanding. The current bundle has 61 packs / 6,004 questions.
 
 ## Automated checks
 
@@ -8,13 +8,13 @@ Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, works
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | `pnpm test`: **57 passed, 0 failed** under Node 22.23.1. Includes provisional Flash and 100-question Standard Exam integration tests, exact candidate filtering and preserved unverified status. |
-| Real pack validation/index | [x] Pass | All 46 bundled JSON packs validate with 0 errors; `pnpm packs:index` indexes 46 packs (4,189 total questions). 4,023 RU candidate warnings remain for unverified keys and duplicate-option cases. |
-| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. Verified-eligible RU pool: 0; separate provisional pool: 3,991; 18 items with duplicate normalized option text excluded from that pool. |
+| Automated tests | [x] Pass | `pnpm test`: **58 passed, 0 failed** under Node 22.23.1. Includes provisional Flash and 100-question Standard Exam integration tests, exact candidate filtering and preserved unverified status. |
+| Real pack validation/index | [x] Pass | All 61 bundled JSON packs validate with 0 errors; `pnpm packs:index` indexes 61 packs (6,004 total questions). 4,048 warnings remain, primarily expected unverified-key/duplicate-option warnings for the legacy RU candidate packs plus source-transcription warnings in the newly imported PDF bank. |
+| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. New RU-V test: 1,815 questions across 15 packs, 1,720 mapped answer keys, 95 unknown keys, unique source IDs/provenance, idempotent re-import, and Standard Exam entry from the distinct institution. Legacy RU verified-eligible pool: 0; separate provisional pool: 3,991; 18 items with duplicate normalized option text excluded from that pool. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
-| Android JS bundle without bytecode | [x] Pass | `pnpm exec expo export --platform android --no-bytecode` passed with 1,881 modules, a 8.6 MB JS bundle and 122 assets, including all 45 local RU question figures. This is not an APK/AAB build. |
+| Android JS bundle without bytecode | [x] Pass | `pnpm exec expo export --platform android --no-bytecode` passed with 1,896 modules, a 12 MB JS bundle and 122 assets, including all 45 legacy RU question figures. This export was repeated after the new RU-V pack import. This is not an APK/AAB build. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
 | Physical device or emulator QA | [ ] Not run | No device run has been performed. First resolve the observed Expo Go SDK mismatch by installing the matching SDK 57 Android Go build from [expo.dev/go](https://expo.dev/go), or use a dedicated development build. |
@@ -132,7 +132,7 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [x] Added QuestionCard figure rendering and a static Metro asset index; no runtime dependencies were added.
 - [x] Verified every RU candidate remains answer/content `unverified`; no RU exam rules are imported; scored eligibility for these candidates is zero.
 - [x] All 46 JSON packs validate with zero errors (4,023 expected warnings); `pnpm test` 55 passed/0 failed; typecheck and lint passed.
-- [x] `pnpm exec expo export --platform android --no-bytecode` succeeded: Android JS bundle about 8.6 MB and 122 bundled assets including the 45 RU figures.
+- [x] `pnpm exec expo export --platform android --no-bytecode` succeeded in the latest pass: Android JS bundle about 12 MB, 1,896 modules and 122 bundled assets including the 45 legacy RU figures.
 - [x] 166/166 protected external source/candidate/asset/PDF files were byte-size and SHA-256 identical after import.
 - [ ] Confirm question/option transcription and every candidate answer against matching original papers/answer keys; this import did not verify them.
 - [ ] Exercise figures and long Bangla/formula layout on Android; create and test a native release build. No APK/AAB or physical-device result is claimed.
@@ -143,5 +143,14 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [x] Added a separate provisional candidate pool. Only single-choice records with 2+ options, exactly one source key and no duplicate normalized option text are included. Counts confirmed against all bundled RU packs in an isolated SQLite import: 4,009 total, 3,991 provisional candidates, 18 withheld, 0 verified-eligible.
 - [x] Flash test: starts from an unverified-only bank when enabled, displays/records source-key comparison, retains provisional session metadata and does not invent a score without an RU marking rule. Standard test: runs 100 candidate questions, grades the selected answer provisionally and retains unverified key status.
 - [x] Latest suite: 57/57 tests passed; Node 22.23.1 `pnpm typecheck` and `pnpm lint` passed; `git diff --check` passed.
-- [ ] Real Expo Go device testing of university navigation, both modes, question images, selection/timeout/results and Android offline behavior. The current Metro Android development bundle compiled successfully (HTTP 200, 2,042 modules); repeat the separate no-bytecode export and obtain a native release build on a compatible host.
+- [ ] Real Expo Go device testing of university navigation, both modes, question images, selection/timeout/results and Android offline behavior. The current Metro Android development bundle compiled successfully (HTTP 200, 2,042 modules); the no-bytecode export now passes with 1,896 modules; a native release build is still required on a compatible host.
 - [ ] Source-paper transcription and all answer-key verification remain outstanding. No official RU scoring rule or final verified status is claimed; APK/AAB release remains outstanding.
+
+
+## Separate RU verified-source import — 2026-10-29
+
+- [x] Generated and imported 15 schema-v1 RU-V packs / 1,815 questions with per-question PDF page, printed question number, source SHA-256 and paper/set metadata.
+- [x] All 15 new packs pass the question-pack validator with zero schema errors; the generated index contains 61 packs / 6,004 total question records.
+- [x] Focused integration tests pass for separate institution IDs, old-section `UNVERIFIED —` label, new pack provenance, answer-state counts, idempotent import and a 100-question Standard Exam in the new bank.
+- [x] The 1,720 mapped answer keys are `verified`; 95 answer states remain `unknown` because a source key could not be mapped without inference. 118 incomplete/non-choice extraction blocks are listed outside the app bundle in the source workspace's `EXCLUDED_NON_MCQ.csv`.
+- [x] Full automated checks after this import pass: `pnpm test` 58/58, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators and Android `expo export --no-bytecode` (1,896 modules / 12 MB) passed. Physical Android QA and a native release build remain outstanding.
