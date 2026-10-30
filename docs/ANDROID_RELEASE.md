@@ -13,7 +13,7 @@ Last updated: 2026-10-31
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
-The EAS project is initialized and the Expo app config is linked. The EAS CLI authenticated on the local workstation as `sk_king13`. The project config and EAS project metadata were checked successfully. This setup does not claim that a native build or device test has completed.
+The EAS project is initialized and linked to the app config. The preview profile has now produced an installable Android APK, which was published in the public GitHub pre-release below. The owner installed and checked that APK on a physical Android phone and reported normal operation. The production AAB and Google Play rollout have not yet been completed.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ pnpm dlx eas-cli@latest project:info
 
 The project must remain linked to the EAS account above. Do not commit EAS auth tokens, Android keystores, service-account JSON, or other credentials.
 
-## Preview APK — install on a physical Android phone
+## Preview APK — build/install procedure (v0.1.0-preview.1 published)
 
 Start the cloud build from the project root:
 
@@ -44,17 +44,13 @@ pnpm dlx eas-cli@latest build --platform android --profile preview
 
 The first build may ask EAS to create or configure Android signing credentials. Prefer EAS-managed Android credentials and retain them in the EAS account. Do not replace/reset the keystore between builds.
 
-The `preview` profile uses internal distribution and `android.buildType: apk`. On this ARM/NetHunter host, use the no-VCS upload fallback below if the default shallow-clone upload fails with a temporary `.git/objects/pack` unlink `EPERM`. The first preview build is currently tracked as `d5e516cd-eefe-44f4-866d-b440ef188da9`.
+The `preview` profile uses internal distribution and `android.buildType: apk`. The first preview build completed with EAS build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`. On this ARM/NetHunter host, the build upload required the no-VCS/fingerprint workaround documented below.
 
 ```sh
 EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview
 ```
 
-`EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. When the build completes, open the project's EAS Builds page:
-
-https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds
-
-Open the successful Android preview build and use its Install/Download link to download the APK. Transfer/open the APK on the Android phone and accept Android's install prompt for the browser or file manager when required. This is an installable test build, not a Play Store release.
+`EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
 ## Production AAB — Google Play
 
@@ -72,12 +68,16 @@ Play Store submission also requires a configured Play Console app, listing asset
 
 Use **GitHub Releases**, not GitHub Packages, for downloadable app binaries.
 
-For a public release, create a Git tag such as `v0.1.0`, write release notes, and attach the generated APK (and optionally the AAB) under clear names such as:
+The first Android preview has already been published:
 
-- `BD-Admission-v0.1.0.apk`
-- `BD-Admission-v0.1.0.aab`
+- Release: [BD Admission v0.1.0 Preview 1](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1)
+- Tag: `v0.1.0-preview.1` (GitHub `prerelease: true`)
+- Published: 2026-10-31 04:16:28 +06:00
+- APK: [BD.Admission.v0.1.0.apk](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk)
+- Size: 112,443,213 bytes (107.2 MiB)
+- SHA-256: `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`
 
-Include a SHA-256 checksum for distributed artifacts. Never attach signing keystores, credentials, environment files or service-account keys.
+For future releases, create a new version tag, write release notes and attach the matching APK (and AAB only when appropriate). Include a SHA-256 checksum for distributed artifacts. Never attach signing keystores, credentials, environment files or service-account keys.
 
 ## GitHub Actions CI
 
@@ -88,14 +88,16 @@ Include a SHA-256 checksum for distributed artifacts. Never attach signing keyst
 3. Public Expo config validation.
 4. Android JavaScript bundle export with `--no-bytecode`.
 
-The CI workflow does not build an APK/AAB and does not need an Expo token. It cannot run on GitHub until this branch is pushed and opened as a pull request (or merged/pushed to `main`). The CI job omits `expo doctor` because that check can fail on transient Expo API/network fetches; run it separately when needed.
+The CI workflow does not build an APK/AAB and does not need an Expo token. PR #2 (`chore/ci-eas-android-build-2026-10-31`) was merged into `main` at `3aa125d4e12cdca1702f976f20c1f60a765923d1`. The [pull-request CI run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109514896) and [main push CI run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109555081) both completed successfully. The CI job omits `expo doctor` because that check can fail on transient Expo API/network fetches; run it separately when needed.
 
-## Release gates still open
+## Production release gates still open
 
-- Complete a successful EAS preview APK build.
-- Install it on a physical Android device and check first launch, SQLite initialization, offline browsing/practice, Flash/Standard exam, figures, timers, app background/resume and persisted history.
-- Confirm app name/branding and prepare store icon, screenshots, descriptions and privacy policy.
-- Confirm Google Play target API and account-specific testing requirements at submission time.
-- Build and inspect the production AAB before any public store rollout.
+- [x] EAS preview APK build completed and published as GitHub pre-release `v0.1.0-preview.1`.
+- [x] Owner-confirmed installation and physical Android smoke verification of the preview APK. The owner reported normal operation; the first load took about one minute and subsequent opens about 2–3 seconds. Detailed step-by-step results are recorded as owner-reported, not instrumented QA evidence.
+- [ ] Build and inspect the production AAB using the `production` profile.
+- [ ] Confirm the final production display name and Play Console app identity.
+- [ ] Prepare the Play Console listing, final store screenshots/graphics, privacy policy and data-safety declarations.
+- [ ] Verify target API and account-specific testing/access requirements at the actual submission date.
+- [ ] Complete Play Console submission/review and production rollout.
 
-A successful Expo JavaScript export or GitHub CI run does not replace native APK installation or physical-device QA.
+The GitHub preview release is not a Play Store production release. A no-bytecode JavaScript export or CI run alone does not replace native APK installation and physical-device QA; those preview steps have now separately been completed.

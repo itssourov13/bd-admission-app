@@ -1,7 +1,16 @@
 # Current state
 
-Last updated: 2026-10-31 (three branded README showcase graphics added; GitHub CI workflow and EAS Android build profiles configured; EAS preview APK build and physical-device QA remain outstanding).
+Last updated: 2026-10-31 (GitHub pre-release v0.1.0-preview.1 published with APK; owner-confirmed physical-device smoke test complete; Google Play production AAB/listing remain outstanding).
 
+
+## Android preview release — 2026-10-31 (Asia/Dhaka)
+
+- GitHub repository: [itssourov13/bd-admission-app](https://github.com/itssourov13/bd-admission-app); default branch `main` is at merge commit `3aa125d4e12cdca1702f976f20c1f60a765923d1` (PR #2 merged).
+- Public GitHub pre-release: [BD Admission v0.1.0 Preview 1](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1), tag `v0.1.0-preview.1`, published **2026-10-31 04:16:28 +06:00**. The release is explicitly a pre-release, not a Google Play production release.
+- APK asset: [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk); size **112,443,213 bytes (107.2 MiB)**; SHA-256 `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`.
+- EAS preview build ID: `d5e516cd-eefe-44f4-866d-b440ef188da9`. Its APK was uploaded to the GitHub Release and installed/checked by the owner on a physical Android device; the owner reported the device verification as successful. Owner-observed startup: about one minute on the initial first load, then about 2–3 seconds on subsequent opens.
+- CI: PR #2 merged successfully. The [PR workflow run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109514896) and [main push workflow run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109555081) both completed successfully.
+- Still open: production EAS AAB, Play Console listing/assets/privacy declarations and production rollout. The README artwork is a three-screen showcase, not the final Play Console asset pack.
 
 ## README showcase — 2026-10-31
 
@@ -40,7 +49,7 @@ See the "Verification" section of docs/QA_CHECKLIST.md for the exact commands an
 ## Not done / not verifiable here
 - The supplied PDFs are scanned publisher question-bank pages; question/options and printed answer-key letters were transcribed and programmatically cross-checked against each printed key. This batch was not externally fact-checked question-by-question. Some diagram-based choices are represented with text labels where practical. Two items are content-unverified: a figure-only physics question because its diagram is not represented as an asset, and a mathematics formula whose scan is too unclear to guarantee the exact expression.
 - **Official DU format mismatch is known**: the scanned publisher MCQ-only practice set differs from the official DU 2025–2026 notice (60 MCQ marks plus 40 written marks, 45 minutes each). The runtime supports the publisher bank’s four-of-six MCQ practice pattern but must not be described as full official DU exam simulation; its rule remains illustrative.
-- **No physical Android device or emulator test** was performed. All UI behavior (layout, touch targets, Bangla rendering, back-button handling, backgrounding) is unverified on a device. The previous Expo Go launch showed an SDK mismatch: this project uses Expo SDK 57 / React Native 0.86.3, and each Expo Go build only supports its matching SDK. On Android, install the matching SDK 57 Expo Go build from [expo.dev/go](https://expo.dev/go) before retrying, or use a dedicated development build. This is a tooling-version mismatch, not evidence of a JS bundle error.
+- **Physical Android verification:** the owner reports that the published preview APK installed and worked normally on a physical Android phone. The initial first load took about one minute and subsequent opens took about 2–3 seconds. This is owner-reported device QA, not an emulator/lab run or a separately captured step-by-step test log. The earlier Expo Go SDK mismatch was a development-client issue; the released standalone APK was installed for device verification.
 - SQLite runs through expo-sqlite on device; tests use node:sqlite behind the same SqlDb contract.
 - The final app name remains provisional (see docs/BRANDING.md).
 
@@ -91,7 +100,7 @@ The initial import had a usability gap: Flash and Standard setup only queried th
 
 Repository filtering now restricts provisional candidates to single-choice questions with at least two options, exactly one source-key option and no duplicate normalized option text. Current RU C counts: 4,009 imported, 3,991 in the provisional pool, 18 withheld for duplicate option text, zero in the verified-only pool. The answer and content statuses of all 4,009 remain `unverified`, and no RU question count/duration/marking rule is inferred. Flash feedback and result/review screens explicitly call out that the candidate key is unverified; because no RU scoring rule is configured, a normative exam score is not displayed.
 
-Automated verification after this fix: 57 tests passed, typecheck passed, lint passed and diff-check passed under Node 22.23.1. Physical Android/Expo Go QA and a native APK/AAB release build are still outstanding; those are not claimed as completed.
+Automated verification at this **2026-10-29 provisional-practice checkpoint**: 57 tests passed, typecheck passed, lint passed and diff-check passed under Node 22.23.1. Its release-status sentence predates the 2026-10-31 preview APK release and is superseded by the Android preview summary at the top of this document. The separate RU C figure/content visual-review work remains open.
 
 
 ## Android CI and EAS release setup — 2026-10-31
@@ -100,4 +109,4 @@ Automated verification after this fix: 57 tests passed, typecheck passed, lint p
 - Initialized EAS project @sk_king13/bd-admission-app with ID 16ba69b8-96d7-4856-a197-77acddebe1ec; app.config.js now declares its owner and project ID. eas project:info and resolved Expo config both succeeded.
 - Added eas.json: preview creates an internal-distribution APK for phone installation; production creates an Android App Bundle (AAB) and enables version-code auto-increment.
 - Added docs/ANDROID_RELEASE.md with the cloud build command, Expo dashboard URL, signing-credential handling, device QA, Play Store and GitHub Releases guidance.
-- This is a local task branch based on the latest origin/main. It has not been pushed or opened as a PR, so GitHub Actions has not run yet. The EAS preview APK build was successfully uploaded and queued (`d5e516cd-eefe-44f4-866d-b440ef188da9`; latest observed status `IN_PROGRESS`). No APK artifact is available/claimed yet. Physical-device QA remains outstanding.
+- This was the setup checkpoint before release. It is superseded by the Android preview release record at the top of this document: PR #2 is merged, both CI runs succeeded, the EAS preview APK is published as `v0.1.0-preview.1`, and the owner-confirmed physical-device check is complete.

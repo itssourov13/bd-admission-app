@@ -63,7 +63,7 @@ Changing applicationId after a native build changes the app identity; generate a
 - [x] Central brand config resolves through expo config.
 - [x] Expo Doctor passed 21/21 checks during the 2026-10-28 verification pass.
 - [x] The Android JavaScript bundle exported successfully with --no-bytecode.
-- [ ] Launcher icon and splash rendering have not yet been visually checked in an installed native build.
-- [ ] Physical-device appearance, status-bar contrast, safe areas and long Bangla text remain unverified.
+- [ ] Launcher icon and splash appearance have not been separately recorded as a focused visual QA result.
+- [x] Owner-reported physical-device installation and smoke verification completed for the preview APK. Detailed per-control visual measurements were not separately recorded.
 - [ ] Product display name remains provisional.
 - [ ] Final Play Console listing assets/screenshots have not been finalized; the three README showcase composites are not a complete store listing pack.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-31 — Publish Android preview and reconcile release documentation
+
+- Merged PR #2 (`3aa125d4e12cdca1702f976f20c1f60a765923d1`) to `main`; both the PR CI run and merge push CI run completed successfully.
+- Published GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) with `BD.Admission.v0.1.0.apk` (112,443,213 bytes; SHA-256 `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`). EAS preview build ID: `d5e516cd-eefe-44f4-866d-b440ef188da9`.
+- Recorded owner-confirmed physical Android installation/verification and observed startup timing. Corrected release status in README, CURRENT_STATE, TASK_STATE, HANDOFF, ANDROID_RELEASE, QA_CHECKLIST and BRANDING.
+- The GitHub pre-release is not a Google Play production release. Production AAB, listing/assets, privacy declarations and production rollout remain open.
+
 ## 2026-10-31 — Add Play Store-inspired README preview showcase
 
 - Added three branded 1080×1920 (9:16) JPEG graphics for the Home, Varsity catalogue and Profile runtime screens under `docs/assets/showcase/`. Generated abstract artwork is used only as the background; the captured app UI remains authentic.
@@ -12,7 +19,7 @@
 - Added `.github/workflows/ci.yml` for main pushes, pull requests and manual CI runs. It installs the frozen pnpm lockfile, runs tests/typecheck/lint, validates Expo config and exports the Android JS bundle without Hermes bytecode. Follow-up hardening installs pnpm before enabling setup-node's pnpm store cache.
 - Initialized and linked EAS project `@sk_king13/bd-admission-app` (`16ba69b8-96d7-4856-a197-77acddebe1ec`) in `app.config.js`; verified the resolved Expo config and `eas project:info`.
 - Added `eas.json` preview APK and production AAB profiles and documented cloud build, signing, device QA, Google Play and GitHub Releases in `docs/ANDROID_RELEASE.md`.
-- No GitHub workflow run is claimed because this branch has not been pushed/opened as a PR. No native APK/AAB or physical-device test is claimed yet.
+- At this initial local-setup checkpoint (before PR #2 was merged), no GitHub workflow run, native APK or physical-device test had yet been completed; the later same-day release entry above records the merged PR, successful CI runs and published preview APK.
 
 ## 2026-10-30 — Corrected RU verified-source pack structure and answer dispositions
 
