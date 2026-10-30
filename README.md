@@ -2,6 +2,16 @@
 
 A Bangladesh-focused, offline-first Android admission-preparation app for university (Varsity) and Medical admission questions. The app supports Bangla and English, question browsing, Flash Question practice, Standard Exam sessions, bookmarks, a local profile, and practice history. Engineering is visible as Coming Soon.
 
+## App preview
+
+<p align="center">
+  <img src="docs/assets/showcase/01-home.jpg" alt="BD Admission home screen with Varsity, Medical, Flash Question and Standard Exam entry points" width="32%" />
+  <img src="docs/assets/showcase/02-varsity.jpg" alt="Varsity catalogue with university question-bank entries and verification labels" width="32%" />
+  <img src="docs/assets/showcase/03-profile.jpg" alt="Profile screen with language, practice preferences, progress, bookmarks and history" width="32%" />
+</p>
+
+<p align="center"><sub>Play Store-inspired README artwork built around actual runtime captures; this three-screen set is not a final Play Console asset pack. The profile display name is anonymized, and visible counters are sample local data rather than product-wide usage metrics.</sub></p>
+
 ## Current implementation status
 
 The core app implementation is wired across the Expo Router screens, SQLite database lifecycle, repositories, practice services, question-pack importer, and local user data. Automated checks pass as recorded in docs/QA_CHECKLIST.md.

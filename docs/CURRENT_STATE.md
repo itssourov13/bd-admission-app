@@ -1,7 +1,13 @@
 # Current state
 
-Last updated: 2026-10-31 (GitHub CI workflow and EAS Android build profiles configured; EAS project linked; native preview APK build and physical-device QA remain outstanding).
+Last updated: 2026-10-31 (three branded README showcase graphics added; GitHub CI workflow and EAS Android build profiles configured; EAS preview APK build and physical-device QA remain outstanding).
 
+
+## README showcase — 2026-10-31
+
+- Added three 1080×1920 portrait JPEG composites in `docs/assets/showcase/`: Home, Varsity catalogue and Profile. The layouts use generated abstract brand artwork behind the supplied runtime UI captures; the app interface itself was not redrawn.
+- Personal display-name text is replaced with `Learner`. The visible profile counters remain values from the captured local sample profile and are not product-wide usage metrics.
+- These assets are for the repository README showcase, not a final Play Console listing package. Google Play highly recommends at least four high-resolution screenshots for app recommendation surfaces; one more authentic runtime screen is needed before preparing that set.
 
 ## Latest question-bank snapshot — 2026-10-30
 

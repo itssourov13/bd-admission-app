@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-31 — Add Play Store-inspired README preview showcase
+
+- Added three branded 1080×1920 (9:16) JPEG graphics for the Home, Varsity catalogue and Profile runtime screens under `docs/assets/showcase/`. Generated abstract artwork is used only as the background; the captured app UI remains authentic.
+- Replaced the personal profile display name with `Learner`, and added accessible alt text plus README showcase placement. The visible profile counters are sample local profile state, not product-wide usage metrics.
+- Documented that these are README presentation assets, not final Play Console listing assets. Google Play highly recommends four high-resolution screenshots for app recommendation surfaces; capture another genuine screen before final store preparation.
+- Verification: 62/62 tests passed, TypeScript typecheck and Expo lint passed, all README asset references resolve, all images are 1080×1920 RGB JPEGs, and `git diff --check` is clean.
+
 ## 2026-10-31 — Configure GitHub CI and EAS Android release pipeline
 
 - Added `.github/workflows/ci.yml` for main pushes, pull requests and manual CI runs. It installs the frozen pnpm lockfile, runs tests/typecheck/lint, validates Expo config and exports the Android JS bundle without Hermes bytecode. Follow-up hardening installs pnpm before enabling setup-node's pnpm store cache.

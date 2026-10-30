@@ -1,7 +1,11 @@
 # Handoff
 
+## README showcase — 2026-10-31
+
+The README now presents three 1080×1920 portrait graphics in `docs/assets/showcase/` (Home, Varsity catalogue and Profile). Each retains actual runtime UI pixels over generated, brand-matched abstract artwork; profile display-name text is anonymized as `Learner`. Visible profile counters are from the captured local sample profile, not product-wide usage metrics. These are README presentation assets, not final Play Console listing screenshots. Before store submission, capture at least one additional authentic runtime screen and prepare the final store assets against the [Google Play preview-asset guidance](https://support.google.com/googleplay/android-developer/answer/9866151).
+
 ## Workspace
-Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo; current task branch `chore/ci-eas-android-build-2026-10-31` is based on latest `origin/main`; never push from automation).
+Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo; current task branch `docs/play-store-readme-showcase-2026-10-31`, created from `chore/ci-eas-android-build-2026-10-31`; never push from automation).
 ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
 ## State
