@@ -81,3 +81,9 @@ The verified pool continues to require verified question content and answer keys
 Status: accepted, 2026-10-29.
 
 The existing `ru` institution and its 4,009 candidate questions remain intact and visibly begin with `UNVERIFIED —`. The user-supplied verified-source PDF is imported under a distinct institution ID (`ru-verified-bank`, code `RU-V`) with separate pack/paper/question IDs and page provenance. Do not merge or replace old questions because a source PDF overlaps in year; older questions without matching source coverage must be preserved. Per user instruction, the new source question content is marked verified, but source answer markers that are absent or could not be mapped remain `unknown` rather than being invented. Do not infer RU official scoring/time rules from the question bank.
+
+
+## ADR-016 — Use EAS cloud builds and GitHub Actions CI for Android delivery
+Status: accepted, 2026-10-31.
+
+Use Expo Application Services for native Android builds because the current ARM/NetHunter host has a known Hermes bytecode SIGILL during normal export. The preview profile produces an internal-distribution APK for physical-device QA; the production profile produces an AAB for Google Play. Keep the signing keystore in EAS-managed credentials, not in Git. Use GitHub Actions for deterministic repository checks (tests, types, lint, Expo config and no-bytecode bundle export); CI does not need an Expo token and does not perform native builds. Use GitHub Releases for APK/AAB binary downloads, not GitHub Packages. Rationale: separate source verification, native build, physical-device QA and public distribution gates.

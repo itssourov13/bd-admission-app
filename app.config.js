@@ -1,6 +1,7 @@
 const brand = require("./brand.config.json");
 
 module.exports = {
+  owner: "sk_king13",
   name: brand.name,
   slug: brand.slug,
   version: brand.version,
@@ -28,5 +29,10 @@ module.exports = {
     ["expo-localization", { supportedLocales: { android: ["bn", "en"], ios: ["bn", "en"] } }],
     ["expo-splash-screen", { image: "./assets/brand/splash-icon.png", imageWidth: 196, backgroundColor: brand.colors.body }]
   ],
-  experiments: { typedRoutes: true }
+  experiments: { typedRoutes: true },
+  extra: {
+    eas: {
+      projectId: "16ba69b8-96d7-4856-a197-77acddebe1ec"
+    }
+  }
 };

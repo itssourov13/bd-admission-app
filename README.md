@@ -8,7 +8,7 @@ The core app implementation is wired across the Expo Router screens, SQLite data
 
 This is **not yet a release sign-off**. Two DU A Unit packs are now bundled from the supplied scanned question-bank PDFs: 90 questions per session for 2024–2025 and 2025–2026, across six subject sections. The supplied answer-key letters are preserved; three questions without a printed key remain unanswered/unknown rather than guessed. The supplied publisher scan is a question-bank source, not an official DU past-paper notice. The official DU 2025–2026 notice describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each part ([official notice](https://www.du.ac.bd/du_post_details/news/25400)); its complete format differs from the scan’s four-of-six-subject MCQ-only practice pattern. That rule therefore remains **illustrative** and the app labels the selected-paper mode as question-bank practice, not a full official DU exam. Question-level local PNG figures are supported by the runtime; their sizing/readability still need physical-device QA. Two items are content-unverified and excluded from scored practice: one figure-only physics item and one mathematics formula whose scanned expression is unclear.
 
-The app has not yet been validated on a physical Android device or emulator, and a normal Hermes bytecode export crashes on this ARM/NetHunter host. The successful no-bytecode export is a JavaScript bundle check, not an APK/AAB build.
+The app has not yet been validated on a physical Android device or emulator, and a normal Hermes bytecode export crashes on this ARM/NetHunter host. The successful no-bytecode export is a JavaScript bundle check, not an APK/AAB build. The EAS project is linked and preview-APK/production-AAB profiles are configured. The first EAS preview APK cloud build is now in progress; physical-device QA is still pending. GitHub Actions CI is configured in `.github/workflows/ci.yml`; it will run after the branch is pushed/opened as a PR.
 
 ## RU question bank sections — separate by source/status
 
@@ -53,7 +53,7 @@ Start Expo:
 
     pnpm start
 
-For the repeatable Expo Go preview setup, tunnel/QR connection, continuous-use, reconnect, and stop steps, see [Expo local preview guide](docs/EXPO_LOCAL_PREVIEW.md).
+For the repeatable Expo Go preview setup, tunnel/QR connection, continuous-use, reconnect, and stop steps, see [Expo local preview guide](docs/EXPO_LOCAL_PREVIEW.md). For EAS cloud APK/AAB builds, GitHub CI, device QA and release steps, see [Android build and release guide](docs/ANDROID_RELEASE.md).
 
 **Expo Go SDK match:** this project uses Expo SDK 57. Every Expo Go build supports its own SDK version, so if Expo Go reports “Project is incompatible with this version of Expo Go”, install the matching **SDK 57 Android** build from [expo.dev/go](https://expo.dev/go), then restart Metro. Do not upgrade package versions just to silence the mismatch; an SDK upgrade should be a separate, tested migration. A dedicated development build is the release-oriented alternative.
 
@@ -106,6 +106,7 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 - docs/DECISIONS.md — accepted product/technical decisions.
 - docs/TASK_STATE.md and docs/HANDOFF.md — completed work and next steps.
 - docs/QA_CHECKLIST.md — automated results and checks still requiring a device or real content.
+- docs/ANDROID_RELEASE.md — EAS project, Android APK/AAB profiles, GitHub CI and release procedure.
 - docs/BRANDING.md — provisional product identity and local assets.
 - docs/REUSE_INVENTORY.md — copied/adapted foundations and independence boundaries.
 

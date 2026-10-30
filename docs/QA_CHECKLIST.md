@@ -155,3 +155,16 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [x] Final index: 61 packs / **6,017 total questions** (180 DU + 4,009 separate RU C candidates + 1,828 RU-V). The older RU C candidate bank and both DU packs remain unchanged.
 - [x] Exclusion manifest contains 154 written/incomplete extraction records; 30 source questions with identical option text are separately listed in the external warning audit. Page 137's false white-text-shadow banner was fixed and Q4's printed B marker restored.
 - [x] Final automated verification: `pnpm test` 62/62, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators (0 schema errors), and Android `expo export --platform android --no-bytecode` (1,896 modules / 12 MB / 122 assets) passed. Physical Android QA and a native release build remain outstanding.
+
+
+## CI and native release pipeline setup — 2026-10-31
+
+| Check | Result | Notes |
+|---|---|---|
+| GitHub Actions workflow file | [x] Configured locally | .github/workflows/ci.yml covers main push, PR-to-main and manual dispatch. No GitHub workflow run is claimed until this branch is pushed/opened as a PR. |
+| EAS project link | [x] Pass | Project @sk_king13/bd-admission-app, ID 16ba69b8-96d7-4856-a197-77acddebe1ec; eas project:info succeeded. |
+| Resolved Expo config | [x] Pass | Public config resolves app owner, slug, Android package com.admissionbd.app, version 0.1.0 and EAS project ID. |
+| EAS build profiles | [x] Configured | preview is internal APK; production is AAB with version auto-increment. |
+| EAS preview APK build | [x] Queued / in progress | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; EAS currently reports `IN_PROGRESS`. Download is not available until the native build completes successfully. |
+| Android installation/device QA | [ ] Not run | Awaiting successful APK and user-side physical-phone testing. |
+| Production AAB / Play Store / GitHub Release | [ ] Not run | Wait until preview and device QA gates pass; see docs/ANDROID_RELEASE.md. |
