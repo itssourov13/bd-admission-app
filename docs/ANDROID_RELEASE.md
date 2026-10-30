@@ -44,7 +44,13 @@ pnpm dlx eas-cli@latest build --platform android --profile preview
 
 The first build may ask EAS to create or configure Android signing credentials. Prefer EAS-managed Android credentials and retain them in the EAS account. Do not replace/reset the keystore between builds.
 
-The `preview` profile uses internal distribution and `android.buildType: apk`. When the build completes, open the project's EAS Builds page:
+The `preview` profile uses internal distribution and `android.buildType: apk`. On this ARM/NetHunter host, use the no-VCS upload fallback below if the default shallow-clone upload fails with a temporary `.git/objects/pack` unlink `EPERM`. The first preview build is currently tracked as `d5e516cd-eefe-44f4-866d-b440ef188da9`.
+
+```sh
+EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview
+```
+
+`EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. When the build completes, open the project's EAS Builds page:
 
 https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds
 

@@ -132,7 +132,7 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 
 
 ## Android release follow-through — open gates
-- [ ] Trigger an EAS preview cloud build using: pnpm dlx eas-cli@latest build --platform android --profile preview.
+- [x] Triggered EAS preview cloud build; build ID `d5e516cd-eefe-44f4-866d-b440ef188da9` is `IN_PROGRESS`. The APK artifact/download link is not available yet.
 - [ ] Download/install the APK from the Expo Builds dashboard and complete the real-device checklist in docs/QA_CHECKLIST.md.
 - [ ] Push/open a PR from chore/ci-eas-android-build-2026-10-31 so GitHub Actions runs; fix any CI-specific failures and record the run URL/result.
 - [ ] Only after device QA, create the production AAB, inspect it and prepare the Google Play listing/privacy/testing requirements. Public store and GitHub binary releases remain pending.

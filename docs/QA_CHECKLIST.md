@@ -165,6 +165,6 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 | EAS project link | [x] Pass | Project @sk_king13/bd-admission-app, ID 16ba69b8-96d7-4856-a197-77acddebe1ec; eas project:info succeeded. |
 | Resolved Expo config | [x] Pass | Public config resolves app owner, slug, Android package com.admissionbd.app, version 0.1.0 and EAS project ID. |
 | EAS build profiles | [x] Configured | preview is internal APK; production is AAB with version auto-increment. |
-| First EAS preview APK | [ ] Not built | Next command: pnpm dlx eas-cli@latest build --platform android --profile preview. |
+| EAS preview APK build | [x] Queued / in progress | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; EAS currently reports `IN_PROGRESS`. Download is not available until the native build completes successfully. |
 | Android installation/device QA | [ ] Not run | Awaiting successful APK and user-side physical-phone testing. |
 | Production AAB / Play Store / GitHub Release | [ ] Not run | Wait until preview and device QA gates pass; see docs/ANDROID_RELEASE.md. |
