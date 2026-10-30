@@ -71,10 +71,42 @@ test("a verified rule must define every scoring value; unverified answers never 
   assert.equal(result.errors.some((m) => m.includes("verified answer")), false);
 });
 
+test("supports explicit replacement of active paper appearances and validates the flag type", () => {
+  const pack = validPack();
+  pack.replaceExistingPaperContent = true;
+  assert.equal(validateQuestionPack(pack).valid, true);
+  pack.replaceExistingPaperContent = "true";
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((message) => message.includes("replaceExistingPaperContent must be a boolean")));
+});
+
 test("rejects unsupported schema versions with an actionable message", () => {
   const pack = validPack();
   pack.schemaVersion = 2;
   const result = validateQuestionPack(pack);
   assert.equal(result.valid, false);
   assert.ok(result.errors.some((m) => m.includes("schemaVersion must be 1")));
+});
+
+
+test("accepts a verified source marker that explicitly says no listed option is correct", () => {
+  const pack = validPack();
+  pack.questions[0].correctOptionIds = [];
+  pack.questions[0].answerDisposition = "no_correct_option";
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, true, result.errors.join("\n"));
+
+  delete pack.questions[0].answerDisposition;
+  const rejected = validateQuestionPack(pack);
+  assert.equal(rejected.valid, false);
+  assert.ok(rejected.errors.some((message) => message.includes("cannot have a verified answer without at least one correct option")));
+});
+
+test("accepts a verified multiple-choice source answer with multiple correct options", () => {
+  const pack = validPack();
+  pack.questions[0].type = "multiple_choice";
+  pack.questions[0].correctOptionIds = ["a", "b"];
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, true, result.errors.join("\n"));
 });

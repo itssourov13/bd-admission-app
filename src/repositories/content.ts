@@ -28,7 +28,10 @@ function chunk<T>(items: T[], size = 400): T[][] {
 function filterClauses(filter: PoolFilter): { joins: string; where: string; params: SqlParam[] } {
   const params: SqlParam[] = [];
   let joins = "";
-  const where: string[] = [];
+  // Historical question rows may remain after a source-paper replacement so old
+  // bookmarks and attempts keep resolving. Only rows with a current active paper
+  // appearance belong to the active browse/practice catalogue.
+  const where: string[] = ["EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)"];
   if (filter.category) { where.push("q.category = ?"); params.push(filter.category); }
   if (filter.subject) { where.push("q.subject = ?"); params.push(filter.subject); }
   if (filter.subjects?.length) {
@@ -86,8 +89,9 @@ export async function countEligible(db: SqlDb, filter: PoolFilter): Promise<numb
 }
 
 export async function contentTotals(db: SqlDb): Promise<{ questions: number; eligible: number; institutions: number }> {
-  const q = await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM questions");
-  const e = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE ${ELIGIBLE_SQL}`);
+  const active = filterClauses({});
+  const q = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE 1 = 1${active.where}`);
+  const e = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE ${ELIGIBLE_SQL}${active.where}`);
   const i = await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM institutions");
   return { questions: Number(q?.n ?? 0), eligible: Number(e?.n ?? 0), institutions: Number(i?.n ?? 0) };
 }

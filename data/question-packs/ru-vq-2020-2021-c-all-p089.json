@@ -3,11 +3,12 @@
   "batch": {
     "id": "ru-vq-2020-2021-c-all-p089",
     "category": "varsity",
-    "description": "User-confirmed verified question-bank source; transcribed/imported from RU Question Bank.pdf pages 89-97. Question content is marked verified as requested. Printed answer markers are imported when present; absent/unreadable source keys remain unknown rather than being invented.",
+    "description": "User-confirmed verified RU Question Bank source. Imported from the supplied PDF pages 89-97. All included question content and explicit printed A/B/C/D answer markers are marked verified as instructed. Structurally incomplete extraction records are listed in the external exclusion manifest.",
     "sourceDocumentIds": [
       "ru-vq-2020-2021-c-all-p089-source"
     ]
   },
+  "replaceExistingPaperContent": true,
   "sourceDocuments": [
     {
       "id": "ru-vq-2020-2021-c-all-p089-source",
@@ -15,7 +16,7 @@
       "title": "RU C Unit — 2020-2021",
       "sha256": "f1fc25faef0bba80d4495002f3006ac4ca1a7ce9da5c26e6a1f7db45218a49c7",
       "sourceType": "pdf",
-      "notes": "User-supplied, user-confirmed verified source. PDF pages 89-97. Text imported without independent question review. Answer keys are mapped only when an explicit printed A/B/C/D marker could be extracted."
+      "notes": "User-supplied and user-confirmed verified source. PDF pages 89-97. Questions and printed answer markers are imported as verified according to the user's confirmation. Records with incomplete extraction are retained in the external exclusion manifest."
     }
   ],
   "institutions": [
@@ -40,10 +41,10 @@
   "questions": [
     {
       "id": "ru-vq-2020-2021-c-all-p089-q001-p089-n0001",
-      "text": "পদার্থবিজ্ঞান ল্যাবরেটরিতে সরল দোলকের সাহায্যে ম-এর মান নির্ণয়\nকরতে গিয়ে 9.78 ms2\nপাওয়া গেল। ম-এর প্রকৃত মান 9.81 ms2\nহলে\nপ্রাপ্ত মানের শতকরা ত্রুটি হবে-",
+      "text": "পদার্থবিজ্ঞান ল্যাবরেটরিতে সরল দোলকের সাহায্যে g-এর মান নির্ণয় করতে গিয়ে 9.78 ms⁻² পাওয়া গেল। g-এর প্রকৃত মান 9.81 ms⁻² হলে প্রাপ্ত মানের শতকরা ত্রুটি হবে–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -85,35 +86,35 @@
         "pageNumber": 89,
         "questionNumber": 1
       },
-      "explanation": "শতকরা ত্রুটি =\n9.81 ু 9.78\n9.81\n 100% = 0.3%",
+      "explanation": "শতকরা ত্রুটি = (9.81  – 9.78)/9.81× 100% = 0.3%",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q002-p089-n0002",
-      "text": "কোন ভেক্টরটি ী-অক্ষের সাথে সমান্তরাল?",
+      "text": "কোন ভেক্টরটি x-অক্ষের সাথে সমান্তরাল? ∧ ∧ ∧ ∧ ∧ ∧",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "( )\n\ni ×\n\nj ×\n\ni",
+          "text": "(i × j × ) i",
           "order": 1
         },
         {
           "id": "b",
-          "text": "( )\n\ni ×\n\nj ×\n\nk",
+          "text": "(i × j × ) k ∧ ∧ ∧ ∧ ∧ ∧",
           "order": 2
         },
         {
           "id": "c",
-          "text": "( )\n\ni ×\n\nj ×\n\nj",
+          "text": "(i × j × ) j",
           "order": 3
         },
         {
           "id": "d",
-          "text": "( )\n\nk ×\n\nj ×\n\nk",
+          "text": "(k × j × ) k ∧ ∧ ∧ ∧ ∧ ∧ ( ) ×",
           "order": 4
         }
       ],
@@ -135,15 +136,65 @@
         "pageNumber": 89,
         "questionNumber": 2
       },
-      "explanation": "( )\n\ni ×\n\nj ×\n\nj =\n\nk \n\nj = ু\n\ni যা x অক্ষের উপর অবস্থিত\nএকটি GKK ভেক্টর যা H অক্ষেরই সমান্তরাল।\n03 50 kg ভরের একটি স্থির বস্তুর ওপর 5 ংবপ ব্যাপী 10 N বল প্রযুক্ত হলো।\nউক্ত বস্তুটির বেগের পরিবর্তন হবে-\nঅ. 1 ms1\nই. 10 ms1\nঈ. 50 ms1\nউ. 0.5 ms1\nA ASPECT\nExplanation ভরবেগের পরিবর্তন, সা = ঋঃ\n া =\n10  5\n50\n= 1ms–1",
+      "explanation": "i × j  × j = k  j = – i যা x অক্ষের উপর অবস্থিত একটি একক ভেক্টর যা ঐ অক্ষেরই সমান্তরাল।",
+      "assetPaths": []
+    },
+    {
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p089-c0-s01-q003-r1",
+      "text": "50 kg ভরের একটি স্থির বস্তুর ওপর 5 sec ব্যাপী 10 N বল প্রযুক্ত হলো। উক্ত বস্তুটির বেগের পরিবর্তন হবে–",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "1 ms⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "10 ms⁻¹",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "50 ms⁻¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.5 ms⁻¹ Δ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-vq-2020-2021-c-all-p089",
+          "questionNumber": 3,
+          "pageNumber": 89,
+          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
+        }
+      ],
+      "source": {
+        "documentId": "ru-vq-2020-2021-c-all-p089-source",
+        "pageNumber": 89,
+        "questionNumber": 3
+      },
+      "explanation": "ভরবেগের পরিবর্তন, m v = Ft ⇒ Δv = (10 × 5)/50 = 1ms⁻¹",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q004-p089-n0003",
-      "text": "60 m উচ্চতা থেকে একটি বস্তুকে বিনা বাধায় নিচে পড়তে দেওয়া হলো।\nকোন উচ্চতায় বস্তুটির গতিশক্তি বিভবশক্তির পাঁচগুণ হবে?",
+      "text": "60 m উচ্চতা থেকে একটি বস্তুকে বিনা বাধায় নিচে পড়তে দেওয়া হলো। কোন উচ্চতায় বস্তুটির গতিশক্তি বিভবশক্তির পাঁচগুণ হবে?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -185,20 +236,20 @@
         "pageNumber": 89,
         "questionNumber": 4
       },
-      "explanation": "ঊশ = 5Ep \n1\n2\nmv2\n= 5 সময\n\n1\n2\n 2  g  (60– h) = 5gh ু h = 5h  h = 10m\nশর্টকাট টেকনিক: ভূমি থেকে উচ্চতা x =\nh\nn + 1\n=\n60\n5 + 1\n= 10m [এখানে\nh হলো মোট উচ্চতা, এবং n হলো গতিশক্তি এবং বিভবশক্তির অনুপাত]",
+      "explanation": "Eₖ = 5Eₚ   ⇒1/2mv² = 5 mgh ⇒1/2× 2 × g × (60– h) = 5gh ⇒ 60 – h = 5h ⇒ h = 10m শর্টকাট টেকনিক: ভূমি থেকে উচ্চতা x = h/(n + 1) = 60/(5 + 1) = 10m [এখানে h  হলো মোট উচ্চতা, এবং n হলো গতিশক্তি এবং বিভবশক্তির অনুপাত]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q005-p089-n0004",
-      "text": "কোনো গ্যাসের আপেক্ষিক তাপদ্বয়ের অনুপাত  = 1.4 হলে, গ্যাসটির\nঅণু-",
+      "text": "কোনো গ্যাসের আপেক্ষিক তাপদ্বয়ের অনুপাত γ = 1.4 হলে, গ্যাসটির অণু–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "GK পারমাণবিক",
+          "text": "এক পারমাণবিক",
           "order": 1
         },
         {
@@ -213,7 +264,7 @@
         },
         {
           "id": "d",
-          "text": "বহু পারমাণবিক",
+          "text": "বহু পারমাণবিক γ",
           "order": 4
         }
       ],
@@ -235,15 +286,15 @@
         "pageNumber": 89,
         "questionNumber": 5
       },
-      "explanation": "* এক-পারমাণবিক গ্যাসের জন্য,  = 1.67\n* দ্বি-পারমাণবিক গ্যাসের জন্য,  = 1.41\n* ত্রি/ বহু পারমাণবিক গ্যাসের জন্য,  = 1.33",
+      "explanation": "= 1.67 * এক-পারমাণবিক গ্যাসের জন্য, * দ্বি-পারমাণবিক গ্যাসের জন্য, γ = 1.41 * ত্রি/ বহু পারমাণবিক গ্যাসের জন্য, γ = 1.33",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q006-p089-n0005",
-      "text": "রুদ্ধতাপীয় পরিবর্তনের ক্ষেত্রে সত্য নয়-",
+      "text": "রুদ্ধতাপীয় পরিবর্তনের ক্ষেত্রে সত্য নয়–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -263,7 +314,7 @@
         },
         {
           "id": "d",
-          "text": "চঠ\n= ধ্রুবক",
+          "text": "PV^(γ)= ধ্রুবক",
           "order": 4
         }
       ],
@@ -290,10 +341,10 @@
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q007-p089-n0006",
-      "text": "একটি সরল দোলকের দোলনকাল ঞ। দোলকটির ঙ্দর্ঘ্য দ্বিগুণ করা হলে\nপরিবর্তিত দোলনকাল KZ হবে?",
+      "text": "একটি সরল দোলকের দোলনকাল T। দোলকটির দৈর্ঘ্য দ্বিগুণ করা হলে পরিবর্তিত দোলনকাল কত হবে?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -303,7 +354,7 @@
         },
         {
           "id": "b",
-          "text": "1\n2\nT",
+          "text": "1/2T",
           "order": 2
         },
         {
@@ -313,7 +364,7 @@
         },
         {
           "id": "d",
-          "text": "1\n2\nT",
+          "text": "1/2T",
           "order": 4
         }
       ],
@@ -335,15 +386,15 @@
         "pageNumber": 89,
         "questionNumber": 7
       },
-      "explanation": "পরিবর্তিত দোলনকাল ঞ হলে,\nঞ\nT\n=\nখ\nL\n=\n2L\nL\n=\n2  ঞ = 2T [দোলকটির পরিবর্তিত ‣দর্ঘ্য, খ = 2L]",
+      "explanation": "পরিবর্তিত দোলনকাল T′ হলে,  (T′)/T = (L′)/L = 2L/L = 2 ⇒ T′ =  2T  [দোলকটির পরিবর্তিত দৈর্ঘ্য, L′ = 2L]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q008-p089-n0007",
-      "text": "দুটি টুরমালিন কেলাস A I B আলোক উৎস থেকে নির্গত আলোকের\nগতিপথে স্থাপন করা হয়েছে। B কেলাসের অপর পার্শ্বে তাকালে কী দেখা\nযাবে?",
+      "text": "দুটি টুরমালিন কেলাস A ও B আলোক উৎস থেকে নির্গত আলোকের গতিপথে স্থাপন করা হয়েছে। B কেলাসের অপর পার্শ্বে তাকালে কী দেখা যাবে? A B 90°",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -353,7 +404,7 @@
         },
         {
           "id": "b",
-          "text": "GKB প্রাবল্যের আলো দেখা যাবে",
+          "text": "একই প্রাবল্যের আলো দেখা যাবে",
           "order": 2
         },
         {
@@ -363,7 +414,7 @@
         },
         {
           "id": "d",
-          "text": "অধিক প্রাবল্যের আলো দেখা\nযাবে",
+          "text": "অধিক প্রাবল্যের আলো দেখা যাবে",
           "order": 4
         }
       ],
@@ -385,15 +436,15 @@
         "pageNumber": 89,
         "questionNumber": 8
       },
-      "explanation": "যেহেতু টুরমালিন কেলাসটি GK সমতলে আবর্তিত আলোকে\nসম্পূর্ণরূপে ফিল্টার করে ফেলে সেহেতু অপরপার্শ্ব থেকে কোন আলো দেখা যাবে\nনা।",
+      "explanation": "যেহেতু  টুরমালিন কেলাসটি এক  সমতলে আবর্তিত আলোকে সম্পূর্ণরূপে ফিল্টার করে ফেলে সেহেতু অপরপার্শ্ব থেকে কোন আলো দেখা যাবে না।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q009-p089-n0008",
-      "text": "লজিক বর্তনীতে আউটপুট?",
+      "text": "A B লজিক বর্তনীতে আউটপুট? –– ––––",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -403,7 +454,7 @@
         },
         {
           "id": "b",
-          "text": "ুু\nAB",
+          "text": "AB",
           "order": 2
         },
         {
@@ -413,7 +464,7 @@
         },
         {
           "id": "d",
-          "text": "ুুুু\nA + B",
+          "text": "A + B –– –– ––",
           "order": 4
         }
       ],
@@ -435,15 +486,15 @@
         "pageNumber": 89,
         "questionNumber": 9
       },
-      "explanation": "ুু\nAB +\nুু\nAB =\nুু\nAB",
+      "explanation": "AB + AB = AB",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q010-p089-n0009",
-      "text": "মাইকেলসন-মর্লি পরীক্ষার ফলাফল-",
+      "text": "মাইকেলসন-মর্লি পরীক্ষার ফলাফল–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -485,15 +536,15 @@
         "pageNumber": 89,
         "questionNumber": 10
       },
-      "explanation": "মাইকেলসন-মর্লির পরীক্ষায় ইথার নামক কোন মাধ্যমের\nঅস্তিত্বের পরীক্ষামূলক কোনো প্রমাণ পাওয়া যায়নি। অর্থাৎ মহাবিশ্বে ইথার\nমাধ্যম বলতে কিছু নেই।",
+      "explanation": "মাইকেলসন-মর্লির  পরীক্ষায়  ইথার  নামক  কোন  মাধ্যমের অস্তিত্বের পরীক্ষামূলক কোনো প্রমাণ পাওয়া যায়নি। অর্থাৎ মহাবিশ্বে ইথার মাধ্যম বলতে কিছু নেই।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q011-p089-n0010",
-      "text": "গ্রীষ্মকালে বায়ুর তাপমাত্রা 35C I শীতকালে 10C তাপমাত্রা হলে\nগ্রীষ্মকালের সাপেক্ষে শীতকালে বায়ুতে শব্দের বেগের কী পরিবর্তন হবে?",
+      "text": "গ্রীষ্মকালে বায়ুর তাপমাত্রা 35°C ও শীতকালে 10°C তাপমাত্রা হলে গ্রীষ্মকালের সাপেক্ষে শীতকালে বায়ুতে শব্দের বেগের কী পরিবর্তন হবে?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -535,7 +586,7 @@
         "pageNumber": 89,
         "questionNumber": 11
       },
-      "explanation": "বায়ুর তাপমাত্রা প্রতি ডিগ্রি সেলসিয়াস বৃদ্ধির জন্য শব্দের\nবেগ প্রতি সেকেন্ডে 0.61ms–1\nহারে বৃদ্ধি পায়।",
+      "explanation": "বায়ুর  তাপমাত্রা  প্রতি  ডিগ্রি  সেলসিয়াস  বৃদ্ধির  জন্য  শব্দের বেগ প্রতি সেকেন্ডে 0.61ms⁻¹হারে বৃদ্ধি পায়।",
       "assetPaths": []
     },
     {
@@ -543,7 +594,7 @@
       "text": "নিচের কোনটি মৌলিক একক?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -563,7 +614,7 @@
         },
         {
           "id": "d",
-          "text": "ওহ্‌ম",
+          "text": "ওহ্ম",
           "order": 4
         }
       ],
@@ -585,35 +636,35 @@
         "pageNumber": 89,
         "questionNumber": 12
       },
-      "explanation": "তড়িৎ প্রবাহের GKK অ্যাম্পিয়ার। যা একটি মে․লিক একক।",
+      "explanation": "তড়িৎ প্রবাহের একক অ্যাম্পিয়ার। যা একটি মৌলিক একক।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q013-p089-n0012",
-      "text": "কোন বর্তনীতে 5 রোধ শ্রেণীতে যোগ করলে প্রবাহমান 5:4 অনুপাতে\nকমে যায়। বর্তনীর পূর্বের রোধ KZ ছিল?",
+      "text": "কোন বর্তনীতে 5Ω রোধ শ্রেণীতে যোগ করলে প্রবাহমান 5:4 অনুপাতে কমে যায়। বর্তনীর পূর্বের রোধ কত ছিল?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "10",
+          "text": "10Ω",
           "order": 1
         },
         {
           "id": "b",
-          "text": "20",
+          "text": "20Ω",
           "order": 2
         },
         {
           "id": "c",
-          "text": "5",
+          "text": "5Ω",
           "order": 3
         },
         {
           "id": "d",
-          "text": "25",
+          "text": "25Ω",
           "order": 4
         }
       ],
@@ -635,35 +686,35 @@
         "pageNumber": 89,
         "questionNumber": 13
       },
-      "explanation": "I2\nI1\n=\nR1\nR2\n=\nR1\nR1 + 5\n\n4\n5\n=\nR1\nR1 + 5\n R1 = 20, যা বর্তনীর পূর্বের রোধ।",
+      "explanation": "I₂/I₁ = R₁/R₂ =R₁/(R₁ + 5)   ⇒4/5 =R₁/(R₁ + 5) ⇒ R₁ = 20Ω, যা বর্তনীর পূর্বের রোধ।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q014-p089-n0013",
-      "text": "27 রোধের একটি তারকে সমবাহু ত্রিভুজের আকারে বাঁকানো হলো। এর\nএকটি বাহুর প্রান্তদ্বয়ের মধ্যবর্তী তুল্য রোধ কত?",
+      "text": "27Ω রোধের একটি তারকে সমবাহু ত্রিভুজের আকারে বাঁকানো হলো। এর একটি বাহুর প্রান্তদ্বয়ের মধ্যবর্তী তুল্য রোধ কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "9 ",
+          "text": "9 Ω",
           "order": 1
         },
         {
           "id": "b",
-          "text": "6 ",
+          "text": "6 Ω",
           "order": 2
         },
         {
           "id": "c",
-          "text": "13 ",
+          "text": "13 Ω",
           "order": 3
         },
         {
           "id": "d",
-          "text": "18 ",
+          "text": "18 Ω",
           "order": 4
         }
       ],
@@ -685,15 +736,15 @@
         "pageNumber": 89,
         "questionNumber": 14
       },
-      "explanation": "ত্রিভুজের প্র্রতিটি বাহুর রোধ -\n=\n27\n3\n= 9\nএকটি বাহুর দুই প্রান্তে রোধ = (9–1\n+ 18–1\n)–1\n=\n6 [অঈ এবং CB শ্রেণি সমবায়ে এবং এদের\nলদ্ধি AB এর সাথে সমান্তরাল সমবায় সংযুক্ত\nআছে]\nC\n9 9\nA B\n9\n90\nA B\nA\nB",
+      "explanation": "C ত্রিভুজের প্র্রতিটি বাহুর রোধ – 9Ω        9Ω = 27/3 = 9Ω একটি বাহুর দুই প্রান্তে রোধ = (9⁻¹ + 18⁻¹)⁻¹= A                    B 6Ω [AC এবং CB শ্রেণি সমবায়ে এবং এদের 9Ω লদ্ধি AB এর সাথে সমান্তরাল সমবায় সংযুক্ত আছে]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q015-p090-n0014",
-      "text": "GKB রকম দুটি হিটারের কয়েলকে প্রথমে শ্রেণী I পরে সমান্তরাল সমবায়ে\nসংযোগ করা হলো। 100 V সোর্সের সাথে যুক্ত করলে তাদের মধ্যে (শ্রেণী\nI সমান্তরাল সমবায়ে) উৎপাদিত তাপের অনুপাত কত?",
+      "text": "একই রকম দুটি হিটারের কয়েলকে প্রথমে শ্রেণী ও পরে সমান্তরাল সমবায়ে সংযোগ করা হলো। 100 V সোর্সের সাথে যুক্ত করলে তাদের মধ্যে (শ্রেণী ও সমান্তরাল সমবায়ে) উৎপাদিত তাপের অনুপাত কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -713,7 +764,7 @@
         },
         {
           "id": "d",
-          "text": "1:5",
+          "text": "1:5 R",
           "order": 4
         }
       ],
@@ -735,15 +786,15 @@
         "pageNumber": 90,
         "questionNumber": 15
       },
-      "explanation": "জঢ়\nজং\n=\nR\n2\n2R\n=\n1\n4\n, আবার,\nHs\nঐঢ়\n=\nজঢ়\nজং\n\nHs\nঐঢ়\n=\n1\n4\n[ H =\nV2\nR\nt  H \n1\nR\n]",
+      "explanation": "Rₚ/Rₛ = 2/2R = 1/(, 4)   আবার, Hₛ/Hₚ = Rₚ/Rₛ ⇒Hₛ/H = 1/4   [ H = V²/Rt   ⇒ H ∝1/R]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q016-p090-n0015",
-      "text": "50 kg ভরের একটি বস্তু 150 m উচ্চতা থেকে ছেড়ে দেওয়া হলো। 5 ংবপ\nপর ভূমি থেকে বস্তুটির উচ্চতা কত? (g = 10m sec2\n)",
+      "text": "p 50 kg ভরের একটি বস্তু 150 m উচ্চতা থেকে ছেড়ে দেওয়া হলো। 5 sec পর ভূমি থেকে বস্তুটির উচ্চতা কত? (g = 10m sec⁻²)",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -763,7 +814,7 @@
         },
         {
           "id": "d",
-          "text": "100 m",
+          "text": "100 m ′",
           "order": 4
         }
       ],
@@ -785,15 +836,15 @@
         "pageNumber": 90,
         "questionNumber": 16
       },
-      "explanation": "5 ংবপ পরে ভূমি থেকে বস্তুটির উচ্চতা য = 150 ু h\n= 150 ু\n1\n2\ngt2\n= 150 ু\n1\n2\n 10  52\n= 25m [ছেড়ে দেওয়া বস্তুর\nঅতিক্রান্ত দূরত্ব h =\n1\n2\ngt2\n]",
+      "explanation": "5 sec পরে ভূমি থেকে বস্তুটির উচ্চতা h = 150 – h =  150  – 1/2gt²  =  150  – 1/2×  10 ×  5²  =  25m [ছেড়ে  দেওয়া  বস্তুর অতিক্রান্ত দূরত্ব h = 1/2gt²]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q017-p090-n0016",
-      "text": "নিচের চিত্রে একটি গাড়ির গতীয় অবস্থা দেখানো হয়েছে। GB সময়কালে\nগাড়িটি দূরত্ব অতিক্রম করেছে?\n10\n7.5\n5.0\n2.5\n0 10 20 30 40 50 60\nTime (s)\nSpeed cm/s",
+      "text": "নিচের চিত্রে একটি গাড়ির গতীয় অবস্থা দেখানো হয়েছে। এই সময়কালে গাড়িটি দূরত্ব অতিক্রম করেছে? ()/() 10 ()/() ()/() ()/() ()/() 7.5 5.0 ()/() ()/() ()/() ()/() ()/() 2.5 ()/(0 10 20 30 40 50 60 )()/() Time (s)",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -817,8 +868,8 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -833,15 +884,16 @@
         "pageNumber": 90,
         "questionNumber": 17
       },
-      "explanation": "গাড়ি কর্তৃক অতিক্রান্ত দূরত্ব = ট্রাপিজিয়ামের ক্ষেত্রফল\n=\n1\n2\n(60 + 20)  10cm = 400cm = 4m",
-      "assetPaths": []
+      "explanation": "গাড়ি কর্তৃক অতিক্রান্ত দূরত্ব = ট্রাপিজিয়ামের ক্ষেত্রফল = 1/2 (60 + 20) × 10cm = 400cm = 4m",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q018-p090-n0017",
-      "text": "একটি তরঙ্গের সমীকরণ y = 15 ংরহ (10x  20t) দিয়ে নির্দেশিত হলে\nতরঙ্গটির বেগ কত?",
+      "text": "একটি তরঙ্গের সমীকরণ y = 15 sin (10x − 20t) দিয়ে নির্দেশিত হলে তরঙ্গটির বেগ কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -883,30 +935,30 @@
         "pageNumber": 90,
         "questionNumber": 18
       },
-      "explanation": "প্রদত্ত তরঙ্গের সমীকরণ y = 15 sin(10x ু 20t) = ু\n15sin (20t ু 10x) = ু 15sin 10(2t ু x)\nউক্ত সমীকরণটিকে y = a ংরহ\n2\n\n(vt ু x) সমীকরণের সাথে তুলনা করে\nপাই, v = 2 একক।",
+      "explanation": "প্রদত্ত  তরঙ্গের  সমীকরণ y  =  15  sin(10x  –  20t)  =  – 15sin (20t – 10x) = – 15sin 10(2t – x) উক্ত সমীকরণটিকে y = a sin 2π/λ(vt – x) সমীকরণের সাথে তুলনা করে পাই, v = 2 একক।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q019-p090-n0018",
-      "text": "ইস্পাতের জন্য ইয়ং এর গুণাঙ্ক y = 2.0  1011\nN m–2\nহলে, স্থিতিস্থাপক\nসীমার মধ্যে 1 mm2\nপ্রস্থচ্ছেদ বিশিষ্ট একটি ইস্পাতের তারের ঙ্দর্ঘ্য 10%\nবৃদ্ধি করতে প্রয়োজনীয় বল-",
+      "text": "ইস্পাতের জন্য ইয়ং এর গুণাঙ্ক y = 2.0 × 10¹¹ N m⁻² হলে, স্থিতিস্থাপক সীমার মধ্যে 1 mm² প্রস্থচ্ছেদ বিশিষ্ট একটি ইস্পাতের তারের দৈর্ঘ্য 10% বৃদ্ধি করতে প্রয়োজনীয় বল–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "2  104\nN",
+          "text": "2 × 10⁴ N",
           "order": 1
         },
         {
           "id": "b",
-          "text": "104\nN",
+          "text": "10⁴ N",
           "order": 2
         },
         {
           "id": "c",
-          "text": "1.2  104\nN",
+          "text": "1.2 × 10⁴ N",
           "order": 3
         },
         {
@@ -933,65 +985,15 @@
         "pageNumber": 90,
         "questionNumber": 19
       },
-      "explanation": "আমরা জানি, ইয়ং এর গুণাঙ্ক,\nY =\nFL\nAl\n F =\nY Al\nL\n=\n2.0  1011\n 1  10–6\n 0.1L\nL\n= 2  104\nN\n[তারটির ঙ্দর্ঘ্য বৃদ্ধি, l = L এর 10%]",
-      "assetPaths": []
-    },
-    {
-      "id": "ru-vq-2020-2021-c-all-p089-q020-p090-n0019",
-      "text": "কোন গ্রাফটি ভূ-পৃষ্ঠ থেকে পৃথিবীর কেন্দ্রের দিকে বিভিন্ন গভীরতা d এর\nজন্য অভিকর্ষজ ত্বরণ g এর মান নির্দেশ করে?",
-      "type": "single_choice",
-      "category": "varsity",
-      "subject": null,
-      "topic": null,
-      "options": [
-        {
-          "id": "a",
-          "text": "g\nd",
-          "order": 1
-        },
-        {
-          "id": "b",
-          "text": "g\nd",
-          "order": 2
-        },
-        {
-          "id": "c",
-          "text": "g\nd",
-          "order": 3
-        },
-        {
-          "id": "d",
-          "text": "g\nd",
-          "order": 4
-        }
-      ],
-      "correctOptionIds": [
-        "c"
-      ],
-      "answerVerificationStatus": "verified",
-      "contentVerificationStatus": "verified",
-      "appearances": [
-        {
-          "paperId": "ru-vq-2020-2021-c-all-p089",
-          "questionNumber": 20,
-          "pageNumber": 90,
-          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
-        }
-      ],
-      "source": {
-        "documentId": "ru-vq-2020-2021-c-all-p089-source",
-        "pageNumber": 90,
-        "questionNumber": 20
-      },
-      "explanation": "ভূপৃষ্ঠ থেকে যতই পৃথিবীর কেন্দ্রের দিকে যাওয়া যায় ZZB\nঅভিকর্ষজ ত্বরণের মান হ্রাস পেতে থাকে। অর্থাৎ গভীরতা যত বৃদ্ধি পায়\nZZB g এর মান কমতে থাকে।",
+      "explanation": "আমরা জানি, ইয়ং এর গুণাঙ্ক, Y = FL/Al⇒ F = (Y Al)/L = (2.0 × 10¹¹ × 1 × 10⁻⁶ × 0.1L)/L = 2 × 10⁴N [তারটির দৈর্ঘ্য বৃদ্ধি, l = L  এর 10%]",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q021-p090-n0020",
-      "text": "73\n32Ge নিউক্লিয়াসের নিউট্রন সংখ্যা কত?",
+      "text": "⁷³Ge নিউক্লিয়াসের নিউট্রন সংখ্যা কত? 32",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -1033,15 +1035,15 @@
         "pageNumber": 90,
         "questionNumber": 21
       },
-      "explanation": "নিউট্রন সংখ্যা = ভরসংখ্যা ু পারমাণবিক সংখ্যা = 73–\n32=41",
+      "explanation": "–  পারমাণবিক  সংখ্যা  = 73– নিউট্রন  সংখ্যা  =  ভরসংখ্যা 32=41",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q022-p090-n0021",
-      "text": "দুইটি তরঙ্গকে A ংরহ ঃ এবং B ংরহ ঃ দিয়ে প্রকাশ করলে তাদের মধ্যে\nদশা পার্থক্য কত?",
+      "text": "দুইটি তরঙ্গকে A sin ωt এবং B sin ωt দিয়ে প্রকাশ করলে তাদের মধ্যে দশা পার্থক্য কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -1051,17 +1053,17 @@
         },
         {
           "id": "b",
-          "text": "\n2",
+          "text": "π/2",
           "order": 2
         },
         {
           "id": "c",
-          "text": "\n3",
+          "text": "π/3",
           "order": 3
         },
         {
           "id": "d",
-          "text": "\n4",
+          "text": "π/4",
           "order": 4
         }
       ],
@@ -1083,15 +1085,15 @@
         "pageNumber": 90,
         "questionNumber": 22
       },
-      "explanation": "উভয় তরঙ্গই ংরহ তরঙ্গ এবং কোন আদি দশা উপস্থিত না\nথাকায় উভয় তরঙ্গের মধ্যে দশা পার্থক্য 0 রেডিয়ান।",
+      "explanation": "উভয়  তরঙ্গই  sin  তরঙ্গ  এবং  কোন  আদি  দশা  উপস্থিত  না থাকায় উভয় তরঙ্গের মধ্যে দশা পার্থক্য 0 রেডিয়ান।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q023-p090-n0022",
-      "text": "তড়িৎক্ষেত্রের প্রাবল্যের সমীকরণ E(x) = ax2\nহলে, তড়িৎ বিভবের রাশি-",
+      "text": "তড়িৎক্ষেত্রের প্রাবল্যের সমীকরণ E(x) = ax² হলে, তড়িৎ বিভবের রাশি–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -1101,17 +1103,17 @@
         },
         {
           "id": "b",
-          "text": "\nax3\n3\n+ b",
+          "text": "−ax³/3 + b",
           "order": 2
         },
         {
           "id": "c",
-          "text": "ax3\n3",
+          "text": "ax³/3",
           "order": 3
         },
         {
           "id": "d",
-          "text": "ax3\n3\n b",
+          "text": "ax³/3− b",
           "order": 4
         }
       ],
@@ -1133,35 +1135,35 @@
         "pageNumber": 90,
         "questionNumber": 23
       },
-      "explanation": "E = ু\nফঠ\nx\nু ফঠ = ax2\nফী\n   ু V =\nax3\n3\n+ b  V = ু\nax3\n3\n+ b",
+      "explanation": "E = – dV/x⇒ – ∫dV = a∫x² dx ⇒ – V = ax³/3 + b    ∴ V = – ax³/3 + b",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q024-p090-n0023",
-      "text": "কাঁচ I হীরকের প্রতিসরাঙ্ক যথাক্রমে 3/2Ges 5/2| কাঁচ I হীরকের মধ্যে\nসংকট কোণ কত?",
+      "text": "কাঁচ ও হীরকের প্রতিসরাঙ্ক যথাক্রমে 3/2এবং 5/2। কাঁচ ও হীরকের মধ্যে সংকট কোণ কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "sin1 3\n2",
+          "text": "sin⁻¹3/2",
           "order": 1
         },
         {
           "id": "b",
-          "text": "sin1 2\n3",
+          "text": "sin⁻¹2/3",
           "order": 2
         },
         {
           "id": "c",
-          "text": "sin1 3\n5",
+          "text": "sin⁻¹3/5",
           "order": 3
         },
         {
           "id": "d",
-          "text": "sin1 5\n3",
+          "text": "sin⁻¹5/3 5",
           "order": 4
         }
       ],
@@ -1183,15 +1185,15 @@
         "pageNumber": 90,
         "questionNumber": 24
       },
-      "explanation": "কাঁচ সাপেক্ষে হীরকের প্রতিসরাঙ্ক, মফ =\nফ\nম\n=\n5\n2\n3\n2\n=\n5\n3\n ংরহপ =\n1\nমফ\n=\n3/2\n5/2\n\n3\n5\n প = sin–13\n5",
+      "explanation": "কাঁচ সাপেক্ষে হীরকের প্রতিসরাঙ্ক, _(g)μ_(d) = (μ_(d))/(μ_(g)) = 2/3 = 5/3 2 ∴ sinθ_(c) = 1/(μ_(d) g) = (3/2)/(5/2)=3/5⇒ θ_(c) = sin⁻¹3/5",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q025-p090-n0024",
-      "text": "স্পর্শকোণ 120 হলে ঙ্কশিক নলে তরল-",
+      "text": "স্পর্শকোণ 120° হলে কৈশিক নলে তরল–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": null,
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -1211,7 +1213,7 @@
         },
         {
           "id": "d",
-          "text": "অপরিবর্তিত থাকবে",
+          "text": "অপরিবর্তিত থাকবে °",
           "order": 4
         }
       ],
@@ -1233,12 +1235,12 @@
         "pageNumber": 90,
         "questionNumber": 25
       },
-      "explanation": "স্পর্শকোণ যদি স্থূলকোণ (>90) হয় তবে নলের কাঁচ\nঅপেক্ষা তরলের ঘনত্ব বেশি হবে। ফলে তরল উপরের দিকে উঠবে।",
+      "explanation": "স্পর্শকোণ  যদি  স্থূলকোণ  (>90 )  হয়  তবে  নলের  কাঁচ অপেক্ষা তরলের ঘনত্ব বেশি হবে। ফলে তরল উপরের দিকে উঠবে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q001-p090-n0025",
-      "text": "0.3M HCl দ্রবণ প্রস্তুত করার জন্য 1L আয়তনিক ফ্লাক্সে 1.5M HCl\nএবং পাতিত পানি যোগ করে দাগ পর্যন্ত পূর্ণ করা হলো। 1.5M HCl এর\nসাথে কি পরিমাণ যোগ করতে হবে?",
+      "text": "0.3M HCl দ্রবণ প্রস্তুত করার জন্য 1L আয়তনিক ফ্লাক্সে 1.5M HCl এবং পাতিত পানি যোগ করে দাগ পর্যন্ত পূর্ণ করা হলো। 1.5M HCl এর সাথে কি পরিমাণ যোগ করতে হবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1283,7 +1285,7 @@
         "pageNumber": 90,
         "questionNumber": 1
       },
-      "explanation": "1 L = 1000 mL\n0.3 M HCl  1000 mL দ্রবণ\n1.5 M HCl \n0.3 × 1000\n1.5\nmL দ্রবণ = 200 mL দ্রবণ",
+      "explanation": "1 L  = 1000 mL 0.3 M HCl ≡ 1000 mL দ্রবণ 1.5 M HCl ≡(0.3 × 1000)/1.5 mL দ্রবণ = 200 mL দ্রবণ",
       "assetPaths": []
     },
     {
@@ -1333,12 +1335,12 @@
         "pageNumber": 90,
         "questionNumber": 2
       },
-      "explanation": "C3H8 ু †cÖv‡cbC3H6 -প্রোপিন/সাইক্লোপ্রোপেন C3H4 প্রোপাইন।",
+      "explanation": "C₃H₈ – প্রোপেন C₃H₆ -প্রোপিন/সাইক্লোপ্রোপেন C₃H₄প্রোপাইন।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q003-p091-n0027",
-      "text": "25C তাপমাত্রায় পানিতে MX এর সম্পৃক্ত দ্রবণে [ঢু\n] = 105\nM হলে\nH লবণের দ্রাব্যতা গুণফল, কংঢ় কত?",
+      "text": "25°C তাপমাত্রায় পানিতে MX এর সম্পৃক্ত দ্রবণে [X⁻] = 10⁻⁵M হলে ঐ লবণের দ্রাব্যতা গুণফল, Kₛₚ কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1346,22 +1348,22 @@
       "options": [
         {
           "id": "a",
-          "text": "10–5",
+          "text": "10⁻⁵",
           "order": 1
         },
         {
           "id": "b",
-          "text": "10–10",
+          "text": "10⁻¹⁰",
           "order": 2
         },
         {
           "id": "c",
-          "text": "10–25",
+          "text": "10⁻²⁵",
           "order": 3
         },
         {
           "id": "d",
-          "text": "10–15",
+          "text": "10⁻¹⁵ – ⇌",
           "order": 4
         }
       ],
@@ -1383,12 +1385,12 @@
         "pageNumber": 91,
         "questionNumber": 3
       },
-      "explanation": "MX\nS\n⇌ M+\nS\n+ ঢু\nS\n[ঢু\n] = S = 10–5\n দ্রাব্যতা গুণফল Ksp= S2\n দ্রাব্যতা গুণফল s2\n= [105\n]2\n= 1010",
+      "explanation": "MX   M⁺ + X S S S [X⁻] = S = 10⁻⁵ দ্রাব্যতা গুণফল K = S²∴ দ্রাব্যতা গুণফল s² = [10⁻⁵]² = 10⁻¹⁰",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q004-p091-n0028",
-      "text": "হফম্যান ক্ষুদ্রাংশকরণ বিক্রিয়ার মূল উপাদান কি?",
+      "text": "sp হফম্যান ক্ষুদ্রাংশকরণ বিক্রিয়ার মূল উপাদান কি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1433,12 +1435,12 @@
         "pageNumber": 91,
         "questionNumber": 4
       },
-      "explanation": "হফম্যান ক্ষুদ্রাংশকরণ বিক্রিয়া:\nR–CO–NH2\nCl2/Br2\n\n NaOH(aq)\nR ু NH2",
+      "explanation": "হফম্যান ক্ষুদ্রাংশকরণ বিক্রিয়া: Cl₂/Br₂ R–CO–NH₂  ―――――→ R – NH₂ Δ, NaOH(aq)",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q005-p091-n0029",
-      "text": "SN1 বিক্রিয়া কয় ধাপে সম্পন্ন হয়?",
+      "text": "S_(N)1 বিক্রিয়া কয় ধাপে সম্পন্ন হয়?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1483,12 +1485,12 @@
         "pageNumber": 91,
         "questionNumber": 5
       },
-      "explanation": "SN1 বিক্রিয়া দুই ধাপে সম্পন্ন হয়।",
+      "explanation": "S 1 বিক্রিয়া দুই ধাপে সম্পন্ন হয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q006-p091-n0030",
-      "text": "ঙ্জব যৌগে IR বর্ণালী দ্বারা শনাক্ত করা হয়-",
+      "text": "N জৈব যৌগে IR বর্ণালী দ্বারা শনাক্ত করা হয়–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1533,12 +1535,12 @@
         "pageNumber": 91,
         "questionNumber": 6
       },
-      "explanation": "ওজ-বর্ণালীমিতি বা ওজ-ংঢ়বপঃৎড়ংপড়ঢ়ু দ্বারা কার্যকরী\nমূলকের উপস্থিতি নির্ণয় করা হয়। এসিডের কিটো মূলকের ওজ-\nংঢ়বপঃৎড়ংপড়ঢ়ু মান 1700 –1750",
+      "explanation": "IR-বর্ণালীমিতি  বা IR-spectroscopy দ্বারা  কার্যকরী মূলকের  উপস্থিতি  নির্ণয়  করা  হয়।  এসিডের  কিটো  মূলকের IR- spectroscopy মান 1700 –1750",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q007-p091-n0031",
-      "text": "আলোক সক্রিয় দুই সমানু (GbvbwkIgvi) একতলীয় আলোতে নিচের কোন\nধর্ম প্রদর্শন করে?",
+      "text": "আলোক সক্রিয় দুই সমানু (এনানশিওমার) একতলীয় আলোতে নিচের কোন ধর্ম প্রদর্শন করে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1546,7 +1548,7 @@
       "options": [
         {
           "id": "a",
-          "text": "উভয়ই সমান মাত্রায় GKB দিকে আবর্তন প্রদর্শন করে",
+          "text": "উভয়ই সমান মাত্রায় একই দিকে আবর্তন প্রদর্শন করে",
           "order": 1
         },
         {
@@ -1556,7 +1558,7 @@
         },
         {
           "id": "c",
-          "text": "উভয়েই ভিন্ন মাত্রায় GKB দিকে আবর্তন করে",
+          "text": "উভয়েই ভিন্ন মাত্রায় একই দিকে আবর্তন করে",
           "order": 3
         },
         {
@@ -1583,12 +1585,12 @@
         "pageNumber": 91,
         "questionNumber": 7
       },
-      "explanation": "দুটি আলোক সক্রিয় সমাণু (GbvbwkIgvi) দ্রবণের মধ্য\nদিয়ে নির্গত সমতলীয় পোলার আলোক তলকে GKB কোণে কিন্তু বিপরীত\nদিকে ঘুরিয়ে দেয়।",
+      "explanation": "দুটি  আলোক  সক্রিয়  সমাণু  (এনানশিওমার)  দ্রবণের  মধ্য দিয়ে নির্গত সমতলীয় পোলার আলোক তলকে একই কোণে কিন্তু বিপরীত দিকে ঘুরিয়ে দেয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q008-p091-n0032",
-      "text": "আন্তঃআণবিক এবং অন্তঃআণবিক H বন্ধন গঠন সম্পর্কিত নিচের কোন তথ্যটি\nসঠিক?",
+      "text": "আন্তঃআণবিক এবং অন্তঃআণবিক H বন্ধন গঠন সম্পর্কিত নিচের কোন তথ্যটি সঠিক?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1596,22 +1598,22 @@
       "options": [
         {
           "id": "a",
-          "text": "C6H5OH G অন্তঃআণবিক H বন্ধন ঘটে",
+          "text": "C₆H₅OH এ অন্তঃআণবিক H বন্ধন ঘটে",
           "order": 1
         },
         {
           "id": "b",
-          "text": "C6H5(OH)CHO (ড়-হাইড্রোক্সি বেনজালডিহাইড) G আন্তঃআণবিক ঐ-বন্ধন\nঘটে",
+          "text": "C₆H₅(OH)CHO (o-হাইড্রোক্সি বেনজালডিহাইড) এ আন্তঃআণবিক H-বন্ধন ঘটে",
           "order": 2
         },
         {
           "id": "c",
-          "text": "H2O G আন্তঃআণবিক H বন্ধন ঘটে",
+          "text": "H₂O এ আন্তঃআণবিক H বন্ধন ঘটে",
           "order": 3
         },
         {
           "id": "d",
-          "text": "CH3OH G আন্তঃআণবিক H বন্ধন ঘটে",
+          "text": "CH₃OH এ আন্তঃআণবিক H বন্ধন ঘটে",
           "order": 4
         }
       ],
@@ -1633,12 +1635,12 @@
         "pageNumber": 91,
         "questionNumber": 8
       },
-      "explanation": "আন্তঃআণবিক ঐ-বন্ধন ঘটে H2O, HF যে․গে। আর\nঅন্তঃআণবিক ঐ-বন্ধন ঘটে CH3 ু ঈঙঙঐ, C6H4OH(NO2)Ortho ইত্যাদি\nযে․গে।",
+      "explanation": "আন্তঃআণবিক  H-বন্ধন  ঘটে  H₂O,  HF যৌগে।  আর অন্তঃআণবিক  H-বন্ধন  ঘটে  CH₃  –  COOH,  C₆H₄OH(NO₂)_(Ortho) ইত্যাদি যৌগে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q009-p091-n0033",
-      "text": "CH3CH2CH2CH2Cl + KOH(alc)   উৎপাদ; GB বিক্রিয়ার\nপ্রধান উৎপাদ কোনটি?",
+      "text": "Δ CH₃CH₂CH₂CH₂Cl + KOH(alc)―→ উৎপাদ; এই বিক্রিয়ার প্রধান উৎপাদ কোনটি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1656,12 +1658,12 @@
         },
         {
           "id": "c",
-          "text": "2–weDwUb",
+          "text": "2–বিউটিন",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1– বিউটিন",
+          "text": "1– বিউটিন Δ ―→",
           "order": 4
         }
       ],
@@ -1683,12 +1685,12 @@
         "pageNumber": 91,
         "questionNumber": 9
       },
-      "explanation": "CH3CH2CH2CH2Cl + KOH(alc)  CH3CH2CH =\nCH2+KCl",
+      "explanation": "CH₃CH₂CH₂CH₂Cl  +  KOH(alc) CH₃CH₂CH  = CH +KCl",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q010-p091-n0034",
-      "text": "কোন ধনাত্মক আয়ন বর্ণহীন জলীয় দ্রবণ গঠন করে?",
+      "text": "2 কোন ধনাত্মক আয়ন বর্ণহীন জলীয় দ্রবণ গঠন করে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1696,22 +1698,22 @@
       "options": [
         {
           "id": "a",
-          "text": "Co2+",
+          "text": "Co²⁺",
           "order": 1
         },
         {
           "id": "b",
-          "text": "Ni2+",
+          "text": "Ni²⁺",
           "order": 2
         },
         {
           "id": "c",
-          "text": "Cu2+",
+          "text": "Cu²⁺",
           "order": 3
         },
         {
           "id": "d",
-          "text": "Zn2+",
+          "text": "Zn²⁺",
           "order": 4
         }
       ],
@@ -1733,7 +1735,7 @@
         "pageNumber": 91,
         "questionNumber": 10
       },
-      "explanation": "Zn এর ফ-অরবিটাল পূর্ণ থাকায় ফ-ব্লক মে․ল হওয়া সত্ত্বেও\nএটি অবস্থান্তর মে․লের মত আচরণ করে না। এজন্য এটি বর্ণহীন জলীয়\nদ্রবণ I বর্ণহীন যে․গ গঠন করে, সাদা অধঃক্ষেপ দেয় এবং পরিবর্তনশীল\nজারণ অবস্থা প্রদর্শন করে না।",
+      "explanation": "Zn এর d-অরবিটাল পূর্ণ থাকায় d-ব্লক মৌল হওয়া সত্ত্বেও এটি  অবস্থান্তর  মৌলের  মত  আচরণ  করে  না।  এজন্য  এটি  বর্ণহীন  জলীয় দ্রবণ ও বর্ণহীন যৌগ  গঠন  করে,  সাদা  অধঃক্ষেপ  দেয়  এবং  পরিবর্তনশীল জারণ অবস্থা প্রদর্শন করে না।",
       "assetPaths": []
     },
     {
@@ -1783,12 +1785,12 @@
         "pageNumber": 91,
         "questionNumber": 11
       },
-      "explanation": "কোন যে․গের বন্ধনক্রম বলতে H যে․গে বিদ্যমান সমযোজী\nবন্ধন সংখ্যা বুঝায়। বন্ধন ক্রমের ক্ষেত্রে XY যে․গ হলে X(8 ু a) + Y(8\nু a)\n( a = যোজনী ইলেকট্রন)\n এখানে, CO এর ক্ষেত্রে\nC(8 ু 4) + O(8 ু 6)\n2\n=\n4 + 2\n2\n= 3",
+      "explanation": "কোন যৌগের বন্ধনক্রম বলতে ঐ যৌগে বিদ্যমান সমযোজী বন্ধন সংখ্যা বুঝায়। বন্ধন ক্রমের ক্ষেত্রে XY যৌগ হলে X(8 – a) + Y(8 – a) ( a = যোজনী ইলেকট্রন) ∴ এখানে, CO এর ক্ষেত্রে(C(8 – 4) + O(8 – 6))/2 = (4 + 2)/2 = 3",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q012-p091-n0036",
-      "text": "[Cr(CN)6]3–\nআয়নে Cr এর জারণ সংখ্যা কত?",
+      "text": "[Cr(CN)₆]³⁻ আয়নে Cr এর জারণ সংখ্যা কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1811,7 +1813,7 @@
         },
         {
           "id": "d",
-          "text": "–6",
+          "text": "–6 ∴",
           "order": 4
         }
       ],
@@ -1833,7 +1835,7 @@
         "pageNumber": 91,
         "questionNumber": 12
       },
-      "explanation": "x + (ু 1 × 6) = –3  x = ু 3 + 6 = + 3\nCr CN আয়ন সংখ্যা",
+      "explanation": "x + (– 1 × 6) = –3  x = – 3 + 6 = + 3 Cr        CN    আয়ন সংখ্যা",
       "assetPaths": []
     },
     {
@@ -1846,27 +1848,27 @@
       "options": [
         {
           "id": "a",
-          "text": "Cu2+",
+          "text": "Cu²⁺",
           "order": 1
         },
         {
           "id": "b",
-          "text": "SO3",
+          "text": "SO₃",
           "order": 2
         },
         {
           "id": "c",
-          "text": "BF3",
+          "text": "BF₃",
           "order": 3
         },
         {
           "id": "d",
-          "text": "Al3+",
+          "text": "Al³⁺",
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -1881,8 +1883,9 @@
         "pageNumber": 91,
         "questionNumber": 13
       },
-      "explanation": "Al3+\n, SO3, BF3, Cu2+\nউভয়েই কেন্দ্রীয় পরমাণু সন্নিবেশ\nবন্ধন গঠনের সময় ইলেকট্রন জোড় গ্রহণ করতে পারে ফাঁকা অরবিটাল থাকার\nজন্য।",
-      "assetPaths": []
+      "explanation": "Al³⁺,  SO₃,  BF₃,  Cu²⁺ উভয়েই কেন্দ্রীয় পরমাণু সন্নিবেশ বন্ধন গঠনের সময়  ইলেকট্রন জোড়  গ্রহণ করতে পারে ফাঁকা  অরবিটাল থাকার জন্য।",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q014-p091-n0038",
@@ -1904,12 +1907,12 @@
         },
         {
           "id": "c",
-          "text": "GKB গ্রুপে আয়নিক আকার উপর থেকে নিচে ক্রমশ হ্রাস পায়",
+          "text": "একই গ্রুপে আয়নিক আকার উপর থেকে নিচে ক্রমশ হ্রাস পায়",
           "order": 3
         },
         {
           "id": "d",
-          "text": "GKB ধাতুর বিভিন্ন ক্যাটায়নের আকার এদের চার্জ সংখ্যা বৃদ্ধির সাথে হ্রাস পায়",
+          "text": "একই ধাতুর বিভিন্ন ক্যাটায়নের আকার এদের চার্জ সংখ্যা বৃদ্ধির সাথে হ্রাস পায়",
           "order": 4
         }
       ],
@@ -1931,12 +1934,12 @@
         "pageNumber": 91,
         "questionNumber": 14
       },
-      "explanation": "(i) ক্যাটায়নের শেষ শক্তিস্তর থাকে না বিধায়, মূল পরমাণুর আকারের চেয়ে ছোট\n(ii) অ্যানায়নের ইলেকট্রন সংখ্যা বেশী বিধায়, নিউক্লিয়াসে আকর্ষণ মূল\nপরমাণুর চেয়ে বেশী, তাই আকার বড়।\n(iii) GKB গ্রুপে আয়নিক আকার উপর থেকে নিচে বৃদ্ধি পায় শক্তিস্তর বৃদ্ধি থাকার জন্য\n(iv) GKB ধাতুর বিভিন্ন ক্যাটায়নেরআকার এদের চার্জ সংখ্যা বৃদ্ধির সাথে হ্রাস পায়।",
+      "explanation": "(i) ক্যাটায়নের শেষ শক্তিস্তর থাকে না বিধায়, মূল পরমাণুর আকারের চেয়ে ছোট (ii) অ্যানায়নের  ইলেকট্রন  সংখ্যা  বেশী  বিধায়,  নিউক্লিয়াসে  আকর্ষণ  মূল পরমাণুর চেয়ে বেশী, তাই আকার বড়। (iii) একই গ্রুপে আয়নিক আকার উপর থেকে নিচে বৃদ্ধি পায় শক্তিস্তর বৃদ্ধি থাকার জন্য (iv) একই ধাতুর বিভিন্ন ক্যাটায়নের আকার এদের চার্জ সংখ্যা বৃদ্ধির সাথে হ্রাস পায়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q015-p091-n0039",
-      "text": "নিচের কোনটির ইলেকট্রন বিন্যাস Al3+\nআয়নের মত?",
+      "text": "নিচের কোনটির ইলেকট্রন বিন্যাস Al³⁺ আয়নের মত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1944,22 +1947,22 @@
       "options": [
         {
           "id": "a",
-          "text": "ঙু",
+          "text": "O⁻",
           "order": 1
         },
         {
           "id": "b",
-          "text": "ঋু",
+          "text": "F⁻",
           "order": 2
         },
         {
           "id": "c",
-          "text": "ঈষু",
+          "text": "Cl⁻",
           "order": 3
         },
         {
           "id": "d",
-          "text": "Mg+",
+          "text": "Mg⁺",
           "order": 4
         }
       ],
@@ -1981,12 +1984,12 @@
         "pageNumber": 91,
         "questionNumber": 15
       },
-      "explanation": "Al3+\nইলেকট্রন বিন্যাস 1s2\n2s2\n2p6\nঋু\n= 1s2\n2s2\n2p6\nঙু\n= 1s2\n2s2\n2p5\nঈষু\n= 1s2\n2s2\n2p6\n3s2\n3p6\nMg+\n= 1s2\n2s2\n2p6\n3s1",
+      "explanation": "Al³⁺ ইলেকট্রন বিন্যাস 1s² 2s² 2p⁶ F⁻ = 1s² 2s² 2p⁶  O⁻ = 1s² 2s² 2p⁵ Cl⁻ = 1s² 2s² 2p⁶ 3s² 3p⁶ Mg⁺ = 1s² 2s² 2p⁶ 3s¹",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q016-p091-n0040",
-      "text": "[ঋব (CN)6]4–\nআয়নের Fe তে কি প্রকারের অরবিটাল সংকরণ রয়েছে?",
+      "text": "[Fe (CN)₆]⁴⁻আয়নের Fe তে কি প্রকারের অরবিটাল সংকরণ রয়েছে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -1994,22 +1997,22 @@
       "options": [
         {
           "id": "a",
-          "text": "d2\nsp3",
+          "text": "d²sp³",
           "order": 1
         },
         {
           "id": "b",
-          "text": "d2\nsp2",
+          "text": "d²sp²",
           "order": 2
         },
         {
           "id": "c",
-          "text": "d2\nংঢ়",
+          "text": "d²sp",
           "order": 3
         },
         {
           "id": "d",
-          "text": "d3\nsp3",
+          "text": "d³sp³ →",
           "order": 4
         }
       ],
@@ -2031,7 +2034,7 @@
         "pageNumber": 91,
         "questionNumber": 16
       },
-      "explanation": "Fe2+\n 1s2\n2s2\n2p6\n3s2\n3p6\n3d6\n4s0\n4p0",
+      "explanation": "Fe²⁺  1s² 2s²⁶² 3p⁶ 3d⁶ 4s⁰⁰ CN CN ^(4 –) (  2p)/(↿⇂ )( 3s 3d )/(↿⇂) ( 4p 4s )/(  ..  ..    ..  ..  ..  .. )^(4px 4py 4pz) CN ↿⇂ Fe CN CN CN CN CN CN CN CN CN 2 3 d sp",
       "assetPaths": []
     },
     {
@@ -2044,22 +2047,22 @@
       "options": [
         {
           "id": "a",
-          "text": "16\n8\nO",
+          "text": "¹⁶O",
           "order": 1
         },
         {
           "id": "b",
-          "text": "12\n6\nC",
+          "text": "¹²C",
           "order": 2
         },
         {
           "id": "c",
-          "text": "32\n16\nS",
+          "text": "³²S",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1\n1\nH",
+          "text": "¹H 8 6 16 1 1",
           "order": 4
         }
       ],
@@ -2081,7 +2084,7 @@
         "pageNumber": 91,
         "questionNumber": 17
       },
-      "explanation": "NMR সক্রিয় নিউক্লিয়াস হলো\n1\n1 H কারণ এতে সক্রিয়\nডাইপোল বিদ্যমান। ফলে নিউক্লিয়াস সুষমভাবে স্পিন করে।",
+      "explanation": "NMR সক্রিয়  নিউক্লিয়াস  হলো  H কারণ  এতে  সক্রিয় 1 ডাইপোল বিদ্যমান। ফলে নিউক্লিয়াস সুষমভাবে স্পিন করে।",
       "assetPaths": []
     },
     {
@@ -2094,12 +2097,12 @@
       "options": [
         {
           "id": "a",
-          "text": "M= ফজঞ",
+          "text": "M= dRT",
           "order": 1
         },
         {
           "id": "b",
-          "text": "PM= ফজঞ",
+          "text": "PM= dRT",
           "order": 2
         },
         {
@@ -2131,12 +2134,12 @@
         "pageNumber": 91,
         "questionNumber": 18
       },
-      "explanation": "আদর্শ গ্যাস সমীকরণ PV = হজঞ, RT =\nPV\nn\n;\nPV =\nW\nM\nজঞ; PVM = ডজঞ; PM =\nW\nV\nজঞ; PM = উজঞ; M =\nWRT\nPV\nCN\nFe\nCN\nCN\nCN\nCN\nCN\n4 ু\n↿⇂ ↿⇂ ↿⇂ .. .. .. .. .. ..\n4px 3d 4s\nd2\nsp3\nCN\n4py 4pz\nCN CN CN CN CN",
+      "explanation": "আদর্শ গ্যাস সমীকরণ PV = nRT, RT = PV/n; PV = W/M RT; PVM = WRT; PM = W/V RT; PM = DRT; M = WRT/PV",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q019-p092-n0043",
-      "text": "নিচের বিক্রিয়ার জন্য ঊ এর মান কত?\n2Al3+\n(aq) + 3Zn(s)  2Al(s) + 3Zn2+\n(aq)\nঅর্ধকোষ বিক্রিয়া E0\n,ঠ\nAl3+\n(aq) + 3e\n Al(s)  1.66\nZn2+\n(aq) + 2e\n Zn(s)  0.76",
+      "text": "নিচের বিক্রিয়ার জন্য ΔE° এর মান কত? 2Al³⁺ ( (aq) + 3Zn(s) → 2Al(s) + 3Zn²⁺)/(অর্ধকোষ বিক্রিয়া )( (aq) )/(E⁰,V ) (Al³⁺ (aq) + 3e⁻ → Al(s) )/(Zn²⁺ (aq) + 2e⁻ → Zn(s) ) (− 1.66 )/(− 0.76 )",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -2144,12 +2147,12 @@
       "options": [
         {
           "id": "a",
-          "text": "1.04 V",
+          "text": "−1.04 V",
           "order": 1
         },
         {
           "id": "b",
-          "text": "0.90 V",
+          "text": "−0.90 V",
           "order": 2
         },
         {
@@ -2159,7 +2162,7 @@
         },
         {
           "id": "d",
-          "text": "1.04 V",
+          "text": "1.04 V °",
           "order": 4
         }
       ],
@@ -2181,12 +2184,12 @@
         "pageNumber": 92,
         "questionNumber": 19
       },
-      "explanation": "ঊ = (eo মান - ছোট gvb) = ু 0.76 ু (ু 1.66)\n= 1.66 ু 0.76 = + 0.90 V",
+      "explanation": "E  = (বড় মান – ছোট মান) = – 0.76 – (– 1.66) = 1.66 – 0.76 = + 0.90 V",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q020-p092-n0044",
-      "text": "0C G কোনটির এন্ট্রপি সবচেয়ে বেশি?",
+      "text": "0°C এ কোনটির এন্ট্রপি সবচেয়ে বেশি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -2194,22 +2197,22 @@
       "options": [
         {
           "id": "a",
-          "text": "1.0 mol H2O (S)",
+          "text": "1.0 mol H₂O (S)",
           "order": 1
         },
         {
           "id": "b",
-          "text": "1.0 mol H2O(l)",
+          "text": "1.0 mol H₂O(l)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "1.0 mol H2O (g)",
+          "text": "1.0 mol H₂O (g)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1.0molH2O(g)+0.5molO2 (g)",
+          "text": "1.0 mol H₂O(g) + 0.5 molO₂ (g)",
           "order": 4
         }
       ],
@@ -2231,12 +2234,12 @@
         "pageNumber": 92,
         "questionNumber": 20
       },
-      "explanation": "এনট্রপি হলো বিশৃঙ্খলার পরিমাপক। গ্যাসীয় অবস্থার কোন\nবস্তুর এনট্রপি সবচেয়ে বেশী। এখানে, 1.0 mol H2O গ্যাস I 0.5 mol\nO2 গ্যাসের সম্মিলিত এনট্রপি সবচেয়ে বেশী।",
+      "explanation": "এনট্রপি হলো বিশৃৈখলার পরিমাপক। গ্যাসীয় অবস্থার কোন বস্তুর এনট্রপি সবচেয়ে বেশী। এখানে, 1.0  mol H₂O গ্যাস ও 0.5 mol O₂ গ্যাসের সম্মিলিত এনট্রপি সবচেয়ে বেশী।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q021-p092-n0045",
-      "text": "Na2CO3 এর 500ml 0.1 M দ্রবণে KZ গ্রাম Na2CO3 দ্রবীভূত\nথাকবে?",
+      "text": "Na₂CO₃ এর 500ml 0.1 M দ্রবণে কত গ্রাম Na₂CO₃ দ্রবীভূত থাকবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -2281,7 +2284,7 @@
         "pageNumber": 92,
         "questionNumber": 21
       },
-      "explanation": "w =\nSMV\n1000\n=\n0.1  106  500\n1000\n= 5.3 g",
+      "explanation": "w = SMV/1000 = (0.1 × 106 × 500)/1000 = 5.3 g",
       "assetPaths": []
     },
     {
@@ -2294,22 +2297,22 @@
       "options": [
         {
           "id": "a",
-          "text": "0.082 L.atm.mol1\nK1",
+          "text": "0.082 L.atm.mol⁻¹K⁻¹",
           "order": 1
         },
         {
           "id": "b",
-          "text": "8.32  107\nবৎম. mol1\nK1",
+          "text": "8.32 × 10⁷ erg. mol⁻¹K⁻¹",
           "order": 2
         },
         {
           "id": "c",
-          "text": "1.987 পধষ. mol1\nK1",
+          "text": "1.987 cal. mol⁻¹K⁻¹",
           "order": 3
         },
         {
           "id": "d",
-          "text": "0.8314 J mol1\nK1",
+          "text": "0.8314 J mol⁻¹K⁻¹ − −",
           "order": 4
         }
       ],
@@ -2331,7 +2334,7 @@
         "pageNumber": 92,
         "questionNumber": 22
       },
-      "explanation": "R এর বিভিন্ন মানঃ 0.082 L.atm.mol1\nK1\n(Latm) ;\n8.32  107\nবৎম. mol1\nK1\n(ঈএঝ);\n1.987 পধষ. mol1\nK1\n(ওসঢ়বৎরধষ);",
+      "explanation": "R এর বিভিন্ন মানঃ 0.082 L.atm.mol¹K¹ (Latm) ; 8.32 × 10⁷ erg. mol⁻¹K⁻¹(CGS); 1.987 cal. mol⁻¹K⁻¹(Imperial); 8. 314 J mol⁻¹K⁻¹(SI)",
       "assetPaths": []
     },
     {
@@ -2381,12 +2384,12 @@
         "pageNumber": 92,
         "questionNumber": 23
       },
-      "explanation": "HCl G e = 1 সুতরাং 0.01M HCl এর pH = –log[0.01] = 2",
+      "explanation": "HCl এ e = 1 সুতরাং 0.01M HCl এর pH = –log[0.01] = 2",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q024-p092-n0048",
-      "text": "STP তে 0.1mol বিশুদ্ধ O2 গ্যাসে পরমাণুর সংখ্যা কত?",
+      "text": "STP তে 0.1mol বিশুদ্ধ O₂ গ্যাসে পরমাণুর সংখ্যা কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -2394,22 +2397,22 @@
       "options": [
         {
           "id": "a",
-          "text": "6.02  1023",
+          "text": "6.02 × 10²³",
           "order": 1
         },
         {
           "id": "b",
-          "text": "6.02  1022",
+          "text": "6.02 × 10²²",
           "order": 2
         },
         {
           "id": "c",
-          "text": "1.20  1022",
+          "text": "1.20 × 10²²",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1.20  1023",
+          "text": "1.20 × 10²³ ×",
           "order": 4
         }
       ],
@@ -2431,12 +2434,12 @@
         "pageNumber": 92,
         "questionNumber": 24
       },
-      "explanation": "পরমাণুর সংখ্যা, x = n  NA\nSTP যে 1 mol বিশুদ্ধ O2 গ্যাসে পরমাণুর সংখ্যা = 2 6.023  1023\n\n0.1 = 1.20  1023\nটি।",
+      "explanation": "পরমাণুর সংখ্যা, x = n  N_(A) STP যে 1 mol বিশুদ্ধ O₂ গ্যাসে পরমাণুর সংখ্যা = 2 × 6.023 × 10²³ × 0.1 = 1.20 × 10²³ টি।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q025-p092-n0049",
-      "text": "অম্লীয় দ্রবণে KMnO4 কয়টি ইলেকট্রন গ্রহণ করে?",
+      "text": "অম্লীয় দ্রবণে KMnO₄ কয়টি ইলেকট্রন গ্রহণ করে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Chemistry",
@@ -2444,22 +2447,22 @@
       "options": [
         {
           "id": "a",
-          "text": "3wU",
+          "text": "3টি",
           "order": 1
         },
         {
           "id": "b",
-          "text": "4wU",
+          "text": "4টি",
           "order": 2
         },
         {
           "id": "c",
-          "text": "5wU",
+          "text": "5টি",
           "order": 3
         },
         {
           "id": "d",
-          "text": "6wU",
+          "text": "6টি – →",
           "order": 4
         }
       ],
@@ -2481,12 +2484,12 @@
         "pageNumber": 92,
         "questionNumber": 25
       },
-      "explanation": "Mn7+\n+ 5e–\nMn2+",
+      "explanation": "Mn⁷⁺ + 5e Mn²⁺",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q001-p092-n0050",
-      "text": "কম্পিউটার মেমোরিতে (00000000)2 থেকে (10000000)2 অ্যাড্রেসে\nকতগুলো বাইট সংরক্ষণ করা যাবে?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c0-s03-q001-r1",
+      "text": "কম্পিউটার মেমোরিতে (00000000)₂ থেকে (10000000)₂ অ্যাড্রেসে কতগুলো বাইট সংরক্ষণ করা যাবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "ICT",
@@ -2494,22 +2497,22 @@
       "options": [
         {
           "id": "a",
-          "text": "256wU",
+          "text": "256টি",
           "order": 1
         },
         {
           "id": "b",
-          "text": "255wU",
+          "text": "255টি",
           "order": 2
         },
         {
           "id": "c",
-          "text": "129wU",
+          "text": "129টি",
           "order": 3
         },
         {
           "id": "d",
-          "text": "128wU",
+          "text": "128টি",
           "order": 4
         }
       ],
@@ -2531,11 +2534,11 @@
         "pageNumber": 92,
         "questionNumber": 1
       },
-      "explanation": "(00000000)2 = 0\n(10000000)2 = 128\n0 ু 128 = 129 বাইট",
+      "explanation": "(00000000)₂ = 0 (10000000)₂ = 128 0 – 128 = 129 বাইট",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q002-p092-n0051",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c0-s03-q002-r1",
       "text": "নিচের কোনটি কম্পিটারের ইনপুট ডিভাইস নয়?",
       "type": "single_choice",
       "category": "varsity",
@@ -2544,22 +2547,22 @@
       "options": [
         {
           "id": "a",
-          "text": "ইধৎপড়ফব ঝপধহহবৎ",
+          "text": "Barcode Scanner",
           "order": 1
         },
         {
           "id": "b",
-          "text": "ডবন ঈধসবৎধ",
+          "text": "Web Camera",
           "order": 2
         },
         {
           "id": "c",
-          "text": "ঞড়ঁপয ঝপৎববহ",
+          "text": "Touch Screen",
           "order": 3
         },
         {
           "id": "d",
-          "text": "চবহ উৎরাব",
+          "text": "Pen Drive",
           "order": 4
         }
       ],
@@ -2581,12 +2584,12 @@
         "pageNumber": 92,
         "questionNumber": 2
       },
-      "explanation": "অহ রহঢ়ঁঃ ফবারপব রং ধহু যধৎফধিৎব ফবারপব :যধঃ\nংবহফং ফধঃধঃড়ধপড়সঢ়ঁঃবৎ,ধষষড়রিহমুড়ঁঃড়রহঃবৎধপঃরিঃযধহফপড়হঃৎড়ষরঃ.\nচবহ ফৎরাব রং হড়ঃ a রহঢ়ঁঃ ফবারপব হড়ৎ ড়ঁঃঢ়ঁঃ ফবারপব ওঃ রং STORAGE\nউঊঠওঈঊ.",
+      "explanation": "An  input  device  is  any  hardware  device  that sends data to a computer, allowing you to interact with and control it. Pen  drive  is  not  a  input  device  nor  output  device  It  is  STORAGE DEVICE.",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q003-p092-n0052",
-      "text": "কোন কম্পিউটার নেটওয়ার্কিং টপোলজিতে সবগুলো কম্পিউটার পরস্পর যুক্ত\nথাকে?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s03-q003-r1",
+      "text": "কোন কম্পিউটার নেটওয়ার্কিং টপোলজিতে সবগুলো কম্পিউটার পরস্পর যুক্ত থাকে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "ICT",
@@ -2594,17 +2597,17 @@
       "options": [
         {
           "id": "a",
-          "text": "ইঁং",
+          "text": "Bus",
           "order": 1
         },
         {
           "id": "b",
-          "text": "জরহম",
+          "text": "Ring",
           "order": 2
         },
         {
           "id": "c",
-          "text": "গবংয",
+          "text": "Mesh",
           "order": 3
         },
         {
@@ -2631,12 +2634,12 @@
         "pageNumber": 92,
         "questionNumber": 3
       },
-      "explanation": "মেশ বা পরস্পর সংযুক্ত টপোলজি: মেশ টপোলজির ক্ষেত্রে\nনেটওয়ার্কের অধীনস্ত প্রত্যেক কম্পিউটার অন্য সব কম্পিউটারের সঙ্গে সরাসরি যুক্ত\nথাকে।",
+      "explanation": "মেশ  বা  পরস্পর  সংযুক্ত  টপোলজি:  মেশ  টপোলজির  ক্ষেত্রে নেটওয়ার্কের অধীনস্ত প্রত্যেক কম্পিউটার অন্য সব কম্পিউটারের সঙ্গে সরাসরি যুক্ত থাকে।",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q004-p092-n0053",
-      "text": "(x + ু), (ী\n+ y) বুলিয়ান ফাংশনটির সরল করলে হবে-",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s03-q004-r1",
+      "text": "(x + y), (x^(′)+ y) বুলিয়ান ফাংশনটির সরল করলে হবে–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "ICT",
@@ -2654,12 +2657,12 @@
         },
         {
           "id": "c",
-          "text": "ী",
+          "text": "x′",
           "order": 3
         },
         {
           "id": "d",
-          "text": "ু",
+          "text": "y′ ′ ′ ′",
           "order": 4
         }
       ],
@@ -2681,7 +2684,7 @@
         "pageNumber": 92,
         "questionNumber": 4
       },
-      "explanation": "(x + y) (ী + y) = ীী + ীু + ীু + ু\n= 0 + ীু + ীু + y [ীী = 0, ু.ু = ু]\n= y (x + ী + 1) = y",
+      "explanation": "(x +  y) (x +  y) = xx + xy + x y + yy = 0 + xy + x′y +  y [xx′ = 0, y.y = y] = y (x + x′ + 1)  = y",
       "assetPaths": []
     },
     {
@@ -2731,15 +2734,15 @@
         "pageNumber": 92,
         "questionNumber": 5
       },
-      "explanation": "সিদ্ধান্ত :এটি সর্বদা একটি প্রশ্ন করে থাকে, যার দুটি\nসম্ভাব্য উত্তর (হ্যাঁ বা bv) থাকে। উত্তরের উপরে নির্ভর করে ফ্লোচার্টকে\nদু'ভাগে বিভক্ত করা হয়।\nখ-শাখা (ঐচ্ছিক)\nঐচ্ছিক অংশে নিচের যে কোন একটি অপশনের প্রশ্ন দাগাতে হবে\nজীববিদ্যা + গণিত",
+      "explanation": "সিদ্ধান্ত :এটি সর্বদা একটি প্রশ্ন করে থাকে, যার দুটি সম্ভাব্য  উত্তর  (হ্যাঁ  বা  না)  থাকে।  উত্তরের  উপরে  নির্ভর  করে  ফ্লোচার্টকে দু’ভাগে বিভক্ত করা হয়।",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q001-p092-n0055",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s05-q001-r1",
       "text": "অন্তঃস্টিলীয় সেকেন্ডারি বৃদ্ধির প্রথম ধাপ কোনটি?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -2781,15 +2784,15 @@
         "pageNumber": 92,
         "questionNumber": 1
       },
-      "explanation": "দ্বিবীজপত্রী কান্ডের স্বাভাবিক সেকেন্ডারী/গৌণ বৃদ্ধি:\nঅন্তঃস্টিলীয় বৃদ্ধি বহিঃস্টিলীয় বৃদ্ধি\n ক্যাম্বিয়াম বলয় ঙ্তরী\n সেকেন্ডারী জাইলেম বা ফ্লোয়েম ঙ্তরী\n সেকেন্ডারী মজ্জা রশ্মির সৃষ্টি\n বর্ষবলয় ঙ্তরী\n সার KvV/Amvi কাঠ সৃষ্টি।\n কর্ক ক্যাম্বিয়াম সৃষ্টি\n কর্ক I সেকেন্ডারী কর্টেক্স\nঙ্তরী\n বাকলের সৃষ্টি\n লেন্টিসেল ঙ্তরী",
+      "explanation": "(  দ্বিবীজপত্রী কান্ডের স্বাভাবিক সেকেন্ডারী/গৌণ বৃদ্ধি: )/(অন্তঃস্টিলীয় বৃদ্ধি ) (বহিঃস্টিলীয় বৃদ্ধি )/( কর্ক ক্যাম্বিয়াম সৃষ্টি ) ক্যাম্বিয়াম বলয় তৈরী সেকেন্ডারী জাইলেম বা ফ্লোয়েম তৈরী  কর্ক ও সেকেন্ডারী কর্টেক্স সেকেন্ডারী মজ্জা রশ্মির সৃষ্টি তৈরী বর্ষবলয় তৈরী  বাকলের সৃষ্টি সার কাঠ/অসার কাঠ সৃষ্টি।  লেন্টিসেল তৈরী",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q002-p092-n0056",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s05-q002-r1",
       "text": "কোনটি অগ্নাশয় থেকে নিঃসৃত এনজাইম?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -2831,15 +2834,15 @@
         "pageNumber": 92,
         "questionNumber": 2
       },
-      "explanation": "অগ্নাশয়ের নিঃসৃত এনজাইম:\nঅগ্ন্যাশয়\nরস\n(ক্ষুদ্রান্ত্র)\nশর্করা অ্যামাইলেজ, মল্টেজ\nআমিষ\nট্রিপসিন, কাইমোট্রিপসিন, কার্বোক্সিপেপটাইডেজ, অ্যামিনো\nপেপটাইডেজ, ট্রাইপেপটাইডেজ, ডাইপেপটাইডেজ,\nকোলাজিনেজ, ইলাস্টেজ\nস্নেহ লাইপেজ, ফসফোলাইপেজ, কোলেস্টেরল এস্টারেজ",
+      "explanation": "(অগ্নাশয়ের নিঃসৃত এনজাইম: )/(শর্করা  অ্যামাইলেজ, মল্টেজ ) অগ্ন্যাশয় ট্রিপসিন, কাইমোট্রিপসিন, কার্বোক্সিপেপটাইডেজ, অ্যামিনো রস আমিষ পেপটাইডেজ, ট্রাইপেপটাইডেজ, ডাইপেপটাইডেজ, (ক্ষুদ্রান্ত্র) (কোলাজিনেজ, ইলাস্টেজ )/(স্নেহ  লাইপেজ, ফসফোলাইপেজ, কোলেস্টেরল এস্টারেজ )",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q003-p092-n0057",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s05-q003-r1",
       "text": "আবৃতবীজী উদ্ভিদের শস্য (Endosperm)-",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -2881,15 +2884,15 @@
         "pageNumber": 92,
         "questionNumber": 3
       },
-      "explanation": "আবৃতবীজী উদ্ভিদের শস্য ট্রিপ্লয়েড I নগ্নবীজী উদ্ভিদের\nশস্য হ্যাপ্লয়েড।",
+      "explanation": "আবৃতবীজী  উদ্ভিদের  শস্য  ট্রিপ্লয়েড  ও  নগ্নবীজী  উদ্ভিদের শস্য হ্যাপ্লয়েড।",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q004-p092-n0058",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p092-c1-s05-q004-r1",
       "text": "মানুষের রক্তের pH এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -2913,8 +2916,8 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -2929,15 +2932,16 @@
         "pageNumber": 92,
         "questionNumber": 4
       },
-      "explanation": "রক্তের pH 7.35-7.45|",
-      "assetPaths": []
+      "explanation": "pH 7.35-7.45। রক্তের",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q005-p093-n0059",
       "text": "দ্বিস্তরী প্রাণিতে নিচের কোনটি উপস্থিত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -2979,15 +2983,15 @@
         "pageNumber": 93,
         "questionNumber": 5
       },
-      "explanation": "দ্বিস্তরী প্রাণিতে মেসোডার্মের পরিবর্তে মোসোগ্লিয়া থাকে।\nনিডারিয়া পর্বের প্রাণিরা দ্বিস্তরী।",
+      "explanation": "দ্বিস্তরী  প্রাণিতে  মেসোডার্মের  পরিবর্তে  মোসোগ্লিয়া  থাকে। নিডারিয়া পর্বের প্রাণিরা দ্বিস্তরী।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q006-p093-n0060",
-      "text": "ডায়াফ্রাম উপস্থিত-",
+      "text": "ডায়াফ্রাম উপস্থিত–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -3029,35 +3033,35 @@
         "pageNumber": 93,
         "questionNumber": 6
       },
-      "explanation": "স্তন্যপায়ী প্রাণিদের মাংসল ডায়াফ্রাম বা মধ্যচ্ছদা দিয়ে বক্ষ\nI উদর গহ্বর পৃথক থাকে।",
+      "explanation": "স্তন্যপায়ী প্রাণিদের মাংসল ডায়াফ্রাম বা মধ্যচ্ছদা দিয়ে বক্ষ ও উদর গহ্বর পৃথক থাকে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q007-p093-n0061",
-      "text": "A = \n\n\n 2\n4\n1\n3\nহলে A1\n=?",
+      "text": "2 1 [ ] A = হলে A⁻¹ =? 4 3 3 1 2 −1 [ ] [ ]",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "1\n2 \n\n\n 3\n4\n1\n2",
+          "text": "1/2",
           "order": 1
         },
         {
           "id": "b",
-          "text": "1\n2 \n\n\n 2\n4\n1\n3",
+          "text": "1/2 −4 2 −4 3 3 −1 3 −1 [ ] [ ]",
           "order": 2
         },
         {
           "id": "c",
-          "text": "1\n2 \n\n\n 3\n4\n1\n2",
+          "text": "1/2",
           "order": 3
         },
         {
           "id": "d",
-          "text": "\n\n\n 3\n4\n1\n2",
+          "text": "−4 2 −4 2 2 1 [ ]",
           "order": 4
         }
       ],
@@ -3079,25 +3083,25 @@
         "pageNumber": 93,
         "questionNumber": 7
       },
-      "explanation": "A = \n\n\n 2\n4\n1\n3\nA–1\n=\n1\n2 × 3 ু 4 × 1 \n\n\n 3\nু 4\nু 1\n2 =\n1\n2 \n\n\n 3\nু 4\nু 1\n2",
+      "explanation": "A = 4 3 3 – 1 3 – 1 [ ] [ ] A⁻¹ = 1/(2 × 3 – 4 × 1) = 1/2 – 4  2 – 4  2",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q008-p093-n0062",
-      "text": "16x2\n+ y2\n= 16 অধিবৃত্তের উপকেন্দ্রের স্থানাংক কত?",
+      "text": "16x²+ y² = 16 অধিবৃত্তের উপকেন্দ্রের স্থানাংক কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "( 4, 0)",
+          "text": "(± 4, 0)",
           "order": 1
         },
         {
           "id": "b",
-          "text": "(0,  4)",
+          "text": "(0, ± 4)",
           "order": 2
         },
         {
@@ -3111,8 +3115,8 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -3127,35 +3131,36 @@
         "pageNumber": 93,
         "questionNumber": 8
       },
-      "explanation": "16x2\n+ y2\n= 16 উপবৃত্তের উপকেন্দ্র  (0,  be)\n= (0,  b2\nু a2\n) = (0,  42\nু 12\n) = (0,  15)",
-      "assetPaths": []
+      "explanation": "² + y² = 16 উপবৃত্তের উপকেন্দ্র  (0, ± be) (  16x)/(  b² – a²)₂₂ (≡)/(  15) ) = (0, ± ) = (0, ±  4 – 1 ) = (0, ±",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q009-p093-n0063",
-      "text": "ঃধহ =\n3\n4\nএবং 180 <  < 270 হলে পড়ং এর মান কত?",
+      "text": "tanθ = 3/4এবং 180° < θ < 270° হলে cosθ এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "4\n5",
+          "text": "4/5",
           "order": 1
         },
         {
           "id": "b",
-          "text": "4\n5",
+          "text": "(−4)/5",
           "order": 2
         },
         {
           "id": "c",
-          "text": "\n4\n5",
+          "text": "±4/5",
           "order": 3
         },
         {
           "id": "d",
-          "text": "3\n5",
+          "text": "3/5",
           "order": 4
         }
       ],
@@ -3177,35 +3182,35 @@
         "pageNumber": 93,
         "questionNumber": 9
       },
-      "explanation": "ঃধহ =\n3\n4\n, 180 <  < 270  পড়ং = ু\n4\n5",
+      "explanation": "tanθ = 3/4 , 180° < θ < 270°    ∴ cosθ = – 4/5",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q010-p093-n0064",
-      "text": "যদি ীু\n= ুী\nহয় তবে ফী\nফু\n= এর মান কত?",
+      "text": "যদি x^(y) = y^(x) হয় তবে dx/dy = এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "y(x ষহ x  x)\nx(y ষহ x  y)",
+          "text": "(y(x ln x − x))/(x(y ln x − y))",
           "order": 1
         },
         {
           "id": "b",
-          "text": "y(x ষহ y  y)\nx(y ষহ x  x)",
+          "text": "(y(x ln y − y))/(x(y ln x − x))",
           "order": 2
         },
         {
           "id": "c",
-          "text": "x(x ষহ y  y)\ny(y ষহ x  x)",
+          "text": "(x(x ln y − y))/(y(y ln x − x))",
           "order": 3
         },
         {
           "id": "d",
-          "text": "x(x ষহ y  x)\ny(x  y ষহ x)",
+          "text": "(x(x ln y − x))/(y(x − y ln x))",
           "order": 4
         }
       ],
@@ -3227,35 +3232,85 @@
         "pageNumber": 93,
         "questionNumber": 10
       },
-      "explanation": "ীু\n= ুী\n y ষহী = x ষহু\n\nফু\nফী\nষহী +\ny\nx\n=\nx\ny\nফু\nফী\n+ ষহ y\n\nফু\nফী\n=\ny\nx\nx (lny ু y)\ny (lnx ু x)\n11.\n\n1\nx2 ংরহ\n\n\n\n 1\nx\nফী এর মান কত?\nঅ. পড়ং x + c ই. পড়ং\n\n\n\n 1\nx\n+ c\nঈ. ংরহ\n\n\n\n 1\nx\n+ c উ. ংরহী + c\nB ASPECT\n\n\n1\nx2 ংরহ\n\n\n\n 1\nx\nফী\n=\n\nু ংরহ\n1\nx\nd\n\n\n\n 1\nx\n= পড়ং\n1\nx\n+ c",
+      "explanation": "x^(y) = y^(x) ⇒ y lnx = x lny ⇒dy/dx lnx + y/x = x/ydy/dx + ln y ∴dy/dx = y/x(x (lny – y))/(y (lnx – x))",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q012-p093-n0065",
-      "text": "x2\n+ x + 1 = 0 সমীকরনের মূলগুলো  I  হলে, 2\nI 2\nমূল বিশিষ্ট\nসমীকরণ কোনটি?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p093-c0-s05-q011-r1",
+      "text": "1/x² sin(1/x) dx এর মান কত? ∫",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "x2\n x + 1 = 0",
+          "text": "cos x + c",
           "order": 1
         },
         {
           "id": "b",
-          "text": "x2\n+ x ু 1 = 0",
+          "text": "cos(1/x) + c",
           "order": 2
         },
         {
           "id": "c",
-          "text": "x2\n+ x + 1 = 0",
+          "text": "sin(1/x) + c",
           "order": 3
         },
         {
           "id": "d",
-          "text": "2x2\n+ x + 1 = 0",
+          "text": "sinx + c ( )",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-vq-2020-2021-c-all-p089",
+          "questionNumber": 11,
+          "pageNumber": 93,
+          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
+        }
+      ],
+      "source": {
+        "documentId": "ru-vq-2020-2021-c-all-p089-source",
+        "pageNumber": 93,
+        "questionNumber": 11
+      },
+      "explanation": "1/x² sin 1/x dx ( ) = – sin 1/x d 1/x = cos 1/x + c",
+      "assetPaths": []
+    },
+    {
+      "id": "ru-vq-2020-2021-c-all-p089-q012-p093-n0065",
+      "text": "x²+ x + 1 = 0 সমীকরনের মূলগুলো α ও β হলে, α² ও β² মূল বিশিষ্ট সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "x²− x + 1 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x²+ x – 1 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x²+ x + 1 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2x²+ x + 1 = 0 α β",
           "order": 4
         }
       ],
@@ -3277,15 +3332,15 @@
         "pageNumber": 93,
         "questionNumber": 12
       },
-      "explanation": " x2\n+ x + 1 = 0 সমীকরণের মূলদ্বয় , \nসুতরাং  =  হলে  = 2\n 2\n= 2\nএবং 2\n= 4\n= \nসুতরাং 2\n, 2\nমূলদ্বয় বিশিষ্ট সমীকরণ x2\n+ x + 1 = 0 হবে।",
+      "explanation": "x² + x + 1 = 0 সমীকরণের মূলদ্বয় , সুতরাং α = ω হলে β = ω² ∴ α² = ω² এবং β² = ω⁴ = ω সুতরাং α², β² মূলদ্বয় বিশিষ্ট সমীকরণ x² + x + 1 = 0 হবে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q013-p093-n0066",
-      "text": "পাথরের গায়ে জন্মায় যে ঙ্শবাল তাকে কী বলে?",
+      "text": "পাথরের গায়ে জন্মায় যে শৈবাল তাকে কী বলে?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -3327,7 +3382,7 @@
         "pageNumber": 93,
         "questionNumber": 13
       },
-      "explanation": "বিভিন্ন প্রকার ঙ্শবাল:\nঙ্শবাল বাসস্থান\nফাইটোপ্লাংটন সম্পূর্ণ ভাসমান\nবেনথিক পানির নিচে আবদ্ধ\nলিথোফাইট পাথরের গায়ে জন্মায়\nএন্ডোফাইট উচ্চশ্রেণীর জীবের টিস্যু অভ্যন্তরে\nএপিফাইট ঙ্শবালের গায়ে",
+      "explanation": "(  বিভিন্ন প্রকার শৈবাল: )/(শৈবাল ) (বাসস্থান )/(সম্পূর্ণ ভাসমান ) (ফাইটোপ্লাংটন )/(বেনথিক ) (পানির নিচে আবদ্ধ )/(পাথরের গায়ে জন্মায় ) (লিথোফাইট )/(এন্ডোফাইট ) (উচ্চশ্রেণীর জীবের টিস্যু অভ্যন্তরে )/(শৈবালের গায়ে ) এপিফাইট",
       "assetPaths": []
     },
     {
@@ -3335,12 +3390,12 @@
       "text": "DNA লাইগেজ এনজাইমের কাজ কোনটি?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "নতুন DNA ঙ্তরী করা",
+          "text": "নতুন DNA তৈরী করা",
           "order": 1
         },
         {
@@ -3377,15 +3432,15 @@
         "pageNumber": 93,
         "questionNumber": 14
       },
-      "explanation": "বিভিন্ন এনজাইমের কাজ:\nএনজাইম কাজ\nরেস্ট্রিকশন\nএন্ডোনিউক্লিয়েজ\nDNA অণু কর্তনে ব্যবহৃত হয়।\nহেলিকেজ\nদুটি হেলিক্সের মাঝে হাইড্রোজেন বন্ধনী ভেঙে দিয়ে\nসূত্র দুটি পৃথক করে।\nSSBP/HDP\nGKK হেলিক্সের সাথে জড়িয়ে থেকে পিছন দিকে\nপুনঃপাক সৃষ্টি প্রতিহত করে।\nDNA\nপলিমারেজ III\nনিউক্লিয়োটাইড অণু যুক্ত করে 5 প্রান্ত থেকে 3\nপ্রান্ত নির্দেশিত পরিপূরক স্ট্র্যান্ড বা শিকল গঠন করে\nথাকে। DNA প্রুফ রিডিং করে।\nলাইগেজ\nছোট ছোট DNA খন্ডের মধ্যে (IKvRvwK) বন্ধনী\nসৃষ্টি I মেরামত সাধন করে।",
+      "explanation": "()/(এনজাইম )(বিভিন্ন এনজাইমের কাজ:   )/(কাজ ) রেস্ট্রিকশন DNA অণু কর্তনে ব্যবহৃত হয়। এন্ডোনিউক্লিয়েজ দুটি হেলিক্সের মাঝে হাইড্রোজেন বন্ধনী ভেঙে দিয়ে হেলিকেজ (সূত্র দুটি পৃথক করে। )/(একক হেলিক্সের সাথে জড়িয়ে থেকে পিছন দিকে ) SSBP/HDP (পুনঃপাক সৃষ্টি প্রতিহত করে। )/(নিউক্লিয়োটাইড অণু যুক্ত করে 5′ প্রান্ত থেকে 3′ ) DNA প্রান্ত নির্দেশিত পরিপূরক স্ট্র্যান্ড বা শিকল গঠন করে পলিমারেজ III (থাকে। DNA প্রুফ রিডিং করে। )/(ছোট ছোট DNA খন্ডের মধ্যে (ওকাজাকি) বন্ধনী ) লাইগেজ সৃষ্টি ও মেরামত সাধন করে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q015-p093-n0068",
-      "text": "উদ্ভিদের মূল I ছত্রাকের মধ্যকার এসোসিয়েশনকে কী বলা হয়?",
+      "text": "উদ্ভিদের মূল ও ছত্রাকের মধ্যকার এসোসিয়েশনকে কী বলা হয়?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -3427,7 +3482,7 @@
         "pageNumber": 93,
         "questionNumber": 15
       },
-      "explanation": "বিভিন্ন উন্নত শ্রেণির উদ্ভিদ মূলে বা পাতায় ছত্রাক মিথোজীবী\nরূপে সহাবস্থান করে। মূল বা পাতা I ছত্রাকের সমন্বয়ে বিশেষ সংগঠনকে\nমাইকোরাইজা বলে। G ধরনের ছত্রাককে মাইকোরাইজাল ছত্রাক বলে। যে\nবিশেষ শ্রেণির মৃতজীবী ছত্রাক শাকাশী প্রাণীর বিষ্ঠার ওপর জন্মায়, তাদের\nকপ্রোফিলাস ছত্রাক বলে। অনেক ছত্রাক পরাশ্রয়ীরূপে উচ্চশ্রেণির উদ্ভিদের\nক্ষতি না করে দেহের বহির্ভাগে বাস করে।",
+      "explanation": "বিভিন্ন উন্নত শ্রেণির উদ্ভিদ মূলে বা পাতায় ছত্রাক মিথোজীবী রূপে সহাবস্থান করে। মূল বা পাতা ও ছত্রাকের সমন্বয়ে বিশেষ সংগঠনকে মাইকোরাইজা বলে। এ ধরনের ছত্রাককে মাইকোরাইজাল ছত্রাক বলে। যে বিশেষ শ্রেণির মৃতজীবী ছত্রাক শাকাশী প্রাণীর বিষ্ঠার ওপর জন্মায়, তাদের কপ্রোফিলাস  ছত্রাক  বলে।  অনেক  ছত্রাক  পরাশ্রয়ীরূপে  উচ্চশ্রেণির  উদ্ভিদের ক্ষতি না করে দেহের বহির্ভাগে বাস করে।",
       "assetPaths": []
     },
     {
@@ -3435,7 +3490,7 @@
       "text": "নিচের কোনটি উদ্ভিদের সুগন্ধী সৃষ্টির জন্য দায়ী?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -3477,15 +3532,15 @@
         "pageNumber": 94,
         "questionNumber": 16
       },
-      "explanation": "10-40 কার্বন বিশিষ্ট আইসোপ্রিনয়েড যে․গ। পুদিনা, তুলসীতে\nউদ্বায়ী তেল হিসেবে টারপিন পাওয়া যায়। সুগন্ধি প্রসাধনী ঙ্তরিতে I\nবার্নিশের কাজে ব্যবহৃত হয়।",
+      "explanation": "১০-৪০ কার্বন বিশিষ্ট আইসোপ্রিনয়েড যৌগ। পুদিনা, তুলসীতে উদ্বায়ী  তেল  হিসেবে  টারপিন  পাওয়া  যায়।  সুগন্ধি  প্রসাধনী  তৈরিতে  ও বার্নিশের কাজে ব্যবহৃত হয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q017-p094-n0070",
-      "text": "অশ্রু ক্ষরণকারী গ্রন্থির নাম হল-",
+      "text": "অশ্রু ক্ষরণকারী গ্রন্থির নাম হল–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -3527,15 +3582,15 @@
         "pageNumber": 94,
         "questionNumber": 17
       },
-      "explanation": "চোখে তিন ধরনের গ্রন্থি পাওয়া যায়: হার্ডেরিয়ান গ্রন্থি\n(Harderian এষধহফ), মেবোমিয়ান গ্রন্থি (Mebomian এষধহফ),\nল্যাক্রিমাল গ্রন্থি (Lacrimal এষধহফ)। ল্যাক্রিমাল গ্রন্থি থেকে অশ্রু নিঃসৃত\nহয় এবং বাকি দুটি গ্রন্থিও থেকে ঙ্তলাক্ত পদার্থের ক্ষরণ ঘটে।",
+      "explanation": "চোখে  তিন  ধরনের  গ্রন্থি  পাওয়া  যায়: হার্ডেরিয়ান  গ্রন্থি (Harderian  Gland), মেবোমিয়ান  গ্রন্থি (Mebomian  Gland), ল্যাক্রিমাল গ্রন্থি (Lacrimal Gland)। ল্যাক্রিমাল গ্রন্থি থেকে অশ্রু নিঃসৃত হয় এবং বাকি দুটি গ্রন্থিও থেকে তৈলাক্ত পদার্থের ক্ষরণ ঘটে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q018-p094-n0071",
-      "text": "চোখের উপরে অবস্থিত সাইনাসকে বলে-",
+      "text": "চোখের উপরে অবস্থিত সাইনাসকে বলে–",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Physics",
       "topic": null,
       "options": [
         {
@@ -3577,15 +3632,15 @@
         "pageNumber": 94,
         "questionNumber": 18
       },
-      "explanation": "সাইনাস সম্পর্কিত তথ্য:\nসাইনাসের নাম প্রদাহের ধরণ\nম্যাক্সিলারি ম্যাক্সিলারি অঞ্চলে (গালে) ব্যথা বা চাপ, যেমন-\nদাঁত ব্যথা, মাথা ব্যথা।\nফ্রন্টাল ফ্রন্টাল সাইনাস গহ্বরে (চোখের উপর অবস্থিত)\nব্যথা বা চাপ, মাথা ব্যথা।\nএথময়ডাল দু'চোখের মাঝখানে বা পেছনে ব্যথা, মাথা ব্যথা।\nস্ফেনয়ডাল চোখের পেছনে বা মাথার চুড়ায় ব্যথা বা চাপ।",
+      "explanation": "সাইনাস সম্পর্কিত তথ্য: ()/(সাইনাসের নাম  প্রদাহের ধরণ ) ম্যাক্সিলারি ম্যাক্সিলারি অঞ্চলে (গালে) ব্যথা বা চাপ, যেমন- (দাঁত ব্যথা, মাথা ব্যথা। )/(ফ্রন্টাল সাইনাস গহ্বরে (চোখের উপর অবস্থিত) ) ফ্রন্টাল (ব্যথা বা চাপ, মাথা ব্যথা। )/(দু’চোখের মাঝখানে বা পেছনে ব্যথা, মাথা ব্যথা। ) (এথময়ডাল )/(স্ফেনয়ডাল ) চোখের পেছনে বা মাথার চুড়ায় ব্যথা বা চাপ।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q019-p094-n0072",
-      "text": "ইরড়ষড়মরপধষ ঝপরংংড়ৎ বলা হয় কোনটিকে?",
+      "text": "Biological Scissor বলা হয় কোনটিকে?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Biology",
       "topic": null,
       "options": [
         {
@@ -3627,15 +3682,15 @@
         "pageNumber": 94,
         "questionNumber": 19
       },
-      "explanation": "রেস্ট্রিকশন এনজাইম বা রেস্ট্রিকশন এন্ডোনিউক্লিয়েস দ্বারা\nপ্লাজমিড I DNA এর বিভিন্ন অংশ কর্তন করা হয়। এজন্য একে আণবিক\nকাঁচি বলা হয়।",
+      "explanation": "রেস্ট্রিকশন  এনজাইম  বা  রেস্ট্রিকশন  এন্ডোনিউক্লিয়েস  দ্বারা প্লাজমিড ও DNA এর বিভিন্ন অংশ কর্তন করা হয়। এজন্য একে আণবিক কাঁচি বলা হয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q020-p094-n0073",
-      "text": "3x2\n+ 4y2\n+ 12x  18y + k = 0 উপবৃত্তটি ী-অক্ষকে স্পর্শ করলে শ-এর মান\nকত?",
+      "text": "3x²+ 4y²+ 12x − 18y + k = 0 উপবৃত্তটি x-অক্ষকে স্পর্শ করলে k-এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
@@ -3677,15 +3732,15 @@
         "pageNumber": 94,
         "questionNumber": 20
       },
-      "explanation": "3x2\n+ 4y2\n+ 12x ু 18y + k = 0 উপবৃত্তটি x অক্ষকে\nস্পর্শ করলে, 3x2\n+ 12x + k = 0 সমীকরণের নিশ্চায়ক শূন্য হবে।\n 122\nু 4 × 3 × k = 0  k = 12",
+      "explanation": "3x²  +  4y²  +  12x  –  18y  +  k  =  0 উপবৃত্তটি x অক্ষকে স্পর্শ করলে, 3x² + 12x + k = 0 সমীকরণের নিশ্চায়ক শূন্য হবে। ∴ 12² – 4 × 3 × k = 0   ∴ k = 12",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q021-p094-n0074",
-      "text": "n\nC5 = n\nC7 হলে n\nC11 এর মান কত?",
+      "text": "ⁿC₅ = ⁿC₇ হলে ⁿC₁₁ এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
@@ -3727,15 +3782,15 @@
         "pageNumber": 94,
         "questionNumber": 21
       },
-      "explanation": "n\nC5 = n\nC7  n = 5 + 7 = 12  12\nC11 =\n12\n1\n= 12.",
+      "explanation": "ⁿC₅ = ⁿC₇∴ n = 5 + 7 = 12   ∴ ¹²C₁₁ = 12/1 = 12.",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q022-p094-n0075",
-      "text": "যদি f(x) = x+4 এবং g(x) = 2x হয় তবে (f o g–1\n) (4) এর মান কত?",
+      "text": "যদি f(x) = x+4 এবং g(x) = 2x হয় তবে (f o g⁻¹) (4) এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
@@ -3777,20 +3832,20 @@
         "pageNumber": 94,
         "questionNumber": 22
       },
-      "explanation": "f(x) = x + 4, g(x) = 2x\n fog–1\n= f\n\n\n\n x\n2\n=\nx\n2\n+ 4  fog–1\n(4) =\n4\n2\n+ 4 = 6",
+      "explanation": "f(x) = x + 4, g(x) = 2x ( ) ∴ fog⁻¹ = f x/2 = x/2 + 4   ∴ fog⁻¹ (4) = 4/2 + 4 = 6",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q023-p094-n0076",
-      "text": "x =  1 + 2i হলে x3\n+ 3x2\n+ 5x + 3 এর মান কত?",
+      "text": "x = − 1 + 2i হলে x³+ 3x²+ 5x + 3 এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": " 4 + 4i",
+          "text": "− 4 + 4i",
           "order": 1
         },
         {
@@ -3800,12 +3855,12 @@
         },
         {
           "id": "c",
-          "text": "4i",
+          "text": "−4i",
           "order": 3
         },
         {
           "id": "d",
-          "text": "4i",
+          "text": "4i ⇒ ⇒",
           "order": 4
         }
       ],
@@ -3827,40 +3882,92 @@
         "pageNumber": 94,
         "questionNumber": 23
       },
-      "explanation": "x = ু 1 + 2i  (x + 1)2\n= ু 4  x2\n+ 2x + 5 = 0\nএখন x3\n+ 3x2\n+ 5x + 3 = x (x2\n+ 2x + 5) + (x2\n+ 2x + 5) ু 2x ু 2\n= x × 0 + 0 + 2 ু 4i ু 2 = ু 4i\n24.\n\n\n\n x2\nু 2 +\n1\nx2\n6\nএর সম্প্রসারণে ী-বর্জিত পদটির মান কত?\nঅ. 294 ই. 942 ঈ. 702 উ. 924\nD ASPECT\n\n\n\n\n x2\nু 2 +\n1\nx2\n6\n=\n\n\n\n x ু\n1\nx\n12\n x বর্জিত পদ = 12\nC6 = 924",
+      "explanation": "x = – 1 + 2i   (x + 1)² = – 4   x² + 2x + 5 = 0 এখন x³ + 3x² + 5x + 3 = x (x² + 2x + 5) + (x² + 2x + 5) – 2x – 2 = x × 0 + 0 + 2 – 4i – 2  = – 4i 6",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q025-p094-n0077",
-      "text": "একটি বস্তু 196 ms–1\nবেগে অনুভূমিক তলের সাথে 30 কোণে প্রক্ষেপ\nকরা হলে এর ভ্রমণকাল কত?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p094-c1-s05-q024-r1",
+      "text": "(x²– 2 + 1₂) এর সম্প্রসারণে x-বর্জিত পদটির মান কত? x",
       "type": "single_choice",
       "category": "varsity",
-      "subject": "ICT",
+      "subject": "Higher Mathematics",
       "topic": null,
       "options": [
         {
           "id": "a",
-          "text": "10 ংবপ",
+          "text": "294",
           "order": 1
         },
         {
           "id": "b",
-          "text": "15 ংবপ",
+          "text": "942",
           "order": 2
         },
         {
           "id": "c",
-          "text": "18 ংবপ",
+          "text": "702",
           "order": 3
         },
         {
           "id": "d",
-          "text": "20 ংবপ\nS D Why T =\n2u ংরহ\ng\n=\n2 × 196 × sin30\n9.8\n T = 20 ংবপ",
+          "text": "924 6 12 ( ) ( )",
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-vq-2020-2021-c-all-p089",
+          "questionNumber": 24,
+          "pageNumber": 94,
+          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
+        }
+      ],
+      "source": {
+        "documentId": "ru-vq-2020-2021-c-all-p089-source",
+        "pageNumber": 94,
+        "questionNumber": 24
+      },
+      "explanation": "x² – 2 + 1/x² = x – 1/x ∴ x বর্জিত পদ = ¹²C₆ = 924",
+      "assetPaths": []
+    },
+    {
+      "id": "ru-vq-2020-2021-c-all-p089-q025-p094-n0077",
+      "text": "একটি বস্তু 196 ms⁻¹ বেগে অনুভূমিক তলের সাথে 30° কোণে প্রক্ষেপ করা হলে এর ভ্রমণকাল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "10 sec",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15 sec",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "18 sec",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "20 sec",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -3875,7 +3982,7 @@
         "pageNumber": 94,
         "questionNumber": 25
       },
-      "explanation": null,
+      "explanation": "S Why  T = (2u sinα)/g = (2 × 196 × sin30°)/9.8∴ T = 20 sec",
       "assetPaths": []
     },
     {
@@ -3925,12 +4032,12 @@
         "pageNumber": 94,
         "questionNumber": 1
       },
-      "explanation": "বায়ুথলির উভয় প্রকোষ্ঠের আন্তঃপ্রাচীরের এপিথেলিয়াম সংলগ্ন\nএকটি করে লাল বর্ণের একটি গ্যাস গ্রন্থি থাকে। গ্রন্থিতে Nb সন্নিবেশিত\nঙ্কশিক নালী থাকে যা \"রেটিয়া মিরাবিলিয়া\"।",
+      "explanation": "বায়ুথলির উভয় প্রকোষ্ঠের আন্তঃপ্রাচীরের এপিথেলিয়াম সংলগ্ন একটি  করে  লাল  বর্ণের  একটি  গ্যাস  গ্রন্থি  থাকে।  গ্রন্থিতে  ঘন  সন্নিবেশিত কৈশিক নালী থাকে যা “রেটিয়া মিরাবিলিয়া”।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q002-p094-n0079",
-      "text": "উভলিঙ্গ ফুলকে পুরষত্বহীন করার পদ্ধেিতক কি বলে?",
+      "text": "উভলিঙ্গ ফুলকে পুরষত্বহীন করার পদ্ধতিেক কি বলে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -3948,7 +4055,7 @@
         },
         {
           "id": "c",
-          "text": "ইমাস্‥ুলেশন",
+          "text": "ইমাস্কুলেশন",
           "order": 3
         },
         {
@@ -3975,12 +4082,12 @@
         "pageNumber": 94,
         "questionNumber": 2
       },
-      "explanation": "যে পুষ্পকে মাতৃপুষ্প হিসেবে ধরা হবে তা যদি উভলিঙ্গ (Ges\nস্বপরাগী হয় অথবা প্রয়োজনে স্বপরাগী হতে পারে) হয় তাহলে ইমাস্‥ুলেশন\nকরা হয়। পরিপক্ব হবার আগেই পুষ্প থেকে পুংকেশর মেরে ফেলা বা\nসরিয়ে ফেলাকে বলা হয় ইমাস্‥ুলেশন। এতে করে স্বপরাগায়ন ঘটতে পারে\nনা।",
+      "explanation": "যে পুষ্পকে মাতৃপুষ্প হিসেবে ধরা হবে তা যদি উভলিঙ্গ (এবং স্বপরাগী হয় অথবা প্রয়োজনে স্বপরাগী হতে পারে) হয় তাহলে ইমাস্কুলেশন করা  হয়।  পরিপক্ব  হবার  আগেই  পুষ্প  থেকে  পুংকেশর  মেরে  ফেলা  বা সরিয়ে ফেলাকে বলা হয় ইমাস্কুলেশন। এতে করে স্বপরাগায়ন ঘটতে পারে না।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q003-p094-n0080",
-      "text": "C4 উদ্ভিদের প্রথম পদার্থ কোনটি?",
+      "text": "C₄ উদ্ভিদের প্রথম পদার্থ কোনটি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -3988,22 +4095,22 @@
       "options": [
         {
           "id": "a",
-          "text": "গধষরপ ধপরফ",
+          "text": "Malic acid",
           "order": 1
         },
         {
           "id": "b",
-          "text": "ঙীধষড়ধপবঃরপ ধপরফ",
+          "text": "Oxaloacetic acid",
           "order": 2
         },
         {
           "id": "c",
-          "text": "চুৎাঁরপ ধপরফ",
+          "text": "Pyruvic acid",
           "order": 3
         },
         {
           "id": "d",
-          "text": "চযড়ংঢ়যড়ুহুষ ধপরফ",
+          "text": "Phosphoynyl acid",
           "order": 4
         }
       ],
@@ -4025,7 +4132,7 @@
         "pageNumber": 94,
         "questionNumber": 3
       },
-      "explanation": "C4 চক্রের প্রথম স্থায়ী পদার্থ 4 কার্বন বিশিষ্ট অক্সালো এসিটিক\nএসিড I C3 চক্রের প্রথম স্থায়ী পদার্থ 3 কার্বন বিশিষ্ট ফসফোগ্লিসারিক\nএসিড।",
+      "explanation": "C₄ চক্রের প্রথম স্থায়ী পদার্থ ৪ কার্বন বিশিষ্ট অক্সালো এসিটিক এসিড  ও C₃  চক্রের  প্রথম  স্থায়ী  পদার্থ  ৩  কার্বন  বিশিষ্ট  ফসফোগ্লিসারিক এসিড।",
       "assetPaths": []
     },
     {
@@ -4075,7 +4182,7 @@
         "pageNumber": 94,
         "questionNumber": 4
       },
-      "explanation": "পাকস্থলীর প্রাচীর পাঁচটি স্তরে বিভক্ত: বাইরে থেকে ভিতরে-\n• সেরোসা • পেশিস্তর (অনু‣দর্ঘ্য পেশি, বৃত্তাকার পেশি, তির্যক পেশি)\n• সাবমিউকোসা • মাসকিউলারিস মিউকোসা • মিউকোসা: রুগী I\nগ্যাস্ট্রিক গ্রন্থি (কার্ডিয়াক গ্রন্থি, ফান্ডাস গ্রন্থি, পাইলোরিক গ্রন্থি, ব্রুনার্স গ্রন্থি)\nপাওয়া যায়।",
+      "explanation": "পাকস্থলীর প্রাচীর পাঁচটি স্তরে বিভক্ত: বাইরে থেকে ভিতরে– •  সেরোসা •  পেশিস্তর  (অনুদৈর্ঘ্য  পেশি,  বৃত্তাকার  পেশি,  তির্যক  পেশি) •  সাবমিউকোসা •  মাসকিউলারিস  মিউকোসা •  মিউকোসা:  রুগী  ও গ্যাস্ট্রিক গ্রন্থি (কার্ডিয়াক গ্রন্থি, ফান্ডাস গ্রন্থি, পাইলোরিক গ্রন্থি, ব্রুনার্স গ্রন্থি) পাওয়া যায়।",
       "assetPaths": []
     },
     {
@@ -4103,7 +4210,7 @@
         },
         {
           "id": "d",
-          "text": "রেনিন",
+          "text": "রেনিন রেনিন →",
           "order": 4
         }
       ],
@@ -4125,7 +4232,7 @@
         "pageNumber": 94,
         "questionNumber": 5
       },
-      "explanation": "কেসিন (দুগ্ধ Avwgl) + পানি\nরেনিন\nুুু প্যারাকেসিন।",
+      "explanation": "কেসিন (দুগ্ধ আমিষ) + পানি ––– প্যারাকেসিন।",
       "assetPaths": []
     },
     {
@@ -4138,22 +4245,22 @@
       "options": [
         {
           "id": "a",
-          "text": "চঃবৎরং",
+          "text": "Pteris",
           "order": 1
         },
         {
           "id": "b",
-          "text": "ইৎধপধবধ",
+          "text": "Bracaea",
           "order": 2
         },
         {
           "id": "c",
-          "text": "ঘুসঢ়যধবধ",
+          "text": "Nymphaea",
           "order": 3
         },
         {
           "id": "d",
-          "text": "ঈুহড়ফড়হ",
+          "text": "Cynodon",
           "order": 4
         }
       ],
@@ -4175,12 +4282,12 @@
         "pageNumber": 94,
         "questionNumber": 6
       },
-      "explanation": "কেন্দ্রীক ভাস্কুলার বান্ডল (টেরিডোফাইট):\nহ্যাড্রোসেন্ট্রিক বা জাইলেম কেন্দ্রিক চঃবৎরং, খুপড়ঢ়ড়ফরঁস,\nঝবষধমরহবষষধ, চংরষড়ঃঁস\nলেপ্টোসেন্ট্রিক বা ফ্লোয়েম কেন্দ্রিক উৎধপধবহধ, ণঁপপধ",
+      "explanation": "(  কেন্দ্রীক ভাস্কুলার বান্ডল (টেরিডোফাইট):)/(হ্যাড্রোসেন্ট্রিক বা জাইলেম কেন্দ্রিক )()/(Pteris, Lycopodium, ) (Selaginella, Psilotum )/(Dracaena, Yucca ) লেপ্টোসেন্ট্রিক বা ফ্লোয়েম কেন্দ্রিক",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q007-p095-n0084",
-      "text": "ম্যালপিজিয়ান নালিকা থাকে-",
+      "text": "ম্যালপিজিয়ান নালিকা থাকে–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4225,7 +4332,7 @@
         "pageNumber": 95,
         "questionNumber": 7
       },
-      "explanation": "ম্যালপিজিয়ান নালিকা পতঙ্গের প্রধান রেচন অঙ্গ। মেসেন্টেরন\nI ইলিয়ামের সংযোগস্থলে অসংখ্য (প্রায় 100wU) সুতার মতো\nম্যালপিজিয়ান নালিকা হিমোসিলে বিস্তৃত থাকে। এগুলোর মুক্ত প্রান্ত বদ্ধ\nএবং হিমোসিল গহ্বরে হিমোলিস্ফের মধ্যে নিমজ্জিত থাকে। অন্যপ্রান্ত\nপে․ষ্টিকনালির গহ্বরে উন্মুক্ত।",
+      "explanation": "ম্যালপিজিয়ান নালিকা পতঙ্গের প্রধান রেচন অঙ্গ। মেসেন্টেরন ও  ইলিয়ামের  সংযোগস্থলে  অসংখ্য  (প্রায়  ১০০টি)  সুতার  মতো ম্যালপিজিয়ান  নালিকা  হিমোসিলে  বিস্তৃত  থাকে।  এগুলোর  মুক্ত  প্রান্ত  বদ্ধ এবং  হিমোসিল  গহ্বরে  হিমোলিস্ফের  মধ্যে  নিমজ্জিত  থাকে।  অন্যপ্রান্ত পৌষ্টিকনালির গহ্বরে উন্মুক্ত।",
       "assetPaths": []
     },
     {
@@ -4275,7 +4382,7 @@
         "pageNumber": 95,
         "questionNumber": 8
       },
-      "explanation": "যেসকল ফলে GK বা একাধিক গর্ভপত্র থাকে I বহুবীজ ধারণ\nকরে তাদের বেরি বলে। কলা I টমেটো বেরি ফল।",
+      "explanation": "যেসকল ফলে এক বা একাধিক গর্ভপত্র থাকে ও বহুবীজ ধারণ করে তাদের বেরি বলে। কলা ও টমেটো বেরি ফল।",
       "assetPaths": []
     },
     {
@@ -4325,12 +4432,12 @@
         "pageNumber": 95,
         "questionNumber": 9
       },
-      "explanation": "নিউক্লিয়াসের সংখ্যা:\nসংখ্যা অবস্থান\n1wU প্রকৃত কোষ\n2wU চধৎধসবপরঁস I মেরুদ-ী প্রাণীর যকৃত I তরুণাস্থি কোষ\nবহু ঠধনঁপযবৎরধ, চবহরপরষষরঁস, ইড়ঃৎুফরঁস,\nঝঢ়যধবৎড়ঢ়ষবধ, ঝধঢ়ৎড়ষবমহরধ\nঅনুপস্থিত আদিকোষ, কিছু প্রকৃত কোষ, পরিণত সীভকোষ, পরিণত\nজইঈ, লেন্স কোষ",
+      "explanation": "()/(সংখ্যা ) (নিউক্লিয়াসের সংখ্যা:  )/(অবস্থান ) (১টি )/(২টি ) (প্রকৃত কোষ )/(Paramecium ও মেরুদণ্ডী প্রাণীর যকৃত ও তরুণাস্থি কোষ ) বহু Vabucheria, Penicillium, Botrydium, (Sphaeroplea, Saprolegnia )/(আদিকোষ, কিছু প্রকৃত কোষ, পরিণত সীভকোষ, পরিণত ) অনুপস্থিত RBC, লেন্স কোষ",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q010-p095-n0087",
-      "text": "যে শিরা ঙ্কশিক নালী হতে উৎপন্ন হয়ে হৃদপি-ে না গিয়ে অন্য অঙ্গে গিয়ে\nআবার ঙ্কশিক নালীতে রূপান্তরিত হয় তাকে কী বলে?",
+      "text": "যে শিরা কৈশিক নালী হতে উৎপন্ন হয়ে হৃদপিণ্ডে না গিয়ে অন্য অঙ্গে গিয়ে আবার কৈশিক নালীতে রূপান্তরিত হয় তাকে কী বলে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4375,12 +4482,12 @@
         "pageNumber": 95,
         "questionNumber": 10
       },
-      "explanation": "পোর্টাল সংবহন : সিস্টেমিক I পালমোনারি G দুটি সম্পূর্ণ\nসংবহন চক্র ছাড়াও অনেক মেরুদ-ী প্রাণীতে রক্ত চলার পথে কিছুটা\nপার্শ্বপথ অনুসরণ করে। এসব ক্ষেত্রে কোনো অঙ্গের ঙ্কশিক জালিকা থেকে\nউৎপন্ন শিরা হৃৎপি-ের দিকে অগ্রসর হওয়ার পথে অন্য একটি মাধ্যমে অঙ্গে\nপ্রবেশ করে এবং সেখানে পুনরায় জালিকায় বিভক্ত হয়। G ধরনের রক্ত\nসংবহনকে পোর্টাল সংবহন বলে। পে․ষ্টিক অঙ্গসমূহ  হেপাটিক পোর্টাল\nশিরা  যকৃত  হেপাটিক শিরা  ইনফিরিয়র ভেনাক্যাভা  হৃৎপি-।",
+      "explanation": "পোর্টাল  সংবহন  :  সিস্টেমিক  ও  পালমোনারি  এ  দুটি  সম্পূর্ণ সংবহন  চক্র  ছাড়াও  অনেক  মেরুদণ্ডী  প্রাণীতে  রক্ত  চলার  পথে  কিছুটা পার্শ্বপথ অনুসরণ করে। এসব ক্ষেত্রে কোনো অঙ্গের কৈশিক জালিকা থেকে উৎপন্ন শিরা হৃৎপিণ্ডের দিকে অগ্রসর হওয়ার পথে অন্য একটি মাধ্যমে অঙ্গে প্রবেশ  করে  এবং  সেখানে  পুনরায়  জালিকায়  বিভক্ত  হয়।  এ  ধরনের  রক্ত সংবহনকে পোর্টাল সংবহন বলে। পৌষ্টিক অঙ্গসমূহ → হেপাটিক পোর্টাল শিরা → যকৃত → হেপাটিক শিরা → ইনফিরিয়র ভেনাক্যাভা → হৃৎপিণ্ড।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q011-p095-n0088",
-      "text": "বাতাসে অক্সিজেনের ঘনত্ব যদি 20% থেকে 5% G নেমে আসে তাহলে\nমানুষের শ্বসনের হার KZ হবে?",
+      "text": "বাতাসে অক্সিজেনের ঘনত্ব যদি 20% থেকে 5% এ নেমে আসে তাহলে মানুষের শ্বসনের হার কত হবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4388,7 +4495,7 @@
       "options": [
         {
           "id": "a",
-          "text": "GKB",
+          "text": "একই",
           "order": 1
         },
         {
@@ -4425,7 +4532,7 @@
         "pageNumber": 95,
         "questionNumber": 11
       },
-      "explanation": "অক্সিজেনের ঘনত্ব I কার্বনডাইঅক্সাইডের ঘনত্বের সাথে\nমানুষের শ্বসন হার ওতপ্রোতভাবে জড়িত।",
+      "explanation": "অক্সিজেনের  ঘনত্ব  ও  কার্বনডাইঅক্সাইডের  ঘনত্বের  সাথে মানুষের শ্বসন হার ওতপ্রোতভাবে জড়িত।",
       "assetPaths": []
     },
     {
@@ -4438,22 +4545,22 @@
       "options": [
         {
           "id": "a",
-          "text": "41wU",
+          "text": "41টি",
           "order": 1
         },
         {
           "id": "b",
-          "text": "51wU",
+          "text": "51টি",
           "order": 2
         },
         {
           "id": "c",
-          "text": "61wU",
+          "text": "61টি",
           "order": 3
         },
         {
           "id": "d",
-          "text": "71wU",
+          "text": "71টি",
           "order": 4
         }
       ],
@@ -4475,12 +4582,12 @@
         "pageNumber": 95,
         "questionNumber": 12
       },
-      "explanation": "ইনসুলিন সম্পর্কিত তথ্যাবলি:\n ইনস্যুলিন একটি হরমোন যা অগ্ন্যাশয় বিটা-কোষ হতে নিঃসৃত হয় এবং\nরক্তে বিদ্যমান গ্লুকোজের উচ্চমাত্রাকে কমিয়ে স্বাভাবিক মাত্রায় নিয়ে\nআসে।\n ইনসুলিন উৎপাদনকারী জিন 153wU বেস নিয়ে গঠিত এবং 11bs\nক্রোমোসোমে থাকে।\n ইনস্যুলিন 51wU অ্যামাইনো এসিড নিয়ে গঠিত ক্ষুদ্রাকার সরল প্রোটিন।",
+      "explanation": "ইনসুলিন সম্পর্কিত তথ্যাবলি: ইনস্যুলিন একটি হরমোন যা অগ্ন্যাশয় বিটা-কোষ হতে নিঃসৃত হয় এবং রক্তে  বিদ্যমান  গ্লুকোজের  উচ্চমাত্রাকে  কমিয়ে  স্বাভাবিক  মাত্রায়  নিয়ে আসে। ইনসুলিন  উৎপাদনকারী  জিন  ১৫৩টি  বেস  নিয়ে  গঠিত  এবং  ১১নং ক্রোমোসোমে থাকে। ইনস্যুলিন ৫১টি অ্যামাইনো এসিড নিয়ে গঠিত ক্ষুদ্রাকার সরল প্রোটিন।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q013-p095-n0090",
-      "text": "বুদ্ধিবৃত্তি, স্মৃতিশক্তি, ইচ্ছাশক্তি ইত্যাদির কেন্দ্র হিসাবে কাজ করে মস্তিষ্কের-",
+      "text": "বুদ্ধিবৃত্তি, স্মৃতিশক্তি, ইচ্ছাশক্তি ইত্যাদির কেন্দ্র হিসাবে কাজ করে মস্তিষ্কের–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4525,7 +4632,7 @@
         "pageNumber": 95,
         "questionNumber": 13
       },
-      "explanation": "সেরেব্রাম এর কাজ: চিন্তা, বুদ্ধি, ইচ্ছাশক্তি, উদ্ভাবনী শক্তি\nপ্রভৃতি মানসিক বোধের নিয়ন্ত্রণ I সহজাত প্রবৃত্তি, বাকশক্তি এবং ঐচ্ছিক\nপেশীর কার্যকলাপ নিয়ন্ত্রণ করে।",
+      "explanation": "সেরেব্রাম  এর  কাজ: চিন্তা,  বুদ্ধি,  ইচ্ছাশক্তি,  উদ্ভাবনী  শক্তি প্রভৃতি  মানসিক  বোধের  নিয়ন্ত্রণ  ও  সহজাত  প্রবৃত্তি,  বাকশক্তি  এবং  ঐচ্ছিক পেশীর কার্যকলাপ নিয়ন্ত্রণ করে।",
       "assetPaths": []
     },
     {
@@ -4575,7 +4682,7 @@
         "pageNumber": 95,
         "questionNumber": 14
       },
-      "explanation": "হাম, হার্পিস, ডেঙ্গু, বসন্ত, মাম্পস, এডিনো, ভাইরাল\nহেপাটাইটিস, বার্ডফ্লু/সোয়াইন ফ্লু, ইনফ্লুয়েঞ্জা, জলাতঙ্ক, পোলিও।",
+      "explanation": "হাম,  হার্পিস,  ডেঙ্গু,  বসন্ত,  মাম্পস,  এডিনো,  ভাইরাল হেপাটাইটিস, বার্ডফ্লু/সোয়াইন ফ্লু, ইনফ্লুয়েঞ্জা, জলাতঙ্ক, পোলিও।",
       "assetPaths": []
     },
     {
@@ -4625,12 +4732,12 @@
         "pageNumber": 95,
         "questionNumber": 15
       },
-      "explanation": "নিম্নশ্রেণির উদ্ভিদ কোষে, যেমন- কিছু ছত্রাক, সিলিয়া বা\nফ্লাজেলাযুক্ত ঙ্শবাল (যেমন- ঈযষধসুফড়সড়হধং, ঠড়ষাড়ী), ব্রায়োফাইটা,\nটেরিডোফাইটা I জিমনোস্পার্ম ইত্যাদির কোষে এবং অধিকাংশ প্রাণিকোষে\nসেন্ট্রিওল পাওয়া যায়।",
+      "explanation": "নিম্নশ্রেণির  উদ্ভিদ  কোষে,  যেমন-  কিছু  ছত্রাক,  সিলিয়া  বা ফ্লাজেলাযুক্ত শৈবাল (যেমন- Chlamydomonas, Volvox), ব্রায়োফাইটা, টেরিডোফাইটা ও জিমনোস্পার্ম ইত্যাদির কোষে এবং অধিকাংশ প্রাণিকোষে সেন্ট্রিওল পাওয়া যায়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q016-p095-n0093",
-      "text": "ঙ্শবাল কোষে পাইরিনয়েড কোথায় থাকে?",
+      "text": "শৈবাল কোষে পাইরিনয়েড কোথায় থাকে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4675,7 +4782,7 @@
         "pageNumber": 95,
         "questionNumber": 16
       },
-      "explanation": "টষড়ঃযৎরী একটি ফিলামেন্টাস (সূত্রময়) এবং অশাখ সবুজ\nঙ্শবাল। এর গোড়ার কোষটি লম্বাকৃতির, বর্ণহীন এবং নিচের দিকে ক্রমশ\nসরু, একে হোল্ডফাস্ট বলে। হোল্ডফাস্ট ছাড়া প্রত্যেক কোষে একটি\nনিউক্লিয়াস আছে I একটি বেল্ট বা ফিতা আকৃতির (Girdle Shaped) বা\nআংটি আকৃতির ক্লোরোপ্লাস্ট আছে এবং ক্লোরোপ্লাস্টে GK বা একাধিক\nপাইরিনয়েড আছে। পাইরিনয়েড হলো প্রোটিনজাতীয় পদার্থের চকচকে\nদানা। যার চারদিকে অনেক সময় স্টার্চ থাকে।",
+      "explanation": "Ulothrix একটি  ফিলামেন্টাস  (সূত্রময়)  এবং  অশাখ  সবুজ শৈবাল।  এর  গোড়ার  কোষটি  লম্বাকৃতির,  বর্ণহীন  এবং  নিচের  দিকে  ক্রমশ সরু,  একে হোল্ডফাস্ট  বলে।  হোল্ডফাস্ট  ছাড়া  প্রত্যেক  কোষে  একটি নিউক্লিয়াস আছে ও একটি বেল্ট বা ফিতা আকৃতির (Girdle Shaped) বা আংটি  আকৃতির  ক্লোরোপ্লাস্ট  আছে  এবং  ক্লোরোপ্লাস্টে  এক  বা  একাধিক পাইরিনয়েড  আছে।  পাইরিনয়েড  হলো  প্রোটিনজাতীয়  পদার্থের  চকচকে দানা। যার চারদিকে অনেক সময় স্টার্চ থাকে।",
       "assetPaths": []
     },
     {
@@ -4725,7 +4832,7 @@
         "pageNumber": 95,
         "questionNumber": 17
       },
-      "explanation": "বিভিন্ন হরমোনের কাজ:\nহরমোন ক্ষরিত স্থান ভূমিকা\nADH বা ভ্যাসোপ্রেসিন পিটুইটারি গ্রন্থি মূত্রের ঘনত্ব নিয়ন্ত্রণ\nঅহমরড়ঃবহংরহ-ওও যকৃত\nরক্তনালীর সংকোচনের মাধ্যমে\nরক্তচাপ বৃদ্ধি করা\nঅষফড়ংঃবৎড়হব\nঅ্যাডরেনাল\nগ্রন্থি\nসোডিয়ামের মাত্রা নিয়ন্ত্রণ করে\nঅঃৎরধষ ঘধঃৎরঁৎবঃরপ\nঐড়ৎসড়হব (ANH)\nহৃৎপিন্ড\nগ্লোমেরুলার ফিলট্রেশন হার বৃদ্ধি\nকরা",
+      "explanation": "()/(হরমোন )(বিভিন্ন হরমোনের কাজ:  )/(ক্ষরিত স্থান ) (ভূমিকা )/(পিটুইটারি গ্রন্থি  মূত্রের ঘনত্ব নিয়ন্ত্রণ ) ADH বা ভ্যাসোপ্রেসিন রক্তনালীর সংকোচনের মাধ্যমে Angiotensin-II যকৃত (রক্তচাপ বৃদ্ধি করা )/(সোডিয়ামের মাত্রা নিয়ন্ত্রণ করে ) অ্যাডরেনাল Aldosterone গ্রন্থি Atrial Natriuretic গ্লোমেরুলার ফিলট্রেশন হার বৃদ্ধি হৃৎপিন্ড Hormone (ANH) করা",
       "assetPaths": []
     },
     {
@@ -4775,12 +4882,12 @@
         "pageNumber": 95,
         "questionNumber": 18
       },
-      "explanation": "ভ্রূণ স্তরের পরিণতি:\nভ্রূণ স্তরের\nনাম\nগঠিত অঙ্গ\nএক্টোডার্ম\n ত্বক I ত্বকোদ্ভূত অঙ্গাদির (ঘর্ম গ্রন্থি, তেল গ্রন্থি, স্তনগ্রন্থি, চুল, bL) G\n ঠোঁট, মুখবিবর, জিহ্বা I পায়ুছিদ্রের অন্তঃআবরণ বা এপিথেলিয়\n চোখের রেটিনা, কর্ণিয়া I লেন্স এবং অন্তঃকর্ণের\nমেমব্রেনাস ল্যাবিরিন্থ\n পিটুইটারি গ্রন্থি I পিনিয়াল গ্রন্থির এপিথেলিয়াম আবরণ, বৃক্কের মেড\n স্নায়ুতন্ত্র I সংবেদী অঙ্গসমূহ, দাঁতের এনামেল",
+      "explanation": "ভ্রূণ স্তরের পরিণতি: ()/(ভ্রূণ স্তরের ) গঠিত অঙ্গ নাম ত্বক ও ত্বকোদ্ভূত অঙ্গাদির (ঘর্ম গ্রন্থি, তেল গ্রন্থি, স্তনগ্রন্থি,  চুল, নখ) এপিডার্মিস ঠোঁট, মুখবিবর, জিহ্বা ও পায়ুছিদ্রের অন্তঃআবরণ বা  এপিথেলিয়াল আবরণ চোখের রেটিনা, কর্ণিয়া ও লেন্স এবং অন্তঃকর্ণের এক্টোডার্ম মেমব্রেনাস ল্যাবিরিন্থ পিটুইটারি গ্রন্থি ও পিনিয়াল গ্রন্থির এপিথেলিয়াম আবরণ,   বৃক্কের মেডুলা স্নায়ুতন্ত্র ও সংবেদী অঙ্গসমূহ, দাঁতের এনামেল",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q019-p096-n0096",
-      "text": "ডিঅক্সি রাইবোজের KZ নম্বর কার্বনে অক্সিজেন নেই?",
+      "text": "ডিঅক্সি রাইবোজের কত নম্বর কার্বনে অক্সিজেন নেই?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4788,22 +4895,22 @@
       "options": [
         {
           "id": "a",
-          "text": "2 নম্বর",
+          "text": "২ নম্বর",
           "order": 1
         },
         {
           "id": "b",
-          "text": "3 নম্বর",
+          "text": "৩ নম্বর",
           "order": 2
         },
         {
           "id": "c",
-          "text": "4 নম্বর",
+          "text": "৪ নম্বর",
           "order": 3
         },
         {
           "id": "d",
-          "text": "5 নম্বর",
+          "text": "৫ নম্বর",
           "order": 4
         }
       ],
@@ -4825,7 +4932,7 @@
         "pageNumber": 96,
         "questionNumber": 19
       },
-      "explanation": "ডিঅক্সি রাইবোজ উঘঅ-তে উপস্থিত থাকে। এর 2bs\nকার্বনে অক্সিজেন থাকে না।",
+      "explanation": "ডিঅক্সি  রাইবোজ DNA-তে  উপস্থিত  থাকে।  এর  ২নং কার্বনে অক্সিজেন থাকে না।",
       "assetPaths": []
     },
     {
@@ -4838,22 +4945,22 @@
       "options": [
         {
           "id": "a",
-          "text": "ঘড়ংঃড়প",
+          "text": "Nostoc",
           "order": 1
         },
         {
           "id": "b",
-          "text": "টষঃড়ঃযৎরী",
+          "text": "Ultothrix",
           "order": 2
         },
         {
           "id": "c",
-          "text": "ঘুসঢ়যধপব",
+          "text": "Nymphace",
           "order": 3
         },
         {
           "id": "d",
-          "text": "ঈুপধং",
+          "text": "Cycas",
           "order": 4
         }
       ],
@@ -4875,12 +4982,12 @@
         "pageNumber": 96,
         "questionNumber": 20
       },
-      "explanation": "টষঃড়ঃযৎরী এর ক্লোরোপ্লাস্টে GK বা একাধিক পাইরিনয়েড\nআছে। পাইরিনয়েড হলো প্রোটিনজাতীয় পদার্থের চকচকে দানা। যার\nচারদিকে অনেক সময় স্টার্চ থাকে।",
+      "explanation": "Ultothrix এর ক্লোরোপ্লাস্টে এক বা একাধিক পাইরিনয়েড আছে।  পাইরিনয়েড  হলো  প্রোটিনজাতীয়  পদার্থের  চকচকে  দানা।  যার চারদিকে অনেক সময় স্টার্চ থাকে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q021-p096-n0098",
-      "text": "আলুর বিলম্বিত ধ্বসা রোগের জন্য দায়ী-",
+      "text": "আলুর বিলম্বিত ধ্বসা রোগের জন্য দায়ী–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4888,22 +4995,22 @@
       "options": [
         {
           "id": "a",
-          "text": "চবহরপরষষরঁস পযৎুংড়মবহঁস",
+          "text": "Penicillium chrysogenum",
           "order": 1
         },
         {
           "id": "b",
-          "text": "চঁপপরহরধ মৎধসরহরং",
+          "text": "Puccinia graminis",
           "order": 2
         },
         {
           "id": "c",
-          "text": "চুঃযরঁস সুৎরড়ঃুষঁস",
+          "text": "Pythium myriotylum",
           "order": 3
         },
         {
           "id": "d",
-          "text": "চযুঃড়ঢ়ঃযড়ৎধ রহভবংঃধহং",
+          "text": "Phytopthora infestans",
           "order": 4
         }
       ],
@@ -4925,12 +5032,12 @@
         "pageNumber": 96,
         "questionNumber": 21
       },
-      "explanation": "আর্লি ব্লাইট যা অষঃবৎহধৎরধ ংড়ষধহর দিয়ে হয়ে থাকে\n1843-47 সালে আয়ারল্যান্ডে G রোগের কারণে ভয়াবহ দুর্ভিক্ষ দেখা\nদিয়েছিল। চযুঃড়ঢ়যঃযড়ৎধ রহভবংঃধহং নামক GK প্রকার ছত্রাকের কারণে\nআলুর বিলম্বিত ধ্বসা রোগ হয়।",
+      "explanation": "আর্লি  ব্লাইট  যা Alternaria  solani দিয়ে  হয়ে  থাকে ১৮৪৩-৪৭  সালে  আয়ারল্যান্ডে  এ  রোগের  কারণে  ভয়াবহ  দুর্ভিক্ষ  দেখা দিয়েছিল। Phytophthora  infestans নামক এক প্রকার ছত্রাকের কারণে আলুর বিলম্বিত ধ্বসা রোগ হয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q022-p096-n0099",
-      "text": "যে সমস্ত ব্যাকটেরিয়া কোষে কোন ফ্লাজেলা থাকেনা, তাদেরকে বলে-",
+      "text": "যে সমস্ত ব্যাকটেরিয়া কোষে কোন ফ্লাজেলা থাকেনা, তাদেরকে বলে–",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -4975,7 +5082,7 @@
         "pageNumber": 96,
         "questionNumber": 22
       },
-      "explanation": "ব্যাকটেরিয়ার ফ্লাজেলাভিত্তিক শ্রেণিবিন্যাস:\nশ্রেণিবিভাগ উদাহরণ\nঅ্যাট্রিকাস (কোন ফ্লাজেলা bvB) ঈড়ৎুহবনধপঃবৎরঁস\nফরঢ়ঃযবৎরধব\nমনোট্রিকাস (GK প্রান্তে একটি ফ্লাজেলা থাকে) ঠরনৎরড় পযড়ষবৎধব\nঅ্যাম্ফিট্রিকাস (দুই প্রান্তে একটি করে\nফ্লাজেলা থাকে)\nঝঢ়রৎরষষঁস সরহঁং\nসেফালোট্রিকাস (একগুচ্ছ ফ্লাজেলা থাকে) চংবঁফড়সড়হধং\nভষঁড়ৎবংপবহং\nলফোট্রিকাস (দুই গুচ্ছ ফ্লাজেলা থাকে) ঝঢ়রৎরষষঁস াড়ষঁঃধহং\nপেরিট্রিকাস (me দিকেই ফ্লাজেলা থাকে) ঝধষসড়হবষষধ :ুঢ়যর",
+      "explanation": "(  ব্যাকটেরিয়ার ফ্লাজেলাভিত্তিক শ্রেণিবিন্যাস:)/(শ্রেণিবিভাগ )()/(উদাহরণ ) অ্যাট্রিকাস (কোন ফ্লাজেলা নাই) Corynebacterium (diptheriae )/(Vibrio cholerae ) (মনোট্রিকাস (এক প্রান্তে একটি ফ্লাজেলা থাকে) )/(অ্যাম্ফিট্রিকাস (দুই প্রান্তে একটি করে ) Spirillum minus (ফ্লাজেলা থাকে) )/(সেফালোট্রিকাস (একগুচ্ছ ফ্লাজেলা থাকে) ) Pseudomonas (fluorescens )/(Spirillum volutans ) (লফোট্রিকাস (দুই গুচ্ছ ফ্লাজেলা থাকে) )/(পেরিট্রিকাস (সব দিকেই ফ্লাজেলা থাকে) ) Salmonella typhi",
       "assetPaths": []
     },
     {
@@ -4988,22 +5095,22 @@
       "options": [
         {
           "id": "a",
-          "text": "8-18wU",
+          "text": "8-18টি",
           "order": 1
         },
         {
           "id": "b",
-          "text": "2-3wU",
+          "text": "2-3টি",
           "order": 2
         },
         {
           "id": "c",
-          "text": "8-14wU",
+          "text": "8-14টি",
           "order": 3
         },
         {
           "id": "d",
-          "text": "10-25wU",
+          "text": "10-25টি",
           "order": 4
         }
       ],
@@ -5025,12 +5132,12 @@
         "pageNumber": 96,
         "questionNumber": 23
       },
-      "explanation": "কর্টের্ক্সের নিচে হালকা লাল রঙের মেডুলা অংশ 8-10wU\nপিরামিড আকৃতির অংশ নিয়ে গঠিত। এগুলো রেনাল পিরামিড। নেফ্রনের\nনালিকাময় অংশ I রক্তবাহিকা নিয়ে একেকটি পিরামিড নির্মিত হয়।\nপিরামিডের গোড়া থাকে কর্টেক্সের দিকে, আর 10-25wU ছিদ্রযুক্ত চূড়া বা\nপ্যাপিলা থাকে রেনাল পেলভিসে উন্মুক্ত। দুই রেনাল পিরামিডের কর্টেক্সের\nকিছু অংশ স্তম্ভের মতো মেডুলার গভীরে প্রবেশ করেছে। এগুলোকে রেনাল\nকলাম বলে।",
+      "explanation": "কর্টেক্সের  নিচে  হালকা  লাল  রঙের  মেডুলা  অংশ  ৮-১০টি পিরামিড আকৃতির অংশ  নিয়ে গঠিত। এগুলো রেনাল পিরামিড।  নেফ্রনের নালিকাময়  অংশ  ও  রক্তবাহিকা  নিয়ে  একেকটি  পিরামিড  নির্মিত  হয়। পিরামিডের  গোড়া  থাকে  কর্টেক্সের  দিকে,  আর  ১০-২৫টি  ছিদ্রযুক্ত  চূড়া  বা প্যাপিলা থাকে রেনাল পেলভিসে উন্মুক্ত। দুই রেনাল পিরামিডের কর্টেক্সের কিছু অংশ স্তম্ভের মতো মেডুলার গভীরে প্রবেশ করেছে। এগুলোকে রেনাল কলাম বলে।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q024-p096-n0101",
-      "text": "একটি ব্যাকটেরিয়ামে KZ অণু রিকম্বিনেন্ট ইনসুলিন ঙ্তরি হয়?",
+      "text": "একটি ব্যাকটেরিয়ামে কত অণু রিকম্বিনেন্ট ইনসুলিন তৈরি হয়?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Biology",
@@ -5075,7 +5182,7 @@
         "pageNumber": 96,
         "questionNumber": 24
       },
-      "explanation": "বর্তমানে মানুষের ইনসুলিন উৎপন্নকারী জিন ই.কোলাইতে\nস্থানান্তর করে ব্যাপকহারে ইনসুলিন উৎপাদন করা হচ্ছে। এভাবে একটি\nব্যাকটেরিয়াম কোষে প্রায় 10 লক্ষ অণু ইনসুলিন ঙ্তরি হয়। এর ফলে\nইনসুলিন প্রাপ্তি যথেষ্ট সহজ হয়েছে এবং পার্শ্বপ্রতিক্রিয়া হ্রাস পেয়েছে।",
+      "explanation": "বর্তমানে  মানুষের  ইনসুলিন  উৎপন্নকারী  জিন  ই.কোলাইতে স্থানান্তর  করে  ব্যাপকহারে  ইনসুলিন  উৎপাদন  করা  হচ্ছে।  এভাবে  একটি ব্যাকটেরিয়াম  কোষে  প্রায়  ১০  লক্ষ  অণু  ইনসুলিন  তৈরি  হয়।  এর  ফলে ইনসুলিন প্রাপ্তি যথেষ্ট সহজ হয়েছে এবং পার্শ্বপ্রতিক্রিয়া হ্রাস পেয়েছে।",
       "assetPaths": []
     },
     {
@@ -5125,12 +5232,12 @@
         "pageNumber": 96,
         "questionNumber": 25
       },
-      "explanation": "কাগজ শিল্পে এনজাইমের ব্যবহার: কাগজ বর্ণহীন করার সময়\nব্যবহৃত ব্লিচিং এর পরিমাণ কমাতে জাইলানেজ, কাগজে মসৃণতা আনতে\nএবং পানির পরিমাণ কমাতে সেলুলেজ এবং লিগনিন অপসারণ করে\nকাগজকে মসৃণ করতে লিগনিনেজ এনজাইম ব্যবহৃত হয়।",
+      "explanation": "কাগজ শিল্পে এনজাইমের ব্যবহার: কাগজ বর্ণহীন করার সময় ব্যবহৃত  ব্লিচিং  এর  পরিমাণ  কমাতে  জাইলানেজ,  কাগজে  মসৃণতা  আনতে এবং  পানির  পরিমাণ  কমাতে  সেলুলেজ  এবং  লিগনিন  অপসারণ  করে কাগজকে মসৃণ করতে লিগনিনেজ এনজাইম ব্যবহৃত হয়।",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q001-p096-n0103",
-      "text": "\n\n\n a  4\n2\n8\na + 2\nম্যাট্রিক্সটি ব্যতিক্রমী হলে, a এর মান কত?",
+      "text": "a 4 8 [ ] ম্যাট্রিক্সটি ব্যতিক্রমী হলে, a এর মান কত? 2 a + 2",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5138,12 +5245,12 @@
       "options": [
         {
           "id": "a",
-          "text": "4, 6",
+          "text": "4, −6",
           "order": 1
         },
         {
           "id": "b",
-          "text": "4, 6",
+          "text": "−4, 6",
           "order": 2
         },
         {
@@ -5153,7 +5260,7 @@
         },
         {
           "id": "d",
-          "text": "4, –8",
+          "text": "4, –8 a – 4 8 a – 4 8 [ ] [ ]",
           "order": 4
         }
       ],
@@ -5175,12 +5282,12 @@
         "pageNumber": 96,
         "questionNumber": 1
       },
-      "explanation": "\n\n\n a ু 4\n2\n8\na + 2 ম্যাট্রিক্স ব্যতিক্রমী হলে \n\n\n a ু 4\n2\n8\na + 2 = 0\n a2\nু 2a ু 8 ু 16 = 0  a2\nু 2a ু 24 = 0  a = 6, ু 4",
+      "explanation": "ম্যাট্রিক্স ব্যতিক্রমী হলে      = 0 2 a + 2 2 a + 2 ⇒ a² – 2a – 8 – 16 = 0  ⇒ a² – 2a – 24 = 0  ∴ a = 6, – 4",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q002-p096-n0104",
-      "text": "c এর মান KZ হলে 5cx  cy+7 = 0 I x\n5\n+cy  5 = 0 রেখা দুইটি\nপরস্পর লম্ব হবে?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p096-c1-s07-q003-r1",
+      "text": "lim (a^(x) − 1)/xএর মান কত? x→0",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5188,34 +5295,34 @@
       "options": [
         {
           "id": "a",
-          "text": "1",
+          "text": "ln a",
           "order": 1
         },
         {
           "id": "b",
-          "text": "2",
+          "text": "ln a/2",
           "order": 2
         },
         {
           "id": "c",
-          "text": "2",
+          "text": "ln 2/a",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1",
+          "text": "ln a²/2",
           "order": 4
         }
       ],
       "correctOptionIds": [
-        "d"
+        "a"
       ],
       "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
           "paperId": "ru-vq-2020-2021-c-all-p089",
-          "questionNumber": 2,
+          "questionNumber": 3,
           "pageNumber": 96,
           "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
         }
@@ -5223,14 +5330,14 @@
       "source": {
         "documentId": "ru-vq-2020-2021-c-all-p089-source",
         "pageNumber": 96,
-        "questionNumber": 2
+        "questionNumber": 3
       },
-      "explanation": "5cx ু পু + 7 = 0 এবং\nx\n5\n+ < y ু 5 = 0 রেখাদ্বয় লম্ব\nহলে, 5c \n1\n5\nু c  c = 0  c = 0, 1\n03.\nষরস\nx0\nধী\n 1\nx\nএর মান কত?\nঅ. ষহ a ই. ষহ\na\n2\nঈ. ষহ\n2\na\nউ. ষহ\na2\n2\nA ASPECT\n\nখঃ\nx0\nধী\nু 1\nx\n=\nধী\nষহ a\n1\n= ষহ a",
+      "explanation": "^(Lt) (a^(x) – 1)/x = (a^(x) ln a)/1 = ln a x→0",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q004-p096-n0105",
-      "text": "xex2y\n= y cos2\nx হলে (0,0) বিন্দুতে ফী\nফু\nএর মান কত?",
+      "text": "2 xe^(x)^(y) = y cos²x হলে (0,0) বিন্দুতে dx/dyএর মান কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5248,7 +5355,7 @@
         },
         {
           "id": "c",
-          "text": "1",
+          "text": "−1",
           "order": 3
         },
         {
@@ -5275,12 +5382,12 @@
         "pageNumber": 96,
         "questionNumber": 4
       },
-      "explanation": "xex2y\n= y + cos2\nx\nফু\nফী\n= ু\nী\nু\n= ু\nex2y\n+ 2xyex2y\nু 2sinx পড়ংী\nx3\nex2y\nু 1\n\n\n\n\n ফু\nফী\n(0, 0) = 1",
+      "explanation": "xe^(x2y) = y + cos²x 2 2 ( ) dy/dx = – δx/δy = – (e^(x)^(y) + 2xye^(x)^(y) – 2sinx cosx)/(x³ e^(x2y) – 1)    ∴ dy/dx (0, 0) = 1",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q005-p096-n0106",
-      "text": "বী+বী\nফী =?",
+      "text": "x e^(x+e) dx =? ∫ x x",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5288,22 +5395,22 @@
       "options": [
         {
           "id": "a",
-          "text": "ববী\n+ c",
+          "text": "e^(e) + c",
           "order": 1
         },
         {
           "id": "b",
-          "text": "ex+ex\n+ c",
+          "text": "e^(x+e) + c",
           "order": 2
         },
         {
           "id": "c",
-          "text": "বী\n+ c",
+          "text": "e^(x) + c",
           "order": 3
         },
         {
           "id": "d",
-          "text": "ex2\n+ c",
+          "text": "e^(x2) + c x ∫ ∫",
           "order": 4
         }
       ],
@@ -5325,12 +5432,12 @@
         "pageNumber": 96,
         "questionNumber": 5
       },
-      "explanation": "বী + বী\nফী = ববী\nবী\nফী = ববী\n+ c\n06.\n\nA =\n\ni +\n\nj \n\nk ভেক্টরটি ু-অক্ষের সাথে KZ কোণ উৎপন্ন করে?\nঅ. cos1\n\n\n\n 1\n3\nই. sin1\n\n\n\n 1\n3\nঈ. tan1\n\n\n\n 1\n3\nউ.\n1\n3\nA ASPECT\n\n\nA =\n\ni +\n\nj ু\n\nk z অক্ষের সাথে cos–1\n\n\n\n ু 1\n1 + 1 + 1\nবা cos–1\n\n\n\n –1\n3\nবা\n\n\n\n  ু cos–1 1\n3\nকোণ উৎপন্ন করে।",
+      "explanation": "e^(x) ^(+ e) dx = e^(ex) e^(x) dx = e^(ex)+ c −",
       "assetPaths": []
     },
     {
-      "id": "ru-vq-2020-2021-c-all-p089-q007-p096-n0107",
-      "text": "a এর কোন মানের জন্যে I(a) = 1\n0\n(x2\n a)2\nফী এর মান সর্বনিম্ন হবে?",
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p096-c1-s07-q006-r1",
+      "text": "∧ ∧ ∧ A = i + j − k ভেক্টরটি z-অক্ষের সাথে কত কোণ উৎপন্ন করে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5338,27 +5445,77 @@
       "options": [
         {
           "id": "a",
-          "text": "3\n20",
+          "text": "cos⁻¹ ((−1)/3)",
           "order": 1
         },
         {
           "id": "b",
-          "text": "4\n45",
+          "text": "sin⁻¹ ( 1/3)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "7\n13",
+          "text": "tan⁻¹ ( 1/3)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1",
+          "text": "1/3",
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-vq-2020-2021-c-all-p089",
+          "questionNumber": 6,
+          "pageNumber": 96,
+          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
+        }
+      ],
+      "source": {
+        "documentId": "ru-vq-2020-2021-c-all-p089-source",
+        "pageNumber": 96,
+        "questionNumber": 6
+      },
+      "explanation": "→ ∧ ∧ ∧ ( ) A = i  + j  – k  z অক্ষের সাথে cos⁻¹ (– 1)/(1 + 1 + 1) ( ) (⁻¹ ) বা cos⁻¹ (–1)/3  বা π – cos 1/3 কোণ উৎপন্ন করে।",
+      "assetPaths": []
+    },
+    {
+      "id": "ru-vq-2020-2021-c-all-p089-q007-p096-n0107",
+      "text": "a এর কোন মানের জন্যে I(a) = ¹ (x² − a)²dx এর মান সর্বনিম্ন হবে? ∫₀",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "3/20",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4/45",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7/13",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1 1 1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -5373,12 +5530,13 @@
         "pageNumber": 96,
         "questionNumber": 7
       },
-      "explanation": "I(a) =  \n0\n1\n(x2\nু a)2\nফী ;\nফও\nফধ\n= 2  \n0\n1\n(x2\nু a) ফী\nসর্বনিম্ন মানের জন্য\nফও\nফধ\n= 0  \n0\n1\n(x2\nু a) ফী = 0\n1\n3\nু a = 0  a =\n1\n3",
-      "assetPaths": []
+      "explanation": "I(a) = (x² – a)² dx ; dI/da =  2 (x² – a) dx 0 0 1 সর্বনিম্ন মানের জন্য dI/da = 0∴ (x² – a) dx = 0⇒1/3 – a = 0    ∴ a = 1/3 0",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q008-p096-n0108",
-      "text": "যদি x4\n 1 = 0 সমীকরণের মূলগুলি 1, ,  এবং  হয়, তবে (1  )\n(1  ) (1  ) কত?",
+      "text": "যদি x⁴ − 1 = 0 সমীকরণের মূলগুলি 1, α, β এবং γ হয়, তবে (1 − α) (1 − β) (1 − γ) কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5423,62 +5581,12 @@
         "pageNumber": 96,
         "questionNumber": 8
       },
-      "explanation": "x4\nু 1 = 0; (x2\nু 1) (x2\n+ 1) = 0\n (x + 1) (x ু 1) (x2\n+ 1) = 0\n x = 1, –1, র, ু i  (1 + 1) (1 ু i) (1 + i) = 2 + 2 = 4",
-      "assetPaths": []
-    },
-    {
-      "id": "ru-vq-2020-2021-c-all-p089-q009-p097-n0109",
-      "text": "2 + 3 i মূলবিশিষ্ট দ্বিঘাত সমীকরণ হবে-",
-      "type": "single_choice",
-      "category": "varsity",
-      "subject": "Higher Mathematics",
-      "topic": null,
-      "options": [
-        {
-          "id": "a",
-          "text": "x2\n 4x + 7 = 0",
-          "order": 1
-        },
-        {
-          "id": "b",
-          "text": "x2\n+ 4x + 7 = 0",
-          "order": 2
-        },
-        {
-          "id": "c",
-          "text": "x2\n 8x + 7 = 0",
-          "order": 3
-        },
-        {
-          "id": "d",
-          "text": "x2\n- 4x = 0",
-          "order": 4
-        }
-      ],
-      "correctOptionIds": [
-        "a"
-      ],
-      "answerVerificationStatus": "verified",
-      "contentVerificationStatus": "verified",
-      "appearances": [
-        {
-          "paperId": "ru-vq-2020-2021-c-all-p089",
-          "questionNumber": 9,
-          "pageNumber": 97,
-          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
-        }
-      ],
-      "source": {
-        "documentId": "ru-vq-2020-2021-c-all-p089-source",
-        "pageNumber": 97,
-        "questionNumber": 9
-      },
-      "explanation": "x = 2 + 3i  (x ু 2)2\n= ( 3i)2\n= ু 3\n নির্ণেয় সমীকরণ, x2\nু 4x + 7 = 0",
+      "explanation": "x⁴ – 1 = 0; (x² – 1) (x² + 1) = 0 ⇒ (x + 1) (x – 1) (x² + 1) = 0 ⇒ x = 1, –1, i, – i ∴ (1 + 1) (1 – i) (1 + i) = 2 + 2 = 4",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q010-p097-n0110",
-      "text": "x2\n+ 4x + 4y = 0 পরাবৃত্তটির শীর্ষবিন্দু কোনটি?",
+      "text": "x²+ 4x + 4y = 0 পরাবৃত্তটির শীর্ষবিন্দু কোনটি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5491,17 +5599,17 @@
         },
         {
           "id": "b",
-          "text": "(2, 1)",
+          "text": "(−2, 1)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "(2, 1)",
+          "text": "(2, −1)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "(2, 1)",
+          "text": "(−2, −1)",
           "order": 4
         }
       ],
@@ -5523,12 +5631,12 @@
         "pageNumber": 97,
         "questionNumber": 10
       },
-      "explanation": "x2\n+ 4x + 4y = 0\n (x + 2)2\n= ু 4 (y ু 1)  শীর্ষবিন্দু = (–2, 1)",
+      "explanation": "x² + 4x + 4y = 0 ⇒ (x + 2)² = – 4 (y – 1)  ∴ শীর্ষবিন্দু = (–2, 1)",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q011-p097-n0111",
-      "text": "x = 2cos  + 1, 2y = ংরহ + 2 উপবৃত্তের ক্ষেত্রফল KZ বর্গ একক?",
+      "text": "x = 2cos ϕ + 1, 2y = sinϕ + 2 উপবৃত্তের ক্ষেত্রফল কত বর্গ একক?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5536,22 +5644,22 @@
       "options": [
         {
           "id": "a",
-          "text": "\n2",
+          "text": "π/2",
           "order": 1
         },
         {
           "id": "b",
-          "text": "",
+          "text": "π",
           "order": 2
         },
         {
           "id": "c",
-          "text": "2",
+          "text": "2π",
           "order": 3
         },
         {
           "id": "d",
-          "text": "4",
+          "text": "4π φ φ",
           "order": 4
         }
       ],
@@ -5573,12 +5681,12 @@
         "pageNumber": 97,
         "questionNumber": 11
       },
-      "explanation": "x = 2cos + 1, 2y = ংরহ + 2\nউপবৃত্তের ক্ষেত্রফল =   2 \n1\n2\n=  বর্গএকক",
+      "explanation": "x = 2cos + 1, 2y = sin + 2 উপবৃত্তের ক্ষেত্রফল = π × 2 ×1/2 = π বর্গএকক",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q012-p097-n0112",
-      "text": "9x2\n 4y2\n+ 36 = 0 অধিবৃত্তের উপকেন্দ্রিকতা কত?",
+      "text": "9x² − 4y²+ 36 = 0 অধিবৃত্তের উপকেন্দ্রিকতা কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5586,22 +5694,22 @@
       "options": [
         {
           "id": "a",
-          "text": "3\n13",
+          "text": "3/13",
           "order": 1
         },
         {
           "id": "b",
-          "text": "13\n3",
+          "text": "13/3",
           "order": 2
         },
         {
           "id": "c",
-          "text": "10\n4",
+          "text": "10/4",
           "order": 3
         },
         {
           "id": "d",
-          "text": "4\n10",
+          "text": "4/10",
           "order": 4
         }
       ],
@@ -5623,12 +5731,12 @@
         "pageNumber": 97,
         "questionNumber": 12
       },
-      "explanation": "9x2\nু 4y2\n= 36 \ny2\n32 ু\nx2\n22 = 1  e =\n9 + 4\n9\n=\n13\n3",
+      "explanation": "9x² – 4y² = 36 ⇒y²/3² – x²/2² = 1  ∴ e = (9 + 4)/9 = 13/3",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q013-p097-n0113",
-      "text": "sec2\n(tan1\n5) + tan2\n(sec1\n2) এর মান কত?",
+      "text": "sec² (tan⁻¹5) + tan²(sec⁻¹ 2) এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5651,7 +5759,7 @@
         },
         {
           "id": "d",
-          "text": "20",
+          "text": "20 –1 –1",
           "order": 4
         }
       ],
@@ -5673,12 +5781,12 @@
         "pageNumber": 97,
         "questionNumber": 13
       },
-      "explanation": "sec2\n(tan–1\n5) + tan2\n(sec–1\n2) = 1 + 52\n+22\nু 1 = 29",
+      "explanation": "sec² (tan 5) + tan² (sec 2) = 1 + 5²+2² – 1 = 29",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q014-p097-n0114",
-      "text": "দুইটি বল একটি বিন্দুতে পরস্পর লম্বভাবে ক্রিয়াশীল থাকলে তাদের লদ্ধির\nমান 12, যদি H বলদ্বয়ের ক্ষুদ্রতম মান 4 হয় তবে এদের লদ্ধির বৃহত্তম মান\nKZ হবে?",
+      "text": "দুইটি বল একটি বিন্দুতে পরস্পর লম্বভাবে ক্রিয়াশীল থাকলে তাদের লদ্ধির মান 12, যদি ঐ বলদ্বয়ের ক্ষুদ্রতম মান 4 হয় তবে এদের লদ্ধির বৃহত্তম মান কত হবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5701,7 +5809,7 @@
         },
         {
           "id": "d",
-          "text": "3 17",
+          "text": "3 17 ∴",
           "order": 4
         }
       ],
@@ -5723,12 +5831,12 @@
         "pageNumber": 97,
         "questionNumber": 14
       },
-      "explanation": "ধরি, বলদ্বয় P এবং Q  P2\n+ Q2\n= 12\n P2\n+ Q2\n= 144 এবং P  Q = 4\n (P + Q)2\n= 2(P2\n+ Q2\n) ু (P  Q)2\n= 2 × 144 ু 42\n= 272\n P + Q = 4 17",
+      "explanation": "ধরি, বলদ্বয় P এবং Q    P² + Q² = 12 ⇒ P² + Q² = 144  এবং P ∼ Q = 4 ∴ (P + Q)² = 2(P² + Q²) – (P ∼ Q)²= 2 × 144 – 4² = 272 ∴ P + Q = 4 17",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q015-p097-n0115",
-      "text": "x2\n+ y2\n= 1 বৃত্তে x + y  1 = 0 সরলরেখা দ্বারা খ-িত জ্যাকে ব্যাস ধরে\nঅংকিত বৃত্তের সমীকরণ কোনটি?",
+      "text": "x²+ y² = 1 বৃত্তে x + y − 1 = 0 সরলরেখা দ্বারা খণ্ডিত জ্যাকে ব্যাস ধরে অংকিত বৃত্তের সমীকরণ কোনটি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5736,22 +5844,22 @@
       "options": [
         {
           "id": "a",
-          "text": "x2\n+ y2\n x  y = 0",
+          "text": "x²+ y² − x − y = 0",
           "order": 1
         },
         {
           "id": "b",
-          "text": "x2\n+ y2\n x  y  1 = 0",
+          "text": "x²+ y² − x − y − 1 = 0",
           "order": 2
         },
         {
           "id": "c",
-          "text": "x2\n+ y2\n+ x + y = 0",
+          "text": "x²+ y²+ x + y = 0",
           "order": 3
         },
         {
           "id": "d",
-          "text": "x2\n+ y2\n+ x + y + 1 = 0",
+          "text": "x²+ y²+ x + y + 1 = 0",
           "order": 4
         }
       ],
@@ -5773,12 +5881,12 @@
         "pageNumber": 97,
         "questionNumber": 15
       },
-      "explanation": "x2\n+ y2\n= 1 বৃত্ত এবং x + y = 1 সরলরেখার ছেদবিন্দু\n(0, 1) এবং (1, 0)\n নির্ণেয় বৃত্তের সমীকরণ, x(x ু 1) + y(y ু 1) = 0\n x2\n+ y2\nু x ু y = 0",
+      "explanation": "x²  +  y²  =  1 বৃত্ত  এবং x  +  y  =  1 সরলরেখার  ছেদবিন্দু (0, 1) এবং (1, 0) ∴ নির্ণেয় বৃত্তের সমীকরণ, x(x – 1) + y(y – 1) = 0 ∴ x² + y² – x – y = 0",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q016-p097-n0116",
-      "text": "সব অক্ষর নিয়ে RAJSHAHI শব্দটির অক্ষরগুলোকে KZ প্রকারে সাজানো\nযায়?",
+      "text": "সব অক্ষর নিয়ে RAJSHAHI শব্দটির অক্ষরগুলোকে কত প্রকারে সাজানো যায়?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5805,8 +5913,8 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
+      "correctOptionIds": [],
+      "answerVerificationStatus": "verified",
       "contentVerificationStatus": "verified",
       "appearances": [
         {
@@ -5821,12 +5929,13 @@
         "pageNumber": 97,
         "questionNumber": 16
       },
-      "explanation": "নির্ণেয় উপায় =\n2 2\n8\n= 10080",
-      "assetPaths": []
+      "explanation": "নির্ণেয় উপায় = 8/2 = 10080 2",
+      "assetPaths": [],
+      "answerDisposition": "no_correct_option"
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q017-p097-n0117",
-      "text": "ঃধহ + ংবপ = x হলে, ংরহ এর মান কত?",
+      "text": "tanθ + secθ = x হলে, sinθ এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5834,22 +5943,22 @@
       "options": [
         {
           "id": "a",
-          "text": "x2\n+ 1\nx2\nু 1",
+          "text": "(x² + 1)/(x² – 1)",
           "order": 1
         },
         {
           "id": "b",
-          "text": "x2\nু 1\nx2\n+ 1",
+          "text": "(x² – 1)/(x² + 1)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "x  1\nx2\n+ 1",
+          "text": "(x − 1)/(x² + 1)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "1  x2\n1 + x2",
+          "text": "(1 − x²)/(1 + x²)",
           "order": 4
         }
       ],
@@ -5871,12 +5980,12 @@
         "pageNumber": 97,
         "questionNumber": 17
       },
-      "explanation": "ঃধহ + ংবপ = x \n1 + ংরহ\nপড়ং\n= x\n\n(1 + sin)2\ncos2\n\n= x2\n\n1 + ংরহ\n1 ু ংরহ\n= x2\n ংরহ =\nx2\nু 1\nx2\n+ 1",
+      "explanation": "tanθ + secθ = x   ⇒(1 + sinθ)/cosθ = x ⇒((1 + sinθ)²)/cos²θ = x²⇒(1 + sinθ)/(1 – sinθ) = x²∴ sinθ = (x² – 1)/(x² + 1)",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q018-p097-n0118",
-      "text": "ঃধহ =\n1\nx\nহলে cos2 = কোনটি?",
+      "text": "tanθ = 1/xহলে cos2θ = কোনটি?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5884,22 +5993,22 @@
       "options": [
         {
           "id": "a",
-          "text": "x2\nু 1\nx2\n+ 1",
+          "text": "(x² – 1)/(x² + 1)",
           "order": 1
         },
         {
           "id": "b",
-          "text": "1 +x2\n1+ x2",
+          "text": "(1 +x²)/(1+ x²)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "2x\n1 + x2",
+          "text": "(2x )/(1 + x²)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "2x\n1 ু x2",
+          "text": "(2x )/(1 – x²) 1",
           "order": 4
         }
       ],
@@ -5921,12 +6030,12 @@
         "pageNumber": 97,
         "questionNumber": 18
       },
-      "explanation": "ঃধহ =\n1\nx\n; cos2 =\n1 ু tan2\n\n1 + tan2\n\n cos2 =\n1 ু\n1\nx2\n1 +\n1\nx2\n=\nx2\nু 1\nx2\n+ 1",
+      "explanation": "tanθ  = 1/x ;  cos2θ  = (1 – tan²θ)/(1 + tan²θ)∴  cos2θ  = (1 –  x²)/1 = 1 + x² (x² – 1)/(x² + 1)",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q019-p097-n0119",
-      "text": "f(x) = x  2 হলে f-1\n(3) এর মান কত?",
+      "text": "f(x) = x − 2 হলে f⁻¹(3) এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5949,7 +6058,7 @@
         },
         {
           "id": "d",
-          "text": "12",
+          "text": "12 –1 ∴⁻¹ ∴",
           "order": 4
         }
       ],
@@ -5971,12 +6080,62 @@
         "pageNumber": 97,
         "questionNumber": 19
       },
-      "explanation": "f(x) = x ু 2  f–1\n(x) = x2\n+ 2  f–1\n(3) = 11\n20.\n\n\n\n 5 \n2\n3x\n< 1 অসমতার সমাধান সেট কোনটি?\nঅ. 2  x  4 ই.\n1\n9\n< x <\n1\n3\nঈ.\n1\n3\n< x <\n1\n2\nউ.\n1\n9\n< x <\n1\n6\nD ASPECT\n\n\n\n\n 5 ু\n2\n3x\n< 1  ু 1 < 5 ু\n2\n3x\n< 1\n 4 <\n2\n3x\n< 6 \n1\n9\n< x <\n1\n6",
+      "explanation": "f(x) =  x – 2    f (x) = x² + 2   f (3) = 11",
+      "assetPaths": []
+    },
+    {
+      "id": "ru-vq-2020-2021-c-all-p089-e08-p097-c1-s07-q020-r1",
+      "text": "5 −2/3x < 1 অসমতার সমাধান সেট কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": null,
+      "options": [
+        {
+          "id": "a",
+          "text": "2 < x < 4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/9 < x < 1/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/3 < x < 1/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1/9 < x < 1/6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-vq-2020-2021-c-all-p089",
+          "questionNumber": 20,
+          "pageNumber": 97,
+          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
+        }
+      ],
+      "source": {
+        "documentId": "ru-vq-2020-2021-c-all-p089-source",
+        "pageNumber": 97,
+        "questionNumber": 20
+      },
+      "explanation": "5 – 2/3x < 1  ⇒ – 1 < 5 – 2/3x < 1 ⇒ 4 < 2/3x < 6  ⇒1/9 < x < 1/6",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q021-p097-n0120",
-      "text": "i2\n= 1 হলে, (i  1)10\n= কত?",
+      "text": "i² = −1 হলে, (i − 1)¹⁰ = কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -5989,17 +6148,17 @@
         },
         {
           "id": "b",
-          "text": "32(1 + i)",
+          "text": "32(−1 + i)",
           "order": 2
         },
         {
           "id": "c",
-          "text": "32 (1  i)",
+          "text": "32 (1 − i)",
           "order": 3
         },
         {
           "id": "d",
-          "text": "32i",
+          "text": "−32i",
           "order": 4
         }
       ],
@@ -6021,62 +6180,12 @@
         "pageNumber": 97,
         "questionNumber": 21
       },
-      "explanation": "i2\n= ু 1; (i ু 1)10\n= (ু 2i)5\n= ু 32i\n22.\n\n\n\n 1 \n3\n2\nx\np\n-এর বিস্তৃতিতে ী-এর সহগ 24 হলে ঢ়-এর মান কত?\nঅ. 15 ই. 12 ঈ. 3 উ. 16\nD ASPECT\n\n\n\n\n 1 ু\n3\n2\nx\nP\nএর বিস্তৃতিতে x এর সহগ = ু\n3P\n2\nপ্রশ্নমতে, ু\n3P\n2\n= ু 24  P = 16",
-      "assetPaths": []
-    },
-    {
-      "id": "ru-vq-2020-2021-c-all-p089-q023-p097-n0121",
-      "text": "।ী। < 1 শর্তে 1 + 3x\n1  x\nএর বিস্তৃতিতে x8\nএর সহগ?",
-      "type": "single_choice",
-      "category": "varsity",
-      "subject": "Higher Mathematics",
-      "topic": null,
-      "options": [
-        {
-          "id": "a",
-          "text": "5",
-          "order": 1
-        },
-        {
-          "id": "b",
-          "text": "4",
-          "order": 2
-        },
-        {
-          "id": "c",
-          "text": "3",
-          "order": 3
-        },
-        {
-          "id": "d",
-          "text": "2",
-          "order": 4
-        }
-      ],
-      "correctOptionIds": [
-        "b"
-      ],
-      "answerVerificationStatus": "verified",
-      "contentVerificationStatus": "verified",
-      "appearances": [
-        {
-          "paperId": "ru-vq-2020-2021-c-all-p089",
-          "questionNumber": 23,
-          "pageNumber": 97,
-          "sourceDocumentId": "ru-vq-2020-2021-c-all-p089-source"
-        }
-      ],
-      "source": {
-        "documentId": "ru-vq-2020-2021-c-all-p089-source",
-        "pageNumber": 97,
-        "questionNumber": 23
-      },
-      "explanation": "।ী। < 1 শর্তাধীনে,\n1 + 3x\n1 ু x\n= 1 + 3x (1 ু x)–1\n= 1 + 4x + 4x2\n+ ....... + 4x8\n+ ......\n x8\nএর সহগ = 4",
+      "explanation": "i² = – 1; (i – 1)¹⁰ = (– 2i)⁵ = – 32i",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q024-p097-n0122",
-      "text": "32fts1\nAvw`‡e‡Mf~wgimv‡_30†Kv‡YcÖwÿße¯‘iAbyf~wgKcvjøvKZn‡e?",
+      "text": "32 ft s⁻¹ আদিবেগে ভূমির সাথে 30° কোণে প্রক্ষিপ্ত বস্তুর অনুভূমিক পাল্লা কত হবে?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -6099,7 +6208,7 @@
         },
         {
           "id": "d",
-          "text": "8\n3\nft",
+          "text": "8/3 ft",
           "order": 4
         }
       ],
@@ -6121,12 +6230,12 @@
         "pageNumber": 97,
         "questionNumber": 24
       },
-      "explanation": "R =\nu2\nsin2\ng\n=\n322\n× sin60\n32\n= 16 3 ft",
+      "explanation": "R = (u² sin2α)/g = (32² × sin60°)/32 = 16 3 ft − −",
       "assetPaths": []
     },
     {
       "id": "ru-vq-2020-2021-c-all-p089-q025-p097-n0123",
-      "text": "P(A) = 0.7, চ(অই) = 0.1, P\n\n\n\n A\nB\n= 0.5 হলে P(\n\nঅ\n\nB) এর মান কত?",
+      "text": "P(A) = 0.7, P(A∩B) = 0.1, P(A/B) = 0.5 হলে P(A∩B) এর মান কত?",
       "type": "single_choice",
       "category": "varsity",
       "subject": "Higher Mathematics",
@@ -6149,7 +6258,7 @@
         },
         {
           "id": "d",
-          "text": "0.4",
+          "text": "0.4 ∩",
           "order": 4
         }
       ],
@@ -6171,7 +6280,7 @@
         "pageNumber": 97,
         "questionNumber": 25
       },
-      "explanation": "P(A) = 0.7, P(A  B) = 0.1\nP\n\n\n\n A\nB\n= 0.5, P(B) =\nP (A  B)\nP\n\n\n\n A\nB\n P(B) =\n0.1\n0.5\n= 0.2\n P(\nু\nA \nু\nB = P (\nুুুু\nঅই) = 1 ু P (A  B)\n= 1 ু {চ(অ) + P(B) ু চ(অই} = 1 ু {0.7 + 0.2 ু 0.1} = 0.2",
+      "explanation": "P(A) = 0.7, P(A  B) = 0.1 ( ) P A/B = 0.5, P(B) = (P (A ∩ B))/(A ( ))    ∴ P(B) = 0.1/0.5 = 0.2 P B – – –––– ∴ P(A ∩ B = P (A∪B)  = 1 – P (A ∪ B) =  1 – {P(A) + P(B) – P(A∩B} = 1 – {0.7 + 0.2 – 0.1} = 0.2",
       "assetPaths": []
     }
   ]

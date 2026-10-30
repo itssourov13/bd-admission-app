@@ -32,6 +32,8 @@ export interface QuestionPackItem {
   topic?: string | null;
   options: QuestionPackOption[];
   correctOptionIds: string[] | null;
+  /** Explicit source-key state when the PDF marks that no listed option is correct. */
+  answerDisposition?: "no_correct_option";
   answerVerificationStatus: "verified" | "unverified" | "unknown";
   contentVerificationStatus: "verified" | "unverified";
   appearances: QuestionPackAppearance[];
@@ -79,6 +81,8 @@ export interface QuestionPackExamRule {
 
 export interface QuestionPack {
   schemaVersion: 1;
+  /** Replaces active appearances for the papers in this pack inside the import transaction; preserves question rows and all user-owned history. */
+  replaceExistingPaperContent?: boolean;
   batch: {
     id: string;
     category: QuestionCategory;

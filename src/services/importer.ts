@@ -65,7 +65,8 @@ function emptyReport(): ImportReport {
 
 /**
  * Validates then imports a pack in ONE transaction. Idempotent: importing the same batch twice
- * changes nothing the second time. Never deletes questions, appearances or any user-owned data.
+ * changes nothing the second time. Optional paper-content replacement clears only active appearances
+ * for the pack's paper IDs; question rows and every user-owned record are retained for history.
  * Questions are never merged by text similarity; identity is the pack's stable question id.
  */
 export async function importQuestionPack(db: SqlDb, pack: unknown, now: number = Date.now()): Promise<ImportReport> {
@@ -151,6 +152,18 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
           if (r.changes > 0) report.examRules.updated++;
           else report.examRules.skipped++;
         }
+      }
+
+      if (p.replaceExistingPaperContent && p.papers.length > 0) {
+        // Replacement is scoped to this pack's paper IDs and remains transactional.
+        // Remove only active paper appearances; question rows remain for FK-backed
+        // bookmarks, prior sessions, answers, and result history.
+        const paperIds = p.papers.map((paper) => paper.id);
+        const placeholders = paperIds.map(() => "?").join(",");
+        await tx.runAsync(
+          `DELETE FROM question_appearances WHERE paper_id IN (${placeholders})`,
+          paperIds
+        );
       }
 
       for (const q of p.questions) {

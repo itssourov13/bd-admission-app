@@ -90,3 +90,33 @@
 - [x] Prefixed the original RU institution label with `UNVERIFIED —`; retained all 44 old RU packs and their 4,009 question records without changing question/option/answer content. Earlier questions are not deleted.
 - [x] Regenerated the index with 61 packs / 6,004 question records. Added integration coverage for pack validation, source hashes/provenance, distinct RU IDs, counts, answer states, idempotent import and a 100-question Standard Exam from the new institution.
 - [ ] Physical Android QA and native release build remain outstanding. Do not infer official RU-specific time, marking or unit question-count rules from the PDF; general Standard Exam uses the existing fallback.
+
+
+## RU Question Bank verified-source rebuild and replacement — 2026-10-30
+
+- [x] Resumed the complete 156-page OCR workspace and verified ocr/DONE; extraction workspace now has 156/156 OCR text pages.
+- [x] Audited 1,982 extracted records across 17 exam blocks. Flagged 36 [WRITTEN Part] items separately and assigned a source-subject mapping to every structurally complete import candidate.
+- [x] Rebuilt the 15 RU-V packs from the user-confirmed PDF/source data. **1,799 questions** are included with four non-empty A/B/C/D options, exactly one mapped key, contentVerificationStatus: verified, and answerVerificationStatus: verified. No imported RU-V question is tagged unverified/unknown.
+- [x] Preserved 1,666 old question IDs where the page/printed-number locator was unique; assigned 162 deterministic IDs where entries were new or the source locator was ambiguous. Source page, printed question number, paper/set and subject are retained.
+- [x] Excluded 183 incomplete/non-MCQ records with reasons in external EXCLUSION_MANIFEST.csv: 36 written-part, 90 incomplete option count, 25 blank extracted option text, 22 X/no-correct-option, 7 multi-letter answer markers, 3 missing answer markers. No text or answer was fabricated.
+- [x] Replaced the previous 15 RU-V JSON packs, preserving the older RU C candidate dataset and both DU packs. The previous RU-V pack files and old bundle index are backed up outside the repo. New packs set replaceExistingPaperContent: true; transactional import removes only old active appearances for those 15 RU-V paper IDs and preserves question rows/bookmarks/session answer history.
+- [x] Added pack schema/type/validator support for the optional replacement flag and added importer replacement logic plus tests for preserving historical bookmarks and session answers.
+- [x] Rebuilt src/content/bundledPacks.ts: 61 packs / 5,988 questions total (180 DU + 4,009 RU C candidates + 1,799 RU-V verified-source questions).
+- [x] Verification under Node 22.23.1: pnpm test 60/60, pnpm typecheck passed, pnpm lint passed, pnpm packs:index bundled 61 packs, all 61 packs validate with 0 errors / 4,052 warnings.
+- [x] Added external build/reconciliation/exclusion/warning reports and updated schema, import workflow, README and QA documentation.
+- [ ] Physical Android/Expo Go QA and a native APK/AAB release build remain open; the known Hermes SIGILL on this ARM/NetHunter host remains a build-host blocker.
+- Push is intentionally not performed. Local commit is pending final verification.
+
+
+## RU verified-source import — final corrected structure (2026-10-30)
+
+This entry supersedes the earlier same-day 1,799-question and 1,827-question intermediate build checkpoints above.
+
+- [x] Rebuilt the 15 RU-V packs with **1,828 verified source records**. This preserves all answer-marker semantics that the schema can represent: 1,800 single-choice keys, 22 `X`/no-correct-option records (`answerDisposition: no_correct_option`, empty correct-option list), and 6 complete multi-letter keys as verified multiple-choice records.
+- [x] Every imported RU-V question is `contentVerificationStatus: verified` and `answerVerificationStatus: verified`; zero RU-V questions are unknown/unverified. All have four non-empty A/B/C/D options and mapped subjects/source page provenance.
+- [x] The existing single-choice Flash/Standard eligible set is **1,800**; 22 no-correct-option and 6 multiple-choice items remain verified/browsable but are not coerced into that single-choice practice pool.
+- [x] Exclusion manifest corrected to **154 records**: 36 written-part items, 90 incomplete option sets, 26 records with missing extracted option text, and 2 missing answer markers. Thirty source records with repeated option text are reported separately, not silently edited.
+- [x] Final bundle: 61 packs / **6,017 questions** (180 DU + 4,009 original RU C candidates + 1,828 RU-V). The original RU C candidate bank and DU packs remain unchanged.
+- [x] Final full test suite: **62/62 passed** under Node 22.23.1, including no-correct-option/multiple-choice validator tests, the recovered page-137 Q4/B regression, and replacement/history preservation tests.
+- [x] Re-ran typecheck, lint, diff-check and validation across all 61 packs after the final code changes; Android no-bytecode JS export also passed (1,896 modules / 12 MB / 122 assets). Full suite: 62/62. Final diff review and local commit completed separately; do not push.
+- [ ] Physical Android QA and an APK/AAB build on a compatible host remain separate release gates.

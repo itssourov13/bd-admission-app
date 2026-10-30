@@ -9,6 +9,7 @@ A QuestionPack has schemaVersion: 1 and these fields:
 | Field | Meaning |
 |---|---|
 | schemaVersion | Required integer. The current supported version is 1. |
+| replaceExistingPaperContent | Optional boolean. When `true`, the importer transactionally replaces active appearances for only the paper IDs declared in this pack. It does not delete question rows or bookmarks/session history. |
 | batch | Required stable batch ID, category, optional description and source-document ID list. |
 | sourceDocuments | Required array of source metadata records. |
 | institutions | Required array of institution IDs, codes and display names. |
@@ -52,15 +53,16 @@ Schema v1 does not model section-wise question quotas or separate per-section ti
 
 ## Question records
 
-Each question requires id, text, type, category, options, correctOptionIds, answerVerificationStatus, contentVerificationStatus, appearances and source.
+Each question requires id, text, type, category, options, correctOptionIds, answerVerificationStatus, contentVerificationStatus, appearances and source. Optional `answerDisposition` preserves a verified source-key state that does not identify any listed option.
 
 - type: single_choice or multiple_choice.
 - category: varsity, medical or engineering.
 - subject and topic are optional.
 - Each option has id, text and a numeric order. Preserve the original option order; do not assume every paper uses exactly four options.
-- correctOptionIds is an array of option IDs or null. Verified single-choice questions must point to exactly one existing option.
-- answerVerificationStatus: verified, unverified or unknown.
-- contentVerificationStatus: verified or unverified.
+- correctOptionIds is an array of option IDs or null. Verified single-choice questions normally point to exactly one existing option. A verified source marker meaning no listed option is correct is represented by `correctOptionIds: []` and `answerDisposition: "no_correct_option"`; do not invent an option or key. Verified multiple-choice questions can point to two or more existing option IDs.
+- `answerDisposition`: optional; currently `no_correct_option` means the verified source marker explicitly says none of the listed choices is correct. In that case `correctOptionIds` must be an empty array and the question remains verified, but it is not eligible for the existing single-choice practice pool.
+- `answerVerificationStatus`: verified, unverified or unknown.
+- `contentVerificationStatus`: verified or unverified.
 - appearances records each paper where the question appeared. Each appearance requires paperId and may include questionNumber, pageNumber and sourceDocumentId.
 - source requires documentId and may include pageNumber and questionNumber.
 - explanation and local assetPaths are optional.
@@ -118,7 +120,8 @@ This is a synthetic structural example with an intentionally empty question list
 2. Import content and source relationships transactionally.
 3. Report meaningful inserted/updated/skipped/rejected counts and keep validation warnings visible for review.
 4. Re-importing the same pack must be idempotent and must not duplicate questions or source appearances.
-5. Preserve attempts, answers, bookmarks and profile data when a pack updates.
-6. A write failure must roll back the batch instead of leaving partial content.
+5. For a deliberate paper-bank replacement, set `replaceExistingPaperContent: true`; active appearances for only the pack's declared papers are cleared inside the same transaction before new appearances are inserted.
+6. Replacement preserves question rows and all user-owned bookmarks, sessions, answers and result history. Questions no longer present in the replacement remain available to FK-backed historical records but are no longer in the active paper catalogue, global browse totals, or practice pools because active catalogue queries require a current paper appearance.
+7. A write failure must roll back the batch instead of leaving partial content.
 
 See QUESTION_IMPORT_WORKFLOW.md for the operational process, pack-index command and required human review steps.

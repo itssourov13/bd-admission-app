@@ -5,7 +5,7 @@ Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and Nati
 
 ## RU source-bank separation (2026-10-29)
 
-The catalogue distinguishes source collections using separate database institution IDs, not a shared RU display alias. `ru` (`RU`) is the original 4,009-question candidate bank and its visible name begins `UNVERIFIED —`; `ru-verified-bank` (`RU-V`) is the separate 1,815-question bank imported from the user-designated verified PDF. Imported packs carry source-document SHA-256 and source page/question-number provenance. The verified-source bank has 1,720 mapped answer keys and 95 `unknown` keys; no RU-specific exam pattern is inferred. All packs still sync through the same transactional, idempotent importer.
+The catalogue distinguishes source collections using separate database institution IDs, not a shared RU display alias. `ru` (`RU`) is the original 4,009-question candidate bank and its visible name begins `UNVERIFIED —`; `ru-verified-bank` (`RU-V`) is the separate 1,828-question bank rebuilt from the user-designated verified PDF. Imported packs carry source-document SHA-256 and source page/question-number provenance. Every RU-V item is marked verified: 1,800 single-choice questions are eligible for the existing practice engine, 22 source `X` records are represented as `no_correct_option`, and 6 complete multi-letter keys are represented as `multiple_choice`. No RU-specific exam pattern is inferred. All packs still sync through the same transactional, idempotent importer.
 
 ## Runtime flow
 
