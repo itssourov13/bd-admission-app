@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-31 — Configure GitHub CI and EAS Android release pipeline
+
+- Added `.github/workflows/ci.yml` for main pushes, pull requests and manual CI runs. It installs the frozen pnpm lockfile, runs tests/typecheck/lint, validates Expo config and exports the Android JS bundle without Hermes bytecode.
+- Initialized and linked EAS project `@sk_king13/bd-admission-app` (`16ba69b8-96d7-4856-a197-77acddebe1ec`) in `app.config.js`; verified the resolved Expo config and `eas project:info`.
+- Added `eas.json` preview APK and production AAB profiles and documented cloud build, signing, device QA, Google Play and GitHub Releases in `docs/ANDROID_RELEASE.md`.
+- No GitHub workflow run is claimed because this branch has not been pushed/opened as a PR. No native APK/AAB or physical-device test is claimed yet.
+
 ## 2026-10-30 — Corrected RU verified-source pack structure and answer dispositions
 
 - Completed the 156-page OCR and rebuilt the 15 RU-V packs from the user-confirmed source. The source was not re-verified question-by-question; all imported source question content and explicit answer states are marked verified as instructed.

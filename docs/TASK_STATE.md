@@ -1,5 +1,14 @@
 # Task state
 
+## Android build and CI setup — 2026-10-31
+- [x] Added a GitHub Actions CI workflow for `main` pushes, PRs targeting `main`, and manual dispatch. CI runs frozen install, tests, typecheck, lint, Expo config validation and Android no-bytecode bundle export.
+- [x] Authenticated EAS CLI session verified as `sk_king13`; created/linked EAS project `@sk_king13/bd-admission-app` with ID `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- [x] Added `owner` and `extra.eas.projectId` to the dynamic Expo config; resolved Expo config and EAS project metadata checked successfully.
+- [x] Added `eas.json` with internal preview APK and production AAB profiles; documented the repeatable release flow in `docs/ANDROID_RELEASE.md` and README.
+- [ ] Push/open PR to run GitHub Actions CI; no workflow run is claimed before that.
+- [ ] Complete the first EAS preview APK cloud build, install it on a physical Android phone and record device QA.
+- [ ] After device QA and store assets/privacy requirements, create and inspect a production AAB; Google Play and GitHub release publication remain pending.
+
 ## Done
 - [x] Independent project, branding, i18n, tab shell (earlier passes).
 - [x] Node 22.23.1, pnpm install, lockfile, expo config.
@@ -120,3 +129,10 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [x] Final full test suite: **62/62 passed** under Node 22.23.1, including no-correct-option/multiple-choice validator tests, the recovered page-137 Q4/B regression, and replacement/history preservation tests.
 - [x] Re-ran typecheck, lint, diff-check and validation across all 61 packs after the final code changes; Android no-bytecode JS export also passed (1,896 modules / 12 MB / 122 assets). Full suite: 62/62. Final diff review and local commit completed separately; do not push.
 - [ ] Physical Android QA and an APK/AAB build on a compatible host remain separate release gates.
+
+
+## Android release follow-through — open gates
+- [ ] Trigger an EAS preview cloud build using: pnpm dlx eas-cli@latest build --platform android --profile preview.
+- [ ] Download/install the APK from the Expo Builds dashboard and complete the real-device checklist in docs/QA_CHECKLIST.md.
+- [ ] Push/open a PR from chore/ci-eas-android-build-2026-10-31 so GitHub Actions runs; fix any CI-specific failures and record the run URL/result.
+- [ ] Only after device QA, create the production AAB, inspect it and prepare the Google Play listing/privacy/testing requirements. Public store and GitHub binary releases remain pending.

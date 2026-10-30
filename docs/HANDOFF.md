@@ -1,24 +1,27 @@
 # Handoff
 
 ## Workspace
-Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo, branch main; never push from automation).
+Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo; current task branch `chore/ci-eas-android-build-2026-10-31` is based on latest `origin/main`; never push from automation).
 ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
 ## State
-The app bundles **61 packs / 6,017 questions**: 180 DU A Unit, 4,009 questions in the separate original RU C Unit candidate bank, and **1,828 questions** in the rebuilt `RU-V — Rajshahi University — Verified Question Bank`. Every imported RU-V record has content and answer status `verified`, four non-empty options, subject metadata, and source page/question provenance. It includes 1,800 single-choice keys, 22 source `X`/no-correct-option records represented by `answerDisposition`, and 6 multi-letter-key records represented as `multiple_choice`. No RU-V record is tagged `unverified` or `unknown`. The existing single-choice Flash/Standard practice pool has 1,800 RU-V questions; the 28 other verified records remain browsable but are not forced into single-choice practice. The 154 structurally incomplete/written/missing-key source records are in the external exclusion manifest. Source hash and build/reconciliation artifacts are documented in `docs/QUESTION_IMPORT_WORKFLOW.md` and `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/`. The original RU C candidate bank and both DU packs remain unchanged. The 15 RU-V pack replacements preserve question rows and FK-backed bookmarks/session history; active catalogue/practice queries require current paper appearances. No RU-specific duration/marking rules were inferred. The DU four-of-six MCQ-only source pattern remains illustrative because it differs from the official DU 2025–2026 format ([official notice](https://www.du.ac.bd/du_post_details/news/25400)). Physical Android QA and native APK/AAB release build remain outstanding. Read CURRENT_STATE.md, QUESTION_IMPORT_WORKFLOW.md, ARCHITECTURE.md, DECISIONS.md and QA_CHECKLIST.md first.
+The app bundles **61 packs / 6,017 questions**: 180 DU A Unit, 4,009 questions in the separate original RU C Unit candidate bank, and **1,828 questions** in the rebuilt `RU-V — Rajshahi University — Verified Question Bank`. Every imported RU-V record has content and answer status `verified`, four non-empty options, subject metadata, and source page/question provenance. It includes 1,800 single-choice keys, 22 source `X`/no-correct-option records represented by `answerDisposition`, and 6 multi-letter-key records represented as `multiple_choice`. No RU-V record is tagged `unverified` or `unknown`. The existing single-choice Flash/Standard practice pool has 1,800 RU-V questions; the 28 other verified records remain browsable but are not forced into single-choice practice. The 154 structurally incomplete/written/missing-key source records are in the external exclusion manifest. Source hash and build/reconciliation artifacts are documented in `docs/QUESTION_IMPORT_WORKFLOW.md` and `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/`. The original RU C candidate bank and both DU packs remain unchanged. The 15 RU-V pack replacements preserve question rows and FK-backed bookmarks/session history; active catalogue/practice queries require current paper appearances. No RU-specific duration/marking rules were inferred. The DU four-of-six MCQ-only source pattern remains illustrative because it differs from the official DU 2025–2026 format ([official notice](https://www.du.ac.bd/du_post_details/news/25400)). Physical Android QA and native APK/AAB release build remain outstanding. GitHub CI and EAS build profiles have now been configured on the current task branch. EAS project: `@sk_king13/bd-admission-app` (`16ba69b8-96d7-4856-a197-77acddebe1ec`). The first EAS preview APK has not yet been built. Read CURRENT_STATE.md, QUESTION_IMPORT_WORKFLOW.md, ARCHITECTURE.md, DECISIONS.md, QA_CHECKLIST.md and ANDROID_RELEASE.md first.
 
 ## Run
     source ~/.nvm/nvm.sh && nvm use      # 22.23.1
     pnpm install
     pnpm test && pnpm typecheck && pnpm lint && pnpm doctor
-    pnpm android                          # on-device run (not yet done)
+    pnpm android                          # native local run (requires Android toolchain)
+    pnpm dlx eas-cli@latest build --platform android --profile preview  # cloud APK build
 
 ## Next steps
 1. Add future institution/session packs following docs/QUESTION_IMPORT_WORKFLOW.md; the initial DU A Unit 2024–2025 and 2025–2026 packs are already included.
 2. Keep the publisher-derived DU A Unit pattern illustrative: the official DU 2025–2026 notice includes 40 written marks in addition to 60 MCQ marks. The current pattern is a source-bank practice mode only. General scopes retain the 100/60 fallback; new university/session rules must come from the matching primary source.
 3. Resolve the Expo Go mismatch before device QA: this repo is Expo SDK 57 / RN 0.86.3, and Expo Go builds are SDK-specific. Install the matching SDK 57 Android Go build from https://expo.dev/go (or use a dedicated development build), then run the "UI/device checks" in docs/QA_CHECKLIST.md and verify the subject filters, long Bangla text, virtualized all-question exam list, sticky Submit control, timeout and answer persistence.
-4. Android release export: hermesc crashes with SIGILL on this ARM/NetHunter host; build on another machine or via EAS.
-5. Confirm the final app name (docs/BRANDING.md).
+4. Run the new GitHub CI workflow after this branch is pushed and opened as a PR to `main`.
+5. Trigger the EAS `preview` profile to create an installable APK, then install and complete the physical-device checklist in `docs/QA_CHECKLIST.md`.
+6. After device QA, create the `production` AAB, confirm Play Store target API/account requirements, and prepare store assets/privacy policy. GitHub binary distribution should use Releases, not Packages.
+7. Confirm the final app name (docs/BRANDING.md).
 
 ## Boundaries
 - Do not invent questions, answers, years, sources or scoring rules.

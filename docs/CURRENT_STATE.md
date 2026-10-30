@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-10-30 (RU verified-source packs rebuilt/replaced; 1,828 source questions imported with verified status; 1,800 single-choice questions practice-eligible; page-137 false-banner extraction issue fixed; Android device/release QA remains outstanding).
+Last updated: 2026-10-31 (GitHub CI workflow and EAS Android build profiles configured; EAS project linked; native preview APK build and physical-device QA remain outstanding).
 
 
 ## Latest question-bank snapshot — 2026-10-30
@@ -86,3 +86,12 @@ The initial import had a usability gap: Flash and Standard setup only queried th
 Repository filtering now restricts provisional candidates to single-choice questions with at least two options, exactly one source-key option and no duplicate normalized option text. Current RU C counts: 4,009 imported, 3,991 in the provisional pool, 18 withheld for duplicate option text, zero in the verified-only pool. The answer and content statuses of all 4,009 remain `unverified`, and no RU question count/duration/marking rule is inferred. Flash feedback and result/review screens explicitly call out that the candidate key is unverified; because no RU scoring rule is configured, a normative exam score is not displayed.
 
 Automated verification after this fix: 57 tests passed, typecheck passed, lint passed and diff-check passed under Node 22.23.1. Physical Android/Expo Go QA and a native APK/AAB release build are still outstanding; those are not claimed as completed.
+
+
+## Android CI and EAS release setup — 2026-10-31
+
+- Added .github/workflows/ci.yml: triggers on pushes to main, pull requests targeting main, and manual dispatch. It runs frozen pnpm install, tests, typecheck, lint, public Expo config validation and Android expo export --no-bytecode.
+- Initialized EAS project @sk_king13/bd-admission-app with ID 16ba69b8-96d7-4856-a197-77acddebe1ec; app.config.js now declares its owner and project ID. eas project:info and resolved Expo config both succeeded.
+- Added eas.json: preview creates an internal-distribution APK for phone installation; production creates an Android App Bundle (AAB) and enables version-code auto-increment.
+- Added docs/ANDROID_RELEASE.md with the cloud build command, Expo dashboard URL, signing-credential handling, device QA, Play Store and GitHub Releases guidance.
+- This is a local task branch based on the latest origin/main. It has not been pushed or opened as a PR, so GitHub Actions has not run yet. No EAS native build has been triggered and no APK/AAB is claimed as created. Physical-device QA remains outstanding.
