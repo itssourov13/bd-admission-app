@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The separate RU verified-source import is included in the full 58-test suite; physical Android QA and native release build remain outstanding. The current bundle has 61 packs / 6,004 questions.
+Latest automated verification: **2026-10-30**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The RU verified-source bank was rebuilt and replaced; the full suite now includes 62 tests. Physical Android QA and native release build remain outstanding. The current bundle has 61 packs / 6,017 questions.
 
 ## Automated checks
 
@@ -8,9 +8,9 @@ Latest automated verification: **2026-10-29**, Node 22.23.1, pnpm 11.10.0, works
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | `pnpm test`: **58 passed, 0 failed** under Node 22.23.1. Includes provisional Flash and 100-question Standard Exam integration tests, exact candidate filtering and preserved unverified status. |
-| Real pack validation/index | [x] Pass | All 61 bundled JSON packs validate with 0 errors; `pnpm packs:index` indexes 61 packs (6,004 total questions). 4,048 warnings remain, primarily expected unverified-key/duplicate-option warnings for the legacy RU candidate packs plus source-transcription warnings in the newly imported PDF bank. |
-| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. New RU-V test: 1,815 questions across 15 packs, 1,720 mapped answer keys, 95 unknown keys, unique source IDs/provenance, idempotent re-import, and Standard Exam entry from the distinct institution. Legacy RU verified-eligible pool: 0; separate provisional pool: 3,991; 18 items with duplicate normalized option text excluded from that pool. |
+| Automated tests | [x] Pass | `pnpm test`: **62 passed, 0 failed** under Node 22.23.1. Includes verified `no_correct_option` and `multiple_choice` source-answer semantics plus RU-V replacement coverage proving stale active appearances are removed while bookmarks, session questions and answers remain. |
+| Real pack validation/index | [x] Pass | All 61 bundled JSON packs validate with **0 errors / 4,052 warnings**; index contains 6,017 questions. Warnings are expected legacy RU candidate warnings plus repeated extracted option text in 30 verified RU-V source records; see the external `IDENTICAL_OPTION_TEXT_AUDIT.csv`. |
+| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. New RU-V test: 1,828 questions across 15 packs, all content and answer states verified, 0 unknown keys, 22 explicit no-correct-option records, 6 verified multiple-choice records, unique IDs/provenance, recovered page-137 Q4/B marker, idempotent re-import and 100-question Standard Exam entry. Existing single-choice pool: 1,800. Separate replacement test proves only target-paper appearances are removed while bookmarks and prior session answers survive. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
@@ -33,7 +33,7 @@ These areas have automated coverage in the passing test suite:
 - [x] User answers, bookmarks and attempts survive content updates/re-imports.
 - [x] Database migrations are idempotent and failure paths retain the prior version.
 - [x] Validate and import the two supplied real-source packs through the SQLite importer; check total counts, subject counts, Bangla Unicode, source/page/question-number field ranges, answer-key status and idempotent re-import in automated tests.
-- [ ] Perform a human line-by-line transcription check of every question and option against the scan before release; diagram-based items currently use text descriptions/labels.
+- [x] Source/question content was confirmed as verified by the user; this replacement task intentionally did not repeat a question-by-question fact check. Automated structure checks require four non-empty options, a mapped explicit answer disposition, subject metadata, unique IDs, and source page/question provenance. Thirty source questions with repeated option text are separately listed for reference in `IDENTICAL_OPTION_TEXT_AUDIT.csv`; source text was not silently edited.
 
 ## Offline and persistence checks — manual device work still required
 
@@ -147,10 +147,11 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [ ] Source-paper transcription and all answer-key verification remain outstanding. No official RU scoring rule or final verified status is claimed; APK/AAB release remains outstanding.
 
 
-## Separate RU verified-source import — 2026-10-29
+## RU verified-source bank — final rebuild/replacement (2026-10-30; supersedes 2026-10-29 initial import)
 
-- [x] Generated and imported 15 schema-v1 RU-V packs / 1,815 questions with per-question PDF page, printed question number, source SHA-256 and paper/set metadata.
-- [x] All 15 new packs pass the question-pack validator with zero schema errors; the generated index contains 61 packs / 6,004 total question records.
-- [x] Focused integration tests pass for separate institution IDs, old-section `UNVERIFIED —` label, new pack provenance, answer-state counts, idempotent import and a 100-question Standard Exam in the new bank.
-- [x] The 1,720 mapped answer keys are `verified`; 95 answer states remain `unknown` because a source key could not be mapped without inference. 118 incomplete/non-choice extraction blocks are listed outside the app bundle in the source workspace's `EXCLUDED_NON_MCQ.csv`.
-- [x] Full automated checks after this import pass: `pnpm test` 58/58, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators and Android `expo export --no-bytecode` (1,896 modules / 12 MB) passed. Physical Android QA and a native release build remain outstanding.
+- [x] Replaced the initial 15-pack / 1,815-question RU-V import with 15 rebuilt schema-v1 packs / **1,828 verified source records**, preserving source PDF hash, session/unit/set, PDF page and printed question number.
+- [x] All 1,828 RU-V records have `contentVerificationStatus: verified` and `answerVerificationStatus: verified`; no RU-V question remains `unknown` or `unverified`. This follows the user's confirmation that source questions are verified; no second question-by-question fact-check was performed.
+- [x] Answer markers are preserved by meaning: 1,800 single-choice questions are eligible for the current Flash/Standard pool, 22 `X` markers are represented as verified `no_correct_option`, and 6 multi-letter source keys are represented as verified `multiple_choice`.
+- [x] Final index: 61 packs / **6,017 total questions** (180 DU + 4,009 separate RU C candidates + 1,828 RU-V). The older RU C candidate bank and both DU packs remain unchanged.
+- [x] Exclusion manifest contains 154 written/incomplete extraction records; 30 source questions with identical option text are separately listed in the external warning audit. Page 137's false white-text-shadow banner was fixed and Q4's printed B marker restored.
+- [x] Final automated verification: `pnpm test` 62/62, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators (0 schema errors), and Android `expo export --platform android --no-bytecode` (1,896 modules / 12 MB / 122 assets) passed. Physical Android QA and a native release build remain outstanding.

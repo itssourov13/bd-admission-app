@@ -37,6 +37,9 @@ export function validateQuestionPack(pack) {
   if (!isObject(pack)) return { valid: false, errors: ["The root must be a JSON object."], warnings };
 
   if (pack.schemaVersion !== 1) errors.push("schemaVersion must be 1.");
+  if (pack.replaceExistingPaperContent != null && typeof pack.replaceExistingPaperContent !== "boolean") {
+    errors.push("replaceExistingPaperContent must be a boolean when supplied.");
+  }
   if (!isObject(pack.batch)) errors.push("batch must be an object.");
   else {
     if (!nonEmpty(pack.batch.id)) errors.push("batch.id is required.");
@@ -186,6 +189,9 @@ export function validateQuestionPack(pack) {
       if (question.source.pageNumber != null && !positiveInteger(question.source.pageNumber)) errors.push(at + ".source.pageNumber must be positive when supplied.");
       if (question.source.questionNumber != null && !positiveInteger(question.source.questionNumber)) errors.push(at + ".source.questionNumber must be positive when supplied.");
     }
+    if (question.answerDisposition != null && question.answerDisposition !== "no_correct_option") {
+      errors.push(at + ".answerDisposition must be no_correct_option when supplied.");
+    }
     if (question.correctOptionIds != null && !Array.isArray(question.correctOptionIds)) {
       errors.push(at + ".correctOptionIds must be an array or null.");
     } else if (Array.isArray(question.correctOptionIds)) {
@@ -194,9 +200,18 @@ export function validateQuestionPack(pack) {
       }
       if (new Set(question.correctOptionIds).size !== question.correctOptionIds.length) errors.push(at + " contains duplicate correct option IDs.");
     }
-    if (question.answerVerificationStatus === "verified" &&
+    if (question.answerDisposition === "no_correct_option") {
+      if (question.answerVerificationStatus !== "verified" || question.type !== "single_choice" ||
+          !Array.isArray(question.correctOptionIds) || question.correctOptionIds.length !== 0) {
+        errors.push(at + " no_correct_option requires a verified single-choice answer with an explicit empty correctOptionIds array.");
+      }
+    } else if (question.answerVerificationStatus === "verified" &&
         (!Array.isArray(question.correctOptionIds) || question.correctOptionIds.length === 0)) {
-      errors.push(at + " cannot have a verified answer without at least one correct option.");
+      errors.push(at + " cannot have a verified answer without at least one correct option unless answerDisposition is no_correct_option.");
+    }
+    if (question.type === "multiple_choice" && question.answerVerificationStatus === "verified" &&
+        Array.isArray(question.correctOptionIds) && question.correctOptionIds.length < 2) {
+      errors.push(at + " is multiple_choice but does not list at least two correct options.");
     }
     if (question.type === "single_choice" && Array.isArray(question.correctOptionIds) && question.correctOptionIds.length > 1) {
       errors.push(at + " is single_choice but lists multiple correct options.");

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-30 — Corrected RU verified-source pack structure and answer dispositions
+
+- Completed the 156-page OCR and rebuilt the 15 RU-V packs from the user-confirmed source. The source was not re-verified question-by-question; all imported source question content and explicit answer states are marked verified as instructed.
+- Increased the RU-V import from the intermediate 1,799 single-choice-only build to **1,828 verified source records** by preserving 22 explicit `X` markers as `answerDisposition: no_correct_option` and 6 complete multi-letter keys as `multiple_choice`. These are not coerced into the single-choice practice engine. The engine's RU-V single-choice eligible pool remains **1,800**.
+- Final RU-V subject distribution: Physics 383, Higher Mathematics 512, Chemistry 365, Biology 502, ICT 54 and English 12. Existing source paper/set IDs and provenance remain. Old question IDs are reused only when source locators are unique.
+- Final exclusion ledger: **154** records (36 written-part, 90 incomplete option sets, 26 missing extracted option text and 2 missing answer markers). Thirty included records with repeated extracted option text are in the separate warning audit; no source text or answer was silently rewritten.
+- Final bundle: **61 packs / 6,017 questions** (180 DU + 4,009 separate RU C candidates + 1,828 RU-V verified-source questions). The older RU C candidate bank and both DU packs remain unchanged.
+- Verified `replaceExistingPaperContent` semantics and active-catalogue filtering: replacement only removes appearances for the 15 target RU-V paper IDs; question rows and FK-backed bookmarks/session history remain. Historical orphan rows no longer leak into active catalogue/practice queries.
+- Latest automated tests: **62/62 pass** under Node 22.23.1. The full final verification record is in `docs/QA_CHECKLIST.md`. Physical Android QA and native APK/AAB build remain release gates. No push performed.
+
 ## 2026-10-29 — Import separate RU verified-source bank
 - Added 15 schema-v1 packs (1,815 MCQs) from the user-supplied 156-page `RU Question Bank.pdf`, preserving source PDF SHA-256, session/unit/set, PDF page and printed question number. The pack source and extraction report remain external to the mobile bundle.
 - Per instruction, imported question content as verified without a separate question fact-check. 1,720 question keys were mapped from explicit answer markers; 95 keys remain `unknown` where markers were absent or unreliable. No key or official RU scoring rule was invented. Another 118 incomplete/non-choice blocks are logged externally instead of being forced into the MCQ schema.
@@ -121,3 +131,14 @@
 - Regenerated the pack index to 46 packs total (44 RU C + 2 DU A); added an integration test proving idempotent import, asset paths, preserved verification states and zero RU scoring eligibility.
 - Verification: 55 tests passed, typecheck and lint passed, all 46 JSON pack files validate with 0 errors (4,023 expected warnings), Android no-bytecode export passed; 166/166 protected external source/candidate/asset/PDF inputs remained hash-identical.
 - Content/answer verification, Android visual QA, and native APK/AAB build remain outstanding. No push performed.
+
+
+## 2026-10-30 — Rebuild and replace RU verified-source question bank
+
+- Completed OCR for all 156 source PDF pages and rebuilt the RU-V extraction into 15 packs covering the same source paper/set identities.
+- Replaced the prior 15-pack / 1,815-question RU-V app import with **1,799 MCQs**. Every included question is marked `contentVerificationStatus: verified` and `answerVerificationStatus: verified`, with four extracted non-empty options and one explicit source A/B/C/D answer marker. Subjects are assigned across Physics, Higher Mathematics, Chemistry, Biology, ICT and English.
+- Kept the independent RU C Unit candidate bank (4,009 questions) and both DU packs unchanged. Bundle index remains 61 pack files and now contains **5,988 question records**.
+- Added explicit exclusion reporting for 183 source records that cannot be represented as complete single-choice questions from the extraction: written-part, incomplete/missing option text, X, multiple-letter and missing-answer cases. Thirty imported questions with repeated extracted option text are called out in a separate review audit; their source data/status is not silently rewritten.
+- Added transactional `replaceExistingPaperContent` support. It clears only current appearances for the target RU-V papers, preserving old question rows and FK-backed bookmarks/session history. Active browsing and practice queries now require a current paper appearance, so preserved historical orphan records cannot leak back into global practice pools.
+- Added integration coverage for replacement, stale-question pool exclusion, bookmark/session/answer preservation and verified import status. Verification: 60 tests, typecheck, lint and 61-pack schema validation passed under Node 22.23.1 (0 errors; 4,052 warnings, primarily existing candidate-pack warnings plus repeated source option-text warnings).
+- Updated schema, import workflow, README, current-state, task-state and QA documentation. Physical Android QA and a native APK/AAB release build remain outstanding. No push performed.
