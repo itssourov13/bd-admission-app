@@ -40,6 +40,18 @@ Palette anchors:
 
 Assets are stored locally and do not require remote images during rendering.
 
+## README preview showcase
+
+The README uses three branded portrait composites in `docs/assets/showcase/`. Each is **1080×1920 (9:16), JPEG** and uses a real runtime screen capture as the foreground, with generated abstract artwork, restrained Bangla headlines and a light floating-surface treatment. No device mockup or fabricated app UI is used.
+
+| File | Runtime screen | Alt-text intent |
+|---|---|---|
+| `docs/assets/showcase/01-home.jpg` | Home | Home entry points for Varsity, Medical, Flash Question and Standard Exam |
+| `docs/assets/showcase/02-varsity.jpg` | Varsity catalogue | University question-bank catalogue and its verification labels |
+| `docs/assets/showcase/03-profile.jpg` | Profile | Language and practice preferences, progress, bookmarks and history |
+
+The sample account display name is replaced with `Learner` before publishing. Profile counters visible in the captured image are local example data, not product-wide usage claims. These files are README showcase artwork only; they are not a finalized Play Console listing pack. Google's current guidance highly recommends at least four 1080px-or-higher screenshots for app recommendation surfaces, so capture another genuine runtime screen before preparing store-specific screenshots. See [Google Play preview-asset guidance](https://support.google.com/googleplay/android-developer/answer/9866151).
+
 ## Naming and future changes
 
 The name remains provisional. When the owner chooses the final name, update brand.config.json, then re-check the Expo config, app label, documentation and store assets. The icon mark contains no embedded text, so it can remain unless the visual direction changes.
@@ -51,7 +63,7 @@ Changing applicationId after a native build changes the app identity; generate a
 - [x] Central brand config resolves through expo config.
 - [x] Expo Doctor passed 21/21 checks during the 2026-10-28 verification pass.
 - [x] The Android JavaScript bundle exported successfully with --no-bytecode.
-- [ ] Launcher icon and splash rendering have not yet been visually checked in an installed native build.
-- [ ] Physical-device appearance, status-bar contrast, safe areas and long Bangla text remain unverified.
+- [ ] Launcher icon and splash appearance have not been separately recorded as a focused visual QA result.
+- [x] Owner-reported physical-device installation and smoke verification completed for the preview APK. Detailed per-control visual measurements were not separately recorded.
 - [ ] Product display name remains provisional.
-- [ ] Production store assets/screenshots have not been finalized.
+- [ ] Final Play Console listing assets/screenshots have not been finalized; the three README showcase composites are not a complete store listing pack.

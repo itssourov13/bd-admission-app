@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated verification: **2026-10-30**, Node 22.23.1, pnpm 11.10.0, workspace /home/kali/gpt-workspace/bd-admission-app. The RU verified-source bank was rebuilt and replaced; the full suite now includes 62 tests. Physical Android QA and native release build remain outstanding. The current bundle has 61 packs / 6,017 questions.
+Latest automated test baseline: **2026-10-30**, Node 22.23.1, pnpm 11.10.0; the full suite includes 62 tests. Release/device status updated **2026-10-31**: the EAS preview APK was published as GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and the owner reports successful physical-device installation and smoke verification. The current bundle has 61 packs / 6,017 questions. Production AAB and Play Store rollout remain outstanding.
 
 ## Automated checks
 
@@ -16,10 +16,11 @@ Latest automated verification: **2026-10-30**, Node 22.23.1, pnpm 11.10.0, works
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
 | Android JS bundle without bytecode | [x] Pass | `pnpm exec expo export --platform android --no-bytecode` passed with 1,896 modules, a 12 MB JS bundle and 122 assets, including all 45 legacy RU question figures. This export was repeated after the new RU-V pack import. This is not an APK/AAB build. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
-| Installable APK/AAB and native launcher/splash | [ ] Not run | No successful release artifact verified in this pass. |
-| Physical device or emulator QA | [ ] Not run | No device run has been performed. First resolve the observed Expo Go SDK mismatch by installing the matching SDK 57 Android Go build from [expo.dev/go](https://expo.dev/go), or use a dedicated development build. |
+| Installable Android preview APK | [x] Pass | EAS build `d5e516cd-eefe-44f4-866d-b440ef188da9`; published as [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk) under GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1). SHA-256: `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`. |
+| Physical Android device smoke QA | [x] Owner-reported pass | The owner installed and checked the APK on a physical Android phone and reported normal operation. First load was about one minute; subsequent opens were about 2–3 seconds. Detailed individual checklist steps were not separately logged. |
+| Production AAB / Google Play | [ ] Not run | A production AAB, Play Console listing and production rollout have not been completed. |
 
-The no-bytecode export validates JavaScript bundling only. It does **not** prove a native build, APK/AAB installation, or on-device behavior.
+The no-bytecode export validates JavaScript bundling only. It does **not**, by itself, prove a native build or on-device behavior; the EAS APK and owner-reported phone verification are recorded separately above.
 
 ## Data integrity
 
@@ -35,7 +36,9 @@ These areas have automated coverage in the passing test suite:
 - [x] Validate and import the two supplied real-source packs through the SQLite importer; check total counts, subject counts, Bangla Unicode, source/page/question-number field ranges, answer-key status and idempotent re-import in automated tests.
 - [x] Source/question content was confirmed as verified by the user; this replacement task intentionally did not repeat a question-by-question fact check. Automated structure checks require four non-empty options, a mapped explicit answer disposition, subject metadata, unique IDs, and source page/question provenance. Thirty source questions with repeated option text are separately listed for reference in `IDENTICAL_OPTION_TEXT_AUDIT.csv`; source text was not silently edited.
 
-## Offline and persistence checks — manual device work still required
+## Offline and persistence checks — detailed steps not individually recorded
+
+The owner has reported a successful physical-device preview APK smoke test. The individual checks below are retained as a detailed QA record and are not marked complete because separate step-by-step results were not provided.
 
 - [ ] Launch and navigate in airplane mode after database initialization.
 - [ ] Browse locally imported institution, paper and question metadata.
@@ -61,7 +64,9 @@ These rules have passing automated service tests; device-level interaction is st
 - [x] Illustrative/unconfigured rules are not represented as verified official rules.
 - [ ] Confirm the complete behavior on a real Android device with a real verified question pack and rule set.
 
-## UI and device checklist — outstanding
+## Detailed UI and device checklist — not individually recorded
+
+The broad preview APK installation/smoke verification is owner-confirmed. The individual layout, touch-target and navigation checks below remain unmarked because their separate outcomes were not logged.
 
 - [ ] Long Bangla question text, formulas and multi-line options fit without clipping.
 - [ ] Small-screen options and controls have usable touch targets.
@@ -72,9 +77,9 @@ These rules have passing automated service tests; device-level interaction is st
 - [ ] Branding, launcher icon and splash are visually confirmed in a native build.
 - [ ] Check accessibility labels and screen-reader focus for key controls.
 
-## Release gate
+## Google Play production release gate
 
-Do not describe the app as release-ready until a compatible Android build is installed and exercised, actual question packs are reviewed/imported, verified marking rules are configured where applicable, and the outstanding device checks above are recorded.
+The GitHub Android preview has been built, published and owner-verified on a physical device. Do not describe the app as a Google Play production release until a production AAB is built/inspected, the Play Console listing and required privacy/data-safety details are complete, and the account-specific testing/review requirements are satisfied. The source-bank caveats and illustrative exam-rule boundaries elsewhere in this checklist still apply.
 
 ## External RU Unit A staging validation — 2026-10-29
 
@@ -154,17 +159,19 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [x] Answer markers are preserved by meaning: 1,800 single-choice questions are eligible for the current Flash/Standard pool, 22 `X` markers are represented as verified `no_correct_option`, and 6 multi-letter source keys are represented as verified `multiple_choice`.
 - [x] Final index: 61 packs / **6,017 total questions** (180 DU + 4,009 separate RU C candidates + 1,828 RU-V). The older RU C candidate bank and both DU packs remain unchanged.
 - [x] Exclusion manifest contains 154 written/incomplete extraction records; 30 source questions with identical option text are separately listed in the external warning audit. Page 137's false white-text-shadow banner was fixed and Q4's printed B marker restored.
-- [x] Final automated verification: `pnpm test` 62/62, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators (0 schema errors), and Android `expo export --platform android --no-bytecode` (1,896 modules / 12 MB / 122 assets) passed. Physical Android QA and a native release build remain outstanding.
+- [x] Final automated verification at the 2026-10-30 import checkpoint: `pnpm test` 62/62, `pnpm typecheck`, `pnpm lint`, `git diff --check`, all 61 pack validators (0 schema errors), and Android `expo export --platform android --no-bytecode` (1,896 modules / 12 MB / 122 assets) passed.
+- [x] Follow-up Android delivery: EAS preview APK built and published under GitHub pre-release `v0.1.0-preview.1`; the owner confirmed installation and successful physical-device smoke verification (see the release summary at the top of this file).
+- [ ] Production AAB and Google Play submission remain outstanding.
 
 
 ## CI and native release pipeline setup — 2026-10-31
 
 | Check | Result | Notes |
 |---|---|---|
-| GitHub Actions workflow file | [x] Configured locally | .github/workflows/ci.yml covers main push, PR-to-main and manual dispatch. No GitHub workflow run is claimed until this branch is pushed/opened as a PR. |
-| EAS project link | [x] Pass | Project @sk_king13/bd-admission-app, ID 16ba69b8-96d7-4856-a197-77acddebe1ec; eas project:info succeeded. |
+| GitHub Actions workflow file | [x] Merged and run | PR #2 merged; PR workflow [41109514896](https://github.com/itssourov13/bd-admission-app/actions/runs/41109514896) and `main` push workflow [41109555081](https://github.com/itssourov13/bd-admission-app/actions/runs/41109555081) both succeeded. |
+| EAS project link | [x] Pass | Project @sk_king13/bd-admission-app, ID 16ba69b8-96d7-4856-a197-77acddebe1ec; EAS project metadata was checked during setup. |
 | Resolved Expo config | [x] Pass | Public config resolves app owner, slug, Android package com.admissionbd.app, version 0.1.0 and EAS project ID. |
-| EAS build profiles | [x] Configured | preview is internal APK; production is AAB with version auto-increment. |
-| EAS preview APK build | [x] Queued / in progress | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; EAS currently reports `IN_PROGRESS`. Download is not available until the native build completes successfully. |
-| Android installation/device QA | [ ] Not run | Awaiting successful APK and user-side physical-phone testing. |
-| Production AAB / Play Store / GitHub Release | [ ] Not run | Wait until preview and device QA gates pass; see docs/ANDROID_RELEASE.md. |
+| EAS build profiles | [x] Configured | `preview` is internal APK; `production` is AAB with version auto-increment. |
+| EAS preview APK build | [x] Completed and published | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; APK is attached to GitHub pre-release `v0.1.0-preview.1`. |
+| Android installation/device QA | [x] Owner-reported pass | APK installed and checked on a physical Android device; see owner-reported scope above. |
+| Production AAB / Play Store | [ ] Not run | Production AAB, Play Console listing and rollout remain outstanding; see docs/ANDROID_RELEASE.md. |

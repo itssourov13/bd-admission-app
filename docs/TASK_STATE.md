@@ -1,13 +1,32 @@
 # Task state
 
+## Android preview release and documentation sync — 2026-10-31
+
+- [x] Merged GitHub PR #2; merge commit `3aa125d4e12cdca1702f976f20c1f60a765923d1`.
+- [x] Confirmed GitHub Actions CI success for PR run [41109514896](https://github.com/itssourov13/bd-admission-app/actions/runs/41109514896) and `main` push run [41109555081](https://github.com/itssourov13/bd-admission-app/actions/runs/41109555081).
+- [x] Built the EAS preview APK (build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`) and published public GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) with `BD.Admission.v0.1.0.apk`.
+- [x] Owner-confirmed physical Android installation and device verification. Initial first load was about one minute; subsequent opens were about 2–3 seconds.
+- [x] Audited and aligned README, current state, release guide, QA checklist, task state, handoff, branding and changelog with the live repository/release.
+- [ ] Build and inspect the production AAB; prepare Play Console listing, required assets, privacy/data-safety declarations and production rollout.
+
+## README Play Store-style showcase — 2026-10-31
+
+- [x] Created three 1080×1920 (9:16) portrait JPEG graphics from the supplied runtime captures: Home, Varsity catalogue and Profile.
+- [x] Added generated brand-themed background artwork and restrained Bangla headlines while keeping the app UI as the original captured pixels.
+- [x] Replaced personal display-name text with a generic `Learner` label and integrated the assets into the root README.
+- [x] Documented file paths, screen descriptions, sample-profile caveat and Play Console follow-up in `docs/BRANDING.md`.
+- [x] Verified all three README paths and 1080×1920 RGB JPEG dimensions; 62/62 tests, TypeScript typecheck and Expo lint pass.
+- [ ] Capture one more genuine runtime screen before assembling a complete high-resolution Google Play screenshot set; the current three assets are README showcase graphics only.
+
 ## Android build and CI setup — 2026-10-31
 - [x] Added a GitHub Actions CI workflow for `main` pushes, PRs targeting `main`, and manual dispatch. CI runs frozen install, tests, typecheck, lint, Expo config validation and Android no-bytecode bundle export.
 - [x] Authenticated EAS CLI session verified as `sk_king13`; created/linked EAS project `@sk_king13/bd-admission-app` with ID `16ba69b8-96d7-4856-a197-77acddebe1ec`.
 - [x] Added `owner` and `extra.eas.projectId` to the dynamic Expo config; resolved Expo config and EAS project metadata checked successfully.
 - [x] Added `eas.json` with internal preview APK and production AAB profiles; documented the repeatable release flow in `docs/ANDROID_RELEASE.md` and README.
-- [ ] Push/open PR to run GitHub Actions CI; no workflow run is claimed before that.
-- [ ] Complete the first EAS preview APK cloud build, install it on a physical Android phone and record device QA.
-- [ ] After device QA and store assets/privacy requirements, create and inspect a production AAB; Google Play and GitHub release publication remain pending.
+- [x] Merged the CI/EAS configuration PR and confirmed the PR and `main` GitHub Actions runs succeeded.
+- [x] Completed the EAS preview APK build and published the APK as the GitHub pre-release `v0.1.0-preview.1`.
+- [x] Completed owner-reported physical-device installation and verification of the preview APK.
+- [ ] Create and inspect a production AAB; Google Play listing, assets/privacy requirements and production rollout remain pending.
 
 ## Done
 - [x] Independent project, branding, i18n, tab shell (earlier passes).
@@ -26,9 +45,8 @@
 ## Remaining (release follow-through)
 - [x] Initial two real DU A Unit packs imported from the supplied 2024–2025 and 2025–2026 PDF scans; 90 questions per session, six subject banks per session, printed answer-key states retained. See docs/QUESTION_IMPORT_WORKFLOW.md.
 - [x] Paper-specific exam-pattern runtime implemented: selected paper rules control question count, duration and optional subject selection. DU A Unit source-bank practice uses four complete 15-question sections; its pattern remains illustrative because the official 2025–2026 notice describes an MCQ + written test, not the scan’s MCQ-only mock.
-- [x] Add database migration and pack schema support for optional section-selection configuration; preserve a 100-question/60-minute fallback for scopes without a selected paper pattern.
-- [ ] Android on-device QA (docs/QA_CHECKLIST.md "UI/device checks").
-- [ ] Release Android build (the local hermesc binary crashes with SIGILL on this machine, see QA_CHECKLIST.md).
+- [x] Added database migration and pack schema support for optional section-selection configuration; preserved a 100-question/60-minute fallback for scopes without a selected paper pattern.
+- [x] Android preview APK built, published and owner-verified on a physical device; the local hermesc SIGILL is only a limitation of the local host build path, not the EAS cloud release.
 - [ ] Final app name, store assets, optional Engineering content.
 
 ## RU Unit A question intake (research-only checkpoint, 2026-10-29)
@@ -113,7 +131,7 @@
 - [x] Rebuilt src/content/bundledPacks.ts: 61 packs / 5,988 questions total (180 DU + 4,009 RU C candidates + 1,799 RU-V verified-source questions).
 - [x] Verification under Node 22.23.1: pnpm test 60/60, pnpm typecheck passed, pnpm lint passed, pnpm packs:index bundled 61 packs, all 61 packs validate with 0 errors / 4,052 warnings.
 - [x] Added external build/reconciliation/exclusion/warning reports and updated schema, import workflow, README and QA documentation.
-- [ ] Physical Android/Expo Go QA and a native APK/AAB release build remain open; the known Hermes SIGILL on this ARM/NetHunter host remains a build-host blocker.
+- [ ] This 2026-10-30 question-bank rebuild checkpoint still had detailed figure/long-text device review open; the 2026-10-31 Android preview build and owner smoke test were completed later (see the release summary at the top of this file). The local Hermes SIGILL remains a host-specific limitation of the local bytecode-export path.
 - Push is intentionally not performed. Local commit is pending final verification.
 
 
@@ -128,11 +146,12 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [x] Final bundle: 61 packs / **6,017 questions** (180 DU + 4,009 original RU C candidates + 1,828 RU-V). The original RU C candidate bank and DU packs remain unchanged.
 - [x] Final full test suite: **62/62 passed** under Node 22.23.1, including no-correct-option/multiple-choice validator tests, the recovered page-137 Q4/B regression, and replacement/history preservation tests.
 - [x] Re-ran typecheck, lint, diff-check and validation across all 61 packs after the final code changes; Android no-bytecode JS export also passed (1,896 modules / 12 MB / 122 assets). Full suite: 62/62. Final diff review and local commit completed separately; do not push.
-- [ ] Physical Android QA and an APK/AAB build on a compatible host remain separate release gates.
+- [ ] Detailed RU C figure, long-Bangla/formula and individual practice-flow checks remain separate follow-up QA items; the standalone preview APK build and owner-reported device smoke test were completed on 2026-10-31.
 
 
-## Android release follow-through — open gates
-- [x] Triggered EAS preview cloud build; build ID `d5e516cd-eefe-44f4-866d-b440ef188da9` is `IN_PROGRESS`. The APK artifact/download link is not available yet.
-- [ ] Download/install the APK from the Expo Builds dashboard and complete the real-device checklist in docs/QA_CHECKLIST.md.
-- [ ] Push/open a PR from chore/ci-eas-android-build-2026-10-31 so GitHub Actions runs; fix any CI-specific failures and record the run URL/result.
-- [ ] Only after device QA, create the production AAB, inspect it and prepare the Google Play listing/privacy/testing requirements. Public store and GitHub binary releases remain pending.
+## Android preview release — completion record
+- [x] EAS preview cloud build completed; build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`.
+- [x] APK uploaded to GitHub pre-release `v0.1.0-preview.1` as `BD.Admission.v0.1.0.apk`; asset checksum and size are recorded in `docs/ANDROID_RELEASE.md`.
+- [x] Owner installed and verified the APK on a physical Android device; first load about one minute, subsequent opens about 2–3 seconds.
+- [x] PR #2 merged and both PR CI and `main` push CI runs succeeded.
+- [ ] Build/inspect the production AAB and complete the Google Play listing, privacy/testing requirements and rollout.

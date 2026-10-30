@@ -2,13 +2,25 @@
 
 A Bangladesh-focused, offline-first Android admission-preparation app for university (Varsity) and Medical admission questions. The app supports Bangla and English, question browsing, Flash Question practice, Standard Exam sessions, bookmarks, a local profile, and practice history. Engineering is visible as Coming Soon.
 
+## App preview
+
+<p align="center">
+  <img src="docs/assets/showcase/01-home.jpg" alt="BD Admission home screen with Varsity, Medical, Flash Question and Standard Exam entry points" width="32%" />
+  <img src="docs/assets/showcase/02-varsity.jpg" alt="Varsity catalogue with university question-bank entries and verification labels" width="32%" />
+  <img src="docs/assets/showcase/03-profile.jpg" alt="Profile screen with language, practice preferences, progress, bookmarks and history" width="32%" />
+</p>
+
+<p align="center"><sub>Play Store-inspired README artwork built around actual runtime captures; this three-screen set is not a final Play Console asset pack. The profile display name is anonymized, and visible counters are sample local data rather than product-wide usage metrics.</sub></p>
+
 ## Current implementation status
 
 The core app implementation is wired across the Expo Router screens, SQLite database lifecycle, repositories, practice services, question-pack importer, and local user data. Automated checks pass as recorded in docs/QA_CHECKLIST.md.
 
-This is **not yet a release sign-off**. Two DU A Unit packs are now bundled from the supplied scanned question-bank PDFs: 90 questions per session for 2024–2025 and 2025–2026, across six subject sections. The supplied answer-key letters are preserved; three questions without a printed key remain unanswered/unknown rather than guessed. The supplied publisher scan is a question-bank source, not an official DU past-paper notice. The official DU 2025–2026 notice describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each part ([official notice](https://www.du.ac.bd/du_post_details/news/25400)); its complete format differs from the scan’s four-of-six-subject MCQ-only practice pattern. That rule therefore remains **illustrative** and the app labels the selected-paper mode as question-bank practice, not a full official DU exam. Question-level local PNG figures are supported by the runtime; their sizing/readability still need physical-device QA. Two items are content-unverified and excluded from scored practice: one figure-only physics item and one mathematics formula whose scanned expression is unclear.
+**Android preview released:** BD Admission `0.1.0` is available as the public GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1), published on **31 October 2026 (Bangladesh time)**. Download [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk). The APK was installed and checked on a physical Android device; the owner reported normal operation. This is an Android preview/pre-release, **not** a Google Play production release.
 
-The app has not yet been validated on a physical Android device or emulator, and a normal Hermes bytecode export crashes on this ARM/NetHunter host. The successful no-bytecode export is a JavaScript bundle check, not an APK/AAB build. The EAS project is linked and preview-APK/production-AAB profiles are configured. The first EAS preview APK cloud build is now in progress; physical-device QA is still pending. GitHub Actions CI is configured in `.github/workflows/ci.yml`; it will run after the branch is pushed/opened as a PR.
+Two DU A Unit packs are bundled from the supplied scanned question-bank PDFs: 90 questions per session for 2024–2025 and 2025–2026, across six subject sections. The supplied answer-key letters are preserved; three questions without a printed key remain unanswered/unknown rather than guessed. The supplied publisher scan is a question-bank source, not an official DU past-paper notice. The official DU 2025–2026 notice describes 60 marks of MCQ plus 40 marks of written questions, with 45 minutes for each part ([official notice](https://www.du.ac.bd/du_post_details/news/25400)); its complete format differs from the scan’s four-of-six-subject MCQ-only practice pattern. That rule therefore remains **illustrative** and the app labels the selected-paper mode as question-bank practice, not a full official DU exam. Question-level local PNG figures are supported by the runtime. Two items are content-unverified and excluded from scored practice: one figure-only physics item and one mathematics formula whose scanned expression is unclear.
+
+The first EAS preview APK build completed and was published as the GitHub pre-release above. The owner has confirmed physical-device installation and verification. GitHub PR #2 was merged and both the pull-request CI run and the resulting `main` push CI run succeeded. The standard local Hermes bytecode export still raises SIGILL on this ARM/NetHunter host; this host-specific issue did not block the EAS cloud APK build. A production AAB, Play Console listing and production rollout remain outstanding.
 
 ## RU question bank sections — separate by source/status
 
@@ -19,7 +31,7 @@ The Varsity catalogue keeps two separate Rajshahi University entries:
 
 The RU Question Bank PDF has 156 pages and SHA-256 `f1fc25faef0bba80d4495002f3006ac4ca1a7ce9da5c26e6a1f7db45218a49c7`. The user confirmed this source/question content as verified; the replacement task repaired extraction structure and imported the source, without repeating question-by-question fact checking. A total of **154** source records remain in the external exclusion ledger: 36 written-part items, 90 with incomplete option count/labels, 26 with missing extracted option text and 2 without an extracted answer marker. The 22 `X` and 6 complete multiple-answer records are included rather than discarded. A white Sutonny text-shadow on page 137 was filtered as a false banner and the printed B answer for Mathematics Q4 was recovered. No answer or option text was fabricated. Thirty included questions with repeated extracted option text are listed in the separate external warning audit. Pack/source/exclusion/reconciliation artifacts are outside the repo under `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/`.
 
-The bundle contains **61 JSON packs / 6,017 questions**: 180 DU A Unit, 4,009 RU C candidates, and 1,828 RU-V verified-source questions. Within RU-V, 1,800 single-choice questions are eligible for the existing Flash/Standard practice pool; the 22 no-correct-option and 6 multiple-choice records remain verified/browsable but are not fed into the single-choice engine. The previous RU-V JSON files are backed up outside the repo. New pack imports replace only active appearances for their own RU-V paper IDs; old question rows and FK-backed bookmarks/session/answer history remain. No official RU paper-specific scoring/time pattern was inferred; general Standard Exam retains the 100-question/60-minute fallback. Device QA and a native release build are still pending.
+The bundle contains **61 JSON packs / 6,017 questions**: 180 DU A Unit, 4,009 RU C candidates, and 1,828 RU-V verified-source questions. Within RU-V, 1,800 single-choice questions are eligible for the existing Flash/Standard practice pool; the 22 no-correct-option and 6 multiple-choice records remain verified/browsable but are not fed into the single-choice engine. The previous RU-V JSON files are backed up outside the repo. New pack imports replace only active appearances for their own RU-V paper IDs; old question rows and FK-backed bookmarks/session/answer history remain. No official RU paper-specific scoring/time pattern was inferred; general Standard Exam retains the 100-question/60-minute fallback. Owner-reported physical-device verification of the preview APK is complete; the production AAB and Google Play rollout remain pending.
 
 ## Main features
 
@@ -75,7 +87,7 @@ Validate the JavaScript bundle without Hermes bytecode generation:
 
     pnpm exec expo export --platform android --no-bytecode
 
-The checks last verified for the application pass are recorded in docs/QA_CHECKLIST.md. The standard pnpm export:android command currently fails when hermesc raises SIGILL on this ARM/NetHunter host. The no-bytecode export succeeds and validates Metro bundling, but it does not generate or verify an installable Android release artifact. Release build and physical-device checks remain outstanding.
+The automated checks last verified for the application pass are recorded in docs/QA_CHECKLIST.md. The standard local `pnpm export:android` command still fails when hermesc raises SIGILL on this ARM/NetHunter host. The no-bytecode export validates Metro bundling only; it does not itself generate an APK/AAB. The EAS preview APK was built separately, published in the GitHub pre-release above, and owner-verified on a physical Android device. A production AAB and Google Play release remain outstanding.
 
 ## Question data and import
 
