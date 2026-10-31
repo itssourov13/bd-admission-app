@@ -19,7 +19,7 @@ Fast, readable, offline question practice; accurate source/year metadata; reliab
 
 ## Current bundled university question banks — 2026-11-01
 
-The Varsity catalogue now includes separate `JU` (Jahangirnagar University: 50 packs / 1,526 questions) and `HSTU` (Hajee Mohammad Danesh Science and Technology University: 7 packs / 293 questions) institutions. JU covers a 2010–2011 to 2024–2025 session span; HSTU currently has only 2016–2017, 2017–2018 and 2024–2025, so its historical collection is incomplete. Muse AI marked the imported archive verified; per-question answer states remain individually verified/unverified/unknown, and only verified single-choice items enter the normal scored-practice pool. Do not infer exam rules from source notes.
+The Varsity catalogue now has four separate JU/HSTU entries: verified `JU` (50 packs / 1,526 questions) and `HSTU` (7 / 293), plus candidate-only `JU-U` (84 / 5,011) and `HSTU-U` (15 / 762). The verified banks and their practice eligibility remain unchanged by the follow-up import. All 5,773 newly added candidates keep `contentVerificationStatus: unverified`; answer states remain 5,563 unverified and 210 unknown. The explicit provisional pools contain 4,780 JU-U and 722 HSTU-U candidates after repeated-option filtering. All 99 rules stay unconfigured. The 3 separate GST_CLUSTER packs / 287 questions were excluded for a later import. Do not infer exam rules from source notes.
 
 ## RU question-data research/staging
 

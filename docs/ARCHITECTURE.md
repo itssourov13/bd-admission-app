@@ -11,6 +11,10 @@ The catalogue distinguishes source collections using separate database instituti
 
 The existing schema-v1 pack contract and transactional importer were reused without runtime changes. Fifty JU packs / 1,526 questions and seven HSTU packs / 293 questions are added as separate institutions (`ju` / `JU` and `hstu` / `HSTU`). All imported question content is marked verified as supplied; per-question answer states are retained and the normal eligible pool continues to require a verified single-choice answer. A source ID shared by 24 JU batch files was made batch-unique and all local references were rewritten. All 57 new paper rules remain `unconfigured`; the app must not infer official timing/scoring from descriptive source notes. The HSTU collection remains historically partial.
 
+## JU-U and HSTU-U candidate-bank separation (2026-11-01)
+
+The later unverified archive is imported into two additional institution identities: `ju-unverified-bank` / `JU-U` and `hstu-unverified-bank` / `HSTU-U`. These are deliberately separate from the earlier verified-source institutions `ju` / `JU` and `hstu` / `HSTU`. The 99 added packs hold 5,011 JU and 762 HSTU candidate questions; every record remains content-unverified, with individual answer states preserved as `unverified` or `unknown`. The existing repository queries surface 4,780 JU-U and 722 HSTU-U candidates through the same provisional filter already used by RU. Forty-two repeated-option records and 19 multiple-choice items remain browseable but are not part of provisional single-choice scoring. All 99 paper rules remain unconfigured. No runtime practice implementation change was necessary. The separate 3-pack/287-question GST_CLUSTER collection was intentionally excluded for a later import.
+
 ## Runtime flow
 
     Expo Router screens (app/)

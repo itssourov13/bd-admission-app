@@ -1,0 +1,1331 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-d-2022-2023-setu",
+    "category": "varsity",
+    "description": "Jahangirnagar University D Unit (Biological Sciences), academic session 2022-2023, Set-U — full 80-question paper transcribed from publisher compilation ju-a-unit-question-solution-2022-2023.pdf, PDF pages 25-29 (book pages 25-29): Short Syllabus questions on pp.25-28 plus Extra Syllabus questions on p.29 together complete Q1-80. Printed publisher answer keys ([Ans: x] / printed solutions) preserved as-is; NOT official JU keys. All contentVerificationStatus=unverified pending cross-source verification. Q05 and Q66: printed solution states no correct option exists among the printed options, recorded as no_correct_option. IQ questions keep source subject label 'IQ' per REPO_FINDINGS (non-canonical subjects keep source label); Botany/Zoology mapped to canonical Biology with split kept in topic. Cross-source verification 2026-10-31 vs Satt Academy: 57 of 80 questions publicly comparable; 54 content-verified and included in the import-ready copy. TWO key conflicts — Q3 (compilation key a vs Satt b) and Q76 (compilation key b vs Satt c): following the JU A Set-I precedent, the independent source's values are recorded and both answers are marked unverified. Q34-Q36 show truncated combination options in Satt's text layer and remain content-unverified (their keys agree). Figure questions Q32 and Q73 were additionally confirmed against the figures embedded in Satt's cards. 23 questions were not publicly readable on Satt (including both no-correct-option items Q5 and Q66, which rest on the compilation's printed solutions alone) and remain unverified; those 26 are excluded from the import-ready copy and remain in the archived full pack. Detail: VERIFICATION/SOURCE_EVIDENCE/ju-d-2022-2023-setu.VERIFICATION.md. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+      "src-ju-d-2022-2023-setu-satt--batch-ju-unverified-d-2022-2023-setu"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+      "filename": "ju-a-unit-question-solution-2022-2023.pdf",
+      "title": "JU D Unit question & solution 2022-2023 (Set-U), publisher question-bank compilation via AdmissionWar/TargetPDF",
+      "sha256": "c798daed90b442561b8361cc57faee6d5eb2504a84b425a97a4183a8ed6d282b",
+      "sourceType": "pdf",
+      "notes": "Scanned compilation PDF (29 pp.). Set-U (Unit-D) occupies PDF pages 25-29; PDF pages 20-24 are a DIFFERENT paper (Unit-D Set-O, separate pack). Transcription by direct visual reading of every page image; OCR used only as draft and corrected against the images. Mathematical notation linearized with ^ for superscripts."
+    },
+    {
+      "id": "src-ju-d-2022-2023-setu-satt--batch-ju-unverified-d-2022-2023-setu",
+      "filename": "satt-jud-setu-all.html",
+      "title": "Satt Academy — JU D Unit 2022-2023 (Set code: U) MCQ question bank (independent source)",
+      "sha256": "9009f8df1bca4943113fd2c293fc741df668cd19f920f0df92e973fb44adf0b3",
+      "sourceType": "structured-data",
+      "notes": "Independent question-bank rendering of the same paper, accessed 2026-10-31. Satt publicly serves the first 15 questions per subject; page 2 is login-gated and was not bypassed. Local copy: sources/satt-jud-setu-all.html (fetched 2026-10-31). Live URL: https://sattacademy.com/d-ইউনিট-2022-2023-set-code-u/all/mcq-questions"
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-d-2022-2023-setu",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2023,
+      "academicSession": "2022-2023",
+      "unit": "D",
+      "title": "JU D Unit Admission Test — 2022-2023 (Set-U)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-d-2022-2023-setu",
+      "paperId": "ju-unverified-d-2022-2023-setu",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+      ],
+      "sourceNote": "Paper header (PDF p.25) states 80 marks, 55 minutes, -0.20 per wrong answer; transcribed from compilation header only, NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-01",
+      "text": "মুখবিবরে কাইটিন নির্মিত র‍্যাডুলা থাকে কোন পর্বের প্রাণীতে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mollusca",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Echinodermata",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Nematoda",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Porifera",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 1,
+          "pageNumber": 25,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 25,
+        "questionNumber": 1
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-02",
+      "text": "হাইড্রার দেহে মুকুল সৃষ্টি হয় কোন ঋতুতে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হেমন্তে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শীতে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গ্রীষ্মে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বসন্তে",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 2,
+          "pageNumber": 25,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 25,
+        "questionNumber": 2
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-05",
+      "text": "মানবদেহে সোমাটোস্টাটিন ক্ষরণ করে কোন কোষ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "α cell",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "β cell",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "μ cell",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "PP cell",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 5,
+          "pageNumber": 25,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 25,
+        "questionNumber": 5
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "extractionNote": "The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-10",
+      "text": "মানবদেহের চোখ কোন ভ্রূণীয় স্তর থেকে গঠিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "এক্টোডার্ম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মেসোডার্ম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "এন্ডোডার্ম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটি নয়",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 10,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 10
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-14",
+      "text": "আণুবীক্ষণিক সৈনিক বলা হয় কোন রক্তকণিকাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "বেসোফিল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইওসিনোফিল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মনোসাইট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লিম্ফোসাইট",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 14,
+          "pageNumber": 25,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 25,
+        "questionNumber": 14
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-18",
+      "text": "মানবদেহে বক্ষ অস্থিচক্র গঠনকারী অস্থির সংখ্যা কতটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "৪",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৬",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "২",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "৫",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 18,
+          "pageNumber": 25,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 25,
+        "questionNumber": 18
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-21",
+      "text": "রক্তে ক্যালসিয়ামের মাত্রা নিয়ন্ত্রণ করে কোন গ্রন্থি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "পিটুইটারি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "থাইরয়েড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্যারাথাইরয়েড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "থাইমাস",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 21,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 21
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-26",
+      "text": "কোন কোষ তড়িৎ শক্তিকে রাসায়নিক শক্তিতে রূপান্তর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "তড়িৎ বিশ্লেষ্য কোষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গ্যালভানিক কোষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জ্বালানি কোষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডেনিয়েল কোষ",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 26,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 26
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-30",
+      "text": "প্রমাণ তাপমাত্রা ও চাপে CO2 গ্যাসের ঘনত্ব হলো 22 kgm^-3 চাপ স্থির রেখে 11°C তাপমাত্রায় ঐ গ্যাসের ঘনত্ব কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "25.52 kgm^-3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "25.52 gm^-3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "21.15 kgm^-3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "21.15 gm^-3",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 30,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 30
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-31",
+      "text": "বর্তমানে ট্রপোস্ফিয়ারের বায়ুতে বিভিন্ন স্থানে O3 গ্যাসের বার্ষিক গড় বৃদ্ধির হার কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 - 2%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.2 - 0.3%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.1 - 0.3%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.4 - 1.0%",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 31,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 31
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-33",
+      "text": "কোনটি অ্যারোমাটিক যৌগ নয়? (options are printed ring structures)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "[figure: benzene ring]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[figure: furan ring]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[figure: naphthalene - two fused benzene rings]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[figure: cyclohexane ring]",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 33,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 33
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-34",
+      "text": "নিচের কোনটি সঠিক? (i) SN1 বিক্রিয়ায় ১ম ধাপে RX ধীর গতিতে বিয়োজিত হয় (ii) RX বিয়োজিত হয়ে অস্থায়ী কার্বোনিয়াম আয়ন উৎপন্ন করে (iii) নিউক্লিওফাইল ঐ কার্বোনিয়াম আয়নে দ্রুত গতিতে যুক্ত হয়",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i, ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সবগুলো",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 34,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 34
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-35",
+      "text": "নিচের কোনটি সঠিক? (i) বিক্রিয়ক পদার্থগুলোর ঘনমাত্রা বাড়ালে বিক্রিয়া সম্মুখ দিকে অগ্রসর হয় (ii) বিক্রিয়াজাত পদার্থের ঘনমাত্রা কমালে বিক্রিয়া সম্মুখ দিকে অগ্রসর হয় (iii) হেবার পদ্ধতিতে NH3 উৎপন্ন হওয়ার সঙ্গে সঙ্গে বিক্রিয়ার প্রকোষ্ঠ থেকে সরিয়ে ফেলা হয়",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i, ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ii, iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সবগুলো",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 35,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 35
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-36",
+      "text": "বাফার দ্রবণের ক্ষেত্রে কোনটি সঠিক? (i) দ্রবণের pH ও এসিডের pKa এর পার্থক্য যত বেশি হয় বাফার দ্রবণের কার্যকারিতা ততো কমে যায় (ii) অম্লীয় বাফার দ্রবণের ক্ষমতা সর্বোচ্চ হয় যখন pH = pKa হয় (iii) ক্ষারীয় বাফার দ্রবণের ক্ষমতা সর্বোচ্চ হয় যখন pH = pKb হয়",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ii, iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সবগুলো",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 36,
+          "pageNumber": 26,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 26,
+        "questionNumber": 36
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-38",
+      "text": "কোনটি কোল্ড ক্রিম তৈরির উপাদান নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পেট্রোলিয়াম জেলি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালকোহল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বোরাক্স",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "স্টিয়ারিক এসিড",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 38,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 38
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-40",
+      "text": "কোনটি সোডা ফেলস্পার?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Na2O.Al2O3.6SiO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Na2O.Al2O3.5SiO2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CaO.Al2O3.6SiO2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CaO.Al2O3.5SiO2",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 40,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 40
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-41",
+      "text": "যদি বস্তুকণা অন্য ফেজে বন্টিত হয়ে কলয়েড গঠন না করে তাকে বলে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "জেল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্রিস্টালয়েড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইমালসন",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 41,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 41
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-42",
+      "text": "কোয়ান্টামের ধারণার প্রবর্তক কে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ম্যাক্স প্ল্যাঙ্ক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রাদারফোর্ড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থমসন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ফ্যারাডে",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 42,
+          "pageNumber": 27,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 27,
+        "questionNumber": 42
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-chemistry-43",
+      "text": "কোনটি P এর সঠিক ইলেকট্রন বিন্যাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1s^2 2s^2 2p^6 3s^2 2p^6 4s^1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1s^2 2s^2 2p^6 3s^2 3p^3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1s^2 2s^2 2p^6 3s^2 3p^6 4s^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1s^2 2s^2 2p^6 3s^2 3p^2",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 43,
+          "pageNumber": 27,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 27,
+        "questionNumber": 43
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-54",
+      "text": "Pithophora এর স্পোর-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যাপ্ল্যানোস্পোর",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হিপনোস্পোর",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অক্সোস্পোর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যাকাইনিটি",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 54,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 54
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-55",
+      "text": "কোনটি ফোলিয়োজ লাইকেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cryprothecia rubrocinta",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Ciadonia leporina",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Flavoparmelia caperaia",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Diploicia canescens",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 55,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 55
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-56",
+      "text": "স্টোন মাশরুম কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cetraria islandica",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Endocarpon miniatum",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Rocella montaignei",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Cladonia rangiferina",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 56,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 56
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-59",
+      "text": "কোনটিকে সুইসাইডাল স্কোয়াড বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "লাইসোজোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রাইবোজোম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সেন্ট্রোসোম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নিউক্লিওজোম",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 59,
+          "pageNumber": 27,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 27,
+        "questionNumber": 59
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-63",
+      "text": "কোন উদ্ভিদের ফুলে গর্ভাশয় নাই?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "কলা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কাঁঠাল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সাইকাস",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 63,
+          "pageNumber": 27,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 27,
+        "questionNumber": 63
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-66",
+      "text": "উদ্ভিদে কোন আয়নটি সর্বাপেক্ষা মন্থর গতিতে শোষিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "Na+",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Fe2+",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "SO4^2+",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "NO3^-",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 66,
+          "pageNumber": 28,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 28,
+        "questionNumber": 66
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "extractionNote": "The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2022-2023-setu-biology-68",
+      "text": "মোম কোন ধরনের লিপিড?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "যৌগিক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সরল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উদ্ভূত লিপিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটি নয়",
+          "order": 4
+        }
+      ],
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2022-2023-setu",
+          "questionNumber": 68,
+          "pageNumber": 29,
+          "sourceDocumentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2022-2023-setu-targetpdf--batch-ju-unverified-d-2022-2023-setu",
+        "pageNumber": 29,
+        "questionNumber": 68
+      },
+      "contentVerificationStatus": "unverified",
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2022-2023-setu.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

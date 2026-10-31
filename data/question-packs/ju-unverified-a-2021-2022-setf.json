@@ -1,0 +1,2400 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-a-2021-2022-setf",
+    "category": "varsity",
+    "description": "Jahangirnagar University A Unit (Mathematical & Physical Sciences), academic session 2021-2022, Set-F — full 80-question paper transcribed by direct visual reading of the Udvash 'জাবি প্রশ্নব্যাংক' (JU A & D Unit question bank), book PDF pp.51-54 (questions; printed answer table on p.54; printed worked solutions pp.54-56). EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED; cross-source verification is a separate later stage. Printed publisher answer keys are preserved as-is; they are NOT official JU keys. Printed subject order in this set: Bangla (Q1-3), English (Q4-6), ICT (Q7-14), Physics (Q15-36), Higher Mathematics (Q37-58), Chemistry (Q59-80) — note that Higher Mathematics precedes Chemistry in the printed order of this set. The printed answer table has dashes (no key) at Q7 and Q71; the printed worked solutions for both (Q7 on p.54, Q71 on p.56) explicitly state '(সঠিক উত্তর নেই)' (no correct answer), so both are recorded with answerDisposition no_correct_option and empty correctOptionIds; for these two questions only, answerVerificationStatus is set to 'verified' solely as the validator-required encoding of the primary source's own explicit printed claim — it does NOT denote cross-source verification, which remains a later stage for the whole paper. Q10 carries an internal source contradiction: the table keys (c) but the printed worked solution (p.54) states no correct option exists — the table key is recorded and the contradiction documented in the question's extractionNote. Q25 option (a) is printed as a 14-digit string while the book's own solution computes a 12-digit value — transcribed as printed. No dual keys appear in the printed table. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. Set-F of JU A Unit 2021-2022 occupies book PDF pp.51-54 (printed book pp.50-53): questions pp.51-54, printed answer table (উত্তরমালা) on p.54, printed worked solutions on pp.54-56. Paper header (book PDF p.51): জাবি ভর্তি পরীক্ষা ২০২১-২২ শিক্ষাবর্ষ; পূর্ণমান: ৮০; ইউনিট: A; সেট: F; সময়: ৫৫ মিনিট."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-a-2021-2022-setf",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2022,
+      "academicSession": "2021-2022",
+      "unit": "A",
+      "title": "JU A Unit 2021-2022 — Set-F (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-a-2021-2022-setf",
+      "paperId": "ju-unverified-a-2021-2022-setf",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+      ],
+      "sourceNote": "Paper header (book PDF p.51) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: A, সেট: F, সময়: ৫৫ মিনিট (55 minutes); the printed instructions state 80 questions in the paper, all must be answered, 0.20 marks deducted per wrong answer, and no calculator may be used. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-a-2021-2022-setf-ict-01",
+      "text": "(A + B + C)̅ B̅C এর সরলীকরণ হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "A̅BC",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "AB̅C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "A̅B̅C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ABC̅",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed answer table (p.54) has a dash (no key) at Q7; the printed worked solution (p.54) explicitly states '(সঠিক উত্তর নেই)' (no correct answer) — recorded as answerDisposition no_correct_option with empty correctOptionIds. The stem's first factor carries one printed overline over the whole group (A + B + C), linearised here as a combining overline after the closing parenthesis. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 7,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-ict-06",
+      "text": "মেশিন লার্নিং এর সাথে নিচের কোনটি সবচেয়ে কম সামঞ্জস্যপূর্ণ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "কৃত্রিম বুদ্ধিমত্তা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ডাটা সায়েন্স",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পূর্ববর্তী অভিজ্ঞতা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কম্পিউটার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 12,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-02",
+      "text": "একটি রেফ্রিজারেটরের কর্মসম্পাদন সহগ 2.5। এটি শীতল তাপাধার হতে প্রতি চক্রে 300J তাপ গ্রহণ করে। রেফ্রিজারেটর চালানোর জন্য প্রতি চক্রে বাইরে থেকে কি পরিমাণ কাজ সম্পাদন করতে হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "120 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "240 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.5/300 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 16,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 16
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-03",
+      "text": "একটি বাড়িতে 15 W এর 10 টি LED বাতি রাতে 6 ঘণ্টা জ্বলে। ব্যয়িত শক্তি প্রতিদিনে কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "15 kWh",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "150 kWh",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "900 kWh",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 17,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-04",
+      "text": "“তড়িৎচালক বল আসলে বল নয়” উহা-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "মিথ্যা কারণ এর একক নিউটন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শক্তি কারণ এটি দ্বারা কাজ পরিমাপ করা যায়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কখনো বলের ন্যায় আচরণ করে, সকল সময় না",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 18,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 18
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-05",
+      "text": "কোন স্থানে দুই বা ততোধিক আলোক তরঙ্গের উপরিপাতনের ফলে আলোর তীব্রতা পরিবর্তনের ঘটনাকে আলোর__বলা হয়।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ব্যতিচার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রতিসরণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হাইগেনসের নীতি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 19,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-06",
+      "text": "x mm ব্যবধানবিশিষ্ট দুটি চিড় হতে y m দূরত্বে অবস্থিত পর্দার ওপর ব্যতিচার সজ্জা সৃষ্টি হল। ব্যবহৃত আলোর তরঙ্গদৈর্ঘ্য 5000 Å হলে, পরপর দুটি উজ্জ্বল পট্টির দূরত্ব মিটারে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "λy/2x",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2x/λy",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(λ × 10^-10 × y)/(2x × 10^-3)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(5y × 10^-7)/(x × 10^-3)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 20,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-07",
+      "text": "প্লাটিনামের কার্যাপেক্ষক 6.31 eV হলে এর সূচন কম্পাংক কত Hz?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(6.31×1.6×10^-19)/(6.31×10^-34)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(6.63×10^-34)/(6.31×1.6×10^-19)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1.6×10^-19)/(6.31×6.63×10^-34)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 21,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-08",
+      "text": "1 amu ভরের সমতুল্য শক্তি কোনটি দ্বারা প্রকাশ করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "934 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "934 MeV",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "934 eV",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "934 kg",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 22,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-10",
+      "text": "একটি ট্রানজিস্টরের মাঝের অর্ধপরিবাহী p-টাইপের হলে, নিচের কোন ট্রানজিস্টরটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "FET",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "PNP",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "BJT",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 24,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-11",
+      "text": "3B9 হেক্সাডেসিমাল সংখ্যার বাইনারী সংখ্যাটি কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "00111010111001",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "100110110011",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "100110111100",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "110011011001",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (a) is printed as the 14-digit string '00111010111001' (confirmed on a 400-dpi re-render of book p.52), while the book's own printed worked solution (p.55) computes (001110111001)2 (12 digits) and keys (a). Transcribed exactly as printed; the mismatch is a source misprint in option (a).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 25,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-12",
+      "text": "প্লাঙ্কের ধ্রুবকের মাত্রা কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ML^-1T^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ML^2T^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ML^2T^-2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "MLT^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 26,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 26
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-13",
+      "text": "যদি r⃗ = xî + yĵ + zk̂ হয়, তবে ∇⃗ · r⃗ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 27,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 27
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-18",
+      "text": "কেন্দ্রমুখী বল দ্বারা কৃতকাজ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অসীম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ধনাত্মক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শূন্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ঋণাত্মক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 32,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 32
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-19",
+      "text": "পর্যায়কাল দ্বিগুণ করতে সরল দোলকের দৈর্ঘ্য কতগুণ করতে হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 33,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 33
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-20",
+      "text": "মহাকাশে একটি সেকেন্ড দোলকের কম্পাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 Hz",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 Hz",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0 Hz",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অসীম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 34,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 34
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-physics-22",
+      "text": "সম্পৃক্ত বাষ্প কোন সূত্র মেনে চলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "বয়েল এর সূত্র",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চার্লস এর সূত্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উভয়টিই",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 36,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 36
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-07",
+      "text": "d/dx [x^2/(x^2-4)] = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-8x/(x^2-4)^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8x/(x^2-4)^2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-2x/(x^2-4)^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2x/(x^2-4)^2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 43,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 43
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-08",
+      "text": "y = tan^-1 (2x/(1-x^2)) হলে dy/dx = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-2/(1+x^2)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2/(1+x^2)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/(1+4x^2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4/(1+x^2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 44,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 44
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-10",
+      "text": "∫ e^x (sec x + sec x tan x) dx এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "e^x sec x + C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "e^x tan x + C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "e^x sec x tan x + C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "sec x + C",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 46,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 46
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-11",
+      "text": "4x^2 + 25y^2 = 100 উপবৃত্ত দ্বারা আবদ্ধ ক্ষেত্রের ক্ষেত্রফল কত বর্গ একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10π",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4π",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "25π",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100π",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 47,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 47
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-14",
+      "text": "4x^2 - kx + 5 = 0 সমীকরণের একটি মূল অপরটির দ্বিগুণ হলে k এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3√10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√80",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2√10",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "√10",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 50,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 50
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-15",
+      "text": "3x^2 - 6x + 1 = 0 সমীকরণের মূলদ্বয় α ও β হলে 1/α এবং 1/β মূলবিশিষ্ট সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x^2 - 6x + 3 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x^2 - 6x + 3 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x^2 + 6x - 3 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x^2 - 6x + 1 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 51,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 51
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-19",
+      "text": "tan^-1(1/2) + tan^-1(1/3) = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2π",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 55,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 55
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-20",
+      "text": "f(x) = cos x হলে f(cot^-1(3/4)) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4/5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 56,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 56
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-21",
+      "text": "60° কোণে ক্রিয়ারত √5 একক মানের দুটি সমান বলের লব্ধি কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2√5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√15",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√(10 + 5√3)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "10 + 5√3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 57,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 57
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-higher-mathematics-22",
+      "text": "2, √5 এবং 3 মানের তিনটি বল কোন একটি বিন্দুতে ক্রিয়ারত এরা পরস্পর ভারসাম্য সৃষ্টি করলে প্রথমোক্ত বলদ্বয়ের মধ্যবর্তী কোণের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "45°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "60°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "90°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The right edge of book p.53 is tight against the scan edge; the stem's line-ends were read from an enlarged crop and are legible.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 58,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 58
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-01",
+      "text": "সকল মৌলের পরমাণুতেই সাধারণ মূল কণিকা হিসাবে কোনটি উপস্থিত থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পজিট্রন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিউট্রন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ইলেকট্রন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলো",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 59,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 59
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-02",
+      "text": "30° C তাপমাত্রায় কোন লবণের দ্রাব্যতা 5.0 g/L হলে 400 mL সম্পৃক্ত দ্রবণে কত গ্রাম লবণ আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5 g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 60,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 60
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-03",
+      "text": "Cu^2+ আয়নের দ্রবণে অধিক NH4OH দ্রবণ যোগ করলে কী বর্ণ সৃষ্টি হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "হালকা নীল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গাঢ় নীল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাদামি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবুজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 61,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 61
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-04",
+      "text": "কোন প্রক্রিয়াটি কঠিন যৌগের বিশোধনের জন্য ব্যবহার করা হয় না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পরিস্রাবণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কেলাসন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পাতন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্রোমাটোগ্রাফি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 62,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 62
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-05",
+      "text": "[Ar]3d^10 4s^0 ইলেকট্রন বিন্যাস হলো- (i) Cu^+ আয়ন (ii) Zn^++ আয়ন (iii) Fe^++ আয়ন। নিচের কোনটি সঠিক",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i ও ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "i ও iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ii ও iii",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "i, ii ও iii",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed closing line 'নিচের কোনটি সঠিক' carries no question mark in the book — preserved as printed. Charges are printed with superscript plus signs (Cu⁺, Zn⁺⁺, Fe⁺⁺).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 63,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 63
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-06",
+      "text": "কোনটি স্ট্যানিক ক্লোরাইড এর সংকেত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CCl4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "SnCl2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "SnCl4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "FeCl2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 64,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 64
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-07",
+      "text": "[Fe(CN)6]^4- আয়নের কেন্দ্রীয় পরমাণুর কী ধরনের সংকরণ ঘটে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "sp^3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "sp^3d",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "sp^3d^3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d^2sp^3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 65,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 65
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-08",
+      "text": "রাসায়নিক বিক্রিয়ার ফলে যে সকল পদার্থ উৎপন্ন হয়, অনেক সময় তাদের যেকোনো একটি প্রভাবকের কাজ করে থাকে। এই প্রভাবককে কি বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ধনাত্মক প্রভাবক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ঋণাত্মক প্রভাবক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "স্ব-প্রভাবক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আবিষ্ট প্রভাবক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 66,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 66
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-09",
+      "text": "1M NaOH দ্রবণের pH এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "11",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "14",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 67,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 67
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-10",
+      "text": "দেহের বৃদ্ধি সাধন ও ক্ষয়পূরণ করে কোন খাদ্য উপাদান?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "শর্করা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আমিষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভিটামিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "খনিজ লবণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 68,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 68
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-11",
+      "text": "ভিনেগারে কোনটি থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "6-10% CH3CO2H",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6-10% C3H5OH",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6-10% CH3COCH3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6-10% CH3CHO",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 69,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 69
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-12",
+      "text": "বায়ুমণ্ডলে CO2 এর পরিমাণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.3%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.03%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.003%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.0%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 70,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 70
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-13",
+      "text": "0.95 atm চাপে 25°C তাপমাত্রায় একটি গ্যাসের আয়তন 40L হলে উক্ত তাপমাত্রায় 1.0 atm চাপে গ্যাসটির আয়তন কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.38L",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.39 L",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.308 L",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.8 L",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed answer table (p.54) has a dash (no key) at Q71; the printed worked solution (p.56) explicitly states '(সঠিক উত্তর নেই)' (no correct answer) and computes V2 = 38 L, which is absent from the options — recorded as answerDisposition no_correct_option with empty correctOptionIds. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 71,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 71
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-14",
+      "text": "কোন ধরনের দূষক পানির DO এর পরিমাণ কমায়? (i) অজৈব দূষক (ii) জৈব দূষক (iii) তেজস্ক্রিয় দূষক। নিচের কোনটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i ও ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ii ও iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "i ও iii",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "i, ii ও iii",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 72,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 72
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-15",
+      "text": "SATP তে গ্যাসের মোলার আয়তন কত লিটার?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "22.4 L",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "24.4 L",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "24.789 L",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2.414 L",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 73,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 73
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-16",
+      "text": "কোনটি জৈব যৌগ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HCHO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "HCN",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CH3OH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 74,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 74
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-17",
+      "text": "নিচের কোনটি ইলেকট্রোফাইল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "AlCl3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "NH3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "R - OH",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H2O",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 75,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 75
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-18",
+      "text": "কোনটি প্রাইমারি বায়ু দূষক নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "SO3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "SO2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 76,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 76
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-19",
+      "text": "RCOONa + NaOH(CaO, তাপ) → A + Na2CO3; A যৌগটি কী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যালকিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কার্বক্সিলিক এসিড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যালকেন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যালডিহাইড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 77,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 77
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-20",
+      "text": "মনোহাইড্রিক অ্যালকোহল শনাক্তকরণে- (i) Na ধাতু ব্যবহৃত হয় (ii) PCl5 প্রয়োজন হয় (iii) স্যালিমিথানল এসিড ব্যবহৃত হয়। নিচের কোনটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i ও ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ii ও iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "i ও iii",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "i, ii ও iii",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Sub-statement (iii) is printed as 'স্যালিমিথানল এসিড' — transcribed exactly as printed (apparent source misprint).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 78,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 78
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-21",
+      "text": "250 mL 0.1 M H2SO4 দ্রবণে কত গ্রাম H2SO4 আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.45 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4.90 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.98 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9.80 g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 79,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 79
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-setf-chemistry-22",
+      "text": "চিনি ও গ্লুকোজ হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "তড়িৎ বিশ্লেষ্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইলেকট্রনীয় পরিবাহী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তড়িৎ অবিশ্লেষ্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অধাতব পরিবাহী",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-setf",
+          "questionNumber": 80,
+          "pageNumber": 54,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-setf",
+        "pageNumber": 54,
+        "questionNumber": 80
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2021-2022-setf.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

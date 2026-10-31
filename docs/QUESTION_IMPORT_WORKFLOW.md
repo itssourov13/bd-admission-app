@@ -1,7 +1,52 @@
 # Question import workflow
 
 ## Current status
-Validator, transactional idempotent importer, startup sync and pack index generator are implemented. Current bundle: **118 schema-v1 packs / 7,836 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 JU (1,526) and 7 HSTU (293). The app auto-imports generated packs at startup. The latest JU/HSTU import checkpoint is below.
+Validator, transactional idempotent importer, startup sync and pack index generator are implemented. Current bundle: **217 schema-v1 packs / 13,609 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 verified JU (1,526), 7 verified HSTU (293), 84 JU-U candidates (5,011) and 15 HSTU-U candidates (762). The app auto-imports generated packs at startup. The newest candidate-bank import is recorded first below.
+
+
+## JU + HSTU unverified candidate-bank import — 2026-11-01
+
+### Source, scope and explicit GST exclusion
+
+- Archive: `/home/kali/gpt-workspace/museai/admission-app-research/unverified-import-ready/Admission_Import_Format_Unverified_Questions.zip`
+- SHA-256: `b1de68b088229d8bbeb8e216e7409f2e6de6f88bd14755e766d00a177a9392a8`; ZIP CRC integrity check passed.
+- The archive contained 102 JSON files: 84 JU packs, 15 HSTU packs and 3 separate `GST_CLUSTER` packs. **Only the 99 JU/HSTU packs were imported.** The GST cluster files contain 287 questions (85 + 108 + 94) and were all excluded for a separate future import task.
+- Added **99 packs / 5,773 questions**: JU 84 packs / 5,011 questions and HSTU 15 packs / 762 questions. No pre-existing pack JSON was overwritten. The three GST pack files were not copied into the app, indexed, tested as additions or imported.
+- JU's represented sessions run from 2010–2011 through 2024–2025. HSTU's represented sessions are 2014–2015, 2015–2016, 2016–2017, 2017–2018, 2018–2019, 2019–2020 and 2024–2025. These are source-archive coverage spans, not claims that every year/unit is complete.
+
+### Verification-state preservation and provisional eligibility
+
+All **5,773** records preserve `contentVerificationStatus: unverified`. Answer states were not changed: 5,563 remain `unverified`, and 210 remain `unknown`.
+
+| Candidate institution | Packs | Questions | Answer unverified | Answer unknown | Multiple-choice | Provisional candidates | Repeated-option records held out |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| JU-U | 84 | 5,011 | 4,820 | 191 | 12 | 4,780 | 28 |
+| HSTU-U | 15 | 762 | 743 | 19 | 7 | 722 | 14 |
+| **Total** | **99** | **5,773** | **5,563** | **210** | **19** | **5,502** | **42** |
+
+The app's existing provisional filter is unchanged: single-choice type, at least two options, exactly one source key and no duplicate normalized option text. The 5,502 eligible candidates can be used only via the existing explicitly provisional path when the selected institution/paper scope has no verified-eligible questions. The 42 repeated-option records and 19 multiple-choice records remain in the source packs/catalogue but do not enter single-choice provisional scoring. Candidate answer feedback may be wrong. None of these data is promoted to verified, and the normal verified-only pool gains **zero** questions from this import.
+
+### Separate catalogue identities and source-ID compatibility
+
+- JU candidates use institution `ju-unverified-bank`, code `JU-U`, display name `UNVERIFIED — Jahangirnagar University`. HSTU candidates use `hstu-unverified-bank`, code `HSTU-U`, display name `UNVERIFIED — Hajee Mohammad Danesh Science and Technology University`.
+- The existing verified `ju` / `JU` and `hstu` / `HSTU` institutions and their 57 packs are unchanged. The separate IDs allow the current catalogue and provisional-practice fallback to work without mixing verified and candidate counts.
+- Batch, paper, rule and question IDs were namespaced under the new JU-U/HSTU-U identities. Source-document IDs repeated across incoming packs or colliding with existing app content were namespaced with their stable batch ID. `batch.sourceDocumentIds`, `examRules[].sourceDocumentIds`, `questions[].source.documentId` and `appearances[].sourceDocumentId` were updated together.
+- An exact round-trip comparison of all 99 transformed packs against their archive entries passed after reversing only the documented ID/institution remaps. Question text, option text/order, candidate keys, verification states, source metadata, hashes, notes, extraction notes, paper numbering and remaining JSON fields matched exactly.
+- A comparison against existing app question records found 12 exact text-plus-ordered-options overlaps and 95 further same-normalized-stem records with differing options/order. No similar/exact records were auto-merged: each source/paper identity and appearance remains distinct, consistent with ADR-004.
+- HSTU-specific papers remain within HSTU even where one source compilation's title mentions a GST question-bank publication. The separate `GST_CLUSTER` folder of 3 cluster-institution packs was excluded completely and will be handled independently.
+
+### Rules and app behavior
+
+- All **99** incoming paper rules remain `unconfigured`. Source notes may describe printed headers, times or marks, but those notes do not configure official scoring or paper rules.
+- New banks have zero verified-eligible questions and expose provisional counts through the existing catalogue query/UI. No practice UI or query behavior required modification; the separate institutions activate the already-tested RU-style provisional path. Verified JU/HSTU catalogue entries retain their original verified eligibility counts.
+- The currently published 2026-10-31 preview APK predates both JU/HSTU imports; a new APK build/install is necessary before these banks appear on a physical device.
+
+### Verification performed
+
+- Source archive: ZIP integrity passed; the 99 target packs were parsed; the 3 GST cluster packs / 287 questions were explicitly excluded.
+- Source preservation: **99/99** output packs round-trip match their archive source after reversing only identity remaps.
+- New-pack audit: 99 unique batch IDs, 99 paper IDs, 99 rule IDs, 5,773 question IDs and 105 source-document IDs; all rules remain unconfigured and all content statuses remain unverified.
+- Fresh SQLite integration test imports the complete 217-pack bundle, checks verified/candidate catalogue separation and all row/reference totals, proves normal verified eligibility is unchanged, and proves idempotent re-import for all 99 new packs.
 
 
 ## Jahangirnagar University + HSTU — Muse AI import (2026-11-01)

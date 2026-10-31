@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated test baseline: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **64/64 tests** including the two JU/HSTU import integration tests. Release/device status remains the owner-confirmed 2026-10-31 EAS preview APK smoke test. The current bundle has **118 packs / 7,836 questions**. Production AAB and Play Store rollout remain outstanding.
+Latest automated test baseline: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **66/66 tests**. The current bundle has **217 packs / 13,609 questions** including separate verified and unverified JU/HSTU banks. Android no-bytecode export passes; the already-published APK predates this import. Production AAB and Play Store rollout remain outstanding.
 
 ## Automated checks
 
@@ -8,13 +8,13 @@ Latest automated test baseline: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnp
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | `pnpm test`: **64 passed, 0 failed** under Node 22.23.1. Includes verified `no_correct_option` and `multiple_choice` source-answer semantics, RU-V replacement/history coverage, plus JU/HSTU archive-state/reference checks and full-bundle fresh-SQLite/idempotency coverage. |
-| Real pack validation/index | [x] Pass | All 118 bundled JSON packs validate with **0 errors / 4,177 warnings**; generated index contains 7,836 questions. The 57 new JU/HSTU packs account for 0 errors / 125 warnings (119 answer-status and 6 repeated-option-text warnings); all source states were preserved. |
-| Real pack import integration | [x] Pass | Existing DU, RU C and RU-V tests remain. New JU/HSTU integration tests cover 57 packs / 1,819 questions, individual answer-state counts, source-ID/reference uniqueness, 1,668 new verified single-choice eligible questions, all 118 packs imported in fresh SQLite with zero failures, exact row counts and idempotent re-import. |
+| Automated tests | [x] Pass | `pnpm test`: **66 passed, 0 failed** under Node 22.23.1. Includes source-answer semantics, RU-V replacement/history coverage, the original verified JU/HSTU import, the separate JU-U/HSTU-U status/reference checks, and full 217-pack fresh-SQLite/idempotency coverage. |
+| Real pack validation/index | [x] Pass | All **217** bundled JSON packs validate with **0 errors / 9,785 warnings**; generated index contains 13,609 questions. The 99 JU-U/HSTU-U packs account for **0 errors / 5,608 warnings** (5,563 unverified-key warnings and 45 repeated-option-text warnings); all source states were preserved. |
+| Real pack import integration | [x] Pass | Existing DU, RU C, RU-V and verified JU/HSTU coverage remains. New JU-U/HSTU-U tests cover 99 packs / 5,773 questions, exact state preservation, globally unique references, 5,502 provisional candidates, all 217 packs imported in fresh SQLite with zero failures, and idempotent re-import. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
-| Android JS bundle without bytecode | [x] Pass | After importing JU/HSTU, `pnpm exec expo export --platform android --no-bytecode` passed with **1,953 modules, a 14 MB JS bundle and 122 assets**. The export validates Metro bundling only; it is not an APK/AAB build. |
+| Android JS bundle without bytecode | [x] Pass | After importing the candidate banks, `pnpm exec expo export --platform android --no-bytecode` passed with **2,052 modules, a 22 MB JS bundle and 122 assets**. The export validates Metro bundling only; it is not an APK/AAB build. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable Android preview APK | [x] Pass | EAS build `d5e516cd-eefe-44f4-866d-b440ef188da9`; published as [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk) under GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1). SHA-256: `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`. |
 | Physical Android device smoke QA | [x] Owner-reported pass | The owner installed and checked the APK on a physical Android phone and reported normal operation. First load was about one minute; subsequent opens were about 2–3 seconds. Detailed individual checklist steps were not separately logged. |
@@ -33,6 +33,23 @@ The no-bytecode export validates JavaScript bundling only. It does **not**, by i
 | JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
 | Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
 | Exam patterns | [x] Intentionally unconfigured | All 57 new rules remain `unconfigured`; the app must not label source notes as official exam rules. HSTU historical coverage remains partial. |
+
+
+## JU-U + HSTU-U unverified candidate-bank verification — 2026-11-01
+
+| Check | Result | Notes |
+|---|---|---|
+| Source archive and GST boundary | [x] Pass | ZIP SHA-256 `b1de68b088229d8bbeb8e216e7409f2e6de6f88bd14755e766d00a177a9392a8`; 102 JSON members: 84 JU + 15 HSTU imported, 3 GST_CLUSTER packs / 287 questions excluded. |
+| Source-data preservation | [x] Pass | Exact round-trip comparison passed for 99/99 transformed pack files after reversing only institution/ID remaps; question text, options, keys, verification statuses, notes, hashes and provenance matched. |
+| New pack validation | [x] Pass | 99/99 schema-valid, 0 errors / 5,608 warnings (5,563 unverified-key warnings, 45 repeated-option-text warnings). The provisional candidate filter excludes 42 one-key repeated-option records; 3 additional repeated-option warnings occur outside that single-choice candidate subset. |
+| Bundle index | [x] Pass | `pnpm packs:index` regenerated `src/content/bundledPacks.ts` with 217 pack imports. |
+| Fresh SQLite import | [x] Pass | 217/217 packs imported: 13,609 questions, 54,436 options, 217 batches, 217 papers, 158 rules (156 unconfigured), 273 sources, 13,609 appearances and 7 institutions. Answer states: 3,694 verified / 9,691 unverified / 224 unknown; content-unverified: 9,784. |
+| Verified/candidate separation | [x] Pass | Verified JU remains 50 papers / 1,526 questions / 1,393 eligible; verified HSTU remains 7 / 293 / 275. JU-U remains 84 / 5,011 / 0 verified eligible / 4,780 provisional; HSTU-U remains 15 / 762 / 0 / 722. |
+| Candidate practice boundary | [x] Pass | 5,502 source-key candidates are available only in the explicit provisional path; 42 repeated-option questions and 19 multiple-choice records are not included in provisional single-choice scoring. All 99 new rules remain `unconfigured`. |
+| Duplicate/overlap handling | [x] Pass | 12 exact text+ordered-option overlaps and 95 same-stem/different-option overlaps were identified; no records were auto-merged. Reused/colliding source IDs were namespaced and all references updated. |
+| Re-import/idempotency | [x] Pass | All 99 new packs re-import with question/appearance rows skipped and no row-count drift. The original verified JU/HSTU import test also passes against the current 217-pack dataset. |
+| Android JavaScript bundle | [x] Pass | Expo Android no-bytecode export passed: 2,052 modules, 22 MB JS bundle and 122 assets. This is not an installable APK build. |
+| Device verification | [ ] Pending | The published `v0.1.0-preview.1` APK predates both JU/HSTU imports. Build/install a new APK and perform owner device QA before treating these additions as device-verified. |
 
 ## Data integrity
 

@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-a-2021-2022-seti",
+    "category": "varsity",
+    "description": "Jahangirnagar University A Unit (Mathematical & Physical Sciences), academic session 2021-2022, Set-I — full 80-question paper transcribed by direct visual reading of the Udvash 'জাবি প্রশ্নব্যাংক' (JU A & D Unit question bank), book PDF pp.44-47 (questions; printed answer table at the head of p.48; printed worked solutions pp.48-50). EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED — the printed publisher answer keys are preserved as-is and are NOT official JU keys; cross-source verification is a later stage. Printed subject order: English Q1-3, Bangla Q4-6, ICT Q7-14, Chemistry Q15-36, Physics Q37-58, Higher Mathematics Q59-80. The answer table prints dashes at Q51 and Q53, and for both the printed worked solutions (book PDF p.48) explicitly state there is no correct answer — Q51: 'সমাধান: (সঠিক উত্তর নাই)', (874)10 = (100001110100)BCD is not among the printed options; Q53: 'সমাধান: (সঠিক উত্তর নেই)', 4.58 mm Hg = 0.458 cm Hg is not among the printed options — so both carry answerDisposition 'no_correct_option' with correctOptionIds []; their answerVerificationStatus is 'verified' solely because the validator requires that status for a no_correct_option disposition — it records the book's own printed claim, not cross-source verification — while their contentVerificationStatus remains 'unverified' like every other question in this extraction-stage pack. No dual keys occur in this paper. Worked solutions are printed for 38 questions (03, 12, 15, 16, 21, 27, 29, 31, 32, 42, 43, 46, 47, 48, 50, 51, 53, 56, 57, 59-80 selective); every printed solution letter agrees with the answer table. Preserved print anomalies: Q7 options (b)/(c), Q15 '30°' without 'C', Q34(ii) 'পারমানবিক', Q37(d) 'অর্ধ-গুণ হয়', Q47 garbled middle sentence, Q49(a) 'অণু তরঙ্গ', Q51 is an ICT-topic item printed inside the Physics block (subject follows the printed layout), Q62(c) trailing comma, Q78(b)/(c) print 'cox√x' where the worked solution writes 'cos√x'. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. Set-I of JU A Unit 2021-2022 occupies book PDF pp.44-47 (printed book pp.43-46): questions pp.44-47, printed answer table ('উত্তরমালা') at the head of p.48, printed worked solutions pp.48-50. Transcription by direct visual reading of every page (zoomed re-reads for the Boolean-algebra overlines, the Q51 binary strings, the Q57 fraction options, the Q46 root extents, the Q78 'cox' options and the full answer table); mathematical notation linearised (^ for superscripts, a/b for fractions, √, π, matrices as [[... , ...], ...], determinants wrapped in |...|)."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-a-2021-2022-seti",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2022,
+      "academicSession": "2021-2022",
+      "unit": "A",
+      "title": "JU A Unit 2021-2022 — Set-I (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-a-2021-2022-seti",
+      "paperId": "ju-unverified-a-2021-2022-seti",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+      ],
+      "sourceNote": "Paper header (book PDF p.44) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: A, সেট: I, সময়: ৫৫ মিনিট (55 minutes); the printed instructions state 80 questions in the paper, all must be answered, 0.20 marks deducted per wrong answer, and no calculator may be used. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-a-2021-2022-seti-ict-02",
+      "text": "(3D.C6)₁₆ + (506.47)₈ =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "(184.62)₈",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(184.62)₁₆",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(182.62)₁₆",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(182.62)₈",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 8,
+          "pageNumber": 44,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 44,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-chemistry-10",
+      "text": "পরমাণুর কেন্দ্রে তার সবটুকু ভর ও পজিটিভ চার্জ পুঞ্জীভূত থাকে। এটাকে কী বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিউক্লিয়াস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রোটন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পজিট্রন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটি নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 24,
+          "pageNumber": 45,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 45,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-physics-03",
+      "text": "রেক্টিফায়ার হিসাবে ডায়োড কোন ধরনের রূপান্তর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "এসি থেকে ডিসি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অস্থির ডিসি থেকে স্থির ডিসি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ডিসি থেকে এসি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উচ্চ বিভব থেকে নিম্ন বিভব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 39,
+          "pageNumber": 45,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 45,
+        "questionNumber": 39
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-physics-15",
+      "text": "নিচের কোনটি ডেসিমেল 874 এর বাইনারি কোডেড ডেসিমাল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1000011110100",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1000111100",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "111101010",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবকটিই ঠিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "ICT-topic question printed inside the Physics block; subject follows the printed layout. The answer table prints a dash, and the printed worked solution (book PDF p.48) states 'সমাধান: (সঠিক উত্তর নাই)' giving (874)10 = (100001110100)BCD, which is not among the options (option (a) prints the 13-digit string '1000011110100'); therefore answerDisposition is 'no_correct_option' with correctOptionIds []. Its answerVerificationStatus is set to 'verified' ONLY because the validator requires that status for a no_correct_option disposition; it records the book's own printed claim (table dash + explicit printed solution statement), not any cross-source verification. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 51,
+          "pageNumber": 46,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 46,
+        "questionNumber": 51
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-physics-17",
+      "text": "0°C তাপমাত্রায় জলীয় সম্পৃক্ত বাষ্পচাপ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "শূন্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.40 cm Hg",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "76 cm Hg",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অসীম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The answer table prints a dash, and the printed worked solution (book PDF p.48) states 'সমাধান: (সঠিক উত্তর নেই); 4.58 mm Hg = 0.458 cm Hg'; therefore answerDisposition is 'no_correct_option' with correctOptionIds []. Its answerVerificationStatus is set to 'verified' ONLY because the validator requires that status for a no_correct_option disposition; it records the book's own printed claim (table dash + explicit printed solution statement), not any cross-source verification. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 53,
+          "pageNumber": 46,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 46,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-higher-mathematics-14",
+      "text": "একটি সরলরেখা কর্তৃক y-অক্ষের খণ্ডিতাংশ 3 এবং রেখাটি 2x + 3y = 5 এর উপর লম্ব। রেখাটির সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x - 2y + 6 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3x - 2y - 5 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3x - 2y + 5 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3x + 2y + 13 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 72,
+          "pageNumber": 47,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 47,
+        "questionNumber": 72
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-higher-mathematics-17",
+      "text": "P এবং 2P সমবিন্দু বলের প্রথমটি দ্বিগুণ করলে এবং দ্বিতীয়টির সাথে 4 একক বৃদ্ধি করলে এদের লব্ধির দিক অপরিবর্তিত থাকে। P এর মান কত একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "12",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "16",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 75,
+          "pageNumber": 47,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 47,
+        "questionNumber": 75
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2021-2022-seti-higher-mathematics-22",
+      "text": "2x + 3y + 4 = 0 রেখার উপর লম্ব এবং (3, -2) বিন্দুগামী সরলরেখার সমীকরণ নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2x + 3y + 13 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2x + 3y - 12 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3x - 2y + 4 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3x - 2y - 13 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2021-2022-seti",
+          "questionNumber": 80,
+          "pageNumber": 47,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2021-2022-seti",
+        "pageNumber": 47,
+        "questionNumber": 80
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2021-2022-seti.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

@@ -1,0 +1,2699 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-h-2016-2017-set1",
+    "category": "varsity",
+    "description": "Jahangirnagar University H Unit, academic session 2016-2017, Set-1 — full 80-question paper transcribed by direct visual reading (with zoomed crops) of Part 2 of the Udvash 'জাবি প্রশ্নব্যাংক' (JU question bank), book PDF pp.268-277 (printed pp.83-92 of Part 2). Part 2 has NO answer table: each question carries its key inline, as an '[Ans: x]' tag and/or a printed worked solution ('সমাধান:'/'Solution:'); where both forms occur (Q2, Q9, Q19) they never disagree in this paper. EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED — the printed publisher answer keys are preserved as-is and are NOT official JU keys; cross-source verification is a later stage. The paper is printed in THREE syllabus tiers whose question numbers interlock: the 'Short Syllabus' run (heading on book PDF p.268) carries 56 questions, the 'Extra Syllabus' block (heading on book PDF p.275, continuing on pp.276-277) carries 23, and a single-question 'Old Syllabus' block (heading at the foot of book PDF p.277) carries Q69 only; together they partition the printed numbers 1-80 exactly once, and each question's tier is recorded in its topic field. The book prints no per-subject headings; subject blocks follow the printed question-number ranges, confirmed by content: Bangla Q1-5, English Q6-20, Physics Q21-40, Higher Mathematics Q41-80 — counts Bangla 5, English 15, Physics 20, Higher Mathematics 40. Question numbers are NOT printed in numeric order across the pages: p.268 carries Q1-13; p.269 carries Q14-22, 25, 27, 28; p.270 carries Q29-33, 35, 37-40, 42; p.271 carries Q43-45; p.272 carries Q46-48, 50, 51; p.273 carries Q52, 53, 65, 66, 70-72; p.274 carries Q73-76, 79; p.275 (Extra Syllabus) carries Q23, 24, 26, 34, 36, 41, 49, 54; p.276 (Extra Syllabus) carries Q55-62; p.277 carries (Extra Syllabus) Q63, 64, 67, 68, 77, 78, 80 and (Old Syllabus) Q69. Keys: 79 keyed single_choice, exactly ONE dual key — Q77, whose printed tag reads '[Ans: a, b]' and which is therefore encoded multiple_choice with both ids — 0 printed no-correct-option dispositions, and 0 keyless questions. Preserved print anomalies: Q8(c) prints 'didn't' with no object; Q14(c) prints 'ornace'; Q29(d) prints π/190 rads^-1; Q32(c) prints the gravitational-potential unit as 'Jkg' with no ^-1; Q36 prints the car's uniform velocity with the acceleration unit ms^-2; Q41's options (a) and (c) print the dipole-moment unit as 'Am' against 'Am^2' in (b) and (d); Q44's stem prints the point as lowercase 'p'; Q48(d) prints only '(±2, 0)' with no eccentricity value; Q58's stem prints 'কমপক্ষে 0 জন' (at least 0 students); Q61(c) prints the reversed inequality chain '0 ≤ x ≥ 11/6'; Q63(c) prints '≤ -1/2' with no variable; Q75's stem prints 'স্থির অবস্থা থেকে'; Q80's stem prints the vector as plain 'A' with no arrow. Content-versus-block anomalies (subject follows the printed number range throughout): Q33 is chemistry-flavoured although its number places it in the Physics block, and Q41 is a physics question (coil dipole moment) although its number places it in the Higher Mathematics block. No question in this paper carries a figure or diagram; diagrams or tables appear only inside the printed worked solutions (Q44, Q70, Q72, Q75 and Q76 carry solution diagrams; Q54 and Q55 carry solution tables). BOUNDARY NOTE: the book map's span for this paper (pp.268-287) is WRONG — book PDF p.278 carries the header of a DIFFERENT paper, JU H Unit 2016-2017 Set-3, so this paper is pp.268-277 ONLY; p.267 belongs to the previous paper (H 2017-2018 Set-6) and nothing outside pp.268-277 is included here. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. The book's Part 2 (typeset প্রশ্ন-সমাধান section, banner 'প্রশ্ন-সমাধান: ২০১৬-১৭') restarts pagination: printed page = book PDF page - 185. Set-1 of JU H Unit 2016-2017 occupies printed pp.83-92 = book PDF pp.268-277: 'Short Syllabus' run on pp.268-274, the 'Extra Syllabus' block beginning on printed p.90 (book PDF p.275) and continuing on printed pp.91-92 (book PDF pp.276-277), and a one-question 'Old Syllabus' block (Q69) at the foot of printed p.92 (book PDF p.277). There is no answer table in Part 2; keys are inline ('[Ans: x]' tags and printed 'সমাধান:'/'Solution:' worked solutions printed directly under each question). Paper header (book PDF p.268) confirmed before transcription: জাবি ভর্তি পরীক্ষা ২০১৬-২০১৭ শিক্ষাবর্ষ, পূর্ণমান: ৮০, ইউনিট-H, সেট-1, সময়: ১:০০ ঘণ্টা. The following paper, H Unit 2016-2017 Set-3, begins on printed p.93 (book PDF p.278); the book map's pp.268-287 span for Set-1 is therefore incorrect and pp.278-287 are excluded. Transcription by direct visual reading of every page image (300-dpi renders), with zoomed re-reads (PIL crops) for Q1-Q6, Q14-Q15, Q21-Q22, Q25, Q27, Q29-Q33, Q35-Q36, Q41, Q49-Q50, Q53-Q54, Q61-Q68, Q74-Q77. Mathematical notation linearised (^ for superscripts, a/b for fractions, √, π, matrices wrapped in [...] with rows separated by ';', unit vectors as î, ĵ, k̂ and vector arrows as →; Bangla numerals in numeric contexts converted to Western digits)."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-h-2016-2017-set1",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2017,
+      "academicSession": "2016-2017",
+      "unit": "H",
+      "title": "JU H Unit 2016-2017 — Set-1 (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-h-2016-2017-set1",
+      "paperId": "ju-unverified-h-2016-2017-set1",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+      ],
+      "sourceNote": "Paper header (book PDF p.268) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট-H, সেট-1, সময়: ১:০০ ঘণ্টা (1 hour). No further instructions are printed with this paper in Part 2 — in particular no negative-marking rule and no calculator rule appear on the header page or on any of the paper's pages (book PDF pp.268-277) — so none are recorded here. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-h-2016-2017-set1-english-01",
+      "text": "Unfortunately, they haven't paid on time recently.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verb",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Noun",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Adverb",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Adjective",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The word 'recently' is underlined in print (zoom-verified).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 6,
+          "pageNumber": 268,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 268,
+        "questionNumber": 6
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-english-02",
+      "text": "However, there are a number of places and events that must be seen and enjoyed if you are in Dhaka. The underlined word is__",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Preposition",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Conjunction",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Interjection",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Adjective",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The word 'However' at the start of the sentence is underlined in print (zoom-verified).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 7,
+          "pageNumber": 268,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 268,
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-english-06",
+      "text": "Which of the following spelling is correct?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Surveillance",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Survaillance",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Survellance",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Survailance",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 11,
+          "pageNumber": 268,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 268,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-english-09",
+      "text": "The synonym of 'Stalk' is-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "dive",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "chase",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ornace",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "prowl",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (c) prints 'ornace' exactly as shown (zoom-verified).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 14,
+          "pageNumber": 269,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 269,
+        "questionNumber": 14
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-01",
+      "text": "তিনটি ধারকের ধারকত্ব যথাক্রমে 3μF, 2μF ও 1μF এবং এদের প্রথম ও দ্বিতীয়টিকে শ্রেণি সমবায়ে সাজিয়ে তৃতীয়টির সাথে সমান্তরাল সমবায়ে যুক্ত করা হলে তুল্য ধারকত্ব কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5/11",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "11/5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 21,
+          "pageNumber": 269,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 269,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-04",
+      "text": "ফিজোর একটি পরীক্ষায় চাকার দাঁতের সংখ্যা ছিল 200 এবং চাকাটি প্রতি সেকেন্ডে 10 বার ঘুরছিল। চাকা ও দর্পণের মধ্যবর্তী দূরত্ব 2km হলে আলোর বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.6×10^2 ms^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.6×10^6 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.6×10^7 ms^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.6×10^8 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 24,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 24
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-05",
+      "text": "এক আলোক বর্ষ কত কিলোমিটার?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "94.6×10^12",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "9.46×10^12",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "49.6×10^12",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4.6×10^12",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 25,
+          "pageNumber": 269,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 269,
+        "questionNumber": 25
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-06",
+      "text": "একটি উত্তল লেন্সের ফোকাস দূরত্ব 25 cm হলে লেন্সের ক্ষমতা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "+0.4D",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-4D",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "+4D",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-0.4D",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 26,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 26
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-07",
+      "text": "একটি তরঙ্গের দুটি বিন্দুর মধ্যে পথ পার্থক্য λ/2, বিন্দুদ্বয়ের মধ্যে দশা পার্থক্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2π",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3π",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 27,
+          "pageNumber": 269,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 269,
+        "questionNumber": 27
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-08",
+      "text": "A→ = î + 2ĵ - 2k̂ এবং B→ = 2î + ĵ + k̂ হলে তাদের লব্ধির মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "9",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "19",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√19",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The vectors A and B print with an arrow above the letter; linearised as A→ and B→ per pack vector conventions.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 28,
+          "pageNumber": 269,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 269,
+        "questionNumber": 28
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-09",
+      "text": "হাতঘড়ির কাঁটার কৌণিক বেগ ঘণ্টার কাঁটার জন্য-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/180 rads^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/270 rads^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/21600 rads^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/190 rads^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (d) prints π/190 rads^-1 exactly as shown (zoom-verified).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 29,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 29
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-10",
+      "text": "একটি গাড়ির নিরাপদে বাঁক নেয়ার শর্ত হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "v ≤ (tanθrg)^(1/2)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "v ≤ (tanθrg)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "v > (tanθrg)^(1/2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "v > tanθrg",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 30,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 30
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-11",
+      "text": "600kg ভরের একটি পাথরকে ক্রেনের সাহায্যে 0.1 ms^-1 বেগে ছাদের উপরে উঠাতে ক্রেনের শক্তি ব্যয় হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "294 W",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "550 W",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "588 W",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "600 W",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 31,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 31
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-13",
+      "text": "পদার্থের রাসায়নিক বন্ধনের মাঝে সবচেয়ে দুর্বল বন্ধন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "আয়নিক বন্ধন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সমযোজী বন্ধন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভ্যান ডার ওয়াল'স বন্ধন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ধাতব বন্ধন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The question's printed number (33) places it in the Physics block (Q21-40) although its content is chemistry-flavoured; the subject follows the printed number range, as throughout this pack.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 33,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 33
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-14",
+      "text": "শব্দের তীব্রতার ......... পরিবর্তনের জন্য তীব্রতার লেভেল 1 dB পরিবর্তন হয়।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "26%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "27%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "25%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 34,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 34
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-15",
+      "text": "E = mc^2 বিশেষ আপেক্ষিকতা বিজ্ঞানী আলবার্ট আইনস্টাইন কত সালে সর্বপ্রথম তত্ত্বটি উপস্থাপন করেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1904",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1905",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1907",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1906",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 35,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 35
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-16",
+      "text": "একটি ট্রেন স্থির অবস্থান হতে 14 ms^-2 ত্বরণে চলতে আরম্ভ করল। একই সময়ে একটি গাড়ী 91 ms^-2 সমবেগে ট্রেনের সমান্তরালে চলা শুরু করল। ট্রেন গাড়ীটিকে কখন পিছনে ফেলবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "11s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "14s",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90). The car's uniform velocity is printed with the unit ms^-2 (the acceleration unit), exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 36,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 36
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-17",
+      "text": "20°C তাপমাত্রায় পানির উপরিতল হতে 0.05 m লম্বা একটি অনুভূমিক তারকে টেনে তুলতে যে সর্বাধিক বলের প্রয়োজন তার মান 7.28×10^-3 N। পানির পৃষ্ঠটান কত? [তারের ওজন নগণ্য]",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "7.2×10^-2 Nm^-2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7.2×10^-2 Nm^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7.2×10^-3 Nm^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7.2×10^-1 Nm^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 37,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 37
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-18",
+      "text": "একটি বল 4 kg ভর বিশিষ্ট একটি স্থির বস্তুর উপর ক্রিয়া করে। এর ফলে বস্তুটি 6s এ 30 ms^-1 বেগ প্রাপ্ত হয়। বলের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "30 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "40 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 38,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 38
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-physics-20",
+      "text": "একটি মোটর গাড়ির হেডলাইটের ফিলামেন্ট 1A বিদ্যুৎ টানে। এর প্রান্তদ্বয়ের বিভব পার্থক্য 1.25 V। ফিলামেন্টের রোধ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 Ω",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.125 Ω",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.8 Ω",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.25 Ω",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 40,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 40
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-01",
+      "text": "একটি তারের কুণ্ডলীর ক্ষেত্রফল 2.0×10^-4 m^2 এবং কুণ্ডলীর মধ্য দিয়ে 0.01 A বিদ্যুৎ প্রবাহ চললে কুণ্ডলীর দ্বিপোল মোমেন্ট-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2×10^-3 Am",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2×10^-5 Am^2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2×10^-4 Am",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2×10^-6 Am^2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90). The question's printed number (41) places it in the Higher Mathematics block (Q41-80) although its content is physics (magnetic dipole moment of a coil); the subject follows the printed number range, as throughout this pack. Options (a) and (c) print the unit as 'Am' while (b) and (d) print 'Am^2'; preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 41,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 41
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-02",
+      "text": "x-অক্ষের উপর অবস্থিত P বিন্দু থেকে (0, 2) ও (6, 4) বিন্দু দুইটি সমদূরবর্তী। P বিন্দুর স্থানাঙ্ক নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(6, 0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(4, 0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(6, 2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(2, 4)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 42,
+          "pageNumber": 270,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 270,
+        "questionNumber": 42
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-03",
+      "text": "একটি সরলরেখা (x1, y1) বিন্দু দিয়ে এমনভাবে আঁকা হলো যে, অক্ষ দুইটির মধ্যবর্তী খণ্ডিত অংশ ঐ বিন্দুতে সমদ্বিখণ্ডিত হয়। রেখাটির সমীকরণ নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "x/a + y/b = 1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/x + 1/y = 1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x/x1 + y/y1 = 1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x/x1 + y/y1 = 2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 43,
+          "pageNumber": 271,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 271,
+        "questionNumber": 43
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-04",
+      "text": "x - 3y - 2 = 0 সরলরেখার উপর p একটি বিন্দু এবং তা (2, 3) ও (6, -5) বিন্দু দুইটি থেকে সমদূরবর্তী। বিন্দুটির স্থানাঙ্ক নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(4, 14)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(6, 14)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(14, 4)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(3, 6)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem prints the point with a lowercase 'p', as shown. The printed worked solution (not the question) carries a small coordinate diagram; the question itself has no figure.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 44,
+          "pageNumber": 271,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 271,
+        "questionNumber": 44
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-05",
+      "text": "x + 2y + 3 = 0 রেখার উপর কেন্দ্রবিশিষ্ট একটি বৃত্ত (-1, -1) এবং (3, 2) বিন্দু দুইটি দিয়ে অতিক্রম করে। বৃত্তটির সমীকরণ নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-x^2 - y^2 - 3x + 3y = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x^2 + y^2 - 8x + 7y - 3 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3x^2 + 2y^2 + 2x + y = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2x^2 + 3y^2 - x - y = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 45,
+          "pageNumber": 271,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 271,
+        "questionNumber": 45
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-06",
+      "text": "(4, -5) কেন্দ্রবিশিষ্ট একটি বৃত্ত মূল বিন্দু দিয়ে যায়। অক্ষ দুইটি থেকে তা কি পরিমাণ অংশ ছেদ করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "x : 8, y : 10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x : 10, y : 10",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x : 15, y : 12",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x : 15, y : 8",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 46,
+          "pageNumber": 272,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 272,
+        "questionNumber": 46
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-07",
+      "text": "(1, -3) কেন্দ্রবিশিষ্ট একটি বৃত্ত 2x - y - 4 = 0 রেখাকে স্পর্শ করে। বৃত্তটির সমীকরণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x^2 + 3y^2 - 10x + 20y + 49 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x^2 + 5y^2 + 20x - 10y + 29 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x^2 + y^2 - 10x + 10y + 20 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5x^2 + 5y^2 - 10x + 30y + 49 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 47,
+          "pageNumber": 272,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 272,
+        "questionNumber": 47
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-08",
+      "text": "3x^2 + 4y^2 = 12 উপবৃত্তের উৎকেন্দ্রিকতা ও উপকেন্দ্র যথাক্রমে:",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/3, (±4, 0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/4, (±3, 0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/2, (±1, 0)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(±2, 0)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (d) prints only '(±2, 0)' with no eccentricity value; preserved exactly as printed (zoom-verified).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 48,
+          "pageNumber": 272,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 272,
+        "questionNumber": 48
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-09",
+      "text": "q-এর মান কত হলে 2î + ĵ - k̂, 3î - 2ĵ + 4k̂ এবং î - 3ĵ + qk̂ এই তিনটি ভেক্টর একই সমতলে থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 49,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 49
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-10",
+      "text": "x^2 log_a x + 7e^x cosx এর অন্তরক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "7(log_a e + 2 log_a x) + e^x(cosx - sinx)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7x(log_a e + 2 log_a x) + (cosx - sinx)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x(log_a e + 2 log_a x) + 7e^x(cosx + sinx)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x(log_a e + 2 log_a x) + 7e^x(cosx - sinx)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 50,
+          "pageNumber": 272,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 272,
+        "questionNumber": 50
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-11",
+      "text": "একটি ত্রিভুজের পরিসীমা 60 cm এবং ক্ষেত্রফল 150 cm^2 হলে বাহু তিনটির পরিমাণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "15 cm, 15 cm, 30 cm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15 cm, 20 cm, 25 cm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "20 cm, 20 cm, 20 cm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "15 cm, 10 cm, 35 cm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 51,
+          "pageNumber": 272,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 272,
+        "questionNumber": 51
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-12",
+      "text": "k-এর মান কত হলে (3k + 1)x^2 + (11 + k)x + 9 = 0 সমীকরণটির মূল দুইটি বাস্তব ও অসমান হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "k < 85 অথবা k > 1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "k > 85 অথবা k > 1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "k > 85 অথবা k < 1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "k < 85 অথবা k < 1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 52,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 52
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-13",
+      "text": "P = [2 2] এবং Q = [-1 -2 -1; 3 0 -3] হলে PQ এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "[4 1 5]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4[1 -1 -2]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[1 1 2]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4[2 1 2]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Matrices linearised with rows separated by ';' and entries by spaces, per pack conventions (zoom-verified): P is the 1×2 row [2 2] and Q is the 2×3 matrix [-1 -2 -1; 3 0 -3].  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 53,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-14",
+      "text": "a, b, c, d, e, f অক্ষরগুলো থেকে তিনটি অক্ষর দ্বারা গঠিত বিন্যাসের সংখ্যা নির্ণয় কর, যেখানে প্রতিটি বিন্যাসে কমপক্ষে একটি স্বরবর্ণ বর্তমান থাকবে।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "46",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "96",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "23",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "69",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.275 (printed p.90). The printed worked solution (not the question) carries a combination table; the question itself has no figure.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 54,
+          "pageNumber": 275,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 275,
+        "questionNumber": 54
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-16",
+      "text": "(x^2 - 2x)^10-এর বিস্তৃতিতে x^16- এর সহগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "3360",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3630",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3330",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6330",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.276 (printed p.91).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 56,
+          "pageNumber": 276,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 276,
+        "questionNumber": 56
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-17",
+      "text": "2^2 + 4^2 + 6^2 + ⋯ + (2n)^2 ধারাটির যোগফল-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(1/3)n(n + 1)(2n - 1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1/3)n(n - 1)(2n + 1)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(2/3)n(n + 1)(2n + 1)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(1/3)n(n + 1)(2n + 1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.276 (printed p.91).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 57,
+          "pageNumber": 276,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 276,
+        "questionNumber": 57
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-20",
+      "text": "যদি x এবং y উভয়েই ধারাবাহিক Prime number হয় এবং x, y ≤ 70 হয়, তাহলে x এবং y এর জন্য নিচের কোন পার্থক্যটি সঠিক নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.276 (printed p.91).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 60,
+          "pageNumber": 276,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 276,
+        "questionNumber": 60
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-21",
+      "text": "ধরি, A = {x| -3/2 < x < 11/6} এবং B/A = {x| All negative numbers} তাহলে B সেট হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "All negative numbers",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "All positive numbers",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0 ≤ x ≥ 11/6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0 < x < 11/6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.276 (printed p.91). Option (c) prints the reversed inequality chain '0 ≤ x ≥ 11/6' exactly as shown (zoom-verified).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 61,
+          "pageNumber": 276,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 276,
+        "questionNumber": 61
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-22",
+      "text": "ধরি, A = {x| |x - 1| < 1/10}, B = {x|all negative numbers} এবং C = {x|0 ≤ x ≤ 1.1} তাহলে (A ∪ B) ∪ C সেট হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "x ≤ 1.1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x < 1.1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-∞ ≤ x ≤ 1.1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.276 (printed p.91).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 62,
+          "pageNumber": 276,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 276,
+        "questionNumber": 62
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-23",
+      "text": "x/2 + 1 ≤ 0, অসমতাটির x এর মান হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0 ≤ x ≤ -1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-∞ ≤ x ≤ -2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "≤ -1/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x ≤ -1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92). Option (c) prints '≤ -1/2' with no variable before the inequality sign, exactly as shown (zoom-verified).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 63,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 63
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-24",
+      "text": "যদি 10, 14 এবং n এর গড় 8 অথবা 8 এর চেয়ে বেশি এবং 12 অথবা 12 এর চেয়ে কম হয়, তাহলে n এর সম্ভাব্য ছোট মানটি কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-12",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92).  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 64,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 64
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-26",
+      "text": "যদি Polynomial ফাংশন x^3 - 3x^2 + 4x - 10 কে (x - 1) দিয়ে ভাগ করা হয়, তাহলে ভাগশেষ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-8",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 66,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 66
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-27",
+      "text": "(x - 2/x^2)^6 ফাংশনটির বিস্তৃতির x বর্জিত পদ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "60",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "15",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 67,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 67
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-28",
+      "text": "যদি (a + 2x)^5 ফাংশনটির বিস্তৃতির x^3 এর সহগ 320 হয়, তাহলে, a এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "±2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "±1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 68,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 68
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-30",
+      "text": "যদি পরাবৃত্তের উপকেন্দ্র এবং শীর্ষবিন্দুর স্থানাঙ্ক যথাক্রমে (3, 0) এবং (0, 0) হয়, তাহলে পরাবৃত্তের দিকাক্ষের সমীকরণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "y = -3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x = 3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x = -3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The printed worked solution (not the question) carries a parabola diagram; the question itself has no figure.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 70,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 70
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-31",
+      "text": "যদি পরাবৃত্তের সমীকরণ x^2 - 4x + 4 = 8y - 16 হয়, তাহলে উপকেন্দ্রের স্থানাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2, 0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2, 4)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(4, 0)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(0, 2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 71,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 71
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-32",
+      "text": "সমকোণী ত্রিভুজের বিন্দুগুলো (0, 0), (3, 0) এবং (3, -3) হলে ত্রিভুজটির ক্ষেত্রফল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4.5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The printed worked solution (continuing at the top of book PDF p.274) carries a small coordinate diagram of the triangle; the question itself has no figure.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 72,
+          "pageNumber": 273,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 273,
+        "questionNumber": 72
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-33",
+      "text": "5 এবং 4 kg ওজনের দুটি বল কোন বিন্দুতে ক্রিয়াশীল এবং তাদের মধ্যবর্তী কোণ 180 ডিগ্রি, তাদের লব্ধিবল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "41 kg weight",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1 kg weight",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "9 kg weight",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Not listed here",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 73,
+          "pageNumber": 274,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 274,
+        "questionNumber": 73
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-34",
+      "text": "4cos^2θ - 4cosθ + 1 = 0 সমীকরণটি সমাধান করলে θ এর সবচেয়ে ভাল সম্ভাব্য মান নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "nπ + π/6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2nπ + π/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "nπ + (-1)^n π/3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2nπ ± π/6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 74,
+          "pageNumber": 274,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 274,
+        "questionNumber": 74
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-35",
+      "text": "একটি বাঘ একটি হরিণের 4 মিটার পিছনে থেকে ধরার জন্য স্থির অবস্থা থেকে 2 ms^-2 সমত্বরণে দৌড়াতে শুরু করলো। হরিণটি 3 ms^-1 সমবেগে দৌড়ালে বাঘটি হরিণটিকে কতক্ষণ পরে ধরতে পারবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 sec",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5 sec",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2 sec",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 sec",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem prints 'স্থির অবস্থা থেকে' exactly as shown. The printed worked solution (not the question) carries a line diagram (বাঘ at A, হরিণ at B, 4m apart); the question itself has no figure.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 75,
+          "pageNumber": 274,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 274,
+        "questionNumber": 75
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-36",
+      "text": "একটি বস্তু 9.8 ms^-1 বেগে 30 ডিগ্রি কোণে 9.8 মিটার উঁচু বাড়ির ছাদের উপর থেকে নিক্ষেপ করা হলো। কতক্ষণ পর বস্তুটি ভূমিতে পড়বে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 sec",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6 sec",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2 sec",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 sec",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The printed worked solution (not the question) carries a small projectile diagram (u = 9.8 ms^-1 at α = 30° from a roof of height h = 9.8 m); the question itself has no figure.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 76,
+          "pageNumber": 274,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 274,
+        "questionNumber": 76
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-37",
+      "text": "বিভেদাঙ্ক কি?",
+      "type": "multiple_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ratio of standard deviation to mean",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Percent Ratio of standard deviation to mean",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ratio of mean to standard deviation",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Not listed here",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92). DUAL KEY: the printed tag reads '[Ans: a, b]' — both options are keyed in print, so the question is encoded multiple_choice with correctOptionIds [a, b]. No worked solution is printed for this question.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 77,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 77
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-38",
+      "text": "1, 2, 3 ..... 22 সিরিজটির সংখ্যাগুলোর গড় কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "11.5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "22",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10.5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block on book PDF p.277 (printed p.92).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 78,
+          "pageNumber": 277,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 277,
+        "questionNumber": 78
+      }
+    },
+    {
+      "id": "ju-unverified-h-2016-2017-set1-higher-mathematics-39",
+      "text": "যদি A = [7 8 9; 2 1 7; 6 5 2] এবং C = A + I_(3×3) তাহলে c_23 =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Matrices linearised with rows separated by ';' and entries by spaces, per pack conventions; I_(3×3) is the 3×3 identity matrix and c_23 is the (2,3) entry of C.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-h-2016-2017-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2016-2017-set1",
+          "questionNumber": 79,
+          "pageNumber": 274,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2016-2017-set1",
+        "pageNumber": 274,
+        "questionNumber": 79
+      }
+    }
+  ]
+}

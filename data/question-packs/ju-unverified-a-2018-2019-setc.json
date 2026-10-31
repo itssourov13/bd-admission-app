@@ -1,0 +1,1588 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-a-2018-2019-setc",
+    "category": "varsity",
+    "description": "Jahangirnagar University A Unit (Mathematical & Physical Sciences), academic session 2018-2019, Set-C — full 80-question paper transcribed by direct visual reading of the Udvash 'জাবি প্রশ্নব্যাংক' (JU A & D Unit question bank), book PDF pp.71-73 (questions), with the printed answer table alone at the head of p.74 and printed worked solutions on pp.74-75. EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED — the printed publisher answer keys are preserved as-is and are NOT official JU keys; cross-source verification is a later stage. The book prints no per-subject headings in this paper (only a 'Short Syllabus' banner on p.71 and an 'Extra Syllabus' box on p.73); subject blocks by printed layout position, in printed order: Bangla Q1-3, English Q4-6, ICT Q7-8, General Knowledge Q9-14, Higher Mathematics Q15-17, 19-23, 26, 28-29, 31-34, 36 (with Q18, 24, 25, 27, 30 under the 'Extra Syllabus' box and Q35 in the right column of p.73), Physics Q37-41, 43-54 (with Q42, 55-58 in the right column of p.73), Chemistry Q59-65, 68-72, 74, 76-79 (with Q66, 67, 73, 75, 80 in the right column of p.73) — counts Bangla 3, English 3, ICT 2, General Knowledge 6, Physics 22, Chemistry 22, Higher Mathematics 22. Question numbers are NOT printed in numeric order across the pages: p.71 carries Q1-17, 19-23, 26, 28, 29; p.72 carries Q31-34, 36-54, 59-65, 68, 69; p.73 carries Q70-72, 74, 76-79, the Extra-Syllabus Q18, 24, 25, 27, 30, and Q35, 42, 55-58, 66, 67, 73, 75, 80. The answer table prints exactly one dash, at Q38, and the printed worked solution (book PDF p.75) explicitly states '(সঠিক উত্তর নেই)' and computes the scalar product as 5, which is not among the printed options — so Q38 carries answerDisposition 'no_correct_option' with correctOptionIds []; its answerVerificationStatus is 'verified' solely because the validator requires that status for a no_correct_option disposition — it records the book's own printed claim, not cross-source verification — while its contentVerificationStatus remains 'unverified' like every other question in this extraction-stage pack. No dual keys occur in this paper. One table/solution disagreement is flagged, at Q26: the answer table keys (c) and the printed solution is headed 'সমাধান: (c)', but the same printed solution's concluding line states 'সঠিক উত্তর: (d) কোনোটিই নয়'; the table key (c) is recorded and the disagreement is documented in Q26's extractionNote, not resolved. All other printed worked solutions (Short Syllabus: Q15, 16, 17, 19, 20, 21, 22, 23, 26, 28, 29, 31, 32, 33, 34, 36, 39, 41, 43, 48, 49, 50, 51, 52, 53, 68, 69, 70; Extra Syllabus: Q18, 24, 25, 27, 30, 35, 42, 55, 56, 57, 58, 67, 75) agree with the answer table. Preserved print anomalies: Q14(c) prints 'PM' with a subscript 's'; Q26 is a projectile-motion item printed inside the Higher Mathematics run and Q53 is a Boolean-function item printed inside the Physics run (subjects follow printed block position); Q43's stem prints '60 kg কেজি'; the stems of Q44, Q46, Q47 and Q55 end with a printed hyphen; Q50(a) prints the exponent 10^19 without a minus sign; Q53's stem prints no question mark after 'কোনটি'. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. Set-C of JU A Unit 2018-2019 occupies book PDF pp.71-75 (printed book pp.70-74): questions pp.71-73, printed answer table ('উত্তরমালা') alone at the head of p.74, printed worked solutions pp.74-75. Paper header (book PDF p.71) confirmed before transcription: জাবি ভর্তি পরীক্ষা ২০১৮-১৯ শিক্ষাবর্ষ, পূর্ণমান: ৮০, ইউনিট: A, সেট: C, সময়: ৫৫ মিনিট. Transcription by direct visual reading of every page, with zoomed re-reads for the Q3 sandhi options, the Q14(c) subscript, the Q27 option intervals and the Q26 worked solution. Mathematical notation linearised (^ for superscripts, a/b for fractions, √, π, determinants wrapped in |...| with rows separated by ';', permutation/combination as ^nP_r / ^nC_r, unit vectors as î, ĵ, k̂ and vector arrows as →; chemical formulas written with plain digits for subscripts, e.g. N2O5, HSO4^-)."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-a-2018-2019-setc",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2019,
+      "academicSession": "2018-2019",
+      "unit": "A",
+      "title": "JU A Unit 2018-2019 — Set-C (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-a-2018-2019-setc",
+      "paperId": "ju-unverified-a-2018-2019-setc",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+      ],
+      "sourceNote": "Paper header (book PDF p.71) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: A, সেট: C, সময়: ৫৫ মিনিট (55 minutes); the printed instructions state 80 questions in the paper, all must be answered, 0.20 marks deducted per wrong answer, and no calculator may be used. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-a-2018-2019-setc-bangla-02",
+      "text": "রসাত্মক ও ব্যঙ্গধর্মী রচনার সংকলন কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "কপালকুণ্ডলা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বিষবৃক্ষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কমলাকান্তের দপ্তর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "চন্দ্রশেখর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 2,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-ict-02",
+      "text": "মেমরি পরিমাপের ক্ষুদ্রতম একক কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "বিট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বাইট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কিলোবাইট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মেগাবাইট",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 8,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-general-knowledge-05",
+      "text": "কোন গ্যাসটি এসিড রেইনের জন্য দায়ী নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "General Knowledge",
+      "options": [
+        {
+          "id": "a",
+          "text": "NO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "SO2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "N2O4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CO",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 13,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-02",
+      "text": "(0,0), (3,3), (3,-5) বিন্দুগুলো দ্বারা গঠিত ত্রিভুজের ক্ষেত্রফল কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "11",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "12",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 16,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 16
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-03",
+      "text": "x^2 + y^2 + 6x - 4y - 12 = 0 বৃত্তের কেন্দ্র ও ব্যাসার্ধ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(-3, 2), 5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(-6, 4), 4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(3, -2), 5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(-3, -2), 5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 17,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-05",
+      "text": "sinθ + cosθ = √2 হলে, 0 ≤ θ ≤ π/2 ব্যবধিতে θ এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 19,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-08",
+      "text": "lim (x→∞) (x^2 - 4)/(2 + x - 4x^2) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1/4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 22,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-10",
+      "text": "প্রথম 13 টি স্বাভাবিক সংখ্যার বিভেদাঙ্ক (CV) কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "53.45%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "53%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "52.5%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' box on book PDF p.73.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 24,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 24
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-11",
+      "text": "2 থেকে 40 পর্যন্ত সংখ্যা হতে যে কোন একটি পূর্ণসংখ্যা দৈবচয়ন করলে সংখ্যাটি মৌলিক হবার সম্ভাবনা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "11/39",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4/13",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "11/38",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' box on book PDF p.73.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 25,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-13",
+      "text": "1/|2x - 3| > 5 অসমতাটির সমাধান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(7/5, 2/3)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(3/2, 8/5)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(7/5, 3/2) ∪ (3/2, 8/5)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(7/5, 8/5)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' box on book PDF p.73. Option (a) prints (7/5, 2/3) exactly as shown (zoom-verified).  [UNVERIFIED import-format set] reason: content_matched_answer_not_promoted; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 27,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 27
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-15",
+      "text": "x^3 - 5x^2 + 6 = 0 সমীকরণের মূলত্রয় a, b, c হলে, 1/abc এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1/6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1/5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 29,
+          "pageNumber": 71,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 71,
+        "questionNumber": 29
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-16",
+      "text": "(1 + ax)^8 এর বিস্তৃতিতে x^3 এবং x^4 এর সহগ পরস্পর সমান হলে a = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "16/5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5/16",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' box on book PDF p.73.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 30,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 30
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-17",
+      "text": "x^2 - 4x + 12y - 40 = 0 পরাবৃত্তের উপকেন্দ্রিক লম্বের দৈর্ঘ্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 31,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 31
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-18",
+      "text": "(x + 4)^2/100 + (y - 2)^2/64 = 1 উপবৃত্তের উৎকেন্দ্রিকতা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5/3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4/5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 32,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 32
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-19",
+      "text": "tan(tan^-1 (1/3) + tan^-1 (1/2)) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5/6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-5/6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 33,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 33
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-higher-mathematics-20",
+      "text": "cot^2 θ - (√3 + 1)cotθ + √3 = 0, 0 < θ < π/2, θ = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/6, π/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/4, π/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/3, π/5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/6, π/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 34,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 34
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-03",
+      "text": "একটি গাড়ি সরলরেখা বরাবর চলে একটি বিন্দুকে 5 ms^-1 বেগে অতিক্রম করার পর 2 ms^-2 সুষম ত্বরণে চলে। 4 sec পর গাড়িটি কত দূরত্ব অতিক্রম করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "41 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "50 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "36 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "70 m",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 39,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 39
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-09",
+      "text": "তরঙ্গের উপর সমদশা সম্পন্ন কণার গতিপথকে কী বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "তরঙ্গ দৈর্ঘ্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "তরঙ্গ মুখ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কম্পাংক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বিস্তার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 45,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 45
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-10",
+      "text": "T তাপমাত্রায় আদর্শ গ্যাসের একটি অণুর গড় গতিশক্তি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2/3)kT",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1/3)kT",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(3/2)kT^4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(3/2)kT",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem ends with a printed hyphen; preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 46,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 46
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-13",
+      "text": "10 cm ব্যাসার্ধের একটি গোলকের পৃষ্ঠে 10 C চার্জ স্থাপন করলে এর পৃষ্ঠে তড়িৎ বিভব কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "9 × 10^11 V",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.9 × 10^11 V",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "9 × 10^12 V",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.9 × 10^10 V",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 49,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 49
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-15",
+      "text": "একটি কোষের তড়িচ্চালক শক্তি 1.5 V এবং অভ্যন্তরীণ রোধ 2 Ω। এর প্রান্তদ্বয় 10 Ω রোধের তার দ্বারা যুক্ত করলে কত তড়িৎ প্রবাহিত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.125 A",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.251 A",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.521 A",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.25 A",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 51,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 51
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-17",
+      "text": "বুলিয়ান ফাংশন F = (A + B)(A + C) হলে, F এর সরলীকৃত মান কোনটি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "AB + C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "A + BC",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "AC + B",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "B + AC",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Boolean-function (digital-electronics) item printed inside the Physics run on book PDF p.72 (between Q52 and Q54); subject follows the printed block position. The stem prints no question mark after 'কোনটি'; preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 53,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-physics-21",
+      "text": "এক প্রকার ক্রাউন কাচে তৈরি প্রিজমের প্রতিসারক কোণ 8°। হলুদ ও নীল আলোর জন্য উপাদানের প্রতিসরাংক যথাক্রমে 1.51 ও 1.54 হলে কৌণিক বিচ্ছুরণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.4°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4.2°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.24°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.42°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed on book PDF p.73 (right column).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 57,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 57
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-06",
+      "text": "HSO4^- আয়নের অনুবন্ধী ক্ষারক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "H2SO4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "SO4^2-",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "H2O",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H3O^+",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 64,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 64
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-07",
+      "text": "মানবদেহের রক্তের pH কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "5.4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8.4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7.4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6.4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 65,
+          "pageNumber": 72,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 72,
+        "questionNumber": 65
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-08",
+      "text": "শরীরের প্রোটিনের কাজ কোনটি? (i) প্রাণ রাসায়নিক প্রক্রিয়ায় শরীরের রক্ষণ (ii) শক্তি যোগান (iii) টিস্যু বৃদ্ধি ও সংরক্ষণ নিচের কোনটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "i, ii",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "i, ii, iii",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ii, iii",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "i, iii",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed on book PDF p.73 (right column).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 66,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 66
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-12",
+      "text": "5.0 A বিদ্যুৎ 60 মিনিট ধরে CuSO4 দ্রবণের মধ্য দিয়ে চালনা করলে কী পরিমাণ Cu জমা হবে? (Cu এর পারমাণবিক ভর 63.50 g)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "9.87 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.92 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "59.20 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.59 g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 70,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 70
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-13",
+      "text": "নিম্নের কোনটি পানিতে যোগ করলে উৎপন্ন দ্রবণটি বিদ্যুৎ সুপরিবাহী হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CaCO3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Cu",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "C2H5OH",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "NaOH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 71,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 71
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-15",
+      "text": "নিম্নের কোনটি ক্রোমাটোগ্রাফির শ্রেণিবিভাগ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পাতলা স্তর ক্রোমাটোগ্রাফি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কাগজ ক্রোমাটোগ্রাফি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কোষীয় ক্রোমাটোগ্রাফি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "স্তম্ভ ক্রোমাটোগ্রাফি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed on book PDF p.73 (right column).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 73,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 73
+      }
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-18",
+      "text": "গ্রিগনার্ড বিকারক থেকে নিচের কোনটি প্রস্তুত করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "হাইড্রোকার্বন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালকোহল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কিটোন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলো",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 76,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 76
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-21",
+      "text": "আনারসে কোন এস্টার বিদ্যমান?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Amyl acetate",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Butyl butanoate",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Pentyl ethanoate",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Ethyl acetate",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 79,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 79
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2018-2019-setc-chemistry-22",
+      "text": "নিচের কোন অঞ্চলের IR বর্ণালীর সাহায্যে কার্বনিল মূলক শনাক্তকরণ করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "(3000 - 3600) cm^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1660 - 1860) cm^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(2800 - 3000) cm^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(1100 - 1400) cm^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed on book PDF p.73 (right column).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2018-2019-setc.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2018-2019-setc",
+          "questionNumber": 80,
+          "pageNumber": 73,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-a-2018-2019-setc",
+        "pageNumber": 73,
+        "questionNumber": 80
+      }
+    }
+  ]
+}
