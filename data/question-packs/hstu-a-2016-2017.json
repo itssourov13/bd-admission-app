@@ -1,0 +1,1318 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "hstu-a-2016-2017",
+    "category": "varsity",
+    "description": "HSTU admission paper, academic session 2016-2017, transcribed 2026-10-31 by direct visual reading of the HSTU section (printed book pp.273-279) of the Udvash 'GST গুচ্ছ প্রশ্নব্যাংক' compilation scan (TargetPDF/CamScanner). The source prints NO unit label and NO set/shift label anywhere, so the paper is recorded with unit 'unassigned'; unit identification by question-level matching against Satt Academy's per-unit 2016-17 banks is a separate later stage. 100 questions: Physics 25 + Chemistry 25 + Biology 25 + English 25, each subject numbered 1-25 independently, with Physics/Chemistry/Biology split across printed Short/Extra/Old syllabus-tier boxes that partition 1-25 exactly once (merged here by printed number). Answers are inline in the source ([Ans: x] tags and/or worked solutions headed 'সমাধান: (x)'); there is no separate answer table. The scan's right edge crops the [Ans:] column: 17 questions' keys are not recoverable from this source and are encoded unknown (Biology Extra 01, 02, 04, 05, 06, 10, 11; English 01-07, 09, 10; Chemistry Extra 21), and several further tags are partially cropped but legible (noted per question). EXTRACTION STAGE: all questions content-UNVERIFIED, all recorded keys answer-UNVERIFIED. Bengali numerals converted to Western digits and mathematics linearised (fractions as a/b, powers as ^) per project convention; original wording, option order, numbering and original errors preserved. IMPORT-READY SUBSET after cross-source adjudication vs Satt Academy: 26 of 100 questions verified. Unit identified as A by question-level content matching against Satt Academy's per-unit banks (all 60 public Unit A cards pair with this paper; no other unit matches) — see VERIFICATION.md. row 3: excluded (DIFFER) row 4: excluded (NOT_PUBLIC) row 5: excluded (NOT_PUBLIC) row 6: excluded (DIFFER) row 7: excluded (NOT_PUBLIC) row 9: excluded (DIFFER) row 12: excluded (NOT_PUBLIC) row 14: excluded (NOT_PUBLIC) row 15: excluded (DIFFER) row 16: excluded (NOT_PUBLIC) row 17: excluded (NOT_PUBLIC) row 18: excluded (NOT_PUBLIC) row 20: excluded (NOT_PUBLIC) row 21: excluded (NOT_PUBLIC) row 23: excluded (DIFFER) row 25: excluded (DIFFER) row 26: excluded (DIFFER) row 29: excluded (DIFFER) row 30: excluded (DIFFER) row 31: excluded (DIFFER) row 32: excluded (DIFFER) row 34: excluded (NOT_PUBLIC) row 35: excluded (NOT_PUBLIC) row 36: excluded (NOT_PUBLIC) row 39: excluded (DIFFER) row 40: excluded (NOT_PUBLIC) row 41: excluded (NOT_PUBLIC) row 43: excluded (DIFFER) row 44: excluded (NOT_PUBLIC) row 45: excluded (DIFFER) row 46: excluded (NOT_PUBLIC) row 48: excluded (NOT_PUBLIC) row 49: excluded (NOT_PUBLIC) row 50: excluded (NOT_PUBLIC) row 51: key taken from Satt (d) - primary tag cropped row 52: key taken from Satt (a) - primary tag cropped row 53: excluded (DIFFER) row 54: excluded (NOT_PUBLIC) row 55: excluded (DIFFER) row 56: excluded (NOT_PUBLIC) row 58: excluded (NOT_PUBLIC) row 59: excluded (DIFFER) row 60: excluded (DIFFER) row 61: excluded (DIFFER) row 63: excluded (DIFFER) row 64: excluded (NOT_PUBLIC) row 65: excluded (NOT_PUBLIC) row 66: excluded (DIFFER) row 68: excluded (DIFFER) row 69: excluded (NOT_PUBLIC) row 70: excluded (NOT_PUBLIC) row 71: excluded (DIFFER) row 72: excluded (NOT_PUBLIC) row 73: excluded (NOT_PUBLIC) row 74: excluded (NOT_PUBLIC) row 76: excluded (DIFFER) row 77: excluded (DIFFER) row 78: excluded (NOT_PUBLIC) row 79: excluded (NOT_PUBLIC) row 80: excluded (NOT_PUBLIC) row 81: excluded (DIFFER) row 82: key taken from Satt (b) - primary tag cropped row 84: key taken from Satt (c) - primary tag cropped row 85: excluded (NOT_PUBLIC) row 86: excluded (DIFFER) row 87: excluded (NOT_PUBLIC) row 88: excluded (NOT_PUBLIC) row 89: excluded (DIFFER) row 90: excluded (DIFFER) row 91: excluded (DIFFER) row 92: excluded (NOT_PUBLIC) row 93: excluded (DIFFER) row 94: excluded (DIFFER) row 95: excluded (DIFFER) row 96: excluded (NOT_PUBLIC) row 98: excluded (NOT_PUBLIC) row 99: excluded (DIFFER) row 100: excluded (NOT_PUBLIC)",
+    "sourceDocumentIds": [
+      "udvash-gst-bank-hstu-2016-2017"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-gst-bank-hstu-2016-2017",
+      "filename": "hstu-admission-question-solution-2016-2017.pdf",
+      "title": "Udvash GST cluster question bank — HSTU questions & solutions 2016-17 section (TargetPDF scan)",
+      "sha256": "fdaba06472b52ea452c6c8f8de2269bbf980213cf2e16a955582424ff74bf240",
+      "sourceType": "pdf",
+      "notes": "7-page excerpt (printed book pp.273-279) of the Udvash-branded book 'GST গুচ্ছ প্রশ্নব্যাংক', scanned via CamScanner and circulated through the 'Target PDF' Telegram channel (watermarks on every page). Running header: 'HSTU প্রশ্ন ও সমাধান: ২০১৬-১৭'. Paper header (PDF p.1): 'HSTU ভর্তি পরীক্ষা ২০১৬-২০১৭ শিক্ষাবর্ষ', পূর্ণমান: ১০০, MCQ, সময়: ১ ঘণ্টা ৩০ মিনিট. No unit label and no set/shift label is printed anywhere in the 7 pages. Answers are inline only ([Ans: x] tags and/or 'সমাধান: (x)' worked solutions); the scan's right edge crops the [Ans:] tag column on several pages (worst on PDF p.6). Because the print origin is Udvash, this compilation must not be used as the independent source for anything itself transcribed from an Udvash publication."
+    },
+    {
+      "id": "satt-hstu-a-2016-2017",
+      "filename": "satt-hstu-coverage-2016-a.html",
+      "title": "Satt Academy — HSTU A Unit 2016 structured question bank",
+      "sha256": "34a74cf061f3b1c1f9f2c295e4213e4c5ec282e1c25e30f300557a5f57b09af7",
+      "sourceType": "structured-data",
+      "notes": "Independent question-bank rendering of the same paper, accessed 2026-10-31. Live URL: https://sattacademy.com/a-ইউনিট-100/all/mcq-questions. Satt publicly serves a limited window per subject; login-gated pages were not bypassed."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "hstu",
+      "code": "HSTU",
+      "name": "Hajee Mohammad Danesh Science and Technology University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "hstu-a-2016-2017",
+      "institutionId": "hstu",
+      "category": "varsity",
+      "year": 2017,
+      "academicSession": "2016-2017",
+      "unit": "A",
+      "title": "HSTU A Unit 2016-2017 (Physics/Chemistry/Biology/English, 100 questions)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-hstu-2016-2017-unassigned",
+      "paperId": "hstu-a-2016-2017",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-gst-bank-hstu-2016-2017"
+      ],
+      "sourceNote": "Paper header (compilation PDF p.1) states: পূর্ণমান: ১০০ (full marks 100), MCQ, সময়: ১ ঘণ্টা ৩০ মিনিট (1 hour 30 minutes), 100 questions in 4 subjects of 25. These are transcribed from the compilation's paper header only and are NOT entered as a verified scoring rule; no penalty or selection rule is printed in the source."
+    }
+  ],
+  "questions": [
+    {
+      "id": "hstu-a-2016-2017-physics-01",
+      "text": "এক ক্যালরি সমান কত জুল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4.7",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5.2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 1,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 1,
+        "questionNumber": 1
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-02",
+      "text": "বল ও সরণের মধ্যবর্তী কোণ কত হলে কাজের পরিমাণ শূন্য হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "120°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "180°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 2,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 1,
+        "questionNumber": 2
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-08",
+      "text": "কাজের পরিমাণ সবচেয়ে বেশী হয় যখন প্রযুক্ত বল ও সরণের মধ্যে কোণের মান-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "45°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "30°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 8,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 1,
+        "questionNumber": 8
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-10",
+      "text": "একটি তারের দৈর্ঘ্য অর্ধেক করলে এর রোধ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অপরিবর্তিত থাকবে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "এক-চতুর্থাংশ হবে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অর্ধেক হবে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দ্বিগুণ হবে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 10,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 2,
+        "questionNumber": 10
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-11",
+      "text": "নিচের কোনটি সেমিকন্ডাক্টর নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "জার্মেনিয়াম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সিলিকন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আর্সেনিক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সেলিনিয়াম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 11,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 2,
+        "questionNumber": 11
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-13",
+      "text": "গ্যালভানোমিটারের সাহায্যে নির্ণয় করা যায় -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "চার্জের অস্তিত্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চার্জের পরিমাণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বিভব পার্থক্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বিদ্যুৎ প্রবাহের অস্তিত্ব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 13,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 3,
+        "questionNumber": 13
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-19",
+      "text": "আলোর কোন ধর্মের উপর নির্ভর করে অপটিক্যাল ফাইবার তৈরি করা হয়েছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রতিফলন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সংকট কোণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পূর্ণ অভ্যন্তরীণ প্রতিফলন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্রতিসরণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 19,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 2,
+        "questionNumber": 19
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-22",
+      "text": "পোস্ট অফিস বক্স নিচের কোনটির ভিত্তিতে কাজ করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "হুইটস্টোন ব্রিজনীতি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যাম্পিয়ারের সূত্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফার্মাটের নীতি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কার্শফের সূত্র",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 22,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 2,
+        "questionNumber": 22
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-physics-24",
+      "text": "গ্যাসের আয়তন কোন তাপমাত্রায় শূন্য হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "273°K",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0 C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "32°F",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0 K",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag cropped to an ambiguous sliver in the scan; the key is taken from the printed worked solution, which keys (d). Option (b) prints '0 C' with no degree mark, as printed.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 24,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 2,
+        "questionNumber": 24
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-02",
+      "text": "ইলেকট্রন সমুদ্রে ধাতুসমূহ ধনাত্মক আয়ন, নিচের কোন ধাতুটি ইলেকট্রন সমুদ্রে সবচাইতে বেশি ইলেকট্রন সরবরাহ করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ম্যাগনেসিয়াম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালুমিনিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সোডিয়াম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "জিংক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 2,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 4,
+        "questionNumber": 2
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-03",
+      "text": "হেবার পদ্ধতিতে NH3 উৎপাদনে নিম্নের কোনটি প্রভাব সৃষ্টিকারী নিয়ামক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "তাপমাত্রা ও চাপ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চাপ ও বিক্রিয়কের পৃষ্ঠতল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তাপমাত্রা ও বিক্রিয়কের পৃষ্ঠতল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তাপমাত্রা চাপ ও বিক্রিয়কের পৃষ্ঠতল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 3,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 3,
+        "questionNumber": 3
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-08",
+      "text": "থ্যালিক এসিডে কয়টি কার্বক্সিলিক মূলক আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 টি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1 টি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2 টি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 টি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 8,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 4,
+        "questionNumber": 8
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-12",
+      "text": "কোনটি বিজারক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "SnCl2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "KMnO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "K2Cr2O7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 12,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 3,
+        "questionNumber": 12
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-13",
+      "text": "K2[Fe(CN)6]^-2 এ Fe এর জারণ সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "+4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "+2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "+3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 13,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 3,
+        "questionNumber": 13
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-17",
+      "text": "নিচের কোনটি পানিতে দ্রবণীয় নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Na2SO4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Na2SO3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "BaSO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CuSO4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (c) remains legibly printed and is recorded.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 17,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 4,
+        "questionNumber": 17
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-chemistry-22",
+      "text": "উচ্চ শক্তিস্তর থেকে ইলেকট্রনসমূহ চতুর্থ শক্তিস্তরে ফিরে আসার ফলে সৃষ্ট বর্ণালীকে কি বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফুনড সিরিজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্রাকেট সিরিজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বামার সিরিজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লাইমেন সিরিজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 22,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 4,
+        "questionNumber": 22
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-01",
+      "text": "কোনটি ম্যানগ্রোভ বনাঞ্চলের উদ্ভিদ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "সুন্দরী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গেওয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাইন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কড়ই",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 1,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 6,
+        "questionNumber": 1
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary scan's printed answer tag for this question is cropped off-page, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-02",
+      "text": "আইরিশ কত ধরনের অনৈচ্ছিক পেশিতে গঠিত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 2,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 6,
+        "questionNumber": 2
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary scan's printed answer tag for this question is cropped off-page, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-07",
+      "text": "একবীজপত্রী উদ্ভিদের ফুলের প্রতিটি স্তবক -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 এর গুণিতক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 এর গুণিতক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3 এর গুণিতক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 এর গুণিতক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 7,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 5,
+        "questionNumber": 7
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-12",
+      "text": "কোনটি হার্ব নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ধান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সরিষা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গন্ধরাজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 12,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 5,
+        "questionNumber": 12
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-17",
+      "text": "C4 উদ্ভিদ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "মুথা ঘাস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইক্ষু",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভুট্টা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 17,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 5,
+        "questionNumber": 17
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-biology-25",
+      "text": "DNA তে থাকে না নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যাডেনিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গুয়ানিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থায়ামিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইউরাসিল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 25,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 5,
+        "questionNumber": 25
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-english-07",
+      "text": "Find the antonym of the word: Liberty",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Liberal",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Bondage",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Frugal",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Diversity",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 7,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 6,
+        "questionNumber": 7
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary scan's printed answer tag for this question is cropped off-page, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "hstu-a-2016-2017-english-08",
+      "text": "Find the antonym of the word: Faithful",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faithless",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Unfaithful",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Non-faithful",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "defaithful",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 8,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 6,
+        "questionNumber": 8
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-a-2016-2017-english-09",
+      "text": "Choose the correct sentence:",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "I and he is brother.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He and I am brother",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He and I are brothers.",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "I and he is brothers.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 9,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 6,
+        "questionNumber": 9
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary scan's printed answer tag for this question is cropped off-page, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "hstu-a-2016-2017-english-22",
+      "text": "When he whistled, the dog came back. (make it compound)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whistling the dog, it came back.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He whistled and the dog came back.",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He whistled but the dog came back.",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He whistled to let and the dog came back.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "hstu-a-2016-2017",
+          "questionNumber": 22,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2016-2017",
+        "pageNumber": 7,
+        "questionNumber": 22
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    }
+  ]
+}

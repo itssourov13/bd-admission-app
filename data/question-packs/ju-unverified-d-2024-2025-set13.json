@@ -1,0 +1,2001 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-d-2024-2025-set13",
+    "category": "varsity",
+    "description": "Jahangirnagar University D Unit (Biological Sciences), academic session 2024-2025, Set-13 (সেটকোড: ১৩) — full 80-question paper transcribed by direct visual reading from the Udvash ‘জাবি প্রশ্নব্যাংক’ question-bank book PDF (ju-ad-abswer-combined.pdf), book PDF pages 97-100 (question pages), with the printed answer table and the printed worked solutions for Q55-58 on p.100. EXTRACTION STAGE: every question is marked content-unverified and every printed key answer-unverified pending cross-source verification; the printed publisher keys are NOT official JU keys. The book prints NO subject headings; subjects were assigned by content following the session's standard D-unit distribution, confirmed by the question sequence: Zoology Q1-22, Chemistry Q23-46, English Q47-50, Bangla Q51-54, General Mathematics (সাধারণ গণিত) Q55-58, Botany Q59-80. Botany/Zoology are recorded under the canonical subject Biology with the split kept in topic; the সাধারণ গণিত block keeps its source label ‘General Mathematics’. The answer table prints a dash (no answer) for Q9 and Q54. For Q9 the book also prints, directly under the question on p.97, ‘ব্যাখ্যা: প্রশ্নটি ত্রুটিপূর্ণ [সঠিক উত্তর: ১০-৪০μm]’, i.e. the question is defective and the stated correct value is not among the options; for Q54 no worked solution is printed. Both are therefore recorded with answerDisposition no_correct_option and an empty correctOptionIds list, and — only because the repo validator requires a ‘verified’ answer status for that disposition — their answerVerificationStatus is set to ‘verified’, where the verified fact is solely the printed no-correct-option state (same treatment as earlier packs in this project); their content remains unverified. Mathematical notation is linearised with ^ for superscripts; chemical formulae are written in plain linear form (e.g. FeSO4, K2Cr2O7). Printed peculiarities are preserved as printed and flagged in extraction notes (Q33 options b and d both ‘273 K’; Q62 option a ‘Peter Mitchel’; Q76 stem ‘সায়ানোফায়’). [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank, 2015–2025)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Scanned book PDF (295 pp.). Set-13 (Unit-D, 2024-2025) occupies PDF pages 97-100 (printed book pages 96-99): questions on pp.97-100, answer table (‘উত্তরমালা ও ব্যাখ্যামূলক সমাধান’) and worked solutions for Q55-58 on p.100. PDF p.101 begins a different paper (Unit-D 2023-2024 Set-K) and was NOT transcribed into this pack. Transcription by direct visual reading of the page images (with zoomed crops for dense regions); OCR used only as a finding aid."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-d-2024-2025-set13",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2025,
+      "academicSession": "2024-2025",
+      "unit": "D",
+      "title": "JU D Unit 2024-2025 — Set-13 (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-d-2024-2025-set13",
+      "paperId": "ju-unverified-d-2024-2025-set13",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+      ],
+      "sourceNote": "Paper header (book PDF p.97) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: D, সেটকোড: ১৩, সময়: ৫৫ মিনিট (55 minutes); প্রশ্নপত্রে মোট ৮০ টি প্রশ্ন আছে, সকল প্রশ্নের উত্তর দিতে হবে, প্রতিটি ভুল উত্তরের জন্য ০.২০ নম্বর কাটা যাবে, কোন ধরনের ক্যালকুলেটর ব্যবহার করা যাবে না. Transcribed from the header only and NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-01",
+      "text": "কোনটি অপ্রতিসাম্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pila",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Hydra",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Aurelia",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Volvox",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 1,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-02",
+      "text": "কোন পর্বটি স্যুডোসিলোমেট?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mollusca",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Nematoda",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Arthropoda",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Chordata",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 2,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-03",
+      "text": "ট্যাগমাটাইজেশন দেখা যায় কোন পর্বের প্রাণীতে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Arthropoda",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Mollusca",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Echinodermata",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Nematoda",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 3,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 3
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-10",
+      "text": "মানুষের বক্ষ-অস্থিচক্রে মোট অস্থির সংখ্যা কয়টি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "২",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৪",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৫",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "৮",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 10,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 10
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-14",
+      "text": "কোন এনজাইম ফাইব্রিন জালককে ধ্বংস করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হাইড্রোলেজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লাইগেজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্রোটিন কাইনেজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্লাজমিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 14,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-20",
+      "text": "‘জেনেটিক্স’ শব্দটি সর্বপ্রথম কে ব্যবহার করেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "উইলিয়াম ব্যাটেসন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গ্রেগর মেন্ডেল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আর্নেস্ট হেকেল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লুসিয়েন ক্যুয়েনো",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 20,
+          "pageNumber": 97,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 97,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-21",
+      "text": "অ্যাগ্লুটিনিন কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যান্টিজেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যান্টিবডি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রক্তকোষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দেহকোষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 21,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-01",
+      "text": "কোন পদ্ধতিতে ব্যাকটেরিয়া চিনির গাঢ় দ্রবণ বা সিরাপকে বিনষ্ট করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ব্যাপন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পরিস্রবণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অভিস্রবণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলো",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 23,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 23
+      },
+      "extractionNote": "First Chemistry question: the book prints no subject headings; the split follows the standard JU D distribution for this session (Zoology 22, Chemistry 24, English 4, Bangla 4, General Mathematics 4, Botany 22) and the content (food-preservation/osmosis item from HSC chemistry).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-02",
+      "text": "নিচের কোন দ্রবণটি ফুড লেকার হিসেবে ধাতব ক্যানের ভেতরে প্রলেপ দেওয়ার জন্য ব্যবহৃত হয় না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফেনলিক রেজিনের দ্রবণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইপক্সি রেজিনের দ্রবণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভিনাইল রেজিনের দ্রবণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মিথোক্সি রেজিনের দ্রবণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 24,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-03",
+      "text": "ত্বকে ঘামাচি ও র‍্যাশ প্রতিরোধক হিসেবে টেলকম পাউডারে কোনটি ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "টেল্ক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ম্যাগনেসিয়াম স্টিয়ারেট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যালসিয়াম কার্বনেট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মেনথল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 25,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 25
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-04",
+      "text": "সূর্যের আলোর অধিকাংশ উচ্চশক্তির বিকিরণ (UV-রশ্মি) বায়ুমণ্ডলের কোন স্তরে শোষিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "স্ট্র্যাটোস্ফিয়ার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মেসোস্ফিয়ার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থার্মোস্ফিয়ার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ট্রপোস্ফিয়ার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 26,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 26
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-11",
+      "text": "নিচের কোন তাপমাত্রায় Kw এর মান 10^-14 mol^2L^-2?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "25 K",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "273 K",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "298 K",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "273 K",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 33,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 33
+      },
+      "extractionNote": "Options (b) and (d) are both printed as ‘273 K’ — preserved as printed.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-13",
+      "text": "Cr এর ইলেকট্রন বিন্যাস কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1s^2 2s^1 2p^6 3s^2 3p^6 3d^5 4s^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1s^1 2s^2 2p^6 3s^2 3p^6 3d^5 4s^2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1s^2 2s^2 2p^6 3s^2 3p^6 3d^5 4s^1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1s^2 2s^2 2p^6 3s^6 3p^2 3d^5 4s^1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 35,
+          "pageNumber": 98,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 98,
+        "questionNumber": 35
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-20",
+      "text": "কোষের emf (কোষ বিভব) কোনটির উপর নির্ভর করে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "তড়িৎদ্বারের ধাতুর প্রকৃতি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দ্রবণের তাপমাত্রা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "দ্রবণে আয়নের ঘনমাত্রা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দ্রবণের চাপ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 42,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 42
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-21",
+      "text": "অবস্থান্তর মৌলের বৈশিষ্ট্য নয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "রঙিন যৌগ গঠন করে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "জটিল যৌগ গঠন করে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সকল d-ব্লক মৌল অবস্থান্তর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্যারাচৌম্বক হয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 43,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 43
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-22",
+      "text": "(SiO2)n এর স্ফুটনাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2230°C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2130°C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2330°C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2320°C",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 44,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 44
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-23",
+      "text": "Representative elements বলা হয় কোনটিকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "p-ব্লক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "d-ব্লক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "f-ব্লক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 45,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 45
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-chemistry-24",
+      "text": "অ্যাকটিনয়েডস এর সংখ্যা কতটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "14",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "16",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "17",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 46,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 46
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-23",
+      "text": "একবীজপত্রী উদ্ভিদের কাণ্ডের ভাস্কুলার বান্ডল কোন ধরনের?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "মুক্ত সমপার্শ্বীয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বদ্ধ সমপার্শ্বীয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সমদ্বিপার্শ্বীয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কেন্দ্রিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 59,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 59
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-24",
+      "text": "কোন টিস্যুর প্রোটোপ্লাজম ক্রমান্বয়ে মৃত কোষে পরিণত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "কোলেনকাইমা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্যারেনকাইমা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যারেনকাইমা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "স্ক্লেরেনকাইমা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 60,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 60
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-25",
+      "text": "উদ্ভিদে খনিজ লবণ পরিশোষণের সাথে সম্পৃক্ত কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "ATP synthase",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ATP-ase",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "NADH-Q Reductase",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "RuBisCO",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 61,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 61
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-26",
+      "text": "পাতায় রক্ষীকোষের স্ফীতিজনিত পরিবর্তন মতবাদ প্রদান করেন কে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "Peter Mitchel",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "H. V. Mohl",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "F. E. Loyd",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Sayre",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 62,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 62
+      },
+      "extractionNote": "Option (a) is printed ‘Peter Mitchel’ (single ‘l’) — preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-27",
+      "text": "পাতায় আপতিত সৌরশক্তির কত শতাংশ পত্ররঞ্জক কর্তৃক শোষিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "০.১-০.২",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "০.২-০.৩",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "০.৫-৩.৫",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "০.৫ - ৫.৫",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 63,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 63
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-28",
+      "text": "অবাত শ্বসনে ব্যবহৃত হয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "পাইরুভিক এসিড ডিকার্বক্সিলেজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ল্যাকটিক এসিড ডিকার্বক্সিলেজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ল্যাকটিক এসিড ডিহাইড্রোজিনেজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পাইরুভিক এসিড ডিহাইড্রোজিনেজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 64,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 64
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-29",
+      "text": "বাংলাদেশে এ যাবৎ Poaceae গোত্রের কতটি গণ সনাক্ত হয়েছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "১৩",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "২৩",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৭৩",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "১১৩",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 65,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 65
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-30",
+      "text": "ব্যাকটেরিয়ার প্লাসমিড-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "চক্রাকার এক-সূত্রক RNA অণু",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চক্রাকার দ্বি-সূত্রক RNA অণু",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "চক্রাকার এক-সূত্রক DNA অণু",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "চক্রাকার দ্বি-সূত্রক DNA অণু",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 66,
+          "pageNumber": 99,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 99,
+        "questionNumber": 66
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-31",
+      "text": "ইনসুলিনের আণবিক ভর কত ডাল্টন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "৫৭০১",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৫৭৩৪",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৫৮০১",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "৫৯০১",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 67,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 67
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-32",
+      "text": "টিস্যু কালচারের মাধ্যমে তৈরি Guan-18 কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যান্ড্রোজেনিক হ্যাপ্লয়েড গম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যান্ড্রোজেনিক হ্যাপ্লয়েড ধান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যান্ড্রোজেনিক ডিপ্লয়েড ধান",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যান্ড্রোজেনিক ডিপ্লয়েড গম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 68,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 68
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-33",
+      "text": "দুইটি উদ্ভিদের শুধু সাইটোপ্লাজমের মিলনে সৃষ্ট উদ্ভিদকে কি বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "হাইব্রিড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সাইব্রিড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "GMO",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ট্রান্সজেনিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 69,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 69
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-34",
+      "text": "লাইসোসোমের ব্যাস সাধারণত কত μm হয়ে থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "৩-৬",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "১১-১৪",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "০.০৫-০.০৯",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "০.২-০.৮",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 70,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 70
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-35",
+      "text": "উদ্ভিদের কোষ প্রাচীরে ফ্র্যাগমোপ্লাস্ট এবং পেকটিন জাতীয় ভেসিকলস মিলিতভাবে কি তৈরি করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রাথমিক প্রাচীর",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সেকেন্ডারি প্রাচীর",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মধ্য পর্দা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "টারশিয়ারি প্রাচীর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 71,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 71
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-36",
+      "text": "নিউক্লিক এসিডে ফসফরাসের পরিমাণ কত শতাংশ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "৫",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "১০",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "১৫",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "২০",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 72,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 72
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-37",
+      "text": "উদ্ভিদ কোষের ইন্টারমিডিয়েট ফিলামেন্টের উদাহরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যাকটিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "টিউবুলিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কেরাটিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মায়োসিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 73,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 73
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-38",
+      "text": "উদ্ভিদ কোষে পারঅক্সিসোমের কাজ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "লিপিড সংশ্লেষণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রোটিন সংশ্লেষণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "DNA সংশ্লেষণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পারঅক্সাইড উৎপাদন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 74,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 74
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-39",
+      "text": "উপকারী ভাইরাস কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "H1N1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "TMV",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "COVID-19",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "NPV",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 75,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 75
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-40",
+      "text": "সায়ানোফায় এর উদাহরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "LPP",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "BYV",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "HIV",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "EVD",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 76,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 76
+      },
+      "extractionNote": "Stem prints ‘সায়ানোফায়’ (apparently for সায়ানোফাজ, cyanophage) — preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-41",
+      "text": "কোষের আকৃতি অনুসারে ব্যাকটেরিয়াকে কতভাগে শ্রেণিবিন্যাস করা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "৭",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৮",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৯",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "১০",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 77,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 77
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-42",
+      "text": "কোনটির মাধ্যমে আপেলের ফায়ার ব্লাইট রোগ ছড়ায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "Erwinia amylovora",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Xanthomonas citri",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Streptomyces scabies",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Xanthomonas malvacearum",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 78,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 78
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-43",
+      "text": "কোষবিভাজনে ক্যারিওকাইনেসিস কত ধাপে সম্পন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "২",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৩",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৪",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "৫",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 79,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 79
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-d-2024-2025-set13-biology-44",
+      "text": "পিঁয়াজের মূলে কতটি ক্রোমোসোম থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "১৩",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "১৪",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "১৫",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "১৬",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-d-2024-2025-set13",
+          "questionNumber": 80,
+          "pageNumber": 100,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-d-2024-2025-set13",
+        "pageNumber": 100,
+        "questionNumber": 80
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-d-2024-2025-set13.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

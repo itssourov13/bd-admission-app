@@ -1,5 +1,28 @@
 # Task state
 
+## JU-U + HSTU-U unverified candidate-bank import — 2026-11-01
+
+- [x] Audited the ZIP (102 JSON files); imported only 84 JU + 15 HSTU packs. Explicitly excluded the 3 `GST_CLUSTER` packs / 287 questions for a separate later task.
+- [x] Added 99 packs / 5,773 questions as independent `JU-U` (84 / 5,011) and `HSTU-U` (15 / 762) catalogue identities. Existing verified JU/HSTU institutions and all 57 verified packs remain unchanged.
+- [x] Preserved all 5,773 content statuses as `unverified`; answer states remain 5,563 `unverified` and 210 `unknown`. All 99 paper rules stay `unconfigured`.
+- [x] Added namespaced batch/paper/rule/question/source IDs and updated all source/paper references. Round-trip comparison confirms all 99 packs retain exact source question/option/key/status/provenance data after reversing only identity remaps.
+- [x] Added 5,502 provisional candidates (JU-U 4,780; HSTU-U 722); withheld 42 repeated-option records and all 19 multiple-choice items from provisional single-choice scoring.
+- [x] Audited cross-bank overlap (12 exact text+ordered-option matches; 95 same stems with option differences); retained all source variants without auto-merging.
+- [x] Added integration coverage for pack/status/reference integrity, 217-pack fresh SQLite import, verified/candidate catalogue separation, practice eligibility and idempotent re-import.
+- [ ] Build/install a new Android preview APK and perform owner device smoke verification; the already-published APK predates the candidate-bank import. Production AAB/Google Play remains outstanding.
+
+
+## JU + HSTU question-bank import — 2026-11-01
+
+- [x] Audited the Muse archive, ZIP integrity, all JSON packs, app schema, importer, data indexer and existing data IDs. Did not repeat question/answer factual verification.
+- [x] Imported 50 JU packs / 1,526 questions and 7 HSTU packs / 293 questions; excluded the 3 unrelated GST packs.
+- [x] Resolved the shared JU source-document ID across 24 batches by deterministic batch namespacing; updated every affected source reference while preserving question/option/answer data and all individual verification fields.
+- [x] Regenerated `src/content/bundledPacks.ts`: **118 packs / 7,836 questions**.
+- [x] Added integration tests for 57 new packs, answer/content states, source/reference uniqueness, warning preservation, all-pack SQLite import and re-import idempotency.
+- [x] Fresh SQLite import: 118/118 packs imported, zero failures; 7,836 questions / 31,344 options / 118 batches / 118 papers / 59 rules / 168 sources / 7,836 appearances / 5 institutions. New verified single-choice pool: 1,668.
+- [x] Documented the remaining HSTU historical coverage gap and that all 57 JU/HSTU exam rules remain unconfigured; no unofficial timed-exam pattern was invented.
+- [ ] Owner device check after installing a newly built APK is still separate. Production AAB/Google Play remains outstanding.
+
 ## Android preview release and documentation sync — 2026-10-31
 
 - [x] Merged GitHub PR #2; merge commit `3aa125d4e12cdca1702f976f20c1f60a765923d1`.

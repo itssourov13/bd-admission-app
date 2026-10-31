@@ -1,0 +1,2930 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-a-2013-2014-mathematics-set1-3",
+    "category": "varsity",
+    "description": "Transcribed 2026-10-31 from the compiler-solved scan in the AdmissionWar/Google Drive PDF ju-a-2013-2014-set2.pdf (4 pp.). The printed header (p.1) reads: A-ইউনিট, গাণিতিক ও পদার্থ বিষয়ক অনুষদ (Faculty of Mathematical and Physical Sciences), জাহাঙ্গীরনগর বিশ্ববিদ্যালয়; ১ম বর্ষ (সম্মান) ভর্তি পরীক্ষা, ২০১৩-২০১৪; বিষয়ঃ গণিত (subject: Mathematics) — boxed 'Set CODE: 1/3', সময়: ৪৫ মিনিট, পূর্ণমান- ৬০. The paper is therefore named by its printed subject and pair code (mathematics-set1-3); the Drive listing label 'Set-2' is just the archive's sequence number. 60 questions, interleaved with no printed subject sections, subjects assigned per question by content: Bangla Q3, 5, 7, 8, 10, 12, 13, 15 (8); English Q1, 2, 4, 6, 9, 11, 14 (7); Higher Mathematics the remaining 44 (including the two dynamics items Q47 and Q49 — the paper has no Physics section); ICT Q51 (1). The compilation prints a boxed key beside each question (উত্তরঃ + Bangla letter; 'Ans:' + Latin letter for the English questions). 59 of 60 questions keyed; Q33's key letter is washed out under the aggregator watermark and is recorded keyless. Ten printed keys (Q16, Q17, Q24, Q29, Q37, Q43, Q47, Q52, Q54, Q58) appear to be compiler key errors; all are preserved as printed and flagged on the questions. Transcription was made from own 300-dpi renders of the PDF. Correction pass (after delivery): an independent second transcription of this paper disagreed at Q49, so pages 2-4 were re-verified strip-by-strip against the SHA-256-verified renders (p-2 7bdfc3bd…, p-3 74ecfffc…, p-4 813608fb…): Q16-45 were confirmed as transcribed, Q49's key was corrected to গ, and Q46-60 were re-transcribed from the renders — the first pass's page-4 readings had been taken from display tiles showing another paper's content (see EXTRACTION_NOTES_A1314A.md, second addendum). Extraction-stage pack: content and answers unverified pending cross-source verification. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "src-ju-a-2013-2014-mathematics-set1-3"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-ju-a-2013-2014-mathematics-set1-3",
+      "filename": "ju-a-2013-2014-set2.pdf",
+      "title": "JU A Unit Admission Test 2013-2014 — Mathematics subject paper, Faculty of Mathematical and Physical Sciences, printed Set CODE: 1/3 (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-2')",
+      "sha256": "7e95c1bcc7054962b57c3989325d50baab86acfec9d3c73688df689d575a659c",
+      "sourceType": "pdf",
+      "notes": "CamScanner scan of a compiler-solved reprint of the JU A Unit 2013-2014 Mathematics subject paper (Faculty of Mathematical and Physical Sciences; printed Set CODE: 1/3). Aggregator header 'Download More Question Bank From www.admissionwar.com', footer 'Get All University Admission Update From www.admissionwar.com' and diagonal 'Admission War' watermarks are the aggregator's, not part of the question paper; the watermark overlaps several key boxes — the affected keys (Q17, Q18) were recovered with zoomed red-channel crops, which suppress the orange watermark; Q49's letter (গ) was confirmed on colour and red-channel re-crops in the correction pass; and Q33's key could not be recovered and is recorded keyless. A handwritten circled '৩' below the printed set-code box on p.1 is a reader's mark, not print. Printed question numbers use Western digits with leading zeros on p.1 (01., 02., …) and Bangla numerals on pp.2-4; appearances record Western digits."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2014,
+      "academicSession": "2013-2014",
+      "unit": "A",
+      "title": "JU A Unit Admission Test 2013-2014 — Mathematics subject paper, Faculty of Mathematical and Physical Sciences, printed Set CODE: 1/3 (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-2')"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-a-2013-2014-mathematics-set1-3",
+      "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-ju-a-2013-2014-mathematics-set1-3"
+      ],
+      "sourceNote": "Printed header (PDF p.1): A-ইউনিট; গাণিতিক ও পদার্থ বিষয়ক অনুষদ; জাহাঙ্গীরনগর বিশ্ববিদ্যালয়; ১ম বর্ষ (সম্মান) ভর্তি পরীক্ষা, ২০১৩-২০১৪; বিষয়ঃ গণিত; boxed set label 'Set CODE: 1/3'; সময়: ৪৫ মিনিট; পূর্ণমান- ৬০. Printed instructions (সাধারণ নির্দেশাবলি): প্রশ্নপত্রে মোট ৬০টি প্রশ্ন আছে, সকল প্রশ্নের উত্তর দিতে হবে; প্রতিটি ভুল উত্তরের জন্য ০.২০ নম্বর কাটা যাবে; নিম্নের 'ক' ও 'খ' বাক্য দুটি OMR উত্তরপত্রে নিচে 'ক' এবং 'খ' চিহ্নিত স্থানে লিখতে হবে — (ক) সুশিক্ষিত লোক মাত্রই স্বশিক্ষিত (খ) The well-educated man is self-educated; পরীক্ষা শেষে উত্তরপত্র (OMR) এর সাথে প্রশ্নপত্রও কর্তব্যরত সম্মানিত শিক্ষকের নিকট জমা দিতে হবে; কোন অবস্থাতেই সায়েন্টিফিক ক্যালকুলেটর ব্যবহার করা যাবে না।"
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-01",
+      "text": "No sooner had he reached the station ____ the train left.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "when",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "then",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "than",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "before",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key box partly under the watermark; reads 'Ans: C' — zoom-verified.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 1,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 1
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-02",
+      "text": "The winter has set ____ very late this year.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "out",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "off",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "in",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "up",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 2,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-01",
+      "text": "‘মনীষা’ এর সন্ধি বিচ্ছেদ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "মন+ইষা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মন+ঈষা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মনস্+ঈষা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মনস+ঈষা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ঘ) and the key box are partly overlapped by the watermark; zoom reads মনস+ঈষা and উত্তরঃ গ.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 3,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 3
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-03",
+      "text": "Who is called the ‘poet of beauty’?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "William Wordsworth",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "John Keats",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "P. B. Shelly",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Shakespeare",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (c) prints 'Shelly' (sic).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 4,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 4
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-02",
+      "text": "‘উপকথা’ শব্দটি কোন সমাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "অব্যয়ীভাব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "তৎপুরুষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "দ্বিগু",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বহুব্রীহি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 5,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 5
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-04",
+      "text": "Adjective of the word ‘people’ is –",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "popularity",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "popular",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "popularise",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "populous",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 6,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 6
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-03",
+      "text": "একুশের উপর সর্ব প্রথম কবিতা রচনা করেন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "আব্দুল গাফফার চৌধুরী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মাহবুব-উল-উলম চৌধুরী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আল মাহমুদ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আলতাফ মাহমুদ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (খ) prints 'মাহবুব-উল-উলম' (sic) — preserved.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 7,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-04",
+      "text": "‘সূর্য’ এর প্রতিশব্দ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "সুধাংশু",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শশী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আদিত্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সুধাকর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ক) is partly overlapped by the watermark; reads সুধাংশু.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 8,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 8
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-05",
+      "text": "In TV terms, the opposite of ‘live’ is –",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "taped",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "dead",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "asleep",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "on the air",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 9,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-05",
+      "text": "‘গাড়ী স্টেশন ছাড়ল’ বাক্যের নিম্নরেখ শব্দটি কোন কারকে কোন বিভক্তি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "কর্তায় শূণ্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কর্মে শূণ্য",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অপাদানে শূণ্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অধিকরণে শূণ্য",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Options print 'শূণ্য' with ণ — preserved.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 10,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 10
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-06",
+      "text": "Try hard lest you ____ fail.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "may",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "might",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "would",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "should",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 11,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-06",
+      "text": "শেক্সপিয়ার নাটকের বাংলা গদ্যরূপ কে দিয়েছেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "ঈশ্বরচন্দ্র গুপ্ত",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শরৎচন্দ্র চট্টোপাধ্যায়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 12,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-07",
+      "text": "কোন বাক্যে নাম পুরুষের ব্যবহার করা হয়েছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "ওরা কি করে?",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আপনি আসবেন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আমরা যাচ্ছি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তোরা যাসনে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 13,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-english-07",
+      "text": "“To readc between the lines’ means",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "to read carefully",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to read carefully to find out any hidden meaning",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "to read only some lines",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "to read quickly to save time",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem prints 'readc' (sic) and mismatched quotes (opening “ , closing ') — preserved.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 14,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 1,
+        "questionNumber": 14
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-bangla-08",
+      "text": "কোনটি ‘পদ্মা নদীর মাঝি’ উপন্যাসের চরিত্র নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "কুবের",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পাচু",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রোহিনী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কপিলা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "A pencilled circle below the options is a reader's mark, not a key.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 15,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 15
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-01",
+      "text": "4(x^2 + y^2) = 5 এর ক্ষেত্রফল কত বর্গ একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4π/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4π/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "25π/16",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5π/2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ক) prints the fraction 4π/4 exactly as typeset — preserved. Apparent compiler key error: the circle 4(x^2 + y^2) = 5 has area 5π/4, which is not among the options; the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 16,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-02",
+      "text": "X ও Y যে কোন দুইটি সেট হলে X\\Y = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "Y'\\X'",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Y'∩X'",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "X'\\Y'",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "X'∩Y'",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key box under the watermark; the letter was recovered on a red-channel crop (which suppresses the orange watermark): উত্তরঃ ঘ. Apparent compiler key error — X\\Y = X∩Y' equals option (ক) Y'\\X' — the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 17,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 17
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-03",
+      "text": "(-3, 4) বিন্দুগামী এবং 3x + 2y - 6 = 0 রেখার উপর লম্ব রেখার সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x + 2y + 1 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2x - 3y + 18 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2x - 3y - 18 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3x + 2y - 1 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key box heavily overlapped by the watermark and faint; the letter (খ) was verified on a red-channel crop, which suppresses the orange watermark.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 18,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 18
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-04",
+      "text": "∫₀¹ e^(√x)/(2√x) dx এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2e",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "e-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1/2)(e-1)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2(e-1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 19,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-05",
+      "text": "(k, 4), (-2, 4) এবং মূলবিন্দু দ্বারা গঠিত ত্রিভুজের ক্ষেত্রফল 10 বর্গ একক হলে k এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-3 অথবা 7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-7 অথবা 3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 20,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-06",
+      "text": "lim (x→π/2) ((x/2 - x)/cot x) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "∞",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "As typeset, the limit's numerator prints 'x/2 - x' (the first term appears to be x over 2 where π/2 was presumably intended) — preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 21,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 21
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-07",
+      "text": "sin cot^-1 tan cos^-1 x এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x^4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x^3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "√(1-x^2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 22,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-08",
+      "text": "y = (1/4)e^(4lnx) হলে dy/dx = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x^3/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x^4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x^3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x^5/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 23,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-09",
+      "text": "X = {(x, y) : x = y^2 + 3} হলে X একটি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফাংশন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "এক-এক ফাংশন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অন্বয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অভেদক ফাংশন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (গ) is partly overlapped by the watermark; reads অন্বয়. Apparent compiler key error: x = y^2 + 3 defines a relation (অন্বয়), not a function; the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 24,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 24
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-10",
+      "text": "2x^2 + 2y^2 + 12x - 16y + 10 = 0 বৃত্তটির ব্যাস কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2√5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3√10",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4√5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6√10",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ক) is partly overlapped by the watermark; reads 2√5.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 25,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-11",
+      "text": "কোনটি অসম্ভব?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "tan θ = 3/7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "cot θ = 7/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "sec θ = 11/9",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "cos ec θ = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ঘ) prints 'cos ec' with a space — preserved.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 26,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 26
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-12",
+      "text": "5x - 2y - 20 = 0 এবং -5x + 2y - 9 = 0 রেখাদ্বয়ের মধ্যবর্তী দূরত্ব কত একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "11/√29",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√29",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-√29",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-11/√29",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 27,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 27
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-13",
+      "text": "দুইটি বলের মান সমান ও বিপরীতমুখী হলে তাদের লব্ধির মান-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Statics — assigned to Higher Mathematics by content.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 28,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 28
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-14",
+      "text": "y - 5x = 0, y = 0 এবং x - 2 = 0 রেখা দ্বারা আবদ্ধ ক্ষেত্রের ক্ষেত্রফল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "20",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "40",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error: the enclosed area is 10, option (ক); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 29,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 2,
+        "questionNumber": 29
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-15",
+      "text": "(-√3, 1) বিন্দুটির পোলার স্থানাংক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2, 120°)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2, 150°)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(4, 120°)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(4, 150°)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Options print Bangla numerals (২, ১২০°, ১৫০°, ৪), converted to Western digits per project convention.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 30,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 30
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-16",
+      "text": "A = 3i + 2j - 2k এবং B = i + j - 4k হলে A ও B এর লব্ধি ভেক্টরের সমান্তরাল একক ভেক্টর কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(1/√17)(3i + 2j - 2k)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1/√18)(-i + j - 4k)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1/√21)(4i + j + 2k)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(1/7)(2i + 3j - 6k)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 31,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 31
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-17",
+      "text": "ln(1+x) এর অনন্ত ধারাটি x এর কোন মানের জন্য সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x এর সকল বাস্তব মান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1 < x ≤ 1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-1 < x < 1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-1 ≤ x ≤ 1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 32,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 32
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-18",
+      "text": "tan^2 x + cos^2 x = 2 হলে x এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2nπ ± π/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "nπ ± π/4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "nπ + (-1)^n π/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "KEY NOT RECORDED: the printed key box sits directly under the Admission War logo watermark and the key letter is washed out — illegible in the colour render, in a contrast-enhanced crop, and in a red-channel crop (which suppresses the orange watermark). No key is recorded rather than guessed.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 33,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 33
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-19",
+      "text": "কোন ঘটনা ঘটার সম্ভাবনা p(A) হলে না ঘটার সম্ভাবনা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "p(A)-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1-p(A)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's middle words are overlapped by the watermark; the legible reading is 'কোন ঘটনা ঘটার সম্ভাবনা p(A) হলে না ঘটার সম্ভাবনা কত?'  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 34,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 34
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-20",
+      "text": "2x + y = 5, 4x + 2y = 7 এবং -2x - y = 3 সমীকরণ জোটের সমাধান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2, 1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নেই",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1, 2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(0, -3)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 35,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 35
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-21",
+      "text": "JAHANGIRNAGAR শব্দটির অক্ষরগুলো কত প্রকারে সাজানো যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "13!/(4!8)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "13!/(4!4)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13!/(4!2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13!/(3!8)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Options are typeset as fractions whose denominators print as '4!8' / '4!4' / '4!2' / '3!8' (the second factorial's '!' is not separately visible) — transcribed as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 36,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 36
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-22",
+      "text": "3a + i(b - 6) = 6 - 5bi হলে a ও b এর মান যথাক্রমে কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1, 2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/2, 1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2, 1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1, 1/2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error: 3a = 6 and b - 6 = -5b give a = 2, b = 1, option (গ); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 37,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 37
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-23",
+      "text": "x^2/9 - y^2/4 = 1 অধিবৃত্তের উৎকেন্দ্রিকতা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "√5/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√13/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√13/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 38,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 38
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-24",
+      "text": "x এর মান কত হলে y = x + 4/x বক্ররেখার ঢাল শূণ্য হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "±2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 39,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 39
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-25",
+      "text": "3x^2 - 2x + 4 = 0 এবং 9x^2 - 6x + 12 = 0 সমীকরণদ্বয়ের মূলগুলো",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "সমান ও বিপরীত চিহ্ন বিশিষ্ট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সাধারণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অসমান ও বিপরীত চিহ্ন বিশিষ্ট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ধনাত্মক ও অসম্মান",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ঘ) is partly overlapped by the watermark; reads 'ধনাত্মক ও অসম্মান'.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 40,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 40
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-26",
+      "text": "y = 8(x+5)^7 হলে y_8 = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "8!",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7!",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "56(x+5)^6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's left edge is partly overlapped by the watermark; it reads y = 8(x+5)^7 with y_8 the eighth derivative.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 41,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 41
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-27",
+      "text": "sin θ, cos θ, tan θ, ……………… এগুলো হচ্ছে ত্রিভুজের",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "দুই বাহুর অনুপাত",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দুই কোণের অনুপাত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাহুর দৈর্ঘ্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোণের পরিমাণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 42,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 42
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-28",
+      "text": "x^2 + y^2 + x + 6y = 0 বৃত্তটি মূলবিন্দুতে স্পর্শকের সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x + 3y = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x + 6y = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6x + y = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x + 3y = 1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error: the tangent at the origin is x + 6y = 0, option (খ); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 43,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 43
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-29",
+      "text": "কোন স্থূলকোণী ত্রিভুজের বাহুর দৈর্ঘ্য 3, 5, 7 হলে স্থূলকোণের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "130°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "150°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "120°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "145°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (ঘ) prints without its opening parenthesis ('ঘ) 145°') — preserved in reading; options recorded in printed order.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 44,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 44
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-30",
+      "text": "M = [[0, 1], [1, 2]] এবং N = [[2], [3]] হলে, NM = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "[[3], [8]]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[[2], [6]]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অসম্ভব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[[2], [8]]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Matrices linearised in row form.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 45,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 3,
+        "questionNumber": 45
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-31",
+      "text": "y = f(x) এর কোন বিন্দুতে অংকিত স্পর্শক x অক্ষের যোগবোধক দিকের সাথে স্থূলকোণ উৎপন্ন করলে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "dy/dx = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "dy/dx > 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "dy/dx < 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "dy/dx ≤ 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem begins at the top of p.4. 'যোগবোধক' as printed (for the positive direction); an obtuse angle ⟺ dy/dx < 0, so the printed key is consistent. Entry re-transcribed from the verified render in the correction pass.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 46,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 46
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-32",
+      "text": "ভূমি হতে 19.6 মি/সে. বেগে খাড়া উপরের দিকে কোন বস্তু নিক্ষিপ্ত হল। বস্তুটির উত্থানকাল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4s",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Dynamics (গতিবিদ্যা) item; assigned to Higher Mathematics by content — this paper has no Physics section. Apparent compiler key error — rise time u/g = 19.6/9.8 = 2 s is option (খ); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 47,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 47
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-33",
+      "text": "x একটি বাস্তব সংখ্যা এবং x^2 > 64 হলে, নিচের কোনটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-8 < x < 8",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-8 ≤ x",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8 < x",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x > 8 এবং x < -8",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 48,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 48
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-34",
+      "text": "5 কেজি ভরের একটি বস্তু মাধ্যাকর্ষণের প্রভাবে 40 মি/সে. বেগে নিচে পড়ছে। কি পরিমাণ সমবল তাকে 4 সেকেন্ডে থামিয়ে দিবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "98 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "97 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "99 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "96 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Dynamics (গতিবিদ্যা) item; assigned to Higher Mathematics by content. Key box under the heavy Admission War watermark: the letter is গ — confirmed on colour and red-channel re-crops cut from the hash-verified p.4 render and by an independent second transcription; a first-pass reading of খ was a watermark misread and is superseded (see EXTRACTION_NOTES_A1314A.md addendum). F = m(g + v/t) = 5(9.8 + 10) = 99 N, consistent with the printed key.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 49,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 49
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-35",
+      "text": "n এর যে কোন মানের জন্য tan{nπ/2 + (-1)^n π/4} এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 50,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 50
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-ict-01",
+      "text": "নিচের কোন চিহ্নটি সিদ্ধান্ত নেওয়ার নির্দেশের জন্য প্রবাহ চিত্রে ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "আয়তক্ষেত্র (rectangle)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সামান্তরিক (parallelogram)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রম্বস (diamond)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উপবৃত্ত (oval)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The four options are printed as pure flowchart symbols with no text; they are described textually here in printed order. The decision symbol is the diamond (গ).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 51,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 51
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-36",
+      "text": "∫ 2√x d(√x) = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x + c",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2/3)x^{2/3} + c",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-1/(2√x) + c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error — substituting u = √x, the integral equals x + c, option (ক); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 52,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 52
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-37",
+      "text": "tan^2 θ(cos ec^2 θ - 1) - cot^2 θ(sec^2 θ - 1) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem prints 'cos ec' with the space as typeset in the original.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 53,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-38",
+      "text": "5x^2 - 3x - 2 = 0 সমীকরণটির মূলদ্বয়ের প্রকৃতি কিরূপ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অবাস্তব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বাস্তব ও অমূলদ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাস্তব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বাস্তব ও মূলদ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error — the discriminant is 49 and the roots (1, -2/5) are real and rational, option (ঘ); the printed key is preserved as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 54,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 54
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-39",
+      "text": "y = x^3 - 3x^2 + 6x + 3 ফাংশনটির কেমন মান থাকবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "লঘুমান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গুরুমান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উভয়ই",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 55,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 55
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-40",
+      "text": "3x + 4y - 6a = 0 রেখাটি অক্ষদ্বয়ের সাথে যে ক্ষেত্র তৈরি করে তার ক্ষেত্রফল কত বর্গ একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3a^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(3/2)a",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(3/2)a^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3a",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (গ) is partly overlapped by the watermark but legible; the area is (1/2)(2a)(3a/2) = (3/2)a^2, so the printed key is consistent.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 56,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 56
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-41",
+      "text": "√(1 - 8/x) এর বিস্তৃতিতে নিচের কোনটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "|x| < 8",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "|x| > 8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x < 8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 57,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 57
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-42",
+      "text": "y = 1/(x-3)^2 ফাংশনটির রেঞ্জ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(∞, 1]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(-∞ ∞)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[0, ∞)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(0, ∞)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Apparent compiler key error — the range is (0, ∞), option (ঘ); the printed key is preserved as printed. Option (ক) prints the interval in reverse order and option (খ) prints without the comma, both as in the original.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 58,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 58
+      }
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-43",
+      "text": "3x - 4y + 12 = 0 রেখাটি y-অক্ষকে যে বিন্দুতে ছেদ করে তার স্থানাংক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(0, 4)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(4, 0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(3, 0)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(0, 3)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 59,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 59
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2013-2014-mathematics-set1-3-higher-mathematics-44",
+      "text": "^{2n}C_m = ^{2n}C_{m-2} হলে m এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "n+1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "n",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "n-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "n(n-1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2013-2014-mathematics-set1-3",
+          "questionNumber": 60,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2013-2014-mathematics-set1-3"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2013-2014-mathematics-set1-3",
+        "pageNumber": 4,
+        "questionNumber": 60
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2013-2014-mathematics-set1-3.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

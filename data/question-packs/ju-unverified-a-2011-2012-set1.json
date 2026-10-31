@@ -1,0 +1,4846 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-a-2011-2012-set1",
+    "category": "varsity",
+    "description": "Transcribed 2026-10-31 from the compiler-solved scan of the JU A Unit 2011-2012 paper in the AdmissionWar/Google Drive PDF ju-a-2011-2012-set1.pdf (7 pp.). The printed header (p.1) reads: ক-ইউনিট (গাণিতিক ও পদার্থ বিষয়ক অনুষদ), boxed 'SET CODE: 01', ১ম বর্ষ স্নাতক (সম্মান) ভর্তি পরীক্ষা ২০১১-২০১২ — the Drive listing label 'Set-1' AGREES with the printed code 01. The printed instructions state 100 questions on 4 pages in the original paper (the solved compilation reflows them onto 7 scanned pages), 1 hour, 100 marks, 0.25 negative per wrong answer. The compilation prints a boxed 'Ans: X' key (Latin letters A-D) for nearly every question, with 'Solve:' boxes for Higher Mathematics/Physics and 'ব্যাখ্যা:' lines for Chemistry. NO subject headings are printed; subjects are assigned per question by content: Bangla Q1-4, General Knowledge Q5-6, English Q7-10, Higher Mathematics Q11-40, Physics Q41-70, Chemistry Q71-100. 100 questions: 97 keyed, 3 keyless (Q10 and Q66 have no printed Ans box; Q85's box is obliterated by the aggregator watermark), 0 dual, 0 printed no-correct-option dispositions. Three printed box-vs-explanation conflicts (box recorded, explanation documented): Q31, Q87, Q94. Extraction-stage pack: content and answers unverified pending cross-source verification. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "src-ju-a-2011-2012-set1"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-ju-a-2011-2012-set1",
+      "filename": "ju-a-2011-2012-set1.pdf",
+      "title": "JU A Unit Admission Test 2011-2012 — printed SET CODE: 01 (ক-ইউনিট, গাণিতিক ও পদার্থ বিষয়ক অনুষদ) (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-1')",
+      "sha256": "2a1c4e4ca076f9b612d6ed3041a43bd36fadec773608a73d19d753f5c65d144a",
+      "sourceType": "pdf",
+      "notes": "CamScanner scan of a compiler-solved reprint (boxed 'Ans: X' key per question; 'Solve:' boxes for mathematics/physics; 'ব্যাখ্যা:' lines for chemistry). Aggregator header/footer lines 'Download More Question Bank From www.admissionwar.com' and diagonal 'Admission War' watermarks are the aggregator's, not part of the question paper; the watermark obscures a few stems/boxes (flagged per question). Handwritten pen marks on p.1 are a reader's, not keys. Downstream cross-check partner (not used here): Satt Academy's JU A 2011 year-bank aggregate."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-a-2011-2012-set1",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2012,
+      "academicSession": "2011-2012",
+      "unit": "A",
+      "title": "JU A Unit Admission Test 2011-2012 — printed SET CODE: 01 (ক-ইউনিট, গাণিতিক ও পদার্থ বিষয়ক অনুষদ) (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-1')"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-a-2011-2012-set1",
+      "paperId": "ju-unverified-a-2011-2012-set1",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-ju-a-2011-2012-set1"
+      ],
+      "sourceNote": "Printed header (p.1): ক-ইউনিট (গাণিতিক ও পদার্থ বিষয়ক অনুষদ); SET CODE: 01; ১ম বর্ষ স্নাতক (সম্মান) ভর্তি পরীক্ষা ২০১১-২০১২. Printed general instructions: এই প্রশ্নপত্রে ০৪ (চার) টি পৃষ্ঠায় মোট ১০০ টি প্রশ্ন আছে; পরীক্ষার সময়সীমা এক (০১) ঘণ্টা এবং সর্বমোট নম্বর একশত (১০০); সকল প্রশ্নের মান সমান; পরীক্ষায় প্রতিটি ভুল উত্তরের জন্য ০.২৫ নম্বর কাটা যাবে; প্রয়োজনে সাধারণ ক্যালকুলেটর ব্যবহার করা যাবে [programmable/scientific ক্যালকুলেটর নয়]. OMR sentences to copy: (ক) মানুষ তার নিজের ভাগ্যের নির্মাতা (খ) 'Man is the archltect of hls own fortune' [sic — 'archltect' and 'hls' as printed]."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-a-2011-2012-set1-bangla-01",
+      "text": "রবীন্দ্রনাথ ঠাকুরের কাব্যগ্রন্থ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "সোনার তরী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অগ্নিবীণা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শিউলিমালা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "চক্রবাক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 1,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-bangla-02",
+      "text": "'হাতপাখা' কোন সমাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "দ্বন্দ্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মধ্যপদলোপী কর্মধারয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বহুব্রীহি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তৎপুরুষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The printed Ans box is partly covered by the aggregator watermark; the letter reads D.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 2,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 2
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-bangla-03",
+      "text": "'হিতৈষী' এর সন্ধিবিচ্ছেদ হলো–",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "হিতে + ঐষী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হিত + ঐষী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হিত + এষী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "হিভা + এষী",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 3,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 3
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-bangla-04",
+      "text": "তৎসম উপসর্গ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "অজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পরা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পাতি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 4,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 4
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-general-knowledge-01",
+      "text": "বীরশ্রেষ্ঠ পদকপ্রাপ্তদের সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "General Knowledge",
+      "options": [
+        {
+          "id": "a",
+          "text": "5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "9",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 5,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 5
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-general-knowledge-02",
+      "text": "বাংলাদেশের পাহাড়সমূহ কোন ভূতাত্ত্বিক যুগের?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "General Knowledge",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্লাইসটোসিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "টারশিয়ারী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মায়োসিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইয়োসিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 6,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 6
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-english-01",
+      "text": "The synonym of 'desultory' is",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "drive",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "disorganized",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "organized",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "romantic",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 7,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 7
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-english-02",
+      "text": "The guest talked----art and literature. The appropriate preposition in the gap will be",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "for",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "on",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "about",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "of",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 8,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-english-03",
+      "text": "When he (to find) me, he acted crazy. The right form of verb here will be",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "found",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "finds",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "none",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "find",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 9,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-english-04",
+      "text": "The meaning of the phrase 'drag one's feet' is",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "তুলে ধরা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পা গর্তে পড়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অমীমাংশিত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গড়ি-মসি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "KEYLESS: the compilation prints no 'Ans:' box for this question (checked at full resolution on p.1); no key recorded.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 10,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 10
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-01",
+      "text": "A = {1, 3, 5, 7} হলে n(A×A) এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "16",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "14",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "18",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "20",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 11,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-02",
+      "text": "−3 < x < 9 হলে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "|x − 3| < 6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "|x − 2| < 6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "|x − 3| < 4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "|x − 4| < 6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option A is partly covered by the aggregator watermark; the printed Solve confirms |x − 3| < 6.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 12,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 12
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-03",
+      "text": "স্বরবর্ণগুলিকে কোন সময়ই পৃথক না রেখে daughter শব্দটির অক্ষরগুলি যত প্রকারে সাজানো যায় তা হলো",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4380",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4320",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4390",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4300",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 13,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-04",
+      "text": "যদি ম্যাট্রিক্স A = [−1 −1 −1] হয় এবং I একটি 3×3 ইউনিট ম্যাট্রিক্স হয় তাহলে AI ম্যাট্রিক্সটি হলো",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "[0]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[000]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[−1 −1 −1]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 14,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-05",
+      "text": "2nCr = 2nCr + 2 হলে r এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "n",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(n + 1)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2n",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(n − 1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Defective as printed: both sides of the equation print identically ('2n' with subscript 'Cr' on each side); transcribed literally, not repaired.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 15,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 15
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-06",
+      "text": "(1 − x)^8 (1 + x)^7 এর বিস্তৃতিতে x^7 সহগ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "35",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "40",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "30",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "45",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 16,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 1,
+        "questionNumber": 16
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-07",
+      "text": "4 + 44 + 444 + ...... ধারাটির 10-তম পদ পর্যন্ত যোগফল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "49382700",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "49380000",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "49382790",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটি নয়।",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 17,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-08",
+      "text": "1.2 + 2.3 + 3.4 + ...... ধারাটির 10-তম পদ পর্যন্ত যোগফল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "430",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "440",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "450",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "460",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The terms print with full stops (1.2, 2.3, 3.4) as in the source typesetting; the Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 18,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 18
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-09",
+      "text": "cosθ = 1/5 হলে 1 + tan^2 θ এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "25",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "15",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "30",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 19,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-10",
+      "text": "বিকাল 4 টায় ঘণ্টার কাটা ও মিনিটের কাটার মধ্যে কোণের পরিমাণ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "90°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "180°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "120°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 20,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-11",
+      "text": "tanθ = −√3, 270° < θ < 360° হলে θ এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "280°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "290°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "320°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "300°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 21,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-12",
+      "text": "i কাল্পনিক সংখ্যা হলে, i^101-এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "i",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "−i",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 22,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 22
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-13",
+      "text": "x^2 − (3m − 1)x + 5m + 1 = 0 এর মূলদ্বয় সমান হলে, m-এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2, 3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3, 5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3, −1/9",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 23,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-14",
+      "text": "ম্যাট্রিক্স A এর মাত্রা 2 × 3 এবং ম্যাট্রিক্স B এর মাত্রা 3 × 1 হলে, AB-এর মাত্রা",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 × 1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1 × 2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2 × 2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3 × 3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 24,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-15",
+      "text": "| 1 2 3 / 4 3 7 / 2 4 6 | নির্ণায়কের মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The determinant is printed as a 3×3 array (rows 1 2 3 / 4 3 7 / 2 4 6); linearised here row-wise.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 25,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-16",
+      "text": "কোনো বিন্দুর পোলার স্থানাঙ্ক (2, 330°) হলে বিন্দুটির কার্তেসীয় স্থানাঙ্ক",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(√3, 1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(−√3, 1)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(√3, −1)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(−√3, −1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Part of the stem sits under the aggregator watermark; the reading is corroborated by the printed Solve (r = 2, θ = 330°).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 26,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 26
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-17",
+      "text": "x-অক্ষ ও (5, −7) থেকে (4, k) বিন্দুটির দূরত্ব সমান হলে k-এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "20/7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "−65/7",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 27,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 27
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-18",
+      "text": "(4, −5) বিন্দু গামী x-অক্ষের সমান্তরাল সরল রেখার সমীকরণ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "y + 5 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x − 4 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "y − 5 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x + 4 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 28,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 28
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-19",
+      "text": "7x^2 − 2y^2 + 12xy − 2x + 4y − 7 = 0 সমীকরণটি নির্দেশ করে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "বৃত্ত",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উপবৃত্ত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পরাবৃত্ত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অধিবৃত্ত",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 29,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 2,
+        "questionNumber": 29
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-20",
+      "text": "(7, −4) বিন্দুটি, (1, −4) কেন্দ্র ও 6 ব্যাসার্ধ বিশিষ্ট বৃত্তের",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অন্তঃস্থ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বহিঃস্থ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উপরিস্থ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 30,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 30
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-21",
+      "text": "3x^2 + 6x − 4y − 5 = 0 পরাবৃত্তের শীর্ষ বিন্দু",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(−1, −5/3)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1, 8/3)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1, 2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(−1, −2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "⚠ CONFLICT: the printed Ans box reads A, but the printed Solve itself concludes (x, y) = (−1, −2), i.e. option D. The box key (A) is recorded per this batch's convention; the Solve's conclusion is documented here.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 31,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 31
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-22",
+      "text": "f(x) = 2^x + 3 ফাংশনটির রেঞ্জ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(−∞, 0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(0, ∞)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(−∞, ∞)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(3, ∞)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is partly covered by the aggregator watermark; the letter reads D and the printed Solve concludes Range (3, ∞).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 32,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 32
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-23",
+      "text": "f(x) = |x| হলে, f'(0) এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অসংজ্ঞায়িত",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 33,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 33
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-24",
+      "text": "f(x) = 3x^2 − 2x + 5 পরাবৃত্তের x = 1-এ স্পর্শকের ঢাল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 34,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 34
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-25",
+      "text": "f(x) = 10 − 3x^2 + 3x পরাবৃত্তের স্পর্শকের ঢাল শূণ্য হলে, স্পর্শ বিন্দুর ভূজ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 35,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 35
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-26",
+      "text": "f(x) = 3x^2, x-অক্ষ এবং x = 1 ও x = 2 রেখা দিয়ে আবদ্ধ ক্ষেত্রের ক্ষেত্রফল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 36,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 36
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-27",
+      "text": "(X) = (X − 2)^2 + 2",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Fragmentary as printed: the stem is only the equation '(X) = (X −2)^2 + 2' (the leading '(X)' is a degraded f(x) glyph) with no question phrase; transcribed literally. The first option is labelled with a lowercase 'a.' in the print.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 37,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 37
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-28",
+      "text": "∫_0^(π/4) tan^2 x sec^2 x dx এর মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5/3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 38,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 38
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-29",
+      "text": "2x + 3y = 6 রেখাটি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "উর্ধ্বগামী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিম্নগামী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অনুভূমিক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উলম্ব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 39,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 39
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-higher-mathematics-30",
+      "text": "f'(α) = 0 এবং h > 0 অতিক্ষুদ্র মনের জন্য f'(α + h) > 0 এবং f'(α − h) < 0 হলে, f'(α)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "গুরুমান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লঘুমান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অসংজ্ঞায়িত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়।",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "As printed: 'মনের' (sic, for মানের) and the stem ends with 'f'(α)' as printed; transcribed literally.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 40,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 40
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-01",
+      "text": "দুটি ভেক্টর একই দিকে ক্রিয়ারত থাকলে লব্ধির মান হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "সর্বাধিক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সর্বনিম্ন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শূন্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 41,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 41
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-02",
+      "text": "একটি বস্তু স্থিরাবস্থা হতে 4 m/s^2 সম-ত্বরণে যাত্রা শুরু করল। 6 s পর বস্তুটির বেগ হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 m/s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4 m/s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "24 m/s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "32 m/s",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The question straddles pp.3-4 of the compilation: stem and options A-B on p.3, options C-D and the Solve/Ans box on p.4.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 42,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 3,
+        "questionNumber": 42
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-03",
+      "text": "একটি বস্তুকে 40 ms^-1 বেগে অনুভূমিকের সাথে 60° কোণে উপরের দিকে নিক্ষেপ করা হল। বস্তুটির অনুভূমিক পাল্লা হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1413 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "114.39 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "141.90 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "141.39 m",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 43,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 43
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-04",
+      "text": "কৌণিক বেগের মাত্রা সমীকরণ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "LT^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "T^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "LT^-2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "LT",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 44,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 44
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-05",
+      "text": "একটি চাকার ভর 10 kg এবং চক্রগতির ব্যাসার্ধ 0.5 m হলে জড়তার ভ্রামক হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5.2 k-m^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3.5 km^2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.5 k-m^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5.3 km^2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option units are degraded in the print (the Solve uses Kgm^2); transcribed as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 45,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 45
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-06",
+      "text": "3 kg ভরের বস্তুকে 20 m উচ্চতা থেকে ফেলে দেয়া হলে ভূ-পৃষ্ঠকে স্পর্শ করার ঠিক পূর্ব মুহূর্তে এর গতিশক্তি হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "588 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "313.6 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "330 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "400 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "One word of the stem sits under the aggregator watermark; 'গতিশক্তি' is corroborated by the printed Solve (Ek = mgh).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 46,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 46
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-07",
+      "text": "বৃহস্পতির ভর ও ব্যাসার্ধ যথাক্রমে 1.9 × 10^27 kg এবং 7 × 10^7 m হলে এর মুক্তি বেগ হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "60.2 × 10^24 ms^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6.02 × 10^4 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6.02 × 10^3 ms^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "16.02 × 10^3 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 47,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 47
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-08",
+      "text": "যদি একটি গোলকের পর্যায়কাল T এবং দৈর্ঘ্য L হয় তাহলে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "T ∝ 1/√L",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "T ∝ √L",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "T ∝ L",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "T ∝ 1/L",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "'গোলকের' as printed (sic — the printed Solve, T = 2π√(L/g), shows a pendulum, দোলক, is meant); transcribed literally.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 48,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 48
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-09",
+      "text": "একটি তারের উপাদানের ইয়াং এর গুণাংক 2 × 10^11 N/m^2। তারটির দৈর্ঘ্য 15% বৃদ্ধি করতে প্রযুক্ত পীড়ন হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "13 × 10^10 Nm^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3 × 10^10 Nm^-2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1 × 10^10 Nm^-2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3 × 10^10 Nm^-2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "As printed: options B and D are identical, and option A's unit prints 'Nm^2' with a positive exponent; transcribed literally.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 49,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 49
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-10",
+      "text": "যদি স্পর্শ কোণ 90° এর কম হয়, তবে তরলের পৃষ্ঠ হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "উত্তল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সমতলাবতল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সমতলোত্তল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অবতল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Part of the stem sits under the aggregator watermark; reading corroborated by the option set.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 50,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 50
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-11",
+      "text": "27°C তাপমাত্রায় 3 gm নাইট্রোজেনের মোট গতিশক্তি হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3000 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "500 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "400.66 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "418 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem is partly covered by the aggregator watermark; values corroborated by the Solve's data box (T = 27°C, M = 3 gm nitrogen). The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 51,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 51
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-12",
+      "text": "তাপের যান্ত্রিক সমতা J-এর এস. আই একক হল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "জুল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ওয়াট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যালরী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "একক নেই",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 52,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 52
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-13",
+      "text": "কোন মাধ্যমে 640 Hz ও 480 Hz কম্পাংকের দুটি শব্দ তরঙ্গের তরঙ্গদৈর্ঘ্যের পার্থক্য 1 m হলে ঐ মাধ্যমে শব্দ তরঙ্গের বেগ হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "8120 m/s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1820 m/s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1920 m/s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9120 m/s",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 53,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 4,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-14",
+      "text": "শব্দের তীব্রতার একক হল",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ওয়াট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ওয়াট-মি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ওয়াট/মি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option units are degraded in the print (intended W/m^2 forms); transcribed as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 54,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 54
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-15",
+      "text": "একটি ইঞ্জিন 3400 J তাপ গ্রহণ করে এবং 2400 J তাপ বর্জন করে। ইঞ্জিনের দক্ষতা হবে",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "39.41%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2141%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "29.41%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "49.41%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option B prints '2141%' (sic — the decimal point of 21.41% is lost in the print); transcribed literally. The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 55,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 55
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-16",
+      "text": "কত প্রাবল্যের একটি বৈদ্যুতিক ক্ষেত্রের মধ্যে একটি ইলেকট্রন স্থাপন করলে ইলেকট্রনটি তার ওজনের সমান বল অনুভব করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5.57 × 10^-11 Newton/C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.57 × 10^-11 C/Newton",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5.57 × 10^11 Newton/C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5.57 × 10^11 C/Newton",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 56,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 56
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-17",
+      "text": "একটি পোস্ট অফিস বাক্সের অনুপাত বাহু দুটিতে 1000 Ω ও 10 Ω রোধ যুক্ত করা হল। তৃতীয় বাহুতে 511 Ω রোধ যুক্ত করায় গ্যালভানোমিটারে শূন্য বিক্ষেপ পাওয়া গেল। চতুর্থ বাহুতে অজানা রোধের মান",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.511",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.11",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "51.1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "511",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Parts of the stem sit under the aggregator watermark; the resistance values (1000 Ω, 10 Ω, 511 Ω) are corroborated by the printed Solve (S = Q/P × R = 10/1000 × 511). Options print as bare numbers (Ω).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 57,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 57
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-18",
+      "text": "50 Ω রোধের ভিতর দিয়ে 2 A প্রবাহ 100 সেকেন্ড চালনা করলে 0°C তাপমাত্রার কতটুকু পানির তাপমাত্রা 100°C-এ পৌঁছাবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.0476 কিলো",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.476 কিলো",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4.76 কিলো",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটি নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 58,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 58
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-19",
+      "text": "B ও H এর অভিমুখ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "বিপরীত দিকে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পরস্পর লম্ব",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "একই দিকে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটি নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 59,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 59
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-20",
+      "text": "চৌম্বক প্রাবল্য একটি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ভেক্টর রাশি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "স্কেলার রাশি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভেক্টর ও স্কেলার রাশি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটি নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 60,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 60
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-21",
+      "text": "কোন পরিবাহীকে তড়িৎ প্রবাহের ফলে এর পাশে একটি চৌম্বক ক্ষেত্রের সৃষ্টি হয় এটি আবিষ্কার করেন",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিউটন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফ্যারাডে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লেনজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ওয়েরস্টেড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem grammar as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 61,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 61
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-22",
+      "text": "একটি উত্তল দর্পণের ফোকাস দূরত্ব 10 cm মেরু হতে 15 cm দূরে একটি বস্তু স্থাপন করা হল। প্রতিবিম্বের অবস্থান ও প্রকৃতি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "দর্পণের পশ্চাতে ও অবাস্তব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দর্পণের সামনে ও বাস্তব",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "দর্পণের পশ্চাতে ও বাস্তব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দর্পণের সামনে ও হতে পারে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem word order and option D ('দর্পণের সামনে ও হতে পারে') are garbled as printed; transcribed literally. The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 62,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 62
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-23",
+      "text": "আলোক কেন্দ্রের অবস্থান কোথায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "লেন্সের ভেতরে যে কোন জায়গায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লেন্সের ভেতরে মধ্য বিন্দুতে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লেন্সের ভেতরে হতে পারে আবার বাইরেও হতে পারে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লেন্সের বাইরে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 63,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 63
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-24",
+      "text": "এক ব্যক্তি একটি বিবর্ধক কাচ চোখের খুব নিকটে ধরে দেখল কাঁচটির বিবর্ধন ক্ষমতা 12। চোখের সুস্পষ্ট দর্শনের ন্যূনতম দূরত্ব 0.25 m হলে বিবর্ধক কাঁচটির ফোকাস দূরত্ব কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.3 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.23 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.023 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 64,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 5,
+        "questionNumber": 64
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-25",
+      "text": "সমবর্তিত আলোর ক্ষেত্রে কোনটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "E এর কম্পনতল নির্দিষ্ট এবং B থাকে না",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "E এর কম্পনতল নির্দিষ্ট এবং B থাকে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "E এর নির্দিষ্ট B থাকে না",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "E এবং B কোনটিই থাকে না",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's first line runs under the red aggregator banner at the page top; reading corroborated by the options. Option C is garbled as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 65,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 65
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-26",
+      "text": "অর্ধপরিবাহী ডায়োডকে বলা হয়",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যামপ্রিফায়ার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রেক্টিফায়ার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ট্রানজিস্টার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "KEYLESS: the compilation prints no 'Ans:' box and no Solve/ব্যাখ্যা for this question (checked at full resolution on p.6); no key recorded. Option A prints 'অ্যামপ্রিফায়ার' (sic).  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 66,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 66
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-27",
+      "text": "দৈর্ঘ্য সংকোচন ও সময় প্রসারণ কোথা হতে পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "মাইকেলসন-মোর্লির পরীক্ষা হতে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আইনস্টাইনের পরীক্ষা হতে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লরেঞ্জের রূপান্তর বিধি হতে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গ্যালীয় রূপান্তর বিধি হতে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 67,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 67
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-28",
+      "text": "কোন ট্রানজিস্টরের Ic = 0.95 mA এবং IE = 1.0 mA হলে, এর প্রবাহ বিবর্ধন গুণক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "95",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "9.5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": ".95",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's current subscripts are degraded in the print (they render as 'Ie'/'Ig'); the printed Solve fixes them as Ic = 0.95 mA and IE = 1 mA, α = Ic/IE. The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 68,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 68
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-29",
+      "text": "কোন বস্তুর ভর 8.30 × 10^-3 gm। এর পুরোটাই শক্তিতে রূপান্তরিত করা হলে কি পরিমাণ শক্তি উৎপাদন করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7.47 × 10^-14 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7.47 × 10^11 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7.47 × 10^14 KJ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7.47 × 10^11 KJ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option D is partly covered by the aggregator watermark; read as 7.47 × 10^11 KJ by analogy with option C's pattern and the visible glyphs. The Ans box is printed inside the Solve box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 69,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 69
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-physics-30",
+      "text": "আলো ঘন হতে লঘুতর মাধ্যমে প্রবেশ কালে প্রতিসৃত রশ্মি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অভিলম্ব হতে দূরে সরে যায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অভিলম্বের নিকটবর্তি হয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "দিক পরিবর্তন করে না",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বিভেদতল ঘেষে যায়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 70,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 70
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-01",
+      "text": "লোহার গলনাংক কত °C?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1063",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1540",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3600",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3900",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 71,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 71
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-02",
+      "text": "স্থির উষ্ণতায় কোন নির্দিষ্ট পরিমাণ গ্যাসের আয়তন তার চাপের ব্যস্তানুপাতিক। এ সূত্রটি",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "বয়েলের",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চার্লসের",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গে-লুসাকের",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গ্যাসের",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Options C-D and the Ans box are printed at the top of the right column of p.6.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 72,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 72
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-03",
+      "text": "কোনটি কম্পোজিট কণিকা?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিউট্রিনো",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পজিট্রন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ডিউটেরণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মেসন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 73,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 73
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-04",
+      "text": "অ্যাক্টিনিয়াম থেকে বিটা রশ্মি বিকিরিত হয়ে কী উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "থোরিয়াম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পোলোনিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রেডন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইউরেনিয়াম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 74,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 74
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-05",
+      "text": "কোনটি ল্যানথানাইড সারির মৌল নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ce",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Pm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Lu",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Fm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 75,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 75
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-06",
+      "text": "প্রমাণ দ্রবণের জন্য কোনটি সেকেন্ডারী স্ট্যান্ডার্ড পদার্থ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "HCl",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Na2CO3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "K2Cr2O7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অক্সালিক এসিড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 76,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 76
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-07",
+      "text": "FeSO4 এ Fe-এর জারণ সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "+1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "+2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "−2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "+3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 77,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 77
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-08",
+      "text": "পানির বন্ধন কোণ কত ডিগ্রী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "120",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "109.5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "107",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "104.5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's first word is partly covered by the aggregator watermark; reading corroborated by the options.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 78,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 78
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-09",
+      "text": "25°C উষ্ণতায় N2O4 এবং NO2 এর সাম্যাবস্থার মিশ্রণে তাদের আংশিক চাপ যথাক্রমে 0.69 atm এবং 0.31 atm। N2O4 এর বিয়োজন বিক্রিয়ায় Kp এর মান গণনা কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.2393 atm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.01393 atm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.1393 atm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.02393 atm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 79,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 79
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-10",
+      "text": "নিচের কোন এসিডের তীব্রতা সবচেয়ে কম?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "HClO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HClO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "H2SO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H2SO3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 80,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 80
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-11",
+      "text": "একটি মৃদু এসিড ও তীব্র ক্ষারক টাইট্রেশন উপযুক্ত নির্দেশক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফেনফথেলিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মিথাইল রেড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লিটমাস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 81,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 6,
+        "questionNumber": 81
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-12",
+      "text": "ইলেকট্রোলাইটিক তড়িৎ পরিবাহী কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "FeSO4 (দ্রবণ)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Fe",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Cu",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 82,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 82
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-13",
+      "text": "Zn^2+/Zn(s) এবং Cu^2+/Cu(s) তড়িৎদ্বারদ্বয়ের প্রমাণ বিভব যথাক্রমে −0.76 V এবং +0.34 V হলে পূর্ণ কোষটির প্রমাণ বিভব কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "+0.42 V",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "+1.10 V",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "−0.42 V",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "−1.10 V",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the ব্যাখ্যা box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 83,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 83
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-14",
+      "text": "কোন প্রথমক্রম বিক্রিয়ার অর্ধায়ু 10 মিনিট বিক্রিয়ার হার ধ্রুবক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "6.93 × 10^-3 min^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6.93 × 10^-1 min^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6.93 × 10^-2 min^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4.62 × 10^-2 min^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box is printed inside the ব্যাখ্যা box.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 84,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 84
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-15",
+      "text": "কোন যৌগটি সর্বাধিক সমযোজী প্রকৃতির?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "AlCl3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "NaCl",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CaCl2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CCl4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "KEYLESS: an 'Ans:' box is printed beside option D but its letter is obliterated by the diagonal aggregator watermark (checked at full resolution on p.7); the letter was not guessed and no key is recorded.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 85,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 85
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-16",
+      "text": "কোনটিকে কিসেরাইট বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "MgCO3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "MgSO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "MgSO4.H2O",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "MgSO4.7H2O",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The Ans box's letter is partly covered by the aggregator watermark but consistent with C, and the printed ব্যাখ্যা states কিসেরাইট হল MgSO4.H2O (option C); key recorded as ব্যাখ্যা-supported C.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 86,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 86
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-17",
+      "text": "সালফান কী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "98% H2SO4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "100% H2SO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "96% H2SO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "94% H2SO4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "⚠ CONFLICT: the printed Ans box reads A (98% H2SO4), but the printed ব্যাখ্যা states '100% H2SO4 কে সালফেন বলে' (সালফেন spelling in the ব্যাখ্যা), i.e. option B. The box key (A) is recorded per this batch's convention; the ব্যাখ্যা is documented here.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 87,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 87
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-18",
+      "text": "কোনটি নিরপেক্ষ অক্সাইড?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "NO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "N2O",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "N2O5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "SO2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 88,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 88
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-19",
+      "text": "কোনটি কীটনাশক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্লোরোফর্ম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অলড্রিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কার্বন টেট্রাক্লোরাইড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডাইক্লোরোমিথেন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 89,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 89
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-20",
+      "text": "কোনটি ডাচ মেটাল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zn: 40-20%, Cu: 60-80%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Zn: 35-40%, Cu: 30-50%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Zn: 20%, Cu: 80%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Zn: 30%, Cu: 70%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The fourth option is mislabelled 'B.' in the print (for D.); it is recorded in D position. The printed ব্যাখ্যা (top of p.7 right column) gives ডাচ মেটাল = Zn: 40-20%, Cu: 60-40% — its Cu range (60-40%) differs from option A's printed 60-80%, but both point to option A, which the box keys.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 90,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 90
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-21",
+      "text": "কোনটি সুষম চাক্রিক অ্যারোমেটিক যৌগ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পিরিডিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "টলুইন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থায়োফিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইমিডাজল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 91,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 91
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-22",
+      "text": "কিটোনের কার্যকরীমূলক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "−OH",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−CHO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "−CO−",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "−COOH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 92,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 92
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-23",
+      "text": "কোনটি সম্পৃক্ত হাইড্রোকার্বন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাইক্লোহেক্সেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বেনজিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ন্যাপথালিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পিরিডিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 93,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 93
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-24",
+      "text": "উটজ বিক্রিয়ায় প্রধান বিক্রিয়ক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যালকেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালকিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যালকাইল হ্যালাইড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যালকাইন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "⚠ CONFLICT: the stem asks for the প্রধান বিক্রিয়ক (main reactant) and the printed ব্যাখ্যা (2RX + 2Na → অ্যালকেন (R–R) + 2NaX) has RX (alkyl halide, option C) as the reactant, but the printed Ans box keys A (অ্যালকেন — the product). The box key (A) is recorded per this batch's convention; the disagreement is documented here.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 94,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 94
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-25",
+      "text": "অ্যালকেনের কার্বন-কার্বন বন্ধন দৈর্ঘ্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.121 nm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.134 nm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.154 nm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.164 nm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Options A and C are partly covered by the aggregator watermark; values corroborated by the printed ব্যাখ্যা (C–C বন্ধন দৈর্ঘ্য = 0.154 nm).  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 95,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 95
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-26",
+      "text": "ফ্রিডেল-ক্রাফট বিক্রিয়ায় প্রধান বিক্রিয়ক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "টলুইন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বেনজিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ইথাইল বেনজিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডাইফিনাইল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The stem's first word is partly covered by the aggregator watermark; reading corroborated by the options.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 96,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 96
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-27",
+      "text": "কোনটি গ্রীন হাউজ গ্যাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "O2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CFC",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "No",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option D prints 'No' (sic, for NO); transcribed literally.  [UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 97,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 97
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-28",
+      "text": "কোনটি সেকেন্ডারী অ্যালকোহল মূলক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "≥C-OH",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−CH2OH",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "−OH",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "= CHOH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option A prints with a '≥'-like glyph (the tertiary ≡C-OH group, degraded); transcribed as printed.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 98,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 98
+      }
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-29",
+      "text": "স্যান্ডমেয়ার বিক্রিয়ায় প্রধান বিক্রিয়ক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ব্রোমোবেনজিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সায়ানোবেনজিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বেনজিনডায়াজোনিয়াম লবণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নাইট্রোবেনজিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 99,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 99
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-a-2011-2012-set1-chemistry-30",
+      "text": "অ্যামোনিয়াম সায়ানেটকে উত্তপ্ত করলে কী উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "মিথাইল সায়ানেট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইথাইল সায়ানেট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্রোপাইল সায়ানেট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইউরিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-a-2011-2012-set1",
+          "questionNumber": 100,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2011-2012-set1"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2011-2012-set1",
+        "pageNumber": 7,
+        "questionNumber": 100
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: ju-a-2011-2012-set1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+    }
+  ]
+}

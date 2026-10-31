@@ -1,0 +1,2812 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-hstu-unverified-a-2014-2015",
+    "category": "varsity",
+    "description": "HSTU A Unit (Agriculture/Fisheries/Veterinary, Science group) MCQ question bank, academic session 2014-2015 (Satt Academy year label 2014), transcribed 2026-10-31 from the publicly readable first page of each Satt Academy subject section (Physics 15 of 25, Chemistry 15 of 25, Biology 15 of 25, English 15 of 25; page 2 of each subject section is login-gated on Satt Academy and was not fetched). All 60 publicly readable cards are included. Answers are Satt Academy's own marked answers (reading-mode correct marker cross-checked against each card's test-mode answer field); content is not cross-source verified. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "src-hstu-a-2014-2015-satt"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-hstu-a-2014-2015-satt",
+      "filename": "satt-hstu-a-2014.html",
+      "title": "HSTU A Unit 2014 MCQ Question Bank & Solution (Satt Academy)",
+      "sha256": "a1036d4af07b9f4632adc7c469ae15293bb78b3050ec70fe5a4299ef84270b5f",
+      "sourceType": "other",
+      "notes": "HTML question bank at https://sattacademy.com/a-%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%9F-103/all/mcq-questions , retrieved 2026-10-31; local copy sources/satt-hstu-a-2014.html (sha256 is of that 'all' page). Per-subject first pages retrieved the same day via the site's own subject endpoints are stored under sources/satt-hstu-a-2014/ (physics/chemistry/biology/english-p1.html). Page 2 of each subject section requires login on Satt Academy (curl and browser.open both returned the login page on 2026-10-31) and was NOT fetched or bypassed, so 40 of the advertised 100 questions are not in this pack. Subject counts advertised on the page: English 25, Physics 25, Chemistry 25, Biology 25 = 100. MathML formulas are transcribed in a linear text form (e.g. R/4 rendered as R4 in the source text layer). Source anomalies preserved verbatim: Chemistry #6 and #7 share the same question text in the source but have different option sets; Physics #3 option d is the source's own placeholder text 'নিজে চেষ্টা করুন' and is the option the source marks correct. No independent second source was provided for this paper (independentSecondUrl empty), so content is unverified. Satt's on-page date field (05-02-2014) is a template artifact and was not used for dating; session 2014-2015 follows the exam calendar year 2014 mapping given in the assignment notes."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "hstu-unverified-bank",
+      "code": "HSTU-U",
+      "name": "UNVERIFIED — Hajee Mohammad Danesh Science and Technology University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "hstu-unverified-a-2014-2015",
+      "institutionId": "hstu-unverified-bank",
+      "category": "varsity",
+      "year": 2015,
+      "academicSession": "2014-2015",
+      "unit": "A",
+      "title": "HSTU A Unit Question Bank Practice — 2014-2015"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-hstu-unverified-a-2014-2015",
+      "paperId": "hstu-unverified-a-2014-2015",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-hstu-a-2014-2015-satt"
+      ],
+      "sourceNote": "No scoring, penalty, duration or selection rule for this paper was verified from an official source. Rule intentionally left unconfigured with no scoring values."
+    }
+  ],
+  "questions": [
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-01",
+      "text": "আলোর কোন ধর্মের জন্য ছায়া তৈরি হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রতিফলন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রতিসরণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বিচ্ছুরণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সরলপথে চলন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 1,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 1
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-02",
+      "text": "একটি তামার তারের রোধ R। এর দ্বিগুণ দৈর্ঘ্য ও দ্বিগুণ ব্যাসার্ধ বিশিষ্ট একটি তারের রোধ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "R4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "R2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "R",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2R",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 2,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 2
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-03",
+      "text": "ফ্লোরাইট এর প্রতিসরণাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.655",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.354",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.434",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নিজে চেষ্টা করুন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 3,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 3
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-04",
+      "text": "আলোক রশ্মি লম্বভাবে দুটি মাধ্যমের বিভেদতলে আপতিত হলে প্রতিসরণ কোণের মান কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "45°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "90°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "180°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 4,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 4
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-05",
+      "text": "তড়িৎ রাসায়নিক তুল্যাংক (Electro chemical Equivalent ) এর একক কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "কিলোগ্রাম/কুলম্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কিলোগ্রাম/ক্যালরি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যালরী/কিলোগ্রাম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "জুল/কিলোগ্রাম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 5,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 5
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-06",
+      "text": "পর্যায়কাল T হলে একটি পূর্ণ চক্রের জন্য গড় তড়িচ্চালক শক্তি হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "E=0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "E=0.637/ E°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "E = 0.707 E°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 6,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 6
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-07",
+      "text": "নিচের কোন সম্পর্কটি সঠিক নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "P1V1T1=P2V2T2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "PV=nRT",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "P1T1=P2T2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "P1V1=P2V2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 7,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 7
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-08",
+      "text": "0.5m লম্বা একটি তারকে 50 N বল দ্বারা টানা হল। যদি তারের একক দৈর্ঘ্য0.01kgm-1 হয় তবে এর মৌলিক কম্পাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "70.71 Hz",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "71. 70 Hz",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "75.70 Hz",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "70.75 Hz",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 8,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 8
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-09",
+      "text": "একটি সরলরেখা বরাবর চলমান কণার গতি কিরুপ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "একমাত্রিক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দ্বি-মাত্রিক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ত্রিমাত্রিক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বহুমাত্রিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 9,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 9
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-10",
+      "text": "s=13t3+3t সূত্রানুসারে একটি বস্তু সরল রেখায় চলমান। 3 sec পরে বস্তুটির বেগ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 একক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12 একক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "14 একক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 একক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 10,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 10
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-11",
+      "text": "কোন বলের কারণে মাখনকে দুধ থেকে পৃথক করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "কেন্দ্রমুখী বল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বিমূখী বল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ত্বরণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কেন্দ্রবিমুখী বল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 11,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 11
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-12",
+      "text": "কোন ধর্মের কারণে তরল তল সংকুচিত হওয়ার চেষ্টা করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "পৃষ্টটান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সান্ত্রতা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কৌশিকতা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 12,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 12
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-13",
+      "text": "পদার্থের উচ্চতাপীয় অবস্থা কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "কঠিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "তরল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বায়বীয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্লাজমা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 13,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 13
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-14",
+      "text": "আয়রনের একটি দণ্ডের তাপমাত্রা বাড়লে বিদ্যুৎ পরিবাহিতা কিরুপে পরিবর্তিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "হ্রাস পায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বৃদ্ধি পায়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অপরিবর্তিত থাকে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উত্তর নেই",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 14,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 14
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-physics-15",
+      "text": "চিয়ায়ত বলবিদ্যার মতে স্থান, কাল, জড় এগুলো ____?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "আপেক্ষিক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ধ্রুবক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "চলমান",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলাে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 15,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 15
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-01",
+      "text": "এসিডের তীব্রতা অনুসারে কোনটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "H2SO4>HClO4>HCl>HNO3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HNO3>HCl>H2SO3>H2SO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "HClO4>HClO4>HCl>HNO3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H2SO4>HClO4>HCl>HNO3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 1,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 1
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-02",
+      "text": "অ্যারোমেটিক যৌগগুলি Br2.H2O বিবর্ণ করতে পারে না, কারণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অসর্ম্পক্ত যৌগ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "একাধিক দ্বিবন্ধন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সম্পৃক্তত্বতা আছে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অসম্পৃক্ততা ভিন্নতর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 2,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 2
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-03",
+      "text": "d - ব্লক মৌলের মধ্যে কোনটি transition মৌল নয় -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zn",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Fe",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Mn",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Os",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 3,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 3
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-04",
+      "text": "নিম্নের কোন জোড় পদার্থসমূহে প্রত্যেকটি পদার্থই আলাদাভাবে মিশ্রণ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "বাতাস, পানি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চুনের পানি, পানি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কুলিচুন , চুনের পানি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সমুদের পানি , বাতাস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 4,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 4
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-05",
+      "text": "নিম্নের সমীকরণ অনুযায়ী সোডিয়াম ধাতু ঠাণ্ডা পানির সাথে বিক্রিয়া করে, 2Na + 2H2O→2NaOH +H2 উল্লেখিত বিক্রিয়ায় যদি 0.2 mol সোডিয়াম বিক্রিয়া করে তাহলে হাইড্রোজেন গ্যাসের সঠিক আয়তন কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.2dm3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.4dm3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4.8dm3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9.6dm3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 5,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 5
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-06",
+      "text": "নিম্নের কোন বিক্রিয়ায় সালফিউরিক এসিড, এসিড হিসাবে আচরণ করে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "H2SO4 +2NaOH →Na2SO4 +2H2O",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "H2SO4 +2NaOH →BaSO4 +H2O",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "H2SO4 +CuO →Na2SO4 +2H2O",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H2SO4 +Mg →MgSO4 +H2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 6,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 6
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-07",
+      "text": "নিম্নের কোন বিক্রিয়ায় সালফিউরিক এসিড, এসিড হিসাবে আচরণ করে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2Fe +3Cl2→2FeCl3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2FeCl2 +Cl2→2FeCl3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Fe +2FeCl3→3FeCl2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Fe2O3 +6HCl→2FeCl3+3H2O",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 7,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 7
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-08",
+      "text": "একটি পানির অণুর ভর কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "3.99 ×1023g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.99 ×10-23g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3.99 ×10-23g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2.99 ×1023g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 8,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 8
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-09",
+      "text": "কেরোসিনের কার্বন পরমাণুর আনুসঙ্গিক সংখ্যা হলো -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "C1-C4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "C5-C11",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "C12-C15",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "C15-C18",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 9,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 9
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-10",
+      "text": "RMg-X এর সাথে CO2 বিক্রিয়ায় কোনটি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যালকেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কার্বক্সিলিক এসিড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যালকোহল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ফিটোন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 10,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 10
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-11",
+      "text": "কোনটি উর্দ্ধপাতিত হয় না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "আয়োডিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিশাদল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বেনজয়িক এসিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মিথানল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 11,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 11
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-12",
+      "text": "0.5 M NaOH এর একটি দ্রবণকে প্রশমিত করতে 50 mL 1 M H2SO4 দ্রবণ প্রয়োজন। NaOH এর আয়তন কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "50 mL",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "100 mL",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "200 mL",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "500 mL",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 12,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 12
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-13",
+      "text": "ডায়াবেটিক রোগীদের প্রসাবে গ্লকোজের উপস্থিতি প্রমাণের জন্য যে পরীক্ষাটি করা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "টলেন বিকারক পরীক্ষা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফেলিং দ্রবণ পরীক্ষা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বেনিডিকট পরীক্ষা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লিবারম্যান পরীক্ষা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 13,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 13
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-14",
+      "text": "0.01 M HCl দ্রবণের pH কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 14,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 14
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-chemistry-15",
+      "text": "নিম্নের কোন যৌগটি Br2/H2O এর সাথে বিক্রিয়া করলে Br2/H2O এর বর্ণ বিনষ্ট হয়ে যাবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH3-CH=CH2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH3-CH2-CH3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH3-CH=O",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CH3-CH2-OH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 15,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 15
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-01",
+      "text": "পাটের আঁশ কাজে লাগে কি ধরনের ব্যাকটেরিয়া?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Clostridium",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "E-coli",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Azotobactor",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Rhizobium",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 1,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 1
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-02",
+      "text": "ক্রুসিফেরী পরিবারের অন্যতম বৈশিষ্ট্য -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "পুংকেশর ডাইডোনেমাস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পাঁপড়ি ৪ টি ক্রুসিকার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বৃত্যাংশ ৬ টি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ফল ক্যাপসুল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 2,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 2
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-03",
+      "text": "প্রাণীর কোন অংশটি এন্ডোডার্ম থেকে গঠিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "রক্ত সংবহন তন্ত্র",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কংকাল তন্ত্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থাইরয়েড গ্রন্থি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তৈল গ্রন্থি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 3,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 3
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-04",
+      "text": "একটি কিসমিসকে পানিতে ডুবিয়ে রাখলে কিসমিসটি ফুলে উঠে কারণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ব্যাপন হয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইমবাইবিশন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বহিঃঅভিস্রবণ হয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অভিস্রবণ হয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 4,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 4
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-05",
+      "text": "রাইবোসোম আবিষ্কার করেন কে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্যালেড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দ্য দ্যুভে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যামিলো গলগি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বেন্দা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 5,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 5
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-06",
+      "text": "তেজিস্ক্রিয় রশ্মির উৎস নয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "থোরিয়াম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হ্যালোজেন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সূর্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তারামণ্ডল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 6,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 6
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-07",
+      "text": "কোনটিকে বাউন্ড কো -এনজাইম বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "FAD",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "NADP",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ATP",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "GTP",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 7,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 7
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-08",
+      "text": "ঐচ্ছিক পেশি দেখতে -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "নলাকার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গোলাকার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মাকু আকৃতির",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডাম্বেল আকৃতির",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 8,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 8
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-09",
+      "text": "পিত্তথলি নেই এমন প্রাণীর নাম -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "মহিষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হাতী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ঘোড়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "শিমপঞ্জি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 9,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 9
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-10",
+      "text": "নিচের কোন উদ্ভিদ ভালো ও লম্বা তন্তু উৎপাদন করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "আম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বেত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাঁশ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কাঠাঁল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 10,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 10
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-11",
+      "text": "ভিটামিন-সি উৎপাদনের জন্য ব্যবহার করা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "সবরিটল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "স্টাচ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গ্লুকোজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লেবু",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 11,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 11
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-12",
+      "text": "অভেদ্য ঝিল্লির উদাহরণ -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "সেলুলোজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্লাজমামেমব্রেন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কোষ প্রাচীর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সুবেরিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 12,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 12
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-13",
+      "text": "কোনটি বাস্ট ফাইবার -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "জাইলেম ফাইবার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফ্লোয়েম ফাইবার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কর্টেক্স ফাইবার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পেরিসাইকেল ফাইবার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 13,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 13
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-14",
+      "text": "কোনটি অনৈচ্ছিক পেশিকলা?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "জিহ্বা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গলবিল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "চোখ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মূত্রথলি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 14,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 14
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-biology-15",
+      "text": "ভাইরাসের RNA কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "mRNA",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "tRNA",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "rRNA",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "gRNA",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 15,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 15
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-01",
+      "text": "Fortune smiled ___ him",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "on",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "for",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "at",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 1,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 1
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-02",
+      "text": "Mr. Bell is the person ___ whom I obtained the information",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "from",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "at",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "to",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "for",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 2,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 2
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-03",
+      "text": "Would you mind____ here today.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "come",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "have been coming",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "came",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "coming",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 3,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 3
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-04",
+      "text": "Neither of the two candidates who had applied for admission to the Business Faculty ____ eligible for scholarship.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "was",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "were",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "is",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "are",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 4,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 4
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-05",
+      "text": "I got my car ___",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "reparing",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "repaired",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "have repaired",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "to be repaired",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 5,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 5
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-06",
+      "text": "Water changes ___ vapour.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "with",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "into",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "in",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 6,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 6
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-07",
+      "text": "Still a long time to 80, you ___ hurry.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "may not",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "need not",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "must not",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "don't have to",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 7,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 7
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-08",
+      "text": "Choose the correct sentence",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is he who am to blame",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "It is he who is to blame",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "It is he who are to blame",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "It is you who am to blame",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 8,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 8
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-09",
+      "text": "Choose the correct sentence",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "He found the gold coin as he cleans the floor",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He found the gold coin while he cleans the floor",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He found the gold coin as he had cleaned the floor",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He found the gold coin while cleaning the floor.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 9,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 9
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-10",
+      "text": "Which of the following word is a verb?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "idiocy",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "joyously",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "horrible",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "glorify",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 10,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 10
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-11",
+      "text": "Identify the correct translation 'অপরের নিন্দা করিও না '",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Do snot said ill of others",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Does not speak ill to others",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Do not speak ill with others",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Do not speak ill of others",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 11,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 11
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-12",
+      "text": "Find out the tense of the sentence \" It is interesting \"",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Present indefinite",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Present continuous",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Present perfect",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "None",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 12,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 12
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-13",
+      "text": "Antonym of the word' Adult ' is -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mature",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Old",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Aged",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Juvenile",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 13,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 13
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-14",
+      "text": "The correct antonym of the word 'Decay' is -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Collapse",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Decline",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Downfall",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Strength",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 14,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 14
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-a-2014-2015-english-15",
+      "text": "Make it interrogative . ' Nobody believe a liar' -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Does nobody believe a liar ?",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Does everybody believe a liar ?",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Who does not believe a liar ?",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Who believe a liar ?",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-a-2014-2015",
+          "questionNumber": 15,
+          "sourceDocumentId": "src-hstu-a-2014-2015-satt"
+        }
+      ],
+      "source": {
+        "documentId": "src-hstu-a-2014-2015-satt",
+        "questionNumber": 15
+      },
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    }
+  ]
+}

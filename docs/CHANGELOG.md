@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-11-01 — Add separate JU/HSTU unverified candidate banks
+
+- Imported 84 JU-U packs / 5,011 questions and 15 HSTU-U packs / 762 questions from the unverified archive; all 5,773 content statuses and 5,563 unverified / 210 unknown answer states remain as supplied.
+- Kept candidate banks separate from the existing verified JU/HSTU institutions, using dedicated institution, batch, paper, rule and question IDs. All 99 paper rules remain unconfigured.
+- Added 5,502 safe provisional candidates (JU-U 4,780; HSTU-U 722); held 42 repeated-option records and 19 multiple-choice questions out of provisional single-choice scoring.
+- Namespaced reused/colliding source IDs and updated all references. Round-trip comparison passed for all 99 packs; 12 exact and 95 same-stem/different-option overlaps were retained without auto-merging.
+- Excluded the separate GST_CLUSTER set entirely (3 packs / 287 questions) for a dedicated future import. Bundle now has 217 packs / 13,609 questions; added full SQLite/idempotency coverage and updated project documentation.
+
+
+## 2026-11-01 — Import Jahangirnagar University and HSTU question banks
+
+- Added 57 Muse AI schema-v1 packs: 50 JU / 1,526 questions and 7 HSTU / 293 questions. The 3 unrelated GST packs in the archive were excluded.
+- Preserved question/option/answer content and individual verification states; question-by-question factual verification was not repeated. The addition supplies 1,668 verified single-choice practice-eligible questions.
+- Namespaced the shared JU source-document ID for its 24 batch occurrences and updated all linked references; no question or answer data was changed.
+- Regenerated the bundle to 118 packs / 7,836 questions and added integration tests for fresh-SQLite import, status preservation, ID integrity and idempotent re-import.
+- Validation: all 57 new packs valid with 0 errors / 125 warnings; all 118 packs imported in a fresh database with zero failures. All JU/HSTU exam rules remain unconfigured; HSTU historical coverage remains partial.
+
 ## 2026-10-31 — Publish Android preview and reconcile release documentation
 
 - Merged PR #2 (`3aa125d4e12cdca1702f976f20c1f60a765923d1`) to `main`; both the PR CI run and merge push CI run completed successfully.

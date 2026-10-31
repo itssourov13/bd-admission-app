@@ -1,0 +1,3966 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-unverified-h-2019-2020-sete",
+    "category": "varsity",
+    "description": "Jahangirnagar University H Unit (Institute of Information Technology), academic session 2019-2020, Set-E — full 80-question paper transcribed by direct visual reading (with zoomed crops) of Part 2 of the Udvash 'জাবি প্রশ্নব্যাংক' (JU A & D Unit question bank), book PDF pp.245-252 (printed pp.60-67 of Part 2). Part 2 has NO answer table: each question carries its key inline, as an '[Ans: x]' tag and/or a printed worked solution ('সমাধান:'/'Solution:'); the two forms never occur together for the same question in this paper, so no tag-vs-solution disagreement exists. EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED — the printed publisher answer keys are preserved as-is and are NOT official JU keys; cross-source verification is a later stage. The paper is printed in two syllabus tiers whose question numbers interlock: the 'Short Syllabus' run (banner on book PDF p.245) carries 63 questions and the 'Extra Syllabus' block (heading on book PDF p.251, continuing on p.252) carries the remaining 17 (Q28, 29, 30, 33, 41, 50, 53, 54, 55, 56, 57, 64, 65, 66, 76, 77, 80); together they partition the printed numbers 1-80 exactly once, and each question's tier is recorded in its topic field. No 'Old Syllabus' block occurs in this paper. The book prints no per-subject headings; subject blocks follow the printed question-number ranges, confirmed by content: Bangla Q1-5, English Q6-20, Higher Mathematics Q21-60, Physics Q61-80 — counts Bangla 5, English 15, Higher Mathematics 40, Physics 20. Question numbers are NOT printed in numeric order across the pages: p.245 carries Q1-15; p.246 carries Q16-24; p.247 carries Q25-27, 31, 32, 34, 35; p.248 carries Q36-40, 42-45; p.249 carries Q46-49, 51, 52, 58, 59; p.250 carries Q60-63, 67-72; p.251 carries Q73-75, 78, 79 and (Extra Syllabus) Q28-30, 33, 41; p.252 carries (Extra Syllabus) Q50, 53-57, 64-66, 76, 77, 80, ending with Q80. Keys: 77 keyed single_choice, 0 dual keys, 1 keyless (Q16, which prints a '[No Ans:]' marker and no solution), and exactly TWO printed no-correct-option dispositions — Q30 (Extra Syllabus, printed solution headed 'সমাধান: (No answer)') and Q38 (printed solution headed 'সমাধান: (সঠিক উত্তর নেই)'); those two carry answerDisposition 'no_correct_option' with correctOptionIds [] and answerVerificationStatus 'verified' solely because the validator requires that status for a no_correct_option disposition — it records the book's own printed claim (the printed solution's no-answer statement), not cross-source verification — while their contentVerificationStatus remains 'unverified' like every other question in this extraction-stage pack. No question in this paper carries a figure or diagram of its own; small diagrams appear only inside the printed worked solutions of Q25, Q28, Q45 and Q46. Preserved print anomalies: Q15(d) prints 'Sheepss' with a capital S; Q29's stem prints the word as 'INSITUTE' (missing the second T); Q27(a) prints 'বৃত্ত' for বৃত্তটি; Q30's options (a)-(c) are printed in the variable y although the stem asks for f^-1(x); Q40(a) prints '-1 ≥ x'; Q50's stem prints the second and third direction angles identically (both cos^-1(-1/√6)) and its options name the vector Q→ in (a)/(d) but P→ in (b)/(c); Q57's printed solution keys (d) while stating the year 1939, which is not among options (a)-(c); Q62 prints the unit as 'kmhr^-1' throughout; Q64 prints the units 'TmA^-1' and 'Am^-1'; Q71's stem prints P and Q with no vector arrow and the third component as a plain 'k' with no hat; Q75(c) prints 'v = aj/(ne)' and Q75(d) prints 'v = ej/n'; Q77(a) prints the unit 'ms^3' and Q77(c) prints 'ms^4' for a velocity, and its stem prints '5T' with no space. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. The book's Part 2 (typeset প্রশ্ন-সমাধান section, banner 'প্রশ্ন ও সমাধান: ২০১৯-২০') restarts pagination: printed page = book PDF page - 185. Set-E of JU H Unit 2019-2020 occupies printed pp.60-67 = book PDF pp.245-252: 'Short Syllabus' run on pp.245-251 (banner on p.245) and the 'Extra Syllabus' block beginning on printed p.66 (book PDF p.251) and continuing on printed p.67 (book PDF p.252). There is no answer table in Part 2; keys are inline ('[Ans: x]' tags and printed 'সমাধান:'/'Solution:' worked solutions printed directly under each question, plus one '[No Ans:]' marker at Q16). Paper header (book PDF p.245) confirmed before transcription: জাবি ভর্তি পরীক্ষা ২০১৯-২০২০ শিক্ষাবর্ষ, পূর্ণমান: ৮০, ইউনিট-H, সেট-E, সময়: ১:০০ ঘণ্টা. The preceding paper (H Unit 2020-2021 Set-A) ends before p.245 and the following paper, H Unit 2018-2019 Set-A, begins on printed p.68 (book PDF p.253); nothing outside pp.245-252 is included. Transcription by direct visual reading of the 300-dpi page renders, with zoomed re-reads (PIL half-page crops) of every page. Mathematical notation linearised (^ for superscripts, a/b for fractions, √, π, matrices wrapped in [...] with rows separated by ';', unit vectors as î, ĵ, k̂ and vector arrows as →; Bangla numerals in numeric contexts converted to Western digits)."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju-unverified-bank",
+      "code": "JU-U",
+      "name": "UNVERIFIED — Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-unverified-h-2019-2020-sete",
+      "institutionId": "ju-unverified-bank",
+      "category": "varsity",
+      "year": 2020,
+      "academicSession": "2019-2020",
+      "unit": "H",
+      "title": "JU H Unit 2019-2020 — Set-E (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-unverified-h-2019-2020-sete",
+      "paperId": "ju-unverified-h-2019-2020-sete",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+      ],
+      "sourceNote": "Paper header (book PDF p.245) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট-H, সেট-E, সময়: ১:০০ ঘণ্টা (1 hour). No further instructions are printed with this paper in Part 2 — in particular no negative-marking rule and no calculator rule appear on the header page or on any of the paper's pages (book PDF pp.245-252) — so none are recorded here. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-unverified-h-2019-2020-sete-bangla-01",
+      "text": "বাংলা ভাষার মূল নিচের কোন মূল ভাষাগোষ্ঠীর অন্তর্গত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "আফ্রো-অ্যামেরিকান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইন্দো-ইউরোপীয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বাল্টো-স্লাভিক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পারস্য-ইউরোপীয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 1,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-bangla-02",
+      "text": "‘বেলে মাটিতে চীনাবাদাম হয়’- এই বাক্যে কোন ধরনের বিশেষণ পদের উপস্থিতি লক্ষ্য করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "উপাদানবাচক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অবস্থাবাচক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বর্ণবাচক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্রমবাচক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 2,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-bangla-03",
+      "text": "কোনটি চলিত রীতির শব্দ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "কদাচিৎ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শয্যা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মাছ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বন্য",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 3,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 3
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-bangla-04",
+      "text": "‘লোকমুখে শুনে’ -এই বাক্যে ‘লোকমুখে’ শব্দটি কোন কারকে কোন বিভক্তি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "করণ, দ্বিতীয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "করণ, সপ্তমী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অপাদান, দ্বিতীয়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অপাদান, সপ্তমী",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 4,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 4
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-bangla-05",
+      "text": "নিচের কোনটি ‘সাপ’ এর সমার্থক শব্দ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্ষণদা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অহি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নাগ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পন্নগ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 5,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 5
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-01",
+      "text": "I have written it ______ ink.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "in",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "by",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "with",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "through",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 6,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 6
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-02",
+      "text": "The Bengali meaning of the word ‘debris’ is ________.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "উপত্যকা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ধ্বংসাবশেষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জীবনহানি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অনুভূতিহীন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 7,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 7
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-03",
+      "text": "The antonym of the word ‘wane’ is __________.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "vanish",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "virtue",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "wax",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "smooth",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 8,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-04",
+      "text": "The synonym of the word ‘staunch’ is ________.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "frosty",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "precise",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "hasty",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "gradual",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 9,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-05",
+      "text": "Which of the following words is spelt correctly?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "affidavit",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "affedevit",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "affidevit",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "afidevit",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 10,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 10
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-06",
+      "text": "Government by a small group of all powerful persons is termed as ____.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "democracy",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "anarchy",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "monarchy",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "oligarchy",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 11,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-07",
+      "text": "The grapes are now ______ enough to be picked.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "advanced",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "mature",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ready",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ripe",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 12,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-08",
+      "text": "Which one is the correct meaning of the following idioms and phrases : ‘To keep one’s temper’–",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "to become hungry",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to be aloof from",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "to preserve energy",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "to be in the good mood",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 13,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-09",
+      "text": "Convert into indirect speech: I said to him, ‘Why are you working so hard?’",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "I asked him why he was working so hard",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "I asked him why he had been working so hard",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "I asked him why had he been working so hard",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "I asked him why was he working so hard",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 14,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-10",
+      "text": "The farmer has four ______.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "sheeps",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "sheepes",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "sheep",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Sheepss",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (d) prints 'Sheepss' with a capital S, exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 15,
+          "pageNumber": 245,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 245,
+        "questionNumber": 15
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-11",
+      "text": "Compound form of the sentence ‘The girl who is singing on the stage is my cousin’-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "The girl singing on the stage and is my cousin",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "A girl is singing on the stage and she is my cousin.",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "The girl on the stage and singing a song, is my cousin",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "A, B, C all are correct",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "KEYLESS: The book prints a '[No Ans:]' marker against this question (book PDF p.246) and no worked solution — no key is given by the book. Encoded keyless (correctOptionIds null, answerVerificationStatus 'unknown'); no key has been inferred.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 16,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-12",
+      "text": "Roma ________ ill since last week.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "had been",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "is",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "has been",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "was",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 17,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-13",
+      "text": "________ Mr. Robert whom you met last day is my relative.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "The",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "That",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Any",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Some",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 18,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 18
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-14",
+      "text": "Which one of the following is a compound word?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bypass",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Living",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "seize",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Travel",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 19,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-english-15",
+      "text": "Which one of the following is a noun?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "aberrant",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Deflect",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Divergence",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Divergent",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 20,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-01",
+      "text": "(4, 7), (0, 3) বিন্দুদ্বয়ের সংযোগ রেখাকে x- অক্ষ কোন অনুপাতে বিভক্ত করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 : 3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1 : 3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1 : 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 21,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-02",
+      "text": "AB সরলরেখাটি P (5, 0) এবং Q (0, -5) বিন্দু দুইটি দ্বারা সমত্রিখণ্ডিত হয়। রেখাটি x-অক্ষের সাথে কত ডিগ্রি কোণ উৎপন্ন করেছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "45°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "135°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "60°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "150°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 22,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-03",
+      "text": "যদি (0, 0), (a, -4), (4, b) এবং (5, 0) একটি রম্বসের শীর্ষবিন্দু হয়, তাহলে রম্বসের কর্ণ দুটির ছেদবিন্দু কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(1, -1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(-2, 1)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(-2, 2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(2, -2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 23,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-04",
+      "text": "x - y + √3 = 0 সমীকরণটির বৈশিষ্ট্য নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "x-অক্ষের সাথে 60° কোণ উৎপন্ন করে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উভয় অক্ষের খণ্ডিত অংশ সমান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "y-অক্ষের সাথে 30° কোণ উৎপন্ন করে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 24,
+          "pageNumber": 246,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 246,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-05",
+      "text": "2x + 3y + 1 = 0, x = 0, y = 0 রেখা তিনটি দ্বারা আবদ্ধ এলাকার ক্ষেত্রফল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/12",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "A coordinate diagram (axes with the shaded bounded triangle, intercepts (-1/2, 0) and (0, -1/3)) appears only inside the printed worked solution, not in the question itself; the question carries no figure.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 25,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-06",
+      "text": "(3, 1) এবং (-4, 1) বিন্দু দিয়ে যায় এরূপ বৃত্তের কেন্দ্র y- অক্ষের উপর অবস্থিত। বৃত্তটির সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "x^2 + y^2 - 8y - 9 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x^2 + y^2 - 8y - 6 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x^2 + y^2 + 8y - 6 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 26,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 26
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-07",
+      "text": "বৃত্তের কেন্দ্র (1, 2), মূলবিন্দু থেকে বৃত্তটির উপর অঙ্কিত একটি স্পর্শক এর দৈর্ঘ্য 2 একক হলে নিচের কোনটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "বৃত্ত y- অক্ষকে স্পর্শ করে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্যাসার্ধ = 1.5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ব্যাসার্ধ = 2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বৃত্তটি x- অক্ষকে স্পর্শ করে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (a) prints 'বৃত্ত' (for বৃত্তটি/বৃত্ত) exactly as shown; preserved as printed (zoom-verified).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 27,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 27
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-08",
+      "text": "একটি পঞ্চভুজের মধ্যে কর্ণ এঁকে সর্বমোট কয়টি বিভিন্ন ধরনের ত্রিভুজ তৈরী করা যাবে যেখানে ত্রিভুজের শীর্ষবিন্দু পঞ্চভুজের শীর্ষবিন্দু হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "12",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "10",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.251 (printed p.66). A small pentagon-with-diagonals diagram appears only inside the printed worked solution, not in the question itself; the question carries no figure.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 28,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 28
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-09",
+      "text": "INSITUTE শব্দটির অক্ষরগুলোকে কত প্রকারে সাজানো যায় যাতে ব্যঞ্জনবর্ণগুলো বিজোড় স্থানে থাকবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "3000",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "144",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1200",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4000",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.251 (printed p.66). The stem prints the word as 'INSITUTE' (8 letters, missing the second T of INSTITUTE) exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 29,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 29
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-10",
+      "text": "f(x) = (x-1)/(x+1) হলে f^-1(x) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-(y+1)/(y-1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(y+1)/(y-1)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-(y-1)/(y+1)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(x+1)/(x-1)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.251 (printed p.66). NO-CORRECT-OPTION: The printed worked solution is headed 'সমাধান: (No answer)'. It computes f^-1(x) = -(x+1)/(x-1), which is not among the printed options (options (a)-(c) are printed in the variable y, and option (d) lacks the minus sign). Answer-status 'verified' is recorded solely because the validator requires that status for a no_correct_option disposition; it encodes the book's own printed claim (the printed solution's no-answer statement), not cross-source verification. Content status remains 'unverified'. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 30,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 30
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-11",
+      "text": "y^2 - 3y - 2x + 8 = 0 একটি পরাবৃত্তের সমীকরণ হলে শীর্ষবিন্দুর স্থানাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(23/8, 3/2)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(23/4, 3/2)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(23/4, 3/4)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(41/16, 3/4)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 31,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 31
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-12",
+      "text": "x^2 + 6x - 1 = 0 সমীকরণটি সমাধান করলে x এর একটি মান p এবং অপর মানটি q পাওয়া যায়। তাহলে, p + q =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 32,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 32
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-13",
+      "text": "একটি বাক্সে 3 টি লাল, 5 টি কালো এবং 7 টি সাদা বল আছে। এলোমেলোভাবে একসাথে দুটি বল তুলে নেয়া হলো। বল দুটি সাদা হওয়ার সম্ভাবনা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "3/7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7/105",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.251 (printed p.66).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 33,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 33
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-14",
+      "text": "tan^-1 1 + tan^-1 2 + tan^-1 3 এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-π",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 34,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 34
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-15",
+      "text": "2 cos^2 θ + 2√2 sin θ = 3 হলে, θ =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "45°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "10°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 35,
+          "pageNumber": 247,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 247,
+        "questionNumber": 35
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-16",
+      "text": "sin[2(sin^-1 x + cos^-1 x)] = a হলে, a এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 36,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 36
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-17",
+      "text": "tan 15° =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 - √3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 + √3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "√2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 37,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 37
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-18",
+      "text": "cot 2A + tan A =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "cosec A",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "sec A",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "tan A",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "cot A",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "NO-CORRECT-OPTION: The printed worked solution is headed 'সমাধান: (সঠিক উত্তর নেই)'. It computes cot 2A + tan A = 1/sin2A = cosec2A, which is not among the printed options. Answer-status 'verified' is recorded solely because the validator requires that status for a no_correct_option disposition; it encodes the book's own printed claim (the printed solution's no-answer statement), not cross-source verification. Content status remains 'unverified'. The source pack records answerDisposition 'no_correct_option' from a single, unverified source; represented as keyless (answer unknown) in this unverified set. [UNVERIFIED import-format set] reason: keyless_no_correct_option_single_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 38,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 38
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-19",
+      "text": "(tan^2(α + π/4) - 1)/(tan^2(α + π/4) + 1) =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "sin 2α",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "sin α",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "tan π/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 39,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 39
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-20",
+      "text": "y = sin^-1 x নিচের কোনটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-1 ≥ x",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1 ≤ x ≤ 1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x ∈ ℝ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x ≤ 0.5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (a) prints '-1 ≥ x' with the inequality in that direction, exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 40,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 40
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-21",
+      "text": "ℝ - {nπ: n ∈ ℤ} এবং রেঞ্জ = ℝ এটি কার ডোমেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "cot θ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "sin θ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "tan θ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "cos θ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed under the 'Extra Syllabus' heading on book PDF p.251 (printed p.66), as the last item of that page's Extra block.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 41,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 41
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-22",
+      "text": "ABC ত্রিভুজের cos A + cos C = sin B হলে, কোণ ∠A এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/8",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 42,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 42
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-23",
+      "text": "কোনো ত্রিভুজের শীর্ষবিন্দুগামী বৃত্তের কেন্দ্রকে ঐ ত্রিভুজের ______ বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "পরিকেন্দ্র",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উপকেন্দ্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পরাকেন্দ্র",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অধিকেন্দ্র",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 43,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 43
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-24",
+      "text": "নিচের কোনটি বিপ্রতিসম ম্যাট্রিক্স?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "[0, -2, 3; 2, 0, 4; 3, -4, 0]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[0, -2, 3; 2, 1, 4; 3, -4, 0]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[0, -2, -3; 2, 0, 4; 3, -4, 0]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[0, -2, -3; 2, 0, -4; 3, -4, 0]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Matrices linearised with rows separated by ';' and entries by commas, per pack conventions (zoom-verified).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 44,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 44
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-25",
+      "text": "দুইটি বলের লব্ধি 40 N যা ক্ষুদ্রতর বলের ক্রিয়ারেখার উপর লম্ব। ক্ষুদ্রতর বলটি 30 N, হলে বৃহত্তম বল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "60 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "70 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "50 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "85 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "A force-parallelogram diagram appears only inside the printed worked solution, not in the question itself; the question carries no figure.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 45,
+          "pageNumber": 248,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 248,
+        "questionNumber": 45
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-26",
+      "text": "নদীর স্রোতের বেগ 3 kmh^-1, নৌকার বেগ কত হলে নৌকাটি 4 kmh^-1 বেগে সোজা পথে নদী পাড়ি দিতে পারবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 kmh^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5 kmh^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4.5 kmh^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6 kmh^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "A small vector-triangle diagram appears only inside the printed worked solution, not in the question itself; the question carries no figure.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 46,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 46
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-27",
+      "text": "একটি ক্রিকেট বলকে 40 ms^-1 বেগে এবং ভূমির সাথে 60° কোণে ব্যাট দ্বারা আঘাত করলে সর্বোচ্চ উচ্চতায় বলটির বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "30 ms^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "40 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 47,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 47
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-28",
+      "text": "ব্যতিক্রমী ম্যাট্রিক্স এর ক্ষেত্রে β = 3, -5 হলে, তা নিচের কোন ম্যাট্রিক্স এর জন্য সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "[β + 2, -3; 5, β]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[β + 2, 4; 5, β]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[β - 2, 3; 5, β]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[β + 2, 3; 5, β]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Matrices linearised with rows separated by ';' and entries by commas, per pack conventions (zoom-verified).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 48,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 48
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-29",
+      "text": "∫ x^9 e^(x^10) dx =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-(1/9) e^(x^10) + c",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-(1/10) e^(x^10) + c",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1/9) e^(x^10) + c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(1/10) e^(x^10) + c",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 49,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 49
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-30",
+      "text": "অক্ষত্রয়ের সাথে উৎপন্ন কোণগুলো যথাক্রমে cos^-1(2/√6), cos^-1(-1/√6) ও cos^-1(-1/√6) হলে, তা নিচের কোন ভেক্টরের জন্য সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Q→ = (2î - 2ĵ + 2k̂)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "P→ = (4î - 2ĵ + 2k̂)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "P→ = (4î - 2ĵ - 2k̂)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Q→ = (2î - 2ĵ - 2k̂)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67). The stem prints the second and third direction angles identically, both cos^-1(-1/√6) (zoom-verified); preserved as printed. Options (a)/(d) name the vector Q→ and options (b)/(c) name it P→, as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 50,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 50
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-31",
+      "text": "lim (x→0) (sin9x - sin7x)/(sin7x - sin5x) =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 51,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 51
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-32",
+      "text": "x এর প্রেক্ষিতে d/dx (tan^-1 (x/5)) =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/(25 + x^2)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5/(25 - x^2)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5/(25 + x)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5/(25 + x^2)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 52,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 52
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-33",
+      "text": "অন্তর্ভুক্তি কোণের মান cos^-1(-√13/(2√7)) হলে তা নিচের কোন ভেক্টরদ্বয়ের জন্য সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2î - 3ĵ - k̂) এবং (î + 4ĵ + 3k̂)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2î + 3ĵ - 3k̂) এবং (î + 4ĵ + 3k̂)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(2î - 3ĵ - 3k̂) এবং (î + 4ĵ - 3k̂)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(2î + 3ĵ - k̂) এবং (î - 4ĵ - 3k̂)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 53,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-34",
+      "text": "-3 ≤ 2x < 8 এর সমাধানে পূর্ণ সংখ্যা কয়টি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 54,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 54
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-35",
+      "text": "(2√625)/√100 সংখ্যাটি –",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "মূলদ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অমূলদ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জটিল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 55,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 55
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-36",
+      "text": "যদি a, b, c ∈ ℝ হয় তবে (a + b) + c = a + (b + c) কোন বীজগণিতীয় সূত্রের জন্য সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "বিনিময় বিধি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সংযোগ বিধি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বণ্টন বিধি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 56,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 56
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-37",
+      "text": "কত সালে যোগাশ্রয়ী প্রোগ্রাম উদ্ভাবন করা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1945",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1949",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1938",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67). The printed worked solution keys (d) and states the linear-programming method was invented in 1939, a year not among options (a)-(c); the key is recorded exactly as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 57,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 57
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-38",
+      "text": "ω যদি এককের একটি জটিল ঘনমূল হয়, তবে (1 - ω)^2 (1 - ω^2)^2 =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ω^3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 58,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 58
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-39",
+      "text": "√(2 + 8√5i) =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "±(√10 + √8i)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "±(√8 + √10i)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "±(√10 + √2i)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "±(√10 + √4i)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 59,
+          "pageNumber": 249,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 249,
+        "questionNumber": 59
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-higher-mathematics-40",
+      "text": "∫_(π/2)^π (1 + sin x)^2 cos x dx =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "-7/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-1/2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 60,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 60
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-01",
+      "text": "কোন বিজ্ঞানী তরল পদার্থে নিমজ্জিত বস্তুর উপর ক্রিয়াশীল ঊর্ধ্বমুখী বলের সূত্র প্রদান করেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "মাইকেল ফ্যারাডে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গ্যালিলিও",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আইজ্যাক নিউটন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আর্কিমিডিস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 61,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 61
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-02",
+      "text": "উত্তর ও পূর্ব দিকের মধ্যে বায়ু প্রবাহিত হচ্ছে। বায়ুর বেগের উত্তর ও পূর্ব দিকের অংশক যথাক্রমে 5 kmhr^-1 এবং 12 kmhr^-1 হলে লব্ধিবেগ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "60 kmhr^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7 kmhr^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "17 kmhr^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13 kmhr^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The unit prints as 'kmhr^-1' (not kmh^-1) in the stem and in all four options, exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 62,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 62
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-03",
+      "text": "একটি ঘড়ির মিনিটের কাঁটার কৌণিক বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2π rad s^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/1800 rad s^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/3600 rad s^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/30 rad s^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 63,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 63
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-04",
+      "text": "10^5 TmA^-1 চৌম্বক প্রবেশ্যতাবিশিষ্ট, 1.8 × 10^-5 Am^-1 প্রাবল্যের চৌম্বকক্ষেত্রের সাথে 200 cm দীর্ঘ একটি তার লম্বভাবে অবস্থিত। তারটিতে 10 A বিদ্যুৎ চালনা করলে, তারটির উপর ক্রিয়াশীল বলের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "28 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "32 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "36 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "34.5 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67). The permeability unit prints as 'TmA^-1' and the field-strength unit as 'Am^-1', exactly as shown (zoom-verified); preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 64,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 64
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-05",
+      "text": "মহাবৈশ্বিক দূরত্ব পরিমাপের একক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "km",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হাবল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পারসেক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যাস্ট্রোনমিক্যাল ইউনিট",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 65,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 65
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-06",
+      "text": "5 বিবর্ধন বিশিষ্ট একটি নভো দূরবীক্ষণ যন্ত্রের লেন্স দুটির মধ্যবর্তী দূরত্ব 0.36 m । লেন্স দুটির ফোকাস দূরত্ব নির্ণয় কর –",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "অভিনেত্র 6 cm, অভিলক্ষ্য 30 cm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অভিনেত্র 30 cm, অভিলক্ষ্য 6 cm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অভিনেত্র 8 cm, অভিলক্ষ্য 28 cm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অভিনেত্র 28 cm, অভিলক্ষ্য 8 cm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 66,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 66
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-07",
+      "text": "m ভরের একটি বস্তু স্থিরাবস্থা থেকে সমত্বরণে চলছে। t সময় পর তার বেগ v হলে T সময় পরে কৃতকাজ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "mvT/t",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1/2) mv^2/t",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(1/2) mv^2 T^2/t^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2^-1 mv^2T/t^2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 67,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 67
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-08",
+      "text": "30 cm দীর্ঘ একটি সরল দোলক প্রতি মিনিটে 50 বার দোল দেয়। এর দৈর্ঘ্য 2.7 m করা হলে 60 বার দুলতে এটি কত সময় নেবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "216 s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3.6 min",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2160 s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "a ও b উভয়ই সঠিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 68,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 68
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-09",
+      "text": "পৃথিবী পৃষ্ঠে মুক্তিবেগ চন্দ্র পৃষ্ঠে মুক্তিবেগ ——— ।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "অপেক্ষা বেশি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অপেক্ষা কম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "এর সমান",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এর সাথে অপরিবর্তিত",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 69,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 69
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-10",
+      "text": "ঘনকোণ এর এস.আই (SI) একক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "রেডিয়ান",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "স্টেরেডিয়ান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(রেডিয়ান)^3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডিগ্রী",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 70,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 70
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-11",
+      "text": "সামান্তরিকের দুটি সন্নিহিত বাহু P = 4î - 4ĵ + k এবং Q = 2î - 2ĵ - k হলে, এর ক্ষেত্রফল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "6.5 একক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7.5 একক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8.5 একক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9.5 একক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "In the stem, P and Q print with no vector arrow, and the third component prints as a plain 'k' with no hat (î and ĵ carry hats), exactly as shown (zoom-verified); preserved as printed. The printed worked solution writes the cross product with arrows (P→ × Q→).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 71,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 71
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-12",
+      "text": "দুইটি গাড়ি যথাক্রমে 4 ms^-1 ও 8 ms^-1 বেগে চলমান থাকা অবস্থায় একই স্থান হতে ব্রেক করে একই মন্দন সৃষ্টি করে থামানো হল। দ্বিতীয় গাড়িটি ব্রেক করার স্থান হতে 32 m দূরে গিয়ে থেমেছিল। তাহলে প্রথম গাড়িটি ব্রেক করার স্থান হতে কত দূরত্বে থেমেছিল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "128 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "32 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "16 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8 m",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 72,
+          "pageNumber": 250,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 250,
+        "questionNumber": 72
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-13",
+      "text": "10 N বল প্রয়োগে একটি গাড়িকে 100 m সরাতে 500 J কাজ করতে হয়। বল ও সরণের মধ্যবর্তী কোণের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "60°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "30°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "45°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "75°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 73,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 73
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-14",
+      "text": "একটি বিন্দু চার্জ, 1.736 × 10^-9 C এর জন্য সৃষ্ট তড়িৎ ক্ষেত্রের কোন একটি বিন্দুতে তড়িৎ প্রাবল্য 40 NC^-1 হলে তড়িৎ বিভবের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.5 JC^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15 JC^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.5 JC^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "25 JC^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 74,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 74
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-15",
+      "text": "নিচের কোন সমীকরণটি তাড়নবেগ ও প্রবাহ ঘনত্বের মধ্যে সম্পর্ক নির্দেশ করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "v = j/(ne)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "v = jne",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "v = aj/(ne)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "v = ej/n",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (c) prints the numerator as 'aj' and option (d) prints 'v = ej/n' (denominator n only), exactly as shown (zoom-verified); both preserved as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 75,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 75
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-16",
+      "text": "নিচের কোন সমীকরণ দ্বারা একটি বিদ্যুৎবাহী অসীম দৈর্ঘ্য বিশিষ্ট সোজা তারের নিকটে যেকোনো বিন্দুতে চৌম্বক প্রাবল্য নির্ণয় করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "B = μ0I/(2πa)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "B = μ0/(2πa)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "B = μ0I/(2π)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "B = μ0I/(2a)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 76,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 76
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-17",
+      "text": "0.02 m প্রস্থের একটি ধাতব পাত 5T চৌম্বক ক্ষেত্রে পরস্পরের সাথে লম্বভাবে অবস্থিত। পাতের মধ্যে ইলেকট্রনের তাড়নবেগ কত হলে 4 × 10^-4 V মানের হল বিভব তৈরি হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 × 10^-2 ms^3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4 × 10^-3 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4 × 10^-4 ms^4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 × 10^-4 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67). Options (a) and (c) print impossible units for a velocity — (a) 'ms^3' and (c) 'ms^4' — exactly as shown (zoom-verified); preserved as printed. The stem also prints '5T' with no space after the number.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 77,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 77
+      }
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-18",
+      "text": "একটি তরঙ্গের দুটি বিন্দুর মধ্যে পথ-পার্থক্য (5/4)λ হলে, বিন্দুদ্বয়ের মধ্যে দশা পার্থক্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(5/2)π",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2/5)π",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(5/4)π",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(4/5)π",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 78,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 78
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-19",
+      "text": "কোন ট্রানজিস্টর common base সংযোগে আছে। এর Emitter ও collector current যথাক্রমে 1 mA এবং 0.95 mA হলে base current কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.95 mA",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.95 mA",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.05 mA",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.5 mA",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 79,
+          "pageNumber": 251,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 251,
+        "questionNumber": 79
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "ju-unverified-h-2019-2020-sete-physics-20",
+      "text": "কৃষ্ণ বিবর (Black hole) এর ঘটনা দিগন্ত কোন ব্যাসার্ধ নামে পরিচিত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "জন হুইলার ব্যাসার্ধ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আইনস্টাইন ব্যাসার্ধ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হকিং ব্যাসার্ধ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "শোয়ার্জশিল্ড ব্যাসার্ধ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed in the 'Extra Syllabus' block (heading on book PDF p.251), on book PDF p.252 (printed p.67). This Q80 is the last item of the paper.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "ju-unverified-h-2019-2020-sete",
+          "questionNumber": 80,
+          "pageNumber": 252,
+          "sourceDocumentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--batch-ju-unverified-h-2019-2020-sete",
+        "pageNumber": 252,
+        "questionNumber": 80
+      }
+    }
+  ]
+}

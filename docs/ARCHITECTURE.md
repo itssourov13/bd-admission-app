@@ -7,6 +7,14 @@ Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and Nati
 
 The catalogue distinguishes source collections using separate database institution IDs, not a shared RU display alias. `ru` (`RU`) is the original 4,009-question candidate bank and its visible name begins `UNVERIFIED —`; `ru-verified-bank` (`RU-V`) is the separate 1,828-question bank rebuilt from the user-designated verified PDF. Imported packs carry source-document SHA-256 and source page/question-number provenance. Every RU-V item is marked verified: 1,800 single-choice questions are eligible for the existing practice engine, 22 source `X` records are represented as `no_correct_option`, and 6 complete multi-letter keys are represented as `multiple_choice`. No RU-specific exam pattern is inferred. All packs still sync through the same transactional, idempotent importer.
 
+## JU and HSTU content import (2026-11-01)
+
+The existing schema-v1 pack contract and transactional importer were reused without runtime changes. Fifty JU packs / 1,526 questions and seven HSTU packs / 293 questions are added as separate institutions (`ju` / `JU` and `hstu` / `HSTU`). All imported question content is marked verified as supplied; per-question answer states are retained and the normal eligible pool continues to require a verified single-choice answer. A source ID shared by 24 JU batch files was made batch-unique and all local references were rewritten. All 57 new paper rules remain `unconfigured`; the app must not infer official timing/scoring from descriptive source notes. The HSTU collection remains historically partial.
+
+## JU-U and HSTU-U candidate-bank separation (2026-11-01)
+
+The later unverified archive is imported into two additional institution identities: `ju-unverified-bank` / `JU-U` and `hstu-unverified-bank` / `HSTU-U`. These are deliberately separate from the earlier verified-source institutions `ju` / `JU` and `hstu` / `HSTU`. The 99 added packs hold 5,011 JU and 762 HSTU candidate questions; every record remains content-unverified, with individual answer states preserved as `unverified` or `unknown`. The existing repository queries surface 4,780 JU-U and 722 HSTU-U candidates through the same provisional filter already used by RU. Forty-two repeated-option records and 19 multiple-choice items remain browseable but are not part of provisional single-choice scoring. All 99 paper rules remain unconfigured. No runtime practice implementation change was necessary. The separate 3-pack/287-question GST_CLUSTER collection was intentionally excluded for a later import.
+
 ## Runtime flow
 
     Expo Router screens (app/)
@@ -49,7 +57,7 @@ A versioned question pack is validated before import. The contract records categ
 
 See QUESTION_DATA_SCHEMA.md and QUESTION_IMPORT_WORKFLOW.md.
 
-Initial real content now includes two University of Dhaka A Unit packs (2024–2025 and 2025–2026), 90 questions each across six 15-question sections. The packs retain source PDF hashes and page/question provenance. Three questions with no printed answer letter are stored with unknown answer status. The source scan's 60-question/45-minute/+1/−0.25/four-of-six-section rule metadata remains illustrative because the official DU 2025–2026 notice describes 60 MCQ marks plus 40 written marks, 45 minutes each. The runtime supports the scan's four-of-six MCQ practice pattern but does not claim it reproduces the complete official exam. General scopes keep the 100-question/60-minute fallback.
+The initial DU baseline remains two University of Dhaka A Unit packs (2024–2025 and 2025–2026), 90 questions each across six 15-question sections. The packs retain source PDF hashes and page/question provenance. Three questions with no printed answer letter are stored with unknown answer status. The source scan's 60-question/45-minute/+1/−0.25/four-of-six-section rule metadata remains illustrative because the official DU 2025–2026 notice describes 60 MCQ marks plus 40 written marks, 45 minutes each. The runtime supports the scan's four-of-six MCQ practice pattern but does not claim it reproduces the complete official exam. General scopes keep the 100-question/60-minute fallback.
 
 ## Dependencies and environment
 The source mobile project uses Expo SDK 57, React Native 0.86, NativeWind and a pnpm configuration tuned for Android/Termux file behavior. The new app keeps compatible versions and the pnpm configuration; use Node 22 from .nvmrc before installs and checks.

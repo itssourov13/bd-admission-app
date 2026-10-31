@@ -1,0 +1,4943 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-hstu-unverified-2019-2020-unassigned",
+    "category": "varsity",
+    "description": "Hajee Mohammad Danesh Science and Technology University (HSTU) admission test, academic session 2019-2020 — a single 100-question MCQ paper (Physics 25 + Chemistry 25 + Biology 25 + English 25), transcribed 2026-10-31 by direct visual reading of the HSTU 2019-20 chapter (printed book pp. 70-77) of Udvash's 'GST গুচ্ছ প্রশ্নব্যাংক', surviving as an 8-page TargetPDF/CamScanner scan. The source prints NO unit or set label anywhere on the 8 pages, so the paper is recorded with unit 'unassigned'; no unit was inferred from subject composition. Within each subject the book prints the questions grouped by syllabus tier (Short/Extra/Old Syllabus), each subject's numbers 1-25 occurring exactly once; the pack re-assembles each subject in printed-number order and each appearance carries the true compilation PDF page. Answers are the book's own inline keys — [Ans: x] margin tags and worked solutions headed 'সমাধান: (x)' — transcribed exactly as printed, including four printed multi-keys (Biology 17, Biology 20, English 22, English 23). Four questions (Physics 6; Chemistry 4, 6, 7) have their [Ans:] tags physically clipped off the scan's right edge and no printed solution; their answers are left unknown and were not guessed. All content and answers are single-source (Udvash) and unverified, pending unit identification and cross-source verification. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "sourceDocumentIds": [
+      "udvash-gst-bank-hstu-2019-2020"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-gst-bank-hstu-2019-2020",
+      "filename": "hstu-admission-question-solution-2019-2020.pdf",
+      "title": "Udvash GST cluster question bank — HSTU questions & solutions 2019-20 section (TargetPDF scan)",
+      "sha256": "f8150323f7b5cde660758271c789648edf8648ad82200ee7514347b5171ce11d",
+      "sourceType": "pdf",
+      "notes": "8-page scan extract spanning printed book pp. 70-77 (constant offset +69, fixed by the printed folios ৭২ on PDF p.3 and ৭৬ on PDF p.7). Running heads: 'GST গুচ্ছ প্রশ্নব্যাংক' (left) / 'HSTU প্রশ্ন ও সমাধান: ২০১৯-২০' (right); Udvash (উদ্ভাস) footer with slogan 'পরিবর্তনের প্রত্যয়ে নিরন্তর পথচলা...'. Scan overlays — the 'Telegram Channel / Target PDF' diagonal watermark, Watermarkly and CS CamScanner logos — are distribution artefacts, not part of the book. Paper header (PDF p.1): 'HSTU ভর্তি পরীক্ষা ২০১৯-২০২০ শিক্ষাবর্ষ', পূর্ণমান: ১০০, MCQ, সময়: ১ ঘণ্টা ৩০ মিনিট. No unit (A/B/D/E/F) or set/shift is printed anywhere in the 8 pages."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "hstu-unverified-bank",
+      "code": "HSTU-U",
+      "name": "UNVERIFIED — Hajee Mohammad Danesh Science and Technology University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "hstu-unverified-2019-2020-unassigned",
+      "institutionId": "hstu-unverified-bank",
+      "category": "varsity",
+      "year": 2020,
+      "academicSession": "2019-2020",
+      "unit": "unassigned",
+      "title": "HSTU 2019-2020 — unit not printed in source (Physics/Chemistry/Biology/English, 100 questions)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-hstu-unverified-2019-2020-unassigned",
+      "paperId": "hstu-unverified-2019-2020-unassigned",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-gst-bank-hstu-2019-2020"
+      ],
+      "sourceNote": "Paper header (PDF p.1) states: পূর্ণমান: ১০০ (full marks 100), MCQ, সময়: ১ ঘণ্টা ৩০ মিনিট (1 hour 30 minutes), for the paper's 100 questions. No negative-marking or selection rule is printed in the extract. These header values are transcribed here only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-01",
+      "text": "একটি বালক একটি বল ভূমির সমান্তরালের সাথে 30° কোণে 40 ms^-1 বেগে ছুড়ে। বলটি কত মিটার দূরে গিয়ে ভূমিতে পড়বে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "141",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "71",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "138",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "61",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 1,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-02",
+      "text": "ক্রিয়া ও প্রতিক্রিয়ার মধ্যবর্তী কোণের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "60°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "180°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 2,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-03",
+      "text": "ঘূর্ণায়মান বস্তুর গতিশক্তি (K.E)-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "(1/2)Iω^2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(1/2)ω",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Iω^2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(1/2)I^2ω",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 3,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 3
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-04",
+      "text": "একটি তামার তারের দৈর্ঘ্য 2 m ও ব্যাস 5 mm। যদি তারটির দৈর্ঘ্য দ্বিগুণ ও ব্যাস অর্ধেক করা হয়, তবে তারটির আপেক্ষিক রোধের কী পরিবর্তন হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "আপেক্ষিক রোধ অর্ধেক হবে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আপেক্ষিক রোধ একই থাকবে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আপেক্ষিক রোধ দ্বিগুণ হবে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আপেক্ষিক রোধ চারগুণ হবে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The [Ans:] tag is clipped at the scan's right edge; the key letter's stem and bowl remain legible and read as 'b'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 4,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 4
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-05",
+      "text": "নিচের কোনটির ওপর তেজস্ক্রিয় মৌলের অর্ধজীবন নির্ভর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "তাপমাত্রা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চাপ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মৌলের প্রকৃতি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মৌলের পরিমাণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The [Ans:] tag is clipped at the scan's right edge; the key letter 'c' remains legible.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 5,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 5
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-06",
+      "text": "একটি নিয়ন টিউবে উচ্চ বিভব দেওয়া হলে বাতিটির ভিতরে বিদ্যুৎ প্রবাহিত হয়। টিউবের ক্যাথোডের দিকে কোন কণা প্রবাহিত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ইলেকট্রন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রোটন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ধনাত্মক নিয়ন আয়ন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ঋণাত্মক নিয়ন আয়ন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key not recoverable from this scan: the printed [Ans:] tag is clipped off entirely at the scan's right edge and no worked solution is printed for this question. correctOptionIds is null and the answer status is 'unknown'; the key was not guessed.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 6,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 6
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-07",
+      "text": "পৃথিবীর চৌম্বক অক্ষ তার ভৌগোলিক অক্ষের সাথে কত ডিগ্রি কোণ করে আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "16°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "18°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "20°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "22°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 7,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 7
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-08",
+      "text": "ভূপৃষ্ঠ হতে কত উচ্চতায় g এর মান ভূপৃষ্ঠের 1/8 অংশ হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.√2R",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4R",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.8R",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.6R",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (a) prints '2.√2R' (with a full stop after the 2); transcribed as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 8,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 8
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-09",
+      "text": "সমতোল ও সমাবতল লেন্সে আলোক কেন্দ্রের অবস্থান কোথায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "লেন্সের ভিতরে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বক্রতলের মেরুতে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লেন্সের বাইরে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লেন্সের ভিতরের মধ্য বিন্দুতে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 9,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-10",
+      "text": "উত্তপ্ত করার ফলে কঠিন পদার্থ সরাসরি বাষ্পে পরিণত হওয়াকে কী বলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ঘনীভবন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বাষ্পীভবন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ঊর্ধ্বপাতন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গলন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 10,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 10
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-11",
+      "text": "কত তাপমাত্রায় বায়ুতে শব্দের বেগ 0°C তাপমাত্রার বেগের দ্বিগুণ হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "818°C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "810°C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "820°C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "819°C",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 11,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-12",
+      "text": "একটি মিটার ব্রিজের বাম ফাঁকে 8Ω এবং ডান ফাঁকে 10Ω রোধ যুক্ত করা হলো। বাম প্রান্ত হতে কত দূরে সাম্যবিন্দু পাওয়া যাবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "22.22 cm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "44.44 cm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "11.11 cm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "66.66 cm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 12,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-13",
+      "text": "একটি তারের ব্যাসার্ধ দ্বিগুণ হলে এর ইয়ং-এর গুণাঙ্ক কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "দ্বিগুণ হবে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অর্ধেক হবে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অপরিবর্তিত থাকবে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কমে যাবে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The [Ans:] tag is clipped at the scan's right edge; the key letter 'c' remains legible.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 13,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 13
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-14",
+      "text": "সূর্য থেকে বিকিরণ নিঃসরনের সময় যে তরঙ্গদৈর্ঘ্য বিকিরণ হচ্ছে তা 500 nm হলে সূর্যপৃষ্ঠের তাপমাত্রা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Old Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "5800 K",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.9 × 10^3 K",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "207 K",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "500 K",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 14,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-15",
+      "text": "শব্দের তীব্রতা নিচের কোন রাশিটির ওপর নির্ভর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "তরঙ্গদৈর্ঘ্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কম্পাঙ্ক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তরঙ্গের বিস্তার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলোই",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 15,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 15
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-16",
+      "text": "এক ইলেকট্রন ভোল্ট (1 eV) হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.6 × 10^-9 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.6 × 10^9 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.6 × 10^-19 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.6 × 10^19 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 16,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 16
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-17",
+      "text": "দোতালার জানালা থেকে একটি ফুলদানি নিচে পড়ে গেলে 3m নিচে ভূমিতে এটি কত বেগে আঘাত করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "9.7 ms^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "9.1 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7.7 ms^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8.7 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 17,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-18",
+      "text": "একটি কণা 2m ব্যাসার্ধের বৃত্তাকার পথে প্রতি মিনিটে 100 বার ঘোরে। এর রৈখিক বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "125.68 m/min",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1256.8 m/min",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "12.568 m/min",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.2568 m/min",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 18,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 18
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-19",
+      "text": "1 m দীর্ঘ একটি সোজা তারের মধ্যে দিয়ে 5A বিদ্যুৎ প্রবাহিত হচ্ছে। তারটি 0.1 Wb m^-2 ফ্লাক্স ঘনত্বের একটি সুষম চৌম্বক ক্ষেত্রের সাথে 30° কোণে একই তলে অবস্থান করলে কত মানের বল অনুভব করবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.25 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.50 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.25 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.75 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 19,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-20",
+      "text": "50 cm এবং 51 cm দৈর্ঘ্যবিশিষ্ট একমুখ বন্ধ দুটি অর্গান নলে প্রতি সেকেন্ডে 3টি বিটের সৃষ্টি হয়, বায়ুতে শব্দের বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "300 ms^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "303 ms^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "306 ms^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "309 ms^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 20,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 20
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-21",
+      "text": "0.10 m ফোকাস দূরত্ববিশিষ্ট একটি অবতল দর্পণ থেকে কতদূরে লক্ষ্যবস্তু স্থাপন করলে তিনগুণ বিবর্ধিত প্রতিবিম্বের সৃষ্টি হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "13.5 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.013 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.13 m",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 21,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-22",
+      "text": "একজন ক্রিকেটার একটি বলকে সর্বোচ্চ 100 m অনুভূমিক দূরত্বে ছুড়তে পারে। একই বলকে একই বেগে ক্রিকেটার মাটি থেকে ওপর দিকে সর্বোচ্চ কত উচ্চতায় ছুড়তে পারবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "50 m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "75 m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "100 m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "150 m",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 22,
+          "pageNumber": 2,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 2,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-23",
+      "text": "একটি ফাঁপা গোলককে 2V বিভবে উন্নীত করা হলো 6.67 × 10^-11 C চার্জ দিয়ে। গোলকের ব্যাসার্ধ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "30 cm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8 cm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "14 cm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12 cm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 23,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-24",
+      "text": "কোন ট্রানজিস্টরের IC = 0.95 mA এবং IE = 1.0 mA হলে এর প্রবাহ বিবর্ধন গুণক α =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "19",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.95",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 24,
+          "pageNumber": 1,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 1,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-physics-25",
+      "text": "একটি টিউনিং ফর্ক অন্য একটি টিউনিং ফর্কের সাথে অনুনাদে ছিলো যার কম্পাঙ্ক 508 Hz। অজ্ঞাত ফর্কটিতে সামান্য মোম [...] এটি 4টি বিট উৎপন্ন করে। অজ্ঞাত ফর্কটির কম্পাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "504 Hz",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "508 Hz",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "502 Hz",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "500 Hz",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "uncertain_read: one word at the end of the stem's first printed line is clipped off the scan's right edge (only 'মোম ল…' is legible; the rest of the word is off-page). The gap is marked '[...]' in the text; the word was not guessed. The question is printed at the top of PDF p.3, physically closing the Extra Syllabus sequence begun on p.2 (above the 'Old Syllabus' heading); the tier attribution follows that layout, per the compilation map.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 25,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-01",
+      "text": "মানব রক্তে কোন বাফার দ্রবণ বিদ্যমান?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "NaHCO3 + H2CO3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH3COONa + CH3COOH",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Na2HPO4 + H3PO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "NH4Cl + NH4OH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 1,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-02",
+      "text": "নিচের কোনটি উভধর্মী অক্সাইড?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Na2O",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Al2O3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CaO",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "K2O",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 2,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-03",
+      "text": "250 dm^3 0.4 M Na2CO3 দ্রবণে কত গ্রাম Na2CO3 আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "26.5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "10.6",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8.6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.06",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Source-internal inconsistency, preserved as printed: the book's worked solution computes 10,600 gm from the stem's printed '250 dm^3' and then prints 'Note: প্রশ্নে 250 cm^3 হলে Ans b হয়।' The stem's '250 dm^3' and the key (b) are both transcribed exactly as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 3,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 3
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-04",
+      "text": "নিচের কোনটি জারক পদার্থ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "MnO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "I2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H2O2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key not recoverable from this scan: the printed [Ans:] tag is clipped off entirely at the scan's right edge and no worked solution is printed for this question. correctOptionIds is null and the answer status is 'unknown'; the key was not guessed.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 4,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 4
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-05",
+      "text": "নিম্নের বন্ধনসমূহের মধ্যে কোনটি শূন্যক্রমের?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Old Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "F2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "N2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "HF",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 5,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 5
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-06",
+      "text": "ট্রাই কার্বক্সিলিক এসিডের উদাহরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রোপায়নিক এসিড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সিনামিক এসিড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সাইট্রিক এসিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "স্যালিসাইলিক এসিড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key not recoverable from this scan: the printed [Ans:] tag is clipped off entirely at the scan's right edge and no worked solution is printed for this question. correctOptionIds is null and the answer status is 'unknown'; the key was not guessed.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 6,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 6
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-07",
+      "text": "বিশুদ্ধ পানিতে কোন যৌগটি সবচেয়ে বেশি দ্রবণীয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "CaF2 (Ksp = 4 × 10^-11)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Ag2S (Ksp = 1.6 × 10^-16)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ag3PO4 (Ksp = 1.8 × 10^-18)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Al(OH)3 (Ksp = 2.0 × 10^-32)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": null,
+      "answerVerificationStatus": "unknown",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key not recoverable from this scan: the printed [Ans:] tag is clipped off entirely at the scan's right edge and no worked solution is printed for this question. correctOptionIds is null and the answer status is 'unknown'; the key was not guessed.  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 7,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-08",
+      "text": "আইসোটোপবিহীন পরমাণু কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ag",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Au",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ar",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "At",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 8,
+          "pageNumber": 3,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 3,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-09",
+      "text": "^15N আইসোটোপে নিউট্রন সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "15",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "22",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 9,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-10",
+      "text": "Fe2S3 যৌগের Ksp মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "96.8S^3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "110S^4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "108S^4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "108S^5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 10,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 10
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-11",
+      "text": "জাল টাকা শনাক্তকরণে কোনটি ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "এক্স-রে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আলফা রশ্মি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অতি বেগুনি রশ্মি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অবলোহিত রশ্মি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 11,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-12",
+      "text": "হেবার পদ্ধতিতে NH3 উৎপাদনকালে নিচের কোনটি প্রভাবক হিসাবে ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mo",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Fe",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ni",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Cr",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 12,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-13",
+      "text": "সিমেন্টের কোন উপাদান এর দ্রুত জমাট বাঁধার জন্য দায়ী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "CaO.SiO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3CaO.Al2O3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CaO.Fe2O3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Al2O3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 13,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-14",
+      "text": "কোনটি হোমোসাইক্লিক অ্যারোমেটিক যৌগ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাইক্লোহেক্সেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বেনজিন হেক্সাক্লোরাইড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফেনল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "থায়োফিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 14,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-15",
+      "text": "নিচের কোনটি তাপহারী বিক্রিয়া?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "C + O = CO2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "N2 + O2 = 2NO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH4 + 2O2 = CO2 + 2H2O",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2H2 + O2 = 2H2O2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (a) prints 'C + O = CO2' — the reactant oxygen carries no subscript 2 in the print (contrast option (c)'s '2O2'); option (d) prints the product as '2H2O2'. Both transcribed as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 15,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 15
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-16",
+      "text": "রেকটিফাইড স্পিরিটের স্ফুটনাঙ্ক হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "80.1°C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "103°C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "18.15°C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "99°C",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Key recorded exactly as printed: the worked solution keys option (a) (80.1°C) although its own text states the boiling point as 78.1°C. Source-internal inconsistency, preserved.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 16,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-17",
+      "text": "কত ডিগ্রি তাপমাত্রায় হীরক গ্রাফাইটে পরিণত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Old Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "500°C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "800°C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1000°C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2000°C",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 17,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 17
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-18",
+      "text": "1% NaOH দ্রবণের pH কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13.0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13.4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 18,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 18
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-19",
+      "text": "রান্নার ফ্রাইপ্যানে নিচের কোনটি দ্বারা কোটিং করা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "পলিথিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পলিস্টার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "টেফলন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পলিস্টাইরিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 19,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-20",
+      "text": "Mg(OH)2 এবং H2O এর মিশ্রণকে বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাসপেনশন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কলয়েড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মালশন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দ্রবণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (c) prints 'মালশন' as shown (apparently a truncated print); transcribed as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 20,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 20
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-21",
+      "text": "অ্যারোমেটিক বলয় সক্রিয়কারক মূলক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "−CHO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−COOH",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "−NO2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "−NH2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 21,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-22",
+      "text": "নিচের কোনটি আয়োডোফরম বিক্রিয়া দেয় না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH3CHOHCH3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH3COCl",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH3COCH3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CH3CH2OH",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 22,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-23",
+      "text": "সেলুলোজ কার পলিমার?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "α − D glucose",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "α − D galactose",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "β − D glucose",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "β − D galactose",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 23,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-24",
+      "text": "গাড়ির কালো ধোঁয়ায় উপস্থিত বিষাক্ত গ্যাস-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "CO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CO2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "SO2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CFC",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 24,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-chemistry-25",
+      "text": "ড্রাই আইস হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "কঠিন O2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কঠিন CO2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কঠিন H2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কঠিন Cl2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 25,
+          "pageNumber": 4,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 4,
+        "questionNumber": 25
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-01",
+      "text": "কোন ক্ষারটি শুধু DNA অণুতে পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যাডেনিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গুয়ানিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "থায়ামিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সাইটোসিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 1,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 1
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-02",
+      "text": "নিষেকের পূর্বে কোনটিতে শস্য উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "মস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফার্ন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জিমনোস্পার্ম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এনজিওস্পার্ম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 2,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 2
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-03",
+      "text": "নিষেক ক্রিয়ার পরে ডিম্বক পরিণত হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "বীজে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফলে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "টেস্টো",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ভ্রূণে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 3,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 3
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-04",
+      "text": "নিচের কোন গ্রুপের জীব থ্যালোফাইট প্রকৃতির?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফানজাই",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্যাকটেরিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্লান্ট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নেমাটোড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 4,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 4
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-05",
+      "text": "নিচের কোনটি এককোষী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "মূলরোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কাণ্ড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কচিপাতা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 5,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 5
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-06",
+      "text": "গুটিকলম করা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "গোলাপ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কুল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জবা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লেবু",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 6,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 6
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-07",
+      "text": "নিচের কোন উদ্ভিদটি Shrub এর উদাহরণ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "গন্ধরাজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রঙ্গন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জবা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আঁশশেওড়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 7,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 7
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-08",
+      "text": "কোনটি বহুবর্ষজীবী উদ্ভিদ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "সরিষা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হলুদ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জবা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 8,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 8
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-09",
+      "text": "প্লাজমা মেমব্রেন হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "অভেদ্য",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আভেদ্য",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অর্ধভেদ্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ভেদ্য",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 9,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 9
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-10",
+      "text": "নিম্নের কোনটি অপুষ্পক উদ্ভিদের অন্তর্ভুক্ত নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "থ্যালোফাইটা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্রায়োফাইটা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "টেরিডোফাইটা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "জিমনোস্পার্ম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 10,
+          "pageNumber": 5,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 5,
+        "questionNumber": 10
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-11",
+      "text": "ফল ও বীজ উৎপাদনের প্রধান নিয়ন্ত্রক হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ভরমিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "জিবেরেলিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অক্সিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্রোমোসোম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 11,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 11
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-12",
+      "text": "গুপ্তবীজী উদ্ভিদের এন্ডোস্পার্ম কোন ধরনের?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "পলিপ্লয়েড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ট্রিপ্লয়েড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ডিপ্লয়েড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "হ্যাপ্লয়েড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 12,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 12
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-13",
+      "text": "মানুষের পিত্তরস ক্ষরিত হয় কোনটি থেকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "লালা গ্রন্থি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অগ্ন্যাশয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মূত্রাশয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "যকৃৎ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 13,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 13
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-14",
+      "text": "Adenine কী সমৃদ্ধ base?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফসফেট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সুগার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পেন্টোজ সুগার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নাইট্রোজেন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 14,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 14
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-15",
+      "text": "সূর্যশক্তিকে ব্যবহারের মাধ্যমে Food chain এর সূচনা করে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "Primary Consumer",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Secondary Consumer",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Decomposer",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Producer",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 15,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 15
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-16",
+      "text": "উদ্ভিদকোষে কয়টি মাইটোকন্ড্রিয়া থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "400-500",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "100-200",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "200-300",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "300-400",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The option numerals are printed in Bangla digits (৪০০-৫০০, ১০০-২০০, ২০০-৩০০, ৩০০-৪০০); transcribed in Western digits per project convention.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 16,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-17",
+      "text": "পুঞ্জাক্ষি কোন প্রাণীতে পাওয়া যায়?",
+      "type": "multiple_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "আরশোলা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ঘাসফড়িং",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হাইড্রা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কুনোব্যাঙ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed multi-key: the book's tag reads '[Ans: a, b]'; encoded as multiple_choice with both keyed options, as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 17,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 17
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-18",
+      "text": "মায়োসিস কোষ বিভাজনের কোন উপ-পর্যায়ে 'ক্রসিং ওভার' সম্পন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্যাকাইটিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লেপ্টোটিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জাইগোটিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডিপ্লোটিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 18,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 18
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-19",
+      "text": "কিডনি রোগ নির্ণয়ে নির্দেশক (Index) হিসেবে রক্তের কোন উপাদান দেখা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্রিয়েটিনিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইউরিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ইউরিক এসিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কিটোন বডি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 19,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 19
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-20",
+      "text": "নিম্নের কোন অঙ্গে লোহিত কণিকা ধ্বংস হয়?",
+      "type": "multiple_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্লিহা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "যকৃৎ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পাকস্থলী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বৃক্ক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed multi-key: the book's tag reads '[Ans: a, b]'; encoded as multiple_choice with both keyed options, as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 20,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 20
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-21",
+      "text": "ADH হরমোনটি কোথা হতে নিঃসরণ হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Extra Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "সুপ্রারেনাল গ্রন্থি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ল্যাক্রিমাল গ্রন্থি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পিটুইটারি গ্রন্থি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "হাইপোথ্যালামাস গ্রন্থি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 21,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 21
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-22",
+      "text": "নিচের কোন কোলেস্টেরল মানবদেহের জন্য ক্ষতিকর?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "LDL",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HDL",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "VLDL",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "IDL",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 22,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 22
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-23",
+      "text": "হ্রদের কোন অঞ্চলে ফাইটোপ্লাংটন ও জুওপ্লাংটন থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Old Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "লিটোরাল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লিমনেটিক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্রোফান্ডাল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পেলাজিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 23,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 23
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-24",
+      "text": "লোহিত কণিকার আয়ু কত দিন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "50 দিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "70 দিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90 দিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "120 দিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The option numerals are printed in Bangla digits (৫০, ৭০, ৯০, ১২০); transcribed in Western digits per project convention.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 24,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 24
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-biology-25",
+      "text": "সবচেয়ে বড় রক্তকণিকা কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Short Syllabus",
+      "options": [
+        {
+          "id": "a",
+          "text": "লোহিত কণিকা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শ্বেত রক্তকণিকা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নীল রক্তকণিকা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অনুচক্রিকা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 25,
+          "pageNumber": 6,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 6,
+        "questionNumber": 25
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-01",
+      "text": "Choose the correct sentence: (1-3)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Choose the correct sentence",
+      "options": [
+        {
+          "id": "a",
+          "text": "The sky is over our head",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He knows English beside Bengali",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Divide the mangoes among the two brothers",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He knows English besides Bengali",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "The rubric is printed on this question's line together with its group range '(1-3)'; it governs Q01-Q03.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 1,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 1
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-02",
+      "text": "Choose the correct sentence:",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Choose the correct sentence",
+      "options": [
+        {
+          "id": "a",
+          "text": "We paid a visit to his village",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "We paid visit to his village",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "We paid a visits to his village",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He knows English beside Bengali",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q01: 'Choose the correct sentence: (1-3)'. The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 2,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 2
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-03",
+      "text": "Choose the correct sentence:",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Choose the correct sentence",
+      "options": [
+        {
+          "id": "a",
+          "text": "I forbade him from going",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "I forbade him to going",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "I forbade him going",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "I forbade him from not to going",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q01: 'Choose the correct sentence: (1-3)'. The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 3,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 3
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-04",
+      "text": "Change the voice: Do you know them?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Change the voice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Are they known to you?",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Are they known with you?",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Are they known you?",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Is they known by you?",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above this question: 'Change the voice: (4-5)'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 4,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 4
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-05",
+      "text": "Change the voice: Don't make any mistake",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Change the voice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Let not any mistake be made.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Let not any mistake is made",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Let is not any mistake be made",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Let not made any mistake",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q04: 'Change the voice: (4-5)'. The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 5,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 5
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-06",
+      "text": "Change the speech: Nahim prodhan says that she did not go there.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Change the speech",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nahim prodhan says \"I did not go there.\"",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Nahim prodhan says \"I do not go there.\"",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Nahim Prodhan says that \"I did not went there.\"",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Nahim Prodhan says that I did not go there.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above this question: 'Change the speech: (6-7)'. Capitalisation of 'prodhan/Prodhan' differs between the stem/options (a)-(b) and options (c)-(d) in the print; transcribed as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 6,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 6
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-07",
+      "text": "Change the speech: \"Will you make coffee?\" He said to me.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Change the speech",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said whether I can make coffee.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He asked me if I would make coffee.",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He said to me if I could make coffee.",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He ordered me to make coffee.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q06: 'Change the speech: (6-7)'. The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 7,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-08",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): Ice changes ___ water.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "into",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "with",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "to",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "in",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above this question: 'Fill in the blanks with appropriate word, phrase and clause (s): (8-15)'. Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 8,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 8
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-09",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): A friend of mine phoned ___ me at party.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "for invite",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to invite",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "for inviting",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "for to invite",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 9,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 9
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-10",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): You had better ___ here.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "stayed",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "stay",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "staying",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "to",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 10,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 10
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-11",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): There is ___ hope of his recovery.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "many",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "little",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "very",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "few",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 11,
+          "pageNumber": 7,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 7,
+        "questionNumber": 11
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-12",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): His performance is better than ___.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "I",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "me",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "my",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "mine",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 12,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 12
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-13",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): I ___ the 9th letter of English alphabet.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "is",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "am",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "are",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "will be",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 13,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 13
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-14",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): He is devoid ___ common sense.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "on",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "to",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "of",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "through",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 14,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 14
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-15",
+      "text": "Fill in the blanks with appropriate word, phrase and clause (s): A person who has lived in and knows about many different parts of the world is a ___.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Fill in the blanks",
+      "options": [
+        {
+          "id": "a",
+          "text": "Philanthropist",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Cosmopolitan",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Tourist",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Urbanite",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q08 (group 8-15). Blank underscores are normalised to '___'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 15,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 15
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-16",
+      "text": "Chose the correct form of verb: I really enjoy (speak) English.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Chose the correct form of verb",
+      "options": [
+        {
+          "id": "a",
+          "text": "to speak",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "speak",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "speaking",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "spoke",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above this question: 'Chose the correct form of verb: (16-17)' — the book prints 'Chose' (sic).  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 16,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-17",
+      "text": "Chose the correct form of verb: In those days there (be) no steamships.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Chose the correct form of verb",
+      "options": [
+        {
+          "id": "a",
+          "text": "is",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "are",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "was",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "were",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q16: 'Chose the correct form of verb: (16-17)' — the book prints 'Chose' (sic). The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 17,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 17
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-18",
+      "text": "Which of the following word singular form?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Formula",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Agenda",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Oases",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Radius",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Stem transcribed exactly as printed (the print omits 'is the'). No rubric header is printed for this question.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 18,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 18
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-19",
+      "text": "Choose the correct meaning of the phrases: Cock pit",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Choose the correct meaning of the phrases",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bottom of an aircraft",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Front of an aircraft",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Safety doors of an aircraft.",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "An enclosed area of an aircraft, where the pilot sits and steers the plane.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above this question: 'Choose the correct meaning of the phrases: (19-20)'. The phrase is printed as two words, 'Cock pit'.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 19,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 19
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-20",
+      "text": "Choose the correct meaning of the phrases: Blue blood-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "topic": "Choose the correct meaning of the phrases",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wrong blood",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Aristocracy",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Enmity",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Blue colored blood",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Governed by the rubric printed above Q19 (group 19-20). The rubric is not reprinted on this question's own line.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 20,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 20
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-21",
+      "text": "Find out the antonym of the word 'Abstract'.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Initial",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Concrete",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Summery",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Tangible",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Option (c) prints 'Summery' (sic); transcribed as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 21,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 21
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-22",
+      "text": "Find out the synonym of the word 'Jovial'.",
+      "type": "multiple_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Jolly",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Jealous",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Gay",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Happy",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "c",
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed multi-key: the book's tag reads '[Ans: a, c, d]'; encoded as multiple_choice with all three keyed options, as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 22,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 22
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-23",
+      "text": "Find out the correct spelling.",
+      "type": "multiple_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "exaggerate",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "exaggerate",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "exeggrate",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "exaggerrate",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a",
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "extractionNote": "Printed multi-key: the book's tag reads '[Ans: a, b]', and options (a) and (b) are both printed identically as 'exaggerate'; encoded as multiple_choice, as printed.  [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set.",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 23,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 23
+      }
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-24",
+      "text": "Change the sentence as directed, 'I always remember him'. (Make it Negative)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "I will not always remember him",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "I shall not always remember him",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "I do not forget him",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "I never forget him",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 24,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 24
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    },
+    {
+      "id": "hstu-unverified-2019-2020-unassigned-english-25",
+      "text": "Translate into English. ডেভিড কি একজন ইংরেজ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Is David an Englishman?",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Is David an English?",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Is David an English citizen?",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Is David a English?",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "hstu-unverified-2019-2020-unassigned",
+          "questionNumber": 25,
+          "pageNumber": 8,
+          "sourceDocumentId": "udvash-gst-bank-hstu-2019-2020"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-gst-bank-hstu-2019-2020",
+        "pageNumber": 8,
+        "questionNumber": 25
+      },
+      "extractionNote": "[UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+    }
+  ]
+}
