@@ -1,0 +1,1133 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-d-2015-2016-set3-drivepdf",
+    "category": "varsity",
+    "description": "Visual transcription of the AdmissionWar/Google Drive solved-paper compilation scan of the JU D Unit 2015-2016 admission paper whose printed header reads SET CODE: 3 (Drive listing 'Set-1'). 80 questions: Biology 44 (Botany 20, Zoology 24), Chemistry 24, Bangla 4, IQ 4, English 4 — subjects assigned by content (no headings printed); the composition matches the Udvash book's D 2015-16 packs exactly. Keys are the compiler's printed উত্তরঃ boxes, not an official JU key. 11 questions are KEYLESS because their printed key boxes carry no legible letter in this scan (Q8, Q23, Q26-34) — no key has been guessed for them. Several printed keys/ব্যাখ্যা are internally inconsistent and are preserved as printed with flags (see ANSWERS.md). A book-sourced pack of (apparently) the same printed paper already exists as ju-d-2015-2016-set3.json; this Drive-sourced pack is kept separate under the -drivepdf file suffix. IMPORT-READY SUBSET after cross-source adjudication vs Satt Academy: 22 of 80 questions verified. row 1: excluded (NOT_PUBLIC) row 2: excluded (DIFFER) row 3: excluded (NOT_PUBLIC) row 4: excluded (NOT_PUBLIC) row 6: excluded (NOT_PUBLIC) row 7: excluded (DIFFER) row 8: key taken from Satt (a) row 9: excluded (DIFFER) row 10: excluded (NOT_PUBLIC) row 11: excluded (DIFFER) row 12: excluded (DIFFER) row 14: excluded (NOT_PUBLIC) row 15: excluded (NOT_PUBLIC) row 16: excluded (DIFFER) row 17: excluded (NOT_PUBLIC) row 18: excluded (DIFFER) row 19: excluded (NOT_PUBLIC) row 20: excluded (DIFFER) row 21: excluded (NOT_PUBLIC) row 22: excluded (DIFFER) row 23: excluded (DIFFER) row 24: excluded (DIFFER) row 25: key conflict - Satt key (a) recorded, answer unverified row 26: excluded (DIFFER) row 27: key taken from Satt (d) row 28: key taken from Satt (b) row 29: key taken from Satt (b) row 30: key taken from Satt (a) row 31: excluded (DIFFER) row 32: key taken from Satt (b) row 33: key taken from Satt (d) row 34: excluded (DIFFER) row 35: excluded (NOT_PUBLIC) row 36: excluded (DIFFER) row 37: excluded (DIFFER) row 38: excluded (DIFFER) row 39: excluded (DIFFER) row 40: excluded (NOT_PUBLIC) row 41: excluded (NOT_PUBLIC) row 43: excluded (NOT_PUBLIC) row 44: excluded (NOT_PUBLIC) row 45: excluded (NOT_PUBLIC) row 46: excluded (NOT_PUBLIC) row 47: excluded (NOT_PUBLIC) row 48: excluded (NOT_PUBLIC) row 49: excluded (NOT_PUBLIC) row 50: excluded (NOT_PUBLIC) row 51: excluded (NOT_PUBLIC) row 52: excluded (NOT_PUBLIC) row 53: excluded (NOT_PUBLIC) row 54: excluded (NOT_PUBLIC) row 55: excluded (NOT_PUBLIC) row 58: excluded (DIFFER) row 60: excluded (DIFFER) row 61: key conflict - Satt key (a) recorded, answer unverified row 66: excluded (NOT_PUBLIC) row 69: excluded (NOT_PUBLIC) row 71: excluded (NOT_PUBLIC) row 72: excluded (NOT_PUBLIC) row 73: excluded (NOT_PUBLIC) row 74: excluded (NOT_PUBLIC) row 75: excluded (NOT_PUBLIC) row 76: excluded (NOT_PUBLIC) row 77: excluded (NOT_PUBLIC) row 78: excluded (NOT_PUBLIC) row 79: excluded (NOT_PUBLIC) row 80: excluded (NOT_PUBLIC)",
+    "sourceDocumentIds": [
+      "src-ju-d-2015-2016-set3-drivepdf"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-ju-d-2015-2016-set3-drivepdf",
+      "filename": "ju-d-2015-2016-set1.pdf",
+      "title": "JU D Unit (Faculty of Biological Sciences) 1st-year (Honours) admission test 2015-2016, SET CODE 3 — solved-paper compilation scan (AdmissionWar / Google Drive)",
+      "sha256": "ef1bb101fbcd3263b580477552430480ad8e36f26cc2014a77a07664663f42b9",
+      "sourceType": "pdf",
+      "notes": "Scanned solved-paper compilation (aggregator watermark 'ADMISSION WAR' with 'তোমার সেরা গাইড' diagonal; footer 'For More Question Bank Visit www.admissionwar.com'; 'Scanned by CamScanner'). Each question carries a ব্যাখ্যা box with a boxed উত্তরঃ key. Renders: ocr/pages/jud1516s1/p-1..6.png (pdftoppm 300 dpi); p-1 render sha256 1fa7ac76e3d44b5fb968a6c47743d4da454659f44930cae6ab94d9f66627e1b9. MEDIA-INTEGRITY NOTE: an initial full-page display of p-1 showed a different (clean, unsolved 'SET-1') paper that does NOT match the on-disk file; the discrepancy was caught by hash/crop verification, the displayed content was discarded in full, and this transcription was made from locally generated tiles of the hash-verified renders. Every key glyph was audited on enlarged key-box strips; the 11 illegible boxes were additionally checked on contrast-enhanced and colour-channel-split crops."
+    },
+    {
+      "id": "satt-ju-d-2015-2016-set3-drivepdf",
+      "filename": "satt-ju-coverage-2015-2016-d-set3.html",
+      "title": "Satt Academy — JU D Unit 2015-2016 Set-3 structured question bank",
+      "sha256": "c090b5488582eda9e8fd3a9f0854b8c3d19e0ba7851830135702a902fb67ebc2",
+      "sourceType": "structured-data",
+      "notes": "Independent question-bank rendering of the same paper, accessed 2026-10-31 (https://sattacademy.com (admission hub, subcat 3416)). Satt publicly serves a limited window per subject; login-gated pages were not bypassed."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju",
+      "code": "JU",
+      "name": "Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-d-2015-2016-set3",
+      "institutionId": "ju",
+      "category": "varsity",
+      "year": 2016,
+      "academicSession": "2015-2016",
+      "unit": "D",
+      "title": "JU D Unit Admission Test 2015-2016 — Set Code 3 (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-1')"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-d-2015-2016-set3-drivepdf",
+      "paperId": "ju-d-2015-2016-set3",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-ju-d-2015-2016-set3-drivepdf"
+      ],
+      "sourceNote": "Transcribed from the compilation's printed header (PDF p.1): ১ম বর্ষ স্নাতক (সম্মান) ভর্তি পরীক্ষা ২০১৫-২০১৬; D ইউনিট, জীববিজ্ঞান, জাহাঙ্গীরনগর বিশ্ববিদ্যালয়; boxed set label 'SET CODE: 3'; সময়ঃ ৬০ মিনিট, পূর্ণমানঃ ৮০. বিশেষ দ্রষ্টব্য (printed): প্রতিটি ভুল উত্তরের জন্য ০.২০ নম্বর কাটা যাবে; প্রশ্নপত্রে উত্তর চিহ্নিত করা যাবে না; পরীক্ষার শুরুতে OMR শিটের নির্ধারিত স্থানে দুটি বাক্য লিখতে হবে — ক) জীববৈচিত্র্য সংরক্ষণ অত্যাবশ্যক খ) Conservation of biodiversity is essential."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-d-2015-2016-set3-biology-05",
+      "text": "উপর থেকে নিচে দুটি কপাটে বিদীর্ণ ফলকে বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "লিগিউম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ক্যারিওপসিস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যাপসিউল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সিলিকুয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 5,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 1,
+        "questionNumber": 5
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-biology-08",
+      "text": "E.coli ব্যাকটেরিয়াতে ক্রোমোজোম এবং জিনসংখ্যা যথাক্রমে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 এবং 3200",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1 এবং 1700",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "32 এবং 6000",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "10 এবং 25000",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: the compilation's উত্তরঃ box for this question carries no legible letter in this scan (verified on enlarged key-box strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed. The options print Bangla numerals (১/৩২০০/১৭০০/৩২/৬০০০/১০/২৫০০০), converted to Western digits per pack convention.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 8,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 1,
+        "questionNumber": 8
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-biology-13",
+      "text": "ইন্টারফেরনস কোন ধরনের প্রোটিন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Botany",
+      "options": [
+        {
+          "id": "a",
+          "text": "গ্লাইকোপ্রোটিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফসফোপ্রোটিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লাইপোপ্রোটিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্রোমোপ্রোটিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 13,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 2,
+        "questionNumber": 13
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-bangla-03",
+      "text": "'মেঘ' এর সমার্থক শব্দ নয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "উদক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নীরদ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জীমূত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অম্বুধর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "MISMATCHED ব্যাখ্যা: the ব্যাখ্যা printed with this question describes the layers of the uterine wall and belongs to another question; the key গ sits inside that box. Preserved as printed.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 25,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 2,
+        "questionNumber": 25
+      },
+      "verificationNotes": "Content verified against Satt Academy. The two sources key different options; following the project precedent, Satt Academy's key is recorded here and the answer is marked unverified (both keys are documented in VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-iq-01",
+      "text": "আজ থেকে তিন দিন পর শনিবার হলে গতকালের দুই দিন আগে কী বার ছিল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "IQ",
+      "options": [
+        {
+          "id": "a",
+          "text": "বুধবার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শুক্রবার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সোমবার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রবিবার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 27,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 27
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-iq-02",
+      "text": "কোন সংখ্যার 3/8 অংশ 21?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "IQ",
+      "options": [
+        {
+          "id": "a",
+          "text": "52",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "56",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "24",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "128",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed. The stem and options print Bangla numerals (৩/৮, ২১, ৫২, ৫৬, ২৪, ১২৮), converted to Western digits per pack convention.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 28,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 28
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-iq-03",
+      "text": "100 এর 10% এর এক-দশমাংশ সমান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "IQ",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed. The stem and options print Bangla numerals (১০০, ১০%, ০, ১, ১০), converted to Western digits per pack convention.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 29,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 29
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-iq-04",
+      "text": "নিচের কোনটি অসামঞ্জস্যপূর্ণ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "IQ",
+      "options": [
+        {
+          "id": "a",
+          "text": "দাবা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "টেনিস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হকি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ফুটবল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 30,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 30
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-english-02",
+      "text": "He is desirous --------- building a new house.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "for",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "of",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "to",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "at",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed. The options are labelled with Bangla letters (ক–ঘ) in print.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 32,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 32
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-english-03",
+      "text": "The synonym of 'Franchise' is-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Frankness",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Utility",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "French",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Privilege",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "KEYLESS IN SOURCE: this question's উত্তরঃ box is in the left column of p.3, where every key letter is illegible/blank in this scan (verified on enlarged strips, contrast-enhanced crops and colour-channel splits); no key is recorded rather than guessed. The options are labelled with Bangla letters (ক–ঘ) in print.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 33,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 33
+      },
+      "verificationNotes": "Content verified against Satt Academy. The primary source carries no key for this question, so the key is recorded from Satt Academy (see VERIFICATION.md) and the answer is marked unverified."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-biology-30",
+      "text": "লালারসের ক্ষেত্রে কোনটি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "কিছুটা অম্লীয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কিছুটা ক্ষারীয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তীব্র অম্লীয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তীব্র ক্ষারীয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 42,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 42
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-biology-44",
+      "text": "পরিপূরক জিনের উপস্থিতির ক্ষেত্রে ফেনোটাইপিক অনুপাত কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "Zoology",
+      "options": [
+        {
+          "id": "a",
+          "text": "3:1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "9:7",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "13:3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9:3:3:1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "The options print Bangla numerals with the ratio sign (৩ঃ১ / ৯ঃ৭ / ১৩ঃ৩ / ৯ঃ৩ঃ৩ঃ১), converted to Western digits per pack convention.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 56,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 56
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-01",
+      "text": "নিচের কোনটি সালফিউরাস এসিডের বিয়োজন ধ্রুবক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2×10^6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3×10^-2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.4×10^-2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "7.2×10^-3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 57,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 57
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-03",
+      "text": "পানির বাষ্পীকরণ তাপ কত কিলোজুল/মোল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "44",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "121",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "150",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "The ব্যাখ্যা prints 'H2O(VOP)' [sic] for H2O(vap). A hand-drawn box around option (ক) is a reader's mark, not a key.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 59,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 59
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-05",
+      "text": "নিচের কোনটি সবল তড়িৎ বিশ্লেষ্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "KCl দ্রবণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HF দ্রবণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "C12H22O11 দ্রবণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "C2H5OH দ্রবণ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "APPARENT PRINTED KEY ERROR: the key box keys খ (HF দ্রবণ), but the strong electrolyte is KCl দ্রবণ (ক); HF is weak. Key preserved as printed.",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 61,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 61
+      },
+      "verificationNotes": "Content verified against Satt Academy. The two sources key different options; following the project precedent, Satt Academy's key is recorded here and the answer is marked unverified (both keys are documented in VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-06",
+      "text": "নিচের কোনটি দাহ্য ও বিষাক্ত যৌগ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "মিথানল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আর্সেনিক অক্সাইড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ইথানল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "টলুইন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 62,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 62
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-07",
+      "text": "কার্বন টেট্রাক্লোরাইড দ্বারা দূষিত পানিকে বিশোধনে ব্যবহৃত হয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fe ন্যানো কণা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Zn ন্যানো কণা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ag ন্যানো কণা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Ca ন্যানো কণা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 63,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 63
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-08",
+      "text": "পৃথিবীতে মিঠা পানির উৎসগুলোর মধ্যে ভূগর্ভস্থ পানির শতকরা পরিমাণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "28.2%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "25.2%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "22.2%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "24.2%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 64,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 64
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-09",
+      "text": "কোন মৌলটি H2O(g) থেকে হাইড্রোজেন প্রতিস্থাপন করতে পারে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mg",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Al",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Mn",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Sn",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 65,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 65
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-11",
+      "text": "65g বেরিয়াম নাইট্রেট .1 Litre পানিতে দ্রবীভূত করলে উক্ত দ্রবণের ঘনমাত্রা কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.15 M",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.17M",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.25M",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.20M",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "The stem prints '.1 Litre' as printed. The printed ব্যাখ্যা computes .36M (using molar mass 180), which matches no option; the keyed 0.25M matches the true molar mass of barium nitrate (261).",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 67,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 6,
+        "questionNumber": 67
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-12",
+      "text": "উচ্চ দক্ষতাসম্পন্ন তরল ক্রোমাটোগ্রাফি (HPLC) তে ব্যবহৃত সক্রিয় কলামের ব্যাস কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.2-2.6mm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.8-2.6mm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.1-4.6mm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.2-4.6mm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 68,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 6,
+        "questionNumber": 68
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-d-2015-2016-set3-chemistry-14",
+      "text": "বেগুনী রশ্মির তরঙ্গদৈর্ঘ্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "380-424nm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "575-590nm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "500-575nm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "590-647nm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-d-2015-2016-set3",
+          "questionNumber": 70,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-d-2015-2016-set3-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-d-2015-2016-set3-drivepdf",
+        "pageNumber": 6,
+        "questionNumber": 70
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    }
+  ]
+}

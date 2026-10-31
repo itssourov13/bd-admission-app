@@ -1,8 +1,51 @@
 # Question import workflow
 
 ## Current status
-Validator, transactional idempotent importer, startup sync and pack index generator are implemented. The bundle includes two DU A Unit packs (90 questions per session), the original 4,009-question unverified RU candidate bank, and the new separate RU-V source bank described below. The app auto-imports generated packs at startup.
+Validator, transactional idempotent importer, startup sync and pack index generator are implemented. Current bundle: **118 schema-v1 packs / 7,836 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 JU (1,526) and 7 HSTU (293). The app auto-imports generated packs at startup. The latest JU/HSTU import checkpoint is below.
 
+
+## Jahangirnagar University + HSTU — Muse AI import (2026-11-01)
+
+### Source and scope
+
+- Archive: `/home/kali/gpt-workspace/museai/admission-app-research/import-ready/Admission_Import_Ready_Questions_Only.zip`
+- SHA-256: `cd3f0b449ae9cb18a254197dfe557198e2039ab74d4e0ff64e2abf69cd972f1b`; ZIP integrity test passed. It contained 60 JSON packs: 50 JU, 7 HSTU and 3 GST Cluster packs. GST was intentionally excluded because this import task targeted only JU and HSTU.
+- Imported: **57 packs / 1,819 questions** — JU 50 packs / 1,526 questions; HSTU 7 packs / 293 questions. No existing question-pack JSON was overwritten.
+- JU academic-session span: 2010–2011 through 2024–2025, with 31 represented session/unit combinations. HSTU sessions present: 2016–2017, 2017–2018 and 2024–2025 only. The HSTU collection is partial and does not meet the 15–20-year target yet.
+- Across the 107 declared source-document records, 104 include SHA-256 and 3 do not. The three absent hashes remain absent; no synthetic hashes were added.
+
+### Verification-state preservation
+
+Muse AI reported the archive as verified. Per user instruction, question correctness was not re-verified as part of this import. All 1,819 records have `contentVerificationStatus: verified`; the individual answer states remain unchanged:
+
+| Institution | Questions | Answer verified | Answer unverified | Answer unknown | Verified single-choice eligible |
+|---|---:|---:|---:|---:|---:|
+| JU | 1,526 | 1,414 | 111 | 1 | 1,393 |
+| HSTU | 293 | 275 | 8 | 10 | 275 |
+| **Total** | **1,819** | **1,689** | **119** | **11** | **1,668** |
+
+JU also contains 6 `multiple_choice` records and 16 explicit `no_correct_option` records. Across JU/HSTU, 6 questions contain repeated option text. The validator emitted **125 warnings** (119 non-verified answer-key warnings plus 6 repeated-option-text warnings) and **zero errors**. These states/warnings were preserved; no answer was guessed, promoted, rewritten or removed.
+
+### Compatibility repair
+
+- One source-document ID, `udvash-ju-abswer-combined`, was reused by 24 independent JU batches. The app importer requires globally unique source IDs, so each of those 24 IDs was namespaced as `udvash-ju-abswer-combined--<batch-id>`.
+- Updated references in `batch.sourceDocumentIds`, `questions[].source.documentId`, `questions[].appearances[].sourceDocumentId` and `examRules[].sourceDocumentIds` whenever present. All 107 source IDs are now unique across the target dataset.
+- No questions, options, question IDs, answers, per-question verification fields, source filenames, source hashes or notes were changed. The original ZIP remains outside the app repo and was not modified.
+- The nested archive files were flattened into the app's existing `data/question-packs/` directory because `scripts/build-pack-index.mjs` reads JSON files directly from that directory (not recursively). The 57 imported basenames were unique.
+
+### Runtime and exam-rule boundary
+
+- All 57 exam-rule records remain `unconfigured`. Source descriptions/notes are retained, but no official question count, duration, marking rule or subject-selection configuration is activated.
+- A general/institution-scoped Standard Exam can use the app's generic 100-question / 60-minute fallback; this is not an official JU/HSTU pattern. None of the individual JU/HSTU paper datasets has 100 verified-eligible questions, so a paper-specific Standard Exam is not available for these packs until matching paper rules or a supported custom-length mode is added. Browse and eligible Flash practice work.
+- HSTU needs more historical sessions to meet the original coverage target. This is a follow-up research gap, not a blocker to importing the verified records already supplied.
+
+### Verification performed
+
+- All 57 JU/HSTU packs: schema validation **57/57, zero errors, 125 warnings**.
+- Temporary flat-directory index-generation check: 57 packs accepted. In-repository `pnpm packs:index`: **118 packs** indexed.
+- Fresh in-memory SQLite dry-run: all 118 bundled packs imported successfully — 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 exam-rule rows, 168 source documents, 7,836 appearances and 5 institutions. Verified pool total: 3,643; JU: 1,393; HSTU: 275.
+- Re-imported all 57 new packs in the same dry-run: all question rows skipped as unchanged and all 1,819 appearances skipped; total rows remained unchanged.
+- Added automated tests for archive-derived pack counts, globally unique references, preserved verification states, warnings, full 118-pack import, practice eligibility and idempotent re-import.
 
 ## RU Question Bank.pdf — verified-source rebuild and replacement (2026-10-30)
 

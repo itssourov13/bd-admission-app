@@ -1,0 +1,1549 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "ju-a-2021-2022-setf",
+    "category": "varsity",
+    "description": "Jahangirnagar University A Unit (Mathematical & Physical Sciences), academic session 2021-2022, Set-F — full 80-question paper transcribed by direct visual reading of the Udvash 'জাবি প্রশ্নব্যাংক' (JU A & D Unit question bank), book PDF pp.51-54 (questions; printed answer table on p.54; printed worked solutions pp.54-56). EXTRACTION STAGE: all questions are marked content-UNVERIFIED and all keyed answers answer-UNVERIFIED; cross-source verification is a separate later stage. Printed publisher answer keys are preserved as-is; they are NOT official JU keys. Printed subject order in this set: Bangla (Q1-3), English (Q4-6), ICT (Q7-14), Physics (Q15-36), Higher Mathematics (Q37-58), Chemistry (Q59-80) — note that Higher Mathematics precedes Chemistry in the printed order of this set. The printed answer table has dashes (no key) at Q7 and Q71; the printed worked solutions for both (Q7 on p.54, Q71 on p.56) explicitly state '(সঠিক উত্তর নেই)' (no correct answer), so both are recorded with answerDisposition no_correct_option and empty correctOptionIds; for these two questions only, answerVerificationStatus is set to 'verified' solely as the validator-required encoding of the primary source's own explicit printed claim — it does NOT denote cross-source verification, which remains a later stage for the whole paper. Q10 carries an internal source contradiction: the table keys (c) but the printed worked solution (p.54) states no correct option exists — the table key is recorded and the contradiction documented in the question's extractionNote. Q25 option (a) is printed as a 14-digit string while the book's own solution computes a 12-digit value — transcribed as printed. No dual keys appear in the printed table. IMPORT-READY SUBSET after cross-source adjudication: 31 of 80 questions verified. Q2: key conflict, second-source key a recorded Q7: excluded (DIFFER) Q12: excluded (DIFFER) Q16: excluded (NOT_PUBLIC) Q17: excluded (DIFFER) Q18: excluded (DIFFER) Q19: excluded (DIFFER) Q20: excluded (DIFFER) Q21: excluded (DIFFER) Q22: excluded (NOT_PUBLIC) Q24: excluded (DIFFER) Q25: excluded (DIFFER) Q26: excluded (NOT_PUBLIC) Q27: excluded (NOT_PUBLIC) Q32: excluded (NOT_PUBLIC) Q33: excluded (DIFFER) Q34: excluded (NOT_PUBLIC) Q36: excluded (NOT_PUBLIC) Q43: excluded (NOT_PUBLIC) Q44: excluded (NOT_PUBLIC) Q46: excluded (DIFFER) Q47: excluded (NOT_PUBLIC) Q50: excluded (DIFFER) Q51: excluded (DIFFER) Q55: excluded (NOT_PUBLIC) Q56: excluded (NOT_PUBLIC) Q57: excluded (NOT_PUBLIC) Q58: excluded (NOT_PUBLIC) Q59: excluded (NOT_ON_SATT) Q60: excluded (NOT_ON_SATT) Q61: excluded (NOT_ON_SATT) Q62: excluded (NOT_ON_SATT) Q63: excluded (NOT_ON_SATT) Q64: excluded (NOT_ON_SATT) Q65: excluded (NOT_ON_SATT) Q66: excluded (NOT_ON_SATT) Q67: excluded (NOT_ON_SATT) Q68: excluded (NOT_ON_SATT) Q69: excluded (NOT_ON_SATT) Q70: excluded (NOT_ON_SATT) Q71: excluded (NOT_ON_SATT) Q72: excluded (NOT_ON_SATT) Q73: excluded (NOT_ON_SATT) Q74: excluded (NOT_ON_SATT) Q75: excluded (NOT_ON_SATT) Q76: excluded (NOT_ON_SATT) Q77: excluded (NOT_ON_SATT) Q78: excluded (NOT_ON_SATT) Q79: excluded (NOT_ON_SATT) Q80: excluded (NOT_ON_SATT)",
+    "sourceDocumentIds": [
+      "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+      "filename": "ju-ad-abswer-combined.pdf",
+      "title": "Udvash জাবি প্রশ্নব্যাংক (JU A & D Unit question bank)",
+      "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
+      "sourceType": "pdf",
+      "notes": "Publisher question-bank book (Udvash Academic & Admission Care), scanned PDF, 295 pp. Set-F of JU A Unit 2021-2022 occupies book PDF pp.51-54 (printed book pp.50-53): questions pp.51-54, printed answer table (উত্তরমালা) on p.54, printed worked solutions on pp.54-56. Paper header (book PDF p.51): জাবি ভর্তি পরীক্ষা ২০২১-২২ শিক্ষাবর্ষ; পূর্ণমান: ৮০; ইউনিট: A; সেট: F; সময়: ৫৫ মিনিট."
+    },
+    {
+      "id": "satt-ju-a-2021-2022-setf",
+      "filename": "satt-jua2122-setf-all.html",
+      "title": "Satt Academy - JU A Unit Set-F 2021-22 structured question bank (sub_category 5307)",
+      "url": "https://sattacademy.com/a-ইউনিট-সেট-f-2021-22/all/mcq-questions",
+      "sourceType": "structured-data"
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju",
+      "code": "JU",
+      "name": "Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-a-2021-2022-setf",
+      "institutionId": "ju",
+      "category": "varsity",
+      "year": 2022,
+      "academicSession": "2021-2022",
+      "unit": "A",
+      "title": "JU A Unit 2021-2022 — Set-F (Udvash question bank transcription)"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-a-2021-2022-setf",
+      "paperId": "ju-a-2021-2022-setf",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+      ],
+      "sourceNote": "Paper header (book PDF p.51) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: A, সেট: F, সময়: ৫৫ মিনিট (55 minutes); the printed instructions state 80 questions in the paper, all must be answered, 0.20 marks deducted per wrong answer, and no calculator may be used. These are transcribed from the book's paper header only and are NOT entered as a verified scoring rule."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-a-2021-2022-setf-bangla-01",
+      "text": "নিম্নের কোনটি সমার্থক শব্দ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "শোণিত",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রঞ্জিত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লোহিত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রুধির",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 1,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 1
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-bangla-02",
+      "text": "‘রদবদল’ কোন ধরনের সমাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "দ্বন্দ্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অব্যয়ীভাব",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তৎপুরুষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কর্মধারয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 2,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 2
+      },
+      "verificationNotes": "Content verified against the second source; ANSWER KEY CONFLICT - book key vs second-source key A (see VERIFICATION.md). The second source's key is recorded; the answer is marked unverified."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-bangla-03",
+      "text": "‘Delegate’ শব্দের পারিভাষিক শব্দ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "কূটনীতি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উপভাষা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্রতিলিপি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্রতিনিধি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 3,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 3
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-english-01",
+      "text": "Choose the correct article in the following sentence - He is playing_____ flute.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "by",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "an",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "the",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 4,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 4
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-english-02",
+      "text": "Find the pair which has same relationship of Bird: Ornithology",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Earth: Geography",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Earth: Geology",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Earth: Biology",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Earth: Anthropology",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 5,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 5
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-english-03",
+      "text": "‘I know the fact’ – Change it into passive voice.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "The fact is known by me",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "The fact is being known by me",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "The fact is known to me",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "The fact is known",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 6,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 6
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-02",
+      "text": "কোন সার্কিট 16 সংখ্যক ইনপুটকে 4 টি আউটপুটে রূপান্তর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "এনকোডার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ডিকোডার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রেজিস্টার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইকুউটার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Option (d) is printed as 'ইকুউটার' — transcribed exactly as printed (apparent source misprint).",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 8,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 8
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-03",
+      "text": "নিচের কোনটি কাউন্টারের জন্য সঠিক নয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "একটি সিকুয়েন্সিয়াল সার্কিট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শুধু সর্বাধিক পালসের সংখ্যা গণনা করতে পারে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লজিক গেইটের সমন্বয়ে গঠিত",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অস্থায়ী মেমোরি হিসেবে কাজ করে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 9,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 9
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-04",
+      "text": "ইন্টারনেটে স্ট্রিমিং ভিডিওর ব্যান্ডউইথ কত-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.5 Mbps",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4 Mbps",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3 Mbps",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5 Mbps",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "INTERNAL SOURCE CONTRADICTION: the printed answer table (p.54) keys (c), but the printed worked solution for Q10 (p.54) states '(সঠিক উত্তর নেই); সঠিক উত্তর হবে: 0.7 Mbs' (no correct answer; the correct value would be 0.7 Mbps). The table key (c) is recorded per the extraction rule that keys come from the printed answer table; the contradiction is documented here for the verification stage.",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 10,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 10
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-05",
+      "text": "(DADA)₁₆ থেকে (BABA)₁₆ কত ছোট?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2021)₁₆",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2022)₁₆",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(8224)₁₀",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(8021)₁₀",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 11,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 11
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-07",
+      "text": "Web browser হলো একটি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "ওয়েব পেইজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "একটি সফটওয়্যার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হাইপারলিংক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ড্যাটাবেইস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 13,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 13
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-ict-08",
+      "text": "নিচের কোন HTML code টি নতুন খালি উইন্ডোজ স্টার্ট করার জন্য এট্রিবিউট value হিসেবে ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "options": [
+        {
+          "id": "a",
+          "text": "target",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "_blank",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "_new",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "href",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 14,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 14
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-01",
+      "text": "রুদ্ধতাপ পরিবর্তনে আয়তন ও তাপমাত্রার মধ্যে কোন সম্পর্কটি সবচাইতে বেশি সঠিক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "PV = RT",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "PV^γ = ধ্রুবক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "TV^(γ-1) = ধ্রুবক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সব কয়টি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 15,
+          "pageNumber": 51,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 51,
+        "questionNumber": 15
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-09",
+      "text": "রেক্টিফায়ার হিসাবে ডায়োড কোন ধরনের রূপান্তর করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "এসি থেকে ডিসি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অস্থির ডিসি থেকে স্থির ডিসি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ডিসি থেকে এসি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উচ্চ বিভব থেকে নিম্ন বিভব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 23,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 23
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-14",
+      "text": "A⃗ × B⃗ = B⃗ × A⃗ হলে এদের মধ্যবর্তী কোণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 28,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 28
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-15",
+      "text": "বিটা ক্ষয় হয় কোন বলের কারণে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "সবল নিউক্লীয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দুর্বল নিউক্লীয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তড়িৎ চুম্বকীয়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মহাকর্ষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 29,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 29
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-16",
+      "text": "একটি ঘূর্ণায়মান বস্তুর ভর 2 kg। ঘূর্ণন অক্ষ হতে এর দূরত্ব 1 m। বস্তুটি 5 rads^-1 কৌণিক বেগে ঘুরলে গতিশক্তি কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "25 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12.5 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "50 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 30,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 30
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-17",
+      "text": "50 N ওজনের একটি বস্তুকে 6 m উচ্চতায় উঠানোর জন্যে একটি লিফট ব্যবহার করা হলো। এটি 70 J শক্তি ব্যয় করে। অপচয়কৃত শক্তির পরিমাণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "230 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "200 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "300 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 31,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 31
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-physics-21",
+      "text": "27°C তাপমাত্রায় দুটি অক্সিজেন পরমাণুর গতিশক্তি কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "12.42×10^-21 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6.21×10^-21 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.242×10^-21 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.621×10^-21 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 35,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 35
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-01",
+      "text": "k এর কোন মানের জন্য [[k - 1, -2], [-2, k - 2]] ম্যাট্রিক্সটি বিপরীতকরণযোগ্য নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(3±√17)/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(3±√15)/2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 37,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 37
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-02",
+      "text": "A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] এবং B = [[0, 1], [2, 3], [4, 5]] হলে A + B =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "[[1, 3, 3], [6, 8, 6], [11, 13, 9]]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[[1, 2, 3], [4, 7, 9], [7, 12, 14]]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[[1, 3], [6, 8], [7, 8]]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অসম্ভব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 38,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 38
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-03",
+      "text": "|1 1 1; 1 2 3; 1 4 k| নির্ণায়কের মান 2 হলে k এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "9",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 39,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 39
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-04",
+      "text": "3x + 4y + 2 = 0 এবং 3x + 4y + 5 = 0 সমান্তরাল সরলরেখাদ্বয়ের মধ্যবর্তী দূরত্ব কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3/5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3/25",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5/3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 40,
+          "pageNumber": 52,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 52,
+        "questionNumber": 40
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-05",
+      "text": "(-8, 3) এবং (2, 1) বিন্দুগামী সরলরেখা (11, -1) এবং (k, 0) বিন্দুগামী সরলরেখার সমান্তরাল হলে k এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 41,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 41
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-06",
+      "text": "x - অক্ষ এবং (2, 2) বিন্দু হতে (5, k) বিন্দুটির দূরত্ব সমান হলে k এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4/13",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4/7",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "13/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 42,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 42
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-09",
+      "text": "y = x^3 - 2x^2 + 4 বক্ররেখার (2, 4) বিন্দুতে অঙ্কিত স্পর্শক এর সমীকরণ নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4x - y - 4 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x + 4y - 18 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4x - y + 4 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x + 4y + 18 = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 45,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 45
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-12",
+      "text": "∫_2^3 (2x/(1+x^2)) dx এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ln 2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 48,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 48
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-13",
+      "text": "5x^2 - 6x + 3 = 0 সমীকরণের মূলদ্বয় α ও β হলে 1/α + 1/β এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "6/5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3/5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 49,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 49
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-16",
+      "text": "y^2 - x^2 = 1 অধিবৃত্তটির শীর্ষবিন্দু দুইটির স্থানাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(0, ±1)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(±1, 0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(0, ±2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(±2, 0)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 52,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 52
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-17",
+      "text": "x^2/9 + y^2/16 = 1 উপবৃত্তটির উৎকেন্দ্রিকতা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4√7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√7/4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 53,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 53
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2021-2022-setf-higher-mathematics-18",
+      "text": "x^2/12 + y^2/16 = 1 উপবৃত্তটির উপকেন্দ্র দুইটির স্থানাঙ্ক কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(±2, 0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(0, ±2)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(±2√7, 0)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(0, ±2√7)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2021-2022-setf",
+          "questionNumber": 54,
+          "pageNumber": 53,
+          "sourceDocumentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf"
+        }
+      ],
+      "source": {
+        "documentId": "udvash-ju-abswer-combined--ju-a-2021-2022-setf",
+        "pageNumber": 53,
+        "questionNumber": 54
+      },
+      "verificationNotes": "Content and answer key agree with the independent second source (see VERIFICATION.md)."
+    }
+  ]
+}

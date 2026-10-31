@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated test baseline: **2026-10-30**, Node 22.23.1, pnpm 11.10.0; the full suite includes 62 tests. Release/device status updated **2026-10-31**: the EAS preview APK was published as GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and the owner reports successful physical-device installation and smoke verification. The current bundle has 61 packs / 6,017 questions. Production AAB and Play Store rollout remain outstanding.
+Latest automated test baseline: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **64/64 tests** including the two JU/HSTU import integration tests. Release/device status remains the owner-confirmed 2026-10-31 EAS preview APK smoke test. The current bundle has **118 packs / 7,836 questions**. Production AAB and Play Store rollout remain outstanding.
 
 ## Automated checks
 
@@ -8,19 +8,31 @@ Latest automated test baseline: **2026-10-30**, Node 22.23.1, pnpm 11.10.0; the 
 |---|---|---|
 | Dependencies installed / lockfile present | [x] Pass | Existing node_modules and pnpm-lock.yaml; Node and pnpm versions verified. |
 | Expo config resolution | [x] Pass | pnpm exec expo config --type public exited successfully. |
-| Automated tests | [x] Pass | `pnpm test`: **62 passed, 0 failed** under Node 22.23.1. Includes verified `no_correct_option` and `multiple_choice` source-answer semantics plus RU-V replacement coverage proving stale active appearances are removed while bookmarks, session questions and answers remain. |
-| Real pack validation/index | [x] Pass | All 61 bundled JSON packs validate with **0 errors / 4,052 warnings**; index contains 6,017 questions. Warnings are expected legacy RU candidate warnings plus repeated extracted option text in 30 verified RU-V source records; see the external `IDENTICAL_OPTION_TEXT_AUDIT.csv`. |
-| Real pack import integration | [x] Pass | DU test: 180 questions, 720 options, two papers/rules/sources and 175 verified-eligible. RU C test: 4,009 questions across 44 papers/source documents, no exam rules, all unverified and idempotent. New RU-V test: 1,828 questions across 15 packs, all content and answer states verified, 0 unknown keys, 22 explicit no-correct-option records, 6 verified multiple-choice records, unique IDs/provenance, recovered page-137 Q4/B marker, idempotent re-import and 100-question Standard Exam entry. Existing single-choice pool: 1,800. Separate replacement test proves only target-paper appearances are removed while bookmarks and prior session answers survive. |
+| Automated tests | [x] Pass | `pnpm test`: **64 passed, 0 failed** under Node 22.23.1. Includes verified `no_correct_option` and `multiple_choice` source-answer semantics, RU-V replacement/history coverage, plus JU/HSTU archive-state/reference checks and full-bundle fresh-SQLite/idempotency coverage. |
+| Real pack validation/index | [x] Pass | All 118 bundled JSON packs validate with **0 errors / 4,177 warnings**; generated index contains 7,836 questions. The 57 new JU/HSTU packs account for 0 errors / 125 warnings (119 answer-status and 6 repeated-option-text warnings); all source states were preserved. |
+| Real pack import integration | [x] Pass | Existing DU, RU C and RU-V tests remain. New JU/HSTU integration tests cover 57 packs / 1,819 questions, individual answer-state counts, source-ID/reference uniqueness, 1,668 new verified single-choice eligible questions, all 118 packs imported in fresh SQLite with zero failures, exact row counts and idempotent re-import. |
 | TypeScript | [x] Pass | pnpm typecheck exited successfully. |
 | ESLint | [x] Pass | pnpm lint exited successfully. |
 | Expo Doctor | [x] Pass | pnpm doctor: **21/21 checks passed**. |
-| Android JS bundle without bytecode | [x] Pass | `pnpm exec expo export --platform android --no-bytecode` passed with 1,896 modules, a 12 MB JS bundle and 122 assets, including all 45 legacy RU question figures. This export was repeated after the new RU-V pack import. This is not an APK/AAB build. |
+| Android JS bundle without bytecode | [x] Pass | After importing JU/HSTU, `pnpm exec expo export --platform android --no-bytecode` passed with **1,953 modules, a 14 MB JS bundle and 122 assets**. The export validates Metro bundling only; it is not an APK/AAB build. |
 | Standard Android export with Hermes bytecode | [ ] Blocked on this host | pnpm export:android fails after Metro bundling because hermesc exits with SIGILL. This has not been shown to be an application-code error; a compatible build host/EAS check is still needed. |
 | Installable Android preview APK | [x] Pass | EAS build `d5e516cd-eefe-44f4-866d-b440ef188da9`; published as [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk) under GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1). SHA-256: `da7f928827ae6945eddebedc817dabe2c9b0467240dc0d59ec4a0170d0a14f9d`. |
 | Physical Android device smoke QA | [x] Owner-reported pass | The owner installed and checked the APK on a physical Android phone and reported normal operation. First load was about one minute; subsequent opens were about 2–3 seconds. Detailed individual checklist steps were not separately logged. |
 | Production AAB / Google Play | [ ] Not run | A production AAB, Play Console listing and production rollout have not been completed. |
 
 The no-bytecode export validates JavaScript bundling only. It does **not**, by itself, prove a native build or on-device behavior; the EAS APK and owner-reported phone verification are recorded separately above.
+
+## JU + HSTU import verification — 2026-11-01
+
+| Check | Result | Notes |
+|---|---|---|
+| Archive integrity and scope | [x] Pass | ZIP SHA-256 `cd3f0b449ae9cb18a254197dfe557198e2039ab74d4e0ff64e2abf69cd972f1b`; 60 JSON members, 57 target JU/HSTU packs, 3 GST packs excluded. |
+| New pack schema validation | [x] Pass | 57/57 pass; 0 errors / 125 warnings. |
+| Bundle index | [x] Pass | `pnpm packs:index` generated 118 pack imports. |
+| Fresh SQLite import | [x] Pass | 118/118 packs, zero failures; 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 rules, 168 sources, 7,836 appearances and 5 institutions. |
+| JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
+| Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
+| Exam patterns | [x] Intentionally unconfigured | All 57 new rules remain `unconfigured`; the app must not label source notes as official exam rules. HSTU historical coverage remains partial. |
 
 ## Data integrity
 
@@ -33,8 +45,8 @@ These areas have automated coverage in the passing test suite:
 - [x] Answer/scoring verification state is retained; questions without verified answer/content stay out of the verified pool. A separate provisional pool is labelled, source-key-based and structurally filtered rather than promoting answers to verified.
 - [x] User answers, bookmarks and attempts survive content updates/re-imports.
 - [x] Database migrations are idempotent and failure paths retain the prior version.
-- [x] Validate and import the two supplied real-source packs through the SQLite importer; check total counts, subject counts, Bangla Unicode, source/page/question-number field ranges, answer-key status and idempotent re-import in automated tests.
-- [x] Source/question content was confirmed as verified by the user; this replacement task intentionally did not repeat a question-by-question fact check. Automated structure checks require four non-empty options, a mapped explicit answer disposition, subject metadata, unique IDs, and source page/question provenance. Thirty source questions with repeated option text are separately listed for reference in `IDENTICAL_OPTION_TEXT_AUDIT.csv`; source text was not silently edited.
+- [x] Validate and import the real DU, RU C, RU-V, JU and HSTU question packs through the SQLite importer; integration tests check institution/paper/question counts, source relationships, answer states, practice eligibility, catalogue queries and idempotent re-import.
+- [x] RU-V source/question content was confirmed as verified by the user; that replacement task intentionally did not repeat a question-by-question fact check. JU/HSTU status was supplied through the Muse archive and likewise was not re-verified question-by-question. Per-question answer flags remain unchanged for both datasets. The RU-V automated structure checks require four non-empty options, a mapped explicit answer disposition, subject metadata, unique IDs, and source page/question provenance. Thirty RU-V source questions with repeated option text are separately listed for reference in `IDENTICAL_OPTION_TEXT_AUDIT.csv`; source text was not silently edited.
 
 ## Offline and persistence checks — detailed steps not individually recorded
 

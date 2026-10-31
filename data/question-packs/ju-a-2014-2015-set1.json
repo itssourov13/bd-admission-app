@@ -1,0 +1,590 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "batch-ju-a-2014-2015-set1-drivepdf",
+    "category": "varsity",
+    "description": "Visual transcription of the AdmissionWar/Google Drive solved-paper compilation scan of the JU A Unit 2014-2015 admission paper whose printed header reads SET CODE: 1 (the Drive listing 'Set-1' agrees with the print for this file). 80 questions: General Knowledge 8 (Q1-8), English 3 (Q9-11), Bangla 3 (Q12-14), Chemistry 22 (Q15-36), Physics 22 (Q37-58), Higher Mathematics 22 (Q59-80) — subjects assigned by content in the paper's printed sequence (no subject headings printed). Keys are the compiler's boxed 'Ans: X' tags printed beside the options or at the end of each question's worked solution (with a printed Solve:/ব্যাখ্যা for most Physics/Higher Mathematics and many Chemistry questions), not an official JU key. Two printed no-correct-option dispositions: Q43 ('Ans: Nil' — the Solve's value 1082 K is not among the options) and Q59 ('Ans: Nil', although the Solve concludes x = 1, y = -2 = option A — conflict documented on the question). Two keyless questions: Q36 (boxed key letter wholly covered by the opaque watermark logo) and Q58 (key box printed dashed, 'Ans: ----'). Two box-vs-solve key conflicts (Q50, Q69) and one pair of conflicting key boxes (Q53) are preserved with the boxed/Solve-supported reading recorded and the conflict documented on each question. EXTRACTION STAGE: all questions content-unverified; keyed answers answer-unverified; the two dispositions carry answer status 'verified' only because the validator requires that status for a no_correct_option disposition. IMPORT-READY SUBSET after cross-source adjudication vs Satt Academy: 11 of 80 questions verified. row 1: excluded (DIFFER) row 2: excluded (DIFFER) row 3: excluded (DIFFER) row 4: excluded (DIFFER) row 5: excluded (DIFFER) row 6: excluded (DIFFER) row 7: excluded (DIFFER) row 8: excluded (DIFFER) row 9: excluded (DIFFER) row 10: excluded (DIFFER) row 11: excluded (DIFFER) row 12: excluded (DIFFER) row 13: excluded (DIFFER) row 15: excluded (DIFFER) row 16: excluded (DIFFER) row 18: excluded (NOT_PUBLIC) row 19: excluded (NOT_PUBLIC) row 20: excluded (DIFFER) row 21: excluded (Satt keys [] - not a single key) row 22: excluded (NOT_PUBLIC) row 23: excluded (NOT_PUBLIC) row 24: excluded (NOT_PUBLIC) row 25: excluded (DIFFER) row 26: excluded (DIFFER) row 27: excluded (DIFFER) row 28: excluded (NOT_PUBLIC) row 29: excluded (DIFFER) row 30: excluded (NOT_PUBLIC) row 31: excluded (DIFFER) row 32: excluded (DIFFER) row 33: excluded (NOT_PUBLIC) row 34: excluded (DIFFER) row 36: excluded (NOT_PUBLIC) row 37: excluded (NOT_PUBLIC) row 38: excluded (NOT_PUBLIC) row 39: excluded (DIFFER) row 40: excluded (DIFFER) row 43: excluded (DIFFER) row 45: excluded (DIFFER) row 46: excluded (DIFFER) row 47: excluded (DIFFER) row 48: excluded (DIFFER) row 50: excluded (DIFFER) row 52: excluded (DIFFER) row 53: excluded (DIFFER) row 54: excluded (NOT_PUBLIC) row 55: excluded (NOT_PUBLIC) row 56: excluded (NOT_PUBLIC) row 57: excluded (NOT_PUBLIC) row 58: excluded (NOT_PUBLIC) row 59: excluded (DIFFER) row 60: excluded (NOT_PUBLIC) row 61: excluded (NOT_PUBLIC) row 64: excluded (NOT_PUBLIC) row 65: excluded (DIFFER) row 66: excluded (DIFFER) row 68: excluded (DIFFER) row 69: excluded (DIFFER) row 70: excluded (DIFFER) row 71: excluded (DIFFER) row 72: excluded (DIFFER) row 73: excluded (DIFFER) row 74: excluded (NOT_PUBLIC) row 75: excluded (DIFFER) row 76: excluded (NOT_PUBLIC) row 77: excluded (DIFFER) row 78: excluded (DIFFER) row 79: excluded (NOT_PUBLIC) row 80: excluded (NOT_PUBLIC)",
+    "sourceDocumentIds": [
+      "src-ju-a-2014-2015-set1-drivepdf"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "src-ju-a-2014-2015-set1-drivepdf",
+      "filename": "ju-a-2014-2015-set1.pdf",
+      "title": "JU A Unit (Faculty of Mathematical & Physical Sciences) 1st-year (Honours) admission test 2014-2015, SET CODE 1 — solved-paper compilation scan (AdmissionWar / Google Drive)",
+      "sha256": "d9950180b2e4c756088c1fc4fd88729a424dd102ca5455db91a491ba9d871260",
+      "sourceType": "pdf",
+      "notes": "Scanned solved-paper compilation (diagonal 'ADMISSION WAR' watermark with red 'ADMISSION' lettering and an orange/blue book logo; banners 'Download More Question Bank From www.admissionwar.com' / 'Get all University Info From www.admissionwar.com'; 'Scanned by CamScanner' footers). Each question carries a boxed 'Ans: X' key; Physics/Higher Mathematics questions print a full 'Solve:' (often with a boxed data summary), Chemistry questions a short ব্যাখ্যা or a 'Solve:' line. Renders: ocr/pages/jua1415s1/p-1..8.png (pdftoppm 300 dpi, 5166x7310); p-1 render sha256 141f737b4855c5b9f74320f9f538a5a67d3e826da5934413a6dc8ed2f855cfbb. Key obscurations: Q2's and Q3's key letters are partly covered by the watermark logo and were read on enlarged dark-/colour-channel crops (Q3's survives only as an arc, read as C); Q36's key letter is wholly covered and is NOT recorded (question keyless). Handwritten candidate marks (circled '4' on p.1) were ignored."
+    },
+    {
+      "id": "satt-ju-a-2014-2015-set1",
+      "filename": "satt-ju-coverage-2014-2015-a.html",
+      "title": "Satt Academy — JU A Unit 2014 year bank (aggregate, no set labels)",
+      "sha256": "767995aaada94dd80392e9cf6c359aca3aa5a68225ea8a8dd8e6fd00ab8b8c57",
+      "sourceType": "structured-data",
+      "notes": "Independent question-bank rendering of the same paper, accessed 2026-10-31 (https://sattacademy.com (admission hub, subcat 3422)). Satt publicly serves a limited window per subject; login-gated pages were not bypassed."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ju",
+      "code": "JU",
+      "name": "Jahangirnagar University"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ju-a-2014-2015-set1",
+      "institutionId": "ju",
+      "category": "varsity",
+      "year": 2015,
+      "academicSession": "2014-2015",
+      "unit": "A",
+      "title": "JU A Unit Admission Test 2014-2015 — Set Code 1 (AdmissionWar/Google Drive solved-paper compilation scan; Drive listing 'Set-1')"
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-ju-a-2014-2015-set1-drivepdf",
+      "paperId": "ju-a-2014-2015-set1",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-ju-a-2014-2015-set1-drivepdf"
+      ],
+      "sourceNote": "Transcribed from the compilation's printed header (PDF p.1): জাহাঙ্গীরনগর বিশ্ববিদ্যালয়; A-ইউনিট, গাণিতিক ও পদার্থ বিষয়ক অনুষদ; ১ম বর্ষ স্নাতক (সম্মান) ভর্তি পরীক্ষা ২০১৪-২০১৫; সময়ঃ ৫৫ মিনিট, পূর্ণমানঃ ৮০; boxed set label 'SET CODE: 1'. Printed instructions: প্রশ্নপত্রে ৮০টি প্রশ্ন আছে, সকল প্রশ্নের উত্তর দিতে হবে, প্রতিটি ভুল উত্তরের জন্য ০.২০ নম্বর কাটা যাবে; কোন ধরনের ক্যালকুলেটর ব্যবহার করা যাবে না; পরীক্ষা শেষে উত্তরপত্র (OMR) এর সাথে প্রশ্নপত্রও কর্তব্যরত সম্মানিত শিক্ষকের নিকট জমা দিতে হবে; OMR উত্তরপত্রের নির্ধারিত 'ক' ও 'খ' স্থানে দুটি বাক্য লিখতে হবে — (ক) আমাদের ছোট নদী চলে বাঁকে বাঁকে (খ) 'Honesty is the best policy'. A circled handwritten '4' beside the header is a candidate's mark, not print, and does not change the printed code."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ju-a-2014-2015-set1-bangla-03",
+      "text": "উত্তম পুরুষের উদাহরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "তোমরা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আমরা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আপনি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এরা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 14,
+          "pageNumber": 1,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 1,
+        "questionNumber": 14
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-chemistry-03",
+      "text": "NaOH(aq) + HCl(aq) = NaCl(aq) + H2O(l) এর ΔH^0 হলো",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "-57.2 KJ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-57.28 KJ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-58.03 KJ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-55.2 KJ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 17,
+          "pageNumber": 2,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 2,
+        "questionNumber": 17
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-chemistry-21",
+      "text": "নিচের কোনটি অধিক ক্ষারধর্মী হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "NH3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH3NH2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(CH3)2NH",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "C6H5NH2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 35,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 35
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-physics-05",
+      "text": "একটি কার্নো ইঞ্জিনের তাপ উৎসের তাপমাত্রা 327°C এবং তাপ গ্রাহকের তাপমাত্রা 87°C হলে, ইঞ্জিনের কর্মদক্ষতা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "40%",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "30%",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "50%",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "20%",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 41,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 41
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-physics-06",
+      "text": "বরফের আপেক্ষিক তাপ হলো",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "210 KJg^-1 K^-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2100 JKg^-1K^-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4200 JKg^-1 K^-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "140 JKg^-1K^-1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Option (A) prints the garbled unit 'KJg^-1 K^-1' as shown (preserved as printed).",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 42,
+          "pageNumber": 3,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 3,
+        "questionNumber": 42
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-physics-08",
+      "text": "তাপগতীয় কোন প্রক্রিয়ায় গ্যাসের তাপমাত্রা স্থির থাকে কিন্তু চাপ ও আয়তনের পরিবর্তন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "রুদ্ধতাপীয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সমোষ্ণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সমআয়তন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সমচাপ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 44,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 4,
+        "questionNumber": 44
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-physics-13",
+      "text": "দুইটি গোলকের ব্যাসার্ধ যথাক্রমে 2 cm ও 4 cm। এদেরকে যথাক্রমে 1000 কুলম্ব এবং 2000 কুলম্ব চার্জে চার্জিত করা হলো। ক্ষুদ্র ও বৃহৎ গোলকের চার্জের তল ঘনত্বের অনুপাত কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2:1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1:2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4:1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1:4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 49,
+          "pageNumber": 4,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 4,
+        "questionNumber": 49
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-physics-15",
+      "text": "1 hr-এ একটি 200 watt এর TV সেট এবং 20 min-এ 1000 watt এর একটি ইস্ত্রির বিদ্যুৎ শক্তি ব্যবহারের অনুপাত কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3:5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1:5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6:5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12:5",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "PRINTED OPTION-LABEL ERROR (mapped positionally): the first option is labelled '(B)' in print instead of '(A)'; the second option is also labelled '(B)'. Options are recorded in printed order; the boxed key 'Ans: A' and the Solve (3:5) both point to the first option.",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 51,
+          "pageNumber": 5,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 5,
+        "questionNumber": 51
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-higher-mathematics-04",
+      "text": "(a + x)^5 এর বিস্তৃতিতে x^3 এর সহগ 40 হলে a এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "±2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 62,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 6,
+        "questionNumber": 62
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-higher-mathematics-05",
+      "text": "√3 - i এর মডুলাস কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "√2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 63,
+          "pageNumber": 6,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 6,
+        "questionNumber": 63
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    },
+    {
+      "id": "ju-a-2014-2015-set1-higher-mathematics-09",
+      "text": "∫[0 থেকে π/4] (tan^3 x + tan x) dx = কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ju-a-2014-2015-set1",
+          "questionNumber": 67,
+          "pageNumber": 7,
+          "sourceDocumentId": "src-ju-a-2014-2015-set1-drivepdf"
+        }
+      ],
+      "source": {
+        "documentId": "src-ju-a-2014-2015-set1-drivepdf",
+        "pageNumber": 7,
+        "questionNumber": 67
+      },
+      "verificationNotes": "Content and answer key agree with Satt Academy's independent rendering (see VERIFICATION.md)."
+    }
+  ]
+}

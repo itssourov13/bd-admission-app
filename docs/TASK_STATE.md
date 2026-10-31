@@ -1,5 +1,16 @@
 # Task state
 
+## JU + HSTU question-bank import — 2026-11-01
+
+- [x] Audited the Muse archive, ZIP integrity, all JSON packs, app schema, importer, data indexer and existing data IDs. Did not repeat question/answer factual verification.
+- [x] Imported 50 JU packs / 1,526 questions and 7 HSTU packs / 293 questions; excluded the 3 unrelated GST packs.
+- [x] Resolved the shared JU source-document ID across 24 batches by deterministic batch namespacing; updated every affected source reference while preserving question/option/answer data and all individual verification fields.
+- [x] Regenerated `src/content/bundledPacks.ts`: **118 packs / 7,836 questions**.
+- [x] Added integration tests for 57 new packs, answer/content states, source/reference uniqueness, warning preservation, all-pack SQLite import and re-import idempotency.
+- [x] Fresh SQLite import: 118/118 packs imported, zero failures; 7,836 questions / 31,344 options / 118 batches / 118 papers / 59 rules / 168 sources / 7,836 appearances / 5 institutions. New verified single-choice pool: 1,668.
+- [x] Documented the remaining HSTU historical coverage gap and that all 57 JU/HSTU exam rules remain unconfigured; no unofficial timed-exam pattern was invented.
+- [ ] Owner device check after installing a newly built APK is still separate. Production AAB/Google Play remains outstanding.
+
 ## Android preview release and documentation sync — 2026-10-31
 
 - [x] Merged GitHub PR #2; merge commit `3aa125d4e12cdca1702f976f20c1f60a765923d1`.

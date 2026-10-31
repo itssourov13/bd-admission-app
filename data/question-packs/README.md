@@ -1,5 +1,25 @@
 # Bundled question packs
 
+## Jahangirnagar University — Muse AI import (2026-11-01)
+
+- `ju-*.json` — 50 packs / 1,526 questions across academic sessions 2010–2011 to 2024–2025 (31 represented session/unit combinations).
+- Per-question content status is `verified`; answer status is preserved exactly: 1,414 `verified`, 111 `unverified`, 1 `unknown`.
+- 1,393 questions meet the current verified single-choice practice filter. Six records retain multiple-choice type and 16 preserve the source `no_correct_option` state; they remain browsable but are not scored by the single-choice engine.
+- Six questions contain identical option text. These are import warnings, not a reason to rewrite source text or infer a correction.
+- No paper-specific exam rules are configured. Do not infer a question count, duration, subject quota or marking scheme.
+
+## HSTU — Muse AI import (2026-11-01)
+
+- `hstu-*.json` — 7 packs / 293 questions across sessions 2016–2017, 2017–2018 and 2024–2025 (A/B and available shifts).
+- Per-question content status is `verified`; answer status is preserved exactly: 275 `verified`, 8 `unverified`, 10 `unknown`.
+- 275 questions meet the current verified single-choice practice filter.
+- One question has identical option text in at least two choices; it is retained unchanged.
+- This is partial historical coverage; additional HSTU sessions are still needed to meet the 15–20-year research target. All 7 paper rules remain `unconfigured`.
+
+**Muse verification boundary:** the user reported that Muse AI marked the archive verified. This import did not repeat question-by-question factual verification and did not upgrade individual answer statuses. `answerVerificationStatus` remains the per-question gate for scored practice.
+
+**Source ID normalization:** the shared source ID `udvash-ju-abswer-combined` appeared in 24 separate JU batches. It is now suffixed with the corresponding stable batch ID in those 24 packs; `batch.sourceDocumentIds`, question source references, appearance source references and rule source references were updated together. This fixes the importer’s global source-ID collision without changing source filenames, hashes, notes, question content or answer data.
+
 ## DU A Unit — scanned question-bank practice
 
 - `du-a-2024-2025.json` — 90 questions.

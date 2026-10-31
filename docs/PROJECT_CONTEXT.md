@@ -17,6 +17,10 @@ The initial release is single-device and local-first. A sign-in service, hosted 
 ## Success criteria
 Fast, readable, offline question practice; accurate source/year metadata; reliable local persistence; deterministic timer/scoring; repeatable and safe question imports; UI components reused from the author's ScholarHub app where appropriate.
 
+## Current bundled university question banks — 2026-11-01
+
+The Varsity catalogue now includes separate `JU` (Jahangirnagar University: 50 packs / 1,526 questions) and `HSTU` (Hajee Mohammad Danesh Science and Technology University: 7 packs / 293 questions) institutions. JU covers a 2010–2011 to 2024–2025 session span; HSTU currently has only 2016–2017, 2017–2018 and 2024–2025, so its historical collection is incomplete. Muse AI marked the imported archive verified; per-question answer states remain individually verified/unverified/unknown, and only verified single-choice items enter the normal scored-practice pool. Do not infer exam rules from source notes.
+
 ## RU question-data research/staging
 
 The separate historical RU Unit A research snapshot remains external at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`: eight research-only sample packs (21 questions), a coverage ledger and restricted/untranscribed source leads. Separately, the user-supplied `RU Question Bank.pdf` has been imported into a distinct `RU-V` institution, with 15 packs / 1,828 questions, as documented in `docs/QUESTION_IMPORT_WORKFLOW.md`. The previous RU C Science candidate entry remains separate and visibly prefixed `UNVERIFIED —`; the rebuilt RU-V bank contains 1,828 verified records across 15 packs.

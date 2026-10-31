@@ -83,6 +83,10 @@ Status: accepted, 2026-10-29.
 The existing `ru` institution and its 4,009 candidate questions remain intact and visibly begin with `UNVERIFIED —`. The user-supplied verified-source PDF is imported under a distinct institution ID (`ru-verified-bank`, code `RU-V`) with separate pack/paper/question IDs and page provenance. Do not merge or replace old questions because a source PDF overlaps in year; older questions without matching source coverage must be preserved. Per user instruction, the new source question content is marked verified, but source answer markers that are absent or could not be mapped remain `unknown` rather than being invented. Do not infer RU official scoring/time rules from the question bank.
 
 
+## ADR-017 — Preserve Muse per-question states and scope source IDs per import batch
+Status: accepted, 2026-11-01.
+Import the user-designated Muse AI archive without repeating question-by-question factual verification. Treat `contentVerificationStatus` and `answerVerificationStatus` on each record as authoritative; a batch-level `verified` label does not promote an individual `unverified` or `unknown` answer. Source-document IDs must be globally unique for the SQLite importer: when a source ID is reused by independent packs, namespace the affected IDs by stable batch ID and update every reference, leaving question text, options, keys, hashes and source metadata unchanged. Exam rules stay `unconfigured` until the exact paper/session pattern is approved; descriptive source notes alone do not activate a rule.
+
 ## ADR-016 — Use EAS cloud builds and GitHub Actions CI for Android delivery
 Status: accepted, 2026-10-31.
 

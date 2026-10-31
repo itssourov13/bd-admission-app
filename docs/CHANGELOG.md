@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-01 — Import Jahangirnagar University and HSTU question banks
+
+- Added 57 Muse AI schema-v1 packs: 50 JU / 1,526 questions and 7 HSTU / 293 questions. The 3 unrelated GST packs in the archive were excluded.
+- Preserved question/option/answer content and individual verification states; question-by-question factual verification was not repeated. The addition supplies 1,668 verified single-choice practice-eligible questions.
+- Namespaced the shared JU source-document ID for its 24 batch occurrences and updated all linked references; no question or answer data was changed.
+- Regenerated the bundle to 118 packs / 7,836 questions and added integration tests for fresh-SQLite import, status preservation, ID integrity and idempotent re-import.
+- Validation: all 57 new packs valid with 0 errors / 125 warnings; all 118 packs imported in a fresh database with zero failures. All JU/HSTU exam rules remain unconfigured; HSTU historical coverage remains partial.
+
 ## 2026-10-31 — Publish Android preview and reconcile release documentation
 
 - Merged PR #2 (`3aa125d4e12cdca1702f976f20c1f60a765923d1`) to `main`; both the PR CI run and merge push CI run completed successfully.
