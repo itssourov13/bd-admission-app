@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-01 (startup setup UI implemented and automated checks pass; Android device QA and a new preview APK remain pending).
+Last updated: 2026-11-01 (v0.1.1 internal EAS Android APK build finished; physical-device verification pending).
 
 ## Branded startup/setup UI — 2026-11-01
 
@@ -9,8 +9,16 @@ Last updated: 2026-11-01 (startup setup UI implemented and automated checks pass
 - Moved the unchanged startup sequence into `src/services/startup.ts`, split progress into its own context, and defer evaluation of `bundledPacks` until the setup screen reports its first layout. Returning-sync failures remain warnings so already-imported local content can still be used; a first-run sync that imports no usable pack offers retry.
 - No SQLite schema, question-pack content, scoring or importer data contract changed. Existing profile, bookmarks, attempts and history are preserved by the existing importer/data ownership rules. The setup screen covers startup until the current sync sequence completes; background sync/performance optimizations are intentionally not included.
 - Automated verification: **76/76 tests**, `pnpm typecheck`, `pnpm lint`, and Android `expo export --platform android --no-bytecode` passed (2,058 modules, 22 MB JS bundle, 122 assets). This export is not an installable APK and does not prove on-device UI behavior.
-- **Pending:** build a new EAS preview APK and check fresh-install and returning-install flows on a physical Android device, including Bangla/English, progress, retry, small-screen layout, reduced motion and data preservation. The published `v0.1.0-preview.1` APK does not contain this interface.
+- **Current EAS preview:** version `0.1.1`, Android `versionCode 2`, build ID `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, profile `preview` / internal APK, package `com.admissionbd.app`. [Open the Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd). The build finished from the current branch using the existing EAS-managed Android keystore; [download the APK](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). EAS reports `FINISHED` (completed **2026-11-01 12:19:53 +06:00**); its device install/update QA remains pending.
+- **Pending:** check fresh-install and returning-install flows on a physical Android device, including Bangla/English, progress, retry, small-screen layout, reduced motion and data preservation. The historical `v0.1.0-preview.1` APK does not contain this interface or the latest JU/HSTU packs.
 
+
+## Current Android preview build — v0.1.1 (2026-11-01)
+
+- EAS build ID: `b4745dc4-0069-4a86-bb5b-234e5f377dfd`; [build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd).
+- App version `0.1.1`, Android `versionCode 2`, package `com.admissionbd.app`, EAS profile `preview`, distribution `INTERNAL` (APK), Expo SDK `57.0.0`.
+- Includes the branded startup/setup UI and the current 217-pack / 13,609-question catalogue. The previous EAS-managed Android keystore is reused so the APK can update the previous installation without changing the application ID/signing identity.
+- Build status: **`FINISHED`** at **2026-11-01 12:19:53 +06:00**. [Download the installable APK](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk) or use the [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd). The build page says it expires on **2026-11-15 12:05 +06:00**. No GitHub release was created for this internal preview. Physical-device verification remains owner-pending.
 
 ## Android preview release — 2026-10-31 (Asia/Dhaka)
 

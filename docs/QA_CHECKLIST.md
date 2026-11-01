@@ -1,6 +1,6 @@
 # QA checklist
 
-Latest automated verification: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **76/76 tests**, with typecheck and lint passing. The current bundle has **217 packs / 13,609 questions** including separate verified and unverified JU/HSTU banks. The latest Android no-bytecode export passes (2,058 modules / 22 MB JS / 122 assets); the published APK predates the JU/HSTU imports and the new startup UI. New APK/device verification and production AAB/Play Store rollout remain outstanding. Earlier 66-test import checkpoint is retained in the historical table below.
+Latest automated verification: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **76/76 tests**, with typecheck and lint passing. The current bundle has **217 packs / 13,609 questions** including separate verified and unverified JU/HSTU banks. The latest Android no-bytecode export passes (2,058 modules / 22 MB JS / 122 assets). EAS internal APK build **`b4745dc4-0069-4a86-bb5b-234e5f377dfd`** is finished for version `0.1.1` / `versionCode 2` ([Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd)); physical-device installation and QA remain pending. Production AAB/Play Store rollout also remains outstanding. Earlier 66-test import checkpoint is retained in the historical table below.
 
 ## Startup setup UI verification — 2026-11-01
 
@@ -13,13 +13,14 @@ Latest automated verification: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm
 | React/TypeScript code checks | [x] Pass | `pnpm typecheck` and `pnpm lint` pass after fixing the initial React Hooks refs/effect lint findings. |
 | Full automated suite | [x] Pass | `pnpm test`: **76 passed, 0 failed**. |
 | Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`: 2,058 modules, 22 MB JS bundle, 122 assets. This is a bundle/export check, not an APK build or on-device check. |
-| Physical Android fresh-install UI | [ ] Pending | Build/install a new APK; verify native splash → branded setup → Home, Bangla/English, actual progress, completion transition and airplane-mode behavior. |
+| EAS internal Android APK | [x] Built | `FINISHED`, build `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, version `0.1.1` / `versionCode 2`; [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) · [APK](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). |
+| Physical Android fresh-install UI | [ ] Pending | Install the v0.1.1 APK; verify native splash → branded setup → Home, Bangla/English, actual progress, completion transition and airplane-mode behavior. |
 | Existing-install update/data preservation | [ ] Pending | Install over the current app without clearing data; check that profile, bookmarks, exam attempts, Flash history and question content remain available. |
 | Retry/error and small-screen/accessibility | [ ] Pending | Exercise retry where practical; inspect short-height screens, Reduce Motion, TalkBack labels/focus and touch controls. |
 
 ### Device test notes
 
-- The published `v0.1.0-preview.1` APK predates both JU/HSTU import updates and this setup UI. A new EAS preview APK is required.
+- The historical GitHub `v0.1.0-preview.1` APK predates both JU/HSTU import updates and this setup UI. The EAS `v0.1.1` build `b4745dc4-0069-4a86-bb5b-234e5f377dfd` is finished and contains the current source; owner device installation/verification is pending.
 - Installing over an existing app exercises the returning-install path and should retain its database. To test a true empty-database first install, use a disposable device/profile or deliberately clear/uninstall the app only after accepting that this deletes its local profile, bookmarks, sessions, attempts and history. Do not clear the user's primary installation casually.
 - The setup interface is currently shown while the startup synchronization sequence runs, including on returning launches; existing content is not exposed in the background while a new bundle syncs. Background sync remains future work.
 

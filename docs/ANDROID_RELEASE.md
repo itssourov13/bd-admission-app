@@ -9,7 +9,7 @@ Last updated: 2026-11-01
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- App version: `0.1.0`; Android version code starts at `1`.
+- Current app version: `0.1.1`; Android version code: `2` (the historical `v0.1.0` APK used code `1`).
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
@@ -52,9 +52,13 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
-## New preview APK — startup setup UI and JU/HSTU banks
+## Current preview APK — v0.1.1 (EAS build finished)
 
-The published `v0.1.0-preview.1` APK predates the JU/HSTU imports and the branded startup/setup UI. Build a new preview APK from the current branch before physical-device testing:
+The current internal preview build is **`0.1.1` / Android `versionCode 2`**. It includes the branded startup/setup UI and the current JU/HSTU verified and unverified question banks. EAS build ID: `b4745dc4-0069-4a86-bb5b-234e5f377dfd`. EAS status is **`FINISHED`** (completed **2026-11-01 12:19:53 +06:00**). Open the [Expo EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) with the owner account and tap **Install**, or [download the APK directly](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). The preview profile is internal distribution and created an installable APK. The old `v0.1.0-preview.1` GitHub asset is historical and does not include this newer UI/content.
+
+The `0.1.1` build reuses the existing EAS-managed Android keystore and retains application ID `com.admissionbd.app`; Android `versionCode` was incremented from `1` to `2` for upgrade installation. No GitHub release was created for this internal build. The Expo build page indicates expiry on **2026-11-15 12:05 +06:00**. Physical-device install/update QA is still required.
+
+To reproduce the cloud build from the same source branch:
 
 ```sh
 source "$HOME/.nvm/nvm.sh"
@@ -63,7 +67,7 @@ pnpm install --frozen-lockfile
 EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview
 ```
 
-Install the generated APK on a test device. Installing over the existing app exercises the returning-install path and should retain the local database. For a genuine empty-database first-install check, use a disposable device/profile. Uninstalling the app or clearing its storage deletes the local profile, bookmarks, practice sessions, answers and history; do not clear the primary installation without accepting that loss.
+Install the generated APK on the Android device. Installing over the existing app exercises the returning-install path and should retain the local database. The current EAS build link is scheduled to expire on **2026-11-15 12:05 +06:00**; install it from the Expo build page before expiry. For a genuine empty-database first-install check, use a disposable device/profile. Uninstalling the app or clearing its storage deletes the local profile, bookmarks, practice sessions, answers and history; do not clear the primary installation without accepting that loss.
 
 Device checks: native splash transitions to the setup UI without a blank frame; Bangla and English copy render; stage/progress updates as packs are processed; completion opens Home; initial setup works in airplane mode; retry appears after an initialization/import failure; an update on an existing installation preserves local data; short screens, Reduce Motion and accessibility labels remain usable. Record device/OS and observed timings separately. The no-bytecode export in `docs/QA_CHECKLIST.md` is not an APK build or a substitute for this device check.
 

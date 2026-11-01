@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-01 — Prepare v0.1.1 internal Android preview
+
+- Bumped the app/brand/package version to `0.1.1` and Android `versionCode` from `1` to `2`; retained application ID `com.admissionbd.app`, EAS project and existing EAS-managed signing credentials.
+- Completed an internal-distribution Android APK build from the active JU/HSTU + startup UI branch: EAS build `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, profile `preview`, app version `0.1.1` / Android build version `2`. [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) · [APK artifact](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). EAS status `FINISHED` at 2026-11-01 12:19:53 +06:00.
+- Checks before build: frozen install; 76/76 tests; TypeScript; ESLint; Expo public config (name, package, version, versionCode and EAS project ID); `git diff --check`.
+- The generated APK includes the branded startup screen and the current 217-pack / 13,609-question catalogue. No GitHub release was created. Owner installation and physical-device update/fresh-install QA remain pending.
+
 ## 2026-11-01 — Add branded startup setup experience
 
 - Added a responsive, branded Bangla/English startup screen with staged status, question-pack processing progress, a completion transition, accessible progress semantics, reduced-motion support and retry UI.

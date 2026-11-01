@@ -8,7 +8,7 @@ The product identity is centralized in brand.config.json:
 - Slug: bd-admission-app.
 - Android application ID / iOS bundle identifier: com.admissionbd.app.
 - Deep-link scheme: bdadmission.
-- Version: 0.1.0.
+- Version: 0.1.1 (Android `versionCode 2`; historical v0.1.0 preview used code 1).
 - Bangla tagline: ভর্তি প্রস্তুতি, আত্মবিশ্বাসের সাথে
 - English tagline: Prepare smarter. Move forward.
 
