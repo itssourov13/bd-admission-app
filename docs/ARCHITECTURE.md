@@ -23,7 +23,13 @@ The later unverified archive is imported into two additional institution identit
         -> repositories (content, sessions, userData)
         -> SqlDb adapter (src/db/adapter.ts) -> expo-sqlite
 
-The network is not part of this path. `DbProvider` gates the whole app: fonts + language + database must be ready before routes render.
+The network is not part of this path. The root layout waits for fonts and the persisted language preference, then renders the branded setup screen while `DbProvider` prepares SQLite and syncs the bundled library. The native splash is hidden after the setup screen's first layout (with a safety fallback). The route tree remains gated until the startup sequence completes; this change does not introduce background sync or make existing content independently available during an update.
+
+### Startup and first-launch setup
+
+`src/db/provider.tsx` owns the database state and a separate progress context so progress updates do not re-render ordinary database consumers. `src/services/startup.ts` preserves the prior startup order: open SQLite and enable WAL in the provider, run migrations, ensure the profile, close stale Flash sessions, finalize an overdue exam, detect whether any batch has previously been imported, then enter the library stage. The generated bundle index is loaded on demand through `src/content/loadBundledPacks.ts`; the startup service waits for the setup screen's first layout before invoking that loader, so the large pack module is not evaluated before the UI can appear.
+
+`contentSync` reports a pre-sync event and one event after each pack attempt. Overall library progress is weighted by question counts; the displayed `done/total` counts represent packs processed, including failed attempts, not a claim that every question pack imported successfully. Database/app-data/finalizing stages are stage-level indicators rather than measured sub-task percentages. A fresh database with no successfully imported pack enters a retryable error state; an existing populated database can continue with its old local content and a warning if a later sync fails. User-owned tables are not cleared. Dynamic `import()` defers module evaluation until the setup UI is laid out; the Android export remains one 22 MB JavaScript bundle, so this is not a claim of Android chunk splitting or a reduced APK.
 
 ## Routing (implemented)
 - app/(tabs): index (Home), varsity, medical, profile

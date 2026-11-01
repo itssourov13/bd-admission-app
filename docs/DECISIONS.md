@@ -95,3 +95,13 @@ Import the user-designated Muse AI archive without repeating question-by-questio
 ## ADR-018 — Keep JU/HSTU unverified candidate banks separate from verified banks
 Status: accepted, 2026-11-01.
 The supplied JU/HSTU unverified archive is stored under separate institution IDs (`ju-unverified-bank` / `JU-U`, `hstu-unverified-bank` / `HSTU-U`) and dedicated batch, paper, question and rule IDs. The existing `ju` / `JU` and `hstu` / `HSTU` verified-source entries must remain untouched. Per-question content/answer states are preserved; unknown keys are never guessed; only the existing structural provisional filter may admit safe candidates, and those sessions/results remain explicitly provisional. All incoming rules stay unconfigured. Similar-looking or even exact text/option overlaps are retained as separate source appearances, not auto-merged. The distinct GST_CLUSTER dataset is out of scope for this batch and will be imported separately.
+
+## ADR-019 — Show startup progress before evaluating the bundled question library
+Status: accepted, 2026-11-01.
+Render a branded Bangla/English setup screen while SQLite initialization and the existing sequential content-sync lifecycle run. Wait until that screen has completed its first layout before dynamically loading/evaluating the generated bundled-pack module. Report real pack/question processing progress, stage-level indicators for work without measured subtasks, a retry state for first-run total failure, and a warning/usable-existing-content path for returning sync failures. Keep database schema, question-pack contract, transactional importer and user-owned data unchanged. The screen may also describe returning-launch synchronization; it is not restricted to a cold install. This decision improves feedback and defers large module evaluation until UI is visible; it does not implement background sync, eliminate the import work, or claim that Android produces separately split JS chunks. Physical-device first-install and upgrade QA is required before release.
+
+
+## ADR-020 — Increment Android build identity without changing app identity
+Status: accepted, 2026-11-01.
+
+For the next internal preview, bump the user-facing app version from `0.1.0` to `0.1.1` and Android `versionCode` from `1` to `2`, while retaining package ID `com.admissionbd.app`, the linked EAS project and the existing EAS-managed signing keystore. The Android version code must increase for an upgrade install; the package/signing identity must remain stable so an existing install can be updated without uninstalling and deleting local app data. Preview delivery remains internal through the EAS build page; do not publish a GitHub or Play Store release implicitly.

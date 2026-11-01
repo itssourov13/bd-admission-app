@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-11-01 — Prepare v0.1.1 internal Android preview
+
+- Bumped the app/brand/package version to `0.1.1` and Android `versionCode` from `1` to `2`; retained application ID `com.admissionbd.app`, EAS project and existing EAS-managed signing credentials.
+- Completed an internal-distribution Android APK build from the active JU/HSTU + startup UI branch: EAS build `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, profile `preview`, app version `0.1.1` / Android build version `2`. [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) · [APK artifact](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). EAS status `FINISHED` at 2026-11-01 12:19:53 +06:00.
+- Checks before build: frozen install; 76/76 tests; TypeScript; ESLint; Expo public config (name, package, version, versionCode and EAS project ID); `git diff --check`.
+- The generated APK includes the branded startup screen and the current 217-pack / 13,609-question catalogue. No GitHub release was created. Owner installation and physical-device update/fresh-install QA remain pending.
+
+## 2026-11-01 — Add branded startup setup experience
+
+- Added a responsive, branded Bangla/English startup screen with staged status, question-pack processing progress, a completion transition, accessible progress semantics, reduced-motion support and retry UI.
+- Added testable startup orchestration and progress helpers; the generated pack bundle is dynamically loaded only after the setup screen's first layout.
+- Preserved the existing SQLite schema, transactional importer, pack data and user-owned local records. This remains a startup gate, not background sync or a claim that Android's single JS bundle is smaller.
+- Audit follow-up fixed React Hooks lint violations, added a test for the UI-before-bundle gate, and clarified that progress counts processed attempts rather than successful imports.
+- Verification: 76/76 tests, TypeScript, ESLint and Android no-bytecode Expo export passed. Physical-device fresh-install/returning-install verification and a new APK build remain pending.
+
 ## 2026-11-01 — Add separate JU/HSTU unverified candidate banks
 
 - Imported 84 JU-U packs / 5,011 questions and 15 HSTU-U packs / 762 questions from the unverified archive; all 5,773 content statuses and 5,563 unverified / 210 unknown answer states remain as supplied.

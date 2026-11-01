@@ -1,5 +1,19 @@
 # Task state
 
+## Branded first-launch/startup setup UI — 2026-11-01
+
+- [x] Audited startup lifecycle, bundle loading, provider gating, design tokens, localization and existing test conventions before implementation review.
+- [x] Added the branded Bangla/English setup screen, five stages, real processed-pack progress, completion transition, retry state, accessibility progress semantics, responsive scrolling and Reduce Motion support.
+- [x] Extracted the startup sequence/progress model into testable modules and added a deferred bundle loader. The loader is not called until the setup screen's first layout has completed.
+- [x] Kept the database schema, question-pack payloads, importer transaction contract, practice/scoring logic and user-owned data model unchanged.
+- [x] Fixed audit findings: replaced render-time Animated refs with state-held values; removed effect-time synchronous progress set; added a setup-layout gate fallback; clarified processed-vs-successful progress wording.
+- [x] Added focused tests for startup progress, first/returning launch, failure/retry policy, saved-data preservation, localization and UI-before-bundle ordering.
+- [x] Verified: `pnpm test` 76/76, `pnpm typecheck`, `pnpm lint`, and `pnpm exec expo export --platform android --no-bytecode` (2,058 modules / 22 MB JS / 122 assets).
+- [x] Bumped app version to `0.1.1` and Android `versionCode` to `2`; validated resolved Expo config and retained package ID/signing credentials. Local commit: `8b7e79b`.
+- [x] Built EAS internal preview APK `0.1.1 (versionCode 2)`; build ID `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, status `FINISHED`. [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) · [APK artifact](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk).
+- [ ] Install the completed APK and verify fresh-install and existing-install startup behavior on a physical Android device. The historical `v0.1.0-preview.1` APK predates this implementation.
+- [ ] After the device review, continue with the separately deferred measured startup-performance work (import batching/signature optimization/background sync/seed DB only if justified).
+
 ## JU-U + HSTU-U unverified candidate-bank import — 2026-11-01
 
 - [x] Audited the ZIP (102 JSON files); imported only 84 JU + 15 HSTU packs. Explicitly excluded the 3 `GST_CLUSTER` packs / 287 questions for a separate later task.
@@ -9,7 +23,8 @@
 - [x] Added 5,502 provisional candidates (JU-U 4,780; HSTU-U 722); withheld 42 repeated-option records and all 19 multiple-choice items from provisional single-choice scoring.
 - [x] Audited cross-bank overlap (12 exact text+ordered-option matches; 95 same stems with option differences); retained all source variants without auto-merging.
 - [x] Added integration coverage for pack/status/reference integrity, 217-pack fresh SQLite import, verified/candidate catalogue separation, practice eligibility and idempotent re-import.
-- [ ] Build/install a new Android preview APK and perform owner device smoke verification; the already-published APK predates the candidate-bank import. Production AAB/Google Play remains outstanding.
+- [x] Completed EAS APK build `b4745dc4-0069-4a86-bb5b-234e5f377dfd` containing the JU/HSTU candidate banks and branded startup UI; [Expo install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd).
+- [ ] Owner device installation and smoke verification remain pending. Production AAB/Google Play remains outstanding.
 
 
 ## JU + HSTU question-bank import — 2026-11-01

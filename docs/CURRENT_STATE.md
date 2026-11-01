@@ -1,7 +1,24 @@
 # Current state
 
-Last updated: 2026-11-01 (JU/HSTU verified and unverified candidate banks imported; 217 packs / 13,609 questions; Google Play production AAB/listing remain outstanding).
+Last updated: 2026-11-01 (v0.1.1 internal EAS Android APK build finished; physical-device verification pending).
 
+## Branded startup/setup UI — 2026-11-01
+
+- Added a branded Bangla/English setup screen with the app logo/name, responsive layout, animated progress, five startup stages, a processed question-pack counter, offline reassurance, retry state, accessibility progress semantics and Reduce Motion support.
+- Progress is emitted from the actual pack-sync loop. The library bar is weighted by each pack's question count; `done/total` means processed pack attempts (including failures), not that all imported records are valid or successful. Database/app-data/finalizing stages are stage-level indicators, not exact percentages for every SQL operation.
+- Moved the unchanged startup sequence into `src/services/startup.ts`, split progress into its own context, and defer evaluation of `bundledPacks` until the setup screen reports its first layout. Returning-sync failures remain warnings so already-imported local content can still be used; a first-run sync that imports no usable pack offers retry.
+- No SQLite schema, question-pack content, scoring or importer data contract changed. Existing profile, bookmarks, attempts and history are preserved by the existing importer/data ownership rules. The setup screen covers startup until the current sync sequence completes; background sync/performance optimizations are intentionally not included.
+- Automated verification: **76/76 tests**, `pnpm typecheck`, `pnpm lint`, and Android `expo export --platform android --no-bytecode` passed (2,058 modules, 22 MB JS bundle, 122 assets). This export is not an installable APK and does not prove on-device UI behavior.
+- **Current EAS preview:** version `0.1.1`, Android `versionCode 2`, build ID `b4745dc4-0069-4a86-bb5b-234e5f377dfd`, profile `preview` / internal APK, package `com.admissionbd.app`. [Open the Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd). The build finished from the current branch using the existing EAS-managed Android keystore; [download the APK](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). EAS reports `FINISHED` (completed **2026-11-01 12:19:53 +06:00**); its device install/update QA remains pending.
+- **Pending:** check fresh-install and returning-install flows on a physical Android device, including Bangla/English, progress, retry, small-screen layout, reduced motion and data preservation. The historical `v0.1.0-preview.1` APK does not contain this interface or the latest JU/HSTU packs.
+
+
+## Current Android preview build — v0.1.1 (2026-11-01)
+
+- EAS build ID: `b4745dc4-0069-4a86-bb5b-234e5f377dfd`; [build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd).
+- App version `0.1.1`, Android `versionCode 2`, package `com.admissionbd.app`, EAS profile `preview`, distribution `INTERNAL` (APK), Expo SDK `57.0.0`.
+- Includes the branded startup/setup UI and the current 217-pack / 13,609-question catalogue. The previous EAS-managed Android keystore is reused so the APK can update the previous installation without changing the application ID/signing identity.
+- Build status: **`FINISHED`** at **2026-11-01 12:19:53 +06:00**. [Download the installable APK](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk) or use the [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd). The build page says it expires on **2026-11-15 12:05 +06:00**. No GitHub release was created for this internal preview. Physical-device verification remains owner-pending.
 
 ## Android preview release — 2026-10-31 (Asia/Dhaka)
 
@@ -55,7 +72,7 @@ This snapshot supersedes the prior RU-V count and import-status checkpoints furt
 - The app still adds no RU-specific time, marking or section-count rule. General Standard Exam remains 100 questions / 60 minutes. Total bundle remains 61 JSON packs.
 
 ## What exists and is wired end to end
-- **Database**: `DbProvider` (src/db/provider.tsx) opens SQLite, enables WAL, runs versioned migrations, ensures the profile row, closes stale Flash sessions, finalizes an exam that expired while the app was closed, then syncs bundled question packs. Loading and error (with retry) states are rendered by app/_layout.tsx. A bad pack only produces a warning; a DB/migration failure shows a retry screen and deletes nothing.
+- **Database/startup**: `DbProvider` (src/db/provider.tsx) opens SQLite, enables WAL, and delegates migrations, profile/session housekeeping and pack synchronization to `src/services/startup.ts`. `app/_layout.tsx` renders the branded Bangla/English setup UI after fonts/language are ready, hides the native splash after the setup screen's first layout, and keeps routes gated until startup completes. Progress uses a separate context. The bundle index is evaluated on demand after the UI has laid out. First-run total import failure has a retry state; returning sync failure is a warning and keeps existing content available. No user-owned database records are cleared.
 - **Repositories** (src/repositories): content (catalogue, eligibility, question loading, rule resolution), sessions (Flash/exam persistence, exactly-once exam finalization, history), userData (profile, bookmarks, activity summary).
 - **Screens** (app/): Home, Varsity (institutions), Institution detail (papers), Paper detail (rule notice, Flash/Exam/Browse), Medical (papers), subject-filterable Question browser, subject-filterable Flash setup/play, Standard Exam setup/play with one continuously scrollable question list, Result (Flash and Exam, with exam answer review), Profile (name, language, default timer, target category, real progress, imported packs), Bookmarks, History, Engineering (clearly marked Coming Soon).
 - **Flash Question**: one question at a time, 30 s default and configurable (5-600 s) timer, wall-clock deadlines refreshed on app foreground, no repeats until the pool is exhausted then reshuffle, answer/feedback/next/skip/finish, tap-vs-timeout race guarded, unlimited continuation, results with counts/accuracy/score/advice, persisted history.
