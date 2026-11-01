@@ -1,5 +1,17 @@
 # Task state
 
+## Branded first-launch/startup setup UI — 2026-11-01
+
+- [x] Audited startup lifecycle, bundle loading, provider gating, design tokens, localization and existing test conventions before implementation review.
+- [x] Added the branded Bangla/English setup screen, five stages, real processed-pack progress, completion transition, retry state, accessibility progress semantics, responsive scrolling and Reduce Motion support.
+- [x] Extracted the startup sequence/progress model into testable modules and added a deferred bundle loader. The loader is not called until the setup screen's first layout has completed.
+- [x] Kept the database schema, question-pack payloads, importer transaction contract, practice/scoring logic and user-owned data model unchanged.
+- [x] Fixed audit findings: replaced render-time Animated refs with state-held values; removed effect-time synchronous progress set; added a setup-layout gate fallback; clarified processed-vs-successful progress wording.
+- [x] Added focused tests for startup progress, first/returning launch, failure/retry policy, saved-data preservation, localization and UI-before-bundle ordering.
+- [x] Verified: `pnpm test` 76/76, `pnpm typecheck`, `pnpm lint`, and `pnpm exec expo export --platform android --no-bytecode` (2,058 modules / 22 MB JS / 122 assets).
+- [ ] Build a new EAS preview APK and verify fresh-install and existing-install startup behavior on a physical Android device. The published `v0.1.0-preview.1` APK predates this implementation.
+- [ ] After the device review, continue with the separately deferred measured startup-performance work (import batching/signature optimization/background sync/seed DB only if justified).
+
 ## JU-U + HSTU-U unverified candidate-bank import — 2026-11-01
 
 - [x] Audited the ZIP (102 JSON files); imported only 84 JU + 15 HSTU packs. Explicitly excluded the 3 `GST_CLUSTER` packs / 287 questions for a separate later task.

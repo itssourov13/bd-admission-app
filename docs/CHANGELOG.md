@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-01 — Add branded startup setup experience
+
+- Added a responsive, branded Bangla/English startup screen with staged status, question-pack processing progress, a completion transition, accessible progress semantics, reduced-motion support and retry UI.
+- Added testable startup orchestration and progress helpers; the generated pack bundle is dynamically loaded only after the setup screen's first layout.
+- Preserved the existing SQLite schema, transactional importer, pack data and user-owned local records. This remains a startup gate, not background sync or a claim that Android's single JS bundle is smaller.
+- Audit follow-up fixed React Hooks lint violations, added a test for the UI-before-bundle gate, and clarified that progress counts processed attempts rather than successful imports.
+- Verification: 76/76 tests, TypeScript, ESLint and Android no-bytecode Expo export passed. Physical-device fresh-install/returning-install verification and a new APK build remain pending.
+
 ## 2026-11-01 — Add separate JU/HSTU unverified candidate banks
 
 - Imported 84 JU-U packs / 5,011 questions and 15 HSTU-U packs / 762 questions from the unverified archive; all 5,773 content statuses and 5,563 unverified / 210 unknown answer states remain as supplied.

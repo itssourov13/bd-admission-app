@@ -1,6 +1,6 @@
 # Android build and release guide
 
-Last updated: 2026-10-31
+Last updated: 2026-11-01
 
 ## Current release setup
 
@@ -51,6 +51,21 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 ```
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
+
+## New preview APK — startup setup UI and JU/HSTU banks
+
+The published `v0.1.0-preview.1` APK predates the JU/HSTU imports and the branded startup/setup UI. Build a new preview APK from the current branch before physical-device testing:
+
+```sh
+source "$HOME/.nvm/nvm.sh"
+nvm use 22.23.1
+pnpm install --frozen-lockfile
+EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview
+```
+
+Install the generated APK on a test device. Installing over the existing app exercises the returning-install path and should retain the local database. For a genuine empty-database first-install check, use a disposable device/profile. Uninstalling the app or clearing its storage deletes the local profile, bookmarks, practice sessions, answers and history; do not clear the primary installation without accepting that loss.
+
+Device checks: native splash transitions to the setup UI without a blank frame; Bangla and English copy render; stage/progress updates as packs are processed; completion opens Home; initial setup works in airplane mode; retry appears after an initialization/import failure; an update on an existing installation preserves local data; short screens, Reduce Motion and accessibility labels remain usable. Record device/OS and observed timings separately. The no-bytecode export in `docs/QA_CHECKLIST.md` is not an APK build or a substitute for this device check.
 
 ## Production AAB — Google Play
 

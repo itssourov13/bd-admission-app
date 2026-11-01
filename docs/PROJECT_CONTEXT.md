@@ -17,6 +17,9 @@ The initial release is single-device and local-first. A sign-in service, hosted 
 ## Success criteria
 Fast, readable, offline question practice; accurate source/year metadata; reliable local persistence; deterministic timer/scoring; repeatable and safe question imports; UI components reused from the author's ScholarHub app where appropriate.
 
+## Startup experience
+The app presents a branded Bangla/English setup screen while local SQLite initialization and bundled question-pack synchronization run. It reports stage changes and real processed-pack/question progress, supports reduced motion and a recoverable retry state, and explains the offline library setup. This is a progress/feedback improvement, not a background-sync architecture: the initial route tree remains gated until the startup sequence completes. Existing local profile, bookmarks, exam attempts and practice history must remain intact.
+
 ## Current bundled university question banks — 2026-11-01
 
 The Varsity catalogue now has four separate JU/HSTU entries: verified `JU` (50 packs / 1,526 questions) and `HSTU` (7 / 293), plus candidate-only `JU-U` (84 / 5,011) and `HSTU-U` (15 / 762). The verified banks and their practice eligibility remain unchanged by the follow-up import. All 5,773 newly added candidates keep `contentVerificationStatus: unverified`; answer states remain 5,563 unverified and 210 unknown. The explicit provisional pools contain 4,780 JU-U and 722 HSTU-U candidates after repeated-option filtering. All 99 rules stay unconfigured. The 3 separate GST_CLUSTER packs / 287 questions were excluded for a later import. Do not infer exam rules from source notes.

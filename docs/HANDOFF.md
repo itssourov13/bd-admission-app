@@ -1,5 +1,11 @@
 # Handoff
 
+## Branded startup/setup UI — 2026-11-01
+
+The active branch `feat/import-ju-hstu-unverified-question-banks-2026-11-01` now contains a branded BN/EN setup screen and testable startup progress. It displays the app brand, five startup stages, a question-pack processed counter (question-count weighted overall progress), an offline reassurance, a completion transition and retry state. Accessibility progress semantics, Reduce Motion and scrollable/small-screen layout are included. The generated pack bundle is loaded only after the setup screen's first layout; the route tree still waits for the existing sequential content sync to finish. This is not background sync or a measured import-performance fix.
+
+Audit follow-up corrected React Hooks lint violations and added a test for the UI-before-bundle gate. Latest verification: 76/76 tests, typecheck, lint and Android no-bytecode export (2,058 modules / 22 MB JS / 122 assets) pass. **Not done:** no new APK has been built and no physical-device setup UI test has been reported. The public `v0.1.0-preview.1` APK does not include the new UI or JU/HSTU packs. Follow `docs/ANDROID_RELEASE.md` to build the new preview APK, then use `docs/QA_CHECKLIST.md` for fresh/returning install checks. Clearing the primary app's data deletes its local user records.
+
 ## README showcase — 2026-10-31
 
 The README now presents three 1080×1920 portrait graphics in `docs/assets/showcase/` (Home, Varsity catalogue and Profile). Each retains actual runtime UI pixels over generated, brand-matched abstract artwork; profile display-name text is anonymized as `Learner`. Visible profile counters are from the captured local sample profile, not product-wide usage metrics. These are README presentation assets, not final Play Console listing screenshots. Before store submission, capture at least one additional authentic runtime screen and prepare the final store assets against the [Google Play preview-asset guidance](https://support.google.com/googleplay/android-developer/answer/9866151).
@@ -19,9 +25,9 @@ The app bundles **217 packs / 13,609 questions**: 180 DU A Unit, 4,009 RU C cand
     pnpm dlx eas-cli@latest build --platform android --profile preview  # cloud APK build
 
 ## Next steps
-1. Independently verify JU-U/HSTU-U candidate question text, options and source keys against matching original papers/keys; investigate the 42 repeated-option records and cross-bank overlap findings before promoting any item. Keep the HSTU verified-bank historical coverage gap visible and add future source-backed sessions without silently merging candidate records.
-2. Keep the publisher-derived DU A Unit pattern illustrative: the official DU 2025–2026 notice includes 40 written marks in addition to 60 MCQ marks. The current pattern is a source-bank practice mode only. General scopes retain the 100/60 fallback; new university/session rules must come from the matching primary source.
-3. The older Expo Go SDK mismatch affected the development-client preview, not the released standalone APK. The owner has already installed and smoke-verified the preview APK on a physical Android phone. Detailed per-control checks that were not separately recorded remain listed in `docs/QA_CHECKLIST.md`.
+1. Build a new preview APK from the current branch and complete the physical-device startup UI checklist in `docs/QA_CHECKLIST.md`. Test a fresh database separately from an existing installation; do not clear the primary app's local data without accepting that profile/bookmarks/attempts/history will be deleted.
+2. Independently verify JU-U/HSTU-U candidate question text, options and source keys against matching original papers/keys; investigate the 42 repeated-option records and cross-bank overlap findings before promoting any item. Keep the HSTU verified-bank historical coverage gap visible and add future source-backed sessions without silently merging candidate records.
+3. Keep the publisher-derived DU A Unit pattern illustrative: the official DU 2025–2026 notice includes 40 written marks in addition to 60 MCQ marks. The current pattern is a source-bank practice mode only. General scopes retain the 100/60 fallback; new university/session rules must come from the matching primary source.
 4. For the next app version, use the EAS `production` profile to create an Android AAB; inspect the artifact and verify target API/versioning.
 5. Complete the Google Play listing, production screenshots, privacy policy/data-safety declarations and any account-specific testing/access requirements before Play Console rollout.
 6. Keep the final product display name decision in sync with `brand.config.json` and `docs/BRANDING.md`.

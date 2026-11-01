@@ -1,6 +1,6 @@
 import "../global.css";
-import { useEffect } from "react";
-import { View, ActivityIndicator } from "react-native";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { View } from "react-native";
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -22,45 +22,71 @@ import {
   Fraunces_700Bold
 } from "@expo-google-fonts/fraunces";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { LangProvider, useLang, useT } from "@/i18n";
-import { DbProvider, useDbState } from "@/db/provider";
-import { ErrorView } from "@/components/common/StateViews";
-import { Screen } from "@/components/ui";
+import { LangProvider, useLang } from "@/i18n";
+import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady } from "@/db/provider";
+import { SetupScreen } from "@/components/startup/SetupScreen";
 import { colors } from "@/theme";
 
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
+/** How long the completed "Ready to start" state stays visible before fading out. First-time setup gets a longer dwell. */
+const READY_HOLD_FIRST_RUN_MS = 700;
+const READY_HOLD_RETURNING_MS = 120;
+
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
   const { state, retry } = useDbState();
-  const t = useT();
-  const ready = fontsReady && languageReady;
+  const progress = useStartupProgress();
+  const markSetupScreenReady = useMarkSetupScreenReady();
+  const [setupDismissed, setSetupDismissed] = useState(false);
+  const splashHidden = useRef(false);
+  const resourcesReady = fontsReady && languageReady;
+  const dbReady = state.status === "ready";
 
+  // Hide the native splash only after the setup screen has laid out, so there is no blank frame in between.
+  const hideSplash = useCallback(() => {
+    if (splashHidden.current) return;
+    splashHidden.current = true;
+    SplashScreen.hideAsync().catch(() => undefined);
+  }, []);
+  const dismissSetup = useCallback(() => setSetupDismissed(true), []);
+  const handleSetupShown = useCallback(() => {
+    hideSplash();
+    markSetupScreenReady();
+  }, [hideSplash, markSetupScreenReady]);
+
+  // Safety net: never leave the native splash up if the setup screen could not report its layout.
   useEffect(() => {
-    if (ready) SplashScreen.hideAsync().catch(() => undefined);
-  }, [ready]);
+    if (!resourcesReady) return;
+    const timer = setTimeout(() => {
+      hideSplash();
+      markSetupScreenReady();
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [resourcesReady, hideSplash, markSetupScreenReady]);
 
-  if (!ready || state.status === "loading") {
-    return (
-      <View className="flex-1 items-center justify-center bg-body">
-        <ActivityIndicator color={colors.brand600} size="large" />
-      </View>
-    );
-  }
-
-  if (state.status === "error") {
-    return (
-      <Screen edges={["top", "bottom"]} className="justify-center">
-        <ErrorView title={t("error.dbTitle")} body={t("error.dbBody")} onRetry={retry} />
-      </Screen>
-    );
-  }
+  if (!resourcesReady) return <View className="flex-1 bg-body" />;
 
   return (
-    <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }}>
-      <Stack.Screen name="exam/[id]" options={{ gestureEnabled: false }} />
-      <Stack.Screen name="flash/play" options={{ gestureEnabled: false }} />
-    </Stack>
+    <View className="flex-1 bg-body">
+      {dbReady ? (
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }}>
+          <Stack.Screen name="exam/[id]" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="flash/play" options={{ gestureEnabled: false }} />
+        </Stack>
+      ) : null}
+      {setupDismissed ? null : (
+        <SetupScreen
+          progress={progress}
+          failed={state.status === "error"}
+          exiting={dbReady}
+          holdMs={progress.mode === "firstRun" ? READY_HOLD_FIRST_RUN_MS : READY_HOLD_RETURNING_MS}
+          onRetry={retry}
+          onExited={dismissSetup}
+          onShown={handleSetupShown}
+        />
+      )}
+    </View>
   );
 }
 
