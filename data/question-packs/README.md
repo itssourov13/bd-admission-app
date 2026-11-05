@@ -58,10 +58,11 @@ The supplied publisher scans and printed answer-key states are preserved. Three 
 
 The verified-only pool requires verified content and answer keys, so this batch contributes **zero verified-eligible questions**. A separate provisional mode enables practice from **3,991 structurally safe candidate questions** where no verified pool is available; 18 items with duplicate normalized option text are withheld from provisional scoring. Feedback is based on the third-party source key, may be wrong, and is never described as verified/official. All 4,009 records keep their `unverified` statuses. No historical exam count, duration, subject-selection rule or marking rule has been inferred; RU exam rules are not configured.
 
-Use the validator and generated indexes after changing packs:
+Use the validator and regenerate the generated assets after changing packs:
 
     pnpm packs:validate data/question-packs/<file>.json
-    pnpm question-assets:index
-    pnpm packs:index
+    pnpm question-assets:index   # only when local question-image references/assets change
+    pnpm content:build
+    pnpm content:check
 
 Image assets must be local PNG files under `assets/lokkho/` and referenced with that relative path. `question-assets:index` generates the static Metro asset map used by `QuestionCard`; dynamic `require()` paths are not supported by Metro. Re-imports are transactional/idempotent and preserve user attempts/bookmarks. Keep the external source captures immutable and never promote unverified answers just because they are present in the third-party HTML.

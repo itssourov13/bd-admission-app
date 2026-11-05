@@ -14,11 +14,11 @@ A Bangladesh-focused, offline-first Android admission-preparation app for univer
 
 ## Current implementation status
 
-**Current Android preview:** version 0.1.2 (versionCode 3), EAS build af78b85f-7a2b-4fba-b693-532c7d218f8b, status FINISHED. [Open the Expo build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/af78b85f-7a2b-4fba-b693-532c7d218f8b) or [download the APK](https://expo.dev/artifacts/eas/CaI6tX3jbyvV5ghfjc0gxU_D4-U1oSlfWHD9M_4DaVY.apk). This is the first APK containing the 2026-11-05 correctness branch. Physical-device verification is pending.
+**Current Android preview:** version **0.1.3** (Android `versionCode 4`), EAS build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, status **FINISHED**. [Open the Expo build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) or [download the installable APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk) (~112 MiB). It includes the SQLite seed startup and public Expo Asset/File path. The APK's embedded seed has been extracted and integrity-checked; physical-device runtime and data-preservation verification remain pending.
 
 The core app implementation is wired across the Expo Router screens, SQLite database lifecycle, repositories, practice services, question-pack importer, and local user data. The 2026-11-05 correctness pass adds read-back-verified profile-name persistence, safe display-only math notation, a read-only question-quality audit and partial official-rule support without invented score components. Exact paper practice no longer silently inherits the global 100/60 format. See [current state](docs/CURRENT_STATE.md), [official exam-rule research](docs/EXAM_RULE_RESEARCH.md), and [question-quality audit](docs/QUESTION_QUALITY_AUDIT.md).
 
-**Startup setup experience:** the branded Bangla/English setup screen explains database preparation and question-library synchronization and shows processed-pack progress. The completed v0.1.2 preview includes this interface, the 217-pack catalogue and the 2026-11-05 correctness work: verified profile persistence, readable math notation, exact-paper scoring safeguards and partial official exam-rule notices.
+**Startup setup experience:** the branded Bangla/English setup screen explains database preparation and question-library synchronization and shows processed-pack progress. The completed v0.1.3 APK is the first build with the generated SQLite seed, compact manifest, integrity checks and public Expo Asset/File sidecar copy path, alongside the 217-pack catalogue and profile/math/exam-rule correctness work. The APK's embedded seed has been verified; physical-device runtime verification is still required.
 
 **Previous Android preview (historical GitHub release):** BD Admission `0.1.0` is available as the public GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1), published on **31 October 2026 (Bangladesh time)**. Download [`BD.Admission.v0.1.0.apk`](https://github.com/itssourov13/bd-admission-app/releases/download/v0.1.0-preview.1/BD.Admission.v0.1.0.apk). The APK was installed and checked on a physical Android device; the owner reported normal operation. This is an Android preview/pre-release, **not** a Google Play production release.
 
@@ -35,7 +35,7 @@ The Varsity catalogue keeps two separate Rajshahi University entries:
 
 The RU Question Bank PDF has 156 pages and SHA-256 `f1fc25faef0bba80d4495002f3006ac4ca1a7ce9da5c26e6a1f7db45218a49c7`. The user confirmed this source/question content as verified; the replacement task repaired extraction structure and imported the source, without repeating question-by-question fact checking. A total of **154** source records remain in the external exclusion ledger: 36 written-part items, 90 with incomplete option count/labels, 26 with missing extracted option text and 2 without an extracted answer marker. The 22 `X` and 6 complete multiple-answer records are included rather than discarded. A white Sutonny text-shadow on page 137 was filtered as a false banner and the printed B answer for Mathematics Q4 was recovered. No answer or option text was fabricated. Thirty included questions with repeated extracted option text are listed in the separate external warning audit. Pack/source/exclusion/reconciliation artifacts are outside the repo under `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/`.
 
-The bundled catalogue contains **217 JSON packs / 13,609 questions** across DU, RU, RU-V, verified JU/HSTU and separate JU-U/HSTU-U candidate banks. The 2026-11-05 correctness source branch is prepared as v0.1.2 / Android versionCode 3; its EAS Preview APK must be built and installed before device verification. The previous v0.1.1 / code 2 APK does not include these latest correctness changes. The production AAB and Google Play rollout remain pending.
+The bundled catalogue contains **217 JSON packs / 13,609 questions** across DU, RU, RU-V, verified JU/HSTU and separate JU-U/HSTU candidate banks. The current seed-based preview source is v0.1.3 / Android versionCode 4. It keeps canonical question JSON in Git and regenerates the SQLite seed during CI/EAS builds. APK/runtime and physical-device verification are tracked in `docs/QA_CHECKLIST.md`. The production AAB and Google Play rollout remain pending.
 
 ## JU-U + HSTU-U unverified candidate banks — imported 2026-11-01
 
@@ -129,13 +129,15 @@ Read:
 
 - docs/QUESTION_DATA_SCHEMA.md for the version-1 pack contract.
 - docs/QUESTION_IMPORT_WORKFLOW.md for extraction, verification, validation and import steps.
+- docs/STARTUP_PERFORMANCE.md for the SQLite seed build, integrity checks, lifecycle behavior, benchmark and Android release gate.
 
-For a new/updated version-1 JSON pack, validate and regenerate the bundle index:
+For a new/updated version-1 JSON pack, validate it and rebuild the generated seed asset + manifest:
 
     pnpm packs:validate data/question-packs/your-pack-file.json
-    pnpm packs:index
+    pnpm content:build
+    pnpm content:check
 
-After rebuilding, startup sync imports changed bundled packs transactionally. Re-imports are idempotent and preserve attempts/bookmarks. Keep answer and marking-rule verification explicit, and keep the original source/page/question-number references.
+The canonical source remains data/question-packs/*.json. The manifest is committed; the generated SQLite seed under assets/content is ignored and rebuilt locally/CI/EAS. Startup skips unchanged signatures and copies changed content in bounded, recoverable transactions without overwriting profile, bookmarks or practice history. Keep answer and marking-rule verification explicit, and retain original source/page/question-number references. See docs/STARTUP_PERFORMANCE.md for the complete build and runtime contract.
 
 ## Architecture and project documents
 
@@ -163,7 +165,7 @@ After rebuilding, startup sync imports changed bundled packs transactionally. Re
 
 ## RU Unit A research (staged only)
 
-The research folder `/home/kali/gpt-workspace/bd-admission-app-data/ru/` is now scoped to **RU Unit A only**. It contains a source/coverage register for 2010-2011 through the latest completed 2025-2026 session and eight review-only sample packs (21 questions). This is not a complete 15/16-year transcription: the the 2012-2013 to 2023-2024 Drive PDFs remain download-restricted/unreviewed; two 2025-2026 Group 1/2 scans are archived, but not fully transcribed. Read `A_UNIT_YEAR_COVERAGE.csv`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`. Nothing is bundled; do not run `pnpm packs:index` until a complete pack has been reviewed and deliberately copied into `data/question-packs/`.
+The research folder `/home/kali/gpt-workspace/bd-admission-app-data/ru/` is now scoped to **RU Unit A only**. It contains a source/coverage register for 2010-2011 through the latest completed 2025-2026 session and eight review-only sample packs (21 questions). This is not a complete 15/16-year transcription: the the 2012-2013 to 2023-2024 Drive PDFs remain download-restricted/unreviewed; two 2025-2026 Group 1/2 scans are archived, but not fully transcribed. Read `A_UNIT_YEAR_COVERAGE.csv`, `RESEARCH_REPORT.md`, `SOURCE_REGISTER_A_ONLY.csv` and `REVIEW/ANSWER_AUDIT_A_ONLY.csv`. Nothing from this research folder is bundled automatically; once a complete pack has been reviewed and deliberately copied into `data/question-packs/`, validate it and regenerate the SQLite seed with `pnpm content:build` followed by `pnpm content:check`.
 
 
 ## RU C Unit Science Group — imported for browse/review (2026-10-29)

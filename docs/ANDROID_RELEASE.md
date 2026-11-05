@@ -9,11 +9,11 @@ Last updated: 2026-11-05
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current source version prepared for the correctness preview: `0.1.2`; Android version code: `3`. The previous `0.1.1` / code `2` EAS APK is historical and predates the 2026-11-05 correctness changes.
+- Current seed-based preview APK: `0.1.3`; Android version code: `4`. The previous `0.1.2` / code `3` EAS APK contains the correctness work but predates the SQLite seed runtime.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
-The EAS project is initialized and linked to the app config; the CLI is authenticated as `sk_king13`. The previous completed preview is `0.1.1` / code `2`. The 2026-11-05 correctness branch is being prepared as `0.1.2` / code `3`; its new internal APK must be built and installed before this branch is device-verified. The production AAB and Google Play rollout have not yet been completed.
+The EAS project is initialized and linked to the app config; the CLI is authenticated as `sk_king13`. The previous correctness preview is `0.1.2` / code `3`. The seed-based internal APK `0.1.3` / code `4` has been built successfully as EAS build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; its embedded database payload has been integrity-checked. Physical-device install/runtime/data-preservation verification remains pending. The production AAB and Google Play rollout have not yet been completed.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ pnpm dlx eas-cli@latest build --platform android --profile preview
 
 The first build may ask EAS to create or configure Android signing credentials. Prefer EAS-managed Android credentials and retain them in the EAS account. Do not replace/reset the keystore between builds.
 
-The `preview` profile uses internal distribution and `android.buildType: apk`. The first preview build completed with EAS build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`. On this ARM/NetHunter host, the build upload required the no-VCS/fingerprint workaround documented below.
+The `preview` profile uses internal distribution and `android.buildType: apk`. Before EAS installs packages or runs Expo prebuild, the `eas-build-pre-install` hook runs `node scripts/build-content.mjs --ensure` to regenerate the ignored SQLite seed from tracked source packs. This timing is required because the expo-asset config plugin copies the .db file during native prebuild. The builder uses only Node built-ins and repository-local modules, so it does not depend on installed packages. Node 22.23.1 is pinned in `eas.json`. Custom/non-EAS build flows must run `pnpm content:ensure` before Expo prebuild/Metro/Gradle bundling. The first preview build completed with EAS build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`. On this ARM/NetHunter host, the build upload required the no-VCS/fingerprint workaround documented below.
 
 ```sh
 EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview
@@ -52,11 +52,21 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
-## Current correctness preview — v0.1.2 (EAS build finished)
+## Current seed-based preview — v0.1.3 (EAS build finished)
+
+- App/brand/package version: `0.1.3`; Android `versionCode 4`; application ID: `com.admissionbd.app`.
+- EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- Includes the SQLite seed startup, compact manifest, public Expo Asset/File sidecar copy, integrity validation and lifecycle-aware resume alongside the profile/math/exam-rule correctness changes.
+- EAS build ID: `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; status: **`FINISHED`**, completed **2026-11-05 13:32:51 UTC / 19:32:51 Asia/Dhaka**. [Open the EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) or [download the APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk) (~112 MiB).
+- Artifact inspection: APK contains `assets/content_seed.db` (23,724,032 bytes). The asset was extracted and its SHA-256 matched the generated source seed; ZIP CRC passed; SQLite `quick_check` is `ok`, foreign-key issues `0`, schema v5, 217 packs / 13,609 questions. This validates packaging/integrity, not the on-device `Asset.downloadAsync` + `File.copy` runtime path.
+- EAS Expo Doctor reported 20/21 checks because five Expo SDK patch packages (`expo`, `expo-asset`, `expo-constants`, `expo-router`, `expo-splash-screen`) were one patch behind the recommended versions. The build continued through prebuild/Gradle and reached `FINISHED`; align these patch versions in a follow-up maintenance pass.
+- Physical-device fresh-install/update-install, seed-copy/attach, returning-launch, process-death and user-data preservation QA remains pending; the build host has no ADB or connected Android device.
+
+## Previous correctness preview — v0.1.2 (pre-seed; historical)
 
 - App/brand/package version: `0.1.2`; Android `versionCode 3`; application ID: `com.admissionbd.app`.
 - EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`.
-- Includes the 2026-11-05 correctness implementation: profile display-name persistence, accessible display-only math rendering, exact-paper exam-rule/scoring safeguards, partial official rule facts and the read-only question-quality audit.
+- Includes the 2026-11-05 correctness implementation: profile display-name persistence, accessible display-only math rendering, exact-paper exam-rule/scoring safeguards, partial official rule facts and the read-only question-quality audit. It predates the seed-based startup changes now on the working branch and does not verify the generated SQLite asset import.
 - EAS build ID: `af78b85f-7a2b-4fba-b693-532c7d218f8b`; status: **FINISHED**; started **2026-11-05 12:44:49 +06:00** and finished **2026-11-05 13:00:01 +06:00**.
 - [Open the Expo EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/af78b85f-7a2b-4fba-b693-532c7d218f8b) or [download the v0.1.2 APK](https://expo.dev/artifacts/eas/CaI6tX3jbyvV5ghfjc0gxU_D4-U1oSlfWHD9M_4DaVY.apk).
 - **Physical-device QA remains pending.** Install over the prior app without clearing its data to exercise the update/migration path; use a disposable profile/device for destructive fresh-install checks.
@@ -112,9 +122,10 @@ For future releases, create a new version tag, write release notes and attach th
 `.github/workflows/ci.yml` runs on pushes to `main`, pull requests targeting `main`, and manual `workflow_dispatch`. It performs:
 
 1. Frozen pnpm dependency install.
-2. Automated tests, TypeScript and ESLint.
-3. Public Expo config validation.
-4. Android JavaScript bundle export with `--no-bytecode`.
+2. Build the bundled SQLite seed, run the read-only content/seed integrity check and ensure the generated manifest is clean.
+3. Automated tests, TypeScript and ESLint.
+4. Public Expo config validation.
+5. Android JavaScript bundle export with `--no-bytecode`.
 
 The CI workflow does not build an APK/AAB and does not need an Expo token. PR #2 (`chore/ci-eas-android-build-2026-10-31`) was merged into `main` at `3aa125d4e12cdca1702f976f20c1f60a765923d1`. The [pull-request CI run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109514896) and [main push CI run](https://github.com/itssourov13/bd-admission-app/actions/runs/41109555081) both completed successfully. The CI job omits `expo doctor` because that check can fail on transient Expo API/network fetches; run it separately when needed.
 

@@ -6,6 +6,10 @@ web-build/
 coverage/
 *.tsbuildinfo
 
+# Generated content seed (rebuilt by `pnpm content:build`, also on EAS via EAS pre-install hook)
+assets/content/*.db
+assets/content/*.db.tmp*
+
 # Environment and secrets
 .env
 .env.*
@@ -16,6 +20,10 @@ coverage/
 *.p12
 *.key
 *.mobileprovision
+
+# Generated Expo native projects (EAS runs prebuild for this managed app)
+/android/
+/ios/
 
 # Native build / local settings
 android/.gradle/

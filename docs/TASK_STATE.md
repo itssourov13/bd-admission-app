@@ -1,3 +1,14 @@
+## Seed startup release completion — v0.1.3 / Android versionCode 4 — 2026-11-05
+
+- [x] Bumped package/brand/app version to `0.1.3` and Android versionCode to `4`, preserving package ID, Expo slug, project ID and EAS-managed signing credentials.
+- [x] Replaced the hyphenated seed asset name with Android-compatible `content_seed.db`; Expo prebuild copies it into `android/app/src/main/assets/content_seed.db` with matching SHA-256 and valid SQLite integrity.
+- [x] Replaced the hidden SQLite asset-import helper with public Expo Asset/File materialization and disposable sidecar handling.
+- [x] Confirmed the exact `eas-build-pre-install` hook succeeds under Node 22.23.1 before package installation; generated native project directories are ignored so EAS runs managed prebuild from app config.
+- [x] Final source checks: frozen install; 137/137 tests; typecheck; lint; 217 packs / 13,609 questions / 0 validation errors; content:check; benchmark; public Expo config; Android prebuild; Metro export and exported seed SQLite integrity.
+- [x] Built the EAS internal APK successfully: build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, status `FINISHED`, completed 2026-11-05 13:32:51 UTC. [EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk), ~112 MiB.
+- [ ] Install v0.1.3 over v0.1.2 and verify update migration, profile/bookmark/history preservation, first seed import, returning sync, foreground/background interruption and process-death restart. This host has no ADB/device attached.
+- [ ] Final local Git review and commit; never push.
+
 ## v0.1.2 Android correctness preview preparation — 2026-11-05
 
 - [x] Confirmed the connected workspace, clean correctness branch and remote branch synchronization.
@@ -6,7 +17,7 @@
 - [x] Updated current-state, release, QA, handoff, README and changelog references to distinguish the historical v0.1.1 APK from this correctness branch.
 - [x] Resolved Expo public config confirms version 0.1.2, Android versionCode 3, package ID, slug and EAS project ID; git diff --check passes.
 - [x] Committed version/documentation preparation as c93c7f3; no push performed.
-- [ ] Submit EAS preview cloud APK build and record its real build ID/status/artifact URL after EAS confirms it.
+- [x] Built the v0.1.2 EAS preview APK: `af78b85f-7a2b-4fba-b693-532c7d218f8b` (FINISHED); its artifact and build details are recorded in `docs/ANDROID_RELEASE.md`. This APK predates the seed implementation.
 - [ ] Owner installs APK and verifies profile persistence, math layout/accessibility, official/partial exam rules, custom practice and update-data preservation. Only then merge the implementation branch to main.
 
 ## Profile, math display and official-rule integrity — 2026-11-05
@@ -25,7 +36,24 @@
 
 # Task state
 
-## Branded first-launch/startup setup UI — 2026-11-01
+## Seed-based startup and runtime resilience — 2026-11-05
+
+**Status:** Implementation and automated source verification complete; the v0.1.3 EAS preview APK is built and its embedded seed passes integrity checks. Physical-device QA remains pending.
+
+- [x] Replace runtime-loaded JSON pack modules with a generated SQLite seed plus committed manifest; keep canonical question JSON unchanged.
+- [x] Build the seed from current migrations/importer; add deterministic manifest generation, Node 22 build hooks and GitHub CI content-build step.
+- [x] Add read-only seed integrity checks for SQLite quick_check, foreign keys, schema/format, pack metadata/signatures/counts, source-derived table totals and empty user-owned tables. Add corruption/repair test.
+- [x] Copy pending content via set-based SQL and bounded grouped transactions; commit batch signatures atomically, isolate a failed group per pack, preserve user-owned tables and resume uncommitted work on next launch.
+- [x] Add single-flight AppState-aware retry coordinator, carry libraryComplete to provider state and retain retry-visible import warnings.
+- [x] Replace JS-driven progress width animation with native-driver translateX; keep Reduce Motion and accessibility support. Reanimated APIs/plugin are not required for this transform.
+- [x] Preserve app/font startup marks while resetting attempt-specific performance spans/counters.
+- [x] Add and run build-script integrity tests and focused startup/repository tests; host benchmark recorded in docs/STARTUP_PERFORMANCE.md.
+- [x] Update architecture, context, decision, QA, handoff, release/workflow and question-data documentation.
+- [x] Run final full suite (**137/137**), typecheck, lint, whole-catalog validation (217 packs / 13,609 questions / 0 errors), read-only seed integrity check, host benchmark, resolved Expo config and Android no-bytecode export. Exported 3.5 MB JS bundle plus a hashed 24 MB SQLite asset; asset itself passes SQLite quick_check / FK / counts.
+- [x] Superseded by the seed-based v0.1.3 / versionCode 4 EAS preview APK built successfully in the section above; v0.1.2 predates this asset path.
+- [ ] Physical-device fresh install/update install, background/foreground, force-stop/relaunch, data preservation, progress motion and TalkBack checks (no ADB-connected device is available on the current Kali host).
+
+## Historical branded first-launch/startup setup UI — 2026-11-01 (JSON loader replaced 2026-11-05)
 
 - [x] Audited startup lifecycle, bundle loading, provider gating, design tokens, localization and existing test conventions before implementation review.
 - [x] Added the branded Bangla/English setup screen, five stages, real processed-pack progress, completion transition, retry state, accessibility progress semantics, responsive scrolling and Reduce Motion support.

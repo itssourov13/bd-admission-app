@@ -9,7 +9,7 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 # Question import workflow
 
 ## Current status
-Validator, transactional idempotent importer, startup sync and pack index generator are implemented. Current bundle: **217 schema-v1 packs / 13,609 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 verified JU (1,526), 7 verified HSTU (293), 84 JU-U candidates (5,011) and 15 HSTU-U candidates (762). The app auto-imports generated packs at startup. The newest candidate-bank import is recorded first below.
+Validator and transactional idempotent importer are implemented. Current catalogue: **217 schema-v1 JSON packs / 13,609 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 verified JU (1,526), 7 verified HSTU (293), 84 JU-U candidates (5,011) and 15 HSTU-U candidates (762). The build pipeline compiles these canonical JSON packs into a generated SQLite seed plus a small manifest; startup synchronizes changed packs from that seed. See docs/STARTUP_PERFORMANCE.md. The newest candidate-bank import is recorded first below.
 
 
 ## JU + HSTU unverified candidate-bank import — 2026-11-01
@@ -124,8 +124,8 @@ The source prints 15 questions for each of six subject sections and says candida
 ## Creating and shipping a pack
 1. Write a version-1 JSON file following docs/QUESTION_DATA_SCHEMA.md (institutions, papers, rules, source documents, questions with options and appearances). Keep year, source filename, page and question number exactly as in the PDF. For a user-confirmed verified source, preserve its approved status when the source key is unambiguous. If the source key is missing or extraction cannot map it reliably, retain `unknown` rather than guessing. For secondary/unreviewed sources, do not promote answers to verified without the required review.
 2. Validate: `pnpm packs:validate data/question-packs/<file>.json`. Errors name the offending record; fix them before continuing.
-3. Run `pnpm packs:index` to regenerate src/content/bundledPacks.ts (invalid packs are refused with the same messages).
-4. Rebuild the app. On next launch `syncBundledPacks` imports new/changed packs in one transaction each; unchanged packs are skipped by signature; a failed pack rolls back completely and shows a warning on Home while the rest keep working.
+3. Run `pnpm content:build` to regenerate src/content/bundledManifest.ts and assets/content/content_seed.db; then run `pnpm content:check` to verify SQLite integrity and source/seed row counts. Invalid packs are refused before the seed is replaced.
+4. Rebuild the app. On next launch `syncFromSeed` copies new/changed packs from the attached seed in bounded, recoverable transactions; unchanged packs are skipped by signature. A failed pack rolls back and is reported while other packs can continue.
 5. Bookmarks, sessions and answers are keyed by question id and survive re-imports.
 
 ## Validate a pack
@@ -170,7 +170,7 @@ The current A-only research bundle lives outside the app at `/home/kali/gpt-work
 
 The 2012-2013 to 2023-2024 linked historical PDFs were found but the Drive downloads are restricted, so source discovery is not full collection. The 2025-2026 Group 1/2 seven-page image scans have been archived locally but require full transcription and key review. The 2010-2012 combined archive requires old A1-A6 mapping. No pack has been copied into `data/question-packs/`, no index was regenerated, and no RU data is bundled.
 
-Next gate: acquire source papers, compare all questions/options/answers against original pages, preserve group/shift/set variants, then human-review a complete pack. Validate external drafts with `pnpm packs:validate /absolute/path/to/pack.json`. After approval, copy the pack into the app repo, regenerate the index and run importer tests. Do not add scoring/count/time rules without the exact session/paper's official source.
+Next gate: acquire source papers, compare all questions/options/answers against original pages, preserve group/shift/set variants, then human-review a complete pack. Validate external drafts with `pnpm packs:validate /absolute/path/to/pack.json`. After approval, copy the pack into the app repo, run `pnpm content:build` and `pnpm content:check`, then run importer tests. Do not add scoring/count/time rules without the exact session/paper's official source.
 
 
 ## RU C Unit Science Group collection — external import staging (2026-10-29)
@@ -192,7 +192,7 @@ A separate 265-page third-party scan indexes 14 additional variants from 2017-20
 
 Per explicit request, the 44 curated candidate packs were copied into `data/question-packs/ru-c-*.json` and the 45 local app-copy PNG figures into `data/question-packs/assets/lokkho/`. This imports **4,009 questions for browse/review only**; the original external source captures, curated JSON packs and original assets remain unchanged. One WebP and three SVG source assets were converted to PNG in the app copy only, with corresponding `assetPaths` adjusted; all non-asset question fields are unchanged.
 
-`pnpm question-assets:index` generates `src/content/questionAssets.ts` with static literal `require()` calls for Metro/offline packaging. `QuestionCard` renders the local figures. After changing the packs, run `pnpm question-assets:index` if assets change and `pnpm packs:index` if pack JSON files change.
+`pnpm question-assets:index` generates `src/content/questionAssets.ts` with static literal `require()` calls for Metro/offline packaging. `QuestionCard` renders the local figures. After changing the packs, run `pnpm question-assets:index` if assets change and `pnpm content:build` plus `pnpm content:check` if pack JSON files change.
 
 All 4,009 imported candidate answer and content states remain `unverified`. No RU exam count, duration, section-selection rule, or scoring rule was inferred. Normal verified practice still excludes these candidates. A separate provisional path now enables Flash and the general 100-question/60-minute Standard Exam in a scope with no verified-eligible pool, using a third-party source key with explicit warnings. It requires single-choice type, 2+ options, exactly one source-key option and no duplicate normalized option text; 3,991 RU items currently qualify, while 18 items with duplicate normalized option text are withheld from provisional scoring. The 158 other-subject-label records and 18 no-option records remain external in the review/exclusion ledgers; ambiguous questions remain unresolved.
 

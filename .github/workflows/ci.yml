@@ -40,6 +40,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build and integrity-check bundled content
+        run: |
+          pnpm content:build
+          pnpm content:check
+          git diff --exit-code -- src/content/bundledManifest.ts
+
       - name: Run automated tests
         run: pnpm test
 

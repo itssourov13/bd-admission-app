@@ -1,6 +1,7 @@
 import type { SqlDb } from "../db/types.ts";
 import type { QuestionPack, QuestionPackItem } from "../types/question-pack.ts";
 import { validateQuestionPack } from "./questionPackValidator.mjs";
+import { NOOP_METRICS, type StartupMetrics } from "./perf.ts";
 
 export interface EntityCounts {
   inserted: number;
@@ -69,9 +70,9 @@ function emptyReport(): ImportReport {
  * for the pack's paper IDs; question rows and every user-owned record are retained for history.
  * Questions are never merged by text similarity; identity is the pack's stable question id.
  */
-export async function importQuestionPack(db: SqlDb, pack: unknown, now: number = Date.now()): Promise<ImportReport> {
+export async function importQuestionPack(db: SqlDb, pack: unknown, now: number = Date.now(), metrics: StartupMetrics = NOOP_METRICS): Promise<ImportReport> {
   const report = emptyReport();
-  const validation = validateQuestionPack(pack);
+  const validation = metrics.time("import.validate", () => validateQuestionPack(pack));
   report.warnings = validation.warnings;
   const total = Array.isArray((pack as QuestionPack | undefined)?.questions) ? (pack as QuestionPack).questions.length : 0;
   if (!validation.valid) {
@@ -83,7 +84,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
   report.batchId = p.batch.id;
 
   try {
-    await db.withTransactionAsync(async (tx) => {
+    await metrics.span("import.tx", () => db.withTransactionAsync(async (tx) => {
       const existingBatch = await tx.getFirstAsync<{ id: string }>("SELECT id FROM question_batches WHERE id = ?", [p.batch.id]);
       if (existingBatch) {
         await tx.runAsync("UPDATE question_batches SET description = ?, updated_at = ?, import_count = import_count + 1 WHERE id = ?", [p.batch.description ?? null, now, p.batch.id]);
@@ -94,7 +95,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
         );
       }
 
-      await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [packSignature(pack), p.batch.id]);
+      await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [metrics.time("import.signature", () => packSignature(pack)), p.batch.id]);
 
       for (const s of p.sourceDocuments) {
         const owner = await tx.getFirstAsync<{ batch_id: string }>("SELECT batch_id FROM source_documents WHERE id = ?", [s.id]);
@@ -213,7 +214,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
           else report.appearances.skipped++;
         }
       }
-    });
+    }));
     report.ok = true;
     return report;
   } catch (error) {

@@ -121,7 +121,8 @@ test("rule resolution keeps the verification status and never blends mixed rules
   assert.deepEqual([verified.status, verified.incorrectPenalty], ["verified", 0.5]);
   const mixed = await resolveRuleForQuestions(db, ["q-syn-1", "q-syn-2"], {});
   assert.equal(mixed.status, "unconfigured");
-  assert.equal(mixed.incorrectPenalty, 0);
+  // Conflicting rules never blend into invented numbers: every scoring component stays unknown (null, not 0).
+  assert.deepEqual([mixed.correctMarks, mixed.incorrectPenalty, mixed.unansweredMarks], [null, null, null]);
 });
 
 test("standard exam: refuses to start below 100 eligible questions and creates nothing", async () => {

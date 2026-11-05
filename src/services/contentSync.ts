@@ -1,5 +1,6 @@
 import type { SqlDb } from "../db/types.ts";
 import { importQuestionPack, packSignature, type ImportReport } from "./importer.ts";
+import { NOOP_METRICS, type StartupMetrics } from "./perf.ts";
 
 export interface SyncOutcome {
   batchId: string | null;
@@ -43,7 +44,8 @@ export async function syncBundledPacks(
   db: SqlDb,
   packs: readonly unknown[],
   now = Date.now(),
-  onProgress?: SyncProgressListener
+  onProgress?: SyncProgressListener,
+  metrics: StartupMetrics = NOOP_METRICS
 ): Promise<SyncOutcome[]> {
   const outcomes: SyncOutcome[] = [];
   const counts = packs.map(questionCount);
@@ -66,10 +68,10 @@ export async function syncBundledPacks(
     let outcome: SyncOutcome | null = null;
     if (typeof batchId === "string") {
       const row = await db.getFirstAsync<{ pack_signature: string | null }>("SELECT pack_signature FROM question_batches WHERE id = ?", [batchId]);
-      if (row && row.pack_signature === packSignature(pack)) outcome = { batchId, status: "unchanged", errors: [] };
+      if (row && row.pack_signature === metrics.time("sync.signature", () => packSignature(pack))) outcome = { batchId, status: "unchanged", errors: [] };
     }
     if (!outcome) {
-      const report = await importQuestionPack(db, pack, now);
+      const report = await importQuestionPack(db, pack, now, metrics);
       outcome = { batchId: report.batchId, status: report.ok ? "imported" : "failed", report, errors: report.errors };
     }
     outcomes.push(outcome);

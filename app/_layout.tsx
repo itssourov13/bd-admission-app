@@ -26,7 +26,9 @@ import { LangProvider, useLang } from "@/i18n";
 import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady } from "@/db/provider";
 import { SetupScreen } from "@/components/startup/SetupScreen";
 import { colors } from "@/theme";
+import { startupMetrics } from "@/services/perf";
 
+startupMetrics.mark("app.jsStart");
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
 /** How long the completed "Ready to start" state stays visible before fading out. First-time setup gets a longer dwell. */
@@ -42,6 +44,9 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const splashHidden = useRef(false);
   const resourcesReady = fontsReady && languageReady;
   const dbReady = state.status === "ready";
+  useEffect(() => {
+    if (fontsReady) startupMetrics.mark("fonts.ready");
+  }, [fontsReady]);
 
   // Hide the native splash only after the setup screen has laid out, so there is no blank frame in between.
   const hideSplash = useCallback(() => {
