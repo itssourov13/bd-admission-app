@@ -84,6 +84,7 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
         <SetupScreen
           progress={progress}
           failed={state.status === "error"}
+          errorMessage={state.status === "error" ? state.error.message : null}
           exiting={dbReady}
           holdMs={progress.mode === "firstRun" ? READY_HOLD_FIRST_RUN_MS : READY_HOLD_RETURNING_MS}
           onRetry={retry}

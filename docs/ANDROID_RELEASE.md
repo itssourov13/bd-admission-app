@@ -1,5 +1,12 @@
 # Android build and release guide
 
+## Current incident and candidate
+
+- v0.1.3 / Android versionCode 4 was built and its embedded SQLite seed was integrity-checked, but the owner-reported phone test fails at **Importing question library**. Treat that APK as a failed runtime candidate, not as release-ready.
+- The source fix is v0.1.4 / Android versionCode 5. It corrects the SQLite sidecar destination from raw filesystem path to an Expo file:/// URI, uses Expo FileSystem legacy native copy for Android resource-aware copying and displays the underlying error on the retry screen.
+- Automated verification is complete; the replacement EAS APK build and physical-device confirmation remain pending until a finished artifact is available.
+- Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
+
 Last updated: 2026-11-05
 
 ## Current release setup
@@ -9,11 +16,11 @@ Last updated: 2026-11-05
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current seed-based preview APK: `0.1.3`; Android version code: `4`. The previous `0.1.2` / code `3` EAS APK contains the correctness work but predates the SQLite seed runtime.
+- Previous seed-based preview APK: 0.1.3 / Android versionCode 4; owner reports first-run failure at question-library import. Current source candidate: 0.1.4 / versionCode 5; replacement APK and phone confirmation pending.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
-The EAS project is initialized and linked to the app config; the CLI is authenticated as `sk_king13`. The previous correctness preview is `0.1.2` / code `3`. The seed-based internal APK `0.1.3` / code `4` has been built successfully as EAS build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; its embedded database payload has been integrity-checked. Physical-device install/runtime/data-preservation verification remains pending. The production AAB and Google Play rollout have not yet been completed.
+The EAS project is initialized and linked to the app config. The v0.1.3 / code 4 seed-based APK was built and its database payload passed package-integrity checks, but the owner reports that it fails on a physical phone during question-library import. v0.1.4 / code 5 contains the source fix; build it through EAS and require owner confirmation before treating startup as fixed. Production AAB and Google Play rollout are not complete.
 
 ## Prerequisites
 
@@ -52,7 +59,7 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
-## Current seed-based preview — v0.1.3 (EAS build finished)
+## Previous seed-based preview — v0.1.3 (EAS build finished; owner-reported runtime failure)
 
 - App/brand/package version: `0.1.3`; Android `versionCode 4`; application ID: `com.admissionbd.app`.
 - EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`.
@@ -60,7 +67,7 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 - EAS build ID: `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; status: **`FINISHED`**, completed **2026-11-05 13:32:51 UTC / 19:32:51 Asia/Dhaka**. [Open the EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) or [download the APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk) (~112 MiB).
 - Artifact inspection: APK contains `assets/content_seed.db` (23,724,032 bytes). The asset was extracted and its SHA-256 matched the generated source seed; ZIP CRC passed; SQLite `quick_check` is `ok`, foreign-key issues `0`, schema v5, 217 packs / 13,609 questions. This validates packaging/integrity, not the on-device `Asset.downloadAsync` + `File.copy` runtime path.
 - EAS Expo Doctor reported 20/21 checks because five Expo SDK patch packages (`expo`, `expo-asset`, `expo-constants`, `expo-router`, `expo-splash-screen`) were one patch behind the recommended versions. The build continued through prebuild/Gradle and reached `FINISHED`; align these patch versions in a follow-up maintenance pass.
-- Physical-device fresh-install/update-install, seed-copy/attach, returning-launch, process-death and user-data preservation QA remains pending; the build host has no ADB or connected Android device.
+- The owner later installed v0.1.3 and reported failure at first question-library import. The replacement v0.1.4 must be tested on the phone; this build host has no ADB or connected Android device.
 
 ## Previous correctness preview — v0.1.2 (pre-seed; historical)
 

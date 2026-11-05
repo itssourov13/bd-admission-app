@@ -1,8 +1,19 @@
 # Current state
 
-Last updated: 2026-11-05 (v0.1.3 EAS preview APK built and APK-embedded seed integrity verified; physical-device verification pending).
+Last updated: 2026-11-05 (v0.1.4 source fix implemented; automated checks pass; EAS rebuild and physical-device confirmation pending).
 
-## Current seed-based Android preview — v0.1.3 (2026-11-05)
+## Incident follow-up — v0.1.3 first-launch failure and v0.1.4 fix (2026-11-05)
+
+- Owner-reported device result: v0.1.3 / Android versionCode 4 opens the branded setup screen but fails at **Importing question library**. The on-screen retry state says the primary profile/bookmark/practice data is preserved; do not uninstall or clear app storage while updating.
+- The previous build was verified only at the packaging layer: its embedded content_seed.db hash/CRC and SQLite integrity were checked. That was not a physical-device runtime test, and the app must not have been represented as device-ready.
+- Source-level defect found: expo-sqlite.defaultDatabaseDirectory returns an absolute filesystem path (for example /data/user/0/.../SQLite), while Expo File's File constructor expects a file:/// URI. v0.1.3 passed the raw path directly when creating the disposable sidecar destination. This invalid URI/path-type handoff is a concrete startup failure candidate at the exact seed-materialization stage.
+- v0.1.4 now converts the SQLite path to a proper file:// URI before constructing File, converts the URI back to an absolute path for SQLite ATTACH, and uses expo-file-system/legacy copyAsync so Android raw-resource identifiers are handled by the native resource copier as well as ordinary file URIs. The retry screen also displays the native error message (truncated) to make any remaining device-only issue diagnosable.
+- App version is now **0.1.4**, Android **versionCode 5**; package ID com.admissionbd.app, EAS project and signing identity are unchanged.
+- Verification after the fix: **139 tests**, TypeScript, ESLint, seed/content integrity, all 217 pack validation, Expo config, Android prebuild and Android Metro export pass. The exact EAS APK build and embedded-payload check are still pending.
+- Physical-device verification remains **not done** from this workspace (no adb/attached phone). Do not mark the bug resolved until v0.1.4 is installed over the existing app and completes the first library import on the owner's phone. Keep existing app data; do not uninstall or clear storage.
+
+
+## Previous seed-based Android preview — v0.1.3 (built; owner-reported first-launch failure)
 
 - Release version: **0.1.3**, Android **versionCode 4**, package `com.admissionbd.app`; EAS project `16ba69b8-96d7-4856-a197-77acddebe1ec`, owner `sk_king13`. The previous v0.1.2 / code 3 APK predates the SQLite seed runtime.
 - EAS internal Android APK build **FINISHED** on 2026-11-05 at 13:32:51 UTC (19:32:51 Asia/Dhaka): `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`. [Open the EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) or [download the v0.1.3 APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). APK size: 117,428,288 bytes (~112 MiB).
@@ -11,7 +22,7 @@ Last updated: 2026-11-05 (v0.1.3 EAS preview APK built and APK-embedded seed int
 - Latest automated verification: **137/137 tests**, TypeScript, ESLint, frozen-lockfile install, EAS pre-install hook, 217-pack validation (13,609 questions / 0 errors / 9,785 warnings), SQLite integrity, benchmark, resolved Expo config, Android native prebuild, Metro export and EAS APK build pass. Native, exported and APK-embedded DB copies pass quick_check, FK, schema v5, 217-pack and 13,609-question checks. EAS Expo Doctor returned 20/21 because five Expo SDK dependencies are one patch behind its current recommendation; Gradle continued and the build finished successfully.
 - Latest Node host benchmark: seed import **1,419 ms**, returning sync **2 ms**; legacy JSON parse **414 ms**, legacy returning signatures **271 ms**, legacy sample 25 packs / 1,249 questions **740 ms**, projected legacy full import **8,066 ms** (linear extrapolation only). These are not Android-device timings.
 - Android Metro export: 1,864 modules, 3.5 MB JS bundle and 123 assets including a 23.72 MB SQLite seed. This does not imply the total APK shrank by the same proportion.
-- Physical-device test remains pending: this Kali host has no `adb` binary or attached Android device. Owner must install v0.1.3 over v0.1.2 to verify upgrade/data preservation, first seed materialization/copy/attach, returning launch, background/foreground and force-stop/relaunch.
+- Owner installed/tested v0.1.3 over the previous app and reported failure at the first question-library import. This Kali workspace has no adb/attached Android device; owner must test replacement v0.1.4 over the existing app without clearing data.
 
 ## Seed-based startup implementation — 2026-11-05
 
@@ -22,13 +33,13 @@ Last updated: 2026-11-05 (v0.1.3 EAS preview APK built and APK-embedded seed int
 - Progress fill uses native-driver translateX instead of JS-driven width animation. Existing Reduce Motion/accessibility support remains. Reanimated APIs are not used; no extra plugin/configuration was added.
 - Latest host benchmark (Node 22.23.1): legacy 25-pack sample 740 ms, extrapolated full first import 8,066 ms; new full 217-pack seed copy 1,419 ms; new returning content sync 2 ms. Android no-bytecode export confirms the JS bundle is now 3.5 MB and contains a separate 23.72 MB SQLite asset. These are host/export measurements, not APK-size or Android-device startup results; see `docs/STARTUP_PERFORMANCE.md`.
 - Background behavior remains lifecycle-aware retry and transaction-safe next-launch recovery, not guaranteed continuous background execution. No WorkManager/foreground service is included; rationale and reassessment criteria are documented in `docs/STARTUP_PERFORMANCE.md`.
-- `v0.1.2` APK build `af78b85f-7a2b-4fba-b693-532c7d218f8b` was completed before these seed changes and does not validate the seed asset path. It is superseded by the seed-based v0.1.3 EAS preview build recorded above (currently `IN_PROGRESS`); physical-device fresh/update/background/process-death checks remain pending.
+- `v0.1.2` APK build `af78b85f-7a2b-4fba-b693-532c7d218f8b` was completed before these seed changes and does not validate the seed asset path. It is superseded by the seed-based v0.1.3 EAS preview build recorded above (built `FINISHED; owner later reported the physical first-import failure`); physical-device fresh/update/background/process-death checks remain pending.
 
 ## Android correctness preview preparation — 2026-11-05 (pre-seed APK checkpoint)
 
 - Release candidate source version: **0.1.2**, Android **versionCode 3**, package **com.admissionbd.app**; the Expo slug, EAS project ID and signing identity are unchanged.
 - EAS CLI authentication was checked against account **sk_king13**. The EAS build history contained only the earlier v0.1.1 (code 2) and v0.1.0 (code 1) completed preview jobs; no v0.1.2 job existed at this checkpoint.
-- The v0.1.2 preview profile was built successfully as EAS internal APK `af78b85f-7a2b-4fba-b693-532c7d218f8b` after this initial preparation checkpoint. It contains the correctness changes but predates the seed-based asset path; v0.1.3 is the current seed-based build.
+- The v0.1.2 preview profile was built successfully as EAS internal APK `af78b85f-7a2b-4fba-b693-532c7d218f8b` after this initial preparation checkpoint. It contains the correctness changes but predates the seed-based asset path; v0.1.3 is the previous seed-based build; its physical first-import failure is recorded at the top of this document.
 - Resolved Expo public config confirms version 0.1.2, Android versionCode 3, package ID, slug and EAS project ID. The version/documentation update is committed locally as c93c7f3; device-level verification remains owner-pending after the APK is installed.
 
 ## Profile, math notation and exam-rule integrity — 2026-11-05

@@ -186,6 +186,8 @@ export interface SetupScreenProps {
   progress: StartupProgress;
   /** The database or import step failed; shows the retry experience. */
   failed: boolean;
+  /** Native/runtime failure detail, shown on the retry screen to make release-only failures diagnosable. */
+  errorMessage?: string | null;
   /** Setup finished: hold briefly, fade out, then call onExited. */
   exiting: boolean;
   /** Dwell on the completed state before fading (ms). Not progress: it only lets the user see "Ready". */
@@ -197,7 +199,7 @@ export interface SetupScreenProps {
 }
 
 /** Branded first-launch setup screen driven by real startup progress. Covers the app until setup completes. */
-export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
+export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
   const t = useT();
   const { lang } = useLang();
   const reduceMotion = useReduceMotion();
@@ -275,6 +277,9 @@ export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExit
                     </View>
                     <Txt className="text-ink-700 text-sm leading-6 mt-3">{t("setup.error.body")}</Txt>
                     <Txt className="text-ink-500 text-[13px] leading-5 mt-2">{t("setup.error.failedAt", { stage: t(STAGE_KEY[stage]) })}</Txt>
+                    {errorMessage ? (
+                      <Txt className="text-ink-500 text-xs leading-5 mt-2">{errorMessage.slice(0, 320)}</Txt>
+                    ) : null}
                     <Txt className="text-ink-500 text-[13px] leading-5 mt-1">{t("setup.error.hint")}</Txt>
                     <View className="mt-4"><Button label={t("common.retry")} onPress={onRetry} /></View>
                   </View>

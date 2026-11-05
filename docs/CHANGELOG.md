@@ -1,3 +1,15 @@
+# Changelog
+
+## 2026-11-05 — Fix Android v0.1.3 first-launch seed materialization
+
+- Recorded the owner's physical-device failure in v0.1.3: setup reached **Importing question library** and then showed the retry state. The earlier v0.1.3 APK check established embedded DB payload integrity only; it did not establish that Expo File could materialize the sidecar on Android.
+- Fixed the SQLite sidecar destination URI. expo-sqlite.defaultDatabaseDirectory is a raw absolute filesystem path, but Expo File requires a file:/// URI. The app now converts that path explicitly and converts the file URI back to an absolute SQLite path for ATTACH.
+- Changed the asset-to-sidecar copy to expo-file-system/legacy copyAsync; its Android native implementation handles packaged raw-resource names as well as file/content/asset URIs.
+- Added unit tests for absolute SQLite path ↔ Expo file URI conversion, including rejection of invalid inputs.
+- Added the native error detail to the setup retry screen so a remaining release-only failure is visible instead of hidden behind a generic message.
+- Bumped app/brand/package version to 0.1.4 and Android versionCode to 5; application ID, EAS project and signing identity remain unchanged.
+- Verification: 139/139 tests, TypeScript, ESLint, content:check, 217-pack validation, resolved Expo config, Android prebuild and Metro export pass. EAS build and physical-device runtime verification remain pending at this checkpoint.
+
 ## 2026-11-05 — Build v0.1.3 seed-based Android preview
 
 - Bumped app/brand/package version to `0.1.3` and Android `versionCode` to `4` so the seed-based preview can update v0.1.2.
@@ -6,7 +18,7 @@
 - Moved seed regeneration to the EAS `eas-build-pre-install` hook. The exact hook was executed locally with Node 22.23.1 before dependency installation and confirmed the 217-pack / 13,609-question seed is current.
 - Re-ran frozen install, full test suite (**137/137**), TypeScript, ESLint, whole-catalog validation (217 packs / 13,609 questions / 0 errors), SQLite integrity, host benchmark, resolved Expo config, native prebuild asset-copy check and Android Metro export. The native/exported DB passes SQLite integrity and row-count checks.
 - Latest Node host benchmark: **1,419 ms** first seed import / **2 ms** returning sync. These are not Android-device timings.
-- EAS internal Android APK build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` completed successfully (`FINISHED`) at 2026-11-05 13:32:51 UTC. [Build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk) (~112 MiB). The APK-embedded seed was extracted and validated against the source SHA-256, SQLite quick_check, foreign keys, schema v5 and 217/13,609 row counts. Physical-device install/runtime/data-preservation QA remains pending.
+- EAS internal Android APK build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` completed successfully (`FINISHED`) at 2026-11-05 13:32:51 UTC. [Build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk) (~112 MiB). The APK-embedded seed was extracted and validated against source SHA-256, SQLite quick_check, foreign keys, schema v5 and 217/13,609 row counts. The owner subsequently installed v0.1.3 on the phone and reported failure at question-library import; v0.1.4 follow-up is recorded above.
 
 ## 2026-11-05 — Prepare v0.1.2 correctness preview release
 
@@ -24,8 +36,6 @@
 - Researched official 2024–2025 JU/RU/HSTU exam rules. Added partial, source-backed facts only to the 3 matching JU and 5 HSTU packs; kept RU unconfigured because current third-party aggregate captures do not match a complete official 80-question paper.
 - Added a read-only quality audit across 217 packs / 13,609 questions. Findings are review candidates, not automatic corrections.
 - Added focused tests for profile persistence across a database close/reopen, notation parsing, custom/exact exam plans, partial scoring and audit output. Device verification and new APK build remain pending.
-
-# Changelog
 
 ## 2026-11-05 — Replace JSON startup import with a generated SQLite seed (working branch; APK not yet rebuilt)
 

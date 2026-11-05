@@ -1,6 +1,6 @@
 # Startup performance, seed database and lifecycle
 
-Last updated: 2026-11-05. This note describes the seed-based source implementation and v0.1.3 EAS APK. The APK's embedded seed asset is verified, but a physical Android install is still required before treating the Expo Asset/File sidecar copy as runtime-verified.
+Last updated: 2026-11-05. The owner-reported v0.1.3 APK fails at first-run question-library import. v0.1.4 corrects a source-confirmed SQLite-path/Expo-File URI mismatch and uses Android resource-aware legacy copying. Automated checks pass; EAS rebuild and physical-device verification remain required.
 
 ## Why startup was redesigned
 
@@ -12,7 +12,7 @@ The earlier implementation generated 217 static/dynamic-imported JSON modules an
 - assets/content/content_seed.db: generated, ignored binary asset (currently 22.63 MiB locally; never commit it).
 - src/services/seedBuilder.ts: runs the real schema migrations and importer to construct the seed, so it mirrors the application data contract.
 - src/content/seedFormat.ts: versioned manifest/seed contract and deterministic seed identifier.
-- src/content/bundledSeed.ts: lazy runtime asset materialization using the public Expo Asset and File APIs; the seed is copied to a disposable sidecar before SQLite ATTACH.
+- src/content/bundledSeed.ts: lazy Expo Asset materialization, explicit SQLite-path/file-URI conversion and resource-aware legacy copy to a disposable sidecar.
 - src/services/seedSync.ts: set-based SQL copy from attached seed to the user's database.
 - src/services/startup.ts and src/db/provider.tsx: startup sequence, progress, AppState integration, completion/warning state and recovery.
 - src/services/perf.ts: privacy-safe monotonic marks, spans and counters.
@@ -39,7 +39,7 @@ The generated seed is intentionally excluded from Git. Every clean CI/EAS build 
 
 1. Open the normal user database bd-admission.db, enable WAL, run versioned migrations, ensure the profile, close stale Flash sessions and finalize overdue exams.
 2. Read every current batch ID/signature from the user's database in one query. Unchanged packs are counted and skipped. If no pack is pending, do not materialize/open the seed asset at all.
-3. When updates are pending, resolve the Metro asset with Asset.fromModule(require("../../assets/content/content_seed.db")).downloadAsync(), then copy its local URI with expo-file-system File.copy into the SQLite database directory as the disposable sidecar bd-content_seed.db. Attach that sidecar and compare its format, seed ID, ordered manifest entries, stored batch signatures and per-pack question counts before copying anything. Delete the sidecar with expo-sqlite deleteDatabaseAsync after detach/release.
+3. When updates are pending, resolve the Metro asset with Asset.fromModule(require("../../assets/content/content_seed.db")).downloadAsync(). expo-sqlite.defaultDatabaseDirectory is a raw absolute path, so convert the destination to a file:///... URI before passing it to expo-file-system/legacy copyAsync. Copy the local asset URI with expo-file-system/legacy copyAsync into the SQLite directory as the disposable sidecar bd-content_seed.db; the native Android copier can also resolve packaged raw-resource identifiers. Convert the destination URI back to an absolute filesystem path for SQLite ATTACH. Verify format, seed ID, ordered manifest entries, stored batch signatures and per-pack question counts before copying anything. Detach and delete the sidecar after sync.
 4. Upsert shared institution/paper/rule rows, then copy content rows with set-based INSERT ... SELECT statements. Pending packs are grouped in bounded transactions of at most 1,500 questions. Batch signatures and their content rows commit atomically in the same transaction.
 5. If a group fails, roll it back and retry each pack individually. A single invalid pack therefore does not block otherwise-valid neighbours. A failed pack keeps no committed signature and is retried later.
 6. Restore connection settings, detach and delete the temporary seed sidecar.
@@ -99,4 +99,10 @@ pnpm exec expo config --type public
 pnpm exec expo export --platform android --no-bytecode
 ~~~
 
-The benchmark is informational and should be repeated after material import changes. Android no-bytecode export verifies Metro bundling/asset registration only. The native prebuild check confirms that `content_seed.db` is copied into `android/app/src/main/assets`; the finished v0.1.3 EAS APK has also been inspected and its `assets/content_seed.db` payload extracted, SHA-256 matched to the source, CRC-checked and opened successfully with SQLite (`quick_check`, foreign keys, schema and row counts). This verifies packaging and payload integrity, but it still does not prove that `Asset.downloadAsync()` and `File.copy()` succeed on a physical Android device. Fresh/update install, first seed copy/attach, returning launch, background/foreground, process-kill/relaunch and user-data preservation checks remain mandatory. The v0.1.2 APK predates the seed implementation and must not be used for this check.
+The benchmark is informational and should be repeated after material import changes. Android no-bytecode export verifies Metro bundling/asset registration only. The native prebuild check confirms that content_seed.db is copied into android/app/src/main/assets; the finished v0.1.3 EAS APK payload was also extracted, hash-matched, CRC-checked and opened successfully with SQLite. This verifies packaging only, not runtime extraction/copy/attach on a phone. The owner subsequently confirmed v0.1.3 fails during the first question-library import. Fresh/update install, v0.1.4 seed copy/attach, returning launch, background/foreground, process-kill/relaunch and user-data preservation checks remain mandatory.
+
+## Android v0.1.3 runtime failure and v0.1.4 correction — 2026-11-05
+
+The owner tested v0.1.3 / Android versionCode 4 and reported that the setup UI stops at **Importing question library**. The APK-embedded database had passed SHA/CRC/SQLite checks, but this proved the packaged bytes only, not the runtime seed-copy path. The prior implementation constructed the sidecar destination from expo-sqlite.defaultDatabaseDirectory as though it were a URI; the Expo File constructor requires a file:/// URI, while expo-sqlite returns a raw absolute filesystem path. v0.1.4 makes that conversion explicit, converts the URI back for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android raw-resource-aware copying. The retry screen now surfaces the native error detail.
+
+Source verification passed (139 tests, TypeScript, ESLint, content/pack validation, prebuild and Metro export). A Node/Metro pass cannot prove the native runtime fix; do not describe v0.1.4 as resolved until the owner confirms the updated APK completes import on the physical phone and preserves existing data. No uninstall or app-data clear should be used for that update test.

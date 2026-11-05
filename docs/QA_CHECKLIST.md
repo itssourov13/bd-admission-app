@@ -1,4 +1,21 @@
-## v0.1.3 seed-based Android preview release gate — 2026-11-05
+## v0.1.4 Android first-launch seed fix — 2026-11-05
+
+| Check | Result | Notes |
+|---|---|---|
+| Reproduce/report prior issue | [x] Owner-reported | v0.1.3 / code 4 stops at “Importing question library” on the owner's phone. The app displays the retry state; the user reports profile/bookmarks/practice history are preserved. |
+| Root-cause source audit | [x] Concrete path defect found | SQLite exports a raw absolute directory path; Expo File requires a file URI. v0.1.3 constructed the sidecar File from the raw path. Runtime device logs are not available, so this is a source-confirmed defect matching the failure stage, not a claim that device execution was reproduced locally. |
+| SQLite path ↔ file URI helper | [x] Automated pass | v0.1.4 explicitly converts absolute paths to file:///... for Expo File and back to absolute path for SQLite ATTACH; negative-input tests included. |
+| Android resource-aware copy | [x] Source-level fix | Uses expo-file-system/legacy copyAsync, whose Android implementation handles raw resource names and file/content/asset URIs. |
+| Error visibility | [x] Implemented | Retry screen shows up to 320 characters of the underlying startup error. |
+| App/version | [x] Updated | v0.1.4 / Android versionCode 5; application ID unchanged. |
+| Automated suite | [x] Pass | 139/139 tests passed. |
+| TypeScript / ESLint | [x] Pass | pnpm typecheck and pnpm lint. |
+| Catalogue/seed | [x] Pass | 217 packs / 13,609 questions, zero schema errors; seed integrity check passes. |
+| Android prebuild/export | [x] Pass | Native asset prebuild and Android Metro export pass. These are not physical runtime tests. |
+| Replacement EAS APK | [ ] Pending | Build v0.1.4 / code 5 and inspect embedded seed payload after build completion. |
+| Owner physical-device update test | [ ] Required | Install v0.1.4 over v0.1.3 without clearing data; verify library import completes, profile/bookmarks/history persist, returning launch, background/reopen and retry behavior. Do not mark pass before owner confirms. |
+
+## Historical v0.1.3 Android preview — built, then failed on owner's phone
 
 | Check | Result | Notes |
 |---|---|---|
@@ -8,7 +25,7 @@
 | Existing build history | [x] Checked | The previous correctness preview is v0.1.2 / code 3. Seed-based v0.1.3 / code 4 is now built. |
 | Resolved Expo config | [x] Pass | Public Expo config resolves version 0.1.3, Android versionCode 4, package com.admissionbd.app, expected slug and EAS project ID. |
 | EAS preview APK | [x] Built | `FINISHED`, build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; [EAS page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). APK-embedded seed was extracted and integrity-checked. |
-| Physical Android verification | [ ] Pending | Owner installs the new APK and tests seed initialization, existing-install data preservation and restart/background recovery. |
+| Physical Android verification | [ ] Pending | Owner installed/tested v0.1.3 and reported failure during question-library import. v0.1.4 replacement test is tracked in the current section above. |
 
 ## Profile, math and exam-rule correctness pass — 2026-11-05 (verification snapshot before seed-startup pass)
 
@@ -48,11 +65,11 @@
 | EAS Expo Doctor | [!] 20/21 | Only the SDK package patch-version check fails: `expo`, `expo-asset`, `expo-constants`, `expo-router` and `expo-splash-screen` are one SDK patch behind the current Expo recommendation. EAS continues into prebuild/Gradle; keep this warning visible and align patches in a follow-up dependency maintenance pass. |
 | EAS build from seed branch | [x] Built | `FINISHED`, build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, app v0.1.3 / versionCode 4; [EAS page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). Artifact seed extraction/integrity passes; runtime test remains pending. |
 | APK-embedded seed integrity | [x] Pass | Extracted `assets/content_seed.db` from EAS APK: source SHA-256 matches, ZIP CRC passes, SQLite quick_check `ok`, foreign-key issues 0, schema v5, 217 packs / 13,609 questions. This does not exercise the runtime Asset/File copy. |
-| Physical Android fresh/update/background/process-death checks | [ ] Pending | The connected Kali host has no `adb` binary/device in this session. Owner must install v0.1.3 over v0.1.2 and verify first seed copy/attach, returning launch, background/foreground, force-stop/relaunch and user-data preservation. |
+| Physical Android fresh/update/background/process-death checks | [ ] Pending | The connected Kali host has no `adb` binary/device in this session. Owner installed v0.1.3 over the previous app; it failed during first question-library import. Test replacement v0.1.4 as tracked in the current section above. |
 
 # QA checklist
 
-Latest source verification: **2026-11-05**, Node 22.23.1 / pnpm 11.10.0. Seed implementation: **137/137 tests pass**, typecheck/lint pass, 217 packs validate without errors, seed integrity passes, native prebuild asset registration and Android Metro export pass. EAS v0.1.3 APK build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` is `FINISHED`; its embedded SQLite seed passes extraction/integrity checks. Physical-device runtime and data-preservation verification remain pending.
+Historical v0.1.3 source snapshot: 137/137 tests passed and the APK-embedded seed passed extraction/integrity checks. The owner then tested v0.1.3 on a physical phone and reported failure during question-library import. Current v0.1.4 source verification is recorded above (139/139 tests); EAS replacement build and new owner runtime test remain pending.
 
 ## Startup setup UI verification — 2026-11-01
 

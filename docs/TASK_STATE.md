@@ -1,4 +1,20 @@
-## Seed startup release completion — v0.1.3 / Android versionCode 4 — 2026-11-05
+# Task state
+
+## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
+
+**Status:** Source fix and automated verification complete; replacement EAS APK and owner physical-device confirmation pending.
+
+- [x] Recorded owner-reported v0.1.3 / code 4 failure at the question-library import step. Previous embedded-DB checksum validation did not validate runtime materialization/copy and was not enough to call the APK ready.
+- [x] Fixed invalid Expo File destination construction: convert expo-sqlite.defaultDatabaseDirectory raw absolute path to a file:/// URI before creating File; convert the URI back to an absolute SQLite path for ATTACH.
+- [x] Use expo-file-system/legacy copyAsync for Android raw-resource-aware copying into the disposable SQLite sidecar.
+- [x] Add path conversion tests and visible underlying error detail on the setup retry screen.
+- [x] Bump app/brand/package to 0.1.4, Android versionCode 5; preserve package ID and signing identity.
+- [x] Run 139 tests, typecheck, lint, seed/content check, whole-catalog validation, Expo config, Android prebuild and Android Metro export.
+- [ ] Build v0.1.4 EAS preview APK and verify its embedded seed payload.
+- [ ] Owner updates the existing installation without uninstall/data clear and verifies first seed import, data persistence and subsequent launch. No adb/phone is connected to the workspace; device pass cannot be claimed here.
+- [ ] Final Git review and local commit after build/docs verification; do not push.
+
+## Historical seed startup release — v0.1.3 / Android versionCode 4 (owner-reported runtime failure)
 
 - [x] Bumped package/brand/app version to `0.1.3` and Android versionCode to `4`, preserving package ID, Expo slug, project ID and EAS-managed signing credentials.
 - [x] Replaced the hyphenated seed asset name with Android-compatible `content_seed.db`; Expo prebuild copies it into `android/app/src/main/assets/content_seed.db` with matching SHA-256 and valid SQLite integrity.
@@ -6,7 +22,7 @@
 - [x] Confirmed the exact `eas-build-pre-install` hook succeeds under Node 22.23.1 before package installation; generated native project directories are ignored so EAS runs managed prebuild from app config.
 - [x] Final source checks: frozen install; 137/137 tests; typecheck; lint; 217 packs / 13,609 questions / 0 validation errors; content:check; benchmark; public Expo config; Android prebuild; Metro export and exported seed SQLite integrity.
 - [x] Built the EAS internal APK successfully: build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, status `FINISHED`, completed 2026-11-05 13:32:51 UTC. [EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk), ~112 MiB.
-- [ ] Install v0.1.3 over v0.1.2 and verify update migration, profile/bookmark/history preservation, first seed import, returning sync, foreground/background interruption and process-death restart. This host has no ADB/device attached.
+- [x] Owner installed/tested v0.1.3 over the previous app; first question-library import failed on the physical phone. The replacement v0.1.4 verification is tracked in the current task at the top of this file.
 - [ ] Final local Git review and commit; never push.
 
 ## v0.1.2 Android correctness preview preparation — 2026-11-05
@@ -34,11 +50,9 @@
 - [ ] Physical Android UI QA for profile save/leave, math layout and screen reader rendering, partial-rule notices, custom mode and migration from a previously installed DB.
 - [ ] Acquire exact source paper(s) to complete JU/HSTU paper coverage; match the official RU C-unit source to an exact original 80-question sitting before adding the official rule to app data.
 
-# Task state
-
 ## Seed-based startup and runtime resilience — 2026-11-05
 
-**Status:** Implementation and automated source verification complete; the v0.1.3 EAS preview APK is built and its embedded seed passes integrity checks. Physical-device QA remains pending.
+**Historical status:** v0.1.3 was built and its embedded seed passed package integrity; the owner later reported first question-library import failure on the phone. See the current v0.1.4 follow-up at the top.
 
 - [x] Replace runtime-loaded JSON pack modules with a generated SQLite seed plus committed manifest; keep canonical question JSON unchanged.
 - [x] Build the seed from current migrations/importer; add deterministic manifest generation, Node 22 build hooks and GitHub CI content-build step.
@@ -51,7 +65,7 @@
 - [x] Update architecture, context, decision, QA, handoff, release/workflow and question-data documentation.
 - [x] Run final full suite (**137/137**), typecheck, lint, whole-catalog validation (217 packs / 13,609 questions / 0 errors), read-only seed integrity check, host benchmark, resolved Expo config and Android no-bytecode export. Exported 3.5 MB JS bundle plus a hashed 24 MB SQLite asset; asset itself passes SQLite quick_check / FK / counts.
 - [x] Superseded by the seed-based v0.1.3 / versionCode 4 EAS preview APK built successfully in the section above; v0.1.2 predates this asset path.
-- [ ] Physical-device fresh install/update install, background/foreground, force-stop/relaunch, data preservation, progress motion and TalkBack checks (no ADB-connected device is available on the current Kali host).
+- [x] Owner installed/tested v0.1.3 over the previous app and reported that the first question-library import failed; replacement v0.1.4 phone verification remains open.
 
 ## Historical branded first-launch/startup setup UI — 2026-11-01 (JSON loader replaced 2026-11-05)
 

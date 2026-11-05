@@ -1,16 +1,30 @@
-## Current handoff — 2026-11-05
+## Current handoff — 2026-11-05 (v0.1.4 Android startup fix)
+
+**Workspace:** /home/kali/gpt-workspace/bd-admission-app
+**Branch:** fix/profile-persistence-math-render-exam-rules-2026-11-05
+**Previous seed implementation commit:** 2370513 (local; do not push).
+**Current working changes:** v0.1.4 seed sidecar URI fix, legacy Android raw-resource copy path, setup error visibility, tests and docs.
+**Current app candidate:** v0.1.4 / Android versionCode 5. EAS build has not yet been started/completed.
+
+The owner tested v0.1.3 / code 4 on a physical Android phone. It opens the setup UI but fails while importing the question library. Earlier verification checked the APK's embedded SQLite payload but did not exercise Expo's runtime copy/attach path on a phone; that was an overstatement of readiness. Source audit found that the raw absolute path returned by expo-sqlite.defaultDatabaseDirectory was passed into Expo File's File constructor, which expects a file:/// URI. The fix now constructs the destination with an explicit file URI, converts it back to a raw path for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android resource-aware copying. The error screen now displays the underlying native error.
+
+Automated verification after the fix: 139/139 tests, TypeScript, ESLint, content:check, whole-catalog validation, resolved Expo config, Android prebuild and Android Metro export pass. APK build and embedded payload validation remain pending. This workspace has no adb/attached phone; **do not claim device QA pass**. The owner must install v0.1.4 over the existing v0.1.3 (same package/signing) without uninstalling or clearing storage, then confirm question import completes and existing profile/bookmarks/history remain available. If it fails again, capture the new on-screen native error detail.
+
+See docs/STARTUP_PERFORMANCE.md, docs/CURRENT_STATE.md, docs/QA_CHECKLIST.md, docs/ANDROID_RELEASE.md and docs/TASK_STATE.md. Do not push.
+
+## Previous handoff snapshot — v0.1.3 (superseded by the v0.1.4 fix)
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `fix/profile-persistence-math-render-exam-rules-2026-11-05`
 **Implementation commit:** `491ab36` (already pushed by the owner).
 **Release-preparation commit:** c93c7f3 (local commit; not pushed).
-**Current app candidate:** v0.1.3 / Android versionCode 4; EAS build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` FINISHED. [Build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk).
+**Previous app candidate:** v0.1.3 / Android versionCode 4; build finished but the owner reported a first-import failure on the phone. Current candidate v0.1.4 / code 5 is tracked above.
 
 The owner has already pushed the correctness implementation and release-preparation commits; PR #6 remains the integration path. Current local HEAD at the start of this task was `34f7420`. The working tree contains the completed seed-startup implementation, verification fixes and documentation updates. The changes are to be committed locally after the final Git/diff review; do not push.
 
-The seed implementation replaces startup JSON pack imports with a generated SQLite asset and compact manifest, uses set-based SQL in bounded transactions, preserves user-owned records, provides AppState-aware retry and restart recovery, and changes progress fill to a native-driver transform. Final automated verification: 137/137 tests, frozen install, EAS pre-install hook, typecheck, lint, 217-pack validation, seed integrity, resolved Expo config, Android prebuild asset registration and Android no-bytecode export pass. The exported JS bundle is 3.5 MB and its 23.72 MB hashed SQLite asset passes quick_check/FK/row-count checks. Latest host benchmark: 1,419 ms for full 217-pack seed copy, 2 ms returning sync; legacy full import is estimated at 8,066 ms from a 25-pack sample. These are Node/Metro measurements, not Android device timings. EAS v0.1.3 build has finished; its APK-embedded SQLite seed was extracted and verified against the source hash, SQLite quick_check/FK integrity, schema v5 and catalogue counts. Physical-device validation remains pending.
+Historical v0.1.3 summary: the seed implementation replaced startup JSON imports with a generated SQLite asset, set-based SQL and bounded transactions while preserving user-owned records. The APK's embedded seed passed package-integrity checks, but the owner subsequently tested it on Android and reported that first question-library import fails. This packaging-only result is not runtime QA. The v0.1.4 source fix and required owner verification are documented in the current handoff at the top.
 
-The finished v0.1.2 APK (build `af78b85f-7a2b-4fba-b693-532c7d218f8b`) contains the correctness branch but predates the seed implementation; it cannot verify the new .db asset path. The v0.1.3 replacement build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` is `FINISHED`; [download the APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). The APK asset is integrity-checked; physical-device validation remains pending. Background execution is not guaranteed while Android suspends/kills JS; current behavior is bounded foreground retry and transaction-safe recovery on relaunch, not WorkManager/FGS.
+The finished v0.1.2 APK (build `af78b85f-7a2b-4fba-b693-532c7d218f8b`) contains the correctness branch but predates the seed implementation; it cannot verify the new .db asset path. The v0.1.3 replacement build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd` is `FINISHED`; [download the APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). The APK asset passed package-integrity checks, but the owner later tested it and reported the first question-library import failure on the phone. Background execution is not guaranteed while Android suspends/kills JS; current behavior is bounded foreground retry and transaction-safe recovery on relaunch, not WorkManager/FGS.
 
 See `docs/STARTUP_PERFORMANCE.md`, `docs/CURRENT_STATE.md`, `docs/EXAM_RULE_RESEARCH.md`, `docs/QUESTION_QUALITY_AUDIT.md`, `docs/ANDROID_RELEASE.md` and `docs/QA_CHECKLIST.md`. Run commands with Node 22.23.1.
 
