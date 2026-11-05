@@ -1,6 +1,6 @@
 # Startup performance, seed database and lifecycle
 
-Last updated: 2026-11-05. v0.1.4 EAS APK finished and its embedded SQLite seed matches source; Expo Doctor has one non-blocking SDK patch-alignment warning. Physical-device runtime verification is still required.
+Last updated: 2026-11-05. v0.1.4 EAS APK finished and its embedded SQLite seed matches source; Expo Doctor has one non-blocking SDK patch-alignment warning. The owner has since verified v0.1.4 on a physical phone and reports expected operation. A subtle square flash during loading-UI-to-Home transition is retained as a cosmetic follow-up in docs/QA_CHECKLIST.md.
 
 ## Why startup was redesigned
 
@@ -99,15 +99,20 @@ pnpm exec expo config --type public
 pnpm exec expo export --platform android --no-bytecode
 ~~~
 
-The benchmark is informational and should be repeated after material import changes. Android no-bytecode export verifies Metro bundling/asset registration only. The native prebuild check confirms that content_seed.db is copied into android/app/src/main/assets; the finished v0.1.3 EAS APK payload was also extracted, hash-matched, CRC-checked and opened successfully with SQLite. This verifies packaging only, not runtime extraction/copy/attach on a phone. The owner subsequently confirmed v0.1.3 fails during the first question-library import. Fresh/update install, v0.1.4 seed copy/attach, returning launch, background/foreground, process-kill/relaunch and user-data preservation checks remain mandatory.
+The benchmark is informational and should be repeated after material import changes. Android no-bytecode export verifies Metro bundling/asset registration only. The v0.1.3 APK payload was extracted, hash-matched, CRC-checked and opened successfully with SQLite, but the owner later reproduced a first question-library import failure on the phone. v0.1.4 corrected the seed sidecar URI/copy path; its EAS APK was verified and the owner has since confirmed successful physical-phone operation. The owner did not provide separate timings or a step-by-step runtime matrix, so those details are not inferred from the overall confirmation.
 
 ## Android v0.1.3 runtime failure and v0.1.4 correction — 2026-11-05
 
 The owner tested v0.1.3 / Android versionCode 4 and reported that the setup UI stops at **Importing question library**. The APK-embedded database had passed SHA/CRC/SQLite checks, but this proved the packaged bytes only, not the runtime seed-copy path. The prior implementation constructed the sidecar destination from expo-sqlite.defaultDatabaseDirectory as though it were a URI; the Expo File constructor requires a file:/// URI, while expo-sqlite returns a raw absolute filesystem path. v0.1.4 makes that conversion explicit, converts the URI back for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android raw-resource-aware copying. The retry screen now surfaces the native error detail.
 
-Source verification passed (139 tests, TypeScript, ESLint, content/pack validation, prebuild and Metro export). A Node/Metro pass cannot prove the native runtime fix; do not describe v0.1.4 as resolved until the owner confirms the updated APK completes import on the physical phone and preserves existing data. No uninstall or app-data clear should be used for that update test.
+Source verification passed (139 tests, TypeScript, ESLint, content/pack validation, prebuild and Metro export). The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected; the first-import issue is closed for this candidate. The brief loading-UI-to-Home square flash remains a cosmetic follow-up, and the Expo Doctor patch mismatch remains a separate maintenance note. Neither is being changed in this task.
 
 
 ## v0.1.4 EAS build and packaged seed verification — 2026-11-05
 
 Build 040c75b2-0bbd-47b5-b859-cdb7f179f968 (v0.1.4 / Android versionCode 5) finished on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. EAS metrics: queue 23m07.529s, worker build 18m48.733s (Gradle 17m19.883s), end-to-end 42m00.902s. APK (https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk) is 117,408,124 bytes (~112 MiB); APK SHA-256 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. Embedded assets/content_seed.db is 23,724,032 bytes and SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e, an exact match for source. ZIP entry CRC, SQLite quick_check, schema user_version 5 and foreign_key_check (0 violations) pass. Payload contains 217 packs, 13,609 questions and 54,436 options. Expo Doctor: 20/21 checks passed. The sole failed check was SDK patch alignment: expo ~57.0.32 (found 57.0.31), expo-asset ~57.0.21 (57.0.20), expo-constants ~57.0.23 (57.0.22), expo-router ~57.0.30 (57.0.29), expo-splash-screen ~57.0.11 (57.0.10). This advisory did not block prebuild, Gradle or APK upload; EAS finished successfully. Align these five package patches in a separate maintenance pass, not by discarding this APK. Physical-device runtime verification is still outstanding. Install v0.1.4 over v0.1.3 without uninstalling or clearing storage. Confirm the setup passes 'Importing question library' and profile, bookmarks and practice history remain intact; do not call the issue resolved before confirmation.
+
+
+## Owner-observed transition note — 2026-11-05
+
+During successful v0.1.4 physical-phone verification, the owner noticed a very brief, extremely subtle square-shaped flash as the loading/setup UI transitions to Home. It may be related to the immediate Home render or transition timing, but that cause is not confirmed. This is a cosmetic, non-blocking observation only. For a later grouped polish pass, inspect the loading-to-Home handoff and consider a slightly slower native-supported fade/transition; do not change code solely from this note. The separate Expo Doctor SDK patch-alignment advisory is tracked in docs/QA_CHECKLIST.md.

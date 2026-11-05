@@ -14,7 +14,16 @@
 | Android prebuild/export | [x] Pass | Native asset prebuild and Android Metro export pass. These are not physical runtime tests. |
 | EAS Expo Doctor | [!] 20/21 | One non-blocking check failed: five Expo SDK packages are one patch behind the expected versions. EAS continued through Gradle and produced the APK; package patch alignment is a maintenance follow-up. |
 | Replacement EAS APK | [x] Built and verified | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is FINISHED; APK https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk; size 117,408,124 bytes; app 0.1.4 / code 5. Full APK ZIP test passes for all 1,367 entries; APK SHA-256 recorded in release docs. Embedded seed SHA matches source; SQLite quick_check ok, FK violations 0, schema v5, 217 packs / 13,609 questions. |
-| Owner physical-device update test | [ ] Required | APK is ready. Install v0.1.4 over v0.1.3 without clearing data; verify library import completes, profile/bookmarks/history persist, returning launch, background/reopen and retry behavior. Do not mark pass before owner confirms. |
+| Owner physical-device verification | [x] Owner-confirmed pass | Owner installed and checked v0.1.4 on a physical phone and reports that everything works as expected. This is an owner-reported overall verification; individual timing/retention measurements are not separately recorded here. |
+
+## Human runtime issues — owner-reported follow-ups
+
+These are observations to retain for the next grouped fix/polish pass. No code changes are included for either note.
+
+| Item | Priority | Observation / next step | Status |
+|---|---|---|---|
+| Loading UI → Home transition flash | Low / cosmetic | During the transition from the loading/setup UI to the Home screen, the owner notices a very brief, extremely subtle square-shaped flash. Possible cause is the immediate Home render/transition timing; this is only a hypothesis, not a confirmed root cause. Consider a slightly slower/faded native-supported transition to make the handoff smoother. Re-check on the same phone before changing animation behavior. | Open note; defer implementation |
+| Expo Doctor SDK patch alignment | Maintenance | EAS Expo Doctor reported 20/21 checks: five Expo SDK packages were one patch behind (expo, expo-asset, expo-constants, expo-router, expo-splash-screen). The v0.1.4 Gradle build and APK completed successfully despite this advisory. Align the five packages with the SDK-recommended patches in a separate dependency-maintenance pass and rerun pnpm doctor; no rebuild is requested by this note alone. | Open maintenance note; non-blocking |
 
 ## Historical v0.1.3 Android preview — built, then failed on owner's phone
 
@@ -70,7 +79,7 @@
 
 # QA checklist
 
-Historical v0.1.3 source snapshot: 137/137 tests passed and the APK-embedded seed passed extraction/integrity checks. The owner then tested v0.1.3 on a physical phone and reported failure during question-library import. Current v0.1.4 source verification is recorded above (139/139 tests); EAS replacement build and new owner runtime test remain pending.
+Historical v0.1.3 source snapshot: 137/137 tests passed and the APK-embedded seed passed extraction/integrity checks, but the owner later observed the first question-library import failure on-device. v0.1.4 corrected the seed sidecar path, its EAS APK and embedded seed were verified, and the owner has since confirmed physical-phone verification is successful. The two non-blocking follow-up notes are recorded in the Human runtime issues section above.
 
 ## Startup setup UI verification — 2026-11-01
 

@@ -2,7 +2,7 @@
 
 ## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
 
-**Status:** Source fix committed; v0.1.4 EAS APK built and embedded seed verified. Owner physical-device confirmation remains pending.
+**Status:** v0.1.4 source fix committed, EAS APK and embedded seed verified, and owner physical-phone verification confirmed successful. Two non-blocking follow-up notes are retained in docs/QA_CHECKLIST.md; no implementation is requested now.
 
 - [x] Recorded owner-reported v0.1.3 / code 4 failure at the question-library import step. Previous embedded-DB checksum validation did not validate runtime materialization/copy and was not enough to call the APK ready.
 - [x] Fixed invalid Expo File destination construction: convert expo-sqlite.defaultDatabaseDirectory raw absolute path to a file:/// URI before creating File; convert the URI back to an absolute SQLite path for ATTACH.
@@ -14,8 +14,8 @@
 - [x] EAS v0.1.4 / code 5 build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed FINISHED; downloaded and verified the 117,408,124-byte APK and its embedded seed SHA/SQLite integrity.
 - [x] Verify embedded seed payload hash matches source; ZIP integrity, SQLite quick_check, schema v5 and foreign-key check pass; catalogue has 217 packs / 13,609 questions.
 - [!] Expo Doctor 20/21: single failed SDK patch alignment check for five packages; Gradle/APK build still passed. Align patch versions in a separate dependency maintenance task.
-- [ ] Owner updates the existing installation without uninstall/data clear and verifies first seed import, data persistence and subsequent launch. No adb/phone is connected to the workspace; device pass cannot be claimed here.
-- [x] Reviewed and committed the source fix locally as 8855821; subsequent EAS result, APK verification and documentation were recorded in follow-up commits. No push.
+- [x] Owner reports that v0.1.4 was installed and verified successfully on the physical phone; overall app behavior is confirmed as expected.
+- [x] Reviewed and committed the source fix locally as 8855821; subsequent EAS result and artifact verification were committed in follow-up documentation commits. This task adds only owner runtime notes and confirmation; no push.
 
 ## Historical seed startup release — v0.1.3 / Android versionCode 4 (owner-reported runtime failure)
 
@@ -26,7 +26,7 @@
 - [x] Final source checks: frozen install; 137/137 tests; typecheck; lint; 217 packs / 13,609 questions / 0 validation errors; content:check; benchmark; public Expo config; Android prebuild; Metro export and exported seed SQLite integrity.
 - [x] Built the EAS internal APK successfully: build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, status `FINISHED`, completed 2026-11-05 13:32:51 UTC. [EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk), ~112 MiB.
 - [x] Owner installed/tested v0.1.3 over the previous app; first question-library import failed on the physical phone. The replacement v0.1.4 verification is tracked in the current task at the top of this file.
-- [ ] Final local Git review and commit; never push.
+- [x] Final local Git review and commit; never push.
 
 ## v0.1.2 Android correctness preview preparation — 2026-11-05
 
