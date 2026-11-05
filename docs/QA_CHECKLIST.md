@@ -12,8 +12,9 @@
 | TypeScript / ESLint | [x] Pass | pnpm typecheck and pnpm lint. |
 | Catalogue/seed | [x] Pass | 217 packs / 13,609 questions, zero schema errors; seed integrity check passes. |
 | Android prebuild/export | [x] Pass | Native asset prebuild and Android Metro export pass. These are not physical runtime tests. |
-| Replacement EAS APK | [ ] Building | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 for v0.1.4 / code 5 is IN_PROGRESS after ~23m07s queue wait; logs show RUN_GRADLEW. Inspect embedded seed payload after completion. |
-| Owner physical-device update test | [ ] Required | Install v0.1.4 over v0.1.3 without clearing data; verify library import completes, profile/bookmarks/history persist, returning launch, background/reopen and retry behavior. Do not mark pass before owner confirms. |
+| EAS Expo Doctor | [!] 20/21 | One non-blocking check failed: five Expo SDK packages are one patch behind the expected versions. EAS continued through Gradle and produced the APK; package patch alignment is a maintenance follow-up. |
+| Replacement EAS APK | [x] Built and verified | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is FINISHED; APK https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk; size 117,408,124 bytes; app 0.1.4 / code 5. Full APK ZIP test passes for all 1,367 entries; APK SHA-256 recorded in release docs. Embedded seed SHA matches source; SQLite quick_check ok, FK violations 0, schema v5, 217 packs / 13,609 questions. |
+| Owner physical-device update test | [ ] Required | APK is ready. Install v0.1.4 over v0.1.3 without clearing data; verify library import completes, profile/bookmarks/history persist, returning launch, background/reopen and retry behavior. Do not mark pass before owner confirms. |
 
 ## Historical v0.1.3 Android preview — built, then failed on owner's phone
 
