@@ -52,12 +52,14 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
-## Current correctness preview — v0.1.2 (build submission pending)
+## Current correctness preview — v0.1.2 (EAS build finished)
 
-- App/brand/package version: `0.1.2`; Android `versionCode 3`; application ID remains `com.admissionbd.app`.
-- EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID remains `16ba69b8-96d7-4856-a197-77acddebe1ec`.
-- Includes the 2026-11-05 profile-persistence, math-rendering, exact-paper exam-rule/scoring and question-quality-audit implementation from the correctness branch.
-- At this documentation checkpoint, the cloud build has not yet been submitted. Do not use the older v0.1.1 APK to verify this branch. Replace this note with the actual EAS build ID, status, completion time and artifact URL only after EAS confirms the job and artifact.
+- App/brand/package version: `0.1.2`; Android `versionCode 3`; application ID: `com.admissionbd.app`.
+- EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- Includes the 2026-11-05 correctness implementation: profile display-name persistence, accessible display-only math rendering, exact-paper exam-rule/scoring safeguards, partial official rule facts and the read-only question-quality audit.
+- EAS build ID: `af78b85f-7a2b-4fba-b693-532c7d218f8b`; status: **FINISHED**; started **2026-11-05 12:44:49 +06:00** and finished **2026-11-05 13:00:01 +06:00**.
+- [Open the Expo EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/af78b85f-7a2b-4fba-b693-532c7d218f8b) or [download the v0.1.2 APK](https://expo.dev/artifacts/eas/CaI6tX3jbyvV5ghfjc0gxU_D4-U1oSlfWHD9M_4DaVY.apk).
+- **Physical-device QA remains pending.** Install over the prior app without clearing its data to exercise the update/migration path; use a disposable profile/device for destructive fresh-install checks.
 
 ## Previous preview APK — v0.1.1 (historical; superseded by v0.1.2 source)
 
