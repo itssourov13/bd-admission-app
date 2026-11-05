@@ -5,8 +5,9 @@ import { join, resolve } from "node:path";
 import { freshDb } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
 import { validateQuestionPack } from "../src/services/questionPackValidator.mjs";
-import { countEligible, contentTotals, listInstitutions, listPapers, listPaperQuestionIds } from "../src/repositories/content.ts";
+import { countEligible, contentTotals, getPaperRule, listInstitutions, listPapers, listPaperQuestionIds } from "../src/repositories/content.ts";
 import type { QuestionPack } from "../src/types/question-pack.ts";
+import { planExam } from "../src/services/exam.ts";
 
 const packDirectory = resolve("data/question-packs");
 
@@ -75,7 +76,28 @@ test("JU and HSTU packs preserve Muse metadata, statuses, and globally unique re
     for (const rule of pack.examRules) {
       assert.ok(!ruleIds.has(rule.id), `duplicate exam-rule id: ${rule.id}`);
       ruleIds.add(rule.id);
-      assert.equal(rule.verificationStatus, "unconfigured", `${filename}: no official exam rule was supplied`);
+      const hstu2024 = institution.code === "HSTU" && pack.papers[0]?.academicSession === "2024-2025";
+      const ju2024 = institution.code === "JU" && pack.papers[0]?.academicSession === "2024-2025" &&
+        ["ju-a-2024-2025-set02", "ju-d-2024-2025-set12", "ju-d-2024-2025-set13"].includes(rule.paperId);
+      if (hstu2024) {
+        assert.equal(rule.verificationStatus, "verified", `${filename}: HSTU circular verifies the MCQ component total`);
+        assert.equal(rule.totalMarks, 100, filename);
+        assert.equal(rule.correctMarks, undefined, filename);
+        assert.equal(rule.incorrectPenalty, undefined, filename);
+        assert.equal(rule.unansweredMarks, undefined, filename);
+        assert.equal(rule.totalQuestions, undefined, filename);
+        assert.equal(rule.durationSeconds, undefined, filename);
+      } else if (ju2024) {
+        assert.equal(rule.verificationStatus, "verified", `${filename}: JU circular partially verifies the exam pattern`);
+        assert.equal(rule.totalMarks, 80, filename);
+        assert.equal(rule.totalQuestions, 80, filename);
+        assert.equal(rule.durationSeconds, 3300, filename);
+        assert.equal(rule.incorrectPenalty, 0.2, filename);
+        assert.equal(rule.correctMarks, undefined, filename);
+        assert.equal(rule.unansweredMarks, undefined, filename);
+      } else {
+        assert.equal(rule.verificationStatus, "unconfigured", `${filename}: no exact official rule was verified`);
+      }
       for (const sourceId of rule.sourceDocumentIds ?? []) {
         assert.ok(declaredSourceIds.has(sourceId), `${filename}: rule source reference ${sourceId}`);
       }
@@ -111,7 +133,7 @@ test("JU and HSTU packs preserve Muse metadata, statuses, and globally unique re
   assert.equal(papers.size, 57);
   assert.equal(questionIds.size, 1819);
   assert.equal(ruleIds.size, 57);
-  assert.equal(sourceIds.size, 107);
+  assert.equal(sourceIds.size, 120);
 });
 
 test("all 217 bundled packs import transactionally, preserve eligibility, and re-import idempotently", async () => {
@@ -145,8 +167,8 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     batches: 217,
     papers: 217,
     rules: 158,
-    unconfiguredRules: 156,
-    sources: 273,
+    unconfiguredRules: 148,
+    sources: 286,
     appearances: 13609,
     options: 54436,
     verified: 3694,
@@ -156,6 +178,28 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
   });
   assert.equal((await countEligible(db, { institutionId: "ju" })), 1393);
   assert.equal((await countEligible(db, { institutionId: "hstu" })), 275);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM exam_rules WHERE total_marks = 100 AND verification_status = 'verified'"), 5);
+  const partialRule = await getPaperRule(db, "hstu-a-2024-2025-shift-1");
+  assert.equal(partialRule?.status, "verified");
+  assert.equal(partialRule?.totalMarks, 100);
+  assert.equal(partialRule?.correctMarks, null);
+  assert.equal(partialRule?.incorrectPenalty, null);
+  assert.equal(partialRule?.unansweredMarks, null);
+  assert.equal(partialRule?.totalQuestions, null);
+  assert.equal(partialRule?.durationSeconds, null);
+  assert.equal(planExam("hstu-a-2024-2025-shift-1", partialRule).kind, "unavailable");
+
+  const juPartialRule = await getPaperRule(db, "ju-a-2024-2025-set02");
+  assert.equal(juPartialRule?.status, "verified");
+  assert.equal(juPartialRule?.totalMarks, 80);
+  assert.equal(juPartialRule?.totalQuestions, 80);
+  assert.equal(juPartialRule?.durationSeconds, 3300);
+  assert.equal(juPartialRule?.incorrectPenalty, 0.2);
+  assert.equal(juPartialRule?.correctMarks, null);
+  assert.equal(juPartialRule?.unansweredMarks, null);
+  assert.deepEqual(planExam("ju-a-2024-2025-set02", juPartialRule), {
+    kind: "paper", required: 80, durationSeconds: 3300, official: true
+  });
 
   const institutions = await listInstitutions(db, "varsity");
   const ju = institutions.find((institution) => institution.code === "JU");

@@ -5,7 +5,9 @@
     "category": "varsity",
     "description": "HSTU B Unit (shift 2) MCQ question bank, academic session 2024-2025, transcribed 2026-10-31 from the publicly readable first page of each Satt Academy subject section (Physics 15 of 25, Chemistry 15 of 25, Mathematics 15 of 25, English 15 of 25; page 2 of each subject section is login-gated on Satt Academy and was not fetched or bypassed). All 60 publicly readable cards are included. EXTRACTION NOTE: public window = Physics 15 of 25, Chemistry 15 of 25, Mathematics 15 of 25, English 15 of 25 = 60 of the stated 100 questions; the remaining questions are behind Satt's login gate and are NOT in this pack. Answers are Satt Academy's own marked answers (reading-mode correct marker cross-checked against each card's test-mode answer field; the two agreed on every card that carries a key). Content is single-source (Satt Academy) and is not cross-source verified; both verification statuses are therefore 'unverified'. Keyless cards (Satt publishes no key for them): Mathematics #4 (Satt qid 545977); Mathematics #8 (Satt qid 545982). Bengali numerals in the source were converted to Western digits and MathML formulas linearised (fractions as a/b, powers as ^) per project convention; original wording and option order preserved. IMPORT-READY SUBSET after cross-source adjudication vs porikha.com (Joykoly): 58 of 60 publicly available questions verified (the paper's remaining questions are login-gated on Satt and were not extracted). row 4: excluded (DIFFER) row 34: no key in either source - included with unknown answer row 37: excluded (DIFFER) row 38: no key in either source - included with unknown answer",
     "sourceDocumentIds": [
-      "src-hstu-b-2024-2025-shift-2-satt"
+      "src-hstu-b-2024-2025-shift-2-satt",
+      "hstu-official-circular-2024-2025-hstu-b-2024-2025-shift-2",
+      "hstu-final-schedule-2024-2025-hstu-b-2024-2025-shift-2"
     ]
   },
   "sourceDocuments": [
@@ -24,6 +26,20 @@
       "sha256": "d2123d7134df1f6c230b710cfe3f880cd7c7d26faefb062d9094366c52189683",
       "sourceType": "other",
       "notes": "Independent publisher rendering of the same printed paper (question images with keyed options highlighted), accessed 2026-10-31; all 8 post images archived under sources/porikha-2024-25/ with INDEX.md. Porikha's set numbers do not map 1:1 to Satt's shift labels; pairing was by question content (see VERIFICATION.md)."
+    },
+    {
+      "id": "hstu-official-circular-2024-2025-hstu-b-2024-2025-shift-2",
+      "filename": "details_admission-circular_2025.pdf",
+      "title": "HSTU official undergraduate admission circular 2024-2025",
+      "sourceType": "pdf",
+      "notes": "Official HSTU 2024-2025 undergraduate admission circular (27 January 2025): https://hstu.ac.bd/uploads/admission_2025/details_admission-circular_2025.pdf. It confirms a 100-mark MCQ admission-test component. Official HSTU FAQ https://admission.hstu.ac.bd/home/faq_2025 confirms that the 2024-2025 test was run independently by HSTU, not under GST. Final official exam-date notice: https://hstu.ac.bd/uploads/admission_2025/admission-schedule_2025_30_04_25.pdf. These primary sources do NOT establish the exact number of questions, marks per correct answer, wrong-answer penalty, unanswered treatment or test duration. Only totalMarks=100 is recorded; 100 marks must not be interpreted as 100 questions."
+    },
+    {
+      "id": "hstu-final-schedule-2024-2025-hstu-b-2024-2025-shift-2",
+      "filename": "admission-schedule_2025_30_04_25.pdf",
+      "title": "HSTU official final admission-test schedule 2024-2025 (30 April 2025)",
+      "sourceType": "pdf",
+      "notes": "Official HSTU notice dated 30 April 2025: https://hstu.ac.bd/uploads/admission_2025/admission-schedule_2025_30_04_25.pdf. It sets A-unit tests on 05-05-2025 and B-unit tests on 06-05-2025 in three shifts (09:30, 12:00 and 15:00 starts); it is scheduling evidence only and does not establish question count or marking values."
     }
   ],
   "institutions": [
@@ -48,11 +64,14 @@
     {
       "id": "rule-hstu-b-2024-2025-shift-2",
       "paperId": "hstu-b-2024-2025-shift-2",
-      "verificationStatus": "unconfigured",
+      "verificationStatus": "verified",
       "sourceDocumentIds": [
-        "src-hstu-b-2024-2025-shift-2-satt"
+        "src-hstu-b-2024-2025-shift-2-satt",
+        "hstu-official-circular-2024-2025-hstu-b-2024-2025-shift-2",
+        "hstu-final-schedule-2024-2025-hstu-b-2024-2025-shift-2"
       ],
-      "sourceNote": "No scoring, penalty, duration or selection rule for this paper was verified from an official source. Rule intentionally left unconfigured with no scoring values. Satt lists the exam date as 06-05-2025 in the exam name; that is source metadata, not a verified rule."
+      "sourceNote": "Official HSTU 2024-2025 admission circular confirms a 100-mark MCQ admission-test component (not a confirmed 100-question count): https://hstu.ac.bd/uploads/admission_2025/details_admission-circular_2025.pdf. HSTU's official FAQ confirms this cycle was conducted independently by HSTU rather than GST: https://admission.hstu.ac.bd/home/faq_2025. The university's final notice dated 30 April confirms A unit on 5 May 2025 and B unit on 6 May 2025: https://hstu.ac.bd/uploads/admission_2025/admission-schedule_2025_30_04_25.pdf. The accessible official sources do not establish per-question marks, negative marking, unanswered treatment, exact question count or exam duration. Only totalMarks=100 is stored; no numerical scoring rule or official timed plan is inferred. The included Satt question-bank extract is incomplete (15 of 25 shown per subject) and does not certify the full 100-mark paper or answer keys.",
+      "totalMarks": 100
     }
   ],
   "questions": [

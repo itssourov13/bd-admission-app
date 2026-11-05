@@ -1,6 +1,7 @@
 import { Image, Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Chip, Txt } from "@/components/ui";
+import { MathText, useSpokenMath } from "@/components/common/MathText";
 import { useT, useNum } from "@/i18n";
 import { colors, feedback } from "@/theme";
 import type { OptionView, QuestionView } from "../../types/domain";
@@ -27,6 +28,7 @@ interface Props {
 export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false }: Props) {
   const t = useT();
   const num = useNum();
+  const spoken = useSpokenMath();
   // The answer-key status and transcription/content status are separate; preserve a verified key's
   // existing behavior even when the question text or figure still needs review.
   const verified = question.answerStatus === "verified";
@@ -38,7 +40,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
   return (
     <View>
       <View className="flex-row items-start gap-2">
-        <Txt weight="semibold" className="flex-1 text-ink-900 text-[17px] leading-7">{question.text}</Txt>
+        <MathText weight="semibold" className="flex-1 text-ink-900 text-[17px] leading-7">{question.text}</MathText>
         {onToggleBookmark ? (
           <Pressable
             accessibilityRole="button"
@@ -91,7 +93,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
             <Pressable
               key={o.key}
               accessibilityRole="radio"
-              accessibilityLabel={`${optionLabel(o)}. ${o.text}`}
+              accessibilityLabel={`${optionLabel(o)}. ${spoken(o.text)}`}
               accessibilityState={{ selected: isSelected, disabled }}
               disabled={disabled || !onSelect}
               onPress={() => onSelect?.(o.key)}
@@ -106,7 +108,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
                   : isWrong ? <Ionicons name="close" size={18} color={colors.white} />
                   : <Txt weight="bold" className={`text-sm ${isSelected ? "text-white" : "text-ink-700"}`}>{optionLabel(o)}</Txt>}
               </View>
-              <Txt className="flex-1 text-ink-900 text-base leading-6">{o.text}</Txt>
+              <MathText className="flex-1 text-ink-900 text-base leading-6">{o.text}</MathText>
             </Pressable>
           );
         })}
@@ -115,7 +117,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
       {reveal && question.explanation ? (
         <View className="mt-4 rounded-2xl bg-sand-100 p-3.5">
           <Txt weight="semibold" className="text-ink-900 text-sm">{t("question.explanation")}</Txt>
-          <Txt className="text-ink-700 text-sm leading-6 mt-1">{question.explanation}</Txt>
+          <MathText className="text-ink-700 text-sm leading-6 mt-1">{question.explanation}</MathText>
         </View>
       ) : null}
 

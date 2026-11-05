@@ -1,6 +1,85 @@
+## v0.1.4 Android first-launch seed fix — 2026-11-05
+
+| Check | Result | Notes |
+|---|---|---|
+| Reproduce/report prior issue | [x] Owner-reported | v0.1.3 / code 4 stops at “Importing question library” on the owner's phone. The app displays the retry state; the user reports profile/bookmarks/practice history are preserved. |
+| Root-cause source audit | [x] Concrete path defect found | SQLite exports a raw absolute directory path; Expo File requires a file URI. v0.1.3 constructed the sidecar File from the raw path. Runtime device logs are not available, so this is a source-confirmed defect matching the failure stage, not a claim that device execution was reproduced locally. |
+| SQLite path ↔ file URI helper | [x] Automated pass | v0.1.4 explicitly converts absolute paths to file:///... for Expo File and back to absolute path for SQLite ATTACH; negative-input tests included. |
+| Android resource-aware copy | [x] Source-level fix | Uses expo-file-system/legacy copyAsync, whose Android implementation handles raw resource names and file/content/asset URIs. |
+| Error visibility | [x] Implemented | Retry screen shows up to 320 characters of the underlying startup error. |
+| App/version | [x] Updated | v0.1.4 / Android versionCode 5; application ID unchanged. |
+| Automated suite | [x] Pass | 139/139 tests passed. |
+| TypeScript / ESLint | [x] Pass | pnpm typecheck and pnpm lint. |
+| Catalogue/seed | [x] Pass | 217 packs / 13,609 questions, zero schema errors; seed integrity check passes. |
+| Android prebuild/export | [x] Pass | Native asset prebuild and Android Metro export pass. These are not physical runtime tests. |
+| EAS Expo Doctor | [!] 20/21 | One non-blocking check failed: five Expo SDK packages are one patch behind the expected versions. EAS continued through Gradle and produced the APK; package patch alignment is a maintenance follow-up. |
+| Replacement EAS APK | [x] Built and verified | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is FINISHED; APK https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk; size 117,408,124 bytes; app 0.1.4 / code 5. Full APK ZIP test passes for all 1,367 entries; APK SHA-256 recorded in release docs. Embedded seed SHA matches source; SQLite quick_check ok, FK violations 0, schema v5, 217 packs / 13,609 questions. |
+| Owner physical-device verification | [x] Owner-confirmed pass | Owner installed and checked v0.1.4 on a physical phone and reports that everything works as expected. This is an owner-reported overall verification; individual timing/retention measurements are not separately recorded here. |
+
+## Human runtime issues — owner-reported follow-ups
+
+These are observations to retain for the next grouped fix/polish pass. No code changes are included for either note.
+
+| Item | Priority | Observation / next step | Status |
+|---|---|---|---|
+| Loading UI → Home transition flash | Low / cosmetic | During the transition from the loading/setup UI to the Home screen, the owner notices a very brief, extremely subtle square-shaped flash. Possible cause is the immediate Home render/transition timing; this is only a hypothesis, not a confirmed root cause. Consider a slightly slower/faded native-supported transition to make the handoff smoother. Re-check on the same phone before changing animation behavior. | Open note; defer implementation |
+| Expo Doctor SDK patch alignment | Maintenance | EAS Expo Doctor reported 20/21 checks: five Expo SDK packages were one patch behind (expo, expo-asset, expo-constants, expo-router, expo-splash-screen). The v0.1.4 Gradle build and APK completed successfully despite this advisory. Align the five packages with the SDK-recommended patches in a separate dependency-maintenance pass and rerun pnpm doctor; no rebuild is requested by this note alone. | Open maintenance note; non-blocking |
+
+## Historical v0.1.3 Android preview — built, then failed on owner's phone
+
+| Check | Result | Notes |
+|---|---|---|
+| App/package version | [x] Updated | Brand config and package metadata are set to 0.1.3. |
+| Android version code | [x] Updated | 4; prior v0.1.2 preview used code 3. Application ID remains com.admissionbd.app. |
+| EAS account/project | [x] Confirmed | EAS CLI authenticated as sk_king13; linked EAS project ID unchanged. |
+| Existing build history | [x] Checked | The previous correctness preview is v0.1.2 / code 3. Seed-based v0.1.3 / code 4 is now built. |
+| Resolved Expo config | [x] Pass | Public Expo config resolves version 0.1.3, Android versionCode 4, package com.admissionbd.app, expected slug and EAS project ID. |
+| EAS preview APK | [x] Built | `FINISHED`, build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`; [EAS page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). APK-embedded seed was extracted and integrity-checked. |
+| Physical Android verification | [ ] Pending | Owner installed/tested v0.1.3 and reported failure during question-library import. v0.1.4 replacement test is tracked in the current section above. |
+
+## Profile, math and exam-rule correctness pass — 2026-11-05 (verification snapshot before seed-startup pass)
+
+| Check | Result | Notes |
+|---|---|---|
+| Profile name persistence | [x] Automated pass | File-backed SQLite test closes/reopens the same database, runs returning-user startup twice, and checks display name, language, Flash preference and bookmarks. The save service reads its value back and fails on a blocked write. |
+| Profile draft handling | [x] Implemented; [ ] device QA | Save on blur/submit and best-effort on screen leave; synchronous ref guard prevents concurrent duplicate saves. Student-facing profile no longer shows internal import batches. |
+| Math/scientific display | [x] Automated pass | Parser tests cover powers/subscripts, ions, units, scientific notation, vectors, permutations/nuclides, Bangla mixed text, ambiguous patterns and speech labels. Raw pack strings are not rewritten. Android line-height, visual fidelity and TalkBack still need device review. |
+| Partial-rule storage | [x] Automated pass | Schema migration v4 adds exam-rule component totals; v5 snapshots component totals into sessions. Import/re-import tests verify the `total_marks` field. |
+| Missing scoring values | [x] Automated pass | Score and max score stay `null` unless correct, incorrect and unanswered values are all supplied. Unknown penalty/unanswered fields are not coerced to zero. |
+| Exact-paper rule behavior | [x] Automated pass | Paper count/time are required for exact-paper official-format sessions; exact papers do not use generic 100/60. Explicit Custom Practice is bounded, visibly labelled and unscored. General no-paper practice retains 100/60. |
+| Official rule sources | [x] Research recorded | 3 JU and 5 HSTU records receive only partial 2024–2025 facts; RU rules are documented but not attached to mismatching aggregate Lokkho data. See `docs/EXAM_RULE_RESEARCH.md`. |
+| Question-quality audit | [x] Read-only scan | 217 packs / 13,609 questions; 148 findings overall, 137 at review or higher. Findings are candidate flags; no question or option was edited without its matching original source. See `docs/QUESTION_QUALITY_AUDIT.md`. |
+| Full test suite | [x] Pass | `pnpm test`: 111 passed, 0 failed (Node 22.23.1). A final focused set of 60 tests plus 3 UI/localization tests also passed after the last integrity refinements. |
+| TypeScript | [x] Pass | `pnpm typecheck` — Node 22.23.1, exit 0 after the final code refinements. |
+| ESLint | [x] Pass | Full-project `pnpm lint` passed; after the final one-line setup UI change, `pnpm exec eslint app/exam/setup.tsx` also passed. |
+| All bundled question-pack validation | [x] Pass | One-process pass over all 217 JSON files: 13,609 questions, 0 schema errors, 9,785 warnings, 0 invalid packs. |
+| Question-quality audit | [x] Pass | `pnpm audit:questions`: 217 packs / 13,609 questions; 148 findings total, 137 at review or higher. All findings remain source-review candidates. |
+| Diff whitespace check | [x] Pass | `git diff --check` — exit 0. |
+| Expo Android export | [ ] Optional / pending | No APK build is claimed for this branch. Existing SDK/host Hermes limitation is documented in the release guide. |
+| Physical Android UI and migration | [ ] Pending | Validate over an existing installation and fresh disposable DB: profile save/blur/leave/reopen, math line wrapping and speech output, partial notices, Custom Practice and all question navigation. |
+
+## Seed-based startup and asset verification — 2026-11-05
+
+| Check | Result | Notes |
+|---|---|---|
+| Full automated suite | [x] Pass | `pnpm test`: 137 passed, 0 failed (Node 22.23.1). Includes seed builder, logical corruption/repair, migration compatibility, lifecycle coordinator, user-data preservation and all previous application tests. |
+| TypeScript | [x] Pass | `pnpm typecheck` — exit 0. |
+| ESLint | [x] Pass | `pnpm lint` — exit 0 after removing the mutable state/ref bridge and closing over stable React setters in the single-flight coordinator. |
+| Pack validation | [x] Pass | `pnpm packs:validate`: 217 JSON packs / 13,609 questions / 0 errors / 9,785 warnings. No-argument CLI mode was added; passing a filename still validates one pack. |
+| Seed integrity | [x] Pass | `pnpm content:check`: SQLite quick_check, foreign keys, schema v5, seed metadata, all 217 ordered checkpoints, per-pack stored signatures/question counts, content table counts and empty user-owned tables. Seed = 22.63 MiB. |
+| Seed builder tests | [x] Pass | `node --test scripts/tests/build-content.test.mjs`: deterministic manifest, ensure/no-op/rebuild, read-only stale check, logical corruption detection/repair, invalid/duplicate pack rejection. |
+| Startup benchmark | [x] Pass | `pnpm bench:startup`: 1,419 ms full seed import / 2 ms returning sync on Node host; legacy extrapolation 8,066 ms from 25-pack sample. Not Android timings; see `docs/STARTUP_PERFORMANCE.md`. |
+| Expo public config | [x] Pass | Resolved v0.1.3 / Android `versionCode 4` / package `com.admissionbd.app` / slug and EAS project ID match expected values. |
+| Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`: 3.5 MB JS bundle, 123 assets including hashed 24 MB `.db` asset. The export `metadata.json` names the asset extension `db`; direct SQLite validation confirms quick_check `ok`, 217 seed packs and 13,609 questions. |
+| Android native prebuild asset | [x] Pass | The expo-asset config plugin registers `content_seed.db` at `android/app/src/main/assets/content_seed.db`; final APK/runtime loading is still pending. |
+| EAS Expo Doctor | [!] 20/21 | Only the SDK package patch-version check fails: `expo`, `expo-asset`, `expo-constants`, `expo-router` and `expo-splash-screen` are one SDK patch behind the current Expo recommendation. EAS continues into prebuild/Gradle; keep this warning visible and align patches in a follow-up dependency maintenance pass. |
+| EAS build from seed branch | [x] Built | `FINISHED`, build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, app v0.1.3 / versionCode 4; [EAS page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk). Artifact seed extraction/integrity passes; runtime test remains pending. |
+| APK-embedded seed integrity | [x] Pass | Extracted `assets/content_seed.db` from EAS APK: source SHA-256 matches, ZIP CRC passes, SQLite quick_check `ok`, foreign-key issues 0, schema v5, 217 packs / 13,609 questions. This does not exercise the runtime Asset/File copy. |
+| Physical Android fresh/update/background/process-death checks | [ ] Pending | The connected Kali host has no `adb` binary/device in this session. Owner installed v0.1.3 over the previous app; it failed during first question-library import. Test replacement v0.1.4 as tracked in the current section above. |
+
 # QA checklist
 
-Latest automated verification: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **76/76 tests**, with typecheck and lint passing. The current bundle has **217 packs / 13,609 questions** including separate verified and unverified JU/HSTU banks. The latest Android no-bytecode export passes (2,058 modules / 22 MB JS / 122 assets). EAS internal APK build **`b4745dc4-0069-4a86-bb5b-234e5f377dfd`** is finished for version `0.1.1` / `versionCode 2` ([Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd)); physical-device installation and QA remain pending. Production AAB/Play Store rollout also remains outstanding. Earlier 66-test import checkpoint is retained in the historical table below.
+Historical v0.1.3 source snapshot: 137/137 tests passed and the APK-embedded seed passed extraction/integrity checks, but the owner later observed the first question-library import failure on-device. v0.1.4 corrected the seed sidecar path, its EAS APK and embedded seed were verified, and the owner has since confirmed physical-phone verification is successful. The two non-blocking follow-up notes are recorded in the Human runtime issues section above.
 
 ## Startup setup UI verification — 2026-11-01
 
@@ -54,7 +133,7 @@ The no-bytecode export validates JavaScript bundling only. It does **not**, by i
 | Fresh SQLite import | [x] Pass | 118/118 packs, zero failures; 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 rules, 168 sources, 7,836 appearances and 5 institutions. |
 | JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
 | Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
-| Exam patterns | [x] Intentionally unconfigured | All 57 new rules remain `unconfigured`; the app must not label source notes as official exam rules. HSTU historical coverage remains partial. |
+| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records; see `docs/EXAM_RULE_RESEARCH.md`. HSTU historical coverage remains partial. |
 
 
 ## JU-U + HSTU-U unverified candidate-bank verification — 2026-11-01

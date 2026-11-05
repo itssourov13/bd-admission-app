@@ -5,7 +5,8 @@
     "category": "varsity",
     "description": "Jahangirnagar University A Unit (Mathematical & Physical Sciences), academic session 2024-2025, Set-02 (সেট কোড: ০২) — full 80-question paper transcribed by direct visual reading from the Udvash Academic & Admission Care 'জাবি প্রশ্নব্যাংক' question-bank book (JU A & D Units, 2015–2025), book PDF pages 2–5 (questions) with the printed answer table on PDF p.5 and worked solutions on PDF pp.5–6. EXTRACTION STAGE ONLY: every question's content and answer are marked 'unverified' pending a later cross-source verification stage. The printed publisher answer table is preserved exactly: it shows dashes (no key) for Q1 and Q74 and dual keys for Q4 (a, c), Q11 (a, c) and Q50 (c, d). For Q1 and Q74 the printed worked solutions explicitly state '(সঠিক উত্তর নেই)' (no correct option exists), so they carry answerDisposition 'no_correct_option' with an empty key. Printed source anomalies preserved as-is: Q2 prints the verb 'resolves'; Q41 options (a) and (c) are identical; Q50 options (a)=(b) and (c)=(d) are identical pairs; Q59 options (a) and (c) are identical; Q67 prints the stress unit as Nm^−1. These are publisher compilation keys, NOT official JU keys. For Q1 and Q74 the answerVerificationStatus is 'verified' (with contentVerificationStatus still 'unverified') because the validator only accepts answerDisposition 'no_correct_option' on a verified answer, and the no-correct-option claim is stated explicitly in the book's own printed worked solutions — the same convention used in this project's earlier waves. IMPORT COPY: verified subset (56/80) - see VERIFICATION report.",
     "sourceDocumentIds": [
-      "udvash-ju-abswer-combined--ju-a-2024-2025-set02"
+      "udvash-ju-abswer-combined--ju-a-2024-2025-set02",
+      "ju-official-revised-circular-2024-2025-ju-a-2024-2025-set02"
     ]
   },
   "sourceDocuments": [
@@ -16,6 +17,13 @@
       "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
       "sourceType": "pdf",
       "notes": "Udvash Academic & Admission Care printed JU A & D Unit question bank (2015–2025), scanned PDF. The 2024-2025 A Unit Set-02 paper occupies PDF pages 2–5; its printed answer table is on PDF p.5 (lower half) and selective worked solutions on PDF pp.5–6. Transcription by direct visual reading of every page (zoomed crops used for small type); mathematical notation linearised with ^ for superscripts and _ for subscripts. NOTE: the sha256 recorded here is the hash computed from the workspace copy of this PDF (sources/pdfs/ju-ad-abswer-combined.pdf); a different value circulated in earlier task notes was 65 characters long and did not match this file, so the computed hash is used."
+    },
+    {
+      "id": "ju-official-revised-circular-2024-2025-ju-a-2024-2025-set02",
+      "filename": "JU_Admission_Circular_2024_2025_Revised.pdf",
+      "title": "Jahangirnagar University signed revised undergraduate admission circular 2024-2025 (copy hosted by Prothom Alo)",
+      "sourceType": "pdf",
+      "notes": "Scanned copy of the signed JU revised circular, hosted in Prothom Alo's 20 January 2025 article: https://media.prothomalo.com/prothomalo-bangla/2025-01-20/ul3hez3r/8ikpc051.pdf. The university's letterhead, circular text and admissionhelp@juniv.edu address are visible in the PDF. Prothom Alo's contemporaneous coverage transcribes the same rule fields: https://www.prothomalo.com/education/siheqcw71f."
     }
   ],
   "institutions": [
@@ -40,11 +48,16 @@
     {
       "id": "rule-ju-a-2024-2025-set02",
       "paperId": "ju-a-2024-2025-set02",
-      "verificationStatus": "unconfigured",
+      "verificationStatus": "verified",
       "sourceDocumentIds": [
-        "udvash-ju-abswer-combined--ju-a-2024-2025-set02"
+        "udvash-ju-abswer-combined--ju-a-2024-2025-set02",
+        "ju-official-revised-circular-2024-2025-ju-a-2024-2025-set02"
       ],
-      "sourceNote": "Paper header (book PDF p.2) states: full marks 80, Unit A, set code 02, time 55 minutes; the printed instruction line states 80 questions, all must be answered, 0.20 marks deducted per wrong answer, no calculator allowed. Transcribed from the compilation header only; NOT entered as a verified scoring rule."
+      "sourceNote": "Partial official rule verified for JU 2024-2025. The signed university circular states 80-mark MCQ in all units, 55 minutes for answering plus 5 additional minutes for OMR filling, and a 0.20-mark deduction for each wrong answer; it also states a 33% pass threshold. Scanned signed circular (copy hosted by Prothom Alo): https://media.prothomalo.com/prothomalo-bangla/2025-01-20/ul3hez3r/8ikpc051.pdf. Contemporaneous report quoting the circular: https://www.prothomalo.com/education/siheqcw71f. The 80-question count is also printed on the source compilation header for this exact unit/set; the circular itself specifies 80 marks but does not separately spell out the per-item correct mark or unanswered scoring value. Therefore totalQuestions=80, totalMarks=80, durationSeconds=3300 and incorrectPenalty=0.20 are retained, while correctMarks and unansweredMarks remain unset. Numeric scoring is intentionally disabled until those missing values are established. The app pack is only a partial transcription and currently does not contain 80 eligible questions.",
+      "totalMarks": 80,
+      "totalQuestions": 80,
+      "durationSeconds": 3300,
+      "incorrectPenalty": 0.2
     }
   ],
   "questions": [

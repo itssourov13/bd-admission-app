@@ -64,7 +64,7 @@ export default function HomeScreen() {
           <Txt className="text-white/90 text-sm leading-6 mt-3">{t("home.subtitle")}</Txt>
         </LinearGradient>
 
-        {state.importIssues.length > 0 ? (
+        {state.status !== "ready" || !state.libraryComplete || state.importIssues.length > 0 ? (
           <Card className="p-4 mt-4"><Txt className="text-ink-700 text-sm leading-5">{t("error.importWarning")}</Txt></Card>
         ) : null}
 

@@ -174,6 +174,7 @@ export default function ExamScreen() {
       </View>
 
       {exam.session.filter.reviewUnverified ? <Card className="mx-4 mt-3 p-3.5"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
+      {exam.session.filter.customPractice ? <Card className="mx-4 mt-3 p-3.5"><Txt className="text-ink-700 text-sm leading-5">{t("exam.customBanner")}</Txt></Card> : null}
       {notice ? <Card className="mx-4 mt-3 p-3"><Txt className="text-ink-700 text-sm">{t(notice)}</Txt></Card> : null}
 
       <SectionList

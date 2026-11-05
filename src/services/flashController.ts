@@ -7,7 +7,7 @@ import {
   type FlashRecord, type FlashState, type FlashSummary, type Rng
 } from "./flash.ts";
 import { flashAdvice, type AdviceKey } from "./advice.ts";
-import { flashScore, isAnswerCorrect, type RuleStatus, type ScoringRule } from "./scoring.ts";
+import { flashScore, hasCompleteScoringRule, isAnswerCorrect, type RuleStatus, type ScoringRule } from "./scoring.ts";
 import { toScorable } from "./practiceService.ts";
 
 export type FlashPhase = "asking" | "feedback" | "loading" | "finished";
@@ -188,8 +188,9 @@ export class FlashController {
     this.phase = "finished";
     await this.persistChain;
     const summary = summarizeFlash(this.state.records, this.state.startedAt, now, this.poolSize);
-    const rule = this.rule.status === "unconfigured" ? null
-      : { correctMarks: this.rule.correctMarks, incorrectPenalty: this.rule.incorrectPenalty, unansweredMarks: this.rule.unansweredMarks };
+    const rule = hasCompleteScoringRule(this.rule)
+      ? { correctMarks: this.rule.correctMarks!, incorrectPenalty: this.rule.incorrectPenalty!, unansweredMarks: this.rule.unansweredMarks! }
+      : null;
     this.result = {
       summary,
       score: flashScore(summary, this.rule),

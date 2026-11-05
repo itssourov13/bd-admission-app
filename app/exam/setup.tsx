@@ -12,7 +12,7 @@ import { href, scopeFromParams } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { countEligible, countReviewCandidates, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
-import { checkExamEligibility, STANDARD_EXAM_QUESTIONS, STANDARD_EXAM_SECONDS } from "@/services/exam";
+import { checkExamEligibility, planExam } from "@/services/exam";
 import { startStandardExam } from "@/services/practiceService";
 import type { QuestionCategory } from "@/types/domain";
 import { orderSubjects } from "@/services/subjects";
@@ -26,6 +26,8 @@ export default function ExamSetup() {
   const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
   const [subjectSelection, setSubjectSelection] = useState<{ scopeKey: string; subjects: string[] }>({ scopeKey: "", subjects: [] });
   const [busy, setBusy] = useState(false);
+  const [customQuestions, setCustomQuestions] = useState(20);
+  const [customMinutes, setCustomMinutes] = useState(20);
   const locked = Boolean(scope.institutionId || scope.paperId);
   const effective = { ...scope, category: locked ? scope.category : category };
   const baseKey = JSON.stringify(effective);
@@ -53,6 +55,7 @@ export default function ExamSetup() {
     return {
       n,
       reviewMode,
+      plan: planExam(effective.paperId, paperPattern),
       rule,
       selectionConfig,
       subjectCounts,
@@ -66,7 +69,8 @@ export default function ExamSetup() {
     setBusy(true);
     try {
       const examFilter = q.data?.selectionConfig ? { ...effective, subjects: selectedSubjects } : effective;
-      const result = await startStandardExam(db, examFilter, Date.now(), undefined, { includeUnverified: q.data?.reviewMode === true });
+      const custom = q.data?.plan.kind === "unavailable" ? { questions: customQuestions, seconds: customMinutes * 60 } : undefined;
+      const result = await startStandardExam(db, examFilter, Date.now(), undefined, { includeUnverified: q.data?.reviewMode === true, custom });
       if (result.ok) {
         router.replace(href(`/exam/${result.sessionId}`));
       } else {
@@ -95,11 +99,13 @@ export default function ExamSetup() {
 
   return (
     <Screen edges={["top", "bottom"]}>
-      <ScreenHeader title={q.data?.rule.status === "illustrative" && effective.paperId ? t("exam.sourcePracticeTitle") : t("exam.setupTitle")} />
+      <ScreenHeader title={q.data?.plan.kind === "unavailable" ? t("exam.customTitle") : q.data?.rule.status === "illustrative" && effective.paperId ? t("exam.sourcePracticeTitle") : t("exam.setupTitle")} />
       {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (() => {
         const d = q.data!;
-        const required = effective.paperId ? d.rule.totalQuestions ?? STANDARD_EXAM_QUESTIONS : STANDARD_EXAM_QUESTIONS;
-        const duration = effective.paperId ? d.rule.durationSeconds ?? STANDARD_EXAM_SECONDS : STANDARD_EXAM_SECONDS;
+        // Exact papers never inherit the generic 100/60 defaults: they use their own stored pattern or an explicit custom choice.
+        const isCustom = d.plan.kind === "unavailable";
+        const required = d.plan.kind === "unavailable" ? customQuestions : d.plan.required;
+        const duration = d.plan.kind === "unavailable" ? customMinutes * 60 : d.plan.durationSeconds;
         const eligibility = checkExamEligibility(d.n, required);
         const config = d.selectionConfig;
         const subjectReady = !config || selectedSubjects.length === config.subjectCount;
@@ -155,6 +161,16 @@ export default function ExamSetup() {
                 ) : null}
 
                 <Txt className="text-ink-500 text-xs mt-3">{t("exam.eligible", { a: num(eligibility.available), r: num(required) })}</Txt>
+                {isCustom ? (
+                  <Card className="p-4 mt-4">
+                    <Txt weight="bold" className="text-ink-900">{t("exam.customTitle")}</Txt>
+                    <Txt className="text-ink-500 text-xs leading-5 mt-1">{t("exam.customBody")}</Txt>
+                    <Txt weight="semibold" className="text-ink-900 text-sm mt-3 mb-2">{t("exam.customQuestions")}</Txt>
+                    <View className="flex-row flex-wrap gap-2">{[5, 10, 20, 30, 50].map((n) => <ChoiceChip key={n} label={num(n)} selected={customQuestions === n} onPress={() => setCustomQuestions(n)} />)}</View>
+                    <Txt weight="semibold" className="text-ink-900 text-sm mt-3 mb-2">{t("exam.customMinutes")}</Txt>
+                    <View className="flex-row flex-wrap gap-2">{[10, 20, 30, 60].map((n) => <ChoiceChip key={n} label={num(n)} selected={customMinutes === n} onPress={() => setCustomMinutes(n)} />)}</View>
+                  </Card>
+                ) : null}
                 <View className="mt-4"><RuleNotice rule={d.rule} /></View>
                 {canStart ? (
                   <View className="mt-6"><Button label={busy ? t("exam.starting") : t("exam.start")} loading={busy} onPress={() => void start()} /></View>

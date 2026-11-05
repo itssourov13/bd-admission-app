@@ -1,6 +1,76 @@
 # Task state
 
-## Branded first-launch/startup setup UI — 2026-11-01
+## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
+
+**Status:** v0.1.4 source fix committed, EAS APK and embedded seed verified, and owner physical-phone verification confirmed successful. Two non-blocking follow-up notes are retained in docs/QA_CHECKLIST.md; no implementation is requested now.
+
+- [x] Recorded owner-reported v0.1.3 / code 4 failure at the question-library import step. Previous embedded-DB checksum validation did not validate runtime materialization/copy and was not enough to call the APK ready.
+- [x] Fixed invalid Expo File destination construction: convert expo-sqlite.defaultDatabaseDirectory raw absolute path to a file:/// URI before creating File; convert the URI back to an absolute SQLite path for ATTACH.
+- [x] Use expo-file-system/legacy copyAsync for Android raw-resource-aware copying into the disposable SQLite sidecar.
+- [x] Add path conversion tests and visible underlying error detail on the setup retry screen.
+- [x] Bump app/brand/package to 0.1.4, Android versionCode 5; preserve package ID and signing identity.
+- [x] Run 139 tests, typecheck, lint, seed/content check, whole-catalog validation, Expo config, Android prebuild and Android Metro export.
+- [x] Committed the source fix and incident documentation locally as 8855821 (fix(android): correct bundled seed sidecar path); no push.
+- [x] EAS v0.1.4 / code 5 build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed FINISHED; downloaded and verified the 117,408,124-byte APK and its embedded seed SHA/SQLite integrity.
+- [x] Verify embedded seed payload hash matches source; ZIP integrity, SQLite quick_check, schema v5 and foreign-key check pass; catalogue has 217 packs / 13,609 questions.
+- [!] Expo Doctor 20/21: single failed SDK patch alignment check for five packages; Gradle/APK build still passed. Align patch versions in a separate dependency maintenance task.
+- [x] Owner reports that v0.1.4 was installed and verified successfully on the physical phone; overall app behavior is confirmed as expected.
+- [x] Reviewed and committed the source fix locally as 8855821; subsequent EAS result and artifact verification were committed in follow-up documentation commits. This task adds only owner runtime notes and confirmation; no push.
+
+## Historical seed startup release — v0.1.3 / Android versionCode 4 (owner-reported runtime failure)
+
+- [x] Bumped package/brand/app version to `0.1.3` and Android versionCode to `4`, preserving package ID, Expo slug, project ID and EAS-managed signing credentials.
+- [x] Replaced the hyphenated seed asset name with Android-compatible `content_seed.db`; Expo prebuild copies it into `android/app/src/main/assets/content_seed.db` with matching SHA-256 and valid SQLite integrity.
+- [x] Replaced the hidden SQLite asset-import helper with public Expo Asset/File materialization and disposable sidecar handling.
+- [x] Confirmed the exact `eas-build-pre-install` hook succeeds under Node 22.23.1 before package installation; generated native project directories are ignored so EAS runs managed prebuild from app config.
+- [x] Final source checks: frozen install; 137/137 tests; typecheck; lint; 217 packs / 13,609 questions / 0 validation errors; content:check; benchmark; public Expo config; Android prebuild; Metro export and exported seed SQLite integrity.
+- [x] Built the EAS internal APK successfully: build `37cb93c4-74d3-4cca-a708-8b6ee3e01bfd`, status `FINISHED`, completed 2026-11-05 13:32:51 UTC. [EAS build/install page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/37cb93c4-74d3-4cca-a708-8b6ee3e01bfd) · [APK download](https://expo.dev/artifacts/eas/GbpVc5weeTUfrjGYtI-rQmizgW6eGG52y1xPM2kDdr8.apk), ~112 MiB.
+- [x] Owner installed/tested v0.1.3 over the previous app; first question-library import failed on the physical phone. The replacement v0.1.4 verification is tracked in the current task at the top of this file.
+- [x] Final local Git review and commit; never push.
+
+## v0.1.2 Android correctness preview preparation — 2026-11-05
+
+- [x] Confirmed the connected workspace, clean correctness branch and remote branch synchronization.
+- [x] Verified EAS CLI authentication as sk_king13 and inspected Android build history; only v0.1.1/code 2 and v0.1.0/code 1 builds existed at the start of this task.
+- [x] Bumped brand/app package version from 0.1.1 to 0.1.2 and Android versionCode from 2 to 3; retained com.admissionbd.app, Expo slug, EAS project ID and existing EAS-managed keystore.
+- [x] Updated current-state, release, QA, handoff, README and changelog references to distinguish the historical v0.1.1 APK from this correctness branch.
+- [x] Resolved Expo public config confirms version 0.1.2, Android versionCode 3, package ID, slug and EAS project ID; git diff --check passes.
+- [x] Committed version/documentation preparation as c93c7f3; no push performed.
+- [x] Built the v0.1.2 EAS preview APK: `af78b85f-7a2b-4fba-b693-532c7d218f8b` (FINISHED); its artifact and build details are recorded in `docs/ANDROID_RELEASE.md`. This APK predates the seed implementation.
+- [ ] Owner installs APK and verifies profile persistence, math layout/accessibility, official/partial exam rules, custom practice and update-data preservation. Only then merge the implementation branch to main.
+
+## Profile, math display and official-rule integrity — 2026-11-05
+
+**Status:** Implementation and automated checks are complete; physical-device and source-content follow-up remains.
+
+- [x] Profile-name save/read-back confirmation, blur/submit persistence, screen-leave draft fallback, duplicate-save guard and error path.
+- [x] Remove internal question-pack import logs from the student profile.
+- [x] Add display-only scientific notation rendering for questions/options and spoken accessibility labels; keep ambiguous expressions and canonical source text unchanged.
+- [x] Extend the pack/database/session rule model for partial official component totals; prevent unknown scoring values from becoming zero.
+- [x] Prevent exact paper sessions from inheriting global 100-question/60-minute defaults; add clearly labelled, explicitly user-configured, unscored Custom Practice when the exact pattern is unavailable.
+- [x] Add official-source research for JU, RU and HSTU 2024–2025; add only partial facts to the matching JU/HSTU papers. RU facts are documented but not attached to non-matching aggregate third-party captures.
+- [x] Add a read-only 217-pack content-quality audit report. Flags remain review candidates; no question/option text was modified without its original matching source.
+- [ ] Physical Android UI QA for profile save/leave, math layout and screen reader rendering, partial-rule notices, custom mode and migration from a previously installed DB.
+- [ ] Acquire exact source paper(s) to complete JU/HSTU paper coverage; match the official RU C-unit source to an exact original 80-question sitting before adding the official rule to app data.
+
+## Seed-based startup and runtime resilience — 2026-11-05
+
+**Historical status:** v0.1.3 was built and its embedded seed passed package integrity; the owner later reported first question-library import failure on the phone. See the current v0.1.4 follow-up at the top.
+
+- [x] Replace runtime-loaded JSON pack modules with a generated SQLite seed plus committed manifest; keep canonical question JSON unchanged.
+- [x] Build the seed from current migrations/importer; add deterministic manifest generation, Node 22 build hooks and GitHub CI content-build step.
+- [x] Add read-only seed integrity checks for SQLite quick_check, foreign keys, schema/format, pack metadata/signatures/counts, source-derived table totals and empty user-owned tables. Add corruption/repair test.
+- [x] Copy pending content via set-based SQL and bounded grouped transactions; commit batch signatures atomically, isolate a failed group per pack, preserve user-owned tables and resume uncommitted work on next launch.
+- [x] Add single-flight AppState-aware retry coordinator, carry libraryComplete to provider state and retain retry-visible import warnings.
+- [x] Replace JS-driven progress width animation with native-driver translateX; keep Reduce Motion and accessibility support. Reanimated APIs/plugin are not required for this transform.
+- [x] Preserve app/font startup marks while resetting attempt-specific performance spans/counters.
+- [x] Add and run build-script integrity tests and focused startup/repository tests; host benchmark recorded in docs/STARTUP_PERFORMANCE.md.
+- [x] Update architecture, context, decision, QA, handoff, release/workflow and question-data documentation.
+- [x] Run final full suite (**137/137**), typecheck, lint, whole-catalog validation (217 packs / 13,609 questions / 0 errors), read-only seed integrity check, host benchmark, resolved Expo config and Android no-bytecode export. Exported 3.5 MB JS bundle plus a hashed 24 MB SQLite asset; asset itself passes SQLite quick_check / FK / counts.
+- [x] Superseded by the seed-based v0.1.3 / versionCode 4 EAS preview APK built successfully in the section above; v0.1.2 predates this asset path.
+- [x] Owner installed/tested v0.1.3 over the previous app and reported that the first question-library import failed; replacement v0.1.4 phone verification remains open.
+
+## Historical branded first-launch/startup setup UI — 2026-11-01 (JSON loader replaced 2026-11-05)
 
 - [x] Audited startup lifecycle, bundle loading, provider gating, design tokens, localization and existing test conventions before implementation review.
 - [x] Added the branded Bangla/English setup screen, five stages, real processed-pack progress, completion transition, retry state, accessibility progress semantics, responsive scrolling and Reduce Motion support.
@@ -35,7 +105,7 @@
 - [x] Regenerated `src/content/bundledPacks.ts`: **118 packs / 7,836 questions**.
 - [x] Added integration tests for 57 new packs, answer/content states, source/reference uniqueness, warning preservation, all-pack SQLite import and re-import idempotency.
 - [x] Fresh SQLite import: 118/118 packs imported, zero failures; 7,836 questions / 31,344 options / 118 batches / 118 papers / 59 rules / 168 sources / 7,836 appearances / 5 institutions. New verified single-choice pool: 1,668.
-- [x] Documented the remaining HSTU historical coverage gap and that all 57 JU/HSTU exam rules remain unconfigured; no unofficial timed-exam pattern was invented.
+- [x] Documented the HSTU historical coverage gap and, at the initial import checkpoint, kept all 57 JU/HSTU rules unconfigured. The 2026-11-05 source review now adds only partial facts to 3 JU and 5 HSTU records; no unsupported timed/scoring fields were invented.
 - [ ] Owner device check after installing a newly built APK is still separate. Production AAB/Google Play remains outstanding.
 
 ## Android preview release and documentation sync — 2026-10-31

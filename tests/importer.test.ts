@@ -1,8 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { freshDb, syntheticPack } from "./helpers.ts";
+import { freshDb, openMemoryDb, syntheticPack } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
-import { migrate, LATEST_VERSION } from "../src/db/schema.ts";
+import { migrate, LATEST_VERSION, MIGRATIONS } from "../src/db/schema.ts";
 
 const count = async (db: Awaited<ReturnType<typeof freshDb>>, table: string) =>
   Number((await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM ${table}`))!.n);
@@ -12,6 +12,30 @@ test("migrate is idempotent and sets user_version", async () => {
   assert.equal(await migrate(db), LATEST_VERSION);
   const v = await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version");
   assert.equal(v!.user_version, LATEST_VERSION);
+});
+
+test("v3 database upgrade adds partial-rule columns without changing existing user records", async () => {
+  const db = openMemoryDb();
+  await migrate(db, MIGRATIONS.slice(0, 3));
+  await db.runAsync(
+    "INSERT INTO user_profile (id, display_name, language, flash_seconds, created_at, updated_at) VALUES (1, ?, 'en', 45, 1, 2)",
+    ["Existing learner"]
+  );
+  await db.runAsync(
+    "INSERT INTO practice_sessions (id, mode, status, filter_json, started_at, rule_correct_marks, rule_status) VALUES ('legacy', 'exam', 'completed', '{}', 3, 1, 'verified')"
+  );
+  assert.equal((await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version"))?.user_version, 3);
+
+  assert.equal(await migrate(db), LATEST_VERSION);
+  const profile = await db.getFirstAsync<{ display_name: string; language: string; flash_seconds: number }>("SELECT display_name, language, flash_seconds FROM user_profile WHERE id = 1");
+  assert.deepEqual(profile ? { ...profile } : null, { display_name: "Existing learner", language: "en", flash_seconds: 45 });
+  const session = await db.getFirstAsync<{ rule_correct_marks: number; rule_total_marks: number | null }>("SELECT rule_correct_marks, rule_total_marks FROM practice_sessions WHERE id = 'legacy'");
+  assert.deepEqual(session ? { ...session } : null, { rule_correct_marks: 1, rule_total_marks: null });
+  const ruleColumns = await db.getAllAsync<{ name: string }>("PRAGMA table_info(exam_rules)");
+  const sessionColumns = await db.getAllAsync<{ name: string }>("PRAGMA table_info(practice_sessions)");
+  assert.ok(ruleColumns.some((column) => column.name === "total_marks"));
+  assert.ok(sessionColumns.some((column) => column.name === "rule_total_marks"));
+  assert.equal((await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version"))?.user_version, LATEST_VERSION);
 });
 
 test("import inserts everything, then is idempotent", async () => {

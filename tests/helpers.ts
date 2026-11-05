@@ -6,7 +6,12 @@ import type { QuestionPack } from "../src/types/question-pack.ts";
 
 /** node:sqlite behind the same adapter the app uses for expo-sqlite, so transaction serialization is exercised too. */
 export function openMemoryDb(): SqlDb & { raw: DatabaseSync } {
-  const raw = new DatabaseSync(":memory:");
+  return openDbAt(":memory:");
+}
+
+/** Same adapter over a database file, so tests can close and reopen the same file like an app restart. */
+export function openDbAt(location: string): SqlDb & { raw: DatabaseSync } {
+  const raw = new DatabaseSync(location);
   const rawDb: RawDb = {
     async execAsync(sql) { raw.exec(sql); },
     async runAsync(sql, params: SqlParam[]) {

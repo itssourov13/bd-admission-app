@@ -1,3 +1,23 @@
+## ADR-021 — Partial official facts do not imply complete scoring or an exact paper
+Status: accepted, 2026-11-05.
+
+Store only what a cited official source establishes. `totalMarks` represents a known exam component total, not per-question positive marks or unanswered marks. Numeric scoring is enabled only when all three scoring components are present. A paper-specific timed session requires that paper's own question count and duration; missing values are not borrowed from another unit/session and are not replaced with the generic 100/60 practice defaults. Where the pattern is unavailable, only an explicitly chosen and unscored Custom Practice mode may be offered. Preserve exact paper provenance; never sample an aggregate third-party bank and label it as a complete official paper.
+
+## ADR-022 — Build bundled question content as a SQLite seed
+Status: accepted, 2026-11-05.
+
+Keep data/question-packs/*.json as the canonical, reviewable source. Generate a compact manifest and a SQLite seed using the app's current migrations/importer during local, CI and EAS builds. At runtime, lazily attach the seed only when batch signatures are pending and copy content rows using set-based SQL. Commit batch data and signature checkpoints atomically in bounded groups (maximum 1,500 questions), falling back to one-pack transactions after a group failure. Never replace the user's primary SQLite file or write seed content into profile/bookmark/session tables. Validate the seed database, metadata and row counts before accepting it. The generated .db remains ignored by Git and must be recreated by supported build hooks.
+
+## ADR-023 — Prefer restart-safe foreground sync over background service for initial content import
+Status: accepted provisionally, 2026-11-05; reassess after Android device measurements.
+
+The import is a local bundled SQLite copy, optimized and benchmarked on the Node host but not yet measured on a release APK. Use bounded transactions, AppState-aware single-flight retry and next-launch recovery. Do not add WorkManager simply to keep a JavaScript Promise alive: a native worker would be required and scheduling may be deferred. Do not add a foreground service without a user-visible requirement; it requires an ongoing notification and brings Android-version-specific restrictions. Reconsider a native worker/service only if physical-device timings or explicit product requirements justify its added native database/lifecycle complexity. The current implementation does not guarantee that sync continues while Android backgrounds or kills the app.
+
+## ADR-024 — Use core Animated native driver for the startup progress fill
+Status: accepted, 2026-11-05.
+
+Animate a transform (translateX) rather than layout width, using React Native Animated with the native driver. This is sufficient for the startup progress fill and avoids introducing Reanimated worklets/plugin wiring solely for one transform. Preserve Reduce Motion and accessibility semantics. Adopt Reanimated only when a broader UI requirement justifies shared values/worklets and after Expo SDK / New Architecture compatibility is rechecked.
+
 # Architecture and product decisions
 
 ## ADR-001 — Independent workspace

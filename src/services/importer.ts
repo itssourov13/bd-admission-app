@@ -1,6 +1,7 @@
 import type { SqlDb } from "../db/types.ts";
 import type { QuestionPack, QuestionPackItem } from "../types/question-pack.ts";
 import { validateQuestionPack } from "./questionPackValidator.mjs";
+import { NOOP_METRICS, type StartupMetrics } from "./perf.ts";
 
 export interface EntityCounts {
   inserted: number;
@@ -69,9 +70,9 @@ function emptyReport(): ImportReport {
  * for the pack's paper IDs; question rows and every user-owned record are retained for history.
  * Questions are never merged by text similarity; identity is the pack's stable question id.
  */
-export async function importQuestionPack(db: SqlDb, pack: unknown, now: number = Date.now()): Promise<ImportReport> {
+export async function importQuestionPack(db: SqlDb, pack: unknown, now: number = Date.now(), metrics: StartupMetrics = NOOP_METRICS): Promise<ImportReport> {
   const report = emptyReport();
-  const validation = validateQuestionPack(pack);
+  const validation = metrics.time("import.validate", () => validateQuestionPack(pack));
   report.warnings = validation.warnings;
   const total = Array.isArray((pack as QuestionPack | undefined)?.questions) ? (pack as QuestionPack).questions.length : 0;
   if (!validation.valid) {
@@ -83,7 +84,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
   report.batchId = p.batch.id;
 
   try {
-    await db.withTransactionAsync(async (tx) => {
+    await metrics.span("import.tx", () => db.withTransactionAsync(async (tx) => {
       const existingBatch = await tx.getFirstAsync<{ id: string }>("SELECT id FROM question_batches WHERE id = ?", [p.batch.id]);
       if (existingBatch) {
         await tx.runAsync("UPDATE question_batches SET description = ?, updated_at = ?, import_count = import_count + 1 WHERE id = ?", [p.batch.description ?? null, now, p.batch.id]);
@@ -94,7 +95,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
         );
       }
 
-      await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [packSignature(pack), p.batch.id]);
+      await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [metrics.time("import.signature", () => packSignature(pack)), p.batch.id]);
 
       for (const s of p.sourceDocuments) {
         const owner = await tx.getFirstAsync<{ batch_id: string }>("SELECT batch_id FROM source_documents WHERE id = ?", [s.id]);
@@ -136,17 +137,17 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
 
       for (const rule of p.examRules) {
         const row = await tx.getFirstAsync<{ id: string }>("SELECT id FROM exam_rules WHERE id = ?", [rule.id]);
-        const params = [rule.correctMarks ?? null, rule.incorrectPenalty ?? null, rule.unansweredMarks ?? null, rule.durationSeconds ?? null, rule.totalQuestions ?? null, rule.verificationStatus, rule.sourceNote ?? null, rule.selectionConfig ? JSON.stringify(rule.selectionConfig) : null];
+        const params = [rule.correctMarks ?? null, rule.incorrectPenalty ?? null, rule.unansweredMarks ?? null, rule.durationSeconds ?? null, rule.totalQuestions ?? null, rule.totalMarks ?? null, rule.verificationStatus, rule.sourceNote ?? null, rule.selectionConfig ? JSON.stringify(rule.selectionConfig) : null];
         if (!row) {
           await tx.runAsync(
-            "INSERT INTO exam_rules (id, paper_id, correct_marks, incorrect_penalty, unanswered_marks, duration_seconds, total_questions, verification_status, source_note, selection_config) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO exam_rules (id, paper_id, correct_marks, incorrect_penalty, unanswered_marks, duration_seconds, total_questions, total_marks, verification_status, source_note, selection_config) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [rule.id, rule.paperId, ...params]
           );
           report.examRules.inserted++;
         } else {
           const r = await tx.runAsync(
-            `UPDATE exam_rules SET paper_id = ?, correct_marks = ?, incorrect_penalty = ?, unanswered_marks = ?, duration_seconds = ?, total_questions = ?, verification_status = ?, source_note = ?, selection_config = ?
-             WHERE id = ? AND (paper_id IS NOT ? OR correct_marks IS NOT ? OR incorrect_penalty IS NOT ? OR unanswered_marks IS NOT ? OR duration_seconds IS NOT ? OR total_questions IS NOT ? OR verification_status IS NOT ? OR source_note IS NOT ? OR selection_config IS NOT ?)`,
+            `UPDATE exam_rules SET paper_id = ?, correct_marks = ?, incorrect_penalty = ?, unanswered_marks = ?, duration_seconds = ?, total_questions = ?, total_marks = ?, verification_status = ?, source_note = ?, selection_config = ?
+             WHERE id = ? AND (paper_id IS NOT ? OR correct_marks IS NOT ? OR incorrect_penalty IS NOT ? OR unanswered_marks IS NOT ? OR duration_seconds IS NOT ? OR total_questions IS NOT ? OR total_marks IS NOT ? OR verification_status IS NOT ? OR source_note IS NOT ? OR selection_config IS NOT ?)`,
             [rule.paperId, ...params, rule.id, rule.paperId, ...params]
           );
           if (r.changes > 0) report.examRules.updated++;
@@ -213,7 +214,7 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
           else report.appearances.skipped++;
         }
       }
-    });
+    }));
     report.ok = true;
     return report;
   } catch (error) {

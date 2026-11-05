@@ -14,7 +14,7 @@ module.exports = {
   ios: { supportsTablet: true, bundleIdentifier: brand.applicationId },
   android: {
     package: brand.applicationId,
-    versionCode: 2,
+    versionCode: 5,
     permissions: [],
     blockedPermissions: ["android.permission.SYSTEM_ALERT_WINDOW"],
     adaptiveIcon: {
@@ -23,6 +23,7 @@ module.exports = {
     }
   },
   plugins: [
+    ["expo-asset", { assets: ["./assets/content/content_seed.db"] }],
     "expo-router",
     ["expo-sqlite", { enableFTS: true }],
     "expo-font",

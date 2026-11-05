@@ -40,13 +40,17 @@ export default function ResultScreen() {
   if (!parsed) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("result.notFound")} actionLabel={t("common.home")} onAction={() => router.replace("/")} /></Screen>;
 
   const isExam = session.mode === "exam";
-  const rule: ScoringRule | null = session.ruleStatus && session.ruleStatus !== "unconfigured" && session.ruleCorrect !== null
-    ? { correctMarks: session.ruleCorrect, incorrectPenalty: session.rulePenalty ?? 0, unansweredMarks: session.ruleUnanswered ?? 0, status: session.ruleStatus } : null;
+  const rule: ScoringRule | null = session.ruleStatus && session.ruleStatus !== "unconfigured"
+    ? {
+        correctMarks: session.ruleCorrect, incorrectPenalty: session.rulePenalty, unansweredMarks: session.ruleUnanswered,
+        totalMarks: session.ruleTotalMarks, status: session.ruleStatus
+      } : null;
 
   let scoreLabel: string; let counts: { label: string; value: string; tone?: string }[]; let accuracy: number; let accuracyText: string; let advice: TranslationKey[]; let timeLine: string | null = null; let reason: string | null = null;
   if (isExam) {
     const r = parsed as ExamResult;
-    scoreLabel = session.ruleStatus === "unconfigured" || !session.ruleStatus ? t("result.noScore") : t("result.scoreOutOf", { score: num(r.score), max: num(r.maxScore) });
+    scoreLabel = session.ruleStatus === "unconfigured" || !session.ruleStatus || r.score === null || r.maxScore === null
+      ? t("result.noScore") : t("result.scoreOutOf", { score: num(r.score), max: num(r.maxScore) });
     counts = [
       { label: t("result.correct"), value: num(r.correct), tone: colors.brand700 },
       { label: t("result.incorrect"), value: num(r.incorrect), tone: feedback.danger700 },

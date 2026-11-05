@@ -59,7 +59,7 @@ test("rejects duplicate institution codes, a second rule per paper and a repeate
   assert.ok(result.errors.some((m) => m.includes("duplicates an earlier appearance")));
 });
 
-test("a verified rule must define every scoring value; unverified answers never need a key", () => {
+test("a verified rule without scoring values or a verified component total is rejected; unverified answers need no key", () => {
   const pack = validPack();
   pack.examRules[0].verificationStatus = "verified";
   delete pack.examRules[0].unansweredMarks;
@@ -67,8 +67,18 @@ test("a verified rule must define every scoring value; unverified answers never 
   pack.questions[0].correctOptionIds = null;
   const result = validateQuestionPack(pack);
   assert.equal(result.valid, false);
-  assert.ok(result.errors.some((m) => m.includes("marked verified but does not define all scoring values")));
+  assert.ok(result.errors.some((m) => m.includes("defines neither complete scoring values nor a verified component total")));
   assert.equal(result.errors.some((m) => m.includes("verified answer")), false);
+});
+
+test("accepts a partial verified exam rule when an official component total is known", () => {
+  const pack = validPack();
+  pack.examRules[0] = {
+    id: "rule-test", paperId: "paper-test", totalMarks: 80, verificationStatus: "verified",
+    sourceDocumentIds: ["source-test"]
+  };
+  const result = validateQuestionPack(pack);
+  assert.equal(result.valid, true, result.errors.join("\n"));
 });
 
 test("supports explicit replacement of active paper appearances and validates the flag type", () => {

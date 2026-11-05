@@ -23,6 +23,17 @@ export async function updateProfile(db: SqlDb, patch: Partial<Pick<ProfileRow, "
   if (patch.flashSeconds !== undefined) await db.runAsync("UPDATE user_profile SET flash_seconds = ?, updated_at = ? WHERE id = 1", [clampFlashSeconds(patch.flashSeconds), now]);
 }
 
+/**
+ * Saves the display name and reads it back. Resolves with the value that is actually stored (trimmed, max 60 chars)
+ * and throws when the stored value differs, so the UI never has to assume a write succeeded.
+ */
+export async function saveDisplayName(db: SqlDb, name: string, now = Date.now()): Promise<string> {
+  await updateProfile(db, { displayName: name }, now);
+  const persisted = (await getProfile(db)).displayName;
+  if (persisted !== name.trim().slice(0, 60)) throw new Error("The profile name was not persisted.");
+  return persisted;
+}
+
 export async function toggleBookmark(db: SqlDb, questionId: string, now = Date.now()): Promise<boolean> {
   const r = await db.runAsync("DELETE FROM bookmarks WHERE question_id = ?", [questionId]);
   if (r.changes > 0) return false;

@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { memo, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   AccessibilityInfo,
   ActivityIndicator,
   Animated,
+  AppState,
   Easing,
   ScrollView,
   StyleSheet,
@@ -50,6 +51,19 @@ function useReduceMotion(): boolean {
   return reduce;
 }
 
+/**
+ * True while the app is in the foreground. Looping animations stop while it is false: nothing renders anyway, and
+ * Android may drop native animation frames in the background, so loops are restarted cleanly on return.
+ */
+function useAppActive(): boolean {
+  const [active, setActive] = useState(AppState.currentState === "active");
+  useEffect(() => {
+    const sub = AppState.addEventListener("change", (next) => setActive(next === "active"));
+    return () => sub.remove();
+  }, []);
+  return active;
+}
+
 /** Subtle mount animation; remount it with a new `key` to cross-fade changing text. */
 function FadeIn({ children, reduceMotion }: { children: ReactNode; reduceMotion: boolean }) {
   const v = useAnimatedValue(reduceMotion ? 1 : 0);
@@ -61,14 +75,14 @@ function FadeIn({ children, reduceMotion }: { children: ReactNode; reduceMotion:
   return <Animated.View style={{ opacity: v, transform: [{ translateY }] }}>{children}</Animated.View>;
 }
 
-function BrandMark({ size, reduceMotion }: { size: number; reduceMotion: boolean }) {
+function BrandMark({ size, reduceMotion, appActive }: { size: number; reduceMotion: boolean; appActive: boolean }) {
   const pulse = useAnimatedValue(0);
   useEffect(() => {
-    if (reduceMotion) { pulse.setValue(0); return; }
+    if (reduceMotion || !appActive) { pulse.setValue(0); return; }
     const loop = Animated.loop(Animated.timing(pulse, { toValue: 1, duration: 2200, easing: Easing.inOut(Easing.ease), useNativeDriver: true }));
     loop.start();
     return () => loop.stop();
-  }, [pulse, reduceMotion]);
+  }, [pulse, reduceMotion, appActive]);
   const haloScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.38] });
   const haloOpacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.45, 0] });
   const box = size + 44;
@@ -97,27 +111,37 @@ function Stripe({ anim, trackWidth, stripe }: { anim: Animated.Value; trackWidth
 }
 
 /**
- * Progress bar. The fill width animates on the JS driver (layout props are not native-driver capable) while the
- * shimmer runs natively, so the bar still reads as "working" if the JS thread is briefly busy.
+ * Progress bar. Everything that animates uses the NATIVE driver, so the bar keeps moving smoothly while the JS thread
+ * is busy with SQLite work:
+ *  - the fill is a full-width bar translated with `translateX` (-trackWidth .. 0); the track clips it. Layout props such
+ *    as `width` cannot run natively, which is why the old width-animated fill stuttered under load;
+ *  - the shimmer is a native `translateX` loop that lives inside the fill, so it only shows over the completed part.
+ * The fill value is always the real progress fraction (eased, never invented). Returning from the background snaps the
+ * fill to the current fraction because native animations may have been dropped while the app was not visible.
  */
-function ProgressBar({ fraction, active, reduceMotion, label, valueText }: { fraction: number; active: boolean; reduceMotion: boolean; label: string; valueText: string }) {
+function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueText }: { fraction: number; active: boolean; reduceMotion: boolean; appActive: boolean; label: string; valueText: string }) {
   const [trackWidth, setTrackWidth] = useState(0);
   const fill = useAnimatedValue(0);
   const shimmer = useAnimatedValue(0);
 
   useEffect(() => {
-    Animated.timing(fill, { toValue: fraction, duration: reduceMotion ? 0 : 360, easing: Easing.out(Easing.cubic), useNativeDriver: false }).start();
-  }, [fraction, reduceMotion, fill]);
+    if (reduceMotion || !appActive) {
+      fill.stopAnimation();
+      fill.setValue(fraction);
+      return;
+    }
+    Animated.timing(fill, { toValue: fraction, duration: 360, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [fraction, reduceMotion, appActive, fill]);
 
   useEffect(() => {
-    if (reduceMotion || !active) { shimmer.setValue(0); return; }
+    if (reduceMotion || !active || !appActive) { shimmer.setValue(0); return; }
     const loop = Animated.loop(Animated.timing(shimmer, { toValue: 1, duration: 1500, easing: Easing.inOut(Easing.quad), useNativeDriver: true }));
     loop.start();
     return () => loop.stop();
-  }, [shimmer, active, reduceMotion]);
+  }, [shimmer, active, reduceMotion, appActive]);
 
-  const width = fill.interpolate({ inputRange: [0, 1], outputRange: ["0%", "100%"] });
-  const showShimmer = active && !reduceMotion && trackWidth > 0;
+  const translateX = fill.interpolate({ inputRange: [0, 1], outputRange: [-trackWidth, 0], extrapolate: "clamp" });
+  const showShimmer = active && !reduceMotion && appActive && trackWidth > 0;
   return (
     <View
       accessible
@@ -127,18 +151,19 @@ function ProgressBar({ fraction, active, reduceMotion, label, valueText }: { fra
       onLayout={(e: LayoutChangeEvent) => setTrackWidth(e.nativeEvent.layout.width)}
       style={{ height: 10, borderRadius: 5, backgroundColor: colors.sand200, overflow: "hidden" }}
     >
-      {showShimmer ? <Stripe anim={shimmer} trackWidth={trackWidth} stripe={["rgba(169,221,204,0)", "rgba(169,221,204,0.95)", "rgba(169,221,204,0)"]} /> : null}
-      <Animated.View style={{ width, height: "100%", borderRadius: 5, overflow: "hidden" }}>
-        <LinearGradient colors={gradients.fab} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={StyleSheet.absoluteFill} />
-        {showShimmer ? <Stripe anim={shimmer} trackWidth={trackWidth} stripe={["rgba(255,255,255,0)", "rgba(255,255,255,0.5)", "rgba(255,255,255,0)"]} /> : null}
-      </Animated.View>
+      {trackWidth > 0 ? (
+        <Animated.View style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: trackWidth, borderRadius: 5, overflow: "hidden", transform: [{ translateX }] }}>
+          <LinearGradient colors={gradients.fab} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={StyleSheet.absoluteFill} />
+          {showShimmer ? <Stripe anim={shimmer} trackWidth={trackWidth} stripe={["rgba(255,255,255,0)", "rgba(255,255,255,0.5)", "rgba(255,255,255,0)"]} /> : null}
+        </Animated.View>
+      ) : null}
     </View>
   );
 }
 
 type StepStatus = "done" | "active" | "failed" | "pending";
 
-function StepRow({ label, status }: { label: string; status: StepStatus }) {
+const StepRow = memo(function StepRow({ label, status }: { label: string; status: StepStatus }) {
   return (
     <View className="flex-row items-center" style={{ minHeight: 26 }}>
       <View style={{ width: 22, alignItems: "center", justifyContent: "center" }}>
@@ -155,12 +180,14 @@ function StepRow({ label, status }: { label: string; status: StepStatus }) {
       </Txt>
     </View>
   );
-}
+});
 
 export interface SetupScreenProps {
   progress: StartupProgress;
   /** The database or import step failed; shows the retry experience. */
   failed: boolean;
+  /** Native/runtime failure detail, shown on the retry screen to make release-only failures diagnosable. */
+  errorMessage?: string | null;
   /** Setup finished: hold briefly, fade out, then call onExited. */
   exiting: boolean;
   /** Dwell on the completed state before fading (ms). Not progress: it only lets the user see "Ready". */
@@ -172,10 +199,11 @@ export interface SetupScreenProps {
 }
 
 /** Branded first-launch setup screen driven by real startup progress. Covers the app until setup completes. */
-export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
+export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
   const t = useT();
   const { lang } = useLang();
   const reduceMotion = useReduceMotion();
+  const appActive = useAppActive();
   const { width, height } = useWindowDimensions();
   const logoSize = Math.round(Math.min(104, Math.max(64, Math.min(width * 0.26, height * 0.13))));
 
@@ -233,7 +261,7 @@ export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExit
           >
             <Animated.View style={{ width: "100%", maxWidth: 440, alignSelf: "center", opacity: enter, transform: [{ translateY: enterY }] }}>
               <View className="items-center">
-                <BrandMark size={logoSize} reduceMotion={reduceMotion} />
+                <BrandMark size={logoSize} reduceMotion={reduceMotion} appActive={appActive} />
                 <Txt font="display" weight="bold" className="text-ink-900 text-[30px] leading-[38px] text-center mt-1">{BRAND.name}</Txt>
                 <Txt className="text-ink-500 text-sm leading-5 text-center mt-1">{BRAND.tagline[lang]}</Txt>
               </View>
@@ -249,6 +277,9 @@ export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExit
                     </View>
                     <Txt className="text-ink-700 text-sm leading-6 mt-3">{t("setup.error.body")}</Txt>
                     <Txt className="text-ink-500 text-[13px] leading-5 mt-2">{t("setup.error.failedAt", { stage: t(STAGE_KEY[stage]) })}</Txt>
+                    {errorMessage ? (
+                      <Txt className="text-ink-500 text-xs leading-5 mt-2">{errorMessage.slice(0, 320)}</Txt>
+                    ) : null}
                     <Txt className="text-ink-500 text-[13px] leading-5 mt-1">{t("setup.error.hint")}</Txt>
                     <View className="mt-4"><Button label={t("common.retry")} onPress={onRetry} /></View>
                   </View>
@@ -263,11 +294,11 @@ export function SetupScreen({ progress, failed, exiting, holdMs, onRetry, onExit
                         <Txt font="display" weight="bold" className="text-ink-900 text-[19px] leading-7 mt-2">{isReady ? t("setup.titleReady") : headline}</Txt>
                       </FadeIn>
                       <FadeIn key={`d-${stage}-${progress.packsTotal > 0}`} reduceMotion={reduceMotion}>
-                        <Txt className="text-ink-500 text-sm leading-5 mt-1">{detail}</Txt>
+                        <Txt className="text-ink-500 text-sm leading-5 mt-1" style={{ minHeight: 40 }}>{detail}</Txt>
                       </FadeIn>
                     </View>
                     <View className="mt-4">
-                      <ProgressBar fraction={progress.fraction} active={!isReady} reduceMotion={reduceMotion} label={t("setup.a11y.progress")} valueText={t("setup.percent", { n: percent })} />
+                      <ProgressBar fraction={progress.fraction} active={!isReady} reduceMotion={reduceMotion} appActive={appActive} label={t("setup.a11y.progress")} valueText={t("setup.percent", { n: percent })} />
                     </View>
                     <View className="mt-5 pt-4 border-t border-sand-200 gap-1">
                       {STARTUP_STAGES.map((s, i) => (
