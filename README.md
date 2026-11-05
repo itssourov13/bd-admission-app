@@ -14,7 +14,7 @@ A Bangladesh-focused, offline-first Android admission-preparation app for univer
 
 ## Current implementation status
 
-**Current Android candidate:** version **0.1.4** (Android versionCode 5); EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 has been submitted and is currently queued. The v0.1.3 / code 4 APK is superseded: the owner reported that first-run setup stops at question-library import. Do not treat the old APK as release-ready; install the v0.1.4 artifact only after its build finishes.
+**Current Android candidate:** version **0.1.4** (Android versionCode 5); EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is now IN_PROGRESS after a 23m07s worker-queue wait; native Gradle tasks are running. The v0.1.3 / code 4 APK is superseded: the owner reported that first-run setup stops at question-library import. Do not treat the old APK as release-ready; install the v0.1.4 artifact only after its build finishes.
 
 The core app implementation is wired across the Expo Router screens, SQLite database lifecycle, repositories, practice services, question-pack importer, and local user data. The 2026-11-05 correctness pass adds read-back-verified profile-name persistence, safe display-only math notation, a read-only question-quality audit and partial official-rule support without invented score components. Exact paper practice no longer silently inherits the global 100/60 format. See [current state](docs/CURRENT_STATE.md), [official exam-rule research](docs/EXAM_RULE_RESEARCH.md), and [question-quality audit](docs/QUESTION_QUALITY_AUDIT.md).
 

@@ -11,7 +11,7 @@
 - [x] Bump app/brand/package to 0.1.4, Android versionCode 5; preserve package ID and signing identity.
 - [x] Run 139 tests, typecheck, lint, seed/content check, whole-catalog validation, Expo config, Android prebuild and Android Metro export.
 - [x] Committed the source fix and incident documentation locally as 8855821 (fix(android): correct bundled seed sidecar path); no push.
-- [x] Submitted v0.1.4 / Android versionCode 5 EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968; current EAS status is IN_QUEUE.
+- [x] Submitted v0.1.4 / Android versionCode 5 EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968; current EAS status is IN_PROGRESS after about 23m07s in the worker queue; retrieved logs show RUN_GRADLEW / native Gradle tasks executing.
 - [ ] Wait for the EAS build to finish, then verify the APK-embedded seed payload.
 - [ ] Owner updates the existing installation without uninstall/data clear and verifies first seed import, data persistence and subsequent launch. No adb/phone is connected to the workspace; device pass cannot be claimed here.
 - [x] Reviewed and committed the source fix locally as 8855821; the worktree was clean after the commit. Documentation for final EAS artifact status will be committed after the build result.

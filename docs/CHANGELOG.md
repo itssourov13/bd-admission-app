@@ -8,7 +8,7 @@
 - Added unit tests for absolute SQLite path ↔ Expo file URI conversion, including rejection of invalid inputs.
 - Added the native error detail to the setup retry screen so a remaining release-only failure is visible instead of hidden behind a generic message.
 - Bumped app/brand/package version to 0.1.4 and Android versionCode to 5; application ID, EAS project and signing identity remain unchanged.
-- Verification: 139/139 tests, TypeScript, ESLint, content:check, 217-pack validation, resolved Expo config, Android prebuild and Metro export pass. EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted for v0.1.4 / code 5 and is currently IN_QUEUE; artifact inspection and physical-device runtime verification remain pending.
+- Verification: 139/139 tests, TypeScript, ESLint, content:check, 217-pack validation, resolved Expo config, Android prebuild and Metro export pass. EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted for v0.1.4 / code 5, waited about 23m07s for a worker, and is now IN_PROGRESS; retrieved logs show native Gradle tasks executing. Artifact inspection and physical-device runtime verification remain pending.
 
 ## 2026-11-05 — Build v0.1.3 seed-based Android preview
 

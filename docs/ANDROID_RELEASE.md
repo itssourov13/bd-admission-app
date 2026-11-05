@@ -4,7 +4,7 @@
 
 - v0.1.3 / Android versionCode 4 was built and its embedded SQLite seed was integrity-checked, but the owner-reported phone test fails at **Importing question library**. Treat that APK as a failed runtime candidate, not as release-ready.
 - The source fix is v0.1.4 / Android versionCode 5. It corrects the SQLite sidecar destination from raw filesystem path to an Expo file:/// URI, uses Expo FileSystem legacy native copy for Android resource-aware copying and displays the underlying error on the retry screen.
-- Automated verification is complete. Replacement EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted for v0.1.4 / code 5 and is currently IN_QUEUE; APK artifact inspection and physical-device confirmation remain pending.
+- Automated verification is complete. Replacement EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted for v0.1.4 / code 5. It waited about 23m07s for a worker and is now IN_PROGRESS; retrieved logs show the native Gradle phase. APK artifact inspection and physical-device confirmation remain pending.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
 Last updated: 2026-11-05

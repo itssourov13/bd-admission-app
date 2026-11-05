@@ -4,7 +4,7 @@
 **Branch:** fix/profile-persistence-math-render-exam-rules-2026-11-05
 **Previous seed implementation commit:** 2370513 (local; no push).
 **Current fix commit:** 8855821 (local; no push). Source tree was clean immediately after commit.
-**Current app candidate:** v0.1.4 / Android versionCode 5. EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted and is currently IN_QUEUE.
+**Current app candidate:** v0.1.4 / Android versionCode 5. EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is IN_PROGRESS after about 23m07s in the EAS worker queue. Retrieved logs show RUN_GRADLEW / Gradle plugin tasks executing; the APK is not available yet.
 
 The owner tested v0.1.3 / code 4 on a physical Android phone. It opens the setup UI but fails while importing the question library. Earlier verification checked the APK's embedded SQLite payload but did not exercise Expo's runtime copy/attach path on a phone; that was an overstatement of readiness. Source audit found that the raw absolute path returned by expo-sqlite.defaultDatabaseDirectory was passed into Expo File's File constructor, which expects a file:/// URI. The fix now constructs the destination with an explicit file URI, converts it back to a raw path for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android resource-aware copying. The error screen now displays the underlying native error.
 
