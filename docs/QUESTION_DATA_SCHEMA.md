@@ -39,13 +39,14 @@ institutionId must reference a declared institution. Keep each paper/year/unit/s
 
 ## Exam rules and score provenance
 
-Each rule requires id, paperId and verificationStatus. The status is verified, illustrative or unconfigured. Optional values include correctMarks, incorrectPenalty, unansweredMarks, durationSeconds, totalQuestions, sourceDocumentIds and sourceNote.
+Each rule requires id, paperId and verificationStatus. The status is verified, illustrative or unconfigured. Optional values include `correctMarks`, `incorrectPenalty`, `unansweredMarks`, `durationSeconds`, `totalQuestions`, `totalMarks`, `selectionConfig`, `sourceDocumentIds` and `sourceNote`. `totalMarks` is the official total of the relevant MCQ component and is not a substitute for the per-question scoring components.
 
-Exam patterns vary by institution and by paper/year/session/unit; do not assume all universities use the same number of questions or duration. A 100-question RU exam is not a template for another institution that uses 80 or 60 questions. Attach each rule to the correct paper record and retain the official source document or an auditable source note. The current application still hard-codes Standard Exam to 100 questions/60 minutes, so these fields must not be assumed to configure the full session end to end until the runtime change is implemented and tested.
+Exam patterns vary by institution and by paper/year/session/unit; do not assume all universities use the same number of questions or duration. A 100-question RU exam is not a template for another institution that uses 80 or 60 questions. Attach each rule to the correct paper record and retain the official source document or an auditable source note. The runtime consumes an exact paper's own question count and duration only when both are present and usable. It does not substitute the generic defaults for an exact paper. The 100-question/60-minute default is reserved for general all-catalogue practice; explicitly selected Custom Practice is unscored and is not an official-format simulation.
 
 Schema v1 does not model section-wise question quotas or separate per-section timers as first-class fields. If an official pattern requires those constraints, preserve the source details and extend/version the pack contract and runtime before claiming it is supported; do not silently ignore those constraints.
 
-- A verified scoring rule must contain the complete scoring values required by the validator.
+- `verificationStatus: "verified"` means the declared fact(s) have been verified against their cited source; it does not imply every optional field is known. A partial verified rule may contain `totalMarks` while leaving question count, duration or scoring values unset.
+- A complete numeric score requires all three explicit scoring values: `correctMarks`, `incorrectPenalty` and `unansweredMarks`. Never replace an absent component with zero.
 - Keep supporting source-document references or a note so the rule can be audited.
 - Unknown or unverified rules must not be promoted to official rules.
 - An illustrative rule is never to be presented as an official institution marking scheme.

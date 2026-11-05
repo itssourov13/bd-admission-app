@@ -99,7 +99,7 @@ export function validateQuestionPack(pack) {
     }
     if (!paperIds.has(rule?.paperId)) errors.push(at + ".paperId references an unknown paper.");
     if (!ruleStatuses.has(rule?.verificationStatus)) errors.push(at + ".verificationStatus is invalid.");
-    for (const field of ["correctMarks", "incorrectPenalty", "unansweredMarks"]) {
+    for (const field of ["correctMarks", "incorrectPenalty", "unansweredMarks", "totalMarks"]) {
       if (rule?.[field] != null && (typeof rule[field] !== "number" || !Number.isFinite(rule[field]) || rule[field] < 0)) {
         errors.push(at + "." + field + " must be a finite non-negative number.");
       }
@@ -137,9 +137,10 @@ export function validateQuestionPack(pack) {
         }
       }
     }
-    if (rule?.verificationStatus === "verified" &&
-        (typeof rule.correctMarks !== "number" || typeof rule.incorrectPenalty !== "number" || typeof rule.unansweredMarks !== "number")) {
-      errors.push(at + " is marked verified but does not define all scoring values.");
+    const hasCompleteScoring = typeof rule.correctMarks === "number" && typeof rule.incorrectPenalty === "number" && typeof rule.unansweredMarks === "number";
+    const hasVerifiedComponentTotal = typeof rule.totalMarks === "number" && Number.isFinite(rule.totalMarks) && rule.totalMarks >= 0;
+    if (rule?.verificationStatus === "verified" && !hasCompleteScoring && !hasVerifiedComponentTotal) {
+      errors.push(at + " is marked verified but defines neither complete scoring values nor a verified component total.");
     }
     for (const sourceId of rule?.sourceDocumentIds ?? []) {
       if (!sourceIds.has(sourceId)) errors.push(at + " references an unknown source document: " + sourceId + ".");

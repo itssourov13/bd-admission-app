@@ -257,7 +257,7 @@ export async function loadQuestions(db: SqlDb, ids: string[]): Promise<QuestionV
 
 interface RuleRow {
   paper_id: string; correct_marks: number | null; incorrect_penalty: number | null; unanswered_marks: number | null;
-  duration_seconds: number | null; total_questions: number | null; verification_status: RuleStatus; selection_config: string | null;
+  duration_seconds: number | null; total_questions: number | null; total_marks: number | null; verification_status: RuleStatus; selection_config: string | null;
 }
 
 /**
@@ -281,11 +281,11 @@ export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], 
   const rules: (ScoringRule | null)[] = [];
   for (const paperId of paperIds) {
     const r = await db.getFirstAsync<RuleRow>("SELECT * FROM exam_rules WHERE paper_id = ? ORDER BY id LIMIT 1", [paperId]);
-    if (!r || r.correct_marks == null) { rules.push(null); continue; }
+    if (!r) { rules.push(null); continue; }
     rules.push({
-      correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty ?? 0, unansweredMarks: r.unanswered_marks ?? 0,
+      correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty, unansweredMarks: r.unanswered_marks,
       status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds,
-      selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
+      totalMarks: r.total_marks, selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
     });
   }
   return resolveRule(rules);
@@ -317,11 +317,11 @@ export async function categoriesWithContent(db: SqlDb): Promise<QuestionCategory
 /** The single marking rule stored for a paper, or null when none/incomplete. */
 export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringRule | null> {
   const r = await db.getFirstAsync<RuleRow>("SELECT * FROM exam_rules WHERE paper_id = ? ORDER BY id LIMIT 1", [paperId]);
-  if (!r || r.correct_marks == null) return null;
+  if (!r) return null;
   return {
-    correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty ?? 0, unansweredMarks: r.unanswered_marks ?? 0,
+    correctMarks: r.correct_marks, incorrectPenalty: r.incorrect_penalty, unansweredMarks: r.unanswered_marks,
     status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds,
-    selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
+    totalMarks: r.total_marks, selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null
   };
 }
 

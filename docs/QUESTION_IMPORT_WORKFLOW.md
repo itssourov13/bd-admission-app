@@ -1,3 +1,11 @@
+## Official marking-rule research and integrity controls — 2026-11-05
+
+See `docs/EXAM_RULE_RESEARCH.md` for the source-by-source findings. The 2024–2025 follow-up added only eight partial verified facts to the existing verified-source banks (three JU rules and five HSTU rules). The separate 99 JU-U/HSTU-U candidate rules remain unconfigured. RU's official 2024–2025 80-question/100-mark pattern is confirmed, but the current C-unit Lokkho captures are 127/128-question aggregate variants, not exact official papers; the rule is documented but not attached to them. Never infer a full per-question score from a component total or treat an aggregate candidate bank as an official sitting.
+
+Rule completeness is independent of source fact verification. `totalMarks` can be stored where official component total is known, while scoring values remain null. Numeric score calculation requires explicit `correctMarks`, `incorrectPenalty` and `unansweredMarks`. Exact-paper timed practice additionally requires that paper's own `totalQuestions` and `durationSeconds`; only global practice uses the generic 100/60 defaults. An explicitly selected Custom Practice option is unscored and must carry its custom marker.
+
+The new read-only scan is available through `pnpm audit:questions`. It reports likely extraction artifacts, repeated option text and other triage candidates across all bundled question packs. Audit flags do **not** prove content is wrong: inspect the exact original page/PDF and answer key before editing or changing verification states. Findings and scope are written to `docs/QUESTION_QUALITY_AUDIT.md`.
+
 # Question import workflow
 
 ## Current status
@@ -80,8 +88,8 @@ JU also contains 6 `multiple_choice` records and 16 explicit `no_correct_option`
 
 ### Runtime and exam-rule boundary
 
-- All 57 exam-rule records remain `unconfigured`. Source descriptions/notes are retained, but no official question count, duration, marking rule or subject-selection configuration is activated.
-- A general/institution-scoped Standard Exam can use the app's generic 100-question / 60-minute fallback; this is not an official JU/HSTU pattern. None of the individual JU/HSTU paper datasets has 100 verified-eligible questions, so a paper-specific Standard Exam is not available for these packs until matching paper rules or a supported custom-length mode is added. Browse and eligible Flash practice work.
+- At the initial 2026-11-01 import checkpoint, all 57 rules remained `unconfigured`. The 2026-11-05 official-source research below supersedes the status for 8 exact 2024–2025 records with partial metadata; the other 49 remain unconfigured.
+- **At the 2026-11-01 import checkpoint**, a general/institution-scoped Standard Exam still used the then-global 100-question / 60-minute fallback. This historical behavior has since been narrowed: only the no-exact-paper all-catalogue path keeps that default; exact-paper sessions need their own source-backed count/duration or explicitly chosen unscored Custom Practice.
 - HSTU needs more historical sessions to meet the original coverage target. This is a follow-up research gap, not a blocker to importing the verified records already supplied.
 
 ### Verification performed
@@ -101,7 +109,7 @@ JU also contains 6 `multiple_choice` records and 16 explicit `no_correct_option`
 - The 15 previous RU-V JSON packs were backed up under `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/backups/old-app-packs-2026-10-30/` and replaced in-place with the rebuilt data. `replaceExistingPaperContent: true` instructs the importer to clear only active appearances for each of these 15 RU-V paper IDs before re-adding the new set. Old question rows and their bookmarks, session questions, answers and result history remain for historical references; removed items no longer appear in the active paper catalogue or practice pool.
 - The current RU-V verified bank has **1,800 single-choice questions** in the existing Flash/Standard eligible pool. The 22 verified no-correct-option records and 6 verified multiple-choice records remain available as source records but are not forced into the single-choice practice engine.
 - The original `ru` / 4,009-question RU C Unit Science candidate bank is a separate dataset and is retained unchanged. The two DU packs also remain unchanged. The new bundle total is **61 packs / 6,017 questions**: 180 DU + 4,009 RU C candidates + 1,828 RU-V verified-source questions.
-- No RU-specific duration, marking scheme, question count or section rule was inferred. General Standard Exam continues to use the existing 100-question/60-minute fallback.
+- At the 2026-10-29 checkpoint, no RU-specific duration, marking scheme, question count or section rule was inferred and the then-current general Standard Exam used the 100-question/60-minute fallback. The current exact-paper path no longer applies those defaults to a selected paper.
 - External build/reconciliation artifacts: `/home/kali/gpt-workspace/bd-admission-app-data/ruv-work/IMPORT_BUILD_SUMMARY.json`, `PACK_RECONCILIATION.csv`, `EXCLUSION_MANIFEST.csv`, `IDENTICAL_OPTION_TEXT_AUDIT.csv`, `subject-audit.json`, and the extraction source/workspace.
 
 ## Initial real-data batch: DU A Unit

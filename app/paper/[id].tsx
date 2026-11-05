@@ -10,7 +10,7 @@ import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { colors } from "@/theme";
 import { countReviewCandidates, getPaperRule, listPapers } from "@/repositories/content";
-import { STANDARD_EXAM_QUESTIONS } from "@/services/exam";
+import { CUSTOM_PRACTICE_LIMITS, planExam } from "@/services/exam";
 
 export default function PaperScreen() {
   const t = useT();
@@ -32,8 +32,12 @@ export default function PaperScreen() {
   const reviewMode = paper.eligibleCount === 0 && reviewCandidates > 0;
   const availableForPractice = reviewMode ? reviewCandidates : paper.eligibleCount;
   const canPractice = availableForPractice > 0;
-  const requiredQuestions = rule?.totalQuestions && rule.totalQuestions > 0 ? rule.totalQuestions : STANDARD_EXAM_QUESTIONS;
+  const examPlan = planExam(paper.id, rule);
+  // An exact paper without a verified usable pattern may offer clearly labelled Custom Practice,
+  // but must never inherit the global 100-question default.
+  const requiredQuestions = examPlan.kind === "paper" ? examPlan.required : CUSTOM_PRACTICE_LIMITS.minQuestions;
   const canExam = availableForPractice >= requiredQuestions;
+  const customOnly = examPlan.kind === "unavailable";
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={paper.title ?? `${paper.institutionName} ${num(paper.year)}`} subtitle={paper.institutionName} />
@@ -50,8 +54,8 @@ export default function PaperScreen() {
         {reviewMode ? <Card className="p-3.5 mt-4"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
         <View className="mt-5 gap-2.5">
           <Button label={t("paper.flash")} disabled={!canPractice} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", { paperId: paper.id }))} />
-          <Button label={paper.ruleStatus === "illustrative" ? t("paper.practicePattern") : t("paper.exam")} variant="outline" disabled={!canExam} onPress={() => router.push(href("/exam/setup", { paperId: paper.id }))} />
-          {!canExam ? <Txt className="text-ink-500 text-xs leading-5">{t("paper.examNeeds")}</Txt> : null}
+          <Button label={customOnly ? t("exam.customTitle") : paper.ruleStatus === "illustrative" ? t("paper.practicePattern") : t("paper.exam")} variant="outline" disabled={!canExam} onPress={() => router.push(href("/exam/setup", { paperId: paper.id }))} />
+          {!canExam ? <Txt className="text-ink-500 text-xs leading-5">{customOnly ? t("paper.customNeeds") : t("paper.examNeeds")}</Txt> : null}
           <Button label={t("paper.browse")} variant="ghost" disabled={paper.questionCount === 0} onPress={() => router.push(href("/browse", { paperId: paper.id }))} />
         </View>
       </ScrollView>

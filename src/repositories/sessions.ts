@@ -6,7 +6,7 @@ interface RawSession {
   id: string; mode: SessionMode; status: SessionRow["status"]; filter_json: string; started_at: number; ended_at: number | null;
   deadline_at: number | null; duration_seconds: number | null; per_question_seconds: number | null; finish_reason: SessionRow["finishReason"];
   rule_correct_marks: number | null; rule_incorrect_penalty: number | null; rule_unanswered_marks: number | null;
-  rule_status: RuleStatus | null; result_json: string | null;
+  rule_total_marks: number | null; rule_status: RuleStatus | null; result_json: string | null;
 }
 
 function toSession(r: RawSession): SessionRow {
@@ -14,7 +14,7 @@ function toSession(r: RawSession): SessionRow {
     id: r.id, mode: r.mode, status: r.status, filter: JSON.parse(r.filter_json) as PoolFilter, startedAt: Number(r.started_at),
     endedAt: r.ended_at, deadlineAt: r.deadline_at, durationSeconds: r.duration_seconds, perQuestionSeconds: r.per_question_seconds,
     finishReason: r.finish_reason, ruleCorrect: r.rule_correct_marks, rulePenalty: r.rule_incorrect_penalty,
-    ruleUnanswered: r.rule_unanswered_marks, ruleStatus: r.rule_status, resultJson: r.result_json
+    ruleUnanswered: r.rule_unanswered_marks, ruleTotalMarks: r.rule_total_marks, ruleStatus: r.rule_status, resultJson: r.result_json
   };
 }
 
@@ -30,10 +30,10 @@ export interface CreateSessionInput {
 export async function createSession(db: SqlDb, s: CreateSessionInput): Promise<void> {
   await db.runAsync(
     `INSERT INTO practice_sessions (id, mode, status, filter_json, started_at, deadline_at, duration_seconds, per_question_seconds,
-       rule_correct_marks, rule_incorrect_penalty, rule_unanswered_marks, rule_status)
-     VALUES (?, ?, 'active', ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       rule_correct_marks, rule_incorrect_penalty, rule_unanswered_marks, rule_status, rule_total_marks)
+     VALUES (?, ?, 'active', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [s.id, s.mode, JSON.stringify(s.filter), s.startedAt, s.deadlineAt ?? null, s.durationSeconds ?? null, s.perQuestionSeconds ?? null,
-      s.rule?.correctMarks ?? null, s.rule?.incorrectPenalty ?? null, s.rule?.unansweredMarks ?? null, s.rule?.status ?? null]
+      s.rule?.correctMarks ?? null, s.rule?.incorrectPenalty ?? null, s.rule?.unansweredMarks ?? null, s.rule?.status ?? null, s.rule?.totalMarks ?? null]
   );
 }
 

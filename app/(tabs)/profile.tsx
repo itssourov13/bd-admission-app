@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Alert, ScrollView, View } from "react-native";
-import { useRouter } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 import Constants from "expo-constants";
 import { Ionicons } from "@expo/vector-icons";
 import { BRAND } from "@/brand";
@@ -13,9 +13,8 @@ import { useDb } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
-import { listBatches } from "@/repositories/content";
-import { activitySummary, getProfile, updateProfile } from "@/repositories/userData";
+import { colors, feedback } from "@/theme";
+import { activitySummary, getProfile, saveDisplayName, updateProfile } from "@/repositories/userData";
 import { FLASH_PRESETS } from "@/services/timer";
 import type { QuestionCategory } from "@/types/domain";
 
@@ -25,17 +24,48 @@ export default function ProfileScreen() {
   const db = useDb();
   const router = useRouter();
   const { lang, setLang } = useLang();
-  const q = useQuery(async (d) => ({ profile: await getProfile(d), activity: await activitySummary(d), batches: await listBatches(d) }));
+  const q = useQuery(async (d) => ({ profile: await getProfile(d), activity: await activitySummary(d) }));
   const [typedName, setName] = useState<string | null>(null);
+  const [nameStatus, setNameStatus] = useState<"idle" | "saved" | "error">("idle");
+  const [savingName, setSavingName] = useState(false);
+  // Latest unsaved draft, so a name typed but not yet saved is persisted when the person leaves this screen.
+  const pendingName = useRef<string | null>(null);
+  const savingNameRef = useRef(false);
 
   const save = (patch: Parameters<typeof updateProfile>[1]) => updateProfile(db, patch).then(q.reload, () => Alert.alert(t("error.title"), t("error.saveFailed")));
+  const persistName = async (value: string) => {
+    if (savingNameRef.current) return;
+    savingNameRef.current = true;
+    // Clear the blur/unmount fallback before starting a write, avoiding duplicate concurrent saves.
+    pendingName.current = null;
+    setSavingName(true);
+    try {
+      const persisted = await saveDisplayName(db, value);
+      setName(persisted);
+      setNameStatus("saved");
+      q.reload();
+    } catch {
+      pendingName.current = value;
+      setNameStatus("error");
+      Alert.alert(t("error.title"), t("error.saveFailed"));
+    } finally {
+      savingNameRef.current = false;
+      setSavingName(false);
+    }
+  };
+  useFocusEffect(useCallback(() => () => {
+    const draft = pendingName.current;
+    if (draft !== null) void saveDisplayName(db, draft).then(() => { pendingName.current = null; }, () => undefined);
+  }, [db]));
+  useEffect(() => { if (nameStatus === "saved") { const id = setTimeout(() => setNameStatus("idle"), 3000); return () => clearTimeout(id); } return undefined; }, [nameStatus]);
   const chooseLang = (l: "bn" | "en") => { setLang(l); void save({ language: l }); };
 
   if (q.loading) return <Screen edges={["top"]}><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ErrorView onRetry={q.reload} /></Screen>;
-  const { profile, activity, batches } = q.data!;
+  const { profile, activity } = q.data!;
   const target = profile.targetCategory;
   const name = typedName ?? profile.displayName;
+  const dirty = name.trim().slice(0, 60) !== profile.displayName;
 
   return (
     <Screen edges={["top"]}>
@@ -47,8 +77,25 @@ export default function ProfileScreen() {
 
         <Card className="p-5">
           <Txt weight="semibold" className="text-ink-900 mb-2">{t("profile.name")}</Txt>
-          <TextField value={name} onChangeText={setName} maxLength={60} placeholder={t("profile.namePlaceholder")} accessibilityLabel={t("profile.name")} />
-          <View className="mt-3"><Button label={t("profile.saveName")} variant="outline" size="md" disabled={name.trim() === profile.displayName} onPress={() => void save({ displayName: name })} /></View>
+          <TextField
+            value={name}
+            editable={!savingName}
+            onChangeText={(v) => {
+              setName(v);
+              pendingName.current = v.trim().slice(0, 60) !== profile.displayName ? v : null;
+              setNameStatus("idle");
+            }}
+            onBlur={() => { if (dirty && !savingNameRef.current) void persistName(name); }}
+            onSubmitEditing={() => { if (dirty && !savingNameRef.current) void persistName(name); }}
+            returnKeyType="done"
+            maxLength={60}
+            placeholder={t("profile.namePlaceholder")}
+            accessibilityLabel={t("profile.name")}
+          />
+          <Txt accessibilityLiveRegion="polite" className="text-ink-500 text-xs mt-2" style={nameStatus === "error" ? { color: feedback.danger700 } : undefined}>
+            {nameStatus === "error" ? t("error.saveFailed") : dirty ? t("profile.nameUnsaved") : nameStatus === "saved" ? t("profile.nameSaved") : ""}
+          </Txt>
+          <View className="mt-3"><Button label={t("profile.saveName")} variant="outline" size="md" loading={savingName} disabled={!dirty || savingName} onPress={() => void persistName(name)} /></View>
         </Card>
 
         <Card className="p-5 mt-4">
@@ -83,13 +130,6 @@ export default function ProfileScreen() {
           <Button label={`${t("profile.openBookmarks")} (${num(activity.bookmarks)})`} variant="outline" icon={<Ionicons name="bookmark-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/bookmarks"))} />
           <Button label={t("profile.openHistory")} variant="outline" icon={<Ionicons name="time-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/history"))} />
         </View>
-
-        <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-6 mb-3">{t("profile.content")}</Txt>
-        <Card className="p-4">
-          {batches.length === 0 ? <Txt className="text-ink-500 text-sm leading-6">{t("profile.contentEmpty")}</Txt> : batches.map((b) => (
-            <View key={b.id} className="py-1.5"><Txt weight="semibold" className="text-ink-900 text-sm">{b.description ?? b.id}</Txt><Txt className="text-ink-500 text-xs">{b.category} · {t("common.questionsCount", { n: b.questionCount })}</Txt></View>
-          ))}
-        </Card>
 
         <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-6 mb-2">{t("profile.about")}</Txt>
         <Txt className="text-ink-500 text-sm leading-6">{BRAND.name} · {t("profile.version", { v: String(Constants.expoConfig?.version ?? "0.1.0") })}</Txt>

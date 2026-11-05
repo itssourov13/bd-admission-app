@@ -18,7 +18,8 @@
     "test:import": "node --test tests/importer.test.ts scripts/tests/*.test.mjs",
     "packs:index": "node scripts/build-pack-index.mjs",
     "packs:validate": "node scripts/validate-question-pack.mjs",
-    "question-assets:index": "node scripts/build-question-assets.mjs"
+    "question-assets:index": "node scripts/build-question-assets.mjs",
+    "audit:questions": "node scripts/audit-question-quality.mjs --dir data/question-packs --min review --md docs/QUESTION_QUALITY_AUDIT.md"
   },
   "dependencies": {
     "@expo-google-fonts/fraunces": "^0.4.1",

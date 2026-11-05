@@ -1,3 +1,17 @@
+## Profile, math display and official-rule integrity — 2026-11-05
+
+**Status:** Implementation and automated checks are complete; physical-device and source-content follow-up remains.
+
+- [x] Profile-name save/read-back confirmation, blur/submit persistence, screen-leave draft fallback, duplicate-save guard and error path.
+- [x] Remove internal question-pack import logs from the student profile.
+- [x] Add display-only scientific notation rendering for questions/options and spoken accessibility labels; keep ambiguous expressions and canonical source text unchanged.
+- [x] Extend the pack/database/session rule model for partial official component totals; prevent unknown scoring values from becoming zero.
+- [x] Prevent exact paper sessions from inheriting global 100-question/60-minute defaults; add clearly labelled, explicitly user-configured, unscored Custom Practice when the exact pattern is unavailable.
+- [x] Add official-source research for JU, RU and HSTU 2024–2025; add only partial facts to the matching JU/HSTU papers. RU facts are documented but not attached to non-matching aggregate third-party captures.
+- [x] Add a read-only 217-pack content-quality audit report. Flags remain review candidates; no question/option text was modified without its original matching source.
+- [ ] Physical Android UI QA for profile save/leave, math layout and screen reader rendering, partial-rule notices, custom mode and migration from a previously installed DB.
+- [ ] Acquire exact source paper(s) to complete JU/HSTU paper coverage; match the official RU C-unit source to an exact original 80-question sitting before adding the official rule to app data.
+
 # Task state
 
 ## Branded first-launch/startup setup UI — 2026-11-01
@@ -35,7 +49,7 @@
 - [x] Regenerated `src/content/bundledPacks.ts`: **118 packs / 7,836 questions**.
 - [x] Added integration tests for 57 new packs, answer/content states, source/reference uniqueness, warning preservation, all-pack SQLite import and re-import idempotency.
 - [x] Fresh SQLite import: 118/118 packs imported, zero failures; 7,836 questions / 31,344 options / 118 batches / 118 papers / 59 rules / 168 sources / 7,836 appearances / 5 institutions. New verified single-choice pool: 1,668.
-- [x] Documented the remaining HSTU historical coverage gap and that all 57 JU/HSTU exam rules remain unconfigured; no unofficial timed-exam pattern was invented.
+- [x] Documented the HSTU historical coverage gap and, at the initial import checkpoint, kept all 57 JU/HSTU rules unconfigured. The 2026-11-05 source review now adds only partial facts to 3 JU and 5 HSTU records; no unsupported timed/scoring fields were invented.
 - [ ] Owner device check after installing a newly built APK is still separate. Production AAB/Google Play remains outstanding.
 
 ## Android preview release and documentation sync — 2026-10-31

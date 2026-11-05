@@ -179,6 +179,20 @@ ALTER TABLE question_batches ADD COLUMN pack_signature TEXT;
     sql: `
 ALTER TABLE exam_rules ADD COLUMN selection_config TEXT;
 `
+  },
+  {
+    version: 4,
+    name: "official_rule_component_total_marks",
+    sql: `
+ALTER TABLE exam_rules ADD COLUMN total_marks REAL;
+`
+  },
+  {
+    version: 5,
+    name: "session_rule_component_total_marks",
+    sql: `
+ALTER TABLE practice_sessions ADD COLUMN rule_total_marks REAL;
+`
   }
 ];
 

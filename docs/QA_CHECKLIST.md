@@ -1,6 +1,27 @@
+## Profile, math and exam-rule correctness pass — 2026-11-05
+
+| Check | Result | Notes |
+|---|---|---|
+| Profile name persistence | [x] Automated pass | File-backed SQLite test closes/reopens the same database, runs returning-user startup twice, and checks display name, language, Flash preference and bookmarks. The save service reads its value back and fails on a blocked write. |
+| Profile draft handling | [x] Implemented; [ ] device QA | Save on blur/submit and best-effort on screen leave; synchronous ref guard prevents concurrent duplicate saves. Student-facing profile no longer shows internal import batches. |
+| Math/scientific display | [x] Automated pass | Parser tests cover powers/subscripts, ions, units, scientific notation, vectors, permutations/nuclides, Bangla mixed text, ambiguous patterns and speech labels. Raw pack strings are not rewritten. Android line-height, visual fidelity and TalkBack still need device review. |
+| Partial-rule storage | [x] Automated pass | Schema migration v4 adds exam-rule component totals; v5 snapshots component totals into sessions. Import/re-import tests verify the `total_marks` field. |
+| Missing scoring values | [x] Automated pass | Score and max score stay `null` unless correct, incorrect and unanswered values are all supplied. Unknown penalty/unanswered fields are not coerced to zero. |
+| Exact-paper rule behavior | [x] Automated pass | Paper count/time are required for exact-paper official-format sessions; exact papers do not use generic 100/60. Explicit Custom Practice is bounded, visibly labelled and unscored. General no-paper practice retains 100/60. |
+| Official rule sources | [x] Research recorded | 3 JU and 5 HSTU records receive only partial 2024–2025 facts; RU rules are documented but not attached to mismatching aggregate Lokkho data. See `docs/EXAM_RULE_RESEARCH.md`. |
+| Question-quality audit | [x] Read-only scan | 217 packs / 13,609 questions; 148 findings overall, 137 at review or higher. Findings are candidate flags; no question or option was edited without its matching original source. See `docs/QUESTION_QUALITY_AUDIT.md`. |
+| Full test suite | [x] Pass | `pnpm test`: 111 passed, 0 failed (Node 22.23.1). A final focused set of 60 tests plus 3 UI/localization tests also passed after the last integrity refinements. |
+| TypeScript | [x] Pass | `pnpm typecheck` — Node 22.23.1, exit 0 after the final code refinements. |
+| ESLint | [x] Pass | Full-project `pnpm lint` passed; after the final one-line setup UI change, `pnpm exec eslint app/exam/setup.tsx` also passed. |
+| All bundled question-pack validation | [x] Pass | One-process pass over all 217 JSON files: 13,609 questions, 0 schema errors, 9,785 warnings, 0 invalid packs. |
+| Question-quality audit | [x] Pass | `pnpm audit:questions`: 217 packs / 13,609 questions; 148 findings total, 137 at review or higher. All findings remain source-review candidates. |
+| Diff whitespace check | [x] Pass | `git diff --check` — exit 0. |
+| Expo Android export | [ ] Optional / pending | No APK build is claimed for this branch. Existing SDK/host Hermes limitation is documented in the release guide. |
+| Physical Android UI and migration | [ ] Pending | Validate over an existing installation and fresh disposable DB: profile save/blur/leave/reopen, math line wrapping and speech output, partial notices, Custom Practice and all question navigation. |
+
 # QA checklist
 
-Latest automated verification: **2026-11-01**, Node 22.23.1, pnpm 11.10.0; `pnpm test` passes **76/76 tests**, with typecheck and lint passing. The current bundle has **217 packs / 13,609 questions** including separate verified and unverified JU/HSTU banks. The latest Android no-bytecode export passes (2,058 modules / 22 MB JS / 122 assets). EAS internal APK build **`b4745dc4-0069-4a86-bb5b-234e5f377dfd`** is finished for version `0.1.1` / `versionCode 2` ([Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd)); physical-device installation and QA remain pending. Production AAB/Play Store rollout also remains outstanding. Earlier 66-test import checkpoint is retained in the historical table below.
+Latest source verification: **2026-11-05**, Node 22.23.1 / pnpm 11.10.0. Full suite: **111/111 passed**; final focused set after the last integrity refinements: **60/60 passed**; typecheck and lint pass; all 217 packs validate with zero errors; read-only audit generated; diff-check passes. Physical Android QA and a new APK build are not claimed. The previously published EAS internal APK v0.1.1 is a historical build and does not include this branch.
 
 ## Startup setup UI verification — 2026-11-01
 
@@ -54,7 +75,7 @@ The no-bytecode export validates JavaScript bundling only. It does **not**, by i
 | Fresh SQLite import | [x] Pass | 118/118 packs, zero failures; 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 rules, 168 sources, 7,836 appearances and 5 institutions. |
 | JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
 | Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
-| Exam patterns | [x] Intentionally unconfigured | All 57 new rules remain `unconfigured`; the app must not label source notes as official exam rules. HSTU historical coverage remains partial. |
+| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records; see `docs/EXAM_RULE_RESEARCH.md`. HSTU historical coverage remains partial. |
 
 
 ## JU-U + HSTU-U unverified candidate-bank verification — 2026-11-01

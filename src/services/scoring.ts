@@ -3,20 +3,21 @@ import type { ExamSelectionConfig } from "../types/question-pack.ts";
 export type RuleStatus = "verified" | "illustrative" | "unconfigured";
 
 export interface ScoringRule {
-  correctMarks: number;
-  incorrectPenalty: number;
-  unansweredMarks: number;
+  correctMarks?: number | null;
+  incorrectPenalty?: number | null;
+  unansweredMarks?: number | null;
   status: RuleStatus;
   totalQuestions?: number | null;
+  totalMarks?: number | null;
   durationSeconds?: number | null;
   selectionConfig?: ExamSelectionConfig | null;
 }
 
-/** Used when no rule is stored. Counts one point per correct answer; NOT an official rule. */
+/** Used when no rule is stored. All scoring values are deliberately absent. */
 export const UNCONFIGURED_RULE: ScoringRule = {
-  correctMarks: 1,
-  incorrectPenalty: 0,
-  unansweredMarks: 0,
+  correctMarks: null,
+  incorrectPenalty: null,
+  unansweredMarks: null,
   status: "unconfigured"
 };
 
@@ -35,11 +36,12 @@ export interface ExamScore {
   correct: number;
   incorrect: number;
   unanswered: number;
-  marksFromCorrect: number;
-  penaltyTotal: number;
-  unansweredMarksTotal: number;
-  score: number;
-  maxScore: number;
+  marksFromCorrect: number | null;
+  penaltyTotal: number | null;
+  unansweredMarksTotal: number | null;
+  score: number | null;
+  maxScore: number | null;
+  hasScoringRule: boolean;
   /** correct / answered (graded) questions as a percentage; 0 when nothing was answered. */
   accuracyPercent: number;
   answered: number;
@@ -64,14 +66,23 @@ function round(value: number): number {
   return Math.round(value * 1e6) / 1e6;
 }
 
+export function hasCompleteScoringRule(rule: ScoringRule): boolean {
+  return rule.status !== "unconfigured" &&
+    [rule.correctMarks, rule.incorrectPenalty, rule.unansweredMarks]
+      .every((value) => typeof value === "number" && Number.isFinite(value) && value >= 0);
+}
+
 export function validateRule(rule: ScoringRule): string[] {
   const errors: string[] = [];
   for (const [key, value] of Object.entries({
     correctMarks: rule.correctMarks,
     incorrectPenalty: rule.incorrectPenalty,
-    unansweredMarks: rule.unansweredMarks
+    unansweredMarks: rule.unansweredMarks,
+    totalMarks: rule.totalMarks
   })) {
-    if (!Number.isFinite(value) || value < 0) errors.push(`${key} must be a finite non-negative number`);
+    if (value != null && (typeof value !== "number" || !Number.isFinite(value) || value < 0)) {
+      errors.push(`${key} must be a finite non-negative number`);
+    }
   }
   return errors;
 }
@@ -106,9 +117,10 @@ export function scoreAttempt(
   }
   const graded = correct + incorrect + unanswered;
   const answered = correct + incorrect;
-  const marksFromCorrect = round(correct * rule.correctMarks);
-  const penaltyTotal = round(incorrect * rule.incorrectPenalty);
-  const unansweredMarksTotal = round(unanswered * rule.unansweredMarks);
+  const hasScoring = hasCompleteScoringRule(rule);
+  const marksFromCorrect = hasScoring ? round(correct * rule.correctMarks!) : null;
+  const penaltyTotal = hasScoring ? round(incorrect * rule.incorrectPenalty!) : null;
+  const unansweredMarksTotal = hasScoring ? round(unanswered * rule.unansweredMarks!) : null;
   return {
     totalQuestions: questions.length,
     gradedQuestions: graded,
@@ -120,11 +132,12 @@ export function scoreAttempt(
     marksFromCorrect,
     penaltyTotal,
     unansweredMarksTotal,
-    score: round(marksFromCorrect - penaltyTotal + unansweredMarksTotal),
-    maxScore: round(Math.max(graded * rule.correctMarks, 0)),
+    score: hasScoring ? round(marksFromCorrect! - penaltyTotal! + unansweredMarksTotal!) : null,
+    maxScore: hasScoring ? round(Math.max(graded * rule.correctMarks!, 0)) : null,
+    hasScoringRule: hasScoring,
     accuracyPercent: accuracyPercent(correct, answered),
     ruleStatus: rule.status,
-    isOfficialRule: rule.status === "verified"
+    isOfficialRule: hasScoring && rule.status === "verified"
   };
 }
 
@@ -150,6 +163,7 @@ export function resolveRule(rules: (ScoringRule | null | undefined)[]): ScoringR
       x.incorrectPenalty === first.incorrectPenalty &&
       x.unansweredMarks === first.unansweredMarks &&
       x.totalQuestions === first.totalQuestions &&
+      x.totalMarks === first.totalMarks &&
       x.durationSeconds === first.durationSeconds &&
       JSON.stringify(x.selectionConfig ?? null) === JSON.stringify(first.selectionConfig ?? null)
     );
@@ -162,8 +176,8 @@ export function resolveRule(rules: (ScoringRule | null | undefined)[]): ScoringR
  * each skipped or timed-out question. Returns null when no rule is configured (no score is invented).
  */
 export function flashScore(counts: { correct: number; incorrect: number; skipped: number; timedOut: number }, rule: ScoringRule): number | null {
-  if (rule.status === "unconfigured") return null;
+  if (!hasCompleteScoringRule(rule)) return null;
   const problems = validateRule(rule);
   if (problems.length) throw new Error("Invalid scoring rule: " + problems.join("; "));
-  return round(counts.correct * rule.correctMarks - counts.incorrect * rule.incorrectPenalty + (counts.skipped + counts.timedOut) * rule.unansweredMarks);
+  return round(counts.correct * rule.correctMarks! - counts.incorrect * rule.incorrectPenalty! + (counts.skipped + counts.timedOut) * rule.unansweredMarks!);
 }

@@ -4,8 +4,8 @@ import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestio
 import {
   addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, type SessionAnswerRow
 } from "../repositories/sessions.ts";
-import { checkExamEligibility, pickExamQuestions, STANDARD_EXAM_QUESTIONS, STANDARD_EXAM_SECONDS, type ExamEligibility } from "./exam.ts";
-import { scoreAttempt, isAnswerCorrect, type ExamScore, type ScorableQuestion, type ScoringRule } from "./scoring.ts";
+import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
+import { scoreAttempt, isAnswerCorrect, UNCONFIGURED_RULE, type ExamScore, type ScorableQuestion, type ScoringRule } from "./scoring.ts";
 import { examAdvice, type AdviceKey } from "./advice.ts";
 import type { Rng } from "./flash.ts";
 
@@ -22,22 +22,34 @@ export function toScorable(q: QuestionView, allowProvisionalKey = false): Scorab
 
 export type StartExamResult =
   | { ok: true; sessionId: string }
-  | { ok: false; eligibility: ExamEligibility; reason?: "subject_selection" | "incomplete_section" };
+  | { ok: false; eligibility: ExamEligibility; reason?: "subject_selection" | "incomplete_section" | "rule_unavailable" | "invalid_custom" };
 
 /**
- * Starts a paper-specific exam when a source-backed pattern exists. Otherwise it keeps the
- * general 100-question/60-minute practice mode. Section-selection papers must select the
- * exact subject count, and each selected section must have its required number of graded items.
+ * Starts a paper-specific exam when a source-backed pattern exists; the generic 100-question/60-minute mode is only
+ * for global (no exact paper) practice (ADR-013). An exact paper without a usable stored pattern is refused with
+ * `rule_unavailable` unless the caller passes an explicit `custom` count/duration, which starts a clearly marked
+ * Custom Practice session (filter.customPractice) that is never scored or presented as an official exam.
+ * Section-selection papers must select the exact subject count, and each selected section must have its required
+ * number of graded items.
  */
 export async function startStandardExam(
-  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean } = {}
+  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean; custom?: CustomPracticeConfig } = {}
 ): Promise<StartExamResult> {
   const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
-  const paperPattern = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
-  const required = paperPattern?.totalQuestions && paperPattern.totalQuestions > 0
-    ? paperPattern.totalQuestions : STANDARD_EXAM_QUESTIONS;
-  const durationSeconds = paperPattern?.durationSeconds && paperPattern.durationSeconds > 0
-    ? paperPattern.durationSeconds : STANDARD_EXAM_SECONDS;
+  const storedRule = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
+  const plan = planExam(filter.paperId, storedRule);
+  const customRequested = plan.kind === "unavailable" && opts.custom !== undefined;
+  if (plan.kind === "unavailable" && !customRequested) {
+    return { ok: false, eligibility: checkExamEligibility(0, 0), reason: "rule_unavailable" };
+  }
+  if (customRequested && !isValidCustomPractice(opts.custom)) {
+    return { ok: false, eligibility: checkExamEligibility(0, 0), reason: "invalid_custom" };
+  }
+  const custom = customRequested ? opts.custom! : null;
+  // Never consume another source's values: an official/source plan only supplies its own stored pattern.
+  const paperPattern = plan.kind === "paper" ? storedRule : null;
+  const required = plan.kind === "unavailable" ? custom!.questions : plan.required;
+  const durationSeconds = plan.kind === "unavailable" ? custom!.seconds : plan.durationSeconds;
   const selection = paperPattern?.selectionConfig ?? null;
   let picked: string[] | null = null;
   let available = 0;
@@ -79,11 +91,11 @@ export async function startStandardExam(
 
   const resolved = await resolveRuleForQuestions(db, picked, filter);
   // Never attach one paper's question-count/section pattern to an all-institution or global mock exam.
-  const rule = filter.paperId ? (paperPattern ?? resolved) : {
+  const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : {
     ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
   };
   const id = newSessionId(now);
-  const sessionFilter = opts.includeUnverified ? { ...filter, reviewUnverified: true } : filter;
+  const sessionFilter = { ...filter, ...(opts.includeUnverified ? { reviewUnverified: true } : {}), ...(custom ? { customPractice: true } : {}) };
   await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
   await addExamQuestions(db, id, picked);
   return { ok: true, sessionId: id };
@@ -137,8 +149,8 @@ export async function finalizeStandardExam(db: SqlDb, sessionId: string, reason:
   const selected: Record<string, string[]> = {};
   answers.forEach((a) => { selected[a.questionId] = a.selectedKeys; });
   const rule: ScoringRule = {
-    correctMarks: session.ruleCorrect ?? 1, incorrectPenalty: session.rulePenalty ?? 0, unansweredMarks: session.ruleUnanswered ?? 0,
-    status: session.ruleStatus ?? "unconfigured"
+    correctMarks: session.ruleCorrect, incorrectPenalty: session.rulePenalty, unansweredMarks: session.ruleUnanswered,
+    totalMarks: session.ruleTotalMarks, status: session.ruleStatus ?? "unconfigured"
   };
   const scorable = questions.map((q) => toScorable(q, session.filter.reviewUnverified === true));
   const score = scoreAttempt(scorable, selected, rule);

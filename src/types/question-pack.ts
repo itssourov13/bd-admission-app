@@ -73,6 +73,8 @@ export interface QuestionPackExamRule {
   unansweredMarks?: number;
   durationSeconds?: number;
   totalQuestions?: number;
+  /** Official total marks for the MCQ component; does not imply per-question scoring is known. */
+  totalMarks?: number;
   selectionConfig?: ExamSelectionConfig | null;
   verificationStatus: "verified" | "illustrative" | "unconfigured";
   sourceDocumentIds?: string[];

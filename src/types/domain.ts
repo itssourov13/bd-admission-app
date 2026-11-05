@@ -46,6 +46,8 @@ export interface PoolFilter {
   subjects?: string[];
   /** True only for explicitly provisional practice; scores use the third-party source key. */
   reviewUnverified?: boolean;
+  /** True only for an explicit user-chosen count/duration on a paper without a verified pattern; never scored as official. */
+  customPractice?: boolean;
 }
 
 export interface InstitutionSummary {
@@ -93,6 +95,7 @@ export interface SessionRow {
   ruleCorrect: number | null;
   rulePenalty: number | null;
   ruleUnanswered: number | null;
+  ruleTotalMarks: number | null;
   ruleStatus: RuleStatus | null;
   resultJson: string | null;
 }

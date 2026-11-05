@@ -34,6 +34,21 @@ test("scoring: ungraded questions are excluded, illustrative rule is not officia
   assert.equal(s.isOfficialRule, false);
 });
 
+test("partial and unconfigured rules never manufacture a numeric score", () => {
+  const partial: ScoringRule = { status: "verified", totalMarks: 100 };
+  const noScore = scoreAttempt(qs, { q1: ["a"], q2: ["b"] }, partial);
+  assert.equal(noScore.correct, 1);
+  assert.equal(noScore.incorrect, 1);
+  assert.equal(noScore.score, null);
+  assert.equal(noScore.maxScore, null);
+  assert.equal(noScore.hasScoringRule, false);
+  assert.equal(noScore.isOfficialRule, false);
+  assert.equal(scoreAttempt(qs, { q1: ["a"] }, UNCONFIGURED_RULE).score, null);
+  assert.equal(UNCONFIGURED_RULE.correctMarks, null);
+  assert.equal(UNCONFIGURED_RULE.incorrectPenalty, null);
+  assert.equal(UNCONFIGURED_RULE.unansweredMarks, null);
+});
+
 test("scoring: unanswered marks, float rounding, invalid rule, rule resolution", () => {
   assert.equal(scoreAttempt(qs, { q1: ["a"], q2: ["a"], q3: ["a"], q4: ["b"] }, rule({ incorrectPenalty: 0.1 })).score, 2.9);
   assert.throws(() => scoreAttempt(qs, {}, rule({ incorrectPenalty: -1 })));

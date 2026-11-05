@@ -5,7 +5,8 @@
     "category": "varsity",
     "description": "Jahangirnagar University D Unit (Biological Sciences), academic session 2024-2025, Set-13 (সেটকোড: ১৩) — full 80-question paper transcribed by direct visual reading from the Udvash ‘জাবি প্রশ্নব্যাংক’ question-bank book PDF (ju-ad-abswer-combined.pdf), book PDF pages 97-100 (question pages), with the printed answer table and the printed worked solutions for Q55-58 on p.100. EXTRACTION STAGE: every question is marked content-unverified and every printed key answer-unverified pending cross-source verification; the printed publisher keys are NOT official JU keys. The book prints NO subject headings; subjects were assigned by content following the session's standard D-unit distribution, confirmed by the question sequence: Zoology Q1-22, Chemistry Q23-46, English Q47-50, Bangla Q51-54, General Mathematics (সাধারণ গণিত) Q55-58, Botany Q59-80. Botany/Zoology are recorded under the canonical subject Biology with the split kept in topic; the সাধারণ গণিত block keeps its source label ‘General Mathematics’. The answer table prints a dash (no answer) for Q9 and Q54. For Q9 the book also prints, directly under the question on p.97, ‘ব্যাখ্যা: প্রশ্নটি ত্রুটিপূর্ণ [সঠিক উত্তর: ১০-৪০μm]’, i.e. the question is defective and the stated correct value is not among the options; for Q54 no worked solution is printed. Both are therefore recorded with answerDisposition no_correct_option and an empty correctOptionIds list, and — only because the repo validator requires a ‘verified’ answer status for that disposition — their answerVerificationStatus is set to ‘verified’, where the verified fact is solely the printed no-correct-option state (same treatment as earlier packs in this project); their content remains unverified. Mathematical notation is linearised with ^ for superscripts; chemical formulae are written in plain linear form (e.g. FeSO4, K2Cr2O7). Printed peculiarities are preserved as printed and flagged in extraction notes (Q33 options b and d both ‘273 K’; Q62 option a ‘Peter Mitchel’; Q76 stem ‘সায়ানোফায়’). IMPORT COPY: verified subset (40/80) - see VERIFICATION report.",
     "sourceDocumentIds": [
-      "udvash-ju-abswer-combined--ju-d-2024-2025-set13"
+      "udvash-ju-abswer-combined--ju-d-2024-2025-set13",
+      "ju-official-revised-circular-2024-2025-ju-d-2024-2025-set13"
     ]
   },
   "sourceDocuments": [
@@ -16,6 +17,13 @@
       "sha256": "f8548d343ffa4322318ed2d0cea6038e00bf0a77ff43d0a3947527a3726fde82",
       "sourceType": "pdf",
       "notes": "Scanned book PDF (295 pp.). Set-13 (Unit-D, 2024-2025) occupies PDF pages 97-100 (printed book pages 96-99): questions on pp.97-100, answer table (‘উত্তরমালা ও ব্যাখ্যামূলক সমাধান’) and worked solutions for Q55-58 on p.100. PDF p.101 begins a different paper (Unit-D 2023-2024 Set-K) and was NOT transcribed into this pack. Transcription by direct visual reading of the page images (with zoomed crops for dense regions); OCR used only as a finding aid."
+    },
+    {
+      "id": "ju-official-revised-circular-2024-2025-ju-d-2024-2025-set13",
+      "filename": "JU_Admission_Circular_2024_2025_Revised.pdf",
+      "title": "Jahangirnagar University signed revised undergraduate admission circular 2024-2025 (copy hosted by Prothom Alo)",
+      "sourceType": "pdf",
+      "notes": "Scanned copy of the signed JU revised circular, hosted in Prothom Alo's 20 January 2025 article: https://media.prothomalo.com/prothomalo-bangla/2025-01-20/ul3hez3r/8ikpc051.pdf. The university's letterhead, circular text and admissionhelp@juniv.edu address are visible in the PDF. Prothom Alo's contemporaneous coverage transcribes the same rule fields: https://www.prothomalo.com/education/siheqcw71f."
     }
   ],
   "institutions": [
@@ -40,11 +48,16 @@
     {
       "id": "rule-ju-d-2024-2025-set13",
       "paperId": "ju-d-2024-2025-set13",
-      "verificationStatus": "unconfigured",
+      "verificationStatus": "verified",
       "sourceDocumentIds": [
-        "udvash-ju-abswer-combined--ju-d-2024-2025-set13"
+        "udvash-ju-abswer-combined--ju-d-2024-2025-set13",
+        "ju-official-revised-circular-2024-2025-ju-d-2024-2025-set13"
       ],
-      "sourceNote": "Paper header (book PDF p.97) states: পূর্ণমান: ৮০ (full marks 80), ইউনিট: D, সেটকোড: ১৩, সময়: ৫৫ মিনিট (55 minutes); প্রশ্নপত্রে মোট ৮০ টি প্রশ্ন আছে, সকল প্রশ্নের উত্তর দিতে হবে, প্রতিটি ভুল উত্তরের জন্য ০.২০ নম্বর কাটা যাবে, কোন ধরনের ক্যালকুলেটর ব্যবহার করা যাবে না. Transcribed from the header only and NOT entered as a verified scoring rule."
+      "sourceNote": "Partial official rule verified for JU 2024-2025. The signed university circular states 80-mark MCQ in all units, 55 minutes for answering plus 5 additional minutes for OMR filling, and a 0.20-mark deduction for each wrong answer; it also states a 33% pass threshold. Scanned signed circular (copy hosted by Prothom Alo): https://media.prothomalo.com/prothomalo-bangla/2025-01-20/ul3hez3r/8ikpc051.pdf. Contemporaneous report quoting the circular: https://www.prothomalo.com/education/siheqcw71f. The 80-question count is also printed on the source compilation header for this exact unit/set; the circular itself specifies 80 marks but does not separately spell out the per-item correct mark or unanswered scoring value. Therefore totalQuestions=80, totalMarks=80, durationSeconds=3300 and incorrectPenalty=0.20 are retained, while correctMarks and unansweredMarks remain unset. Numeric scoring is intentionally disabled until those missing values are established. The app pack is only a partial transcription and currently does not contain 80 eligible questions.",
+      "totalMarks": 80,
+      "totalQuestions": 80,
+      "durationSeconds": 3300,
+      "incorrectPenalty": 0.2
     }
   ],
   "questions": [

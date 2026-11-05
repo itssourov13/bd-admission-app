@@ -1,3 +1,13 @@
+## 2026-11-05 — Persist profile data, format math and enforce paper-specific exam rules
+
+- Added read-back verification for profile display-name saves, blur/submit handling and a screen-leave draft fallback; removed internal pack-import logs from the student profile.
+- Added a pure math/scientific-notation formatter and accessible rendering in question/option UI. Formatting is display-only; unsupported/ambiguous source text is unchanged.
+- Added `totalMarks` to the question-pack/database/session rule model and schema migrations 4/5. Partial verified facts are not treated as complete scoring rules; missing scoring values are never silently zeroed.
+- Exact paper practice now requires its own question count and duration. The generic 100-question/60-minute rule is limited to global practice. Unconfigured exact papers offer explicit unscored Custom Practice.
+- Researched official 2024–2025 JU/RU/HSTU exam rules. Added partial, source-backed facts only to the 3 matching JU and 5 HSTU packs; kept RU unconfigured because current third-party aggregate captures do not match a complete official 80-question paper.
+- Added a read-only quality audit across 217 packs / 13,609 questions. Findings are review candidates, not automatic corrections.
+- Added focused tests for profile persistence across a database close/reopen, notation parsing, custom/exact exam plans, partial scoring and audit output. Device verification and new APK build remain pending.
+
 # Changelog
 
 ## 2026-11-01 — Prepare v0.1.1 internal Android preview
@@ -30,7 +40,7 @@
 - Preserved question/option/answer content and individual verification states; question-by-question factual verification was not repeated. The addition supplies 1,668 verified single-choice practice-eligible questions.
 - Namespaced the shared JU source-document ID for its 24 batch occurrences and updated all linked references; no question or answer data was changed.
 - Regenerated the bundle to 118 packs / 7,836 questions and added integration tests for fresh-SQLite import, status preservation, ID integrity and idempotent re-import.
-- Validation: all 57 new packs valid with 0 errors / 125 warnings; all 118 packs imported in a fresh database with zero failures. All JU/HSTU exam rules remain unconfigured; HSTU historical coverage remains partial.
+- Validation: all 57 new packs valid with 0 errors / 125 warnings; all 118 packs imported in a fresh database with zero failures. At this initial import checkpoint all JU/HSTU exam rules were unconfigured; the 2026-11-05 research follow-up later added partial verified facts to 3 JU and 5 HSTU records. HSTU historical coverage remains partial.
 
 ## 2026-10-31 — Publish Android preview and reconcile release documentation
 

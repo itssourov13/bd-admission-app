@@ -1,3 +1,14 @@
+## Current handoff — 2026-11-05
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `fix/profile-persistence-math-render-exam-rules-2026-11-05`
+**Base before this task:** `a5f9005`
+**Push:** none. Commit only after final verification; do not push.
+
+The current branch includes profile display-name persistence with read-back verification and draft flush handling; removal of internal batch logs from the profile; a display-only math parser/component with screen-reader wording; a read-only question-quality audit; partial official JU/HSTU 2024–2025 rule metadata; and scoring/database/runtime changes that do not turn missing values into zero or borrow 100/60 for an exact paper. Exact-paper setup offers only a labelled unscored Custom Practice path where a usable pattern is unavailable. Official RU 2024–2025 facts are documented but deliberately not attached to the current aggregate Lokkho C-unit packs.
+
+See `docs/CURRENT_STATE.md`, `docs/EXAM_RULE_RESEARCH.md`, `docs/QUESTION_QUALITY_AUDIT.md` and `docs/QA_CHECKLIST.md`. Run commands with Node 22.23.1: `pnpm test`, `pnpm typecheck`, `pnpm lint`, `pnpm packs:validate`, `pnpm audit:questions`, and `git diff --check`. Physical Android/Expo Go QA is still pending; ADB is not available on the current connected host. Do not claim an updated APK has been built or device-verified.
+
 # Handoff
 
 ## Branded startup/setup UI — 2026-11-01

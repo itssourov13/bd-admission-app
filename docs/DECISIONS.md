@@ -1,3 +1,8 @@
+## ADR-021 — Partial official facts do not imply complete scoring or an exact paper
+Status: accepted, 2026-11-05.
+
+Store only what a cited official source establishes. `totalMarks` represents a known exam component total, not per-question positive marks or unanswered marks. Numeric scoring is enabled only when all three scoring components are present. A paper-specific timed session requires that paper's own question count and duration; missing values are not borrowed from another unit/session and are not replaced with the generic 100/60 practice defaults. Where the pattern is unavailable, only an explicitly chosen and unscored Custom Practice mode may be offered. Preserve exact paper provenance; never sample an aggregate third-party bank and label it as a complete official paper.
+
 # Architecture and product decisions
 
 ## ADR-001 — Independent workspace
