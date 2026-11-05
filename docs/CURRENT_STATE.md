@@ -1,3 +1,10 @@
+## Android correctness preview preparation — 2026-11-05
+
+- Release candidate source version: **0.1.2**, Android **versionCode 3**, package **com.admissionbd.app**; the Expo slug, EAS project ID and signing identity are unchanged.
+- EAS CLI authentication was checked against account **sk_king13**. The EAS build history contained only the earlier v0.1.1 (code 2) and v0.1.0 (code 1) completed preview jobs; no v0.1.2 job existed at this checkpoint.
+- The v0.1.2 preview profile is configured for internal Android APK distribution. Cloud build submission and the installable artifact are pending; do not describe v0.1.1 as containing this branch's implementation.
+- Resolved Expo public config confirms version 0.1.2, Android versionCode 3, package ID, slug and EAS project ID. The version/documentation update is committed locally as c93c7f3; device-level verification remains owner-pending after the APK is installed.
+
 ## Profile, math notation and exam-rule integrity — 2026-11-05
 
 - Profile display-name writes now use `saveDisplayName`: write → read back → compare normalized value → report success only after persistence is confirmed. Drafts are saved on blur/submit and best-effort when leaving the profile screen; a synchronous ref guard prevents duplicate concurrent writes. The raw question-pack batch list has been removed from the student profile.

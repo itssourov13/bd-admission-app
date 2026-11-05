@@ -1,3 +1,14 @@
+## v0.1.2 Android correctness preview preparation — 2026-11-05
+
+- [x] Confirmed the connected workspace, clean correctness branch and remote branch synchronization.
+- [x] Verified EAS CLI authentication as sk_king13 and inspected Android build history; only v0.1.1/code 2 and v0.1.0/code 1 builds existed at the start of this task.
+- [x] Bumped brand/app package version from 0.1.1 to 0.1.2 and Android versionCode from 2 to 3; retained com.admissionbd.app, Expo slug, EAS project ID and existing EAS-managed keystore.
+- [x] Updated current-state, release, QA, handoff, README and changelog references to distinguish the historical v0.1.1 APK from this correctness branch.
+- [x] Resolved Expo public config confirms version 0.1.2, Android versionCode 3, package ID, slug and EAS project ID; git diff --check passes.
+- [x] Committed version/documentation preparation as c93c7f3; no push performed.
+- [ ] Submit EAS preview cloud APK build and record its real build ID/status/artifact URL after EAS confirms it.
+- [ ] Owner installs APK and verifies profile persistence, math layout/accessibility, official/partial exam rules, custom practice and update-data preservation. Only then merge the implementation branch to main.
+
 ## Profile, math display and official-rule integrity — 2026-11-05
 
 **Status:** Implementation and automated checks are complete; physical-device and source-content follow-up remains.

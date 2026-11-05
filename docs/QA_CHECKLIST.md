@@ -1,3 +1,15 @@
+## v0.1.2 Android preview release gate — 2026-11-05
+
+| Check | Result | Notes |
+|---|---|---|
+| App/package version | [x] Updated | Brand config and package metadata are set to 0.1.2. |
+| Android version code | [x] Updated | 3; prior completed preview used code 2. Application ID remains com.admissionbd.app. |
+| EAS account/project | [x] Confirmed | EAS CLI authenticated as sk_king13; linked EAS project ID unchanged. |
+| Existing build history | [x] Checked | The latest completed artifact at preparation time was v0.1.1 / code 2. No new v0.1.2 job had yet been submitted. |
+| Resolved Expo config | [x] Pass | Public Expo config resolves version 0.1.2, Android versionCode 3, package com.admissionbd.app, expected slug and EAS project ID. |
+| EAS preview APK | [ ] Pending | No v0.1.2 build ID or artifact URL is claimed until EAS confirms successful completion. |
+| Physical Android verification | [ ] Pending | Owner installs the new APK and tests the 2026-11-05 correctness implementation and existing-install data preservation. |
+
 ## Profile, math and exam-rule correctness pass — 2026-11-05
 
 | Check | Result | Notes |

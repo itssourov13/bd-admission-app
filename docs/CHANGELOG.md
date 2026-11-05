@@ -1,3 +1,10 @@
+## 2026-11-05 — Prepare v0.1.2 correctness preview release
+
+- Incremented the app/brand/package version from `0.1.1` to `0.1.2` and Android `versionCode` from `2` to `3`; retained the application ID, Expo slug, EAS project ID and signing identity.
+- Prepared the EAS `preview` profile for an installable internal Android APK containing the 2026-11-05 correctness branch: profile persistence, math rendering/accessibility, exact-paper rules/scoring safeguards and question-quality audit.
+- Updated README, current state, task state, handoff, QA checklist and Android release documentation to identify v0.1.1 as historical and v0.1.2 as the current source candidate.
+- Resolved Expo config verification passed for version 0.1.2 / versionCode 3. Release-preparation commit: c93c7f3. EAS cloud build submission remains pending; no v0.1.2 build ID or APK URL is claimed yet.
+
 ## 2026-11-05 — Persist profile data, format math and enforce paper-specific exam rules
 
 - Added read-back verification for profile display-name saves, blur/submit handling and a screen-leave draft fallback; removed internal pack-import logs from the student profile.

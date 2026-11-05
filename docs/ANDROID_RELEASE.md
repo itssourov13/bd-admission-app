@@ -1,6 +1,6 @@
 # Android build and release guide
 
-Last updated: 2026-11-01
+Last updated: 2026-11-05
 
 ## Current release setup
 
@@ -9,11 +9,11 @@ Last updated: 2026-11-01
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current app version: `0.1.1`; Android version code: `2` (the historical `v0.1.0` APK used code `1`).
+- Current source version prepared for the correctness preview: `0.1.2`; Android version code: `3`. The previous `0.1.1` / code `2` EAS APK is historical and predates the 2026-11-05 correctness changes.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
-The EAS project is initialized and linked to the app config. The preview profile has now produced an installable Android APK, which was published in the public GitHub pre-release below. The owner installed and checked that APK on a physical Android phone and reported normal operation. The production AAB and Google Play rollout have not yet been completed.
+The EAS project is initialized and linked to the app config; the CLI is authenticated as `sk_king13`. The previous completed preview is `0.1.1` / code `2`. The 2026-11-05 correctness branch is being prepared as `0.1.2` / code `3`; its new internal APK must be built and installed before this branch is device-verified. The production AAB and Google Play rollout have not yet been completed.
 
 ## Prerequisites
 
@@ -52,9 +52,16 @@ EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platfor
 
 `EAS_NO_VCS=1` uses the project folder rather than EAS's temporary Git shallow clone; `EAS_SKIP_AUTO_FINGERPRINT=1` skips the fingerprint computation that stalled after the successful upload on this host. Use this workaround only where needed. The successful build is visible in the [EAS Builds dashboard](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds). The generated APK was uploaded to the GitHub pre-release [`v0.1.0-preview.1`](https://github.com/itssourov13/bd-admission-app/releases/tag/v0.1.0-preview.1) and installed/checked on a physical Android phone by the owner. The release is a preview, not a Play Store production release.
 
-## Current preview APK — v0.1.1 (EAS build finished)
+## Current correctness preview — v0.1.2 (build submission pending)
 
-The current internal preview build is **`0.1.1` / Android `versionCode 2`**. It includes the branded startup/setup UI and the current JU/HSTU verified and unverified question banks. EAS build ID: `b4745dc4-0069-4a86-bb5b-234e5f377dfd`. EAS status is **`FINISHED`** (completed **2026-11-01 12:19:53 +06:00**). Open the [Expo EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) with the owner account and tap **Install**, or [download the APK directly](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). The preview profile is internal distribution and created an installable APK. The old `v0.1.0-preview.1` GitHub asset is historical and does not include this newer UI/content.
+- App/brand/package version: `0.1.2`; Android `versionCode 3`; application ID remains `com.admissionbd.app`.
+- EAS profile: `preview`, internal distribution, Android APK. EAS account `sk_king13`; project ID remains `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- Includes the 2026-11-05 profile-persistence, math-rendering, exact-paper exam-rule/scoring and question-quality-audit implementation from the correctness branch.
+- At this documentation checkpoint, the cloud build has not yet been submitted. Do not use the older v0.1.1 APK to verify this branch. Replace this note with the actual EAS build ID, status, completion time and artifact URL only after EAS confirms the job and artifact.
+
+## Previous preview APK — v0.1.1 (historical; superseded by v0.1.2 source)
+
+The previous internal preview build was **`0.1.1` / Android `versionCode 2`**. It includes the branded startup/setup UI and the current JU/HSTU verified and unverified question banks. EAS build ID: `b4745dc4-0069-4a86-bb5b-234e5f377dfd`. EAS status is **`FINISHED`** (completed **2026-11-01 12:19:53 +06:00**). Open the [Expo EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) with the owner account and tap **Install**, or [download the APK directly](https://expo.dev/artifacts/eas/D9pljPNWvlCv1Z9QPKhyeDs0OKW8T5Bo-CmM53iFC30.apk). The preview profile is internal distribution and created an installable APK. The old `v0.1.0-preview.1` GitHub asset is historical and does not include this newer UI/content.
 
 The `0.1.1` build reuses the existing EAS-managed Android keystore and retains application ID `com.admissionbd.app`; Android `versionCode` was incremented from `1` to `2` for upgrade installation. No GitHub release was created for this internal build. The Expo build page indicates expiry on **2026-11-15 12:05 +06:00**. Physical-device install/update QA is still required.
 
