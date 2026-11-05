@@ -1,6 +1,6 @@
 # Startup performance, seed database and lifecycle
 
-Last updated: 2026-11-05. The owner-reported v0.1.3 APK fails at first-run question-library import. v0.1.4 corrects a source-confirmed SQLite-path/Expo-File URI mismatch and uses Android resource-aware legacy copying. Automated checks pass; EAS rebuild and physical-device verification remain required.
+Last updated: 2026-11-05. The owner-reported v0.1.3 APK fails at first-run question-library import. v0.1.4 corrects the SQLite-path/Expo-File URI mismatch and uses Android resource-aware legacy copying; the source fix is committed as 8855821. EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is IN_QUEUE. Physical-device verification remains mandatory.
 
 ## Why startup was redesigned
 

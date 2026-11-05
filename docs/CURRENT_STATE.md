@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-05 (v0.1.4 source fix implemented; automated checks pass; EAS rebuild and physical-device confirmation pending).
+Last updated: 2026-11-05 (v0.1.4 source fix committed as 8855821; EAS preview build submitted and queued; owner phone verification pending).
 
 ## Incident follow-up — v0.1.3 first-launch failure and v0.1.4 fix (2026-11-05)
 
@@ -9,7 +9,7 @@ Last updated: 2026-11-05 (v0.1.4 source fix implemented; automated checks pass; 
 - Source-level defect found: expo-sqlite.defaultDatabaseDirectory returns an absolute filesystem path (for example /data/user/0/.../SQLite), while Expo File's File constructor expects a file:/// URI. v0.1.3 passed the raw path directly when creating the disposable sidecar destination. This invalid URI/path-type handoff is a concrete startup failure candidate at the exact seed-materialization stage.
 - v0.1.4 now converts the SQLite path to a proper file:// URI before constructing File, converts the URI back to an absolute path for SQLite ATTACH, and uses expo-file-system/legacy copyAsync so Android raw-resource identifiers are handled by the native resource copier as well as ordinary file URIs. The retry screen also displays the native error message (truncated) to make any remaining device-only issue diagnosable.
 - App version is now **0.1.4**, Android **versionCode 5**; package ID com.admissionbd.app, EAS project and signing identity are unchanged.
-- Verification after the fix: **139 tests**, TypeScript, ESLint, seed/content integrity, all 217 pack validation, Expo config, Android prebuild and Android Metro export pass. The exact EAS APK build and embedded-payload check are still pending.
+- Verification after the fix: **139 tests**, TypeScript, ESLint, seed/content integrity, all 217 pack validation, Expo config, Android prebuild and Android Metro export pass. EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is submitted and currently IN_QUEUE; APK artifact and embedded-payload verification are pending.
 - Physical-device verification remains **not done** from this workspace (no adb/attached phone). Do not mark the bug resolved until v0.1.4 is installed over the existing app and completes the first library import on the owner's phone. Keep existing app data; do not uninstall or clear storage.
 
 
@@ -33,7 +33,7 @@ Last updated: 2026-11-05 (v0.1.4 source fix implemented; automated checks pass; 
 - Progress fill uses native-driver translateX instead of JS-driven width animation. Existing Reduce Motion/accessibility support remains. Reanimated APIs are not used; no extra plugin/configuration was added.
 - Latest host benchmark (Node 22.23.1): legacy 25-pack sample 740 ms, extrapolated full first import 8,066 ms; new full 217-pack seed copy 1,419 ms; new returning content sync 2 ms. Android no-bytecode export confirms the JS bundle is now 3.5 MB and contains a separate 23.72 MB SQLite asset. These are host/export measurements, not APK-size or Android-device startup results; see `docs/STARTUP_PERFORMANCE.md`.
 - Background behavior remains lifecycle-aware retry and transaction-safe next-launch recovery, not guaranteed continuous background execution. No WorkManager/foreground service is included; rationale and reassessment criteria are documented in `docs/STARTUP_PERFORMANCE.md`.
-- `v0.1.2` APK build `af78b85f-7a2b-4fba-b693-532c7d218f8b` was completed before these seed changes and does not validate the seed asset path. It is superseded by the seed-based v0.1.3 EAS preview build recorded above (built `FINISHED; owner later reported the physical first-import failure`); physical-device fresh/update/background/process-death checks remain pending.
+- The v0.1.2 APK predates the seed changes and does not validate the seed asset path. It is superseded by v0.1.3, which built successfully but later failed on the owner's phone during the first question-library import; see the incident record above.
 
 ## Android correctness preview preparation — 2026-11-05 (pre-seed APK checkpoint)
 

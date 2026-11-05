@@ -2,13 +2,13 @@
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
 **Branch:** fix/profile-persistence-math-render-exam-rules-2026-11-05
-**Previous seed implementation commit:** 2370513 (local; do not push).
-**Current working changes:** v0.1.4 seed sidecar URI fix, legacy Android raw-resource copy path, setup error visibility, tests and docs.
-**Current app candidate:** v0.1.4 / Android versionCode 5. EAS build has not yet been started/completed.
+**Previous seed implementation commit:** 2370513 (local; no push).
+**Current fix commit:** 8855821 (local; no push). Source tree was clean immediately after commit.
+**Current app candidate:** v0.1.4 / Android versionCode 5. EAS preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 was submitted and is currently IN_QUEUE.
 
 The owner tested v0.1.3 / code 4 on a physical Android phone. It opens the setup UI but fails while importing the question library. Earlier verification checked the APK's embedded SQLite payload but did not exercise Expo's runtime copy/attach path on a phone; that was an overstatement of readiness. Source audit found that the raw absolute path returned by expo-sqlite.defaultDatabaseDirectory was passed into Expo File's File constructor, which expects a file:/// URI. The fix now constructs the destination with an explicit file URI, converts it back to a raw path for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android resource-aware copying. The error screen now displays the underlying native error.
 
-Automated verification after the fix: 139/139 tests, TypeScript, ESLint, content:check, whole-catalog validation, resolved Expo config, Android prebuild and Android Metro export pass. APK build and embedded payload validation remain pending. This workspace has no adb/attached phone; **do not claim device QA pass**. The owner must install v0.1.4 over the existing v0.1.3 (same package/signing) without uninstalling or clearing storage, then confirm question import completes and existing profile/bookmarks/history remain available. If it fails again, capture the new on-screen native error detail.
+Automated verification after the fix: 139/139 tests, TypeScript, ESLint, content:check, whole-catalog validation, resolved Expo config, Android prebuild and Android Metro export pass. EAS build is queued; APK artifact and embedded payload validation remain pending. This workspace has no adb/attached phone; **do not claim device QA pass**. The owner must install v0.1.4 over the existing v0.1.3 (same package/signing) without uninstalling or clearing storage, then confirm question import completes and existing profile/bookmarks/history remain available. If it fails again, capture the new on-screen native error detail.
 
 See docs/STARTUP_PERFORMANCE.md, docs/CURRENT_STATE.md, docs/QA_CHECKLIST.md, docs/ANDROID_RELEASE.md and docs/TASK_STATE.md. Do not push.
 
