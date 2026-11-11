@@ -23,27 +23,35 @@ import {
 } from "@expo-google-fonts/fraunces";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { LangProvider, useLang } from "@/i18n";
-import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady } from "@/db/provider";
+import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady, useWaitForHomeScreenReady } from "@/db/provider";
 import { SetupScreen } from "@/components/startup/SetupScreen";
 import { colors } from "@/theme";
 import { startupMetrics } from "@/services/perf";
+import {
+  canDismissSetupScreen,
+  shouldReleaseSetupGateWithoutScreen,
+  shouldShowSetupScreen
+} from "@/services/startupUiPolicy";
 
 startupMetrics.mark("app.jsStart");
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
-/** How long the completed "Ready to start" state stays visible before fading out. First-time setup gets a longer dwell. */
+/** Keep the completed first-run state visible long enough for its final stage/checkmark transition. */
 const READY_HOLD_FIRST_RUN_MS = 700;
-const READY_HOLD_RETURNING_MS = 120;
 
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
   const { state, retry } = useDbState();
   const progress = useStartupProgress();
   const markSetupScreenReady = useMarkSetupScreenReady();
+  const waitForHomeScreenReady = useWaitForHomeScreenReady();
   const [setupDismissed, setSetupDismissed] = useState(false);
+  const [setupRequired, setSetupRequired] = useState(false);
+  const [homeReady, setHomeReady] = useState(false);
   const splashHidden = useRef(false);
   const resourcesReady = fontsReady && languageReady;
   const dbReady = state.status === "ready";
+  const showSetupScreen = shouldShowSetupScreen(progress.mode, state.status === "error", setupRequired) && !setupDismissed;
   useEffect(() => {
     if (fontsReady) startupMetrics.mark("fonts.ready");
   }, [fontsReady]);
@@ -55,20 +63,42 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
     SplashScreen.hideAsync().catch(() => undefined);
   }, []);
   const dismissSetup = useCallback(() => setSetupDismissed(true), []);
+  const handleRetry = useCallback(() => {
+    setSetupRequired(true);
+    retry();
+  }, [retry]);
   const handleSetupShown = useCallback(() => {
     hideSplash();
     markSetupScreenReady();
   }, [hideSplash, markSetupScreenReady]);
 
-  // Safety net: never leave the native splash up if the setup screen could not report its layout.
+  // Returning users have no SetupScreen layout to resolve the startup sync gate.
   useEffect(() => {
-    if (!resourcesReady) return;
+    if (shouldReleaseSetupGateWithoutScreen(progress.mode)) markSetupScreenReady();
+  }, [progress.mode, markSetupScreenReady]);
+
+  // Safety net applies only when the branded setup/error UI is expected to cover the native splash.
+  useEffect(() => {
+    if (!resourcesReady || !showSetupScreen) return;
     const timer = setTimeout(() => {
       hideSplash();
       markSetupScreenReady();
     }, 1500);
     return () => clearTimeout(timer);
-  }, [resourcesReady, hideSplash, markSetupScreenReady]);
+  }, [resourcesReady, showSetupScreen, hideSplash, markSetupScreenReady]);
+
+  // Wait for Home on both paths: first-run uses it to dismiss the branded overlay,
+  // while returning launches use it as the native-splash hide boundary.
+  useEffect(() => {
+    if (!resourcesReady || !dbReady) return;
+    let active = true;
+    void waitForHomeScreenReady().then(() => {
+      if (!active) return;
+      setHomeReady(true);
+      if (progress.mode === "returning") hideSplash();
+    });
+    return () => { active = false; };
+  }, [resourcesReady, dbReady, progress.mode, waitForHomeScreenReady, hideSplash]);
 
   if (!resourcesReady) return <View className="flex-1 bg-body" />;
 
@@ -80,18 +110,18 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
           <Stack.Screen name="flash/play" options={{ gestureEnabled: false }} />
         </Stack>
       ) : null}
-      {setupDismissed ? null : (
+      {showSetupScreen ? (
         <SetupScreen
           progress={progress}
           failed={state.status === "error"}
           errorMessage={state.status === "error" ? state.error.message : null}
-          exiting={dbReady}
-          holdMs={progress.mode === "firstRun" ? READY_HOLD_FIRST_RUN_MS : READY_HOLD_RETURNING_MS}
-          onRetry={retry}
+          exiting={canDismissSetupScreen(dbReady, homeReady)}
+          holdMs={READY_HOLD_FIRST_RUN_MS}
+          onRetry={handleRetry}
           onExited={dismissSetup}
           onShown={handleSetupShown}
         />
-      )}
+      ) : null}
     </View>
   );
 }

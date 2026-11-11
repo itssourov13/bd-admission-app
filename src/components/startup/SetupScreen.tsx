@@ -21,6 +21,8 @@ import { colors, gradients, shadow } from "@/theme";
 import { percentOf, STARTUP_STAGES, stageIndex, type StartupProgress, type StartupStage } from "@/services/startupProgress";
 
 const SHIMMER_WIDTH = 72;
+const CHECKMARK_STAGGER_MS = 65;
+const CHECKMARK_DURATION_MS = 180;
 const STAGE_KEY: Record<StartupStage, TranslationKey> = {
   database: "setup.stage.database",
   appData: "setup.stage.appData",
@@ -163,12 +165,47 @@ function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueTe
 
 type StepStatus = "done" | "active" | "failed" | "pending";
 
-const StepRow = memo(function StepRow({ label, status }: { label: string; status: StepStatus }) {
+const StepRow = memo(function StepRow({ label, status, index, reduceMotion }: { label: string; status: StepStatus; index: number; reduceMotion: boolean }) {
+  const checkmark = useAnimatedValue(0);
+
+  useEffect(() => {
+    checkmark.stopAnimation();
+    if (status !== "done") {
+      checkmark.setValue(0);
+      return;
+    }
+    if (reduceMotion) {
+      checkmark.setValue(1);
+      return;
+    }
+
+    const animation = Animated.timing(checkmark, {
+      toValue: 1,
+      delay: index * CHECKMARK_STAGGER_MS,
+      duration: CHECKMARK_DURATION_MS,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [checkmark, status, index, reduceMotion]);
+
+  const checkmarkScale = checkmark.interpolate({ inputRange: [0, 1], outputRange: [0.72, 1] });
+  const spinnerOpacity = checkmark.interpolate({ inputRange: [0, 1], outputRange: [1, 0] });
+
   return (
     <View className="flex-row items-center" style={{ minHeight: 26 }}>
       <View style={{ width: 22, alignItems: "center", justifyContent: "center" }}>
-        {status === "done" ? <Ionicons name="checkmark-circle" size={19} color={colors.brand600} /> : null}
-        {status === "active" ? <ActivityIndicator size="small" color={colors.brand600} style={{ transform: [{ scale: 0.72 }] }} /> : null}
+        {status === "done" ? (
+          <Animated.View style={{ opacity: checkmark, transform: [{ scale: checkmarkScale }] }}>
+            <Ionicons name="checkmark-circle" size={19} color={colors.brand600} />
+          </Animated.View>
+        ) : null}
+        {status === "active" || status === "done" ? (
+          <Animated.View style={{ opacity: spinnerOpacity }}>
+            <ActivityIndicator size="small" color={colors.brand600} style={{ transform: [{ scale: 0.72 }] }} />
+          </Animated.View>
+        ) : null}
         {status === "failed" ? <Ionicons name="alert-circle" size={19} color={colors.gold700} /> : null}
         {status === "pending" ? <Ionicons name="ellipse-outline" size={17} color={colors.ink300} /> : null}
       </View>
@@ -302,7 +339,7 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
                     </View>
                     <View className="mt-5 pt-4 border-t border-sand-200 gap-1">
                       {STARTUP_STAGES.map((s, i) => (
-                        <StepRow key={s} label={t(STAGE_KEY[s])} status={statusFor(i)} />
+                        <StepRow key={s} label={t(STAGE_KEY[s])} status={statusFor(i)} index={i} reduceMotion={reduceMotion} />
                       ))}
                     </View>
                   </>

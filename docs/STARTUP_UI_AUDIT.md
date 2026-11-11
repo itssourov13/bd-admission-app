@@ -89,6 +89,12 @@ Expo documents that the native splash can be held with preventAutoHideAsync() an
 | Setup-to-Home on the physical Android device | No square flash or second spinner; verify with a release-build recording. |
 | Existing user data | Profile, bookmarks, practice sessions, attempts and history remain unchanged. |
 
+## Implementation follow-up — 2026-11-11
+
+The targeted follow-up has now been implemented in app/_layout.tsx, src/db/provider.tsx, app/(tabs)/index.tsx, src/components/startup/SetupScreen.tsx and the pure policy module src/services/startupUiPolicy.ts. Returning mode releases the setup gate without mounting the branded screen and holds the native splash until Home's initial data-backed/error view has laid out. First-run setup remains branded and now waits for that same Home-ready signal before fading. Failure/retry paths keep the branded error UI visible. The five real stages are unchanged; only their completed checkmark rendering gained a staggered native-driver opacity/scale transition with Reduce Motion support.
+
+Verification on 2026-11-11: 142/142 tests, TypeScript, full project lint, pnpm content:check (217 packs / 13,609 questions) and Android no-bytecode Metro export (1,853 modules, 3.5 MB JS, 123 assets) passed. No data, dependency, app identity or version change was made. No APK was built and no physical-device screen recording was captured; the square-flash outcome remains pending release-device visual QA.
+
 ## Audit boundary
 
 This was a source/documentation audit. No APK was run or screen recording captured during this pass, and no new runtime timing claim is made. The existing host benchmark and prior owner-reported v0.1.4 verification are not substitutes for visual verification of these three observations on the physical phone. No application source code, dependency or build configuration was changed.

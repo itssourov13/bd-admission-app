@@ -1,6 +1,6 @@
 # Startup performance, seed database and lifecycle
 
-Last updated: 2026-11-05. v0.1.4 EAS APK finished and its embedded SQLite seed matches source; Expo Doctor has one non-blocking SDK patch-alignment warning. The owner has since verified v0.1.4 on a physical phone and reports expected operation. A subtle square flash during loading-UI-to-Home transition is retained as a cosmetic follow-up in docs/QA_CHECKLIST.md.
+Last updated: 2026-11-11. The v0.1.4 APK/seed verification remains the current release baseline. A targeted startup UI refinement reserves the branded setup UI for first-run/failure paths, keeps the native splash over returning startup until Home is ready, animates completed stage ticks with core Animated, and waits for Home readiness before first-run overlay dismissal. Automated checks pass; release-device visual QA is still pending.
 
 ## Why startup was redesigned
 
@@ -63,11 +63,17 @@ Android WorkManager persists scheduled work across app restarts/reboots, but it 
 
 The design therefore uses bounded foreground database transactions, lifecycle-aware retry and restart recovery first. Do not add a KeepAwake workaround. Reconsider native WorkManager/foreground-service integration only if physical-device timing shows that the optimized import still exceeds acceptable startup time and product requirements explicitly demand progress while the app is backgrounded. Any such worker must use the same per-pack/group transaction semantics and be tested for concurrent access, process death, migrations, notification behavior and OEM power management. A WorkManager job can be deferred; an FGS has real user-visible/system-policy cost.
 
+## First-run-only setup UI and returning-launch handoff
+
+The full branded Bangla/English setup screen is now shown only when the local library is first-run or when startup has failed and the user needs a retry path. While first-run/returning mode is not yet known, the native splash remains visible; the app does not mount the full setup card during classification. Once progress.mode is returning, the root layout resolves the setup-screen readiness gate directly so content synchronization can proceed without mounting the branded screen. The native splash remains over that returning startup until the database is ready and Home reports that its initial query has settled and its data-backed or actionable error view has laid out.
+
+For first-run, the existing branded screen still hides the native splash after its first layout and releases the existing setup gate. When startup completes, the overlay stays in place until Home's first data-backed/error view is ready, then uses the existing completion hold and fade. This avoids revealing Home's separate initial LoadingView underneath the setup transition. A fatal database/migration error still mounts the branded retry UI; tapping Retry latches that recovery UI across the next attempt. DB sync, seed checkpoints, AppState recovery and the route gate are unchanged.
+
+The Home-ready signal is a one-shot promise owned by DbProvider; Home reports it only after its non-loading content/error view has laid out. The returning path therefore needs neither an extra loading library nor a delayed/synthetic progress timer.
+
 ## Progress animation and Reanimated decision
 
-The branded setup UI uses React Native's core Animated API. The progress fill animates a translateX transform using useNativeDriver: true, instead of animating the layout width property with JS-driven frames. Halo, shimmer and opacity/entry/exit transitions also use supported native-driver transform/opacity values. Loops pause on background/inactive lifecycle changes and resynchronize when active. Reduce Motion and accessibility progress semantics remain part of the UI.
-
-Reanimated 4.5.1 and react-native-worklets are already present in the dependency graph, but this startup implementation does not call Reanimated APIs. Reanimated 4 uses Worklets and requires the React Native New Architecture; its Babel plugin is react-native-worklets/plugin when manual configuration is needed, and it must be last in the plugin list. Expo's SDK-compatible Babel preset normally supplies the integration for supported Expo setups. There is no reason to add another plugin/reanimated UI-thread implementation solely to achieve this progress animation: the required transform is already supported by the core Animated native driver. If future UI code adopts Reanimated worklets/shared values, verify the project's New Architecture setting, Expo SDK compatibility and native development-build rebuild before enabling it.
+The branded setup UI uses React Native's core Animated API. The progress fill animates a translateX transform using useNativeDriver: true, instead of animating the layout width property with JS-driven frames. Halo, shimmer and opacity/entry/exit transitions also use supported native-driver transform/opacity values. Completed stage checkmarks now animate opacity and scale with a 65 ms per-stage stagger and a 180 ms duration, using the same native driver; Reduce Motion displays them immediately. Loops pause on background/inactive lifecycle changes and resynchronize when active. Accessibility progress semantics remain unchanged.
 
 ## Benchmark recorded on 2026-11-05
 
@@ -105,7 +111,7 @@ The benchmark is informational and should be repeated after material import chan
 
 The owner tested v0.1.3 / Android versionCode 4 and reported that the setup UI stops at **Importing question library**. The APK-embedded database had passed SHA/CRC/SQLite checks, but this proved the packaged bytes only, not the runtime seed-copy path. The prior implementation constructed the sidecar destination from expo-sqlite.defaultDatabaseDirectory as though it were a URI; the Expo File constructor requires a file:/// URI, while expo-sqlite returns a raw absolute filesystem path. v0.1.4 makes that conversion explicit, converts the URI back for SQLite ATTACH, and uses expo-file-system/legacy copyAsync for Android raw-resource-aware copying. The retry screen now surfaces the native error detail.
 
-Source verification passed (139 tests, TypeScript, ESLint, content/pack validation, prebuild and Metro export). The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected; the first-import issue is closed for this candidate. The brief loading-UI-to-Home square flash remains a cosmetic follow-up, and the Expo Doctor patch mismatch remains a separate maintenance note. Neither is being changed in this task.
+Source verification passed (139 tests, TypeScript, ESLint, content/pack validation, prebuild and Metro export). The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected; the first-import issue is closed for this candidate. At this historical 2026-11-05 checkpoint, the brief loading-UI-to-Home square flash remained a cosmetic follow-up. A targeted Home-readiness handoff fix was subsequently implemented on 2026-11-11; release-device visual confirmation is pending. The Expo Doctor patch mismatch remains a separate maintenance note.
 
 
 ## v0.1.4 EAS build and packaged seed verification — 2026-11-05

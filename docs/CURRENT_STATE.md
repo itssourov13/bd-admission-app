@@ -1,14 +1,15 @@
 # Current state
 
-Last updated: 2026-11-11 (startup UI source audit completed; no application code changed).
+Last updated: 2026-11-11 (targeted startup UI fixes implemented; automated verification passed; device visual QA pending).
 
-## Startup UI runtime audit — 2026-11-11
+## Startup UI targeted implementation — 2026-11-11
 
-- Source audit confirms the branded five-stage setup screen is shown on each cold process launch, including returning users. The mode detection currently changes only the note and completion hold; it does not control screen visibility.
-- The five stage states advance in real startup order, but their checkmarks are static conditional icons without a dedicated transition. A short native-driver icon transition is sufficient; no additional animation library is recommended.
-- The setup-to-Home sequence has a plausible handoff gap: the root Stack mounts after DB readiness, while Home's first render shows its own asynchronous query-loading view. This is a candidate for the square flash, not a confirmed visual root cause.
-- Recommendation: keep the full setup UI for first-run only; returning users should retain the native splash until startup and the root route are ready. Preserve DB initialization, content sync, retry errors and the setup-ready gate. See docs/STARTUP_UI_AUDIT.md and docs/QA_CHECKLIST.md.
-- Audit-only result: no app source, package, lockfile, native config or build version changed. Device screen recording and post-implementation physical-phone QA remain pending.
+- The branded five-stage setup UI is now reserved for first-run library setup and actionable startup failures/retries. Returning cold launches keep the native splash visible while SQLite startup/content reconciliation runs; the setup sync gate is released when progress.mode becomes returning.
+- The returning splash is hidden only after Home's initial query has settled and its data-backed or actionable error view has laid out. First-run setup also remains on screen until this Home-ready signal, preventing the old Home LoadingView from showing beneath the exit fade.
+- The five real stage states and progress math are unchanged. Completed checkmarks now use a 65 ms stagger / 180 ms native-driver opacity-scale animation; Reduce Motion is respected. Existing brand mark, gradient, shimmer, progress fill and overall layout are retained.
+- Fatal DB/migration errors still show the branded retry UI. The retry action keeps that recovery screen mounted through the next attempt. SQLite sync, seed transactions, content and user records are unchanged.
+- Verification: 142/142 tests, pnpm typecheck, full pnpm lint, pnpm content:check (217 packs / 13,609 questions) and Android no-bytecode Metro export (1,853 modules / 3.5 MB JS / 123 assets) passed. No dependency, app version or native identity changed.
+- No APK build or physical-device recording was done in this pass. The previous square flash is mitigated by the new readiness handoff in source, but its actual disappearance still needs release-device visual QA. Full evidence: docs/STARTUP_UI_AUDIT.md; checklist: docs/QA_CHECKLIST.md.
 
 ## Incident follow-up — v0.1.3 first-launch failure and v0.1.4 fix (2026-11-05)
 
@@ -19,7 +20,7 @@ Last updated: 2026-11-11 (startup UI source audit completed; no application code
 - App version is now **0.1.4**, Android **versionCode 5**; package ID com.admissionbd.app, EAS project and signing identity are unchanged.
 - Verification after the fix: **139 tests**, TypeScript, ESLint, seed/content integrity, all 217 pack validation, Expo config, Android prebuild and Android Metro export pass. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. Full APK ZIP integrity passed across all 1,367 entries, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected.
 - Expo Doctor: **20/21 checks passed**; the sole failure was an Expo SDK patch-version mismatch across five packages. It did not block prebuild, Gradle or APK creation. Record patch alignment and a Doctor rerun for a separate dependency-maintenance pass; no rebuild is needed solely for this advisory.
-- Owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The v0.1.3 first-import failure is therefore closed for the v0.1.4 candidate. A subtle square flash during the loading-UI-to-Home transition is logged as a non-blocking polish note; no implementation change is included. The Expo Doctor patch-alignment advisory is also logged for a later dependency-maintenance pass.
+- Owner has installed and verified v0.1.4 on a physical phone; the v0.1.3 first-import failure is closed for that candidate. The later square-flash observation received a targeted Home-readiness handoff fix on 2026-11-11; actual disappearance still awaits release-device visual QA. The separate Expo Doctor patch-alignment advisory remains a maintenance follow-up.
 
 
 ## Previous seed-based Android preview — v0.1.3 (built; owner-reported first-launch failure)

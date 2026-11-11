@@ -1,16 +1,18 @@
 # Task state
 
-## Startup UI runtime audit — 2026-11-11 (audit only)
+## Startup UI targeted implementation — 2026-11-11
 
-**Status:** Source audit and documentation completed. No application code changes or runtime claims were made.
+**Status:** Targeted code changes implemented and locally verified. No data/schema/dependency/app identity changes. Physical release-device visual QA remains pending.
 
-- [x] Confirmed the full branded setup screen is shown on returning cold launches; the existing first-run/returning mode only changes explanatory copy and hold duration.
-- [x] Confirmed five startup stage states advance in order, while checkmark icons themselves have no dedicated animation or minimum display interval.
-- [x] Traced the setup-to-Home handoff and identified Home's initial asynchronous query-loading view as a plausible contributing path for the brief flash; exact physical visual cause remains unconfirmed.
-- [x] Documented the critical startup UI gate: hiding the setup screen without resolving/replacing waitForSetupScreen() would block content sync.
-- [x] Recommended first-run-only branded setup, native splash for returning cold launches, a small core-Animated checkmark transition, and a synchronized Home handoff. No extra animation library.
-- [x] Added docs/STARTUP_UI_AUDIT.md and updated the current-state / QA / handoff notes.
-- [ ] Implementation and fresh-install / returning-launch / release-device visual verification remain pending owner direction.
+- [x] First-run and error/retry paths retain the branded setup UI; returning cold launches skip it and keep the native splash during DB startup/content synchronization.
+- [x] Returning classification releases the existing setup-layout gate directly, avoiding a deadlock when SetupScreen is not mounted.
+- [x] Added a separate one-shot Home-ready gate; Home reports readiness only after its initial data-backed/error view has laid out.
+- [x] First-run setup overlay waits for DB and Home readiness before the existing completion hold/fade, avoiding the second Home loading surface beneath the transition.
+- [x] Added sequential native-driver checkmark opacity/scale animation (65 ms stagger / 180 ms duration) and preserved Reduce Motion. Existing loading visuals/progress math remain unchanged.
+- [x] Added pure startup UI policy tests (3 new) and ran the full suite: 142/142 pass.
+- [x] TypeScript, full lint, content:check and Android no-bytecode Metro export passed (1,853 modules, 3.5 MB JS, 123 assets).
+- [x] Updated startup audit, architecture, decisions, QA, current-state, changelog and handoff documentation.
+- [ ] Install a new release APK and verify fresh first-run, returning-launch, content-update launch, DB failure/retry, Reduced Motion, and setup-to-Home flash on the physical phone.
 
 ## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
 

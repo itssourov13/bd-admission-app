@@ -16,15 +16,27 @@
 | Replacement EAS APK | [x] Built and verified | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is FINISHED; APK https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk; size 117,408,124 bytes; app 0.1.4 / code 5. Full APK ZIP test passes for all 1,367 entries; APK SHA-256 recorded in release docs. Embedded seed SHA matches source; SQLite quick_check ok, FK violations 0, schema v5, 217 packs / 13,609 questions. |
 | Owner physical-device verification | [x] Owner-confirmed pass | Owner installed and checked v0.1.4 on a physical phone and reports that everything works as expected. This is an owner-reported overall verification; individual timing/retention measurements are not separately recorded here. |
 
+## Startup UI targeted implementation — 2026-11-11
+
+| Check | Result | Notes |
+|---|---|---|
+| Startup UI policy (first-run / returning / failure) | [x] Automated pass | Three focused policy tests verify first-run visibility, returning gate release, failure/retry visibility and Home readiness requirements. |
+| Home first-content readiness | [x] Source/typecheck/lint pass | Home signals readiness only from its data-backed or actionable error view after layout; its temporary initial LoadingView does not resolve the gate. |
+| Full automated suite | [x] Pass | 142 passed, 0 failed. |
+| TypeScript / full ESLint | [x] Pass | pnpm typecheck and pnpm lint. |
+| Bundled SQLite seed | [x] Pass | pnpm content:check: 217 packs / 13,609 questions; seed 22.63 MiB and up to date. |
+| Android JS export | [x] Pass | No-bytecode Metro export: 1,853 modules, 3.5 MB JS, 123 assets. This is not an APK/native-device test. |
+| Physical Android startup visuals | [ ] Pending | Install a new release APK; check first-run, returning cold start, update sync, retry/error, Reduce Motion and square-flash transition on the same phone. |
+
 ## Human runtime issues — owner-reported follow-ups
 
-These are observations to retain for the next grouped fix/polish pass. No code changes are included for either note.
+The three startup UI observations now have targeted source fixes. Automated verification is complete; release-device visual verification remains open.
 
 | Item | Priority | Observation / next step | Status |
 |---|---|---|---|
-| Full setup UI on returning cold launches | Medium / UX | Source audit confirms that SetupScreen is mounted on every cold process launch; progress.mode changes copy/hold time but not visibility. Recommended: reserve the full branded setup for first-run and use the native splash while returning startup completes. Preserve the unconditional startup UI gate or replace it safely; hiding the screen without resolving the gate would stall content sync. | Audit confirmed; implementation pending — see docs/STARTUP_UI_AUDIT.md |
-| Five stage checkmarks | Low / visual | The five real startup stages advance sequentially, but each checkmark is a static icon swap with no dedicated transition or minimum visibility time. Short stages can pass too quickly to be perceived one by one. Recommended: a small native-driver icon transition, without artificial stage delays. | Audit confirmed; implementation pending — see docs/STARTUP_UI_AUDIT.md |
-| Loading UI → Home transition flash | Low / cosmetic | Source audit found a plausible handoff gap: the Stack mounts when the DB becomes ready, then Home starts an asynchronous initial query and first renders its own LoadingView while the setup overlay fades away. This is a contributing candidate, not a confirmed explanation for the exact square flash; a release-build phone recording is still required. | Audit path identified; exact visual root cause unconfirmed — see docs/STARTUP_UI_AUDIT.md |
+| Full setup UI on returning cold launches | Medium / UX | Implemented: returning mode releases the setup gate directly and keeps the native splash over SQLite/content startup. First-run and fatal error/retry paths retain the branded setup screen. | Source/tests pass; verify on a release APK that returning startup never exposes a blank frame or full setup card. |
+| Five stage checkmarks | Low / visual | Implemented: completed checkmarks use a short staggered native-driver opacity/scale transition; Reduced Motion remains immediate. Five real stage states/progress values are unchanged. | Source/tests pass; verify perceived sequencing and smoothness on the physical phone. |
+| Loading UI → Home transition flash | Low / cosmetic | Implemented: first-run overlay dismissal and returning native-splash dismissal both wait for Home's initial data-backed/error view to lay out. This addresses the identified intermediate Home LoadingView path, but the exact square flash was not recorded/reproduced locally. | Handoff source/export pass; exact visual outcome pending release-build recording on the same phone. |
 | Expo Doctor SDK patch alignment | Maintenance | EAS Expo Doctor reported 20/21 checks: five Expo SDK packages were one patch behind (expo, expo-asset, expo-constants, expo-router, expo-splash-screen). The v0.1.4 Gradle build and APK completed successfully despite this advisory. Align the five packages with the SDK-recommended patches in a separate dependency-maintenance pass and rerun pnpm doctor; no rebuild is requested by this note alone. | Open maintenance note; non-blocking |
 
 ## Historical v0.1.3 Android preview — built, then failed on owner's phone

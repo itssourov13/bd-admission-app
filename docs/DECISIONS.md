@@ -18,6 +18,12 @@ Status: accepted, 2026-11-05.
 
 Animate a transform (translateX) rather than layout width, using React Native Animated with the native driver. This is sufficient for the startup progress fill and avoids introducing Reanimated worklets/plugin wiring solely for one transform. Preserve Reduce Motion and accessibility semantics. Adopt Reanimated only when a broader UI requirement justifies shared values/worklets and after Expo SDK / New Architecture compatibility is rechecked.
 
+
+## ADR-025 — Reserve branded startup UI for first-run and synchronize Home handoff
+Status: accepted, 2026-11-11.
+
+Show the existing branded five-stage setup UI for a first-run library setup and for actionable startup failures/retries. On returning cold launches, keep the native splash visible while SQLite migration and content reconciliation run, release the setup-screen sync gate once returning mode is known, and hide the native splash only after Home's first data-backed or actionable error view has laid out. On first-run, keep the branded overlay until startup and Home are both ready before fading out. Completed stage ticks receive a short staggered native-driver opacity/scale transition; respect Reduce Motion. Use the existing React Native Animated API, keep the current visual design/progress calculation, and add no dependency, artificial work delay, schema change or content change.
+
 # Architecture and product decisions
 
 ## ADR-001 — Independent workspace

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-11 — Refine first-run startup UI and Home handoff
+
+- Restrict the full branded five-stage setup screen to first-run library setup and startup failure/retry. Returning cold launches resolve the setup-layout gate directly and keep the native splash visible through SQLite/content reconciliation.
+- Add a one-shot Home-ready signal. Home resolves it only after its initial query settles and the data-backed or actionable error view has laid out; returning splash dismissal and first-run overlay fade now wait for that signal.
+- Add a lightweight 65 ms stagger / 180 ms native-driver opacity-scale transition to completed stage checkmarks. Preserve the five actual progress states, Reduce Motion, existing progress fill, shimmer, logo and visual styling.
+- Add focused policy tests and preserve retry behavior for database/migration errors. No data/schema, app identity/version, native config or dependency changes.
+- Verification: 142/142 tests, TypeScript, full ESLint, pnpm content:check (217 packs / 13,609 questions) and Android no-bytecode Metro export (1,853 modules / 3.5 MB JS / 123 assets) passed. Physical release-device visual QA remains pending.
+
 ## 2026-11-05 — Fix Android v0.1.3 first-launch seed materialization
 
 - Recorded the owner's physical-device failure in v0.1.3: setup reached **Importing question library** and then showed the retry state. The earlier v0.1.3 APK check established embedded DB payload integrity only; it did not establish that Expo File could materialize the sidecar on Android.
