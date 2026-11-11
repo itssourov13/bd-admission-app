@@ -1,4 +1,4 @@
-## Current handoff — 2026-11-05 (v0.1.4 Android startup fix)
+## Current handoff — 2026-11-11 (v0.1.4 candidate; startup UI audit)
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
 **Branch:** fix/profile-persistence-math-render-exam-rules-2026-11-05
@@ -11,6 +11,14 @@ The owner tested v0.1.3 / code 4 on a physical Android phone. It opens the setup
 Automated verification after the fix: 139/139 tests, TypeScript, ESLint, content:check, whole-catalog validation, resolved Expo config, Android prebuild and Android Metro export pass. The v0.1.4 EAS APK and embedded seed integrity checks passed. Expo Doctor passed 20/21 checks; the only failure was a non-blocking SDK patch-alignment advisory across five packages. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected; the v0.1.3 first-import failure is closed for this candidate. Two follow-up notes remain for a future grouped pass: a very subtle square flash during the loading-UI-to-Home transition (possible immediate-render/transition timing; consider a slightly slower fade) and the Expo Doctor patch alignment (align patches and rerun pnpm doctor). Both are recorded in docs/QA_CHECKLIST.md; no fixes are included in this task.
 
 See docs/STARTUP_PERFORMANCE.md, docs/CURRENT_STATE.md, docs/QA_CHECKLIST.md, docs/ANDROID_RELEASE.md and docs/TASK_STATE.md. Do not push.
+
+## Latest startup UI audit — 2026-11-11 (no application-code changes)
+
+The source audit confirms that the full branded five-stage setup screen appears on every returning cold launch, not only on first install. Five stage states progress in order, but checkmarks are static icon swaps without a dedicated transition. The setup-to-Home flash has a plausible contributor: Home mounts beneath the fading overlay and initially renders its async-query loading state; the exact square-shaped visual cause still needs a release-build screen recording on the owner's phone.
+
+Recommended next implementation: show the branded setup UI only for first-run; use the native splash during returning startup; preserve SQLite migrations, content reconciliation, retry/error behavior and the setup-ready gate; add only a small core React Native Animated transition to stage checkmarks; synchronize overlay dismissal with Home's initial data-backed render. Do not add another animation library. A critical implementation note: runStartup() currently awaits waitForSetupScreen() before content sync, so a returning path that omits SetupScreen must resolve or replace that gate to avoid a startup deadlock.
+
+Full evidence and verification plan: docs/STARTUP_UI_AUDIT.md. QA follow-ups: docs/QA_CHECKLIST.md. Implementation has not started; no APK/device visual verification was performed in this audit.
 
 ## Previous handoff snapshot — v0.1.3 (superseded by the v0.1.4 fix)
 

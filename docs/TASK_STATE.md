@@ -1,5 +1,17 @@
 # Task state
 
+## Startup UI runtime audit — 2026-11-11 (audit only)
+
+**Status:** Source audit and documentation completed. No application code changes or runtime claims were made.
+
+- [x] Confirmed the full branded setup screen is shown on returning cold launches; the existing first-run/returning mode only changes explanatory copy and hold duration.
+- [x] Confirmed five startup stage states advance in order, while checkmark icons themselves have no dedicated animation or minimum display interval.
+- [x] Traced the setup-to-Home handoff and identified Home's initial asynchronous query-loading view as a plausible contributing path for the brief flash; exact physical visual cause remains unconfirmed.
+- [x] Documented the critical startup UI gate: hiding the setup screen without resolving/replacing waitForSetupScreen() would block content sync.
+- [x] Recommended first-run-only branded setup, native splash for returning cold launches, a small core-Animated checkmark transition, and a synchronized Home handoff. No extra animation library.
+- [x] Added docs/STARTUP_UI_AUDIT.md and updated the current-state / QA / handoff notes.
+- [ ] Implementation and fresh-install / returning-launch / release-device visual verification remain pending owner direction.
+
 ## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
 
 **Status:** v0.1.4 source fix committed, EAS APK and embedded seed verified, and owner physical-phone verification confirmed successful. Two non-blocking follow-up notes are retained in docs/QA_CHECKLIST.md; no implementation is requested now.

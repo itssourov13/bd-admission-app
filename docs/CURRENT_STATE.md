@@ -1,6 +1,14 @@
 # Current state
 
-Last updated: 2026-11-05 (v0.1.4 APK and embedded seed verified; owner reports physical-phone verification successful; two follow-up notes logged).
+Last updated: 2026-11-11 (startup UI source audit completed; no application code changed).
+
+## Startup UI runtime audit — 2026-11-11
+
+- Source audit confirms the branded five-stage setup screen is shown on each cold process launch, including returning users. The mode detection currently changes only the note and completion hold; it does not control screen visibility.
+- The five stage states advance in real startup order, but their checkmarks are static conditional icons without a dedicated transition. A short native-driver icon transition is sufficient; no additional animation library is recommended.
+- The setup-to-Home sequence has a plausible handoff gap: the root Stack mounts after DB readiness, while Home's first render shows its own asynchronous query-loading view. This is a candidate for the square flash, not a confirmed visual root cause.
+- Recommendation: keep the full setup UI for first-run only; returning users should retain the native splash until startup and the root route are ready. Preserve DB initialization, content sync, retry errors and the setup-ready gate. See docs/STARTUP_UI_AUDIT.md and docs/QA_CHECKLIST.md.
+- Audit-only result: no app source, package, lockfile, native config or build version changed. Device screen recording and post-implementation physical-phone QA remain pending.
 
 ## Incident follow-up — v0.1.3 first-launch failure and v0.1.4 fix (2026-11-05)
 
