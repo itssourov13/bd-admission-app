@@ -7,7 +7,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 1 Loading UI Polish | Implemented — Pending Owner Verification |
 | 2 University identity, logos, filters | Implemented — Pending Owner Verification |
 | 3 Shared subject selection | Implemented — Pending Owner Verification |
-| 4 Configurable marking rules | Not Started |
+| 4 Configurable marking rules | Implemented — Pending Owner Verification |
 | 5 Standard Exam improvements | Not Started |
 | 6 Settings & dark mode | Not Started |
 | 7 Home hero redesign | Not Started |
@@ -40,3 +40,11 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Reviewed /tmp/phase_docs.py (idempotent, keyed by section header) and used it with a Phase 3 spec; wrote PHASE_03_SHARED_SUBJECT_SELECTION.md.
 4. Checks run: tsc --noEmit exit 0; targeted ESLint on 12 touched files exit 0 (no findings); node --test subject-scope + universities + ui-logic 19/19 pass (requires nvm Node v24.21.0; system node lacks TypeScript support). Full suite, builds and device testing NOT run (deferred to owner).
 5. Committed locally as feat(practice): phase 3 shared subject selection. Not pushed.
+
+## 2026-11-13 — Phase 4
+1. Inspected the uncommitted tree (12 modified, 6 new files); it matched the previous session's report.
+2. Audited every built-in profile value against docs/EXAM_RULE_RESEARCH.md: RU/JU stay 'illustrative' (derived correct mark, assumed unanswered), HSTU partial/unscorable, DU all 'secondary'. JU source label now notes the cross-check with a news report.
+3. Found and fixed an integration defect: the automatic generic fallback could score Custom Practice and partial-official papers (HSTU). Added isAutoScoringBlocked, wired it into effectiveRule/startStandardExam/picker, added marking.autoUnscored (EN/BN) and a test.
+4. Reviewed migration v6, snapshot persistence, deletion (preferences removed, history unaffected), per-university/global defaults and the management screen; removed two unused-symbol lint warnings in app/marking-profiles.tsx.
+5. Checks run (Node 22.23.1): node --test tests/marking-profiles.test.ts 13/13 pass; tsc --noEmit exit 0; targeted ESLint on touched files 0 errors; git diff --check clean. Full suite, builds, device tests NOT run (owner).
+6. Wrote PHASE_04_CONFIGURABLE_MARKING_RULES.md and committed locally. Not pushed.

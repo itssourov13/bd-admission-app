@@ -138,3 +138,7 @@ Phase 2 (University identity, logos, filters) Implemented — Pending Owner Veri
 ## Roadmap handoff — Phase 3: Shared subject selection — 2026-11-13
 
 Phase 3 is implemented and committed locally (not pushed); see docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md for scope, decisions and deferred owner tests. Tests need nvm Node v24.21.0 (system node lacks TypeScript support). **Next: Phase 4 (configurable marking rules).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap handoff — Phase 4: Configurable marking rules — 2026-11-13
+
+Marking profiles live in src/services/markingProfiles.ts (pure) and src/repositories/marking.ts; sessions snapshot the profile in practice_sessions.rule_profile_json. No built-in profile can be 'verified' because no source states every scoring value. Do not relabel DU (third-party) or derived values as official; re-read the signed JU circular and fetch the official DU circular before upgrading provenance. Automatic profiles never score Custom Practice or partial-official papers. See docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md. **Next: Phase 5 (Standard Exam improvements).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.

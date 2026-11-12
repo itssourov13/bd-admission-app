@@ -193,6 +193,28 @@ ALTER TABLE exam_rules ADD COLUMN total_marks REAL;
     sql: `
 ALTER TABLE practice_sessions ADD COLUMN rule_total_marks REAL;
 `
+  },
+  {
+    version: 6,
+    name: "marking_profiles",
+    sql: `
+-- User-owned data only (never importer-owned content tables). Built-in profiles ship in code, not in the database.
+ALTER TABLE practice_sessions ADD COLUMN rule_profile_json TEXT;
+
+CREATE TABLE user_marking_profiles (
+  id TEXT PRIMARY KEY NOT NULL,
+  profile_json TEXT NOT NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+-- scope_key: '*' (all practice) or 'u:<universityKey>'. profile_id may name a built-in or a user profile.
+CREATE TABLE marking_preferences (
+  scope_key TEXT PRIMARY KEY NOT NULL,
+  profile_id TEXT NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+`
   }
 ];
 

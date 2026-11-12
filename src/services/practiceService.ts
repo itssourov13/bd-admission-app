@@ -1,3 +1,4 @@
+import { effectiveRule, type ProfileChoice } from "./markingProfiles.ts";
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView, SessionRow } from "../types/domain.ts";
 import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
@@ -33,7 +34,7 @@ export type StartExamResult =
  * number of graded items.
  */
 export async function startStandardExam(
-  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean; custom?: CustomPracticeConfig } = {}
+  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean; custom?: CustomPracticeConfig; markingChoice?: ProfileChoice | null } = {}
 ): Promise<StartExamResult> {
   const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
   const storedRule = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
@@ -94,9 +95,11 @@ export async function startStandardExam(
   const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : {
     ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
   };
+  // Marking profile (Phase 4): same resolution for every exam type; a complete stored rule still wins over an automatic default.
+  const effective = effectiveRule(rule, opts.markingChoice ?? null, { customPractice: custom !== null });
   const id = newSessionId(now);
   const sessionFilter = { ...filter, ...(opts.includeUnverified ? { reviewUnverified: true } : {}), ...(custom ? { customPractice: true } : {}) };
-  await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
+  await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule: effective.rule, ruleProfile: effective.snapshot });
   await addExamQuestions(db, id, picked);
   return { ok: true, sessionId: id };
 }

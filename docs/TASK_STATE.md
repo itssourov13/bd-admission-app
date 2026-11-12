@@ -2,7 +2,16 @@
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Not Started · Phase 5: Not Started · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 4. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Not Started · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 5. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 4 — Configurable marking rules — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md.
+
+- Migration v6 (rule_profile_json, user_marking_profiles, marking_preferences) in src/db/schema.ts.
+- Pure resolver/service src/services/markingProfiles.ts; repository src/repositories/marking.ts; picker, card and management screen; result-screen profile and pass-mark line.
+- Automatic defaults never score Custom Practice or partial-official papers (ADR-028).
+- Owner verification pending: device QA of profile CRUD, defaults, Flash/Standard/Custom flows, Bangla text, migration on an existing install.
 
 ## Roadmap Phase 3 — Shared subject selection — 2026-11-13
 

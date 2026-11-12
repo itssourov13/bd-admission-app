@@ -151,3 +151,12 @@ Parent universities are derived from institution codes at read time (`-U`/`-V` s
 Status: accepted, 2026-11-13.
 
 Decision: a single subject keeps using `PoolFilter.subject`; two or more use `PoolFilter.subjects`; the selection module never sets both. Reason: session filters are persisted as JSON and the SQL layer already honours both fields, so existing stored sessions, routes and history keep working with no migration. Rejected: always using `subjects` (changes stored shape). Combined counts are the sum of per-subject counts because each question has exactly one subject.
+
+## ADR-028 — Marking profiles carry per-value provenance and never auto-score unscored practice
+Status: accepted, 2026-11-13.
+
+Context: scoring values come from sources of different strength, and AGENTS.md forbids presenting inferred marking as official and requires Custom Practice to be unscored.
+
+Decision: every profile value has its own provenance; a profile's status is the weakest link (verified only if correct, wrong and unanswered values are all official). Sessions store an immutable snapshot. An automatic default fills gaps only: it never overrides a complete stored rule, never scores Custom Practice, and the generic fallback never scores a paper whose official rule is only partly known. Explicit choices and saved preferences are the user's decision and always apply.
+
+Consequences: universities without a researched profile are unscored by default (as before Phase 4) unless the user selects a profile or sets a global default. Upgrading any provenance requires a documented official source.

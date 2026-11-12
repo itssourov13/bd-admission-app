@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { RuleNotice } from "@/components/common/RuleNotice";
+import { MarkingProfilePicker } from "@/components/common/MarkingProfilePicker";
 import { TextField } from "@/components/common/TextField";
 import { ChoiceChip } from "@/components/common/Toggle";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
@@ -33,6 +34,7 @@ export default function FlashSetup() {
   const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
   const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
   const [selected, setSelected] = useState<string[]>(() => selectedSubjectsOf(scope));
+  const [profileId, setProfileId] = useState<string | null>(null);
   const baseScope = { ...scope, category: scopeLocked ? scope.category : category, subject: undefined, subjects: undefined };
   const baseKey = JSON.stringify(baseScope);
   const [picked, setSeconds] = useState<number | null>(null);
@@ -66,7 +68,7 @@ export default function FlashSetup() {
   const start = async () => {
     const s = clampFlashSeconds(custom ? Number(custom) : seconds);
     try { await updateProfile(db, { flashSeconds: s }); } catch { /* Preference only; don't block practice. */ }
-    router.replace(href("/flash/play", { ...scopeParams(effective), seconds: s, reviewUnverified: q.data?.reviewMode ? 1 : undefined }));
+    router.replace(href("/flash/play", { ...scopeParams(effective), seconds: s, reviewUnverified: q.data?.reviewMode ? 1 : undefined, profile: profileId ?? undefined }));
   };
   const customInvalid = custom !== "" && (!Number.isFinite(Number(custom)) || Number(custom) < FLASH_MIN_SECONDS || Number(custom) > FLASH_MAX_SECONDS);
   return (
@@ -104,6 +106,7 @@ export default function FlashSetup() {
               <TextField keyboardType="number-pad" value={custom} maxLength={3} onChangeText={(v) => setCustom(v.replace(/[^0-9]/g, ""))} accessibilityLabel={t("flash.custom")} placeholder={String(num(seconds))} />
               {customInvalid ? <Txt className="text-xs mt-1" style={{ color: feedback.danger700 }}>{t("flash.custom")}</Txt> : null}
               {ruleQuery.data ? <View className="mt-5"><RuleNotice rule={ruleQuery.data} /></View> : null}
+              <MarkingProfilePicker filter={effective} value={profileId} onChange={setProfileId} baseRule={ruleQuery.data} />
               <View className="mt-6">
                 <Button label={t("flash.start")} disabled={customInvalid} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => void start()} />
               </View>

@@ -1,5 +1,6 @@
 import type { QuestionCategory } from "./question-pack.ts";
 import type { RuleStatus } from "../services/scoring.ts";
+import type { ProfileSnapshot } from "../services/markingProfiles.ts";
 
 export type { QuestionCategory, RuleStatus };
 
@@ -100,6 +101,8 @@ export interface SessionRow {
   ruleTotalMarks: number | null;
   ruleStatus: RuleStatus | null;
   resultJson: string | null;
+  /** Marking profile used for scoring (immutable snapshot), or null for sessions without one. */
+  ruleProfile: ProfileSnapshot | null;
 }
 
 export interface HistoryItem extends SessionRow {

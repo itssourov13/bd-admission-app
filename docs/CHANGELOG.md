@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 4: Configurable marking rules (implemented — pending owner verification)
+
+- Added configurable marking profiles with per-value provenance (official / secondary / derived / illustrative / user) and built-in generic, RU, JU, HSTU (partial) and DU profiles.
+- Added DB migration v6: practice_sessions.rule_profile_json, user_marking_profiles, marking_preferences.
+- Added profile picker to Flash and Standard/Custom setup, a marking-profiles management screen (Profile tab), and profile/pass-mark information on the result screen.
+- Automatic defaults no longer score Custom Practice or papers with only partial official rules.
+
 ## 2026-11-13 — Roadmap Phase 3: Shared subject selection (implemented — pending owner verification)
 
 - Added a shared subject chooser (All / one / several) for Flash, Custom Practice and the generic Standard Exam.

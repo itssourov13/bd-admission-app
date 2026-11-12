@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { RuleNotice } from "@/components/common/RuleNotice";
+import { MarkingProfilePicker } from "@/components/common/MarkingProfilePicker";
 import { ChoiceChip } from "@/components/common/Toggle";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
@@ -12,6 +13,7 @@ import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { countPoolBySubject, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
+import { resolveMarkingChoice } from "@/repositories/marking";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
 import { checkExamEligibility, clampCustomQuestions, customCountOptions, customMinuteOptions, planExam, suggestCustomMinutes } from "@/services/exam";
 import { startStandardExam } from "@/services/practiceService";
@@ -33,6 +35,7 @@ export default function ExamSetup() {
   // Shared All/Single/Multiple subject selection for the generic exam and Custom Practice.
   const [selected, setSelected] = useState<string[]>(() => selectedSubjectsOf(scope));
   const [busy, setBusy] = useState(false);
+  const [profileId, setProfileId] = useState<string | null>(null);
   const [customQuestions, setCustomQuestions] = useState<number | null>(null);
   const [customMinutes, setCustomMinutes] = useState<number | null>(null);
   const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
@@ -89,7 +92,8 @@ export default function ExamSetup() {
       const chosenCount = clampCustomQuestions(customQuestions, n);
       const custom = q.data?.plan.kind === "unavailable" && chosenCount !== null
         ? { questions: chosenCount, seconds: (customMinutes ?? suggestCustomMinutes(chosenCount)) * 60 } : undefined;
-      const result = await startStandardExam(db, examFilter, undefined, undefined, { includeUnverified: q.data?.reviewMode === true, custom });
+      const markingChoice = await resolveMarkingChoice(db, examFilter, profileId);
+      const result = await startStandardExam(db, examFilter, undefined, undefined, { includeUnverified: q.data?.reviewMode === true, custom, markingChoice });
       if (result.ok) {
         router.replace(href(`/exam/${result.sessionId}`));
       } else {
@@ -206,6 +210,7 @@ export default function ExamSetup() {
                   </Card>
                 ) : null}
                 {rule ? <View className="mt-4"><RuleNotice rule={rule} /></View> : null}
+                <MarkingProfilePicker filter={ruleFilter} value={profileId} onChange={setProfileId} baseRule={isCustom ? null : rule} customPractice={isCustom} />
                 {canStart ? (
                   <View className="mt-6"><Button label={busy ? t("exam.starting") : t("exam.start")} loading={busy} onPress={() => void start()} /></View>
                 ) : sectionConfig && !subjectReady ? (

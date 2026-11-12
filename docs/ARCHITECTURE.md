@@ -107,3 +107,7 @@ This is intentionally separate from `data/question-packs/`: external validation 
 ### Roadmap Phase 3 architecture (2026-11-13)
 
 Subject selection is a pure module (`src/services/subjectSelection.ts`) shared by Flash, Custom Practice and the generic Standard Exam. A single subject is stored on `PoolFilter.subject`, several on `PoolFilter.subjects`; the module never sets both. `countPoolBySubject` (repositories/content.ts) returns total and per-subject practice-pool counts in one grouped query, and the combined count of a selection is the sum of its subject counts. Route params `subject` and `subjects` are validated in `scopeParams`/`scopeFromParams`. The `SubjectSelector` UI component and `useSubjectLabel` hook live in `src/components/common`.
+
+### Roadmap Phase 4 architecture (2026-11-13)
+
+Marking is resolved by one pure function chain: `selectProfile` (explicit > per-university preference `u:<key>` > global preference `*` > best-matching built-in > generic, generic only as an automatic fallback) then `effectiveRule` (stored complete rule wins over automatic defaults; `isAutoScoringBlocked` stops automatic profiles scoring Custom Practice or partial-official papers). `startStandardExam` and `FlashController.start` take a `markingChoice` and persist `ProfileSnapshot` JSON in `practice_sessions.rule_profile_json`; results read the snapshot, never the live profile. Built-ins ship in code, user profiles/preferences in `user_marking_profiles`/`marking_preferences` (migration v6). Exam question count and duration always remain the paper's own.

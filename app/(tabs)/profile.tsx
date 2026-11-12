@@ -129,6 +129,7 @@ export default function ProfileScreen() {
         <View className="mt-3 gap-2.5">
           <Button label={`${t("profile.openBookmarks")} (${num(activity.bookmarks)})`} variant="outline" icon={<Ionicons name="bookmark-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/bookmarks"))} />
           <Button label={t("profile.openHistory")} variant="outline" icon={<Ionicons name="time-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/history"))} />
+          <Button label={t("marking.title")} variant="outline" icon={<Ionicons name="calculator-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/marking-profiles"))} />
         </View>
 
         <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-6 mb-2">{t("profile.about")}</Txt>

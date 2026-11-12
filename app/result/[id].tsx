@@ -9,7 +9,7 @@ import { Stat } from "@/components/common/Stat";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useQuery } from "@/hooks/useQuery";
 import { href, scopeParams } from "@/features/navigation/links";
-import { useNum, useT, type TranslationKey } from "@/i18n";
+import { useNum, useT, type TranslationKey, useLang } from "@/i18n";
 import { colors, feedback } from "@/theme";
 import { getSession } from "@/repositories/sessions";
 import { loadExam, type ExamResult, type LoadedExam } from "@/services/practiceService";
@@ -17,6 +17,7 @@ import type { FlashResult } from "@/services/flashController";
 import { formatClock } from "@/services/timer";
 import { useSubjectLabel } from "@/components/common/SubjectSelector";
 import { selectedSubjectsOf } from "@/services/subjectSelection";
+import { passAssessment } from "@/services/markingProfiles";
 import type { ScoringRule } from "@/services/scoring";
 
 export default function ResultScreen() {
@@ -24,6 +25,7 @@ export default function ResultScreen() {
   const num = useNum();
   const router = useRouter();
   const subjectLabel = useSubjectLabel();
+  const { lang } = useLang();
   const id = String(useLocalSearchParams<{ id: string }>().id ?? "");
   const [review, setReview] = useState(false);
   const q = useQuery(async (db) => {
@@ -50,8 +52,13 @@ export default function ResultScreen() {
       } : null;
 
   let scoreLabel: string; let counts: { label: string; value: string; tone?: string }[]; let accuracy: number; let accuracyText: string; let advice: TranslationKey[]; let timeLine: string | null = null; let reason: string | null = null;
+  let passNote: string | null = null;
   if (isExam) {
     const r = parsed as ExamResult;
+    const pass = passAssessment(session.ruleProfile, r.score, r.totalQuestions);
+    if (pass.state === "passed") passNote = t("marking.passed", { m: num(pass.passMarks!) });
+    else if (pass.state === "below") passNote = t("marking.below", { m: num(pass.passMarks!) });
+    else if (pass.state === "not_comparable") passNote = t("marking.notComparable", { m: num(pass.passMarks!), q: num(session.ruleProfile?.questionCount ?? 0) });
     scoreLabel = session.ruleStatus === "unconfigured" || !session.ruleStatus || r.score === null || r.maxScore === null
       ? t("result.noScore") : t("result.scoreOutOf", { score: num(r.score), max: num(r.maxScore) });
     counts = [
@@ -98,6 +105,8 @@ export default function ResultScreen() {
         <View className="flex-row flex-wrap gap-2.5 mt-3">{counts.map((c) => <Stat key={c.label} {...c} />)}</View>
         <Txt className="text-ink-400 text-xs leading-5 mt-3">{t("result.accuracyNote")}</Txt>
         <View className="mt-4"><RuleNotice rule={rule} status={session.ruleStatus ?? "unconfigured"} /></View>
+        {session.ruleProfile ? <Txt className="text-ink-500 text-xs mt-2">{t("marking.usedProfile", { name: lang === "bn" ? session.ruleProfile.name.bn || session.ruleProfile.name.en : session.ruleProfile.name.en || session.ruleProfile.name.bn })}</Txt> : null}
+        {passNote ? <Txt className="text-ink-700 text-sm leading-5 mt-1">{passNote}</Txt> : null}
         <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-5 mb-2">{t("result.adviceTitle")}</Txt>
         {advice.map((k) => <Txt key={k} className="text-ink-700 text-sm leading-6 mb-1.5">• {t(k)}</Txt>)}
 

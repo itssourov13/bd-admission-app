@@ -7,6 +7,8 @@ import { QuestionCard } from "@/components/common/QuestionCard";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useNow } from "@/hooks/useNow";
+import { isValidProfileId } from "@/services/markingProfiles";
+import { resolveMarkingChoice } from "@/repositories/marking";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { colors, feedback } from "@/theme";
@@ -24,6 +26,8 @@ export default function FlashPlay() {
   const params = useLocalSearchParams();
   const scope = scopeFromParams(params);
   const reviewUnverified = (Array.isArray(params.reviewUnverified) ? params.reviewUnverified[0] : params.reviewUnverified) === "1";
+  const rawProfile = Array.isArray(params.profile) ? params.profile[0] : params.profile;
+  const profileId = isValidProfileId(rawProfile) ? rawProfile : null;
   const perQuestion = clampFlashSeconds(Number(Array.isArray(params.seconds) ? params.seconds[0] : params.seconds));
 
   const ctl = useRef<FlashController | null>(null);
@@ -37,7 +41,7 @@ export default function FlashPlay() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const begin = useCallback(() => {
-    FlashController.start(db, scope, perQuestion, { includeReviewCandidates: reviewUnverified }).then(
+    resolveMarkingChoice(db, scope, profileId).then((markingChoice) => FlashController.start(db, scope, perQuestion, { includeReviewCandidates: reviewUnverified, markingChoice })).then(
       (started) => { if (!started) { setBoot("empty"); return; } ctl.current = started; setC(started); setBoot("run"); },
       () => setBoot("error")
     );
