@@ -142,3 +142,7 @@ Phase 3 is implemented and committed locally (not pushed); see docs/implementati
 ## Roadmap handoff — Phase 4: Configurable marking rules — 2026-11-13
 
 Marking profiles live in src/services/markingProfiles.ts (pure) and src/repositories/marking.ts; sessions snapshot the profile in practice_sessions.rule_profile_json. No built-in profile can be 'verified' because no source states every scoring value. Do not relabel DU (third-party) or derived values as official; re-read the signed JU circular and fetch the official DU circular before upgrading provenance. Automatic profiles never score Custom Practice or partial-official papers. See docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md. **Next: Phase 5 (Standard Exam improvements).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap handoff — Phase 5: Standard Exam improvements — 2026-11-13
+
+Phase 5 logic lives in src/services/examReview.ts (pure) and src/components/common/ExamPalette.tsx; flags persist in session_answers.flagged via setExamFlag (guarded like selections). Practice-missed uses PoolFilter.retrySessionId (route param retry). Selection queue, deadlines and finalization were not changed. Palette/warning colours use brand tokens directly and need semantic tokens in Phase 6. **Next: Phase 6 (Settings & dark mode).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.

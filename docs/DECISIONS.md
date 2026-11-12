@@ -160,3 +160,12 @@ Context: scoring values come from sources of different strength, and AGENTS.md f
 Decision: every profile value has its own provenance; a profile's status is the weakest link (verified only if correct, wrong and unanswered values are all official). Sessions store an immutable snapshot. An automatic default fills gaps only: it never overrides a complete stored rule, never scores Custom Practice, and the generic fallback never scores a paper whose official rule is only partly known. Explicit choices and saved preferences are the user's decision and always apply.
 
 Consequences: universities without a researched profile are unscored by default (as before Phase 4) unless the user selects a profile or sets a global default. Upgrading any provenance requires a documented official source.
+
+## ADR-029 — Mark-for-review is persisted separately from answers; retry uses a session-scoped pool filter
+Status: accepted, 2026-11-13.
+
+Context: flags must survive crash recovery without risking the serialized selection writes or finalized results.
+
+Decision: store `flagged` on `session_answers` and write it with its own guarded statement (active session, before deadline). Practice-from-missed is a PoolFilter field resolved by a subquery, so it reuses Flash setup/play and needs no copied question lists.
+
+Consequences: flags never affect scoring; retry pools only contain currently eligible catalogue questions.

@@ -8,7 +8,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 2 University identity, logos, filters | Implemented — Pending Owner Verification |
 | 3 Shared subject selection | Implemented — Pending Owner Verification |
 | 4 Configurable marking rules | Implemented — Pending Owner Verification |
-| 5 Standard Exam improvements | Not Started |
+| 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Not Started |
 | 7 Home hero redesign | Not Started |
 | 8 Publications & books library | Not Started |
@@ -48,3 +48,10 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 4. Reviewed migration v6, snapshot persistence, deletion (preferences removed, history unaffected), per-university/global defaults and the management screen; removed two unused-symbol lint warnings in app/marking-profiles.tsx.
 5. Checks run (Node 22.23.1): node --test tests/marking-profiles.test.ts 13/13 pass; tsc --noEmit exit 0; targeted ESLint on touched files 0 errors; git diff --check clean. Full suite, builds, device tests NOT run (owner).
 6. Wrote PHASE_04_CONFIGURABLE_MARKING_RULES.md and committed locally. Not pushed.
+
+## 2026-11-13 — Phase 5
+1. Reviewed the exam/result/history screens and practiceService; Phase 3/4 features were not duplicated.
+2. Added migration v7 (session_answers.flagged), persistent mark-for-review, retry scope (PoolFilter.retrySessionId + retry route param), pure examReview.ts and ExamPalette.tsx.
+3. Exam screen: palette with jump-to-question, flag button, progress line, timer urgency levels, 10/5/1-minute warnings, submit dialog with answered/unanswered/flagged counts. Result: per-subject breakdown, review filters, practice-missed button, section-order numbering. History: score/accuracy line.
+4. Checks run (Node 22.23.1): tsc --noEmit exit 0; targeted ESLint on 11 touched files exit 0; node --test exam-review + marking-profiles + repositories + subject-scope 53/53 pass; git diff --check clean. Device tests, full suite, builds NOT run (owner).
+5. Wrote PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md and committed locally. Not pushed.

@@ -18,6 +18,7 @@ export function scopeParams(filter: PoolFilter): Params {
   if (filter.institutionIds?.length) params.institutionIds = filter.institutionIds.join(",");
   const subjects = formatSubjectsParam(filter.subjects);
   if (subjects) params.subjects = subjects;
+  if (filter.retrySessionId) params.retry = filter.retrySessionId;
   return params;
 }
 
@@ -52,5 +53,7 @@ export function scopeFromParams(p: Record<string, string | string[] | undefined>
   if (institutionIds) scope.institutionIds = institutionIds;
   const subjects = parseSubjectsParam(one(p.subjects));
   if (subjects.length) scope.subjects = subjects;
+  const retry = one(p.retry);
+  if (retry && ID_PATTERN.test(retry)) scope.retrySessionId = retry;
   return scope;
 }

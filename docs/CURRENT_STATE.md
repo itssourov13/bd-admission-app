@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-13 (roadmap Phase 4: implemented — pending owner verification).
+Last updated: 2026-11-13 (roadmap Phase 5: implemented — pending owner verification).
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
@@ -10,7 +10,7 @@ Last updated: 2026-11-13 (roadmap Phase 4: implemented — pending owner verific
 | 2 University identity, logos, filters | Implemented — Pending Owner Verification |
 | 3 Shared subject selection | Implemented — Pending Owner Verification |
 | 4 Configurable marking rules | Implemented — Pending Owner Verification |
-| 5 Standard Exam improvements | Not Started |
+| 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Not Started |
 | 7 Home hero redesign | Not Started |
 | 8 Publications & books library | Not Started |
@@ -23,6 +23,7 @@ Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LO
 - Phase 2 (docs/implementation/PHASE_02_UNIVERSITY_EXPERIENCE.md): Varsity tab shows parent universities with an All|DU|RU|JU|HSTU filter bar; logos use a monogram fallback until licensed assets are supplied.
 - Phase 3 (docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md): shared All/Single/Multiple subject selection for Flash, Custom Practice and generic Standard Exam; validated route params; grouped pool counts; implemented, pending owner verification (device testing deferred).
 - Phase 4 (docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md): configurable marking profiles with per-value provenance, migration v6, per-university/global defaults, user profiles, session snapshots; implemented, pending owner verification.
+- Phase 5 (docs/implementation/PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md): question palette, mark-for-review (migration v7), time warnings, submit summary, per-subject results, review filters, practice-missed; implemented, pending owner verification.
 
 ## HSTU verified-question import — 2026-11-12
 

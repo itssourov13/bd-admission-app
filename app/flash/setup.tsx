@@ -31,7 +31,7 @@ export default function FlashSetup() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const scope = scopeFromParams(params);
-  const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
+  const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId);
   const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
   const [selected, setSelected] = useState<string[]>(() => selectedSubjectsOf(scope));
   const [profileId, setProfileId] = useState<string | null>(null);

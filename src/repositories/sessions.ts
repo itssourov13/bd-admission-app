@@ -80,6 +80,20 @@ export async function saveExamSelection(db: SqlDb, sessionId: string, questionId
   return r.changes === 1;
 }
 
+/**
+ * Mark-for-review flag. Same guard as selections (active session, before the deadline) so a finished exam never changes;
+ * it is independent of the serialized selection writes and never touches the answer or outcome.
+ */
+export async function setExamFlag(db: SqlDb, sessionId: string, questionId: string, flagged: boolean, at: number): Promise<boolean> {
+  const r = await db.runAsync(
+    `UPDATE session_answers SET flagged = ?
+     WHERE session_id = ? AND question_id = ? AND outcome = 'unanswered'
+       AND EXISTS (SELECT 1 FROM practice_sessions s WHERE s.id = ? AND s.status = 'active' AND (s.deadline_at IS NULL OR s.deadline_at > ?))`,
+    [flagged ? 1 : 0, sessionId, questionId, sessionId, at]
+  );
+  return r.changes === 1;
+}
+
 export async function getSession(db: SqlDb, id: string): Promise<SessionRow | null> {
   const r = await db.getFirstAsync<RawSession>("SELECT * FROM practice_sessions WHERE id = ?", [id]);
   return r ? toSession(r) : null;
@@ -87,13 +101,18 @@ export async function getSession(db: SqlDb, id: string): Promise<SessionRow | nu
 
 export interface SessionAnswerRow {
   position: number; questionId: string; selectedKeys: string[]; outcome: "correct" | "incorrect" | "skipped" | "timed_out" | "unanswered"; timeSpentMs: number | null;
+  /** Exam mark-for-review flag (Phase 5). */
+  flagged: boolean;
 }
 
 export async function getSessionAnswers(db: SqlDb, sessionId: string): Promise<SessionAnswerRow[]> {
-  const rows = await db.getAllAsync<{ position: number; question_id: string; selected_keys: string; outcome: SessionAnswerRow["outcome"]; time_spent_ms: number | null }>(
-    "SELECT position, question_id, selected_keys, outcome, time_spent_ms FROM session_answers WHERE session_id = ? ORDER BY position", [sessionId]
+  const rows = await db.getAllAsync<{ position: number; question_id: string; selected_keys: string; outcome: SessionAnswerRow["outcome"]; time_spent_ms: number | null; flagged: number | null }>(
+    "SELECT position, question_id, selected_keys, outcome, time_spent_ms, flagged FROM session_answers WHERE session_id = ? ORDER BY position", [sessionId]
   );
-  return rows.map((r) => ({ position: Number(r.position), questionId: r.question_id, selectedKeys: JSON.parse(r.selected_keys) as string[], outcome: r.outcome, timeSpentMs: r.time_spent_ms }));
+  return rows.map((r) => ({
+    position: Number(r.position), questionId: r.question_id, selectedKeys: JSON.parse(r.selected_keys) as string[], outcome: r.outcome,
+    timeSpentMs: r.time_spent_ms, flagged: Number(r.flagged ?? 0) === 1
+  }));
 }
 
 export async function getActiveExam(db: SqlDb): Promise<SessionRow | null> {

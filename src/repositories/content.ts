@@ -38,6 +38,12 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
     where.push(`q.subject IN (${filter.subjects.map(() => "?").join(",")})`);
     params.push(...filter.subjects);
   }
+  if (filter.retrySessionId) {
+    // Incorrect, skipped, timed-out and never-answered questions of one finished session (read-only on user data).
+    where.push(`q.id IN (SELECT sa.question_id FROM session_answers sa WHERE sa.session_id = ?
+      AND (sa.outcome IN ('incorrect','skipped','timed_out') OR (sa.outcome = 'unanswered' AND sa.selected_keys = '[]')))`);
+    params.push(filter.retrySessionId);
+  }
   const institutionIds = filter.institutionIds?.length ? filter.institutionIds : null;
   if (filter.institutionId || institutionIds || filter.paperId) {
     joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id";

@@ -2,7 +2,15 @@
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Not Started · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 5. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 6. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 5 — Standard Exam improvements — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md.
+
+- Migration v7 flagged column; flag writes guarded like selections and refused after finalization.
+- Palette, flags, warnings, submit summary, per-subject breakdown, review filters, practice-missed, history headline.
+- Owner verification pending: palette scroll on a 100-question exam, flag persistence after app kill, warnings, retry flow, Bangla text, migration v7.
 
 ## Roadmap Phase 4 — Configurable marking rules — 2026-11-13
 

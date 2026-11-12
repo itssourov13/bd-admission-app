@@ -11,6 +11,7 @@ import { colors } from "@/theme";
 import { listHistory } from "@/repositories/sessions";
 import { useSubjectLabel } from "@/components/common/SubjectSelector";
 import { selectedSubjectsOf } from "@/services/subjectSelection";
+import { resultHeadline } from "@/services/examReview";
 
 export default function HistoryScreen() {
   const t = useT();
@@ -43,7 +44,15 @@ export default function HistoryScreen() {
                     </View>
                     <Txt className="text-ink-500 text-xs mt-1">{fmt(h.startedAt)}</Txt>
                     {selectedSubjectsOf(h.filter).length ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.subjects", { subjects: selectedSubjectsOf(h.filter).map(subjectLabel).join(", ") })}</Txt> : null}
-                    <Txt className="text-ink-700 text-sm mt-1.5">{t("history.summary", { c: h.correct, i: h.incorrect, t: h.total })}</Txt>
+                    {(() => {
+                      const head = resultHeadline(h.resultJson, h.mode);
+                      const parts = [
+                        head.score !== null && head.maxScore !== null ? t("history.score", { s: num(head.score), m: num(head.maxScore) }) : null,
+                        head.accuracyPercent !== null ? t("history.accuracy", { a: num(head.accuracyPercent) }) : null
+                      ].filter((x): x is string => x !== null);
+                      return parts.length ? <Txt weight="semibold" className="text-ink-900 text-sm mt-1.5">{parts.join(" · ")}</Txt> : null;
+                    })()}
+                    <Txt className="text-ink-700 text-sm mt-1">{t("history.summary", { c: h.correct, i: h.incorrect, t: h.total })}</Txt>
                   </View>
                   {openable ? <Ionicons name="chevron-forward" size={19} color={colors.ink400} /> : null}
                 </Card>

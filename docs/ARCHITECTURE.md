@@ -111,3 +111,7 @@ Subject selection is a pure module (`src/services/subjectSelection.ts`) shared b
 ### Roadmap Phase 4 architecture (2026-11-13)
 
 Marking is resolved by one pure function chain: `selectProfile` (explicit > per-university preference `u:<key>` > global preference `*` > best-matching built-in > generic, generic only as an automatic fallback) then `effectiveRule` (stored complete rule wins over automatic defaults; `isAutoScoringBlocked` stops automatic profiles scoring Custom Practice or partial-official papers). `startStandardExam` and `FlashController.start` take a `markingChoice` and persist `ProfileSnapshot` JSON in `practice_sessions.rule_profile_json`; results read the snapshot, never the live profile. Built-ins ship in code, user profiles/preferences in `user_marking_profiles`/`marking_preferences` (migration v6). Exam question count and duration always remain the paper's own.
+
+### Roadmap Phase 5 architecture (2026-11-13)
+
+Exam review helpers are pure (`examReview.ts`): palette state, progress, time level, derived time warnings (no timer state), per-subject breakdown, review filters, history headline. Mark-for-review is a separate guarded UPDATE on `session_answers.flagged` (migration v7), independent of the serialized selection queue. `PoolFilter.retrySessionId` restricts any practice pool to the missed questions of a finished session (read-only subquery on `session_answers`).

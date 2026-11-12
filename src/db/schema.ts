@@ -215,6 +215,14 @@ CREATE TABLE marking_preferences (
   updated_at INTEGER NOT NULL
 );
 `
+  },
+  {
+    version: 7,
+    name: "exam_answer_review_flag",
+    sql: `
+-- Mark-for-review flag per exam question (user-owned session data; does not affect scoring).
+ALTER TABLE session_answers ADD COLUMN flagged INTEGER NOT NULL DEFAULT 0;
+`
   }
 ];
 

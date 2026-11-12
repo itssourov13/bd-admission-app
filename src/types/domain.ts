@@ -51,6 +51,8 @@ export interface PoolFilter {
   reviewUnverified?: boolean;
   /** True only for an explicit user-chosen count/duration on a paper without a verified pattern; never scored as official. */
   customPractice?: boolean;
+  /** Practice only the questions a finished session got wrong or left unanswered (Phase 5). */
+  retrySessionId?: string;
 }
 
 export interface InstitutionSummary {

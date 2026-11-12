@@ -38,7 +38,7 @@ export default function ExamSetup() {
   const [profileId, setProfileId] = useState<string | null>(null);
   const [customQuestions, setCustomQuestions] = useState<number | null>(null);
   const [customMinutes, setCustomMinutes] = useState<number | null>(null);
-  const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
+  const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId);
   const scopeBase = { ...scope, category: locked ? scope.category : category, subject: undefined, subjects: undefined };
   const baseKey = JSON.stringify(scopeBase);
   const selectedSections = subjectSelection.scopeKey === baseKey ? subjectSelection.subjects : [];

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 5: Standard Exam improvements (implemented — pending owner verification)
+
+- Added question palette with direct navigation and persistent mark-for-review to the Standard Exam.
+- Added time-left warnings and timer urgency levels, and a submit dialog with answered/unanswered/flagged counts.
+- Result screen: per-subject breakdown, review filters and Practice missed questions; history rows show score and accuracy.
+- Added DB migration v7 (session_answers.flagged).
+
 ## 2026-11-13 — Roadmap Phase 4: Configurable marking rules (implemented — pending owner verification)
 
 - Added configurable marking profiles with per-value provenance (official / secondary / derived / illustrative / user) and built-in generic, RU, JU, HSTU (partial) and DU profiles.

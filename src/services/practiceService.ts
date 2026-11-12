@@ -3,7 +3,7 @@ import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView, SessionRow } from "../types/domain.ts";
 import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
 import {
-  addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, type SessionAnswerRow
+  addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, setExamFlag, type SessionAnswerRow
 } from "../repositories/sessions.ts";
 import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
 import { scoreAttempt, isAnswerCorrect, UNCONFIGURED_RULE, type ExamScore, type ScorableQuestion, type ScoringRule } from "./scoring.ts";
@@ -109,11 +109,18 @@ export async function persistSelection(db: SqlDb, sessionId: string, questionId:
   return saveExamSelection(db, sessionId, questionId, keys, now);
 }
 
+/** Persists the mark-for-review flag; false when the exam is finalized or past its deadline. */
+export async function persistFlag(db: SqlDb, sessionId: string, questionId: string, flagged: boolean, now = Date.now()): Promise<boolean> {
+  return setExamFlag(db, sessionId, questionId, flagged, now);
+}
+
 export interface LoadedExam {
   session: SessionRow;
   /** Questions in exam order (position 1..n). */
   questions: QuestionView[];
   selected: Record<string, string[]>;
+  /** Question ids flagged for review. */
+  flagged: string[];
 }
 
 export async function loadExam(db: SqlDb, sessionId: string): Promise<LoadedExam | null> {
@@ -123,7 +130,7 @@ export async function loadExam(db: SqlDb, sessionId: string): Promise<LoadedExam
   const questions = await loadQuestions(db, answers.map((a) => a.questionId));
   const selected: Record<string, string[]> = {};
   answers.forEach((a) => { if (a.selectedKeys.length) selected[a.questionId] = a.selectedKeys; });
-  return { session, questions, selected };
+  return { session, questions, selected, flagged: answers.filter((a) => a.flagged).map((a) => a.questionId) };
 }
 
 /** Finalizes an active exam whose deadline already passed (app was closed). Safe to call repeatedly. */

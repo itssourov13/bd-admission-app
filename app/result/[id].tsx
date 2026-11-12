@@ -12,7 +12,10 @@ import { href, scopeParams } from "@/features/navigation/links";
 import { useNum, useT, type TranslationKey, useLang } from "@/i18n";
 import { colors, feedback } from "@/theme";
 import { getSession } from "@/repositories/sessions";
-import { loadExam, type ExamResult, type LoadedExam } from "@/services/practiceService";
+import { loadExam, toScorable, type ExamResult, type LoadedExam } from "@/services/practiceService";
+import { ChoiceChip } from "@/components/common/Toggle";
+import { matchesReviewFilter, reviewStatus, subjectBreakdown, type ReviewFilter } from "@/services/examReview";
+import { buildExamSections } from "@/services/subjects";
 import type { FlashResult } from "@/services/flashController";
 import { formatClock } from "@/services/timer";
 import { useSubjectLabel } from "@/components/common/SubjectSelector";
@@ -28,6 +31,7 @@ export default function ResultScreen() {
   const { lang } = useLang();
   const id = String(useLocalSearchParams<{ id: string }>().id ?? "");
   const [review, setReview] = useState(false);
+  const [filter, setFilter] = useState<ReviewFilter>("all");
   const q = useQuery(async (db) => {
     const session = await getSession(db, id);
     const exam: LoadedExam | null = session?.mode === "exam" && session.status !== "active" ? await loadExam(db, id) : null;
@@ -89,6 +93,21 @@ export default function ResultScreen() {
     timeLine = num(formatClock(r.summary.totalSeconds));
   }
 
+  // Exam-only extras: numbering matches the exam screen (section order), plus per-subject breakdown and the review filter.
+  const provisional = session.filter.reviewUnverified === true;
+  const examItems = exam ? buildExamSections(exam.questions, session.filter.paperId).flatMap((s) => s.data) : [];
+  const flaggedSet = new Set(exam?.flagged ?? []);
+  const breakdown = exam ? subjectBreakdown(exam.questions.map((qv) => ({ id: qv.id, subject: qv.subject, scorable: toScorable(qv, provisional) })), exam.selected) : [];
+  const statusOf = (qv: LoadedExam["questions"][number]) => reviewStatus(toScorable(qv, provisional), exam?.selected[qv.id] ?? []);
+  const reviewItems = examItems.filter((it) => matchesReviewFilter(statusOf(it.question), flaggedSet.has(it.question.id), filter));
+  const missed = isExam
+    ? (parsed as ExamResult).incorrect + (parsed as ExamResult).unanswered
+    : (parsed as FlashResult).summary.incorrect + (parsed as FlashResult).summary.skipped + (parsed as FlashResult).summary.timedOut;
+  const filters: { key: ReviewFilter; label: string }[] = [
+    { key: "all", label: t("result.filterAll") }, { key: "incorrect", label: t("result.filterIncorrect") },
+    { key: "unanswered", label: t("result.filterUnanswered") }, ...(flaggedSet.size > 0 ? [{ key: "flagged" as const, label: `${t("result.filterFlagged")} (${num(flaggedSet.size)})` }] : [])
+  ];
+
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={isExam ? t("result.examTitle") : t("result.flashTitle")} onBack={() => router.replace("/")} />
@@ -107,10 +126,25 @@ export default function ResultScreen() {
         <View className="mt-4"><RuleNotice rule={rule} status={session.ruleStatus ?? "unconfigured"} /></View>
         {session.ruleProfile ? <Txt className="text-ink-500 text-xs mt-2">{t("marking.usedProfile", { name: lang === "bn" ? session.ruleProfile.name.bn || session.ruleProfile.name.en : session.ruleProfile.name.en || session.ruleProfile.name.bn })}</Txt> : null}
         {passNote ? <Txt className="text-ink-700 text-sm leading-5 mt-1">{passNote}</Txt> : null}
+        {breakdown.length > 1 ? (
+          <View className="mt-5">
+            <Txt font="display" weight="bold" className="text-ink-900 text-lg mb-2">{t("result.bySubject")}</Txt>
+            {breakdown.map((row) => (
+              <Card key={row.subject ?? "__none__"} className="p-3.5 mb-2">
+                <View className="flex-row items-center justify-between">
+                  <Txt weight="semibold" className="text-ink-900 text-sm flex-1">{row.subject === null ? t("exam.sectionOther") : subjectLabel(row.subject)}</Txt>
+                  <Txt className="text-ink-500 text-xs">{row.accuracyPercent === null ? t("result.notAvailable") : t("result.subjectAccuracy", { a: num(row.accuracyPercent) })}</Txt>
+                </View>
+                <Txt className="text-ink-700 text-xs mt-1">{t("result.subjectRow", { c: num(row.correct), i: num(row.incorrect), u: num(row.unanswered) })}</Txt>
+              </Card>
+            ))}
+          </View>
+        ) : null}
         <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-5 mb-2">{t("result.adviceTitle")}</Txt>
         {advice.map((k) => <Txt key={k} className="text-ink-700 text-sm leading-6 mb-1.5">• {t(k)}</Txt>)}
 
         <View className="mt-5 gap-2.5">
+          {missed > 0 ? <Button label={t("result.practiceMissed")} variant="accent" onPress={() => router.push(href("/flash/setup", scopeParams({ retrySessionId: session.id })))} /> : null}
           <Button label={t("result.practiceAgain")} onPress={() => router.replace(href(isExam ? "/exam/setup" : "/flash/setup", scopeParams(session.filter)))} />
           {isExam && exam ? <Button label={review ? t("result.reviewHide") : t("result.review")} variant="outline" onPress={() => setReview((v) => !v)} /> : null}
           <Button label={t("common.home")} variant="ghost" onPress={() => router.replace("/")} />
@@ -118,11 +152,18 @@ export default function ResultScreen() {
 
         {review && exam ? (
           <View className="mt-5 gap-4">
-            {exam.questions.map((qv, i) => (
-              <Card key={qv.id} className="p-4">
-                <Txt className="text-ink-500 text-xs mb-1">{t("flash.questionNo", { n: i + 1 })}</Txt>
-                <QuestionCard question={qv} selected={exam.selected[qv.id] ?? []} reveal disabled showSources provisionalScoring={session.filter.reviewUnverified === true} />
-                {(exam.selected[qv.id] ?? []).length === 0 ? <Txt className="text-ink-500 text-xs mt-2">{t("result.noSelection")}</Txt> : null}
+            <View className="flex-row flex-wrap gap-2">
+              {filters.map((f) => <ChoiceChip key={f.key} label={f.label} selected={filter === f.key} onPress={() => setFilter(f.key)} />)}
+            </View>
+            {reviewItems.length === 0 ? <Txt className="text-ink-500 text-sm">{t("result.noMatch")}</Txt> : null}
+            {reviewItems.map((it) => (
+              <Card key={it.question.id} className="p-4">
+                <View className="flex-row items-center justify-between mb-1">
+                  <Txt className="text-ink-500 text-xs">{t("flash.questionNo", { n: it.number })}</Txt>
+                  {flaggedSet.has(it.question.id) ? <Txt weight="semibold" className="text-xs" style={{ color: colors.gold700 }}>⚑ {t("exam.flagged")}</Txt> : null}
+                </View>
+                <QuestionCard question={it.question} selected={exam.selected[it.question.id] ?? []} reveal disabled showSources provisionalScoring={provisional} />
+                {(exam.selected[it.question.id] ?? []).length === 0 ? <Txt className="text-ink-500 text-xs mt-2">{t("result.noSelection")}</Txt> : null}
               </Card>
             ))}
           </View>
