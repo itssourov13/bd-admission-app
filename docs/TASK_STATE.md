@@ -2,7 +2,7 @@
 
 ## Optional Phases 9–10 — 2026-11-13
 
-Phase 9: partially implemented (manifest validation, plan, integrity check, verified install, soft remove/restore; no remote source, UI or downloader). Phase 10: deferred, contract documented only. Neither is deployed; the app stays fully offline. Details: docs/implementation/PHASE_09_ONLINE_OFFLINE.md, PHASE_10_BACKEND_CMS.md.
+Phase 9: partially implemented (manifest validation, install/update planning, integrity contract using an injected SHA-256 hasher, pack installation, soft remove/restore; no concrete hasher, remote source, UI or downloader). Phase 10: deferred, contract documented only. Neither is deployed; the app stays fully offline. Details: docs/implementation/PHASE_09_ONLINE_OFFLINE.md, PHASE_10_BACKEND_CMS.md.
 
 ## Roadmap Phase 8 — Publications & books library — 2026-11-13
 
@@ -13,7 +13,7 @@ Phase 9: partially implemented (manifest validation, plan, integrity check, veri
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Implemented — Pending Owner Verification · Phase 8: Implemented — Pending Owner Verification· Phase 9: Not Started · Phase 10: Not Started · Current: Phase 8 (Publications & books library) — In Progress. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1–8: Implemented — Pending Owner Verification · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — optional contract documentation only; no backend/CMS deployed. Current required phase: Phase 8 implementation complete; owner verification remains pending. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
 
 ## Roadmap Phase 7 — Home hero redesign — 2026-11-13
 

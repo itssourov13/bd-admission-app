@@ -50,7 +50,7 @@ Added `react-native-svg@15.15.4` (SDK 57 bundled version; native module included
 - No in-app pack import UI (packs install through the service/seed path).
 
 ## 11. Checks actually run (Node 22.23.1)
-`tsc --noEmit` exit 0; `node --test tests/library.test.ts tests/brandAssets.test.ts` exit 0; SVGR transform of du/ru/ju verified viewBox retained; `git diff --check` clean. Lint result recorded in IMPLEMENTATION_LOG. Full suite, Metro/Expo export, EAS, device and visual QA NOT run.
+`tsc --noEmit` exit 0; `node --test tests/library.test.ts tests/brandAssets.test.ts` exit 0; SVGR transform of du/ru/ju verified viewBox retained; `git diff --check` clean. Lint result recorded in IMPLEMENTATION_LOG. Follow-up CI-equivalent export passed: pnpm exec expo export --platform android --no-bytecode (Node 24.19.0) generated the 3.9 MB Android JS bundle, validating Metro + SVG transformer compilation. A separate default bytecode export failed at the host Hermes compiler with SIGILL; no SVG-specific transform error was reported. Full suite, EAS, device and visual QA remain unrun.
 
 ## 12. Deferred owner testing
 Rebuild the dev client (new native dependency); confirm logos render and scale on device in light/dark; open Library from Home; check empty states; install a real pack and exercise Flash/Custom/Browse by book and unit; history/result labels; Bangla text.

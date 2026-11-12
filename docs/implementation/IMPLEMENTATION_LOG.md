@@ -11,9 +11,9 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | In Progress |
-| 9 Online + offline content management | Not Started |
-| 10 Backend & CMS foundation | Not Started |
+| 8 Publications & books library | Implemented — Pending Owner Verification |
+| 9 Online + offline content management (optional) | Partially implemented — local contracts only |
+| 10 Backend & CMS foundation (optional) | Deferred — contract documented only |
 
 ## 2026-11-13 — Phase 1
 1. Read audit, STARTUP_UI_AUDIT.md, git state (branch feat/import-hstu-verified-answers-2026-11-12, clean tree). Found 15f7602 already covers most of Phase 1.
@@ -78,7 +78,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 1. Confirmed importer keeps the book-before-units FK ordering; migration v8 and existing library architecture preserved.
 2. Added SVG pipeline (react-native-svg 15.15.4, svg transformer, Metro/SVGR config, BrandLogo), fetched DU/RU/JU SVG and HSTU official PNG with source records; publisher slots reserved (no retrievable originals).
 3. Added Home entry, publisher category sections, book/unit labels in history/result (batched query), tests.
-4. Checks run (Node 22.23.1): tsc --noEmit exit 0; ESLint on touched dirs 0 errors; node --test library + brandAssets pass; git diff --check clean. Metro bundle, full suite, device QA NOT run.
+4. Checks run in implementation session (Node 22.23.1): tsc --noEmit exit 0; ESLint on touched dirs 0 errors; node --test library + brandAssets pass; git diff --check clean. Follow-up verification (Node 24.19.0): CI-equivalent pnpm exec expo export --platform android --no-bytecode PASS and generated the Android JS bundle (3.9 MB), validating Metro + SVG transformer compilation. The default bytecode export separately failed in the host Hermes compiler with SIGILL; no SVG-specific transform error was reported. Full suite, EAS and device QA remain deferred to owner.
 5. Wrote PHASE_08_CONTENT_LIBRARY.md. Status: Implemented — Pending Owner Verification.
 
 ## 2026-11-13 — Phases 9–10 (optional)

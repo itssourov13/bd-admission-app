@@ -167,3 +167,11 @@ Phase 8 is **Implemented — Pending Owner Verification** and committed locally 
 ## Handoff — optional Phases 9–10 — 2026-11-13
 
 Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content-catalog.ts, src/repositories/installedContent.ts). Next concrete action if continued: owner chooses hosting, then implement a ContentSource adapter, a SHA-256 hasher (expo-crypto is a dependency decision) and a content-management screen. Phase 10 is documentation only.
+
+
+## Phase 8/9/10 status reconciliation and Metro verification — 2026-11-13
+
+- Required roadmap phases 1–8 are implemented and committed locally; each remains **Pending Owner Verification**. Current branch: feat/import-hstu-verified-answers-2026-11-12; Phase 8 commit ae0e0f5, optional Phase 9/10 commit 543088b; no push.
+- Optional Phase 9 is partial local-only contract/service work. It has no concrete SHA-256 provider, remote source, downloader, or UI. Optional Phase 10 is documentation only; no backend/CMS was created or deployed.
+- Follow-up check: pnpm exec expo export --platform android --no-bytecode passed on Node 24.19.0 and emitted a 3.9 MB Android JS bundle, validating Metro/SVG transformer compilation. The separate default bytecode export failed in the host Hermes compiler with SIGILL; this is not evidence of an SVG transform defect.
+- Still owner-pending: rebuild the dev client for react-native-svg, inspect actual university logo rendering on Android (light/dark), supply content packs and authentic publisher logo files, confirm Bangla publisher names, and perform the planned app/device QA.
