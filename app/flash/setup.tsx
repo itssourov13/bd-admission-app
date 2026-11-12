@@ -10,8 +10,9 @@ import { ChoiceChip } from "@/components/common/Toggle";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
+import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams, scopeParams } from "@/features/navigation/links";
-import { useNum, useT, type TranslationKey } from "@/i18n";
+import { useLang, useNum, useT, type TranslationKey } from "@/i18n";
 import { colors, feedback } from "@/theme";
 import { countEligible, countReviewCandidates, getInstitution, listPapers, scopeRule } from "@/repositories/content";
 import { getProfile, updateProfile } from "@/repositories/userData";
@@ -21,12 +22,13 @@ import type { QuestionCategory } from "@/types/domain";
 
 export default function FlashSetup() {
   const t = useT();
+  const { lang } = useLang();
   const num = useNum();
   const db = useDb();
   const router = useRouter();
   const params = useLocalSearchParams();
   const scope = scopeFromParams(params);
-  const scopeLocked = Boolean(scope.institutionId || scope.paperId);
+  const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
   const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
   const [subject, setSubject] = useState<string | undefined>(
     scope.subject && isCanonicalSubject(scope.subject) ? scope.subject : undefined
@@ -40,6 +42,7 @@ export default function FlashSetup() {
   const q = useQuery(async (d) => {
     const label = effective.paperId
       ? (await listPapers(d, { paperId: effective.paperId }))[0]?.title ?? null
+      : effective.institutionIds?.length ? await universityLabel(d, effective.institutionIds[0], lang)
       : effective.institutionId ? (await getInstitution(d, effective.institutionId))?.name ?? null : null;
     const verifiedCount = await countEligible(d, baseScope);
     const reviewCount = await countReviewCandidates(d, baseScope);

@@ -86,6 +86,10 @@ export const translations = {
   "catalog.papers": { bn: "পরীক্ষাসমূহ", en: "Papers" },
   "catalog.noPapers": { bn: "এই প্রতিষ্ঠানের কোনো পরীক্ষা পাওয়া যায়নি।", en: "No papers were found for this institution." },
   "catalog.practiceInstitution": { bn: "এই প্রতিষ্ঠানের সব প্রশ্ন অনুশীলন", en: "Practice all of this institution" },
+  "catalog.filterAll": { bn: "সব", en: "All" },
+  "catalog.filterLabel": { bn: "বিশ্ববিদ্যালয় অনুযায়ী ফিল্টার", en: "Filter by university" },
+  "catalog.practiceUniversity": { bn: "এই বিশ্ববিদ্যালয়ের সব প্রশ্ন অনুশীলন", en: "Practice all of this university" },
+  "catalog.universityMeta": { bn: "{papers}টি পরীক্ষা · {questions}টি প্রশ্ন · {eligible}টি যাচাইকৃত", en: "{papers} papers · {questions} questions · {eligible} verified" },
   "catalog.notFound": { bn: "এই তথ্য পাওয়া যায়নি।", en: "This item could not be found." },
 
   "paper.title": { bn: "পরীক্ষা {year}", en: "Paper {year}" },

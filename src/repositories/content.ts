@@ -38,9 +38,14 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
     where.push(`q.subject IN (${filter.subjects.map(() => "?").join(",")})`);
     params.push(...filter.subjects);
   }
-  if (filter.institutionId || filter.paperId) {
+  const institutionIds = filter.institutionIds?.length ? filter.institutionIds : null;
+  if (filter.institutionId || institutionIds || filter.paperId) {
     joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id";
     if (filter.institutionId) { where.push("p.institution_id = ?"); params.push(filter.institutionId); }
+    if (institutionIds) {
+      where.push(`p.institution_id IN (${institutionIds.map(() => "?").join(",")})`);
+      params.push(...institutionIds);
+    }
     if (filter.paperId) { where.push("p.id = ?"); params.push(filter.paperId); }
   }
   return { joins, where: where.length ? " AND " + where.join(" AND ") : "", params };
@@ -118,6 +123,42 @@ export async function listInstitutions(db: SqlDb, category: QuestionCategory): P
     });
   }
   return out;
+}
+
+/**
+ * Papers of several institutions with all per-paper counts computed in three grouped queries (instead of two queries
+ * per paper), so a whole university - or every university - can be listed without an N+1 cost.
+ */
+export async function listPapersByInstitutions(db: SqlDb, opts: { institutionIds: string[]; category?: QuestionCategory }): Promise<PaperSummary[]> {
+  if (opts.institutionIds.length === 0) return [];
+  const ph = opts.institutionIds.map(() => "?").join(",");
+  const params: SqlParam[] = [...opts.institutionIds];
+  let categoryClause = "";
+  if (opts.category) { categoryClause = " AND p.category = ?"; params.push(opts.category); }
+  const rows = await db.getAllAsync<PaperRow>(
+    `SELECT p.id, p.institution_id, i.code, i.name AS iname, p.category, p.year, p.academic_session, p.unit, p.title,
+       (SELECT COUNT(DISTINCT a.question_id) FROM question_appearances a WHERE a.paper_id = p.id) AS qn,
+       (SELECT r.verification_status FROM exam_rules r WHERE r.paper_id = p.id ORDER BY r.id LIMIT 1) AS rule_status
+     FROM exam_papers p JOIN institutions i ON i.id = p.institution_id
+     WHERE p.institution_id IN (${ph})${categoryClause} ORDER BY p.year DESC, p.unit, p.id`,
+    params
+  );
+  const grouped = async (predicate: string): Promise<Map<string, number>> => {
+    const counts = await db.getAllAsync<{ paper_id: string; n: number }>(
+      `SELECT a.paper_id AS paper_id, COUNT(DISTINCT q.id) AS n FROM questions q
+       JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id
+       WHERE (${predicate}) AND p.institution_id IN (${ph})${categoryClause} GROUP BY a.paper_id`,
+      params
+    );
+    return new Map(counts.map((c) => [c.paper_id, Number(c.n)]));
+  };
+  const eligible = await grouped(ELIGIBLE_SQL);
+  const candidates = await grouped(REVIEW_CANDIDATE_SQL);
+  return rows.map((r) => ({
+    id: r.id, institutionId: r.institution_id, institutionCode: r.code, institutionName: r.iname, category: r.category,
+    year: Number(r.year), academicSession: r.academic_session, unit: r.unit, title: r.title,
+    questionCount: Number(r.qn), eligibleCount: eligible.get(r.id) ?? 0, reviewCandidateCount: candidates.get(r.id) ?? 0, ruleStatus: r.rule_status
+  }));
 }
 
 export async function getInstitution(db: SqlDb, id: string): Promise<{ id: string; code: string; name: string } | null> {
@@ -273,6 +314,10 @@ export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], 
     let extra = "";
     if (filter.paperId) { extra += " AND a.paper_id = ?"; params.push(filter.paperId); }
     if (filter.institutionId) { extra += " AND p.institution_id = ?"; params.push(filter.institutionId); }
+    if (filter.institutionIds?.length) {
+      extra += ` AND p.institution_id IN (${filter.institutionIds.map(() => "?").join(",")})`;
+      params.push(...filter.institutionIds);
+    }
     const rows = await db.getAllAsync<{ paper_id: string }>(
       `SELECT DISTINCT a.paper_id FROM question_appearances a JOIN exam_papers p ON p.id = a.paper_id WHERE a.question_id IN (${ph})${extra}`, params
     );

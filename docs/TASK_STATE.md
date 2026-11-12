@@ -1,5 +1,15 @@
 # Task state
 
+## Roadmap Phase 2 — University identity, logos, filters — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_02_*.md.
+
+- [x] Parent-university grouping (RU/RU-V, JU/JU-U, HSTU/HSTU-U) derived at read time; internal labels hidden.
+- [x] UniversityLogo component (raster registry + monogram fallback); SVG vs raster evaluated, raster chosen.
+- [x] Horizontal All|DU|RU|JU|HSTU filter bar on Varsity; merged paper list; university-level Flash/Exam scope via institutionIds.
+- [ ] Owner: supply licensed logos; device QA of filter/navigation/Bangla names.
+
+
 ## Roadmap Phase 1 — Loading UI polish — 2026-11-13
 
 **Status:** Implemented — Pending Owner Verification. Roadmap table: docs/implementation/IMPLEMENTATION_LOG.md; phase detail: docs/implementation/PHASE_01_LOADING_UI.md.

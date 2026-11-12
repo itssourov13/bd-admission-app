@@ -8,8 +8,9 @@ import { ChoiceChip } from "@/components/common/Toggle";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
+import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams } from "@/features/navigation/links";
-import { useNum, useT } from "@/i18n";
+import { useLang, useNum, useT } from "@/i18n";
 import { countEligible, countReviewCandidates, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
 import { checkExamEligibility, planExam } from "@/services/exam";
@@ -19,6 +20,7 @@ import { orderSubjects } from "@/services/subjects";
 
 export default function ExamSetup() {
   const t = useT();
+  const { lang } = useLang();
   const num = useNum();
   const db = useDb();
   const router = useRouter();
@@ -28,7 +30,7 @@ export default function ExamSetup() {
   const [busy, setBusy] = useState(false);
   const [customQuestions, setCustomQuestions] = useState(20);
   const [customMinutes, setCustomMinutes] = useState(20);
-  const locked = Boolean(scope.institutionId || scope.paperId);
+  const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId);
   const effective = { ...scope, category: locked ? scope.category : category };
   const baseKey = JSON.stringify(effective);
   const selectedSubjects = subjectSelection.scopeKey === baseKey ? subjectSelection.subjects : [];
@@ -61,6 +63,7 @@ export default function ExamSetup() {
       subjectCounts,
       active: await getActiveExam(d),
       label: effective.paperId ? (await listPapers(d, { paperId: effective.paperId }))[0]?.title ?? null
+        : effective.institutionIds?.length ? await universityLabel(d, effective.institutionIds[0], lang)
         : effective.institutionId ? (await getInstitution(d, effective.institutionId))?.name ?? null : null
     };
   }, [baseKey, selectedKey]);

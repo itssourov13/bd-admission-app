@@ -141,3 +141,8 @@ The initial JU/HSTU candidate-bank separation recorded in ADR-018 described the 
 Status: accepted, 2026-11-13.
 
 Returning startups stay behind the native splash but escalate to the existing SetupScreen after `RETURNING_ESCALATION_MS` (1500 ms) when still syncing, because Android's splash cannot fade (`setOptions({fade})` is iOS-only) and a long silent splash looks frozen. The Home-ready gate has a `HOME_READY_TIMEOUT_MS` (4000 ms) fallback because Home is not guaranteed to be the first route. SetupScreen's first frame matches the flat splash colour with the brand mark visible, and the gradient/card fade in over it. Spinners are delayed by `LOADING_INDICATOR_DELAY_MS` (150 ms). Rejected: Reanimated animated splash, in-Home skeleton progress (revisit in Phase 9), splash asset changes (Phase 6, requires native rebuild).
+
+## ADR-026 — Parent-university identity is derived, not stored; institutionIds scope
+Status: accepted, 2026-11-13.
+
+Parent universities are derived from institution codes at read time (`-U`/`-V` suffix stripped) rather than added to the schema, because content tables are importer/seed-owned. Practice scopes carry `PoolFilter.institutionIds` (optional, backward compatible with persisted session filters; validated when parsed from routes). Logos are raster-first via a static registry with a monogram fallback; the registry is empty until licensed artwork is supplied. Rejected: parent_code column, react-native-svg (native dep + rebuild) for logos.

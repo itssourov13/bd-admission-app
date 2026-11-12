@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 2: University identity, logos, filters (implemented — pending owner verification)
+
+- Varsity tab now lists parent universities with a filter chip bar; internal bank variants (RU-V, JU-U, HSTU-U) are grouped under their parent.
+- Added `UniversityLogo` (monogram fallback; logo registry intentionally empty pending licensed assets), `PoolFilter.institutionIds`, and batched `listPapersByInstitutions`.
+- No DB/migration/dependency change. Not device-tested.
+
+
 ## 2026-11-13 — Roadmap Phase 1: loading UI polish (implemented, pending owner verification)
 
 - Slow returning launches (still syncing after 1.5 s, e.g. a content-update release) now escalate to the existing branded progress UI instead of a silent native splash.

@@ -1,5 +1,5 @@
-import { CategoryScreen } from "@/features/catalog/CategoryScreen";
+import { VarsityScreen as Varsity } from "@/features/catalog/VarsityScreen";
 
 export default function VarsityScreen() {
-  return <CategoryScreen category="varsity" />;
+  return <Varsity />;
 }

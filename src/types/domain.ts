@@ -40,6 +40,8 @@ export interface QuestionView {
 export interface PoolFilter {
   category?: QuestionCategory;
   institutionId?: string;
+  /** All stored institutions of one parent university (e.g. RU and RU-V). Combined with institutionId by intersection. */
+  institutionIds?: string[];
   paperId?: string;
   subject?: string;
   /** Optional multiple section selection for paper-specific exams. */
