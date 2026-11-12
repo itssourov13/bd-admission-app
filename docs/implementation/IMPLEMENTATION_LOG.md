@@ -6,7 +6,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 |---|---|
 | 1 Loading UI Polish | Implemented — Pending Owner Verification |
 | 2 University identity, logos, filters | Implemented — Pending Owner Verification |
-| 3 Shared subject selection | In Progress |
+| 3 Shared subject selection | Implemented — Pending Owner Verification |
 | 4 Configurable marking rules | Not Started |
 | 5 Standard Exam improvements | Not Started |
 | 6 Settings & dark mode | Not Started |
@@ -33,3 +33,10 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 1. Verified Phase 1 (0d47ba7) and Phase 2 (e900521) commits exist; working tree was clean.
 2. Fixed stale roadmap references with an idempotent one-off script (not the old helper): CURRENT_STATE.md roadmap block now has a status table; TASK_STATE.md obsolete "Next: Phase 2 (not started)" marked superseded and a status summary added; HANDOFF.md obsolete "Next: Phase 2" marked superseded. Historical entries otherwise untouched.
 3. Phase 3 marked In Progress.
+
+## 2026-11-13 — Phase 3
+1. Inspected the uncommitted working tree (10 modified, 3 new files) against the previous session's report; it matched.
+2. Resolved the react-hooks/purity ESLint error in app/exam/setup.tsx: startStandardExam already defaults `now` to Date.now() at call time, so the screen passes undefined. No rule disabled.
+3. Reviewed /tmp/phase_docs.py (idempotent, keyed by section header) and used it with a Phase 3 spec; wrote PHASE_03_SHARED_SUBJECT_SELECTION.md.
+4. Checks run: tsc --noEmit exit 0; targeted ESLint on 12 touched files exit 0 (no findings); node --test subject-scope + universities + ui-logic 19/19 pass (requires nvm Node v24.21.0; system node lacks TypeScript support). Full suite, builds and device testing NOT run (deferred to owner).
+5. Committed locally as feat(practice): phase 3 shared subject selection. Not pushed.

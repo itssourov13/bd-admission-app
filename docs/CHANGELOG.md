@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 3: Shared subject selection (implemented — pending owner verification)
+
+- Added a shared subject chooser (All / one / several) for Flash, Custom Practice and the generic Standard Exam.
+- Route params now carry validated `subjects`; the single `subject` param is validated too.
+- Subject counts come from one grouped query instead of one query per subject.
+- Custom Practice question counts follow the selected pool; duration is suggested from the generic exam pace.
+- History and result screens list the subjects a session covered. Added labels for General Knowledge, IQ, Mathematics, General Mathematics and Geology.
+- No database, migration or dependency changes.
+
 ## 2026-11-13 — Roadmap Phase 2: University identity, logos, filters (implemented — pending owner verification)
 
 - Varsity tab now lists parent universities with a filter chip bar; internal bank variants (RU-V, JU-U, HSTU-U) are grouped under their parent.

@@ -85,6 +85,56 @@ export function isValidCustomPractice(c: CustomPracticeConfig | undefined | null
     c!.questions >= l.minQuestions && c!.questions <= l.maxQuestions && c!.seconds >= l.minSeconds && c!.seconds <= l.maxSeconds;
 }
 
+/**
+ * Custom Practice sizing (Phase 3). The question count stays user-adjustable, but the choices are derived from the
+ * pool the selected subjects actually provide, so a user can never pick a size the pool cannot fill, and the duration
+ * defaults to the generic exam pace (100 questions / 60 minutes = 0.6 min per question) instead of a free-form guess.
+ */
+export const CUSTOM_COUNT_PRESETS = [5, 10, 20, 30, 50, 100, 150, 200] as const;
+export const CUSTOM_MINUTE_PRESETS = [5, 10, 15, 20, 30, 45, 60, 90, 120] as const;
+const CUSTOM_DEFAULT_QUESTIONS = 30;
+
+/** Selectable question counts for a pool of `available` questions: presets that fit, plus "all of it" when it fits the limits. */
+export function customCountOptions(available: number): number[] {
+  const l = CUSTOM_PRACTICE_LIMITS;
+  const max = Math.min(Math.floor(available), l.maxQuestions);
+  if (!Number.isFinite(max) || max < l.minQuestions) return [];
+  const options = CUSTOM_COUNT_PRESETS.filter((n) => n <= max) as number[];
+  if (!options.includes(max)) options.push(max);
+  return options;
+}
+
+/** Default count: the largest option not above 30; falls back to the smallest option. Null when the pool is too small. */
+export function defaultCustomQuestions(available: number): number | null {
+  const options = customCountOptions(available);
+  if (options.length === 0) return null;
+  const fitting = options.filter((n) => n <= CUSTOM_DEFAULT_QUESTIONS);
+  return fitting.length ? fitting[fitting.length - 1] : options[0];
+}
+
+/** Keeps a previously chosen count valid after the pool changed (e.g. a subject was deselected). */
+export function clampCustomQuestions(chosen: number | null, available: number): number | null {
+  const options = customCountOptions(available);
+  if (options.length === 0) return null;
+  if (chosen !== null && options.includes(chosen)) return chosen;
+  const smaller = options.filter((n) => chosen !== null && n <= chosen);
+  return smaller.length ? smaller[smaller.length - 1] : defaultCustomQuestions(available);
+}
+
+/** Pace-based duration suggestion (0.6 min/question, rounded up to 5 minutes), within the Custom Practice limits. */
+export function suggestCustomMinutes(questions: number): number {
+  const l = CUSTOM_PRACTICE_LIMITS;
+  const minutes = Math.max(5, Math.ceil((questions * 0.6) / 5) * 5);
+  return Math.min(minutes, l.maxSeconds / 60);
+}
+
+/** Minute choices: the presets plus the pace suggestion for the current count, ascending. */
+export function customMinuteOptions(questions: number): number[] {
+  const l = CUSTOM_PRACTICE_LIMITS;
+  const all = new Set<number>([...CUSTOM_MINUTE_PRESETS, suggestCustomMinutes(questions)]);
+  return [...all].filter((m) => m * 60 >= l.minSeconds && m * 60 <= l.maxSeconds).sort((a, b) => a - b);
+}
+
 /** The subset of a stored paper rule that decides whether an exam format may be used. */
 export interface PaperRuleShape {
   status: "verified" | "illustrative" | "unconfigured";

@@ -9,12 +9,15 @@ import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { colors } from "@/theme";
 import { listHistory } from "@/repositories/sessions";
+import { useSubjectLabel } from "@/components/common/SubjectSelector";
+import { selectedSubjectsOf } from "@/services/subjectSelection";
 
 export default function HistoryScreen() {
   const t = useT();
   const num = useNum();
   const { lang } = useLang();
   const router = useRouter();
+  const subjectLabel = useSubjectLabel();
   const q = useQuery((db) => listHistory(db, 100));
   const fmt = (ms: number) => num(new Date(ms).toLocaleString(lang === "bn" ? "bn-BD" : "en-GB", { dateStyle: "medium", timeStyle: "short" }));
 
@@ -39,6 +42,7 @@ export default function HistoryScreen() {
                       {h.status === "abandoned" ? <Chip label={t("history.abandoned")} tone="gold" /> : null}
                     </View>
                     <Txt className="text-ink-500 text-xs mt-1">{fmt(h.startedAt)}</Txt>
+                    {selectedSubjectsOf(h.filter).length ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.subjects", { subjects: selectedSubjectsOf(h.filter).map(subjectLabel).join(", ") })}</Txt> : null}
                     <Txt className="text-ink-700 text-sm mt-1.5">{t("history.summary", { c: h.correct, i: h.incorrect, t: h.total })}</Txt>
                   </View>
                   {openable ? <Ionicons name="chevron-forward" size={19} color={colors.ink400} /> : null}

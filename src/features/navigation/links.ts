@@ -1,5 +1,6 @@
 import type { Href } from "expo-router";
 import type { PoolFilter, QuestionCategory } from "../../types/domain";
+import { formatSubjectsParam, isValidSubjectName, parseSubjectsParam } from "../../services/subjectSelection.ts";
 
 type Params = Record<string, string | number | undefined | null>;
 
@@ -15,6 +16,8 @@ export function href(path: string, params?: Params): Href {
 export function scopeParams(filter: PoolFilter): Params {
   const params: Params = { category: filter.category, institutionId: filter.institutionId, paperId: filter.paperId, subject: filter.subject };
   if (filter.institutionIds?.length) params.institutionIds = filter.institutionIds.join(",");
+  const subjects = formatSubjectsParam(filter.subjects);
+  if (subjects) params.subjects = subjects;
   return params;
 }
 
@@ -28,6 +31,11 @@ function parseIdList(value: string | undefined): string[] | undefined {
   return ids.length ? ids : undefined;
 }
 
+/** A single subject route param must look like a subject name; anything else is dropped instead of reaching SQL/UI. */
+function validSubject(value: string | undefined): string | undefined {
+  return isValidSubjectName(value) ? value : undefined;
+}
+
 const CATEGORIES: readonly string[] = ["varsity", "medical", "engineering"];
 
 /** Reads a scope from route params; unknown values are ignored instead of trusted. */
@@ -38,9 +46,11 @@ export function scopeFromParams(p: Record<string, string | string[] | undefined>
     category: category && CATEGORIES.includes(category) ? (category as QuestionCategory) : undefined,
     institutionId: one(p.institutionId),
     paperId: one(p.paperId),
-    subject: one(p.subject)
+    subject: validSubject(one(p.subject))
   };
   const institutionIds = parseIdList(one(p.institutionIds));
   if (institutionIds) scope.institutionIds = institutionIds;
+  const subjects = parseSubjectsParam(one(p.subjects));
+  if (subjects.length) scope.subjects = subjects;
   return scope;
 }

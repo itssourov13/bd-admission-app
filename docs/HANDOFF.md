@@ -134,3 +134,7 @@ Focused import tests cover the old/new section separation, import idempotency, p
 Roadmap work follows the brief in the owner's "Implementation Roadmap & Development Handoff": phases 1–10, no push, testing deferred to the owner. Status table and chronological log: docs/implementation/IMPLEMENTATION_LOG.md. **Phase 1 is Implemented — Pending Owner Verification** (docs/implementation/PHASE_01_LOADING_UI.md). Current branch: feat/import-hstu-verified-answers-2026-11-12. (Superseded: Phase 2 was implemented later the same day; see the Phase 2 note below.) Startup invariants to keep: native splash is held until SetupScreen's first layout (first run/failure/escalation) or Home's first layout (returning, with 4 s fallback); `waitForSetupScreen()` gate must always be released (SetupScreen layout, or directly in returning mode).
 
 Phase 2 (University identity, logos, filters) Implemented — Pending Owner Verification — see docs/implementation/PHASE_02_*.md. Next: Phase 3 (shared subject selection) extends the same scope-param pattern.
+
+## Roadmap handoff — Phase 3: Shared subject selection — 2026-11-13
+
+Phase 3 is implemented and committed locally (not pushed); see docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md for scope, decisions and deferred owner tests. Tests need nvm Node v24.21.0 (system node lacks TypeScript support). **Next: Phase 4 (configurable marking rules).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.

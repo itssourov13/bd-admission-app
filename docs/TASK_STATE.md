@@ -2,7 +2,16 @@
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Next implementation phase · Phases 4–10: Pending. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Not Started · Phase 5: Not Started · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 4. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 3 — Shared subject selection — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md.
+
+- Shared All / Single / Multiple subject selection implemented (subjectSelection.ts, SubjectSelector) and used by Flash, Custom Practice and generic Standard Exam; university paper section selection preserved.
+- Validated `subjects` and `subject` route params; combined counts via one grouped query (countPoolBySubject); Custom Practice count/duration options derived from the selected pool.
+- Selected subjects shown in history and result screens; 14 new translation keys.
+- ESLint purity error fixed. Checks run: tsc, targeted ESLint, 19 focused tests. Deferred to owner: device testing of selector, Flash/Custom flows, Bangla rendering, full suite.
 
 ## Roadmap Phase 2 — University identity, logos, filters — 2026-11-13
 

@@ -146,3 +146,8 @@ Returning startups stay behind the native splash but escalate to the existing Se
 Status: accepted, 2026-11-13.
 
 Parent universities are derived from institution codes at read time (`-U`/`-V` suffix stripped) rather than added to the schema, because content tables are importer/seed-owned. Practice scopes carry `PoolFilter.institutionIds` (optional, backward compatible with persisted session filters; validated when parsed from routes). Logos are raster-first via a static registry with a monogram fallback; the registry is empty until licensed artwork is supplied. Rejected: parent_code column, react-native-svg (native dep + rebuild) for logos.
+
+## ADR-027 — Subject selection stored on existing PoolFilter fields
+Status: accepted, 2026-11-13.
+
+Decision: a single subject keeps using `PoolFilter.subject`; two or more use `PoolFilter.subjects`; the selection module never sets both. Reason: session filters are persisted as JSON and the SQL layer already honours both fields, so existing stored sessions, routes and history keep working with no migration. Rejected: always using `subjects` (changes stored shape). Combined counts are the sum of per-subject counts because each question has exactly one subject.

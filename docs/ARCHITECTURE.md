@@ -103,3 +103,7 @@ This is intentionally separate from `data/question-packs/`: external validation 
 ### Roadmap Phase 2 architecture (2026-11-13)
 
 `src/features/catalog/universities.ts` (pure grouping/naming), `VarsityScreen` (filter bar, merged papers via `listPapersByInstitutions`), `UniversityLogo` + `universityLogos.ts` registry, `PoolFilter.institutionIds` handled in `filterClauses`/`resolveRuleForQuestions` and route parsing in `links.ts`.
+
+### Roadmap Phase 3 architecture (2026-11-13)
+
+Subject selection is a pure module (`src/services/subjectSelection.ts`) shared by Flash, Custom Practice and the generic Standard Exam. A single subject is stored on `PoolFilter.subject`, several on `PoolFilter.subjects`; the module never sets both. `countPoolBySubject` (repositories/content.ts) returns total and per-subject practice-pool counts in one grouped query, and the combined count of a selection is the sum of its subject counts. Route params `subject` and `subjects` are validated in `scopeParams`/`scopeFromParams`. The `SubjectSelector` UI component and `useSubjectLabel` hook live in `src/components/common`.

@@ -242,6 +242,30 @@ export async function countQuestionsBySubject(db: SqlDb, filter: PoolFilter): Pr
   return { total: Number(totalRow?.n ?? 0), bySubject };
 }
 
+/**
+ * Practice-pool size per subject for a scope in ONE grouped query (replaces one count query per subject).
+ * `includeUnverified` mirrors practiceQuestionIds (verified OR provisional candidates). `total` also counts
+ * questions without a subject. Any `subject`/`subjects` restriction on `filter` is ignored on purpose: the counts
+ * describe the scope the selection is made from.
+ */
+export async function countPoolBySubject(
+  db: SqlDb, filter: PoolFilter, includeUnverified = false
+): Promise<{ total: number; bySubject: Record<string, number> }> {
+  const c = filterClauses({ ...filter, subject: undefined, subjects: undefined });
+  const cond = includeUnverified ? `((${ELIGIBLE_SQL}) OR (${REVIEW_CANDIDATE_SQL}))` : `(${ELIGIBLE_SQL})`;
+  const rows = await db.getAllAsync<{ subject: string | null; n: number }>(
+    `SELECT q.subject AS subject, COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE ${cond}${c.where} GROUP BY q.subject`,
+    c.params
+  );
+  const bySubject: Record<string, number> = {};
+  let total = 0;
+  for (const r of rows) {
+    total += Number(r.n);
+    if (r.subject) bySubject[r.subject] = Number(r.n);
+  }
+  return { total, bySubject };
+}
+
 export async function listSubjects(db: SqlDb, filter: PoolFilter): Promise<string[]> {
   const c = filterClauses({ ...filter, subject: undefined });
   const rows = await db.getAllAsync<{ subject: string }>(

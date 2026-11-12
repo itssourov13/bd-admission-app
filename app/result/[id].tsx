@@ -15,12 +15,15 @@ import { getSession } from "@/repositories/sessions";
 import { loadExam, type ExamResult, type LoadedExam } from "@/services/practiceService";
 import type { FlashResult } from "@/services/flashController";
 import { formatClock } from "@/services/timer";
+import { useSubjectLabel } from "@/components/common/SubjectSelector";
+import { selectedSubjectsOf } from "@/services/subjectSelection";
 import type { ScoringRule } from "@/services/scoring";
 
 export default function ResultScreen() {
   const t = useT();
   const num = useNum();
   const router = useRouter();
+  const subjectLabel = useSubjectLabel();
   const id = String(useLocalSearchParams<{ id: string }>().id ?? "");
   const [review, setReview] = useState(false);
   const q = useQuery(async (db) => {
@@ -87,6 +90,7 @@ export default function ResultScreen() {
           <Txt className="text-ink-500 text-xs">{t("result.score")}</Txt>
           <Txt font="display" weight="bold" className="text-ink-900 text-4xl mt-1">{scoreLabel}</Txt>
           {reason ? <View className="mt-2"><Chip label={reason} /></View> : null}
+          {selectedSubjectsOf(session.filter).length ? <Txt className="text-ink-500 text-xs mt-2">{t("history.subjects", { subjects: selectedSubjectsOf(session.filter).map(subjectLabel).join(", ") })}</Txt> : null}
           <Txt className="text-ink-700 text-sm mt-3">{t("result.accuracy")}: {accuracyText}</Txt>
           {timeLine ? <Txt className="text-ink-500 text-xs mt-1">{t("result.time")}: {timeLine}</Txt> : null}
         </Card>
