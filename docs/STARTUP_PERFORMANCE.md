@@ -122,3 +122,7 @@ Build 040c75b2-0bbd-47b5-b859-cdb7f179f968 (v0.1.4 / Android versionCode 5) fini
 ## Owner-observed transition note — 2026-11-05
 
 During successful v0.1.4 physical-phone verification, the owner noticed a very brief, extremely subtle square-shaped flash as the loading/setup UI transitions to Home. It may be related to the immediate Home render or transition timing, but that cause is not confirmed. This is a cosmetic, non-blocking observation only. For a later grouped polish pass, inspect the loading-to-Home handoff and consider a slightly slower native-supported fade/transition; do not change code solely from this note. The separate Expo Doctor SDK patch-alignment advisory is tracked in docs/QA_CHECKLIST.md.
+
+## Loading UI polish — 2026-11-13
+
+UI-only changes; no startup coordination, DB or sync changes. Thresholds (`startupUiPolicy.ts`): escalate returning startup to the branded UI at 1500 ms, Home-ready fallback 4000 ms, first-run ready hold 520 ms (150 ms with Reduce Motion), spinner delay 150 ms. These are untuned heuristics; no device timings have been captured. Invariant: the native splash must always be hidden by SetupScreen's first layout, Home's first layout, or the Home-ready fallback.

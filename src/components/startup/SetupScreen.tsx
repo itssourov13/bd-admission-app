@@ -19,6 +19,7 @@ import { BRAND } from "@/brand";
 import { useLang, useT, type TranslationKey } from "@/i18n";
 import { colors, gradients, shadow } from "@/theme";
 import { percentOf, STARTUP_STAGES, stageIndex, type StartupProgress, type StartupStage } from "@/services/startupProgress";
+import { readyHoldMs } from "@/services/startupUiPolicy";
 
 const SHIMMER_WIDTH = 72;
 const CHECKMARK_STAGGER_MS = 65;
@@ -227,8 +228,6 @@ export interface SetupScreenProps {
   errorMessage?: string | null;
   /** Setup finished: hold briefly, fade out, then call onExited. */
   exiting: boolean;
-  /** Dwell on the completed state before fading (ms). Not progress: it only lets the user see "Ready". */
-  holdMs: number;
   onRetry: () => void;
   onExited: () => void;
   /** Fired once the first frame is laid out (used to hide the native splash without a blank flash). */
@@ -236,7 +235,7 @@ export interface SetupScreenProps {
 }
 
 /** Branded first-launch setup screen driven by real startup progress. Covers the app until setup completes. */
-export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
+export function SetupScreen({ progress, failed, errorMessage, exiting, onRetry, onExited, onShown }: SetupScreenProps) {
   const t = useT();
   const { lang } = useLang();
   const reduceMotion = useReduceMotion();
@@ -253,13 +252,14 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
 
   useEffect(() => {
     if (!exiting) return;
+    // Dwell on the completed state (not progress) so the last checkmark can finish; minimal under Reduce Motion.
     const timer = setTimeout(() => {
       Animated.timing(exit, { toValue: 0, duration: reduceMotion ? 0 : 320, easing: Easing.out(Easing.quad), useNativeDriver: true }).start(({ finished }) => {
         if (finished) onExited();
       });
-    }, holdMs);
+    }, readyHoldMs(reduceMotion));
     return () => clearTimeout(timer);
-  }, [exiting, holdMs, exit, onExited, reduceMotion]);
+  }, [exiting, exit, onExited, reduceMotion]);
 
   const handleLayout = useCallback(() => {
     if (shown.current) return;
@@ -288,21 +288,27 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
   };
 
   return (
-    <Animated.View onLayout={handleLayout} style={[StyleSheet.absoluteFill, { opacity: exit }]}>
-      <LinearGradient colors={gradients.signin} style={{ flex: 1 }}>
+    // The native splash is a flat `bgBody` fill. Starting from the same colour (and the brand mark already visible)
+    // keeps the splash -> setup swap free of a colour jump or an empty frame; the gradient then fades in over it.
+    <Animated.View onLayout={handleLayout} style={[StyleSheet.absoluteFill, { opacity: exit, backgroundColor: colors.bgBody }]}>
+      <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: enter }]}>
+        <LinearGradient colors={gradients.signin} style={{ flex: 1 }} />
+      </Animated.View>
+      <View style={{ flex: 1 }}>
         <SafeAreaView edges={["top", "bottom"]} style={{ flex: 1 }}>
           <ScrollView
             contentContainerStyle={{ flexGrow: 1, justifyContent: "center", paddingHorizontal: 24, paddingVertical: 24 }}
             showsVerticalScrollIndicator={false}
             bounces={false}
           >
-            <Animated.View style={{ width: "100%", maxWidth: 440, alignSelf: "center", opacity: enter, transform: [{ translateY: enterY }] }}>
+            <View style={{ width: "100%", maxWidth: 440, alignSelf: "center" }}>
               <View className="items-center">
                 <BrandMark size={logoSize} reduceMotion={reduceMotion} appActive={appActive} />
                 <Txt font="display" weight="bold" className="text-ink-900 text-[30px] leading-[38px] text-center mt-1">{BRAND.name}</Txt>
                 <Txt className="text-ink-500 text-sm leading-5 text-center mt-1">{BRAND.tagline[lang]}</Txt>
               </View>
 
+              <Animated.View style={{ opacity: enter, transform: [{ translateY: enterY }] }}>
               <View className="bg-surface border border-sand-200 mt-7 p-5" style={[shadow.md, { borderRadius: 24 }]}>
                 {failed ? (
                   <View accessibilityRole="alert">
@@ -354,10 +360,11 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
                   </View>
                 </FadeIn>
               ) : null}
-            </Animated.View>
+              </Animated.View>
+            </View>
           </ScrollView>
         </SafeAreaView>
-      </LinearGradient>
+      </View>
     </Animated.View>
   );
 }

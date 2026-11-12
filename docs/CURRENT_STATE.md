@@ -1,6 +1,10 @@
 # Current state
 
-Last updated: 2026-11-12 (HSTU verified-question import completed; bundled seed and data integrity checks passed).
+Last updated: 2026-11-13 (roadmap Phase 1 loading UI polish implemented; pending owner verification).
+
+## Roadmap status — 2026-11-13
+
+Roadmap detail: docs/implementation/IMPLEMENTATION_LOG.md. **Phase 1 (loading UI polish): Implemented — Pending Owner Verification.** Phases 2–10: Not Started. Phase 1 added: returning-launch escalation to the progress UI after 1.5 s, a 4 s Home-ready fallback, splash-matching setup first frame, shorter/Reduce-Motion-aware ready hold, and a 150 ms delayed `LoadingView` spinner. Lightweight checks only (policy test 5/5, targeted tsc/eslint); full suite, builds and device QA are deferred to the owner. See docs/implementation/PHASE_01_LOADING_UI.md.
 
 ## HSTU verified-question import — 2026-11-12
 

@@ -1,5 +1,15 @@
 # Task state
 
+## Roadmap Phase 1 — Loading UI polish — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Roadmap table: docs/implementation/IMPLEMENTATION_LOG.md; phase detail: docs/implementation/PHASE_01_LOADING_UI.md.
+
+- [x] Validated audit §5.1 against code; kept commit 15f7602 behaviour.
+- [x] Returning-launch escalation (1.5 s), Home-ready fallback (4 s), splash-matching setup first frame, ready hold 520/150 ms, delayed spinner (150 ms).
+- [x] Policy tests extended (5/5 pass); targeted tsc/eslint run.
+- [ ] Owner: device QA (first run, returning, content-update escalation, failure/retry, Reduce Motion, deep link, setup→Home recording), full test suite.
+- Next: Phase 2 — University identity, logos & filters (not started).
+
 ## HSTU verified-question promotion — 2026-11-12
 
 **Status:** Imported into the normal HSTU catalogue; bundled seed and data integrity checks passed. No runtime logic changes and no push.

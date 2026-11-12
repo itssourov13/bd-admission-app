@@ -29,15 +29,15 @@ import { colors } from "@/theme";
 import { startupMetrics } from "@/services/perf";
 import {
   canDismissSetupScreen,
+  HOME_READY_TIMEOUT_MS,
+  RETURNING_ESCALATION_MS,
+  shouldEscalateReturningStartup,
   shouldReleaseSetupGateWithoutScreen,
   shouldShowSetupScreen
 } from "@/services/startupUiPolicy";
 
 startupMetrics.mark("app.jsStart");
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
-
-/** Keep the completed first-run state visible long enough for its final stage/checkmark transition. */
-const READY_HOLD_FIRST_RUN_MS = 700;
 
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
@@ -51,7 +51,9 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const splashHidden = useRef(false);
   const resourcesReady = fontsReady && languageReady;
   const dbReady = state.status === "ready";
-  const showSetupScreen = shouldShowSetupScreen(progress.mode, state.status === "error", setupRequired) && !setupDismissed;
+  const failed = state.status === "error";
+  const showSetupScreen = shouldShowSetupScreen(progress.mode, failed, setupRequired) && !setupDismissed;
+  const resourcesReadyAt = useRef<number | null>(null);
   useEffect(() => {
     if (fontsReady) startupMetrics.mark("fonts.ready");
   }, [fontsReady]);
@@ -87,18 +89,36 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
     return () => clearTimeout(timer);
   }, [resourcesReady, showSetupScreen, hideSplash, markSetupScreenReady]);
 
+  // A returning launch is normally invisible behind the native splash. When it is not (a new release re-syncing
+  // content packs), hand over to the branded progress UI instead of leaving a silent, apparently frozen splash.
+  useEffect(() => {
+    if (!resourcesReady || setupRequired) return;
+    if (resourcesReadyAt.current === null) resourcesReadyAt.current = Date.now();
+    const remaining = Math.max(0, RETURNING_ESCALATION_MS - (Date.now() - resourcesReadyAt.current));
+    const timer = setTimeout(() => {
+      if (shouldEscalateReturningStartup(progress.mode, dbReady, failed, RETURNING_ESCALATION_MS)) setSetupRequired(true);
+    }, remaining);
+    return () => clearTimeout(timer);
+  }, [resourcesReady, setupRequired, progress.mode, dbReady, failed]);
+
   // Wait for Home on both paths: first-run uses it to dismiss the branded overlay,
   // while returning launches use it as the native-splash hide boundary.
+  // The timeout is a fallback only: Home may not be the initial route, or its first query may stall.
   useEffect(() => {
     if (!resourcesReady || !dbReady) return;
     let active = true;
-    void waitForHomeScreenReady().then(() => {
+    const release = () => {
       if (!active) return;
       setHomeReady(true);
-      if (progress.mode === "returning") hideSplash();
+      hideSplash();
+    };
+    const timer = setTimeout(release, HOME_READY_TIMEOUT_MS);
+    void waitForHomeScreenReady().then(() => {
+      clearTimeout(timer);
+      release();
     });
-    return () => { active = false; };
-  }, [resourcesReady, dbReady, progress.mode, waitForHomeScreenReady, hideSplash]);
+    return () => { active = false; clearTimeout(timer); };
+  }, [resourcesReady, dbReady, waitForHomeScreenReady, hideSplash]);
 
   if (!resourcesReady) return <View className="flex-1 bg-body" />;
 
@@ -113,10 +133,9 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
       {showSetupScreen ? (
         <SetupScreen
           progress={progress}
-          failed={state.status === "error"}
+          failed={failed}
           errorMessage={state.status === "error" ? state.error.message : null}
           exiting={canDismissSetupScreen(dbReady, homeReady)}
-          holdMs={READY_HOLD_FIRST_RUN_MS}
           onRetry={handleRetry}
           onExited={dismissSetup}
           onShown={handleSetupShown}

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 1: loading UI polish (implemented, pending owner verification)
+
+- Slow returning launches (still syncing after 1.5 s, e.g. a content-update release) now escalate to the existing branded progress UI instead of a silent native splash.
+- Added a 4 s fallback to the Home-ready gate so the splash/overlay cannot hang when Home is not the initial route or its query stalls.
+- SetupScreen first frame now matches the native splash (flat body colour; gradient fades in; brand mark visible immediately). First-run completion hold reduced 700 → 520 ms; 150 ms under Reduce Motion.
+- `LoadingView` shows its spinner only after 150 ms to remove spinner flashes on fast local loads.
+- Policy constants/functions in `startupUiPolicy.ts` (+2 tests). No DB, dependency, config or version change. Not device-tested.
+
+
 ## 2026-11-12 — Import Claude-verified HSTU questions
 
 - Imported the 664 HSTU question IDs in the accepted Claude verification ledger into the normal HSTU catalogue. Promoted 657 appearances from HSTU-U to 15 HSTU paper records and updated the 7 already attached to HSTU.

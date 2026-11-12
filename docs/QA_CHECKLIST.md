@@ -336,3 +336,13 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 | EAS preview APK build | [x] Completed and published | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; APK is attached to GitHub pre-release `v0.1.0-preview.1`. |
 | Android installation/device QA | [x] Owner-reported pass | APK installed and checked on a physical Android device; see owner-reported scope above. |
 | Production AAB / Play Store | [ ] Not run | Production AAB, Play Console listing and rollout remain outstanding; see docs/ANDROID_RELEASE.md. |
+
+## Phase 1 loading UI — owner verification (2026-11-13)
+
+- [ ] Fresh install: splash → setup shows no colour jump or empty frame; progress completes; ≈0.5 s hold; fade to Home without a spinner.
+- [ ] Returning launch: splash → Home directly; no setup card; no spinner flash.
+- [ ] Returning launch after a content-bundle update: setup progress UI appears if sync exceeds ~1.5 s.
+- [ ] Launch via a deep link to a non-Home route: splash/overlay is released within ~4 s.
+- [ ] Reduce Motion on: immediate checkmarks, ≈0.15 s hold, no loops.
+- [ ] Tab switches (Varsity/Medical/Profile): no spinner flash on warm DB.
+- [ ] DB failure/retry UI still shows.

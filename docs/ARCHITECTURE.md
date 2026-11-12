@@ -39,6 +39,8 @@ The network is not part of this path. The root layout waits for fonts and the pe
 
 ### Startup and first-launch setup
 
+**Startup UI timing policy (2026-11-13):** startupUiPolicy.ts also owns the escalation (1.5 s), Home-ready fallback (4 s), ready-hold (520/150 ms) and spinner-delay (150 ms) constants; `_layout.tsx` applies them. SetupScreen renders a flat splash-matching base with the gradient fading in.
+
 **Startup UI policy (2026-11-11):** src/services/startupUiPolicy.ts contains pure visibility/readiness rules. app/_layout.tsx shows the existing branded setup screen only for first-run or a failure/retry path. Returning users retain the native splash until Home's first content view is ready. src/db/provider.tsx provides the Home-ready promise without coupling progress updates to database consumers. app/(tabs)/index.tsx reports readiness from the non-loading content/error view's layout. The five completed icons use a 65 ms stagger and 180 ms native-driver opacity/scale animation; Reduce Motion makes them immediate. No new dependency or data/schema change is needed.
 
 `src/db/provider.tsx` owns database state and a separate progress context so progress updates do not re-render ordinary database consumers. `src/services/startup.ts` runs the ordered startup sequence: open SQLite and enable WAL, migrate, ensure the profile, close stale Flash sessions, finalize an overdue exam, detect previous content, then synchronize the library. The coordinator serializes attempts, observes AppState and permits bounded recovery after a failure that occurred while backgrounded.

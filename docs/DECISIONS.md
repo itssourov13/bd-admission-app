@@ -136,3 +136,8 @@ For the next internal preview, bump the user-facing app version from `0.1.0` to 
 Status: accepted, 2026-11-12.
 
 The initial JU/HSTU candidate-bank separation recorded in ADR-018 described the original import checkpoint, not an immutable prohibition on future promotion. After explicit user authorization, Claude's accepted HSTU verification ledger is the source of truth for 664 unique question IDs. Promote all 664 into the existing HSTU catalogue and set the existing answer/content status fields to verified; move 657 HSTU-U appearances to 15 HSTU papers and update the 7 IDs already attached to HSTU. Preserve stable batch/question IDs, question text, option text/order and source provenance. Leave the 116 baseline pending questions untouched. Do not change JU/RU/DU data, exam rules or runtime logic as part of this data-only import.
+
+## ADR-024 — Startup UI thresholds live in a pure policy module; escalate instead of adding screens
+Status: accepted, 2026-11-13.
+
+Returning startups stay behind the native splash but escalate to the existing SetupScreen after `RETURNING_ESCALATION_MS` (1500 ms) when still syncing, because Android's splash cannot fade (`setOptions({fade})` is iOS-only) and a long silent splash looks frozen. The Home-ready gate has a `HOME_READY_TIMEOUT_MS` (4000 ms) fallback because Home is not guaranteed to be the first route. SetupScreen's first frame matches the flat splash colour with the brand mark visible, and the gradient/card fade in over it. Spinners are delayed by `LOADING_INDICATOR_DELAY_MS` (150 ms). Rejected: Reanimated animated splash, in-Home skeleton progress (revisit in Phase 9), splash asset changes (Phase 6, requires native rebuild).

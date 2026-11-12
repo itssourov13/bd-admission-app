@@ -2,6 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   canDismissSetupScreen,
+  FIRST_RUN_READY_HOLD_MS,
+  HOME_READY_TIMEOUT_MS,
+  readyHoldMs,
+  REDUCED_MOTION_READY_HOLD_MS,
+  RETURNING_ESCALATION_MS,
+  shouldEscalateReturningStartup,
   shouldReleaseSetupGateWithoutScreen,
   shouldShowSetupScreen
 } from "../src/services/startupUiPolicy.ts";
@@ -26,4 +32,20 @@ test("setup overlay waits for both database and initial Home readiness", () => {
   assert.equal(canDismissSetupScreen(true, false), false, "database ready alone is insufficient");
   assert.equal(canDismissSetupScreen(false, true), false, "Home layout alone is insufficient");
   assert.equal(canDismissSetupScreen(true, true), true);
+});
+
+test("slow returning startup escalates to the branded progress UI", () => {
+  assert.equal(shouldEscalateReturningStartup("returning", false, false, RETURNING_ESCALATION_MS - 1), false);
+  assert.equal(shouldEscalateReturningStartup("returning", false, false, RETURNING_ESCALATION_MS), true);
+  assert.equal(shouldEscalateReturningStartup("returning", true, false, 10_000), false, "ready database never escalates");
+  assert.equal(shouldEscalateReturningStartup("returning", false, true, 10_000), false, "failures already show the retry UI");
+  assert.equal(shouldEscalateReturningStartup("firstRun", false, false, 10_000), false, "first run already shows setup");
+  assert.equal(shouldEscalateReturningStartup("unknown", false, false, 10_000), false, "unclassified startup stays behind splash");
+});
+
+test("ready hold is shortened under Reduce Motion and Home timeout outlasts escalation", () => {
+  assert.equal(readyHoldMs(false), FIRST_RUN_READY_HOLD_MS);
+  assert.equal(readyHoldMs(true), REDUCED_MOTION_READY_HOLD_MS);
+  assert.ok(REDUCED_MOTION_READY_HOLD_MS < FIRST_RUN_READY_HOLD_MS);
+  assert.ok(HOME_READY_TIMEOUT_MS > RETURNING_ESCALATION_MS);
 });
