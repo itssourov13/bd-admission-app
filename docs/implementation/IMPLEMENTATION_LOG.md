@@ -95,3 +95,12 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 5. SQLite seed: schema v8, quick_check=ok, foreign_key_check=0; 217 pack checkpoints, 13,609 questions and 54,436 options.
 6. pnpm exec expo export --platform android --no-bytecode passes: 2,008 modules, 3.9 MB JS, 124 assets including the regenerated seed.
 7. No app version/versionCode bump, EAS cloud build, or physical-device QA performed. Current local release remains 0.1.4 / code 5; next preview target is 0.1.5 / code 6.
+
+
+## 2026-11-13 — EAS preview build submission
+
+1. Prepared release metadata v0.1.5 / Android versionCode 6; validated resolved Expo config retains package com.admissionbd.app and EAS project 16ba69b8-96d7-4856-a197-77acddebe1ec.
+2. Committed release metadata as 7798ef1; source tree was clean before submission.
+3. Default VCS archive failed at local temporary shallow-clone cleanup with EPERM before an EAS build record existed. Retried with EAS_NO_VCS=1 and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the archive.
+4. Submitted internal Android APK preview build 41bd1c7e-9376-41a7-abb0-860ab8031273; status checked once as IN_PROGRESS. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
+5. No long monitoring, EAS completion claim, APK artifact claim, Git push or device QA was performed.

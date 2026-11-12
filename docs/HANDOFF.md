@@ -192,3 +192,15 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - Build profile: preview (internal distribution, APK). Preserve application ID com.admissionbd.app, Expo/EAS project ID and EAS-managed signing identity.
 - Full source/test gates before this version-only change: 211/211 tests, typecheck, lint, content:check, SQLite integrity, Expo public config and Android no-bytecode export all passed.
 - EAS submission result: pending.
+
+
+## EAS preview v0.1.5 submitted — 2026-11-13
+
+- EAS build ID: 41bd1c7e-9376-41a7-abb0-860ab8031273
+- Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273
+- Status checked once after submission: IN_PROGRESS.
+- Target: Android, preview profile, INTERNAL distribution, APK; app version 0.1.5, versionCode 6, application ID com.admissionbd.app.
+- Resolved project ID is unchanged: 16ba69b8-96d7-4856-a197-77acddebe1ec. EAS reused the configured remote Android keystore.
+- The default VCS archive path failed before build creation while cleaning a temporary shallow Git clone (EPERM unlink in .git/objects/pack). Retry used the documented EAS_NO_VCS=1 project-directory archive path and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the source upload and created the build.
+- Release metadata commit: 7798ef1. Build source was submitted from the clean local working tree. This task did not push the new version commit to GitHub.
+- Do not start a duplicate build. Wait for this build's result, then inspect the APK and perform update installation/device QA. No APK URL is available yet.

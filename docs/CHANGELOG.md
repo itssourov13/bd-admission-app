@@ -3,7 +3,7 @@
 - Set package/brand/app version to 0.1.5 and Android versionCode to 6.
 - Preserved application ID, Expo slug, EAS project ID, Node build profile and EAS-managed signing setup.
 - Full automated suite and CI-equivalent Android bundle gates passed immediately before the version bump; see docs/QA_CHECKLIST.md.
-- EAS preview submission status is tracked in docs/HANDOFF.md.
+- Submitted EAS internal Android APK build 41bd1c7e-9376-41a7-abb0-860ab8031273; initial status IN_PROGRESS. See https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
 
 ## 2026-11-13 — Full pre-build verification
 

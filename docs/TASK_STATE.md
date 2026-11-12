@@ -1,3 +1,13 @@
+## Android preview build v0.1.5 — 2026-11-13
+
+**Status:** EAS build submitted; current status IN_PROGRESS. Build ID: 41bd1c7e-9376-41a7-abb0-860ab8031273. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
+
+- [x] Version metadata: package/brand/Expo version 0.1.5, Android versionCode 6.
+- [x] Preview profile resolved as internal APK; existing application ID, EAS project ID and remote Android keystore preserved.
+- [x] EAS accepted the source archive and created the build record.
+- [ ] Cloud build completion, APK artifact integrity and physical-device update verification remain pending.
+- The first default VCS archive attempt failed during local shallow-clone cleanup (EPERM). Retried using EAS_NO_VCS=1 (project copy without Git) and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the upload. Source commit: 7798ef1 (local branch commit; no push was performed by this task).
+
 ## Full pre-build validation — 2026-11-13
 
 Status: All local automated / bundle gates pass after regenerating the stale local SQLite seed. No release version bump or EAS build has been made.
