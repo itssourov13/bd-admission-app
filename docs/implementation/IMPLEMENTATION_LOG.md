@@ -84,3 +84,14 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 ## 2026-11-13 — Phases 9–10 (optional)
 1. Phase 9: partially implemented locally (types, service, repository, 4 tests). Checks: tsc exit 0; node --test contentManager + library + brandAssets 25/25 pass. No remote source, UI, downloader or signature verification.
 2. Phase 10: deferred; contract documented in PHASE_10_BACKEND_CMS.md. No backend created or assumed; ScholarHub infrastructure not used.
+
+
+## 2026-11-13 — Full pre-build verification
+
+1. Used Node 22.23.1 from .nvmrc and pnpm 11.10.0.
+2. pnpm test: 211/211 pass; zero failures, cancellations, skips or todos.
+3. pnpm typecheck, pnpm lint, and pnpm exec expo config --type public pass.
+4. Initial pnpm content:check correctly caught the ignored local seed still at schema v5 while the app was at schema v8. Rebuilt via pnpm content:build from canonical JSON packs; no source question-pack JSON was changed. Subsequent content check passes.
+5. SQLite seed: schema v8, quick_check=ok, foreign_key_check=0; 217 pack checkpoints, 13,609 questions and 54,436 options.
+6. pnpm exec expo export --platform android --no-bytecode passes: 2,008 modules, 3.9 MB JS, 124 assets including the regenerated seed.
+7. No app version/versionCode bump, EAS cloud build, or physical-device QA performed. Current local release remains 0.1.4 / code 5; next preview target is 0.1.5 / code 6.

@@ -1,3 +1,9 @@
+## 2026-11-13 — Full pre-build verification
+
+- Full suite passed: 211/211; TypeScript, full lint, Expo public config and Android no-bytecode Metro export passed.
+- Rebuilt the ignored local SQLite seed from the canonical question packs after detecting it was still schema v5; it now matches app schema v8. content:check, SQLite quick check and foreign-key check pass. No source question-pack JSON was modified.
+- No app version, Android versionCode, runtime source or EAS build was changed/created.
+
 # Changelog
 
 ## 2026-11-13 — Optional Phases 9–10 (partial / deferred)

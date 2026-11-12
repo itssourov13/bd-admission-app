@@ -175,3 +175,11 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - Optional Phase 9 is partial local-only contract/service work. It has no concrete SHA-256 provider, remote source, downloader, or UI. Optional Phase 10 is documentation only; no backend/CMS was created or deployed.
 - Follow-up check: pnpm exec expo export --platform android --no-bytecode passed on Node 24.19.0 and emitted a 3.9 MB Android JS bundle, validating Metro/SVG transformer compilation. The separate default bytecode export failed in the host Hermes compiler with SIGILL; this is not evidence of an SVG transform defect.
 - Still owner-pending: rebuild the dev client for react-native-svg, inspect actual university logo rendering on Android (light/dark), supply content packs and authentic publisher logo files, confirm Bangla publisher names, and perform the planned app/device QA.
+
+
+## Full pre-build verification handoff — 2026-11-13
+
+- Current branch: feat/import-hstu-verified-answers-2026-11-12. Full pnpm test on Node 22.23.1: 211/211 pass, 0 failures/skips/cancellations/todos. pnpm typecheck, pnpm lint, pnpm exec expo config --type public, pnpm content:check, and Android no-bytecode Metro export also pass.
+- A pre-existing ignored assets/content/content_seed.db was schema v5 while LATEST_VERSION is v8. Rebuilt it using pnpm content:build from canonical JSON packs; content check and SQLite integrity now pass. Counts: 217 pack checkpoints, 13,609 questions, 54,436 options; no source question-pack JSON changed. Seed is gitignored and EAS pre-install regenerates it.
+- Android no-bytecode export bundled 2,008 modules, 3.9 MB JS and 124 assets including the 24 MB SQLite seed. A prior ordinary local Hermes bytecode export hit host SIGILL; cloud native build remains the definitive build check.
+- No code/version changes or EAS build in this task. Current metadata: v0.1.4 / versionCode 5. Next internal preview candidate should be v0.1.5 / versionCode 6. Keep package ID, EAS project ID and signing identity unchanged. Run eas build --platform android --profile preview only after the version change is reviewed; install over the existing app for update/migration QA.

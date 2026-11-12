@@ -1,3 +1,15 @@
+## Full pre-build validation — 2026-11-13
+
+Status: All local automated / bundle gates pass after regenerating the stale local SQLite seed. No release version bump or EAS build has been made.
+
+- [x] pnpm test: 211/211; zero failures, cancellations, skips or todos.
+- [x] pnpm typecheck and pnpm lint.
+- [x] Rebuilt the gitignored seed from canonical JSON packs because the previous local asset was schema v5; current seed is schema v8.
+- [x] pnpm content:check: 217 packs / 13,609 questions; SQLite quick check OK, zero foreign-key issues, 54,436 options.
+- [x] Expo public config and Android no-bytecode Metro export (2,008 modules; 3.9 MB JS; 124 assets including SQLite seed).
+- [ ] Native EAS preview APK and physical-device update QA — next release step.
+- Current release metadata remains version 0.1.4 / Android versionCode 5. Next preview candidate: version 0.1.5 / versionCode 6. Preserve application ID, EAS project and signing identity.
+
 # Task state
 
 ## Optional Phases 9–10 — 2026-11-13

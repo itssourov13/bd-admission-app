@@ -1,3 +1,23 @@
+## Full pre-build validation after Phase 8 — 2026-11-13
+
+Environment: Node 22.23.1 (.nvmrc), pnpm 11.10.0, branch feat/import-hstu-verified-answers-2026-11-12.
+
+| Check | Result | Notes |
+|---|---|---|
+| Full repository test suite | [x] Pass | pnpm test: 211 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo. Includes the 217-pack import/idempotency tests and Phase 8 library / Phase 9 local contract tests. |
+| TypeScript | [x] Pass | pnpm typecheck (tsc --noEmit). |
+| Full-project lint | [x] Pass | pnpm lint (expo lint). |
+| Generated SQLite seed | [x] Rebuilt | Initial pnpm content:check found the ignored local seed at schema v5 while the current app migration is v8. pnpm content:build rebuilt it from canonical data/question-packs/*.json; no question-pack source JSON was edited. |
+| Content consistency / SQLite integrity | [x] Pass | pnpm content:check: 217 packs / 13,609 questions, seed 22.68 MiB. Direct SQLite check: user_version=8, quick_check=ok, 0 foreign-key issues; 217 seed packs, 13,609 questions and 54,436 options. |
+| Expo public config | [x] Pass | pnpm exec expo config --type public. |
+| Android Metro export | [x] Pass | pnpm exec expo export --platform android --no-bytecode: 2,008 modules, 3.9 MB Android JS bundle, 124 assets including the regenerated 24 MB SQLite seed. This is a bundle/export gate, not a native APK or device test. |
+| Git / whitespace | [x] Pass | git diff --check; generated seed and dist/ are ignored outputs. |
+| Native EAS APK / physical device | [ ] Pending | No version bump, EAS build or new APK installation was performed in this validation task. |
+
+Non-blocking host note: a separate local export with Hermes bytecode generation (without --no-bytecode) previously terminated inside the host hermesc with SIGILL; no SVG transform error was reported. The CI-equivalent no-bytecode Metro export above passes. A cloud EAS build and physical-device verification are still required to validate the native artifact.
+
+Current release metadata remains unchanged: app version 0.1.4, Android versionCode 5. Next internal preview candidate should use a new version and code; do not reuse code 5.
+
 ## HSTU verified-question import — 2026-11-12
 
 | Check | Result | Notes |

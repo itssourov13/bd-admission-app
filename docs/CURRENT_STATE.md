@@ -1,6 +1,12 @@
 # Current state
 
-Last updated: 2026-11-13 (roadmap Phase 8 implemented — pending owner verification; Phases 9–10 optional).
+Last updated: 2026-11-13 (Phases 1–8 implemented pending owner verification; optional Phases 9–10; full pre-build automated gates pass).
+
+## Latest pre-build gate — 2026-11-13
+
+Full automated suite: 211/211 pass. TypeScript, lint, content check, Expo public config and Android no-bytecode Metro export pass. The ignored local SQLite seed was regenerated from canonical packs to schema v8 (217 packs / 13,609 questions / 54,436 options); quick_check is OK and foreign_key_check is empty. See docs/QA_CHECKLIST.md and docs/ANDROID_RELEASE.md for exact checks.
+
+Release metadata remains v0.1.4 / Android versionCode 5. No EAS build was started. Next preview candidate: v0.1.5 / versionCode 6; physical-device verification remains pending.
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
