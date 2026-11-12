@@ -1,3 +1,20 @@
+## HSTU verified-question import — 2026-11-12
+
+| Check | Result | Notes |
+|---|---|---|
+| Accepted ledger reconciliation | [x] Pass | 664 unique HSTU verified IDs; 116 baseline pending IDs remain outside the import. |
+| Question/options and answer mapping | [x] Pass | All 664 stems and option ID/text maps match the accepted ledger; all 664 correct-option mappings match exactly. |
+| Verified catalogue placement | [x] Pass | 657 IDs moved from HSTU-U appearances to 15 new HSTU papers; 7 existing HSTU IDs updated. All 664 active appearances resolve under HSTU. |
+| Verification statuses | [x] Pass | Both existing status fields are verified for all 664 imported IDs. Normal HSTU contains 939 fully verified single-choice questions. |
+| Pending preservation | [x] Pass | All 116 baseline pending question objects are unchanged; HSTU-U retains 105 pending questions. Three off-baseline pending-ledger records were not touched. |
+| Backup and staged pack copy | [x] Pass | All 18 changed packs have pre-import backups; staged and active app pack SHA-256 hashes match. |
+| Content build and check | [x] Pass | Node 22.23.1: content build and content check; 217 packs / 13,609 questions. |
+| Full repository tests | [x] Pass | 142/142 passed. |
+| TypeScript / ESLint / content check | [x] Pass | All passed. |
+| SQLite integrity | [x] Pass | quick_check = ok; foreign_key_check returned zero issues. |
+| Other institutions / runtime logic | [x] Unchanged | No JU/RU/DU pack or app-runtime logic changed; exam rules were not changed. |
+| Physical-device update | [ ] Not run | No new APK was built or installed as part of this data import. |
+
 ## v0.1.4 Android first-launch seed fix — 2026-11-05
 
 | Check | Result | Notes |

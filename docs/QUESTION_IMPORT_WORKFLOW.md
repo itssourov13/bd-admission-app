@@ -8,8 +8,34 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 
 # Question import workflow
 
-## Current status
-Validator and transactional idempotent importer are implemented. Current catalogue: **217 schema-v1 JSON packs / 13,609 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 verified JU (1,526), 7 verified HSTU (293), 84 JU-U candidates (5,011) and 15 HSTU-U candidates (762). The build pipeline compiles these canonical JSON packs into a generated SQLite seed plus a small manifest; startup synchronizes changed packs from that seed. See docs/STARTUP_PERFORMANCE.md. The newest candidate-bank import is recorded first below.
+## HSTU verified-question import — 2026-11-12
+
+### Source of truth and scope
+
+- Source of truth: /home/kali/gpt-workspace/bd-admission-app-data/answer-verification-2026-11-12/verified/verified-answer-ledger.jsonl (SHA-256: 46725d59532e431e3abde6ba05901baaba0b26aa7fcfeff056379d0444b358fd).
+- Imported all **664** unique HSTU question IDs in the accepted Claude ledger. The user explicitly designated Claude's completed verification result as authoritative; this import did not add a separate content-review gate.
+- **657** appearances moved from HSTU-U to 15 new papers under the existing HSTU institution. **7** IDs already attached to HSTU received the accepted answer mappings/status update.
+- Applied every accepted correct-option mapping and set both existing question status fields to verified. One accepted single-answer correction was normalized from multiple-choice to single-choice because the accepted answer set contains one option.
+- Stable question and batch IDs were retained. Question stems, option IDs/text/order and source metadata were matched to the accepted ledger and preserved. No new verification category or runtime logic was introduced.
+
+### Pending boundary and resulting catalogue
+
+- All **116 baseline pending questions** remain unchanged. HSTU-U retains **105 pending questions** across its 15 papers (102 answer-unverified, 3 answer-unknown; content-unverified).
+- The 3 off-baseline pending-ledger records were not modified. They are outside the 780-question baseline and are not included in the 116 baseline pending count.
+- Normal HSTU now contains **22 papers / 950 questions**. **939** have both status fields verified and are eligible single-choice records in the existing verified practice pool. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- All 15 added HSTU paper rules remain unconfigured. No exam count, duration, selection or marking rule was added or inferred. JU, RU and DU content was not changed.
+
+### Backup and verification
+
+- Pre-import copies of all 18 changed HSTU pack files are at /home/kali/gpt-workspace/bd-admission-app-data/answer-verification-2026-11-12/staging/pre-hstu-verified-import-2026-11-12/data-question-packs/.
+- The import summary and per-question reconciliation CSV are at /home/kali/gpt-workspace/bd-admission-app-data/answer-verification-2026-11-12/import-ready/HSTU_VERIFIED_2026-11-12/.
+- Node 22.23.1: content build passed and rebuilt **217 packs / 13,609 questions**; content check passed.
+- Full repository test suite: **142/142 passed**. TypeScript typecheck, ESLint and content check all passed. SQLite quick_check returned ok; foreign-key check returned zero issues.
+- All 664 ledger IDs exist in the seed with verified answer/content status and exact accepted correct-option IDs; all 664 have active appearances under HSTU. No pending question object changed relative to its pre-import backup. Staged pack files and active app pack files have matching SHA-256 hashes.
+- A new APK was not built or installed for this content change. A new app build is required for the updated bundled seed to reach an installed device.
+
+## Initial catalogue status (HSTU figures superseded by the 2026-11-12 import below)
+Validator and transactional idempotent importer are implemented. At the initial 2026-11-01 candidate-bank import checkpoint, the catalogue: **217 schema-v1 JSON packs / 13,609 questions** — 2 DU (180), 44 RU C candidates (4,009), 15 RU-V (1,828), 50 verified JU (1,526), 7 verified HSTU (293), 84 JU-U candidates (5,011) and 15 HSTU-U candidates (762). The build pipeline compiles these canonical JSON packs into a generated SQLite seed plus a small manifest; startup synchronizes changed packs from that seed. See docs/STARTUP_PERFORMANCE.md. The newest candidate-bank import is recorded first below.
 
 
 ## JU + HSTU unverified candidate-bank import — 2026-11-01

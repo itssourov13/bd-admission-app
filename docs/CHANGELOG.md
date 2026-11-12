@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-12 — Import Claude-verified HSTU questions
+
+- Imported the 664 HSTU question IDs in the accepted Claude verification ledger into the normal HSTU catalogue. Promoted 657 appearances from HSTU-U to 15 HSTU paper records and updated the 7 already attached to HSTU.
+- Applied the accepted correct-option mappings and set both existing question status fields to verified. Preserved stable question IDs, stems, option text/order and source references.
+- Left all 116 baseline pending questions unchanged; HSTU-U retains 105 pending questions. Three off-baseline pending-ledger records were also left untouched.
+- Rebuilt the 217-pack / 13,609-question SQLite seed. Full tests passed 142/142; typecheck, lint, content check, SQLite quick check and foreign-key checks passed. No application logic, other universities or exam rules changed.
+
 ## 2026-11-11 — Refine first-run startup UI and Home handoff
 
 - Restrict the full branded five-stage setup screen to first-run library setup and startup failure/retry. Returning cold launches resolve the setup-layout gate directly and keep the native splash visible through SQLite/content reconciliation.

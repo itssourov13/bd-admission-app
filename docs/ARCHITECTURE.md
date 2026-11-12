@@ -24,6 +24,10 @@ The existing schema-v1 pack contract and transactional importer were reused with
 The later unverified archive is imported into two additional institution identities: `ju-unverified-bank` / `JU-U` and `hstu-unverified-bank` / `HSTU-U`. These are deliberately separate from the earlier verified-source institutions `ju` / `JU` and `hstu` / `HSTU`. The 99 added packs hold 5,011 JU and 762 HSTU candidate questions; every record remains content-unverified, with individual answer states preserved as `unverified` or `unknown`. The existing repository queries surface 4,780 JU-U and 722 HSTU-U candidates through the same provisional filter already used by RU. Forty-two repeated-option records and 19 multiple-choice items remain browseable but are not part of provisional single-choice scoring. All 99 paper rules remain unconfigured. No runtime practice implementation change was necessary. The separate 3-pack/287-question GST_CLUSTER collection was intentionally excluded for a later import.
 
 ## Runtime flow
+## HSTU accepted-ledger promotion (2026-11-12)
+
+The original JU/HSTU candidate-bank separation remains the import history, but HSTU status was later updated under explicit user authorization. Claude's accepted ledger was treated as authoritative for 664 HSTU question IDs. 657 question appearances moved from HSTU-U papers into 15 new papers under the existing HSTU institution; 7 IDs already attached to HSTU received the accepted answer mapping/status update. Stable batch/question IDs were retained, so the existing seed/import path updates question rows and active paper appearances without altering user-owned question references. Both existing question status fields are verified for these 664 IDs. The 116 baseline pending questions remain unchanged, with 105 pending questions retained under HSTU-U. No runtime query/eligibility logic or exam rules changed.
+
 
     Expo Router screens (app/)
         -> hooks (useQuery, useNow) and common components

@@ -1,5 +1,19 @@
 # Task state
 
+## HSTU verified-question promotion — 2026-11-12
+
+**Status:** Imported into the normal HSTU catalogue; bundled seed and data integrity checks passed. No runtime logic changes and no push.
+
+- [x] Used Claude's accepted HSTU verification ledger as the source of truth: 664 unique verified question IDs.
+- [x] Promoted 657 questions from HSTU-U appearances into 15 papers under the existing HSTU institution; updated the 7 already attached to HSTU.
+- [x] Applied all accepted answer mappings and set both existing question status fields to verified. One accepted single-answer correction was normalized to single-choice.
+- [x] Preserved question IDs, stems, option IDs/text/order and source provenance. Left all 116 baseline pending questions unchanged; 3 off-baseline pending-ledger records were also untouched.
+- [x] Backed up all 18 changed HSTU pack files before replacement.
+- [x] Rebuilt the 217-pack / 13,609-question SQLite seed. Full test suite passed 142/142; typecheck, lint and content check passed.
+- [x] SQLite quick_check passed; foreign-key check returned zero issues. All 664 ledger IDs and correct-option mappings reconcile; no pending question object changed.
+- [x] Updated import, state, handoff, architecture, decision, QA and changelog documentation.
+- [ ] Build/install a new APK and complete physical-device QA for this content update; not included in this import task.
+
 ## Startup UI targeted implementation — 2026-11-11
 
 **Status:** Targeted code changes implemented and locally verified. No data/schema/dependency/app identity changes. Physical release-device visual QA remains pending.

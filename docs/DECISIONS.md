@@ -131,3 +131,8 @@ Render a branded Bangla/English setup screen while SQLite initialization and the
 Status: accepted, 2026-11-01.
 
 For the next internal preview, bump the user-facing app version from `0.1.0` to `0.1.1` and Android `versionCode` from `1` to `2`, while retaining package ID `com.admissionbd.app`, the linked EAS project and the existing EAS-managed signing keystore. The Android version code must increase for an upgrade install; the package/signing identity must remain stable so an existing install can be updated without uninstalling and deleting local app data. Preview delivery remains internal through the EAS build page; do not publish a GitHub or Play Store release implicitly.
+
+## ADR-023 — Promote accepted HSTU verification-ledger IDs into the normal HSTU catalogue
+Status: accepted, 2026-11-12.
+
+The initial JU/HSTU candidate-bank separation recorded in ADR-018 described the original import checkpoint, not an immutable prohibition on future promotion. After explicit user authorization, Claude's accepted HSTU verification ledger is the source of truth for 664 unique question IDs. Promote all 664 into the existing HSTU catalogue and set the existing answer/content status fields to verified; move 657 HSTU-U appearances to 15 HSTU papers and update the 7 IDs already attached to HSTU. Preserve stable batch/question IDs, question text, option text/order and source provenance. Leave the 116 baseline pending questions untouched. Do not change JU/RU/DU data, exam rules or runtime logic as part of this data-only import.

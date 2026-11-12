@@ -1,6 +1,16 @@
 # Current state
 
-Last updated: 2026-11-11 (targeted startup UI fixes implemented; automated verification passed; device visual QA pending).
+Last updated: 2026-11-12 (HSTU verified-question import completed; bundled seed and data integrity checks passed).
+
+## HSTU verified-question import — 2026-11-12
+
+- Claude's accepted HSTU verification ledger was the source of truth: **664 unique question IDs** are now in the normal HSTU catalogue with both answer and content status set to verified.
+- **657** questions moved from HSTU-U appearances to 15 new HSTU papers; **7** questions already attached to HSTU received their accepted answer mappings/status update.
+- Normal HSTU now contains **22 papers / 950 questions**. **939** have verified answers and content and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- HSTU-U retains **105 pending questions** across 15 papers (102 answer-unverified, 3 answer-unknown; content remains unverified). The **116 baseline pending** questions were not promoted or modified. Three off-baseline pending-ledger records were also left unchanged.
+- Question IDs, stems, option order/text and source references were preserved. No JU, RU or DU content, runtime logic, or exam rules changed.
+- Verification: 18 pack files and the generated manifest updated; 217 packs / 13,609 questions rebuilt. Full test suite passed 142/142; typecheck, lint and content check passed; SQLite quick_check passed and foreign-key check returned zero issues. All 664 ledger IDs and keys reconcile, pending objects match the pre-import backup, and staged/app pack hashes match.
+- No new APK was built or installed for this content update; an updated bundled seed reaches an installed device through a new app build.
 
 ## Startup UI targeted implementation — 2026-11-11
 

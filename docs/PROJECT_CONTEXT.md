@@ -6,6 +6,10 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
+## Current university-bank state — 2026-11-12
+
+The normal HSTU catalogue contains 22 papers / 950 questions. Claude's accepted HSTU ledger supplied 664 verified IDs: 657 were moved from HSTU-U appearances into 15 HSTU papers, and 7 existing HSTU questions had their accepted answer mappings/status updated. All 664 now have both verification fields set to verified; HSTU has 939 verified single-choice questions in its practice pool. HSTU-U retains 105 pending records (102 answer-unverified, 3 answer-unknown; content-unverified); the 116 baseline pending questions were left untouched. JU and JU-U remain unchanged. The original candidate-bank paper rules and the 15 added HSTU paper rules remain unconfigured. Full details and verification evidence are in docs/QUESTION_IMPORT_WORKFLOW.md.
+
 ## Product
 BD Admission is a Bangladesh-focused preparation app for university and Medical admission questions. Students will practice historical multiple-choice questions with the institution, year, unit/paper and source reference retained. Engineering is visible in the initial product as Coming Soon; Engineering question content is a later batch.
 

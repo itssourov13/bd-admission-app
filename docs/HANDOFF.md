@@ -49,11 +49,16 @@ Audit follow-up corrected React Hooks lint violations and added a test for the U
 The README now presents three 1080×1920 portrait graphics in `docs/assets/showcase/` (Home, Varsity catalogue and Profile). Each retains actual runtime UI pixels over generated, brand-matched abstract artwork; profile display-name text is anonymized as `Learner`. Visible profile counters are from the captured local sample profile, not product-wide usage metrics. These are README presentation assets, not final Play Console listing screenshots. Before store submission, capture at least one additional authentic runtime screen and prepare the final store assets against the [Google Play preview-asset guidance](https://support.google.com/googleplay/android-developer/answer/9866151).
 
 ## Workspace
+## Current data handoff — 2026-11-12
+
+The HSTU verified import is complete. The app remains at 217 packs / 13,609 questions. Normal HSTU is now 22 papers / 950 questions, including 939 verified single-choice questions. All 664 question IDs in Claude's accepted HSTU ledger are answer/content verified under HSTU: 657 appearances moved from HSTU-U and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending IDs were left unchanged. Full test suite passed 142/142; typecheck, lint, content check and SQLite integrity/FK checks passed. No new APK has been built for this data update. See docs/QUESTION_IMPORT_WORKFLOW.md and docs/TASK_STATE.md.
+
 Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo; current task branch `feat/import-ju-hstu-unverified-question-banks-2026-11-01`, based on the preceding local JU/HSTU verified-import commit; commit locally only, never push from automation).
 ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
 ## State
-The app bundles **217 packs / 13,609 questions**: 180 DU A Unit, 4,009 RU C candidates, 1,828 RU-V verified-source questions, 1,526 verified JU questions, 293 verified HSTU questions, 5,011 JU-U candidates and 762 HSTU-U candidates. The original 57 verified JU/HSTU packs remain unchanged. The 99 newly added unverified packs preserve all 5,773 content statuses as unverified and answer statuses as 5,563 unverified / 210 unknown. Their provisional single-choice pools contain 4,780 JU-U and 722 HSTU-U questions; 42 repeated-option items and 19 multiple-choice items are excluded from provisional single-choice scoring. All 99 paper rules remain unconfigured. Full source archive checksum, round-trip preservation, overlap findings and import checks are in `docs/QUESTION_IMPORT_WORKFLOW.md`. The three dedicated GST_CLUSTER packs / 287 questions were excluded for a separate task. The historical Android preview APK (`v0.1.0-preview.1`) predates the JU/HSTU imports. The finished EAS `v0.1.1` internal build (`b4745dc4-0069-4a86-bb5b-234e5f377dfd`) includes these candidate banks; install it from the [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd). Production AAB and Google Play rollout remain outstanding. EAS project: `@sk_king13/bd-admission-app` (`16ba69b8-96d7-4856-a197-77acddebe1ec`). Read CURRENT_STATE.md, QUESTION_IMPORT_WORKFLOW.md, ARCHITECTURE.md, DECISIONS.md, QA_CHECKLIST.md and ANDROID_RELEASE.md first.
+
+The app bundles **217 packs / 13,609 questions**. Current HSTU status: 22 HSTU papers / 950 questions, including 939 verified single-choice questions. The accepted Claude ledger's 664 question IDs are fully verified in the normal HSTU catalogue: 657 moved from HSTU-U appearances to HSTU papers and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending questions remain unchanged. JU-U stays at 84 / 5,011 candidates, and other DU/RU/JU data is unchanged. All original candidate-bank rules and the 15 new HSTU paper rules remain unconfigured. No new APK has been built for this import. See docs/QUESTION_IMPORT_WORKFLOW.md for complete source, backup and validation records.
 
 ## Run
     source ~/.nvm/nvm.sh && nvm use      # 22.23.1
@@ -63,8 +68,8 @@ The app bundles **217 packs / 13,609 questions**: 180 DU A Unit, 4,009 RU C cand
     pnpm dlx eas-cli@latest build --platform android --profile preview  # cloud APK build
 
 ## Next steps
-1. Install the completed EAS v0.1.1 APK from the [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/b4745dc4-0069-4a86-bb5b-234e5f377dfd) and complete the physical-device startup UI checklist in `docs/QA_CHECKLIST.md`. Test a fresh database separately from an existing installation; installing over the current app should preserve local data. Do not clear the primary app's local data without accepting that profile/bookmarks/attempts/history will be deleted.
-2. Independently verify JU-U/HSTU-U candidate question text, options and source keys against matching original papers/keys; investigate the 42 repeated-option records and cross-bank overlap findings before promoting any item. Keep the HSTU verified-bank historical coverage gap visible and add future source-backed sessions without silently merging candidate records.
+1. Install the completed EAS v0.1.4 APK from the [Expo build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/040c75b2-0bbd-47b5-b859-cdb7f179f968) and complete the physical-device startup UI checklist in `docs/QA_CHECKLIST.md`. Test a fresh database separately from an existing installation; installing over the current app should preserve local data. Do not clear the primary app's local data without accepting that profile/bookmarks/attempts/history will be deleted.
+2. The HSTU 2026-11-12 verified import is complete. Await the user’s direction before starting another university’s pending-question work or any further HSTU review.
 3. Keep the publisher-derived DU A Unit pattern illustrative: the official DU 2025–2026 notice includes 40 written marks in addition to 60 MCQ marks. The current pattern is a source-bank practice mode only. General scopes retain the 100/60 fallback; new university/session rules must come from the matching primary source.
 4. For the next app version, use the EAS `production` profile to create an Android AAB; inspect the artifact and verify target API/versioning.
 5. Complete the Google Play listing, production screenshots, privacy policy/data-safety declarations and any account-specific testing/access requirements before Play Console rollout.
@@ -72,7 +77,7 @@ The app bundles **217 packs / 13,609 questions**: 180 DU A Unit, 4,009 RU C cand
 
 ## Boundaries
 - Do not invent questions, answers, years, sources or scoring rules.
-- By default, only verified-content/answer, single-choice questions with 2+ options feed the verified Flash/Exam pool. RU C, JU-U and HSTU-U have separate candidate banks; provisional practice is available with a prominent warning only when the selected scope has no verified pool, and it uses unverified source keys. Never call those keys/results verified or official.
+- By default, verified-content/answer single-choice questions with 2+ options feed the verified Flash/Exam pool. RU C and JU-U remain candidate banks; HSTU-U now contains only the 105 retained pending questions. The accepted 664-question HSTU batch is in the normal HSTU verified catalogue.
 - Illustrative/unconfigured rules must never be presented as official.
 
 ## RU Unit A research checkpoint
