@@ -1,3 +1,10 @@
+## 2026-11-13 — Android preview candidate v0.1.5
+
+- Set package/brand/app version to 0.1.5 and Android versionCode to 6.
+- Preserved application ID, Expo slug, EAS project ID, Node build profile and EAS-managed signing setup.
+- Full automated suite and CI-equivalent Android bundle gates passed immediately before the version bump; see docs/QA_CHECKLIST.md.
+- EAS preview submission status is tracked in docs/HANDOFF.md.
+
 ## 2026-11-13 — Full pre-build verification
 
 - Full suite passed: 211/211; TypeScript, full lint, Expo public config and Android no-bytecode Metro export passed.

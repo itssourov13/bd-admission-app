@@ -183,3 +183,12 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - A pre-existing ignored assets/content/content_seed.db was schema v5 while LATEST_VERSION is v8. Rebuilt it using pnpm content:build from canonical JSON packs; content check and SQLite integrity now pass. Counts: 217 pack checkpoints, 13,609 questions, 54,436 options; no source question-pack JSON changed. Seed is gitignored and EAS pre-install regenerates it.
 - Android no-bytecode export bundled 2,008 modules, 3.9 MB JS and 124 assets including the 24 MB SQLite seed. A prior ordinary local Hermes bytecode export hit host SIGILL; cloud native build remains the definitive build check.
 - No code/version changes or EAS build in this task. Current metadata: v0.1.4 / versionCode 5. Next internal preview candidate should be v0.1.5 / versionCode 6. Keep package ID, EAS project ID and signing identity unchanged. Run eas build --platform android --profile preview only after the version change is reviewed; install over the existing app for update/migration QA.
+
+
+## Android preview candidate v0.1.5 — 2026-11-13
+
+- Release metadata updated: package/brand/Expo app version 0.1.5; Android versionCode 6.
+- Previous installable baseline remains v0.1.4 / code 5 until the new EAS preview APK finishes and is inspected.
+- Build profile: preview (internal distribution, APK). Preserve application ID com.admissionbd.app, Expo/EAS project ID and EAS-managed signing identity.
+- Full source/test gates before this version-only change: 211/211 tests, typecheck, lint, content:check, SQLite integrity, Expo public config and Android no-bytecode export all passed.
+- EAS submission result: pending.

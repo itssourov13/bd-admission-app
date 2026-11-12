@@ -8,7 +8,7 @@ Status: All local automated / bundle gates pass after regenerating the stale loc
 - [x] pnpm content:check: 217 packs / 13,609 questions; SQLite quick check OK, zero foreign-key issues, 54,436 options.
 - [x] Expo public config and Android no-bytecode Metro export (2,008 modules; 3.9 MB JS; 124 assets including SQLite seed).
 - [ ] Native EAS preview APK and physical-device update QA — next release step.
-- Current release metadata remains version 0.1.4 / Android versionCode 5. Next preview candidate: version 0.1.5 / versionCode 6. Preserve application ID, EAS project and signing identity.
+- Next preview candidate metadata is version 0.1.5 / Android versionCode 6. Previous completed APK is version 0.1.4 / code 5. Preserve application ID, EAS project and signing identity.
 
 # Task state
 
