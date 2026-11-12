@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-13 — Optional Phases 9–10 (partial / deferred)
+
+- Phase 9: added local catalogue manifest validation, install planning, pack integrity verification and verified install/soft-remove/restore on top of the Phase 8 importer. No remote source exists.
+- Phase 10: backend/CMS contract documented only.
+
 ## 2026-11-13 — Roadmap Phase 8: Publications & books library (implemented — pending owner verification)
 
 - Library: Home entry, publisher list/detail with category sections, book details and chapter/unit practice reusing Flash/Exam/Browse; book/unit labels in history and results.

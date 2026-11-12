@@ -1,5 +1,9 @@
 # Task state
 
+## Optional Phases 9–10 — 2026-11-13
+
+Phase 9: partially implemented (manifest validation, plan, integrity check, verified install, soft remove/restore; no remote source, UI or downloader). Phase 10: deferred, contract documented only. Neither is deployed; the app stays fully offline. Details: docs/implementation/PHASE_09_ONLINE_OFFLINE.md, PHASE_10_BACKEND_CMS.md.
+
 ## Roadmap Phase 8 — Publications & books library — 2026-11-13
 
 **Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.

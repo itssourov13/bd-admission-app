@@ -163,3 +163,7 @@ Phase 8 (Publications & books library) is **In Progress**. Migration v8, PoolFil
 ## Roadmap handoff — Phase 8 implemented — 2026-11-13
 
 Phase 8 is **Implemented — Pending Owner Verification** and committed locally (not pushed). Remaining owner items: content packs, publisher logo SVGs, device verification, dev-client rebuild (react-native-svg). Phases 9–10 are optional and documented in their own phase files.
+
+## Handoff — optional Phases 9–10 — 2026-11-13
+
+Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content-catalog.ts, src/repositories/installedContent.ts). Next concrete action if continued: owner chooses hosting, then implement a ContentSource adapter, a SHA-256 hasher (expo-crypto is a dependency decision) and a content-management screen. Phase 10 is documentation only.

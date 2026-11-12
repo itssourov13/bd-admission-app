@@ -124,3 +124,7 @@ Exam review helpers are pure (`examReview.ts`): palette state, progress, time le
 ## Brand assets and library (Phase 8)
 
 Static SVGs are compiled to react-native-svg components by react-native-svg-transformer (metro.config.js, .svgrrc.js keeps viewBox). BrandLogo renders a LogoAsset (svg | raster) unchanged on a white tile; registries (features/catalog/universityLogos.ts, features/library/publisherLogos.ts) use static imports. Library data lives in migration v8 tables; SQL stays in src/repositories/library.ts; book/unit scope travels in PoolFilter and the persisted session filter.
+
+## Optional content management (Phase 9)
+
+contentManager.ts layers manifest validation, planning and integrity-verified install over installLibraryPack. ContentSource and Sha256Hex are injected; with no source configured nothing changes for any core journey.

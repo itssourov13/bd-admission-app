@@ -14,8 +14,8 @@ Last updated: 2026-11-13 (roadmap Phase 8 implemented — pending owner verifica
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
 | 8 Publications & books library | Implemented — Pending Owner Verification |
-| 9 Online + offline content management | Not Started |
-| 10 Backend & CMS foundation | Not Started |
+| 9 Online + offline content management (optional) | Partially implemented — local contracts only; no remote source |
+| 10 Backend & CMS foundation (optional) | Deferred — contract documented; nothing deployed |
 
 Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LOG.md (this table must always match it).
 

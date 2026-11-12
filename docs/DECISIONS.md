@@ -179,3 +179,7 @@ Tailwind colours resolve from `--c-*` variables set once on the root view by `Ap
 ## ADR-030 — Shared SVG logo pipeline and authentic brand assets (Phase 8)
 
 Owner explicitly authorised authentic university/publisher logos. Decision: react-native-svg (SDK-pinned 15.15.4) + react-native-svg-transformer; one BrandLogo renderer; original files unmodified with source records; raster allowed only when no official vector exists (HSTU); missing assets show a monogram and are never redrawn.
+
+## ADR-031 — Optional content management is injected and additive (Phase 9)
+
+Network access, hashing and sources are injected interfaces; no catalogue endpoint, cloud DB or account is required, and none is faked. Removal is soft. Manifest signatures are reserved, not verified.

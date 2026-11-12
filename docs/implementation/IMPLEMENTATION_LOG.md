@@ -80,3 +80,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Added Home entry, publisher category sections, book/unit labels in history/result (batched query), tests.
 4. Checks run (Node 22.23.1): tsc --noEmit exit 0; ESLint on touched dirs 0 errors; node --test library + brandAssets pass; git diff --check clean. Metro bundle, full suite, device QA NOT run.
 5. Wrote PHASE_08_CONTENT_LIBRARY.md. Status: Implemented — Pending Owner Verification.
+
+## 2026-11-13 — Phases 9–10 (optional)
+1. Phase 9: partially implemented locally (types, service, repository, 4 tests). Checks: tsc exit 0; node --test contentManager + library + brandAssets 25/25 pass. No remote source, UI, downloader or signature verification.
+2. Phase 10: deferred; contract documented in PHASE_10_BACKEND_CMS.md. No backend created or assumed; ScholarHub infrastructure not used.
