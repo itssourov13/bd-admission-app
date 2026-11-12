@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 8: Publications & books library (implemented — pending owner verification)
+
+- Library: Home entry, publisher list/detail with category sections, book details and chapter/unit practice reusing Flash/Exam/Browse; book/unit labels in history and results.
+- Migration v8, versioned library-pack importer/validator (earlier session) retained.
+- Shared SVG logo system (react-native-svg 15.15.4 + react-native-svg-transformer, BrandLogo); authentic DU/RU/JU SVG and HSTU PNG logos with recorded sources. Publisher logo slots reserved; none bundled.
+
 ## 2026-11-13 — Roadmap Phase 7: Home hero redesign (implemented — pending owner verification)
 
 - New HomeHero: gradient card with admission motifs, offline-ready context line, primary Start CTA, secondary mock-exam link; resume mode replaces the separate resume card.

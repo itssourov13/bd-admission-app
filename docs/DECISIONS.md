@@ -175,3 +175,7 @@ Consequences: flags never affect scoring; retry pools only contain currently eli
 Status: accepted, 2026-11-13.
 
 Tailwind colours resolve from `--c-*` variables set once on the root view by `AppearanceProvider`; style-prop colours come from `useTheme()`. Preferences (theme, motion, haptics, text size) live in AsyncStorage JSON because they are needed before SQLite is ready. Rejected: `dark:` variants everywhere (scattered conditionals) and per-row theme subscriptions in large lists.
+
+## ADR-030 — Shared SVG logo pipeline and authentic brand assets (Phase 8)
+
+Owner explicitly authorised authentic university/publisher logos. Decision: react-native-svg (SDK-pinned 15.15.4) + react-native-svg-transformer; one BrandLogo renderer; original files unmodified with source records; raster allowed only when no official vector exists (HSTU); missing assets show a monogram and are never redrawn.

@@ -13,6 +13,7 @@ import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { countPoolBySubject, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
+import { getBookScopeLabel } from "@/repositories/library";
 import { resolveMarkingChoice } from "@/repositories/marking";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
 import { checkExamEligibility, clampCustomQuestions, customCountOptions, customMinuteOptions, planExam, suggestCustomMinutes } from "@/services/exam";
@@ -38,7 +39,7 @@ export default function ExamSetup() {
   const [profileId, setProfileId] = useState<string | null>(null);
   const [customQuestions, setCustomQuestions] = useState<number | null>(null);
   const [customMinutes, setCustomMinutes] = useState<number | null>(null);
-  const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId);
+  const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId || scope.bookId);
   const scopeBase = { ...scope, category: locked ? scope.category : category, subject: undefined, subjects: undefined };
   const baseKey = JSON.stringify(scopeBase);
   const selectedSections = subjectSelection.scopeKey === baseKey ? subjectSelection.subjects : [];
@@ -56,13 +57,14 @@ export default function ExamSetup() {
       bySubject: pool.bySubject,
       subjectOptions: buildSubjectOptions(pool.bySubject),
       paperPattern,
-      plan: planExam(scopeBase.paperId, paperPattern),
+      plan: planExam(scopeBase.paperId, paperPattern, { bookScoped: Boolean(scopeBase.bookId) }),
       selectionConfig,
       subjectCounts: selectionConfig
         ? orderSubjects(selectionConfig.subjects).map((subject) => ({ subject, count: pool.bySubject[subject] ?? 0 }))
         : [],
       active: await getActiveExam(d),
-      label: scopeBase.paperId ? (await listPapers(d, { paperId: scopeBase.paperId }))[0]?.title ?? null
+      label: scopeBase.bookId ? await getBookScopeLabel(d, { bookId: scopeBase.bookId, unitId: scopeBase.unitId }, lang)
+        : scopeBase.paperId ? (await listPapers(d, { paperId: scopeBase.paperId }))[0]?.title ?? null
         : scopeBase.institutionIds?.length ? await universityLabel(d, scopeBase.institutionIds[0], lang)
         : scopeBase.institutionId ? (await getInstitution(d, scopeBase.institutionId))?.name ?? null : null
     };

@@ -16,6 +16,7 @@ import { href, scopeFromParams, scopeParams } from "@/features/navigation/links"
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
 import { countPoolBySubject, getInstitution, listPapers, scopeRule } from "@/repositories/content";
+import { getBookScopeLabel } from "@/repositories/library";
 import { getProfile, updateProfile } from "@/repositories/userData";
 import { buildSubjectOptions } from "@/services/subjects";
 import { combinedCount, pruneUnavailable, selectedSubjectsOf, withSubjectSelection } from "@/services/subjectSelection";
@@ -32,7 +33,7 @@ export default function FlashSetup() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const scope = scopeFromParams(params);
-  const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId);
+  const scopeLocked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId || scope.bookId);
   const [category, setCategory] = useState<QuestionCategory | undefined>(scope.category);
   const [selected, setSelected] = useState<string[]>(() => selectedSubjectsOf(scope));
   const [profileId, setProfileId] = useState<string | null>(null);
@@ -43,7 +44,8 @@ export default function FlashSetup() {
 
   // Scope-level data: independent of the subject selection, so toggling chips never re-runs these queries.
   const base = useQuery(async (d) => {
-    const label = baseScope.paperId
+    const label = baseScope.bookId ? await getBookScopeLabel(d, { bookId: baseScope.bookId, unitId: baseScope.unitId }, lang)
+      : baseScope.paperId
       ? (await listPapers(d, { paperId: baseScope.paperId }))[0]?.title ?? null
       : baseScope.institutionIds?.length ? await universityLabel(d, baseScope.institutionIds[0], lang)
       : baseScope.institutionId ? (await getInstitution(d, baseScope.institutionId))?.name ?? null : null;

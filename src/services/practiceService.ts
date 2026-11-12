@@ -38,7 +38,7 @@ export async function startStandardExam(
 ): Promise<StartExamResult> {
   const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
   const storedRule = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
-  const plan = planExam(filter.paperId, storedRule);
+  const plan = planExam(filter.paperId, storedRule, { bookScoped: Boolean(filter.bookId) });
   const customRequested = plan.kind === "unavailable" && opts.custom !== undefined;
   if (plan.kind === "unavailable" && !customRequested) {
     return { ok: false, eligibility: checkExamEligibility(0, 0), reason: "rule_unavailable" };

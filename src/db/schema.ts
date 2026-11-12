@@ -223,6 +223,85 @@ CREATE TABLE marking_preferences (
 -- Mark-for-review flag per exam question (user-owned session data; does not affect scoring).
 ALTER TABLE session_answers ADD COLUMN flagged INTEGER NOT NULL DEFAULT 0;
 `
+  },
+  {
+    version: 8,
+    name: "publications_library",
+    sql: `
+-- Publisher/book content is kept apart from university papers (exam_papers/question_appearances) but reuses the shared
+-- questions/question_options tables and therefore the whole practice engine. A question belongs to a book through
+-- content_unit_questions; it is part of the default (university) practice pool only when it also has a paper appearance.
+CREATE TABLE publishers (
+  id TEXT PRIMARY KEY NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  name_bn TEXT,
+  kind TEXT NOT NULL DEFAULT 'publisher' CHECK (kind IN ('publisher','coaching','institution','community')),
+  description TEXT,
+  website TEXT,
+  logo_key TEXT,
+  logo_license TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE content_books (
+  id TEXT PRIMARY KEY NOT NULL,
+  publisher_id TEXT NOT NULL REFERENCES publishers(id),
+  title TEXT NOT NULL,
+  title_bn TEXT,
+  edition TEXT,
+  publication_year INTEGER,
+  subject TEXT,
+  language TEXT NOT NULL DEFAULT 'bn' CHECK (language IN ('bn','en','mixed')),
+  target_category TEXT NOT NULL DEFAULT 'general' CHECK (target_category IN ('varsity','medical','engineering','general')),
+  content_type TEXT NOT NULL DEFAULT 'question_bank' CHECK (content_type IN ('book','question_bank','model_test','mixed')),
+  verification_status TEXT NOT NULL DEFAULT 'unverified' CHECK (verification_status IN ('verified','unverified','metadata_only')),
+  content_version INTEGER NOT NULL DEFAULT 1,
+  version_label TEXT,
+  source_note TEXT,
+  license_status TEXT NOT NULL DEFAULT 'permission_pending' CHECK (license_status IN ('licensed','public_domain','owner_created','permission_pending','metadata_only')),
+  license_note TEXT,
+  -- Availability, not existence: 'removed' and 'catalogue_only' books keep their rows (and the questions user data points to).
+  install_state TEXT NOT NULL DEFAULT 'bundled' CHECK (install_state IN ('catalogue_only','bundled','installed','removed')),
+  cover_key TEXT,
+  question_count INTEGER NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX idx_books_publisher ON content_books(publisher_id, title);
+
+CREATE TABLE content_units (
+  id TEXT PRIMARY KEY NOT NULL,
+  book_id TEXT NOT NULL REFERENCES content_books(id) ON DELETE CASCADE,
+  parent_id TEXT REFERENCES content_units(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL DEFAULT 'chapter' CHECK (kind IN ('chapter','unit','section','test')),
+  title TEXT NOT NULL,
+  title_bn TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  question_count INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX idx_units_book ON content_units(book_id, sort_order);
+CREATE INDEX idx_units_parent ON content_units(parent_id);
+
+-- No cascade from questions: question rows are never deleted (bookmarks and history reference them).
+CREATE TABLE content_unit_questions (
+  unit_id TEXT NOT NULL REFERENCES content_units(id) ON DELETE CASCADE,
+  book_id TEXT NOT NULL REFERENCES content_books(id) ON DELETE CASCADE,
+  question_id TEXT NOT NULL REFERENCES questions(id),
+  position INTEGER NOT NULL,
+  PRIMARY KEY (unit_id, question_id)
+);
+CREATE INDEX idx_cuq_question ON content_unit_questions(question_id);
+CREATE INDEX idx_cuq_book ON content_unit_questions(book_id, position);
+
+-- Metadata-only publisher identities (no logos, no books). Bangla spellings are provisional until owner-verified.
+INSERT OR IGNORE INTO publishers (id, slug, name, name_bn, kind, sort_order) VALUES
+  ('pub-udvash', 'udvash', 'Udvash', 'উদ্ভাস', 'coaching', 10),
+  ('pub-aspect', 'aspect', 'ASPECT', 'অ্যাসপেক্ট', 'publisher', 20),
+  ('pub-acs', 'acs', 'ACS', 'এসিএস', 'publisher', 30),
+  ('pub-pankouri', 'pankouri', 'Pankouri', 'পানকৌড়ি', 'publisher', 40),
+  ('pub-joykoli', 'joykoli', 'Joykoli', 'জয়কলি', 'publisher', 50);
+`
   }
 ];
 

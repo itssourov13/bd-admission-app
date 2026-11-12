@@ -12,6 +12,7 @@ import { href, scopeParams } from "@/features/navigation/links";
 import { useNum, useT, type TranslationKey, useLang } from "@/i18n";
 import { useTheme } from "@/settings";
 import { getSession } from "@/repositories/sessions";
+import { getBookScopeLabel } from "@/repositories/library";
 import { loadExam, toScorable, type ExamResult, type LoadedExam } from "@/services/practiceService";
 import { ChoiceChip } from "@/components/common/Toggle";
 import { matchesReviewFilter, reviewStatus, subjectBreakdown, type ReviewFilter } from "@/services/examReview";
@@ -36,12 +37,13 @@ export default function ResultScreen() {
   const q = useQuery(async (db) => {
     const session = await getSession(db, id);
     const exam: LoadedExam | null = session?.mode === "exam" && session.status !== "active" ? await loadExam(db, id) : null;
-    return { session, exam };
-  }, [id]);
+    const bookLabel = session?.filter.bookId ? await getBookScopeLabel(db, { bookId: session.filter.bookId, unitId: session.filter.unitId }, lang) : null;
+    return { session, exam, bookLabel };
+  }, [id, lang]);
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;
-  const { session, exam } = q.data!;
+  const { session, exam, bookLabel } = q.data!;
   if (!session) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("result.notFound")} actionLabel={t("common.home")} onAction={() => router.replace("/")} /></Screen>;
   if (session.status === "active") return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("result.notFinished")} actionLabel={t("common.home")} onAction={() => router.replace("/")} /></Screen>;
 
@@ -117,6 +119,7 @@ export default function ResultScreen() {
           <Txt className="text-ink-500 text-xs">{t("result.score")}</Txt>
           <Txt font="display" weight="bold" className="text-ink-900 text-4xl mt-1">{scoreLabel}</Txt>
           {reason ? <View className="mt-2"><Chip label={reason} /></View> : null}
+          {bookLabel ? <Txt className="text-ink-500 text-xs mt-2">{t("history.book", { name: bookLabel })}</Txt> : null}
           {selectedSubjectsOf(session.filter).length ? <Txt className="text-ink-500 text-xs mt-2">{t("history.subjects", { subjects: selectedSubjectsOf(session.filter).map(subjectLabel).join(", ") })}</Txt> : null}
           <Txt className="text-ink-700 text-sm mt-3">{t("result.accuracy")}: {accuracyText}</Txt>
           {timeLine ? <Txt className="text-ink-500 text-xs mt-1">{t("result.time")}: {timeLine}</Txt> : null}

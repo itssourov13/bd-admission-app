@@ -155,3 +155,11 @@ Status reconciled across IMPLEMENTATION_LOG, CURRENT_STATE, TASK_STATE and HANDO
 Phase 6 is implemented and committed locally (see docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md). Use `useTheme()` from "@/settings" for any colour in style props; never import static colours. Needs a native rebuild (expo-haptics, splash/userInterfaceStyle). Tests/tsc need `nvm use 24`. **Next: Phase 7 (Home hero redesign).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.
 
 Phase 7 implemented and committed locally (docs/implementation/PHASE_07_HOME_HERO.md): src/components/home/HomeHero.tsx. **Next: Phase 8 (Publications & books library).**
+
+## Roadmap handoff — Phase 8 (earlier-session note, superseded below) — 2026-11-13
+
+Phase 8 (Publications & books library) is **In Progress**. Migration v8, PoolFilter.bookId/unitId, route params and the book membership filter were already in the working tree (uncommitted) and are preserved. Remaining work is tracked in docs/implementation/IMPLEMENTATION_LOG.md and, once created, docs/implementation/PHASE_08_CONTENT_LIBRARY.md. Do not push.
+
+## Roadmap handoff — Phase 8 implemented — 2026-11-13
+
+Phase 8 is **Implemented — Pending Owner Verification** and committed locally (not pushed). Remaining owner items: content packs, publisher logo SVGs, device verification, dev-client rebuild (react-native-svg). Phases 9–10 are optional and documented in their own phase files.

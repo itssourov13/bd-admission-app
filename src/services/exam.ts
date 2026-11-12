@@ -147,14 +147,17 @@ export interface PaperRuleShape {
  * - generic: no exact paper; the all-catalogue 100-question/60-minute practice defaults apply.
  * - paper: the exact paper's own configured count and duration; `official` only for a verified rule
  *   (an illustrative rule is a labelled, non-official source-pattern practice).
- * - unavailable: an exact paper without a usable stored pattern. Generic 100/60 is never substituted.
+ * - unavailable: an exact paper (or a publisher book) without a usable stored pattern. Generic 100/60 is never substituted.
  */
 export type ExamPlan =
   | { kind: "generic"; required: number; durationSeconds: number }
   | { kind: "paper"; required: number; durationSeconds: number; official: boolean }
   | { kind: "unavailable"; reason: "no_rule" | "unconfigured_rule" | "incomplete_rule" };
 
-export function planExam(paperId: string | undefined | null, rule: PaperRuleShape | null): ExamPlan {
+export function planExam(paperId: string | undefined | null, rule: PaperRuleShape | null, opts: { bookScoped?: boolean } = {}): ExamPlan {
+  // Publisher books carry no source-backed exam pattern (Phase 8): the generic 100/60 defaults are only for the
+  // all-catalogue scope, so a book scope is always an explicit, unscored Custom Practice session.
+  if (opts.bookScoped && !paperId) return { kind: "unavailable", reason: "no_rule" };
   if (!paperId) return { kind: "generic", required: STANDARD_EXAM_QUESTIONS, durationSeconds: STANDARD_EXAM_SECONDS };
   if (!rule) return { kind: "unavailable", reason: "no_rule" };
   if (rule.status === "unconfigured") return { kind: "unavailable", reason: "unconfigured_rule" };

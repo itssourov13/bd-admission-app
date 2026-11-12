@@ -115,6 +115,7 @@ export default function HomeScreen() {
 
           {shortcut("school-outline", colors.brand700, "bg-brand-100", t("home.varsityTitle"), t("home.varsitySubtitle"), "/(tabs)/varsity")}
           {shortcut("medkit-outline", colors.gold700, "bg-gold-100", t("home.medicalTitle"), t("home.medicalSubtitle"), "/(tabs)/medical")}
+          {shortcut("library-outline", colors.brand700, "bg-brand-100", t("home.libraryTitle"), t("home.librarySubtitle"), "/library")}
 
           <View className="flex-row gap-3 mt-1">
             <Pressable accessibilityRole="button" accessibilityLabel={t("home.flashTitle")} className="flex-1" onPress={() => router.push(href("/flash/setup"))}>

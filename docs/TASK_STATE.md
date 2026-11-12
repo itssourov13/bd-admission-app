@@ -1,8 +1,15 @@
 # Task state
 
+## Roadmap Phase 8 — Publications & books library — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
+
+- Done: library screens (Home entry, publisher sections, book/unit pages), importer/validator, book scope through Flash/Exam/Browse/history/result, SVG logo pipeline (react-native-svg), DU/RU/JU SVG + HSTU PNG logos.
+- Owner: rebuild dev client; verify logos on device (light/dark); supply content packs and publisher SVGs; verify Bangla publisher names.
+
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Implemented — Pending Owner Verification · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 8 (Publications & books library). Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Implemented — Pending Owner Verification · Phase 8: Implemented — Pending Owner Verification· Phase 9: Not Started · Phase 10: Not Started · Current: Phase 8 (Publications & books library) — In Progress. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
 
 ## Roadmap Phase 7 — Home hero redesign — 2026-11-13
 

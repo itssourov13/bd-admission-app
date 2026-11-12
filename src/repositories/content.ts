@@ -5,12 +5,12 @@ import type {
 import { resolveRule, UNCONFIGURED_RULE, type ScoringRule } from "../services/scoring.ts";
 
 /** Scored-practice questions require verified content and key, single-choice type, 2+ options and one correct option. */
-const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
+export const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND EXISTS (SELECT 1 FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1)`;
 
 /** Source-key candidates remain unverified. Exclude ambiguous or structurally unsupported options. */
-const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'
+export const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) = 1
   AND NOT EXISTS (
@@ -31,7 +31,23 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   // Historical question rows may remain after a source-paper replacement so old
   // bookmarks and attempts keep resolving. Only rows with a current active paper
   // appearance belong to the active browse/practice catalogue.
-  const where: string[] = ["EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)"];
+  const where: string[] = [];
+  if (filter.bookId) {
+    // Publisher/book scope: membership in an AVAILABLE book (bundled/installed). Removed or catalogue-only books drop
+    // out of practice, but their question rows (and all user data referencing them) stay untouched.
+    where.push(`EXISTS (SELECT 1 FROM content_unit_questions cq JOIN content_books cb ON cb.id = cq.book_id
+      WHERE cq.question_id = q.id AND cq.book_id = ? AND cb.install_state IN ('bundled','installed'))`);
+    params.push(filter.bookId);
+    if (filter.unitId) {
+      where.push(`q.id IN (SELECT cu.question_id FROM content_unit_questions cu WHERE cu.book_id = ? AND cu.unit_id IN (
+        WITH RECURSIVE tree(id) AS (SELECT id FROM content_units WHERE id = ? AND book_id = ? UNION ALL SELECT u.id FROM content_units u JOIN tree t ON u.parent_id = t.id)
+        SELECT id FROM tree))`);
+      params.push(filter.bookId, filter.unitId, filter.bookId);
+    }
+  } else {
+    // Default pool = university paper content only; book-only questions stay out of it.
+    where.push("EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)");
+  }
   if (filter.category) { where.push("q.category = ?"); params.push(filter.category); }
   if (filter.subject) { where.push("q.subject = ?"); params.push(filter.subject); }
   if (filter.subjects?.length) {
@@ -337,6 +353,9 @@ interface RuleRow {
  */
 export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], filter: PoolFilter): Promise<ScoringRule> {
   if (questionIds.length === 0) return UNCONFIGURED_RULE;
+  // A publisher book has no source-backed exam pattern. A book question that also appears in a university paper must
+  // not pick up that paper's official rule just because the book is being practised.
+  if (filter.bookId) return UNCONFIGURED_RULE;
   const paperIds = new Set<string>();
   for (const part of chunk(questionIds)) {
     const ph = part.map(() => "?").join(",");

@@ -19,6 +19,7 @@ export function scopeParams(filter: PoolFilter): Params {
   const subjects = formatSubjectsParam(filter.subjects);
   if (subjects) params.subjects = subjects;
   if (filter.retrySessionId) params.retry = filter.retrySessionId;
+  if (filter.bookId) { params.bookId = filter.bookId; if (filter.unitId) params.unitId = filter.unitId; }
   return params;
 }
 
@@ -55,5 +56,11 @@ export function scopeFromParams(p: Record<string, string | string[] | undefined>
   if (subjects.length) scope.subjects = subjects;
   const retry = one(p.retry);
   if (retry && ID_PATTERN.test(retry)) scope.retrySessionId = retry;
+  const bookId = one(p.bookId);
+  if (bookId && ID_PATTERN.test(bookId)) {
+    scope.bookId = bookId;
+    const unitId = one(p.unitId);
+    if (unitId && ID_PATTERN.test(unitId)) scope.unitId = unitId;
+  }
   return scope;
 }

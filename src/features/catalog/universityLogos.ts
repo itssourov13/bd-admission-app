@@ -1,13 +1,20 @@
-import type { ImageSourcePropType } from "react-native";
+import type { LogoAsset } from "../branding/logoAsset";
+import DuLogo from "../../../assets/universities/du.svg";
+import RuLogo from "../../../assets/universities/ru.svg";
+import JuLogo from "../../../assets/universities/ju.svg";
 
 /**
- * Bundled university logos, keyed by parent-university key (see universities.ts).
+ * Bundled university logos, keyed by parent-university key (see universities.ts). Rendered by BrandLogo.
  *
- * Intentionally empty: official emblems are trademarks and no licensed/official artwork is bundled yet, so every
- * university renders the monogram fallback. To add one, place a raster file (PNG/WebP, ~256 px, transparent or white
- * background) at assets/universities/<key>.png and register it with a static require, e.g.
- *   du: require("../../../assets/universities/du.png"),
- * Metro needs static require paths, so assets cannot be resolved dynamically. Record the source URL and permission
- * in docs/implementation/PHASE_02_UNIVERSITY_EXPERIENCE.md before adding any file.
+ * The project owner explicitly authorised use of authentic university and publisher logos in this app (Phase 8).
+ * Original artwork is bundled unmodified; source and permission records live in assets/universities/SOURCES.md.
+ * Metro needs static import paths, so every asset is imported explicitly here.
+ *   du, ru, ju: original SVG.   hstu: the university's own official PNG (no vector is published on its website).
+ * A university without an entry here (genuinely missing asset) falls back to its monogram.
  */
-export const UNIVERSITY_LOGOS: Readonly<Record<string, ImageSourcePropType | undefined>> = {};
+export const UNIVERSITY_LOGOS: Readonly<Record<string, LogoAsset | undefined>> = {
+  du: { kind: "svg", Svg: DuLogo },
+  ru: { kind: "svg", Svg: RuLogo },
+  ju: { kind: "svg", Svg: JuLogo },
+  hstu: { kind: "raster", source: require("../../../assets/universities/hstu.png") }
+};

@@ -9,6 +9,8 @@ import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
 import { listHistory } from "@/repositories/sessions";
+import { getScopeLabels } from "@/repositories/library";
+import { scopeKey } from "@/features/library/model";
 import { useSubjectLabel } from "@/components/common/SubjectSelector";
 import { selectedSubjectsOf } from "@/services/subjectSelection";
 import { resultHeadline } from "@/services/examReview";
@@ -20,7 +22,11 @@ export default function HistoryScreen() {
   const { lang } = useLang();
   const router = useRouter();
   const subjectLabel = useSubjectLabel();
-  const q = useQuery((db) => listHistory(db, 100));
+  const q = useQuery(async (db) => {
+    const items = await listHistory(db, 100);
+    const scopes = items.filter((h) => h.filter.bookId).map((h) => ({ bookId: h.filter.bookId as string, unitId: h.filter.unitId }));
+    return { items, labels: await getScopeLabels(db, scopes, lang) };
+  }, [lang]);
   const fmt = (ms: number) => num(new Date(ms).toLocaleString(lang === "bn" ? "bn-BD" : "en-GB", { dateStyle: "medium", timeStyle: "short" }));
 
   return (
@@ -28,7 +34,7 @@ export default function HistoryScreen() {
       <ScreenHeader title={t("history.title")} />
       {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (
         <FlatList
-          data={q.data!}
+          data={q.data!.items}
           keyExtractor={(x) => x.id}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: 1 }}
           ItemSeparatorComponent={() => <View className="h-3" />}
@@ -44,6 +50,7 @@ export default function HistoryScreen() {
                       {h.status === "abandoned" ? <Chip label={t("history.abandoned")} tone="gold" /> : null}
                     </View>
                     <Txt className="text-ink-500 text-xs mt-1">{fmt(h.startedAt)}</Txt>
+                    {h.filter.bookId && q.data!.labels.get(scopeKey({ bookId: h.filter.bookId, unitId: h.filter.unitId })) ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.book", { name: q.data!.labels.get(scopeKey({ bookId: h.filter.bookId, unitId: h.filter.unitId })) as string })}</Txt> : null}
                     {selectedSubjectsOf(h.filter).length ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.subjects", { subjects: selectedSubjectsOf(h.filter).map(subjectLabel).join(", ") })}</Txt> : null}
                     {(() => {
                       const head = resultHeadline(h.resultJson, h.mode);

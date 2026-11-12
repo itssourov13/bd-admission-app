@@ -11,7 +11,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | Not Started |
+| 8 Publications & books library | In Progress |
 | 9 Online + offline content management | Not Started |
 | 10 Backend & CMS foundation | Not Started |
 
@@ -67,3 +67,16 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 1. Added HomeHero (gradient, OMR-bubble and cap motifs built from Views, context line, primary/secondary CTA, resume mode) and replaced the inline hero + separate resume card on Home.
 2. Checks run: tsc exit 0; ESLint on touched files exit 0. Device/visual checks NOT run (owner).
 3. Wrote PHASE_07_HOME_HERO.md and committed locally. Not pushed.
+
+## 2026-11-13 — Phase 8 (resumed session): reconciliation
+1. Inspected the actual working tree on feat/import-hstu-verified-answers-2026-11-12: 5 modified files, 108 insertions / 2 deletions, matching the handoff. Phase 7 (d7c9534) is HEAD.
+2. Pre-existing uncommitted Phase 8 work (preserved, not rewritten): migration v8 `publications_library` in src/db/schema.ts (tables publishers, content_books, content_units, content_unit_questions; 5 metadata-only publisher rows: Udvash, ASPECT, ACS, Pankouri, Joykoli; no books, no questions); `PoolFilter.bookId/unitId` in src/types/domain.ts; `bookId`/`unitId` in scopeParams/scopeFromParams (src/features/navigation/links.ts); book-membership + recursive unit filter in filterClauses (src/repositories/content.ts) with the university paper-appearance requirement kept only for non-book scopes; book scope lock in app/flash/setup.tsx.
+3. Not yet present at that point: any repository API for publishers/books/units, any UI or routes, any translations, any tests, any pack format to add book content, and book awareness in exam setup / rule resolution / scope labels.
+4. Status changed Not Started → In Progress in this log, CURRENT_STATE.md, TASK_STATE.md and HANDOFF.md.
+
+## 2026-11-13 — Phase 8 (completion)
+1. Confirmed importer keeps the book-before-units FK ordering; migration v8 and existing library architecture preserved.
+2. Added SVG pipeline (react-native-svg 15.15.4, svg transformer, Metro/SVGR config, BrandLogo), fetched DU/RU/JU SVG and HSTU official PNG with source records; publisher slots reserved (no retrievable originals).
+3. Added Home entry, publisher category sections, book/unit labels in history/result (batched query), tests.
+4. Checks run (Node 22.23.1): tsc --noEmit exit 0; ESLint on touched dirs 0 errors; node --test library + brandAssets pass; git diff --check clean. Metro bundle, full suite, device QA NOT run.
+5. Wrote PHASE_08_CONTENT_LIBRARY.md. Status: Implemented — Pending Owner Verification.

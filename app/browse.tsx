@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { FlatList, ScrollView, View } from "react-native";
 import { useLocalSearchParams } from "expo-router";
+import { scopeFromParams } from "@/features/navigation/links";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { ChoiceChip } from "@/components/common/Toggle";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
@@ -9,6 +10,7 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useDb } from "@/db/provider";
 import { useNum, useT, type TranslationKey } from "@/i18n";
 import { countQuestionsBySubject, listPaperQuestionIds, loadQuestions } from "@/repositories/content";
+import { listBookQuestionIds } from "@/repositories/library";
 import { bookmarkedIds, toggleBookmark } from "@/repositories/userData";
 import { buildSubjectOptions, SUBJECT_LABEL_KEYS, type SubjectOption } from "@/services/subjects";
 import type { QuestionView } from "@/types/domain";
@@ -20,8 +22,11 @@ export default function BrowseScreen() {
   const t = useT();
   const num = useNum();
   const db = useDb();
-  const p = useLocalSearchParams<{ paperId?: string }>();
+  const p = scopeFromParams(useLocalSearchParams());
   const paperId = String(p.paperId ?? "");
+  // Book/unit browsing (Phase 8) shares this screen: same list, subject filter and bookmarks, different id source.
+  const bookId = p.bookId;
+  const unitId = p.unitId;
   const [items, setItems] = useState<QuestionView[]>([]);
   const [marks, setMarks] = useState<Set<string>>(new Set());
   const [subjectOptions, setSubjectOptions] = useState<SubjectOption[]>([]);
@@ -32,14 +37,14 @@ export default function BrowseScreen() {
   const [busy, setBusy] = useState(false);
 
   const loadPage = useCallback(async (offset: number, selectedSubject = subject) => {
-    const ids = await listPaperQuestionIds(db, paperId, PAGE, offset, selectedSubject);
+    const ids = bookId ? await listBookQuestionIds(db, { bookId, unitId }, PAGE, offset, selectedSubject) : await listPaperQuestionIds(db, paperId, PAGE, offset, selectedSubject);
     const qs = await loadQuestions(db, ids);
     const b = await bookmarkedIds(db, ids);
     return { qs, ids, b };
-  }, [db, paperId, subject]);
+  }, [db, paperId, bookId, unitId, subject]);
 
   const first = useCallback(() => (
-    countQuestionsBySubject(db, { paperId })
+    countQuestionsBySubject(db, bookId ? { bookId, unitId } : { paperId })
       .then(async (counts) => {
         const { qs, ids, b } = await loadPage(0, subject);
         setSubjectOptions(buildSubjectOptions(counts.bySubject));
@@ -50,7 +55,7 @@ export default function BrowseScreen() {
       })
       .then(() => setState("ready"))
       .catch(() => setState("error"))
-  ), [db, paperId, loadPage, subject]);
+  ), [db, paperId, bookId, unitId, loadPage, subject]);
 
   useEffect(() => { void first(); }, [first]);
 
@@ -90,7 +95,7 @@ export default function BrowseScreen() {
 
   return (
     <Screen edges={["top", "bottom"]}>
-      <ScreenHeader title={t("browse.title")} />
+      <ScreenHeader title={bookId ? t("library.browseTitle") : t("browse.title")} />
       {subjectOptions.length > 0 ? (
         <View className="pb-3">
           <Txt weight="semibold" className="text-ink-900 px-5 mb-2">{t("browse.subjectFilter")}</Txt>

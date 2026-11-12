@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-13 (roadmap Phase 7 implemented — pending owner verification; Phase 8 next).
+Last updated: 2026-11-13 (roadmap Phase 8 implemented — pending owner verification; Phases 9–10 optional).
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
@@ -13,7 +13,7 @@ Last updated: 2026-11-13 (roadmap Phase 7 implemented — pending owner verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | Not Started |
+| 8 Publications & books library | Implemented — Pending Owner Verification |
 | 9 Online + offline content management | Not Started |
 | 10 Backend & CMS foundation | Not Started |
 
@@ -246,3 +246,6 @@ Automated verification at this **2026-10-29 provisional-practice checkpoint**: 5
 - Added eas.json: preview creates an internal-distribution APK for phone installation; production creates an Android App Bundle (AAB) and enables version-code auto-increment.
 - Added docs/ANDROID_RELEASE.md with the cloud build command, Expo dashboard URL, signing-credential handling, device QA, Play Store and GitHub Releases guidance.
 - This was the setup checkpoint before release. It is superseded by the Android preview release record at the top of this document: PR #2 is merged, both CI runs succeeded, the EAS preview APK is published as `v0.1.0-preview.1`, and the owner-confirmed physical-device check is complete.
+
+## Phase 8 content availability (2026-11-13)
+Library UI, importer, validator and SVG logo system are implemented. **No book or question content exists**: all five publishers (Udvash, ASPECT, ACS, Pankouri, Joykoli) are metadata-only. Logos: DU/RU/JU SVG and HSTU PNG bundled (sources in assets/universities/SOURCES.md); no publisher logos yet (owner-provided SVGs awaited, slots in assets/publishers/). New native dependency react-native-svg — rebuild the dev client. Details: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
