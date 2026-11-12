@@ -3,7 +3,7 @@ import { ActivityIndicator, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Button, Txt } from "@/components/ui";
 import { useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { LOADING_INDICATOR_DELAY_MS } from "@/services/startupUiPolicy";
 
 type IconName = keyof typeof Ionicons.glyphMap;
@@ -13,6 +13,7 @@ type IconName = keyof typeof Ionicons.glyphMap;
  * LOADING_INDICATOR_DELAY_MS; faster loads show the plain screen background instead of a spinner flash.
  */
 export function LoadingView({ label }: { label?: string }) {
+  const { colors } = useTheme();
   const t = useT();
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -29,6 +30,7 @@ export function LoadingView({ label }: { label?: string }) {
 }
 
 export function EmptyView({ icon = "albums-outline", title, body, actionLabel, onAction }: { icon?: IconName; title: string; body?: string; actionLabel?: string; onAction?: () => void }) {
+  const { colors } = useTheme();
   return (
     <View className="items-center px-6 py-10">
       <View className="w-16 h-16 rounded-full bg-brand-100 items-center justify-center">
@@ -42,6 +44,7 @@ export function EmptyView({ icon = "albums-outline", title, body, actionLabel, o
 }
 
 export function ErrorView({ title, body, onRetry }: { title?: string; body?: string; onRetry?: () => void }) {
+  const { colors } = useTheme();
   const t = useT();
   return (
     <View className="items-center px-6 py-10" accessibilityRole="alert">

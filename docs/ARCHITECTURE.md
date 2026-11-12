@@ -115,3 +115,8 @@ Marking is resolved by one pure function chain: `selectProfile` (explicit > per-
 ### Roadmap Phase 5 architecture (2026-11-13)
 
 Exam review helpers are pure (`examReview.ts`): palette state, progress, time level, derived time warnings (no timer state), per-subject breakdown, review filters, history headline. Mark-for-review is a separate guarded UPDATE on `session_answers.flagged` (migration v7), independent of the serialized selection queue. `PoolFilter.retrySessionId` restricts any practice pool to the missed questions of a finished session (read-only subquery on `session_answers`).
+
+
+### Roadmap Phase 6 architecture (2026-11-13)
+
+`src/settings/` owns appearance: `palettes.ts` (light/dark tokens, CSS variable maps), `model.ts` (pure settings logic), `SettingsProvider.tsx` (AppearanceProvider: loads settings, resolves scheme, sets NativeWind `vars()` on the root view, native colour scheme and root background), `haptics.ts`. `tailwind.config.js` colours are `rgb(var(--c-*) / <alpha-value>)`. Root layout holds the native splash until settings are loaded. Reusable settings UI lives in `src/components/settings/`.

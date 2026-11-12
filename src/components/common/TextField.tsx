@@ -1,9 +1,11 @@
 import { TextInput, type TextInputProps } from "react-native";
 import { useLang } from "@/i18n";
-import { colors, fonts } from "@/theme";
+import { useTheme } from "@/settings";
+import { fonts } from "@/theme";
 
 /** Text input with the right font for the active language and a 48dp touch target. */
 export function TextField(props: TextInputProps) {
+  const { colors } = useTheme();
   const { lang } = useLang();
   return (
     <TextInput

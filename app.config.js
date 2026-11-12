@@ -7,7 +7,7 @@ module.exports = {
   version: brand.version,
   orientation: "portrait",
   scheme: brand.scheme,
-  userInterfaceStyle: "light",
+  userInterfaceStyle: "automatic",
   icon: "./assets/brand/app-icon.png",
   primaryColor: brand.colors.brand500,
   backgroundColor: brand.colors.body,
@@ -28,7 +28,7 @@ module.exports = {
     ["expo-sqlite", { enableFTS: true }],
     "expo-font",
     ["expo-localization", { supportedLocales: { android: ["bn", "en"], ios: ["bn", "en"] } }],
-    ["expo-splash-screen", { image: "./assets/brand/splash-icon.png", imageWidth: 196, backgroundColor: brand.colors.body }]
+    ["expo-splash-screen", { image: "./assets/brand/splash-icon.png", imageWidth: 196, backgroundColor: brand.colors.body, dark: { image: "./assets/brand/splash-icon.png", backgroundColor: "#0E1722" } }]
   ],
   experiments: { typedRoutes: true },
   extra: {

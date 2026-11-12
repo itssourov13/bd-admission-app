@@ -9,7 +9,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 3 Shared subject selection | Implemented — Pending Owner Verification |
 | 4 Configurable marking rules | Implemented — Pending Owner Verification |
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
-| 6 Settings & dark mode | Not Started |
+| 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Not Started |
 | 8 Publications & books library | Not Started |
 | 9 Online + offline content management | Not Started |
@@ -55,3 +55,10 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Exam screen: palette with jump-to-question, flag button, progress line, timer urgency levels, 10/5/1-minute warnings, submit dialog with answered/unanswered/flagged counts. Result: per-subject breakdown, review filters, practice-missed button, section-order numbering. History: score/accuracy line.
 4. Checks run (Node 22.23.1): tsc --noEmit exit 0; targeted ESLint on 11 touched files exit 0; node --test exam-review + marking-profiles + repositories + subject-scope 53/53 pass; git diff --check clean. Device tests, full suite, builds NOT run (owner).
 5. Wrote PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md and committed locally. Not pushed.
+
+## 2026-11-13 — Phase 6
+1. Reconciled Phase 6 status across IMPLEMENTATION_LOG, CURRENT_STATE, TASK_STATE, HANDOFF.
+2. Added the theme system (src/settings: palettes, pure model, AppearanceProvider with NativeWind vars), semantic CSS-variable Tailwind colours, dark splash and automatic UI style, and migrated ~20 components to useTheme().
+3. Added Settings screen with reusable controls (theme, question text size, motion, haptics, language, Flash default, marking link, content info, version); moved language/Flash controls out of Profile; added expo-haptics.
+4. Checks run: settings-theme test 6/6, tsc exit 0, ESLint src+app 0 errors (warnings fixed). Full suite, builds, device tests NOT run (owner).
+5. Wrote PHASE_06_SETTINGS_DARK_MODE.md and committed locally. Not pushed.

@@ -1,8 +1,9 @@
+import { useMemo } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Card, Txt } from "@/components/ui";
 import { useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { paletteState, type PaletteState } from "@/services/examReview";
 
 export interface PaletteItem { id: string; number: number }
@@ -14,15 +15,20 @@ interface Props {
   onGo: (item: PaletteItem) => void;
 }
 
-const CELL: Record<PaletteState, { bg: string; border: string; fg: string }> = {
-  unanswered: { bg: colors.surface, border: colors.sand300, fg: colors.ink700 },
-  answered: { bg: colors.brand100, border: colors.brand500, fg: colors.brand700 },
-  flagged: { bg: colors.gold100, border: colors.gold500, fg: colors.gold700 },
-  flaggedAnswered: { bg: colors.brand100, border: colors.gold500, fg: colors.brand700 }
-};
+type Cell = { bg: string; border: string; fg: string };
+function paletteCells(colors: ReturnType<typeof useTheme>["colors"]): Record<PaletteState, Cell> {
+  return {
+    unanswered: { bg: colors.surface, border: colors.sand300, fg: colors.ink700 },
+    answered: { bg: colors.brand100, border: colors.brand500, fg: colors.brand700 },
+    flagged: { bg: colors.gold100, border: colors.gold500, fg: colors.gold700 },
+    flaggedAnswered: { bg: colors.brand100, border: colors.gold500, fg: colors.brand700 }
+  };
+}
 
 /** Numbered question grid: colour + a flag icon (never colour alone) show answered / unanswered / flagged. Tapping jumps to the question. */
 export function ExamPalette({ items, selected, flagged, onGo }: Props) {
+  const { colors } = useTheme();
+  const CELL = useMemo(() => paletteCells(colors), [colors]);
   const t = useT();
   const num = useNum();
   const legend = (state: PaletteState, label: string) => (

@@ -10,12 +10,13 @@ import { useDbState, useMarkHomeScreenReady } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { colors, gradients, shadow } from "@/theme";
+import { useTheme } from "@/settings";
 import { contentTotals } from "@/repositories/content";
 import { getActiveExam } from "@/repositories/sessions";
 import { getProfile } from "@/repositories/userData";
 
 export default function HomeScreen() {
+  const { colors, gradients, shadow } = useTheme();
   const t = useT();
   const num = useNum();
   const { lang } = useLang();

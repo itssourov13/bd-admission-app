@@ -14,7 +14,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams, scopeParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { colors, feedback } from "@/theme";
+import { useTheme } from "@/settings";
 import { countPoolBySubject, getInstitution, listPapers, scopeRule } from "@/repositories/content";
 import { getProfile, updateProfile } from "@/repositories/userData";
 import { buildSubjectOptions } from "@/services/subjects";
@@ -24,6 +24,7 @@ import { clampFlashSeconds, FLASH_DEFAULT_SECONDS, FLASH_MAX_SECONDS, FLASH_MIN_
 import type { QuestionCategory } from "@/types/domain";
 
 export default function FlashSetup() {
+  const { colors, feedback } = useTheme();
   const t = useT();
   const { lang } = useLang();
   const num = useNum();

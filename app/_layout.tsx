@@ -25,7 +25,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { LangProvider, useLang } from "@/i18n";
 import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady, useWaitForHomeScreenReady } from "@/db/provider";
 import { SetupScreen } from "@/components/startup/SetupScreen";
-import { colors } from "@/theme";
+import { AppearanceProvider, useSettings, useTheme } from "@/settings";
 import { startupMetrics } from "@/services/perf";
 import {
   canDismissSetupScreen,
@@ -41,6 +41,8 @@ SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
+  const { ready: settingsReady } = useSettings();
+  const { colors, isDark } = useTheme();
   const { state, retry } = useDbState();
   const progress = useStartupProgress();
   const markSetupScreenReady = useMarkSetupScreenReady();
@@ -49,7 +51,7 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const [setupRequired, setSetupRequired] = useState(false);
   const [homeReady, setHomeReady] = useState(false);
   const splashHidden = useRef(false);
-  const resourcesReady = fontsReady && languageReady;
+  const resourcesReady = fontsReady && languageReady && settingsReady;
   const dbReady = state.status === "ready";
   const failed = state.status === "error";
   const showSetupScreen = shouldShowSetupScreen(progress.mode, failed, setupRequired) && !setupDismissed;
@@ -124,6 +126,7 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
 
   return (
     <View className="flex-1 bg-body">
+      <StatusBar style={isDark ? "light" : "dark"} />
       {dbReady ? (
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }}>
           <Stack.Screen name="exam/[id]" options={{ gestureEnabled: false }} />
@@ -161,12 +164,13 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <LangProvider>
-        <DbProvider>
-          <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
-          <StatusBar style="dark" />
-        </DbProvider>
-      </LangProvider>
+      <AppearanceProvider>
+        <LangProvider>
+          <DbProvider>
+            <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
+          </DbProvider>
+        </LangProvider>
+      </AppearanceProvider>
     </SafeAreaProvider>
   );
 }

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Pressable, ActivityIndicator, View, type PressableProps } from "react-native";
 import { Txt } from "./Text";
-import { colors, shadow } from "@/theme";
+import { useTheme } from "@/settings";
 
 type Variant = "primary" | "accent" | "outline" | "ghost";
 type Size = "md" | "lg";
@@ -42,6 +42,7 @@ export function Button({
   style,
   ...props
 }: ButtonProps) {
+  const { colors, shadow } = useTheme();
   const elevated = variant === "primary" || variant === "accent";
   return (
     <Pressable

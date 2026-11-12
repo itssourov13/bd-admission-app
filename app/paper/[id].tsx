@@ -8,11 +8,12 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { countReviewCandidates, getPaperRule, listPapers } from "@/repositories/content";
 import { CUSTOM_PRACTICE_LIMITS, planExam } from "@/services/exam";
 
 export default function PaperScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const router = useRouter();

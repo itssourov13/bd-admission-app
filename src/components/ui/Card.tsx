@@ -1,8 +1,9 @@
 import { View, Pressable, type ViewProps, type PressableProps } from "react-native";
-import { shadow } from "@/theme";
+import { useTheme } from "@/settings";
 
 /** White surface card with soft elevation and 16px radius (web --radius-lg). */
 export function Card({ className, style, ...props }: ViewProps) {
+  const { shadow } = useTheme();
   return (
     <View
       style={[shadow.sm, style as object]}
@@ -14,6 +15,7 @@ export function Card({ className, style, ...props }: ViewProps) {
 
 /** Tappable variant of Card (e.g. list rows). */
 export function PressableCard({ className, style, ...props }: PressableProps) {
+  const { shadow } = useTheme();
   return (
     <Pressable
       style={[shadow.sm, style as object]}

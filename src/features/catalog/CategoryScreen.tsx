@@ -6,7 +6,7 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { countEligible, listInstitutions, listPapers } from "@/repositories/content";
 import type { InstitutionSummary, PaperSummary, QuestionCategory } from "@/types/domain";
 
@@ -14,6 +14,7 @@ type Item = { kind: "institution"; data: InstitutionSummary } | { kind: "paper";
 
 /** Varsity lists institutions (then papers); Medical lists papers directly. Both are built from SQLite content only. */
 export function CategoryScreen({ category }: { category: Extract<QuestionCategory, "varsity" | "medical"> }) {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const router = useRouter();

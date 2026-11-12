@@ -12,18 +12,17 @@ import { ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
-import { useLang, useNum, useT } from "@/i18n";
-import { colors, feedback } from "@/theme";
+import { useNum, useT } from "@/i18n";
+import { useTheme } from "@/settings";
 import { activitySummary, getProfile, saveDisplayName, updateProfile } from "@/repositories/userData";
-import { FLASH_PRESETS } from "@/services/timer";
 import type { QuestionCategory } from "@/types/domain";
 
 export default function ProfileScreen() {
+  const { colors, feedback } = useTheme();
   const t = useT();
   const num = useNum();
   const db = useDb();
   const router = useRouter();
-  const { lang, setLang } = useLang();
   const q = useQuery(async (d) => ({ profile: await getProfile(d), activity: await activitySummary(d) }));
   const [typedName, setName] = useState<string | null>(null);
   const [nameStatus, setNameStatus] = useState<"idle" | "saved" | "error">("idle");
@@ -58,7 +57,6 @@ export default function ProfileScreen() {
     if (draft !== null) void saveDisplayName(db, draft).then(() => { pendingName.current = null; }, () => undefined);
   }, [db]));
   useEffect(() => { if (nameStatus === "saved") { const id = setTimeout(() => setNameStatus("idle"), 3000); return () => clearTimeout(id); } return undefined; }, [nameStatus]);
-  const chooseLang = (l: "bn" | "en") => { setLang(l); void save({ language: l }); };
 
   if (q.loading) return <Screen edges={["top"]}><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ErrorView onRetry={q.reload} /></Screen>;
@@ -99,16 +97,7 @@ export default function ProfileScreen() {
         </Card>
 
         <Card className="p-5 mt-4">
-          <Txt weight="semibold" className="text-ink-900">{t("profile.language")}</Txt>
-          <View className="flex-row gap-2 mt-3">
-            <View className="flex-1"><Button label="বাংলা" variant={lang === "bn" ? "primary" : "outline"} onPress={() => chooseLang("bn")} accessibilityState={{ selected: lang === "bn" }} /></View>
-            <View className="flex-1"><Button label="English" variant={lang === "en" ? "primary" : "outline"} onPress={() => chooseLang("en")} accessibilityState={{ selected: lang === "en" }} /></View>
-          </View>
-          <Txt weight="semibold" className="text-ink-900 mt-5">{t("profile.flashDefault")}</Txt>
-          <View className="flex-row flex-wrap gap-2 mt-3">
-            {FLASH_PRESETS.map((s) => <ChoiceChip key={s} label={t("flash.seconds", { n: s })} selected={profile.flashSeconds === s} onPress={() => void save({ flashSeconds: s })} />)}
-          </View>
-          <Txt weight="semibold" className="text-ink-900 mt-5">{t("profile.target")}</Txt>
+          <Txt weight="semibold" className="text-ink-900">{t("profile.target")}</Txt>
           <View className="flex-row flex-wrap gap-2 mt-3">
             {([["varsity", "tab.varsity"], ["medical", "tab.medical"]] as [QuestionCategory, "tab.varsity" | "tab.medical"][]).map(([c, k]) => (
               <ChoiceChip key={c} label={t(k)} selected={target === c} onPress={() => void save({ targetCategory: target === c ? null : c })} />
@@ -129,6 +118,7 @@ export default function ProfileScreen() {
         <View className="mt-3 gap-2.5">
           <Button label={`${t("profile.openBookmarks")} (${num(activity.bookmarks)})`} variant="outline" icon={<Ionicons name="bookmark-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/bookmarks"))} />
           <Button label={t("profile.openHistory")} variant="outline" icon={<Ionicons name="time-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/history"))} />
+          <Button label={t("settings.open")} variant="outline" icon={<Ionicons name="settings-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/settings"))} />
           <Button label={t("marking.title")} variant="outline" icon={<Ionicons name="calculator-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/marking-profiles"))} />
         </View>
 

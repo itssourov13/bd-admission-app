@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Txt } from "@/components/ui";
 import { useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 
 export function goBack(router: ReturnType<typeof useRouter>) {
   if (router.canGoBack()) router.back();
@@ -11,6 +11,7 @@ export function goBack(router: ReturnType<typeof useRouter>) {
 }
 
 export function ScreenHeader({ title, subtitle, onBack, right }: { title: string; subtitle?: string; onBack?: () => void; right?: React.ReactNode }) {
+  const { colors } = useTheme();
   const router = useRouter();
   const t = useT();
   return (

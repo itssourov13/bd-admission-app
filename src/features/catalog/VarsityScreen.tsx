@@ -7,7 +7,7 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { countEligible, listInstitutions, listPapersByInstitutions } from "@/repositories/content";
 import { groupInstitutions, universityDisplayName, type UniversityGroup } from "./universities";
 import type { PaperSummary } from "@/types/domain";
@@ -36,6 +36,7 @@ function UniversityFilterBar({ groups, selected, onSelect, allLabel, a11yLabel }
 
 /** Varsity tab: parent-university list with a filter bar; a selected university shows its papers across all banks. */
 export function VarsityScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const { lang } = useLang();

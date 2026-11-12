@@ -169,3 +169,9 @@ Context: flags must survive crash recovery without risking the serialized select
 Decision: store `flagged` on `session_answers` and write it with its own guarded statement (active session, before deadline). Practice-from-missed is a PoolFilter field resolved by a subquery, so it reuses Flash setup/play and needs no copied question lists.
 
 Consequences: flags never affect scoring; retry pools only contain currently eligible catalogue questions.
+
+
+## ADR-024 — Theme via CSS-variable tokens and a single provider (Phase 6)
+Status: accepted, 2026-11-13.
+
+Tailwind colours resolve from `--c-*` variables set once on the root view by `AppearanceProvider`; style-prop colours come from `useTheme()`. Preferences (theme, motion, haptics, text size) live in AsyncStorage JSON because they are needed before SQLite is ready. Rejected: `dark:` variants everywhere (scattered conditionals) and per-row theme subscriptions in large lists.

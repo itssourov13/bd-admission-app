@@ -1,6 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  AccessibilityInfo,
   ActivityIndicator,
   Animated,
   AppState,
@@ -17,7 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Logo, Txt } from "@/components/ui";
 import { BRAND } from "@/brand";
 import { useLang, useT, type TranslationKey } from "@/i18n";
-import { colors, gradients, shadow } from "@/theme";
+import { useReducedMotion, useTheme } from "@/settings";
 import { percentOf, STARTUP_STAGES, stageIndex, type StartupProgress, type StartupStage } from "@/services/startupProgress";
 import { readyHoldMs } from "@/services/startupUiPolicy";
 
@@ -41,17 +40,6 @@ const DETAIL_KEY: Record<Exclude<StartupStage, "library">, TranslationKey> = {
 function useAnimatedValue(initial: number): Animated.Value {
   const [value] = useState(() => new Animated.Value(initial));
   return value;
-}
-
-function useReduceMotion(): boolean {
-  const [reduce, setReduce] = useState(false);
-  useEffect(() => {
-    let active = true;
-    AccessibilityInfo.isReduceMotionEnabled().then((v) => { if (active) setReduce(v); }).catch(() => undefined);
-    const sub = AccessibilityInfo.addEventListener("reduceMotionChanged", setReduce);
-    return () => { active = false; sub.remove(); };
-  }, []);
-  return reduce;
 }
 
 /**
@@ -79,6 +67,7 @@ function FadeIn({ children, reduceMotion }: { children: ReactNode; reduceMotion:
 }
 
 function BrandMark({ size, reduceMotion, appActive }: { size: number; reduceMotion: boolean; appActive: boolean }) {
+  const { colors, shadow } = useTheme();
   const pulse = useAnimatedValue(0);
   useEffect(() => {
     if (reduceMotion || !appActive) { pulse.setValue(0); return; }
@@ -123,6 +112,7 @@ function Stripe({ anim, trackWidth, stripe }: { anim: Animated.Value; trackWidth
  * fill to the current fraction because native animations may have been dropped while the app was not visible.
  */
 function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueText }: { fraction: number; active: boolean; reduceMotion: boolean; appActive: boolean; label: string; valueText: string }) {
+  const { colors, gradients } = useTheme();
   const [trackWidth, setTrackWidth] = useState(0);
   const fill = useAnimatedValue(0);
   const shimmer = useAnimatedValue(0);
@@ -167,6 +157,7 @@ function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueTe
 type StepStatus = "done" | "active" | "failed" | "pending";
 
 const StepRow = memo(function StepRow({ label, status, index, reduceMotion }: { label: string; status: StepStatus; index: number; reduceMotion: boolean }) {
+  const { colors } = useTheme();
   const checkmark = useAnimatedValue(0);
 
   useEffect(() => {
@@ -236,9 +227,10 @@ export interface SetupScreenProps {
 
 /** Branded first-launch setup screen driven by real startup progress. Covers the app until setup completes. */
 export function SetupScreen({ progress, failed, errorMessage, exiting, onRetry, onExited, onShown }: SetupScreenProps) {
+  const { colors, gradients, shadow } = useTheme();
   const t = useT();
   const { lang } = useLang();
-  const reduceMotion = useReduceMotion();
+  const reduceMotion = useReducedMotion();
   const appActive = useAppActive();
   const { width, height } = useWindowDimensions();
   const logoSize = Math.round(Math.min(104, Math.max(64, Math.min(width * 0.26, height * 0.13))));

@@ -10,7 +10,7 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href, scopeParams } from "@/features/navigation/links";
 import { useNum, useT, type TranslationKey, useLang } from "@/i18n";
-import { colors, feedback } from "@/theme";
+import { useTheme } from "@/settings";
 import { getSession } from "@/repositories/sessions";
 import { loadExam, toScorable, type ExamResult, type LoadedExam } from "@/services/practiceService";
 import { ChoiceChip } from "@/components/common/Toggle";
@@ -24,6 +24,7 @@ import { passAssessment } from "@/services/markingProfiles";
 import type { ScoringRule } from "@/services/scoring";
 
 export default function ResultScreen() {
+  const { colors, feedback } = useTheme();
   const t = useT();
   const num = useNum();
   const router = useRouter();

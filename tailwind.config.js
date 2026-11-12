@@ -1,16 +1,16 @@
-const brand = require("./brand.config.json");
-const c = brand.colors;
+const v = (name) => `rgb(var(--c-${name}) / <alpha-value>)`;
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content:["./app/**/*.{js,jsx,ts,tsx}","./src/**/*.{js,jsx,ts,tsx}"],
   presets:[require("nativewind/preset")],
+  // Theme colours are CSS variables (set per scheme by AppearanceProvider; see src/settings/palettes.ts).
   theme:{extend:{colors:{
-    navy:{800:c.navy800,900:c.navy900},
-    brand:{100:c.brand100,200:c.brand200,500:c.brand500,600:c.brand600,700:c.brand700,800:c.brand800},
-    gold:{100:c.gold100,400:c.gold400,500:c.gold500,700:c.gold700},
-    ink:{900:c.ink900,800:c.ink800,700:c.ink700,500:c.ink500,400:c.ink400,300:c.ink300},
-    sand:{50:c.sand50,100:c.sand100,200:c.sand200,300:c.sand300},
-    body:c.body,surface:c.surface
+    navy:{800:v("navy-800"),900:v("navy-900")},
+    brand:{100:v("brand-100"),200:v("brand-200"),500:v("brand-500"),600:v("brand-600"),700:v("brand-700"),800:v("brand-800")},
+    gold:{100:v("gold-100"),400:v("gold-400"),500:v("gold-500"),700:v("gold-700")},
+    ink:{900:v("ink-900"),800:v("ink-800"),700:v("ink-700"),500:v("ink-500"),400:v("ink-400"),300:v("ink-300")},
+    sand:{50:v("sand-50"),100:v("sand-100"),200:v("sand-200"),300:v("sand-300")},
+    body:v("body"),surface:v("surface")
   },fontFamily:{
     display:["Fraunces_600SemiBold"],"display-bold":["Fraunces_700Bold"],sans:["Manrope_400Regular"],
     medium:["Manrope_500Medium"],semibold:["Manrope_600SemiBold"],bold:["Manrope_700Bold"],

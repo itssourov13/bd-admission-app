@@ -11,7 +11,7 @@ import { isValidProfileId } from "@/services/markingProfiles";
 import { resolveMarkingChoice } from "@/repositories/marking";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { colors, feedback } from "@/theme";
+import { useTheme } from "@/settings";
 import { toggleBookmark, bookmarkedIds } from "@/repositories/userData";
 import { FlashController } from "@/services/flashController";
 import { clampFlashSeconds, formatClock } from "@/services/timer";
@@ -19,6 +19,7 @@ import { clampFlashSeconds, formatClock } from "@/services/timer";
 type Boot = "boot" | "empty" | "error" | "run";
 
 export default function FlashPlay() {
+  const { colors, feedback } = useTheme();
   const t = useT();
   const num = useNum();
   const db = useDb();

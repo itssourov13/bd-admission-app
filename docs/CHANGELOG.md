@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 6: Settings & dark mode (implemented — pending owner verification)
+
+- Added light/dark/system theme with semantic CSS-variable tokens (src/settings), persistent preference, dark splash variant and themed status bar.
+- Added Settings screen: theme, question text size, animations/Reduce Motion, haptics, language, default Flash timer, marking-rule defaults link, content info and version. Language/Flash controls moved from Profile to Settings.
+- Added dependency expo-haptics; `src/theme.ts` no longer exports colours (use `useTheme()`).
+
 ## 2026-11-13 — Roadmap Phase 5: Standard Exam improvements (implemented — pending owner verification)
 
 - Added question palette with direct navigation and persistent mark-for-review to the Standard Exam.

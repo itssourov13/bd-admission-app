@@ -146,3 +146,10 @@ Marking profiles live in src/services/markingProfiles.ts (pure) and src/reposito
 ## Roadmap handoff — Phase 5: Standard Exam improvements — 2026-11-13
 
 Phase 5 logic lives in src/services/examReview.ts (pure) and src/components/common/ExamPalette.tsx; flags persist in session_answers.flagged via setExamFlag (guarded like selections). Practice-missed uses PoolFilter.retrySessionId (route param retry). Selection queue, deadlines and finalization were not changed. Palette/warning colours use brand tokens directly and need semantic tokens in Phase 6. **Next: Phase 6 (Settings & dark mode).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+
+## Roadmap handoff — Phase 6: Settings & dark mode — 2026-11-13
+
+Status reconciled across IMPLEMENTATION_LOG, CURRENT_STATE, TASK_STATE and HANDOFF: Phases 1–5 Implemented — Pending Owner Verification; Phase 6 In Progress; Phases 7–10 Not Started. Phase 6 work begins from commit 26b704a. Next action: inspect NativeWind/Tailwind/theme.ts/app.config.js/root layout and design the theme system.
+
+Phase 6 is implemented and committed locally (see docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md). Use `useTheme()` from "@/settings" for any colour in style props; never import static colours. Needs a native rebuild (expo-haptics, splash/userInterfaceStyle). Tests/tsc need `nvm use 24`. **Next: Phase 7 (Home hero redesign).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.

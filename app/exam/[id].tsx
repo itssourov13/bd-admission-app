@@ -11,7 +11,7 @@ import { useNow } from "@/hooks/useNow";
 import { href } from "@/features/navigation/links";
 import { useNum, useT, type TranslationKey } from "@/i18n";
 import type { QuestionView } from "@/types/domain";
-import { colors, feedback } from "@/theme";
+import { useTheme } from "@/settings";
 import { bookmarkedIds, toggleBookmark } from "@/repositories/userData";
 import { finalizeStandardExam, loadExam, persistFlag, persistSelection, type LoadedExam } from "@/services/practiceService";
 import { activeWarning, examProgress, timeLevel } from "@/services/examReview";
@@ -20,6 +20,7 @@ import { buildExamSections, SUBJECT_LABEL_KEYS } from "@/services/subjects";
 import { formatClock } from "@/services/timer";
 
 export default function ExamScreen() {
+  const { colors, feedback } = useTheme();
   const t = useT();
   const num = useNum();
   const db = useDb();

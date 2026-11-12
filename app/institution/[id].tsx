@@ -7,10 +7,11 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { countEligible, countReviewCandidates, getInstitution, listPapers } from "@/repositories/content";
 
 export default function InstitutionScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const router = useRouter();

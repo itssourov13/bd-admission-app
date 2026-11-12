@@ -3,7 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Chip, Txt } from "@/components/ui";
 import { MathText, useSpokenMath } from "@/components/common/MathText";
 import { useT, useNum } from "@/i18n";
-import { colors, feedback } from "@/theme";
+import { useHaptics, useTheme } from "@/settings";
 import type { OptionView, QuestionView } from "../../types/domain";
 import { getQuestionAssetSources } from "../../content/questionAssets";
 
@@ -26,6 +26,8 @@ interface Props {
 }
 
 export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false }: Props) {
+  const { colors, feedback } = useTheme();
+  const haptics = useHaptics();
   const t = useT();
   const num = useNum();
   const spoken = useSpokenMath();
@@ -40,13 +42,13 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
   return (
     <View>
       <View className="flex-row items-start gap-2">
-        <MathText weight="semibold" className="flex-1 text-ink-900 text-[17px] leading-7">{question.text}</MathText>
+        <MathText weight="semibold" size={17} lineHeight={28} className="flex-1 text-ink-900">{question.text}</MathText>
         {onToggleBookmark ? (
           <Pressable
             accessibilityRole="button"
             accessibilityLabel={bookmarked ? t("question.unbookmark") : t("question.bookmark")}
             accessibilityState={{ selected: Boolean(bookmarked) }}
-            onPress={onToggleBookmark}
+            onPress={() => { haptics.select(); onToggleBookmark(); }}
             hitSlop={6}
             className="w-11 h-11 items-center justify-center rounded-full active:bg-sand-100"
           >
@@ -96,7 +98,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
               accessibilityLabel={`${optionLabel(o)}. ${spoken(o.text)}`}
               accessibilityState={{ selected: isSelected, disabled }}
               disabled={disabled || !onSelect}
-              onPress={() => onSelect?.(o.key)}
+              onPress={() => { haptics.select(); onSelect?.(o.key); }}
               style={{ borderColor: border, backgroundColor: bg, borderWidth: isSelected || isCorrect || isWrong ? 2 : 1, minHeight: 52 }}
               className="flex-row items-center gap-3 rounded-2xl px-3.5 py-3 active:opacity-80"
             >
@@ -108,7 +110,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
                   : isWrong ? <Ionicons name="close" size={18} color={colors.white} />
                   : <Txt weight="bold" className={`text-sm ${isSelected ? "text-white" : "text-ink-700"}`}>{optionLabel(o)}</Txt>}
               </View>
-              <MathText className="flex-1 text-ink-900 text-base leading-6">{o.text}</MathText>
+              <MathText size={16} lineHeight={24} className="flex-1 text-ink-900">{o.text}</MathText>
             </Pressable>
           );
         })}
@@ -117,7 +119,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
       {reveal && question.explanation ? (
         <View className="mt-4 rounded-2xl bg-sand-100 p-3.5">
           <Txt weight="semibold" className="text-ink-900 text-sm">{t("question.explanation")}</Txt>
-          <MathText className="text-ink-700 text-sm leading-6 mt-1">{question.explanation}</MathText>
+          <MathText size={14} lineHeight={24} className="text-ink-700 mt-1">{question.explanation}</MathText>
         </View>
       ) : null}
 

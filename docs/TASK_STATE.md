@@ -2,7 +2,14 @@
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Not Started · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 6. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 7 (Home hero redesign). Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 6 — Settings & dark mode — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md.
+
+- Done: theme system, Settings screen, haptics/motion/text-size preferences, dark splash config.
+- Owner: rebuild native app, test light/dark/system on device, review all screens in dark mode.
 
 ## Roadmap Phase 5 — Standard Exam improvements — 2026-11-13
 
