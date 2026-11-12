@@ -6,7 +6,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 |---|---|
 | 1 Loading UI Polish | Implemented — Pending Owner Verification |
 | 2 University identity, logos, filters | Implemented — Pending Owner Verification |
-| 3 Shared subject selection | Not Started |
+| 3 Shared subject selection | In Progress |
 | 4 Configurable marking rules | Not Started |
 | 5 Standard Exam improvements | Not Started |
 | 6 Settings & dark mode | Not Started |
@@ -28,3 +28,8 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 2. Added universities.ts, UniversityLogo + empty logo registry, VarsityScreen with filter bar, PoolFilter.institutionIds (repository, routes, setup screens), batched listPapersByInstitutions.
 3. Checks run: tests/universities.test.ts 5/5 (incl. repository parity), tsc --noEmit clean, targeted eslint clean. Full suite/device QA deferred.
 4. Logos: infrastructure only; authentic artwork needs owner-supplied licensed files.
+
+## 2026-11-13 — Documentation reconciliation (before Phase 3)
+1. Verified Phase 1 (0d47ba7) and Phase 2 (e900521) commits exist; working tree was clean.
+2. Fixed stale roadmap references with an idempotent one-off script (not the old helper): CURRENT_STATE.md roadmap block now has a status table; TASK_STATE.md obsolete "Next: Phase 2 (not started)" marked superseded and a status summary added; HANDOFF.md obsolete "Next: Phase 2" marked superseded. Historical entries otherwise untouched.
+3. Phase 3 marked In Progress.

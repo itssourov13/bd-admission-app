@@ -1,5 +1,9 @@
 # Task state
 
+## Roadmap status (reconciled)
+
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Next implementation phase · Phases 4–10: Pending. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
 ## Roadmap Phase 2 — University identity, logos, filters — 2026-11-13
 
 **Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_02_*.md.
@@ -18,7 +22,7 @@
 - [x] Returning-launch escalation (1.5 s), Home-ready fallback (4 s), splash-matching setup first frame, ready hold 520/150 ms, delayed spinner (150 ms).
 - [x] Policy tests extended (5/5 pass); targeted tsc/eslint run.
 - [ ] Owner: device QA (first run, returning, content-update escalation, failure/retry, Reduce Motion, deep link, setup→Home recording), full test suite.
-- Next: Phase 2 — University identity, logos & filters (not started).
+- Next (superseded 2026-11-13): Phase 2 was implemented afterwards — see the Phase 2 section above.
 
 ## HSTU verified-question promotion — 2026-11-12
 

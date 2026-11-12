@@ -1,12 +1,20 @@
 # Current state
 
-Last updated: 2026-11-13 (roadmap Phase 2 implemented — pending owner verification).
+Last updated: 2026-11-13 (roadmap docs reconciled; Phases 1–2 implemented — pending owner verification).
 
-## Roadmap status — 2026-11-13
+## Roadmap status — see table (reconciled 2026-11-13)
 
-- Phase 2 (University identity, logos, filters): Varsity tab shows parent universities with a filter bar; logos use monogram fallback until licensed assets are supplied.
+| Phase | Status |
+|---|---|
+| 1 Loading UI polish | Implemented — Pending Owner Verification |
+| 2 University identity, logos, filters | Implemented — Pending Owner Verification |
+| 3 Shared subject selection | Phase 3: Next implementation phase |
+| 4–10 | Pending (Not Started) |
 
-Roadmap detail: docs/implementation/IMPLEMENTATION_LOG.md. **Phase 1 (loading UI polish): Implemented — Pending Owner Verification.** Phases 2–10: Not Started. Phase 1 added: returning-launch escalation to the progress UI after 1.5 s, a 4 s Home-ready fallback, splash-matching setup first frame, shorter/Reduce-Motion-aware ready hold, and a 150 ms delayed `LoadingView` spinner. Lightweight checks only (policy test 5/5, targeted tsc/eslint); full suite, builds and device QA are deferred to the owner. See docs/implementation/PHASE_01_LOADING_UI.md.
+Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LOG.md (this table must always match it).
+
+- Phase 1 (docs/implementation/PHASE_01_LOADING_UI.md): Phase 1 added: returning-launch escalation to the progress UI after 1.5 s, a 4 s Home-ready fallback, splash-matching setup first frame, shorter/Reduce-Motion-aware ready hold, and a 150 ms delayed `LoadingView` spinner. Lightweight checks only (policy test 5/5, targeted tsc/eslint); full suite, builds and device QA are deferred to the owner. See docs/implementation/PHASE_01_LOADING_UI.md.
+- Phase 2 (docs/implementation/PHASE_02_UNIVERSITY_EXPERIENCE.md): Varsity tab shows parent universities with an All|DU|RU|JU|HSTU filter bar; logos use a monogram fallback until licensed assets are supplied.
 
 ## HSTU verified-question import — 2026-11-12
 
