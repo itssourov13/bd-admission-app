@@ -10,7 +10,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 4 Configurable marking rules | Implemented — Pending Owner Verification |
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
-| 7 Home hero redesign | Not Started |
+| 7 Home hero redesign | Implemented — Pending Owner Verification |
 | 8 Publications & books library | Not Started |
 | 9 Online + offline content management | Not Started |
 | 10 Backend & CMS foundation | Not Started |
@@ -62,3 +62,8 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Added Settings screen with reusable controls (theme, question text size, motion, haptics, language, Flash default, marking link, content info, version); moved language/Flash controls out of Profile; added expo-haptics.
 4. Checks run: settings-theme test 6/6, tsc exit 0, ESLint src+app 0 errors (warnings fixed). Full suite, builds, device tests NOT run (owner).
 5. Wrote PHASE_06_SETTINGS_DARK_MODE.md and committed locally. Not pushed.
+
+## 2026-11-13 — Phase 7
+1. Added HomeHero (gradient, OMR-bubble and cap motifs built from Views, context line, primary/secondary CTA, resume mode) and replaced the inline hero + separate resume card on Home.
+2. Checks run: tsc exit 0; ESLint on touched files exit 0. Device/visual checks NOT run (owner).
+3. Wrote PHASE_07_HOME_HERO.md and committed locally. Not pushed.

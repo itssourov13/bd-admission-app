@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-13 — Roadmap Phase 7: Home hero redesign (implemented — pending owner verification)
+
+- New HomeHero: gradient card with admission motifs, offline-ready context line, primary Start CTA, secondary mock-exam link; resume mode replaces the separate resume card.
+
 ## 2026-11-13 — Roadmap Phase 6: Settings & dark mode (implemented — pending owner verification)
 
 - Added light/dark/system theme with semantic CSS-variable tokens (src/settings), persistent preference, dark splash variant and themed status bar.

@@ -153,3 +153,5 @@ Phase 5 logic lives in src/services/examReview.ts (pure) and src/components/comm
 Status reconciled across IMPLEMENTATION_LOG, CURRENT_STATE, TASK_STATE and HANDOFF: Phases 1–5 Implemented — Pending Owner Verification; Phase 6 In Progress; Phases 7–10 Not Started. Phase 6 work begins from commit 26b704a. Next action: inspect NativeWind/Tailwind/theme.ts/app.config.js/root layout and design the theme system.
 
 Phase 6 is implemented and committed locally (see docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md). Use `useTheme()` from "@/settings" for any colour in style props; never import static colours. Needs a native rebuild (expo-haptics, splash/userInterfaceStyle). Tests/tsc need `nvm use 24`. **Next: Phase 7 (Home hero redesign).** Status table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+Phase 7 implemented and committed locally (docs/implementation/PHASE_07_HOME_HERO.md): src/components/home/HomeHero.tsx. **Next: Phase 8 (Publications & books library).**

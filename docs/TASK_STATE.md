@@ -2,7 +2,13 @@
 
 ## Roadmap status (reconciled)
 
-Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Not Started · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 7 (Home hero redesign). Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1: Implemented — Pending Owner Verification · Phase 2: Implemented — Pending Owner Verification · Phase 3: Implemented — Pending Owner Verification · Phase 4: Implemented — Pending Owner Verification · Phase 5: Implemented — Pending Owner Verification · Phase 6: Implemented — Pending Owner Verification · Phase 7: Implemented — Pending Owner Verification · Phase 8: Not Started · Phase 9: Not Started · Phase 10: Not Started · Next: Phase 8 (Publications & books library). Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 7 — Home hero redesign — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_07_HOME_HERO.md.
+
+- Owner: visually check Home (light/dark, small screens, large fonts, with/without active exam).
 
 ## Roadmap Phase 6 — Settings & dark mode — 2026-11-13
 

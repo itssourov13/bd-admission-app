@@ -3,8 +3,8 @@ import { ScrollView, View, Pressable } from "react-native";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
-import { Screen, Txt, Card, Button, Logo, Chip } from "@/components/ui";
+import { Screen, Txt, Card, Logo, Chip } from "@/components/ui";
+import { HomeHero } from "@/components/home/HomeHero";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDbState, useMarkHomeScreenReady } from "@/db/provider";
 import { useQuery } from "@/hooks/useQuery";
@@ -16,7 +16,7 @@ import { getActiveExam } from "@/repositories/sessions";
 import { getProfile } from "@/repositories/userData";
 
 export default function HomeScreen() {
-  const { colors, gradients, shadow } = useTheme();
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const { lang } = useLang();
@@ -75,23 +75,32 @@ export default function HomeScreen() {
             <Chip label={t("common.offline")} tone="brand" />
           </View>
 
-          <LinearGradient colors={gradients.hero} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[shadow.brand, { borderRadius: 24, padding: 22, overflow: "hidden" }]}>
-            <Txt weight="bold" className="text-brand-200 text-[11px] uppercase" style={{ letterSpacing: 1.1 }}>{t("home.eyebrow")}</Txt>
-            <Txt font="display" weight="bold" className="text-white text-[26px] leading-[36px] mt-3">{t("home.title")}</Txt>
-            <Txt className="text-white/90 text-sm leading-6 mt-3">{t("home.subtitle")}</Txt>
-          </LinearGradient>
+          {active ? (
+            <HomeHero
+              mode="resume"
+              eyebrow={t("home.resumeTitle")}
+              title={t("home.title")}
+              subtitle={t("home.resumeBody")}
+              primaryLabel={t("home.resume")}
+              onPrimary={() => router.push(href(`/exam/${active.id}`))}
+            />
+          ) : (
+            <HomeHero
+              eyebrow={t("home.eyebrow")}
+              title={t("home.title")}
+              subtitle={t("home.subtitle")}
+              contextLine={empty ? undefined : t("home.heroReady", { n: totals.eligible })}
+              primaryLabel={t("home.heroStart")}
+              onPrimary={() => router.push(href("/flash/setup"))}
+              secondaryLabel={t("home.heroExamLink")}
+              onSecondary={() => router.push(href("/exam/setup"))}
+            />
+          )}
 
           {state.status !== "ready" || !state.libraryComplete || state.importIssues.length > 0 ? (
             <Card className="p-4 mt-4"><Txt className="text-ink-700 text-sm leading-5">{t("error.importWarning")}</Txt></Card>
           ) : null}
 
-          {active ? (
-            <Card className="p-4 mt-4 border-gold-400">
-              <Txt weight="bold" className="text-ink-900 text-base">{t("home.resumeTitle")}</Txt>
-              <Txt className="text-ink-500 text-sm leading-5 mt-1">{t("home.resumeBody")}</Txt>
-              <View className="mt-3"><Button label={t("home.resume")} variant="accent" onPress={() => router.push(href(`/exam/${active.id}`))} /></View>
-            </Card>
-          ) : null}
 
           <View className="mt-6 mb-3">
             <Txt font="display" weight="bold" className="text-ink-900 text-xl">{t("home.sectionTitle")}</Txt>
