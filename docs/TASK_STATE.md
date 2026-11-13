@@ -1,3 +1,15 @@
+## Android preview v0.1.6 — built, installed and owner-verified — 2026-11-13
+
+**Status:** Complete for the current preview candidate. Owner reports the app installed and ran successfully; all previously reported Hero/theme/runtime issues are fixed and there are no outstanding app issues at this time.
+
+- [x] EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` reached **FINISHED** (completed 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.
+- [x] APK artifact: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- [x] Owner installed and ran v0.1.6 / Android versionCode 7 and confirmed the earlier reported issues are resolved.
+- [x] Final docs record the build result and owner verification; this finalization contains documentation changes only.
+- Release identity remains `com.admissionbd.app`; EAS project/signing identity unchanged. No push was performed.
+- The last two commits before this finalization (`2f1176b`, `6b7eeac`) contain documentation files only; their changed-path lists were checked and no application code/config/assets/tests changed.
+- Cover remains a reference-derived 782×382 crop; its internal preview was owner-tested. Its provenance/rights note remains relevant before any public-store redistribution.
+
 ## ASPECT Science Master QB — extraction/import authorized — 2026-11-13
 
 **Status:** READY FOR EXTRACTION AND IMPORT. Full owner permission is confirmed for digitisation, transcription, app storage, offline bundling and distribution in BD Admission App. Treat the book as approved project content; do not reopen a rights-review gate or stop for permission confirmation.
@@ -13,9 +25,9 @@
 Detailed execution plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
 
 
-## Home Hero runtime follow-up and Android preview v0.1.6 — 2026-11-13
+## Home Hero runtime follow-up and Android preview v0.1.6 — implementation record (2026-11-13)
 
-**Status:** Implementation, tests and documentation are ready for local release commit; EAS preview submission is the next step. No push or Play Store submission.
+**Status:** Implementation and automated checks complete; EAS build and owner device verification are recorded in the completion section at the top. No push or Play Store submission.
 
 - [x] Home Hero cover and native CTA composition implemented; previous button destinations and resume route preserved.
 - [x] Profile Stat dark-theme foreground fixed without a global `Txt` change.
@@ -23,8 +35,8 @@ Detailed execution plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.m
 - [x] Full tests: 240/240; TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff hygiene passed on Node 22.23.1.
 - [x] Removed the unused ESLint-disable directive that produced the prior single lint warning; the touched file passes targeted ESLint.
 - [x] Release metadata prepared and locally committed (`0c9e90f`): app/package/brand version 0.1.6, Android versionCode 7. App ID `com.admissionbd.app`, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`, preview APK profile and EAS-managed signing remain unchanged.
-- [x] EAS accepted the Android preview source upload: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`, current status `IN_PROGRESS`; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No long monitoring performed; no APK artifact is available yet.
-- [ ] Owner physical-device verification (Light/Dark, BN/EN, narrow and large-font layouts, Hero actions, Profile, exam pattern setup, Browse/Result).
+- [x] EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` FINISHED and APK artifact published: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- [x] Owner installed and ran the preview; previous reported Hero/theme/runtime issues are fixed and no new issue is currently reported. Device model/OS and exhaustive per-screen coverage were not supplied.
 - Cover remains a 782×382 crop from the owner-supplied reference; check its visual sharpness and confirm image usage rights before public distribution. See `assets/home/README.md`.
 
 

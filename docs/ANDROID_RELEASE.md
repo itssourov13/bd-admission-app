@@ -6,9 +6,9 @@
 - Application ID: `com.admissionbd.app`; EAS account/project: `sk_king13` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
 - Target: EAS `preview` profile, `INTERNAL` distribution, Android APK. Production remains configured for AAB and is not requested.
 - Existing v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but contains the previous source; do not install it as the Home Hero fix candidate. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
-- Final local gates on Node 22.23.1: 240/240 tests, TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config and Android no-bytecode export pass. The native EAS APK is a separate build gate; no physical-device QA is claimed.
-- EAS accepted the v0.1.6 source upload: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`, status **IN_PROGRESS**; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No APK artifact URL is available yet. Preserve the existing EAS-managed Android keystore; no credential rotation.
-- Owner QA: install v0.1.6 over the previous app without clearing app storage, then verify Home Hero in Light/Dark and BN/EN, both CTA routes, Resume, Profile metrics and university exam patterns. Keep a disposable device/profile for destructive fresh-install tests.
+- Final local gates on Node 22.23.1: 240/240 tests, TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config and Android no-bytecode export pass. Native EAS build and owner-reported installation/runtime verification are complete; no Play Store production AAB or rollout is claimed.
+- EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka); https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. The existing EAS-managed Android keystore was reused; no credential rotation.
+- Owner QA: the owner has installed and run v0.1.6 and reports all previously raised issues fixed, with no current outstanding app issue. This is owner-reported; exact handset/OS and exhaustive per-screen coverage were not recorded. Keep a disposable device/profile for destructive fresh-install tests.
 
 ## Preview build procedure
 
@@ -38,7 +38,7 @@ Last updated: 2026-11-13
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current preview candidate: 0.1.6 / Android versionCode 7 (EAS submission recorded in the latest candidate section above). v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
+- Current preview candidate: 0.1.6 / Android versionCode 7 (EAS build FINISHED; artifact linked in the latest candidate section above and owner installation/run confirmed). v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 

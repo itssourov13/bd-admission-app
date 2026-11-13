@@ -1,16 +1,16 @@
 # Current state
 
-Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gates pass; v0.1.6 Android preview submitted and IN_PROGRESS).
+Last updated: 2026-11-13 (v0.1.6 Android preview built, installed and owner-verified; no outstanding runtime issue reported).
 
 ## Latest implementation and release candidate — 2026-11-13
 
 - Home Hero is now a compact composite card: a decorative campus-photo cover with navy text scrim, separate native practice/mock-exam CTA controls, responsive stacking and resume behavior. Current asset: `assets/home/hero-cover.jpg` (782×382 crop from the supplied UI/UX reference); it is a temporary reference-derived image, not final bespoke artwork. Rights confirmation is required before public distribution. See `docs/implementation/PHASE_07_HOME_HERO.md` and `assets/home/README.md`.
 - Fixed the Hero CTA styling issue by removing unsupported callback-valued Pressable styles. Fixed dark Profile Stat values with an explicit semantic foreground; no global `Txt` change.
 - Exam setup received only a minimal duplicate-query reuse: the provisional-only subject-pool count is read once. The large-catalogue selection work is otherwise intentionally unchanged.
-- Automated validation on Node 22.23.1: full suite 240/240, TypeScript, lint, `pnpm content:check` (217 packs / 13,609 questions), Expo public config, Android no-bytecode Metro export and `git diff --check` pass. No physical-device UI test is claimed.
-- Release metadata: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **IN_PROGRESS**: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. The APK artifact is not available yet.
+- Automated validation on Node 22.23.1: full suite 240/240, TypeScript, lint, `pnpm content:check` (217 packs / 13,609 questions), Expo public config and Android no-bytecode Metro export passed before the EAS build. The owner subsequently installed and ran the v0.1.6 APK and confirmed the previously reported runtime issues are fixed; no current app issue was reported.
+- Release metadata: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (completed 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. [Download the v0.1.6 APK](https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk).
 - Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
-- Next owner action: install the new v0.1.6 preview APK over the existing app and verify Home in Light/Dark, Bangla/English, small width and large font; test Start Practising, Mock Exam and Resume. Also verify university exam-pattern availability and result/Browse UI on device.
+- Owner verification: v0.1.6 installed and launched successfully; owner reports the previously raised Hero/theme/runtime issues are fixed and there are no known outstanding app issues. Exact handset/OS and a per-screen test matrix were not recorded. Keep additional device checks optional unless a new issue appears.
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
@@ -22,7 +22,7 @@ Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gat
 | 4 Configurable marking rules | Implemented — Pending Owner Verification |
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
-| 7 Home hero redesign | Implemented — Pending Owner Verification |
+| 7 Home hero redesign | Implemented — Owner-reported runtime verification pass |
 | 8 Publications & books library | Implemented — Pending Owner Verification |
 | 9 Online + offline content management (optional) | Partially implemented — local contracts only; no remote source |
 | 10 Backend & CMS foundation (optional) | Deferred — contract documented; nothing deployed |
@@ -35,7 +35,7 @@ Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LO
 - Phase 4 (docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md): configurable marking profiles with per-value provenance, migration v6, per-university/global defaults, user profiles, session snapshots; implemented, pending owner verification.
 - Phase 5 (docs/implementation/PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md): question palette, mark-for-review (migration v7), time warnings, submit summary, per-subject results, review filters, practice-missed; implemented, pending owner verification.
 - Phase 6 (docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md): Settings screen and light/dark/system theme (CSS-variable tokens via src/settings), persistent preferences (theme, motion, haptics, question text size), dark splash; implemented, pending owner verification (needs native rebuild for expo-haptics).
-- Phase 7 (docs/implementation/PHASE_07_HOME_HERO.md): HomeHero component with gradient, View-built admission motifs, primary CTA and resume mode; implemented, pending owner verification.
+- Phase 7 (docs/implementation/PHASE_07_HOME_HERO.md): compact cover-based Hero with separate native CTAs and resume mode; implemented and owner-reported runtime verification pass.
 
 ## HSTU verified-question import — 2026-11-12
 

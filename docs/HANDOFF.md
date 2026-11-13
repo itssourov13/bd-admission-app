@@ -1,3 +1,31 @@
+# Latest handoff — v0.1.6 Android preview verified — 2026-11-13
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Release:** BD Admission `0.1.6`, Android `versionCode 7`, package `com.admissionbd.app`.
+**Implementation commit:** `0c9e90f` (`feat(ui): finalize home hero runtime fixes`).
+**Documentation finalization:** documentation-only; local commit only, not pushed.
+
+## EAS artifact
+
+- Build: `dcf1b743-ea08-4d27-b01f-82fe26374ffa` — **FINISHED** (2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka).
+- Build/install page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa
+- APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk
+- Profile: `preview` / `INTERNAL` APK. EAS project ID and existing signing identity are unchanged.
+
+## Owner device verification
+
+The owner confirms the APK was installed and launched successfully. The previously reported Home Hero CTA visibility, dark-theme Profile metric text and related runtime issues are resolved. The owner reports no currently outstanding app issue. This is an owner-reported verification; exact handset/Android version and exhaustive per-screen coverage were not recorded.
+
+## Repository/documentation integrity
+
+- Immediately before this final documentation pass, the working tree was clean.
+- The two most recent pre-existing commits, `2f1176b` (`docs: audit ASPECT master QB import readiness`) and `6b7eeac` (`docs: authorize ASPECT master QB offline import`), were inspected with `git diff-tree`. Both changed only `docs/` paths; neither changed app source, assets, config, dependencies or tests.
+- The finalization in this task is documentation-only. No app code, release metadata, assets or question data are changed.
+- No push is performed. The owner can push the branch when ready.
+
+---
+
 # Handoff addendum — 2026-11-13 (ASPECT Science Master QB approved intake)
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
@@ -33,7 +61,7 @@ Detailed plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
 
 ---
 
-# Current handoff — 2026-11-13 (Home Hero runtime follow-up / v0.1.6 preview)
+# Historical implementation handoff — 2026-11-13 (v0.1.6 preview preparation; superseded by the verified release handoff above)
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
@@ -52,10 +80,10 @@ Detailed plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
 ## Release notes / limitations
 
 - The previous v0.1.5 / code 6 EAS preview `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the Home Hero runtime follow-up. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
-- New EAS preview submitted: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`; current status `IN_PROGRESS`; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK artifact is not available yet.
+- EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` subsequently completed FINISHED; APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. See the latest verified handoff at the top of this file.
 - The new preview uses version `0.1.6` / Android code `7`; v0.1.5/code 6 must not be reused. EAS account/project and signing identity remain unchanged.
 - Current cover is a temporary crop from the owner-provided reference, not a bespoke 1024×500 generated original. English decorative book-spine wording remains; verify quality and rights before a public store distribution.
-- Physical-device verification is still required for Light/Dark, Bangla/English, narrow/large-font layouts, both Home CTA destinations, Resume, Profile Stat, university exam-pattern setup, Browse and Result.
+- Owner subsequently installed and ran v0.1.6 and reported the previously raised issues fixed with no current outstanding issue; exact handset/OS and exhaustive per-screen coverage were not recorded.
 - No Git push, production AAB or Play Store submission is included.
 
 ## Commands

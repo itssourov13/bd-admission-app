@@ -1,3 +1,10 @@
+## 2026-11-13 — v0.1.6 Android preview verified on device
+
+- EAS Android `preview` / INTERNAL APK build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed **FINISHED** at 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.
+- APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- Owner reports the v0.1.6 APK was installed and run successfully; the previously reported Home Hero CTA, theme visibility and runtime issues are fixed. No outstanding app issue is currently reported.
+- This is an owner-reported device verification; handset/OS and an exhaustive per-screen matrix were not recorded. No Git push or production Play Store release was performed.
+
 ## 2026-11-13 — ASPECT Science Master QB intake — approved for extraction/import
 
 - Owner confirms full permission to digitise, transcribe, store, bundle and distribute the purchased book's content for offline use in BD Admission App. Treat as authorized project content.
@@ -15,7 +22,7 @@
 - Added/updated Hero contrast and structure regression tests; full suite passes 240/240. TypeScript, lint, content check, Expo public config and Android no-bytecode Metro export pass on Node 22.23.1.
 - Updated the app/package/brand version to 0.1.6 and Android versionCode to 7 for an installable preview update. EAS submission details are recorded in the release/handoff docs.
 - Cover source note: 782×382 crop from the owner-supplied UI/UX reference, temporary placeholder; public-use rights not independently verified.
-- Submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` from local commit `0c9e90f`; initial status `IN_PROGRESS`. https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No long build monitoring, APK artifact or device QA is claimed.
+- Submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` from local commit `0c9e90f`; it subsequently completed FINISHED. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. Owner later installed and verified the app; see the completion entry at the top of this changelog.
 
 ## 2026-11-13 — Android preview candidate v0.1.5
 

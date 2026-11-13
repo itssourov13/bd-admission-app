@@ -1,7 +1,7 @@
 # Phase 11 — Home UX polish, dark-mode contrast and university-aware exam pattern
 
 Started: 2026-11-13. Branch: `feat/import-hstu-verified-answers-2026-11-12`. Node 22.23.1 (`.nvmrc`).
-Status: **Implemented — Pending Owner Verification** (source and docs committed locally as `0c9e90f`; EAS preview `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is IN_PROGRESS; no push).
+Status: **Implemented — owner smoke verification reported complete for the v0.1.6 candidate** (EAS preview `dcf1b743-ea08-4d27-b01f-82fe26374ffa` FINISHED; no push).
 
 ## 1. Objective and scope
 Owner real-device feedback on v0.1.5 preview (EAS build `41bd1c7e-9376-41a7-abb0-860ab8031273`, untouched):
@@ -66,8 +66,8 @@ Preserved: application ID, EAS project ID, existing signing identity, question/a
 - Deferred on purpose: F3 (Expo Go `copyAsync`, dev-workflow only; use the APK or a dev client), F6–F9 (Low), exam-timer re-render isolation, optional "100 q / 60 min, not official" preset (product decision U2).
 - Environment note: the shell default Node was 24.x, which cannot load `.ts` tests; run checks with Node 22.23.1 (`.nvmrc`), e.g. `export PATH=$HOME/.nvm/versions/node/v22.23.1/bin:$PATH`.
 
-## 8. Owner verification (pending)
-Real-device check of hero in light/dark, Bangla/English, large font; institution mock exam options for JU/DU/RU/HSTU; custom-practice fallback.
+## 8. Owner verification
+The owner installed and ran the v0.1.6 APK and reports the previously raised runtime issues are fixed, with no current outstanding app issue. The exact handset/Android version and a per-case record for JU/DU/RU/HSTU pattern options, Custom Practice, light/dark, language and large-font combinations were not supplied; do not claim an exhaustive matrix beyond the owner-reported smoke verification.
 
 
 ## Home Hero runtime follow-up and release readiness — 2026-11-13
@@ -76,4 +76,4 @@ The owner-provided runtime screenshots exposed the CTA styling regression and Pr
 
 Exam startup decision: the provisional-only branch previously executed an identical read-only subject-pool count twice. It now reuses the first result. The expected work of selecting among a large pack catalogue remains unchanged; no speculative indexing, caching, selection rewrite or database redesign was introduced.
 
-Verification: 240/240 tests, typecheck, lint after removing the unused directive, content check, Expo public config and Android no-bytecode export pass on Node 22.23.1. Native build and physical-device QA remain distinct checks.
+Verification: 240/240 tests, typecheck, lint after removing the unused directive, content check, Expo public config and Android no-bytecode export pass on Node 22.23.1. EAS preview `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed FINISHED and the owner installed/ran the APK; previous reported issues are fixed and no current issue is reported.

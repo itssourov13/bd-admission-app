@@ -116,3 +116,13 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 6. Updated phase/state/release/QA/handoff documentation and recorded the cover's reference-derived provenance and distribution-rights caveat. Device QA remains owner-pending.
 7. No question data, DB schema, marking rules, dependencies or application identity changed; no push.
 8. Committed locally as `0c9e90f`; submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` (`IN_PROGRESS` at the one-time status check): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No artifact/device QA or long monitoring is claimed.
+
+
+## 2026-11-13 — v0.1.6 Android preview completion and owner verification
+
+1. EAS Android preview `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed **FINISHED** at 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+2. Owner installed and ran the APK and reported the previously raised Home Hero/theme/runtime issues fixed, with no currently outstanding app issue. This is owner-reported device QA; handset/OS and exhaustive per-screen matrix were not recorded.
+3. Verified pre-existing commits `2f1176b` and `6b7eeac` via `git diff-tree`: both touched documentation paths only; no app source, assets, configuration, dependencies, tests or question data changed. Working tree was clean before this final documentation update.
+4. Updated current state, task state, changelog, handoff, Android release guide, QA checklist and the Phase 7/11 implementation records. This finalization contains documentation changes only.
+5. Minimal check: `git diff --check` and staged-path scope verification; no source tests were rerun because no application code changed.
+6. No push; the owner will push manually.
