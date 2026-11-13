@@ -4,9 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { Button, Card, Chip, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 
 export default function EngineeringScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const router = useRouter();
   return (

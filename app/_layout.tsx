@@ -23,27 +23,39 @@ import {
 } from "@expo-google-fonts/fraunces";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { LangProvider, useLang } from "@/i18n";
-import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady } from "@/db/provider";
+import { DbProvider, useDbState, useStartupProgress, useMarkSetupScreenReady, useWaitForHomeScreenReady } from "@/db/provider";
 import { SetupScreen } from "@/components/startup/SetupScreen";
-import { colors } from "@/theme";
+import { AppearanceProvider, useSettings, useTheme } from "@/settings";
 import { startupMetrics } from "@/services/perf";
+import {
+  canDismissSetupScreen,
+  HOME_READY_TIMEOUT_MS,
+  RETURNING_ESCALATION_MS,
+  shouldEscalateReturningStartup,
+  shouldReleaseSetupGateWithoutScreen,
+  shouldShowSetupScreen
+} from "@/services/startupUiPolicy";
 
 startupMetrics.mark("app.jsStart");
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
-/** How long the completed "Ready to start" state stays visible before fading out. First-time setup gets a longer dwell. */
-const READY_HOLD_FIRST_RUN_MS = 700;
-const READY_HOLD_RETURNING_MS = 120;
-
 function AppShell({ fontsReady }: { fontsReady: boolean }) {
   const { ready: languageReady } = useLang();
+  const { ready: settingsReady } = useSettings();
+  const { colors, isDark } = useTheme();
   const { state, retry } = useDbState();
   const progress = useStartupProgress();
   const markSetupScreenReady = useMarkSetupScreenReady();
+  const waitForHomeScreenReady = useWaitForHomeScreenReady();
   const [setupDismissed, setSetupDismissed] = useState(false);
+  const [setupRequired, setSetupRequired] = useState(false);
+  const [homeReady, setHomeReady] = useState(false);
   const splashHidden = useRef(false);
-  const resourcesReady = fontsReady && languageReady;
+  const resourcesReady = fontsReady && languageReady && settingsReady;
   const dbReady = state.status === "ready";
+  const failed = state.status === "error";
+  const showSetupScreen = shouldShowSetupScreen(progress.mode, failed, setupRequired) && !setupDismissed;
+  const resourcesReadyAt = useRef<number | null>(null);
   useEffect(() => {
     if (fontsReady) startupMetrics.mark("fonts.ready");
   }, [fontsReady]);
@@ -55,43 +67,83 @@ function AppShell({ fontsReady }: { fontsReady: boolean }) {
     SplashScreen.hideAsync().catch(() => undefined);
   }, []);
   const dismissSetup = useCallback(() => setSetupDismissed(true), []);
+  const handleRetry = useCallback(() => {
+    setSetupRequired(true);
+    retry();
+  }, [retry]);
   const handleSetupShown = useCallback(() => {
     hideSplash();
     markSetupScreenReady();
   }, [hideSplash, markSetupScreenReady]);
 
-  // Safety net: never leave the native splash up if the setup screen could not report its layout.
+  // Returning users have no SetupScreen layout to resolve the startup sync gate.
   useEffect(() => {
-    if (!resourcesReady) return;
+    if (shouldReleaseSetupGateWithoutScreen(progress.mode)) markSetupScreenReady();
+  }, [progress.mode, markSetupScreenReady]);
+
+  // Safety net applies only when the branded setup/error UI is expected to cover the native splash.
+  useEffect(() => {
+    if (!resourcesReady || !showSetupScreen) return;
     const timer = setTimeout(() => {
       hideSplash();
       markSetupScreenReady();
     }, 1500);
     return () => clearTimeout(timer);
-  }, [resourcesReady, hideSplash, markSetupScreenReady]);
+  }, [resourcesReady, showSetupScreen, hideSplash, markSetupScreenReady]);
+
+  // A returning launch is normally invisible behind the native splash. When it is not (a new release re-syncing
+  // content packs), hand over to the branded progress UI instead of leaving a silent, apparently frozen splash.
+  useEffect(() => {
+    if (!resourcesReady || setupRequired) return;
+    if (resourcesReadyAt.current === null) resourcesReadyAt.current = Date.now();
+    const remaining = Math.max(0, RETURNING_ESCALATION_MS - (Date.now() - resourcesReadyAt.current));
+    const timer = setTimeout(() => {
+      if (shouldEscalateReturningStartup(progress.mode, dbReady, failed, RETURNING_ESCALATION_MS)) setSetupRequired(true);
+    }, remaining);
+    return () => clearTimeout(timer);
+  }, [resourcesReady, setupRequired, progress.mode, dbReady, failed]);
+
+  // Wait for Home on both paths: first-run uses it to dismiss the branded overlay,
+  // while returning launches use it as the native-splash hide boundary.
+  // The timeout is a fallback only: Home may not be the initial route, or its first query may stall.
+  useEffect(() => {
+    if (!resourcesReady || !dbReady) return;
+    let active = true;
+    const release = () => {
+      if (!active) return;
+      setHomeReady(true);
+      hideSplash();
+    };
+    const timer = setTimeout(release, HOME_READY_TIMEOUT_MS);
+    void waitForHomeScreenReady().then(() => {
+      clearTimeout(timer);
+      release();
+    });
+    return () => { active = false; clearTimeout(timer); };
+  }, [resourcesReady, dbReady, waitForHomeScreenReady, hideSplash]);
 
   if (!resourcesReady) return <View className="flex-1 bg-body" />;
 
   return (
     <View className="flex-1 bg-body">
+      <StatusBar style={isDark ? "light" : "dark"} />
       {dbReady ? (
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.bgBody } }}>
           <Stack.Screen name="exam/[id]" options={{ gestureEnabled: false }} />
           <Stack.Screen name="flash/play" options={{ gestureEnabled: false }} />
         </Stack>
       ) : null}
-      {setupDismissed ? null : (
+      {showSetupScreen ? (
         <SetupScreen
           progress={progress}
-          failed={state.status === "error"}
+          failed={failed}
           errorMessage={state.status === "error" ? state.error.message : null}
-          exiting={dbReady}
-          holdMs={progress.mode === "firstRun" ? READY_HOLD_FIRST_RUN_MS : READY_HOLD_RETURNING_MS}
-          onRetry={retry}
+          exiting={canDismissSetupScreen(dbReady, homeReady)}
+          onRetry={handleRetry}
           onExited={dismissSetup}
           onShown={handleSetupShown}
         />
-      )}
+      ) : null}
     </View>
   );
 }
@@ -112,12 +164,13 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <LangProvider>
-        <DbProvider>
-          <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
-          <StatusBar style="dark" />
-        </DbProvider>
-      </LangProvider>
+      <AppearanceProvider>
+        <LangProvider>
+          <DbProvider>
+            <AppShell fontsReady={fontsLoaded || Boolean(fontError)} />
+          </DbProvider>
+        </LangProvider>
+      </AppearanceProvider>
     </SafeAreaProvider>
   );
 }

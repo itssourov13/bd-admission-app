@@ -1,10 +1,11 @@
+import { effectiveRule, type ProfileChoice } from "./markingProfiles.ts";
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView, SessionRow } from "../types/domain.ts";
 import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
 import {
-  addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, type SessionAnswerRow
+  addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, setExamFlag, type SessionAnswerRow
 } from "../repositories/sessions.ts";
-import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
+import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, planPatternScope, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
 import { scoreAttempt, isAnswerCorrect, UNCONFIGURED_RULE, type ExamScore, type ScorableQuestion, type ScoringRule } from "./scoring.ts";
 import { examAdvice, type AdviceKey } from "./advice.ts";
 import type { Rng } from "./flash.ts";
@@ -33,11 +34,16 @@ export type StartExamResult =
  * number of graded items.
  */
 export async function startStandardExam(
-  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean; custom?: CustomPracticeConfig } = {}
+  db: SqlDb, filter: PoolFilter, now = Date.now(), rng?: Rng, opts: { includeUnverified?: boolean; custom?: CustomPracticeConfig; markingChoice?: ProfileChoice | null } = {}
 ): Promise<StartExamResult> {
   const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
   const storedRule = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
-  const plan = planExam(filter.paperId, storedRule);
+  const patternScoped = !filter.paperId && Boolean(filter.paperIds?.length);
+  const patternRules = patternScoped ? await Promise.all(filter.paperIds!.map((id) => getPaperRule(db, id))) : [];
+  const institutionScoped = Boolean(filter.institutionId || filter.institutionIds?.length);
+  const plan = patternScoped
+    ? planPatternScope(patternRules)
+    : planExam(filter.paperId, storedRule, { bookScoped: Boolean(filter.bookId), institutionScoped });
   const customRequested = plan.kind === "unavailable" && opts.custom !== undefined;
   if (plan.kind === "unavailable" && !customRequested) {
     return { ok: false, eligibility: checkExamEligibility(0, 0), reason: "rule_unavailable" };
@@ -47,7 +53,7 @@ export async function startStandardExam(
   }
   const custom = customRequested ? opts.custom! : null;
   // Never consume another source's values: an official/source plan only supplies its own stored pattern.
-  const paperPattern = plan.kind === "paper" ? storedRule : null;
+  const paperPattern = plan.kind === "paper" && filter.paperId ? storedRule : null;
   const required = plan.kind === "unavailable" ? custom!.questions : plan.required;
   const durationSeconds = plan.kind === "unavailable" ? custom!.seconds : plan.durationSeconds;
   const selection = paperPattern?.selectionConfig ?? null;
@@ -91,12 +97,14 @@ export async function startStandardExam(
 
   const resolved = await resolveRuleForQuestions(db, picked, filter);
   // Never attach one paper's question-count/section pattern to an all-institution or global mock exam.
-  const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : {
+  const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : patternScoped ? resolved : {
     ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
   };
+  // Marking profile (Phase 4): same resolution for every exam type; a complete stored rule still wins over an automatic default.
+  const effective = effectiveRule(rule, opts.markingChoice ?? null, { customPractice: custom !== null });
   const id = newSessionId(now);
   const sessionFilter = { ...filter, ...(opts.includeUnverified ? { reviewUnverified: true } : {}), ...(custom ? { customPractice: true } : {}) };
-  await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule });
+  await createSession(db, { id, mode: "exam", filter: sessionFilter, startedAt: now, deadlineAt: now + durationSeconds * 1000, durationSeconds, rule: effective.rule, ruleProfile: effective.snapshot });
   await addExamQuestions(db, id, picked);
   return { ok: true, sessionId: id };
 }
@@ -106,11 +114,18 @@ export async function persistSelection(db: SqlDb, sessionId: string, questionId:
   return saveExamSelection(db, sessionId, questionId, keys, now);
 }
 
+/** Persists the mark-for-review flag; false when the exam is finalized or past its deadline. */
+export async function persistFlag(db: SqlDb, sessionId: string, questionId: string, flagged: boolean, now = Date.now()): Promise<boolean> {
+  return setExamFlag(db, sessionId, questionId, flagged, now);
+}
+
 export interface LoadedExam {
   session: SessionRow;
   /** Questions in exam order (position 1..n). */
   questions: QuestionView[];
   selected: Record<string, string[]>;
+  /** Question ids flagged for review. */
+  flagged: string[];
 }
 
 export async function loadExam(db: SqlDb, sessionId: string): Promise<LoadedExam | null> {
@@ -120,7 +135,7 @@ export async function loadExam(db: SqlDb, sessionId: string): Promise<LoadedExam
   const questions = await loadQuestions(db, answers.map((a) => a.questionId));
   const selected: Record<string, string[]> = {};
   answers.forEach((a) => { if (a.selectedKeys.length) selected[a.questionId] = a.selectedKeys; });
-  return { session, questions, selected };
+  return { session, questions, selected, flagged: answers.filter((a) => a.flagged).map((a) => a.questionId) };
 }
 
 /** Finalizes an active exam whose deadline already passed (app was closed). Safe to call repeatedly. */

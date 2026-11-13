@@ -1,3 +1,4 @@
+import { effectiveRule, type ProfileChoice } from "./markingProfiles.ts";
 import type { SqlDb } from "../db/types.ts";
 import type { PoolFilter, QuestionView } from "../types/domain.ts";
 import { loadQuestions, practiceQuestionIds, resolveRuleForQuestions } from "../repositories/content.ts";
@@ -73,7 +74,7 @@ export class FlashController {
   /** Returns null when the filter has no eligible question (the UI shows an empty state). */
   static async start(
     db: SqlDb, filter: PoolFilter, perQuestionSeconds: number,
-    opts: { now?: number; rng?: Rng; clock?: () => number; includeReviewCandidates?: boolean } = {}
+    opts: { now?: number; rng?: Rng; clock?: () => number; includeReviewCandidates?: boolean; markingChoice?: ProfileChoice | null } = {}
   ): Promise<FlashController | null> {
     const clock = opts.clock ?? (() => Date.now());
     const now = opts.now ?? clock();
@@ -82,10 +83,11 @@ export class FlashController {
     const pool = await practiceQuestionIds(db, filter, reviewUnverified);
     const state = startFlash(pool, perQuestionSeconds, now, rng);
     if (!state) return null;
-    const rule = await resolveRuleForQuestions(db, state.poolIds, filter);
+    const effective = effectiveRule(await resolveRuleForQuestions(db, state.poolIds, filter), opts.markingChoice ?? null);
+    const rule = effective.rule;
     const id = newSessionId(now);
     const sessionFilter = reviewUnverified ? { ...filter, reviewUnverified: true } : filter;
-    await createSession(db, { id, mode: "flash", filter: sessionFilter, startedAt: now, perQuestionSeconds, rule });
+    await createSession(db, { id, mode: "flash", filter: sessionFilter, startedAt: now, perQuestionSeconds, rule, ruleProfile: effective.snapshot });
     const controller = new FlashController(db, id, state, rule, state.poolIds.length, perQuestionSeconds, reviewUnverified, rng, clock);
     await controller.load(state.currentQuestionId);
     controller.state = restartCurrentTimer(controller.state, clock());

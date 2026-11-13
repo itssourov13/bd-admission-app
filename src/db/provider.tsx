@@ -32,6 +32,13 @@ const DbContext = createContext<DbContextValue>({ state: { status: "loading", db
 /** Separate context so the frequently changing setup progress never re-renders `useDbState` consumers. */
 const ProgressContext = createContext<StartupProgress>(INITIAL_STARTUP_PROGRESS);
 const SetupVisibleContext = createContext<() => void>(() => undefined);
+const HomeVisibleContext = createContext<{
+  markReady: () => void;
+  waitUntilReady: () => Promise<void>;
+}>({
+  markReady: () => undefined,
+  waitUntilReady: () => Promise.resolve()
+});
 
 /** Minimum gap between progress renders; stage and mode changes are always published immediately. */
 const PROGRESS_EMIT_MS = 100;
@@ -82,6 +89,17 @@ export function DbProvider({ children }: { children: ReactNode }) {
     return { promise, resolve };
   });
   const markSetupScreenReady = useCallback(() => { setupScreenGate.resolve(); }, [setupScreenGate]);
+  const [homeScreenGate] = useState(() => {
+    let resolve!: () => void;
+    const promise = new Promise<void>((done) => { resolve = done; });
+    return { promise, resolve };
+  });
+  const markHomeScreenReady = useCallback(() => { homeScreenGate.resolve(); }, [homeScreenGate]);
+  const waitForHomeScreenReady = useCallback(() => homeScreenGate.promise, [homeScreenGate]);
+  const homeContextValue = useMemo(
+    () => ({ markReady: markHomeScreenReady, waitUntilReady: waitForHomeScreenReady }),
+    [markHomeScreenReady, waitForHomeScreenReady]
+  );
   const [coordinator] = useState(() => {
     startupMetrics.mark("provider.created");
     // Progress bookkeeping is per attempt and lives inside the closure the coordinator calls.
@@ -175,7 +193,9 @@ export function DbProvider({ children }: { children: ReactNode }) {
   return (
     <DbContext.Provider value={dbContextValue}>
       <SetupVisibleContext.Provider value={markSetupScreenReady}>
-        <ProgressContext.Provider value={progress}>{children}</ProgressContext.Provider>
+        <HomeVisibleContext.Provider value={homeContextValue}>
+          <ProgressContext.Provider value={progress}>{children}</ProgressContext.Provider>
+        </HomeVisibleContext.Provider>
       </SetupVisibleContext.Provider>
     </DbContext.Provider>
   );
@@ -193,6 +213,16 @@ export function useStartupProgress(): StartupProgress {
 /** Signals that the branded setup screen has completed its first layout. */
 export function useMarkSetupScreenReady(): () => void {
   return useContext(SetupVisibleContext);
+}
+
+/** Signals that Home has rendered its first data-backed (or actionable error) state. */
+export function useMarkHomeScreenReady(): () => void {
+  return useContext(HomeVisibleContext).markReady;
+}
+
+/** Resolves after Home reports its first data-backed (or actionable error) state. */
+export function useWaitForHomeScreenReady(): () => Promise<void> {
+  return useContext(HomeVisibleContext).waitUntilReady;
 }
 
 /** Only call below the ready gate in app/_layout.tsx. */

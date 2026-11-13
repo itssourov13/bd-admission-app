@@ -1,6 +1,60 @@
 # Current state
 
-Last updated: 2026-11-05 (v0.1.4 APK and embedded seed verified; owner reports physical-phone verification successful; two follow-up notes logged).
+Last updated: 2026-11-13 (v0.1.6 Android preview built, installed and owner-verified; no outstanding runtime issue reported).
+
+## Latest implementation and release candidate — 2026-11-13
+
+- Home Hero is now a compact composite card: a decorative campus-photo cover with navy text scrim, separate native practice/mock-exam CTA controls, responsive stacking and resume behavior. Current asset: `assets/home/hero-cover.jpg` (782×382 crop from the supplied UI/UX reference); it is a temporary reference-derived image, not final bespoke artwork. Rights confirmation is required before public distribution. See `docs/implementation/PHASE_07_HOME_HERO.md` and `assets/home/README.md`.
+- Fixed the Hero CTA styling issue by removing unsupported callback-valued Pressable styles. Fixed dark Profile Stat values with an explicit semantic foreground; no global `Txt` change.
+- Exam setup received only a minimal duplicate-query reuse: the provisional-only subject-pool count is read once. The large-catalogue selection work is otherwise intentionally unchanged.
+- Automated validation on Node 22.23.1: full suite 240/240, TypeScript, lint, `pnpm content:check` (217 packs / 13,609 questions), Expo public config and Android no-bytecode Metro export passed before the EAS build. The owner subsequently installed and ran the v0.1.6 APK and confirmed the previously reported runtime issues are fixed; no current app issue was reported.
+- Release metadata: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (completed 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. [Download the v0.1.6 APK](https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk).
+- Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
+- Owner verification: v0.1.6 installed and launched successfully; owner reports the previously raised Hero/theme/runtime issues are fixed and there are no known outstanding app issues. Exact handset/OS and a per-screen test matrix were not recorded. Keep additional device checks optional unless a new issue appears.
+
+## Roadmap status — see table (reconciled 2026-11-13)
+
+| Phase | Status |
+|---|---|
+| 1 Loading UI Polish | Implemented — Pending Owner Verification |
+| 2 University identity, logos, filters | Implemented — Pending Owner Verification |
+| 3 Shared subject selection | Implemented — Pending Owner Verification |
+| 4 Configurable marking rules | Implemented — Pending Owner Verification |
+| 5 Standard Exam improvements | Implemented — Pending Owner Verification |
+| 6 Settings & dark mode | Implemented — Pending Owner Verification |
+| 7 Home hero redesign | Implemented — Owner-reported runtime verification pass |
+| 8 Publications & books library | Implemented — Pending Owner Verification |
+| 9 Online + offline content management (optional) | Partially implemented — local contracts only; no remote source |
+| 10 Backend & CMS foundation (optional) | Deferred — contract documented; nothing deployed |
+
+Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LOG.md (this table must always match it).
+
+- Phase 1 (docs/implementation/PHASE_01_LOADING_UI.md): Phase 1 added: returning-launch escalation to the progress UI after 1.5 s, a 4 s Home-ready fallback, splash-matching setup first frame, shorter/Reduce-Motion-aware ready hold, and a 150 ms delayed `LoadingView` spinner. Lightweight checks only (policy test 5/5, targeted tsc/eslint); full suite, builds and device QA are deferred to the owner. See docs/implementation/PHASE_01_LOADING_UI.md.
+- Phase 2 (docs/implementation/PHASE_02_UNIVERSITY_EXPERIENCE.md): Varsity tab shows parent universities with an All|DU|RU|JU|HSTU filter bar; logos use a monogram fallback until licensed assets are supplied.
+- Phase 3 (docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md): shared All/Single/Multiple subject selection for Flash, Custom Practice and generic Standard Exam; validated route params; grouped pool counts; implemented, pending owner verification (device testing deferred).
+- Phase 4 (docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md): configurable marking profiles with per-value provenance, migration v6, per-university/global defaults, user profiles, session snapshots; implemented, pending owner verification.
+- Phase 5 (docs/implementation/PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md): question palette, mark-for-review (migration v7), time warnings, submit summary, per-subject results, review filters, practice-missed; implemented, pending owner verification.
+- Phase 6 (docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md): Settings screen and light/dark/system theme (CSS-variable tokens via src/settings), persistent preferences (theme, motion, haptics, question text size), dark splash; implemented, pending owner verification (needs native rebuild for expo-haptics).
+- Phase 7 (docs/implementation/PHASE_07_HOME_HERO.md): compact cover-based Hero with separate native CTAs and resume mode; implemented and owner-reported runtime verification pass.
+
+## HSTU verified-question import — 2026-11-12
+
+- Claude's accepted HSTU verification ledger was the source of truth: **664 unique question IDs** are now in the normal HSTU catalogue with both answer and content status set to verified.
+- **657** questions moved from HSTU-U appearances to 15 new HSTU papers; **7** questions already attached to HSTU received their accepted answer mappings/status update.
+- Normal HSTU now contains **22 papers / 950 questions**. **939** have verified answers and content and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- HSTU-U retains **105 pending questions** across 15 papers (102 answer-unverified, 3 answer-unknown; content remains unverified). The **116 baseline pending** questions were not promoted or modified. Three off-baseline pending-ledger records were also left unchanged.
+- Question IDs, stems, option order/text and source references were preserved. No JU, RU or DU content, runtime logic, or exam rules changed.
+- Verification: 18 pack files and the generated manifest updated; 217 packs / 13,609 questions rebuilt. Full test suite passed 142/142; typecheck, lint and content check passed; SQLite quick_check passed and foreign-key check returned zero issues. All 664 ledger IDs and keys reconcile, pending objects match the pre-import backup, and staged/app pack hashes match.
+- No new APK was built or installed for this content update; an updated bundled seed reaches an installed device through a new app build.
+
+## Startup UI targeted implementation — 2026-11-11
+
+- The branded five-stage setup UI is now reserved for first-run library setup and actionable startup failures/retries. Returning cold launches keep the native splash visible while SQLite startup/content reconciliation runs; the setup sync gate is released when progress.mode becomes returning.
+- The returning splash is hidden only after Home's initial query has settled and its data-backed or actionable error view has laid out. First-run setup also remains on screen until this Home-ready signal, preventing the old Home LoadingView from showing beneath the exit fade.
+- The five real stage states and progress math are unchanged. Completed checkmarks now use a 65 ms stagger / 180 ms native-driver opacity-scale animation; Reduce Motion is respected. Existing brand mark, gradient, shimmer, progress fill and overall layout are retained.
+- Fatal DB/migration errors still show the branded retry UI. The retry action keeps that recovery screen mounted through the next attempt. SQLite sync, seed transactions, content and user records are unchanged.
+- Verification: 142/142 tests, pnpm typecheck, full pnpm lint, pnpm content:check (217 packs / 13,609 questions) and Android no-bytecode Metro export (1,853 modules / 3.5 MB JS / 123 assets) passed. No dependency, app version or native identity changed.
+- No APK build or physical-device recording was done in this pass. The previous square flash is mitigated by the new readiness handoff in source, but its actual disappearance still needs release-device visual QA. Full evidence: docs/STARTUP_UI_AUDIT.md; checklist: docs/QA_CHECKLIST.md.
 
 ## Incident follow-up — v0.1.3 first-launch failure and v0.1.4 fix (2026-11-05)
 
@@ -11,7 +65,7 @@ Last updated: 2026-11-05 (v0.1.4 APK and embedded seed verified; owner reports p
 - App version is now **0.1.4**, Android **versionCode 5**; package ID com.admissionbd.app, EAS project and signing identity are unchanged.
 - Verification after the fix: **139 tests**, TypeScript, ESLint, seed/content integrity, all 217 pack validation, Expo config, Android prebuild and Android Metro export pass. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. Full APK ZIP integrity passed across all 1,367 entries, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected.
 - Expo Doctor: **20/21 checks passed**; the sole failure was an Expo SDK patch-version mismatch across five packages. It did not block prebuild, Gradle or APK creation. Record patch alignment and a Doctor rerun for a separate dependency-maintenance pass; no rebuild is needed solely for this advisory.
-- Owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The v0.1.3 first-import failure is therefore closed for the v0.1.4 candidate. A subtle square flash during the loading-UI-to-Home transition is logged as a non-blocking polish note; no implementation change is included. The Expo Doctor patch-alignment advisory is also logged for a later dependency-maintenance pass.
+- Owner has installed and verified v0.1.4 on a physical phone; the v0.1.3 first-import failure is closed for that candidate. The later square-flash observation received a targeted Home-readiness handoff fix on 2026-11-11; actual disappearance still awaits release-device visual QA. The separate Expo Doctor patch-alignment advisory remains a maintenance follow-up.
 
 
 ## Previous seed-based Android preview — v0.1.3 (built; owner-reported first-launch failure)
@@ -202,3 +256,15 @@ Automated verification at this **2026-10-29 provisional-practice checkpoint**: 5
 - Added eas.json: preview creates an internal-distribution APK for phone installation; production creates an Android App Bundle (AAB) and enables version-code auto-increment.
 - Added docs/ANDROID_RELEASE.md with the cloud build command, Expo dashboard URL, signing-credential handling, device QA, Play Store and GitHub Releases guidance.
 - This was the setup checkpoint before release. It is superseded by the Android preview release record at the top of this document: PR #2 is merged, both CI runs succeeded, the EAS preview APK is published as `v0.1.0-preview.1`, and the owner-confirmed physical-device check is complete.
+
+## Phase 8 content availability (2026-11-13)
+Library UI, importer, validator and SVG logo system are implemented. **No book or question content exists**: all five publishers (Udvash, ASPECT, ACS, Pankouri, Joykoli) are metadata-only. Logos: DU/RU/JU SVG and HSTU PNG bundled (sources in assets/universities/SOURCES.md); no publisher logos yet (owner-provided SVGs awaited, slots in assets/publishers/). CI-equivalent Android export with --no-bytecode passed and compiled the Metro/SVG path; a normal bytecode export hit a host Hermes SIGILL. New native dependency react-native-svg still requires a dev-client rebuild and device verification. Details: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
+
+
+## Home hero / dark-theme runtime audit — 2026-11-13
+
+- Owner screenshots from `/home/kali/screenshort/admission-runtime/` show two confirmed UI regressions: the Home hero Start practising / Take a mock exam controls have lost their intended button surfaces; Profile progress values (3, 13, 46.2%) render near-black against dark cards.
+- Root causes: `HomeHero.tsx` uses callback-valued `Pressable.style` under NativeWind 4.2.7 (unsupported; callback style object is not applied); `Stat.tsx` sends only `text-xl`, replacing `Txt`'s default semantic foreground.
+- Hero grew vertically after adding a 78×104dp phone motif, three wrapping feature pills, offline count and a full 52dp secondary CTA. The earlier Phase 7 implementation was more compact. Recommended target: ~190–220dp mobile card, tuned in device QA.
+- Existing university assets are compact logos (DU/RU/JU SVG, HSTU 1072×1363 PNG); no landscape cover registry or prior 1024×500 asset was found. A 1024×500 Home cover is the proposed new asset contract, not a verified historic university-cover spec.
+- Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. App source/config/release metadata untouched. Verification: `pnpm test` 234/234 under Node 22.23.1. CTA/Stat fixes and device QA remain follow-up implementation work.

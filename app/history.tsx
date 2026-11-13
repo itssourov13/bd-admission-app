@@ -7,15 +7,26 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 import { listHistory } from "@/repositories/sessions";
+import { getScopeLabels } from "@/repositories/library";
+import { scopeKey } from "@/features/library/model";
+import { useSubjectLabel } from "@/components/common/SubjectSelector";
+import { selectedSubjectsOf } from "@/services/subjectSelection";
+import { resultHeadline } from "@/services/examReview";
 
 export default function HistoryScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const { lang } = useLang();
   const router = useRouter();
-  const q = useQuery((db) => listHistory(db, 100));
+  const subjectLabel = useSubjectLabel();
+  const q = useQuery(async (db) => {
+    const items = await listHistory(db, 100);
+    const scopes = items.filter((h) => h.filter.bookId).map((h) => ({ bookId: h.filter.bookId as string, unitId: h.filter.unitId }));
+    return { items, labels: await getScopeLabels(db, scopes, lang) };
+  }, [lang]);
   const fmt = (ms: number) => num(new Date(ms).toLocaleString(lang === "bn" ? "bn-BD" : "en-GB", { dateStyle: "medium", timeStyle: "short" }));
 
   return (
@@ -23,7 +34,7 @@ export default function HistoryScreen() {
       <ScreenHeader title={t("history.title")} />
       {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (
         <FlatList
-          data={q.data!}
+          data={q.data!.items}
           keyExtractor={(x) => x.id}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: 1 }}
           ItemSeparatorComponent={() => <View className="h-3" />}
@@ -31,7 +42,7 @@ export default function HistoryScreen() {
           renderItem={({ item: h }) => {
             const openable = h.status === "completed" && h.resultJson !== null;
             return (
-              <Pressable accessibilityRole={openable ? "button" : "summary"} disabled={!openable} onPress={() => router.push(href(`/result/${h.id}`))}>
+              <Pressable accessibilityRole={openable ? "button" : "summary"} disabled={!openable} onPress={() => router.push(href(`/result/${h.id}`))} className="active:opacity-90">
                 <Card className="p-4 flex-row items-center gap-3">
                   <View className="flex-1">
                     <View className="flex-row items-center gap-2">
@@ -39,7 +50,17 @@ export default function HistoryScreen() {
                       {h.status === "abandoned" ? <Chip label={t("history.abandoned")} tone="gold" /> : null}
                     </View>
                     <Txt className="text-ink-500 text-xs mt-1">{fmt(h.startedAt)}</Txt>
-                    <Txt className="text-ink-700 text-sm mt-1.5">{t("history.summary", { c: h.correct, i: h.incorrect, t: h.total })}</Txt>
+                    {h.filter.bookId && q.data!.labels.get(scopeKey({ bookId: h.filter.bookId, unitId: h.filter.unitId })) ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.book", { name: q.data!.labels.get(scopeKey({ bookId: h.filter.bookId, unitId: h.filter.unitId })) as string })}</Txt> : null}
+                    {selectedSubjectsOf(h.filter).length ? <Txt className="text-ink-500 text-xs mt-0.5">{t("history.subjects", { subjects: selectedSubjectsOf(h.filter).map(subjectLabel).join(", ") })}</Txt> : null}
+                    {(() => {
+                      const head = resultHeadline(h.resultJson, h.mode);
+                      const parts = [
+                        head.score !== null && head.maxScore !== null ? t("history.score", { s: num(head.score), m: num(head.maxScore) }) : null,
+                        head.accuracyPercent !== null ? t("history.accuracy", { a: num(head.accuracyPercent) }) : null
+                      ].filter((x): x is string => x !== null);
+                      return parts.length ? <Txt weight="semibold" className="text-ink-900 text-sm mt-1.5">{parts.join(" · ")}</Txt> : null;
+                    })()}
+                    <Txt className="text-ink-700 text-sm mt-1">{t("history.summary", { c: h.correct, i: h.incorrect, t: h.total })}</Txt>
                   </View>
                   {openable ? <Ionicons name="chevron-forward" size={19} color={colors.ink400} /> : null}
                 </Card>

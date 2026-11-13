@@ -1,22 +1,44 @@
 # Android build and release guide
 
-## Current incident and candidate
+## Latest preview candidate — 2026-11-13 (v0.1.6)
+
+- App/package/brand version: **0.1.6**; Android **versionCode 7**.
+- Application ID: `com.admissionbd.app`; EAS account/project: `sk_king13` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- Target: EAS `preview` profile, `INTERNAL` distribution, Android APK. Production remains configured for AAB and is not requested.
+- Existing v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but contains the previous source; do not install it as the Home Hero fix candidate. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
+- Final local gates on Node 22.23.1: 240/240 tests, TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config and Android no-bytecode export pass. Native EAS build and owner-reported installation/runtime verification are complete; no Play Store production AAB or rollout is claimed.
+- EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka); https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. The existing EAS-managed Android keystore was reused; no credential rotation.
+- Owner QA: the owner has installed and run v0.1.6 and reports all previously raised issues fixed, with no current outstanding app issue. This is owner-reported; exact handset/OS and exhaustive per-screen coverage were not recorded. Keep a disposable device/profile for destructive fresh-install tests.
+
+## Preview build procedure
+
+```sh
+source "$HOME/.nvm/nvm.sh"
+nvm use 22.23.1
+EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview --non-interactive --no-wait
+```
+
+The `preview` profile uses internal distribution and creates an installable APK. `EAS_NO_VCS=1` uses the project directory instead of EAS's temporary shallow Git clone; `EAS_SKIP_AUTO_FINGERPRINT=1` bypasses the known host fingerprint issue. Use this workaround only where required. The `eas-build-pre-install` hook regenerates the ignored SQLite seed from tracked canonical packs before Expo prebuild. Node 22.23.1 is pinned in `eas.json`.
+
+---
+
+## Historical v0.1.4 incident and candidate (superseded)
 
 - v0.1.3 / Android versionCode 4 was built and its embedded SQLite seed was integrity-checked, but the owner-reported phone test fails at **Importing question library**. Treat that APK as a failed runtime candidate, not as release-ready.
 - The source fix is v0.1.4 / Android versionCode 5. It corrects the SQLite sidecar destination from raw filesystem path to an Expo file:/// URI, uses Expo FileSystem legacy native copy for Android resource-aware copying and displays the underlying error on the retry screen.
 - Automated verification is complete. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. ZIP integrity passed, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected. Expo Doctor: 20/21 checks passed; only an SDK patch-version mismatch across five Expo packages failed. This did not block prebuild, Gradle or APK creation. Align patches and rerun Doctor in a separate maintenance pass. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
-Last updated: 2026-11-05
+Last updated: 2026-11-13
 
-## Current release setup
+## Release configuration
 
 - App: **BD Admission**
 - Android application ID: `com.admissionbd.app`
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current seed-based preview APK: 0.1.4 / Android versionCode 5 (EAS build FINISHED and embedded seed verified). v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
+- Current preview candidate: 0.1.6 / Android versionCode 7 (EAS build FINISHED; artifact linked in the latest candidate section above and owner installation/run confirmed). v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 

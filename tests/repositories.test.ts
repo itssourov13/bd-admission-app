@@ -180,7 +180,12 @@ test("Standard Exam: explicit provisional mode can run 100 unverified single-cho
   assert.equal((await startStandardExam(db, filter, 1000, mulberry32(5))).ok, false,
     "strict Standard Exam continues to require verified keys");
 
-  const started = await startStandardExam(db, filter, 1000, mulberry32(5), { includeUnverified: true });
+  // Phase 11: a university scope has no generic 100/60 rule, so it never starts without an explicit Custom Practice choice.
+  const refused = await startStandardExam(db, filter, 1000, mulberry32(5), { includeUnverified: true });
+  assert.equal(refused.ok, false);
+  if (!refused.ok) assert.equal(refused.reason, "rule_unavailable");
+
+  const started = await startStandardExam(db, filter, 1000, mulberry32(5), { includeUnverified: true, custom: { questions: 100, seconds: 3600 } });
   assert.equal(started.ok, true);
   if (!started.ok) return;
   const session = (await getSession(db, started.sessionId))!;

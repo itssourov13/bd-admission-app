@@ -6,6 +6,10 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
+## Current university-bank state — 2026-11-12
+
+The normal HSTU catalogue contains 22 papers / 950 questions. Claude's accepted HSTU ledger supplied 664 verified IDs: 657 were moved from HSTU-U appearances into 15 HSTU papers, and 7 existing HSTU questions had their accepted answer mappings/status updated. All 664 now have both verification fields set to verified; HSTU has 939 verified single-choice questions in its practice pool. HSTU-U retains 105 pending records (102 answer-unverified, 3 answer-unknown; content-unverified); the 116 baseline pending questions were left untouched. JU and JU-U remain unchanged. The original candidate-bank paper rules and the 15 added HSTU paper rules remain unconfigured. Full details and verification evidence are in docs/QUESTION_IMPORT_WORKFLOW.md.
+
 ## Product
 BD Admission is a Bangladesh-focused preparation app for university and Medical admission questions. Students will practice historical multiple-choice questions with the institution, year, unit/paper and source reference retained. Engineering is visible in the initial product as Coming Soon; Engineering question content is a later batch.
 
@@ -24,7 +28,7 @@ The initial release is single-device and local-first. A sign-in service, hosted 
 Fast, readable, offline question practice; accurate source/year metadata; reliable local persistence; deterministic timer/scoring; repeatable and safe question imports; UI components reused from the author's ScholarHub app where appropriate.
 
 ## Startup experience
-The app presents a branded Bangla/English setup screen while local SQLite initialization and bundled question-library synchronization run. The production source path uses a generated SQLite seed asset, a compact committed manifest and bounded set-based copy transactions; unchanged packs are skipped and failed/interrupted work resumes from committed signature checkpoints. A single-flight startup coordinator observes AppState and can retry a failed backgrounded attempt after foregrounding, but it does not promise uninterrupted execution while Android backgrounds or kills the process. The route tree remains gated until startup completes. Existing profile, bookmarks, exam attempts and practice history must remain intact. See docs/STARTUP_PERFORMANCE.md for the build/runtime contract, benchmark and device-verification boundary.
+The branded Bangla/English five-stage setup UI is reserved for a first-run local question-library setup or an actionable startup failure. Returning cold launches keep the native splash visible while SQLite initialization, migrations and bundled-content reconciliation run; the splash is hidden only after Home's first data-backed (or actionable error) view has laid out. The first-run overlay also waits for Home readiness before fading out, avoiding a second Home loading surface underneath the transition. Five completed stage ticks use a short staggered core Animated opacity/scale transition with the native driver and Reduce Motion support. The production content path uses a generated SQLite seed, a compact committed manifest and bounded set-based copy transactions; unchanged packs are skipped and interrupted work resumes from committed checkpoints. The single-flight coordinator observes AppState but does not promise uninterrupted execution while Android backgrounds or kills the process. Database-dependent routes remain gated until startup completes. Existing profile, bookmarks, exam attempts and practice history must remain intact. See docs/STARTUP_PERFORMANCE.md for the runtime contract and verification boundary.
 
 ## Current bundled university question banks — 2026-11-01
 

@@ -3,7 +3,7 @@
   "batch": {
     "id": "batch-hstu-unverified-b-2024-2025-shift-1",
     "category": "varsity",
-    "description": "HSTU B Unit (shift 1) MCQ question bank, academic session 2024-2025, transcribed 2026-10-31 from the publicly readable first page of each Satt Academy subject section (Physics 15 of 25, Chemistry 15 of 25, Mathematics 15 of 25, English 15 of 25; page 2 of each subject section is login-gated on Satt Academy and was not fetched or bypassed). All 60 publicly readable cards are included. EXTRACTION NOTE: public window = Physics 15 of 25, Chemistry 15 of 25, Mathematics 15 of 25, English 15 of 25 = 60 of the stated 100 questions; the remaining questions are behind Satt's login gate and are NOT in this pack. Answers are Satt Academy's own marked answers (reading-mode correct marker cross-checked against each card's test-mode answer field; the two agreed on every card that carries a key). Content is single-source (Satt Academy) and is not cross-source verified; both verification statuses are therefore 'unverified'. Keyless cards (Satt publishes no key for them): Physics #14 (Satt qid 545315); Chemistry #8 (Satt qid 545336); Mathematics #7 (Satt qid 545360); Mathematics #9 (Satt qid 545362); English #5 (Satt qid 545377). Bengali numerals in the source were converted to Western digits and MathML formulas linearised (fractions as a/b, powers as ^) per project convention; original wording and option order preserved. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "description": "HSTU historical admission-question source set. Question and option text/order and original source provenance are preserved. Claude-verified questions are attached to the HSTU paper; remaining pending questions stay attached to the separate HSTU-U paper.",
     "sourceDocumentIds": [
       "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
     ]
@@ -23,6 +23,11 @@
       "id": "hstu-unverified-bank",
       "code": "HSTU-U",
       "name": "UNVERIFIED — Hajee Mohammad Danesh Science and Technology University"
+    },
+    {
+      "id": "hstu",
+      "code": "HSTU",
+      "name": "Hajee Mohammad Danesh Science and Technology University"
     }
   ],
   "papers": [
@@ -34,12 +39,30 @@
       "academicSession": "2024-2025",
       "unit": "B",
       "title": "HSTU B Unit Shift 1 Question Bank Practice — 2024-2025"
+    },
+    {
+      "id": "hstu-import-b-2024-2025-shift-1",
+      "institutionId": "hstu",
+      "category": "varsity",
+      "year": 2025,
+      "academicSession": "2024-2025",
+      "unit": "B",
+      "title": "HSTU B Unit Shift 1 Question Bank Practice — 2024-2025"
     }
   ],
   "examRules": [
     {
       "id": "rule-hstu-unverified-b-2024-2025-shift-1",
       "paperId": "hstu-unverified-b-2024-2025-shift-1",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
+      ],
+      "sourceNote": "No scoring, penalty, duration or selection rule for this paper was verified from an official source. Rule intentionally left unconfigured with no scoring values. Satt lists the exam date as 06-05-2025 in the exam name; that is source metadata, not a verified rule."
+    },
+    {
+      "id": "rule-hstu-import-b-2024-2025-shift-1",
+      "paperId": "hstu-import-b-2024-2025-shift-1",
       "verificationStatus": "unconfigured",
       "sourceDocumentIds": [
         "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
@@ -76,10 +99,10 @@
           "order": 4
         }
       ],
-      "contentVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-b-2024-2025-shift-1",
+          "paperId": "hstu-import-b-2024-2025-shift-1",
           "questionNumber": 6,
           "sourceDocumentId": "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
         }
@@ -90,10 +113,9 @@
       },
       "sattQuestionId": "545333",
       "correctOptionIds": [
-        "c"
+        "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "extractionNote": "[UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: hstu-b-2024-2025-shift-1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      "answerVerificationStatus": "verified"
     },
     {
       "id": "hstu-unverified-b-2024-2025-shift-1-chemistry-12",
@@ -123,10 +145,10 @@
           "order": 4
         }
       ],
-      "contentVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-b-2024-2025-shift-1",
+          "paperId": "hstu-import-b-2024-2025-shift-1",
           "questionNumber": 12,
           "sourceDocumentId": "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
         }
@@ -139,8 +161,7 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-b-2024-2025-shift-1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      "answerVerificationStatus": "verified"
     },
     {
       "id": "hstu-unverified-b-2024-2025-shift-1-mathematics-06",
@@ -170,10 +191,10 @@
           "order": 4
         }
       ],
-      "contentVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-b-2024-2025-shift-1",
+          "paperId": "hstu-import-b-2024-2025-shift-1",
           "questionNumber": 6,
           "sourceDocumentId": "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
         }
@@ -186,8 +207,7 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-b-2024-2025-shift-1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      "answerVerificationStatus": "verified"
     },
     {
       "id": "hstu-unverified-b-2024-2025-shift-1-mathematics-09",
@@ -401,10 +421,10 @@
           "order": 4
         }
       ],
-      "contentVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-b-2024-2025-shift-1",
+          "paperId": "hstu-import-b-2024-2025-shift-1",
           "questionNumber": 13,
           "sourceDocumentId": "src-hstu-b-2024-2025-shift-1-satt--batch-hstu-unverified-b-2024-2025-shift-1"
         }
@@ -417,8 +437,8 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-b-2024-2025-shift-1.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      "answerVerificationStatus": "verified"
     }
-  ]
+  ],
+  "replaceExistingPaperContent": true
 }

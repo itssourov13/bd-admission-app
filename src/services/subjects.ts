@@ -13,6 +13,20 @@ export const SUBJECT_LABEL_KEYS = {
   ICT: "subject.ict"
 } as const;
 
+/** Translation keys for non-science subjects that exist in the content (shown only when they have questions). */
+export const EXTRA_SUBJECT_LABEL_KEYS: Readonly<Record<string, string>> = {
+  "General Knowledge": "subject.generalKnowledge",
+  IQ: "subject.iq",
+  Mathematics: "subject.mathematics",
+  "General Mathematics": "subject.generalMathematics",
+  Geology: "subject.geology"
+};
+
+/** Translation key for a stored subject ID, or undefined when the raw stored name should be displayed. */
+export function subjectLabelKey(subject: string): string | undefined {
+  return (SUBJECT_LABEL_KEYS as Record<string, string>)[subject] ?? EXTRA_SUBJECT_LABEL_KEYS[subject];
+}
+
 export type CanonicalSubject = keyof typeof SUBJECT_LABEL_KEYS;
 const RANK = new Map<string, number>(SCIENCE_SUBJECT_ORDER.map((s, i) => [s, i] as const));
 

@@ -1,12 +1,13 @@
 import type { SqlDb, SqlParam } from "../db/types.ts";
 import type { HistoryItem, PoolFilter, RuleStatus, SessionMode, SessionRow } from "../types/domain.ts";
 import type { ScoringRule } from "../services/scoring.ts";
+import { parseSnapshot, type ProfileSnapshot } from "../services/markingProfiles.ts";
 
 interface RawSession {
   id: string; mode: SessionMode; status: SessionRow["status"]; filter_json: string; started_at: number; ended_at: number | null;
   deadline_at: number | null; duration_seconds: number | null; per_question_seconds: number | null; finish_reason: SessionRow["finishReason"];
   rule_correct_marks: number | null; rule_incorrect_penalty: number | null; rule_unanswered_marks: number | null;
-  rule_total_marks: number | null; rule_status: RuleStatus | null; result_json: string | null;
+  rule_total_marks: number | null; rule_status: RuleStatus | null; result_json: string | null; rule_profile_json: string | null;
 }
 
 function toSession(r: RawSession): SessionRow {
@@ -14,7 +15,8 @@ function toSession(r: RawSession): SessionRow {
     id: r.id, mode: r.mode, status: r.status, filter: JSON.parse(r.filter_json) as PoolFilter, startedAt: Number(r.started_at),
     endedAt: r.ended_at, deadlineAt: r.deadline_at, durationSeconds: r.duration_seconds, perQuestionSeconds: r.per_question_seconds,
     finishReason: r.finish_reason, ruleCorrect: r.rule_correct_marks, rulePenalty: r.rule_incorrect_penalty,
-    ruleUnanswered: r.rule_unanswered_marks, ruleTotalMarks: r.rule_total_marks, ruleStatus: r.rule_status, resultJson: r.result_json
+    ruleUnanswered: r.rule_unanswered_marks, ruleTotalMarks: r.rule_total_marks, ruleStatus: r.rule_status, resultJson: r.result_json,
+    ruleProfile: parseSnapshot(r.rule_profile_json)
   };
 }
 
@@ -25,15 +27,18 @@ export function newSessionId(now = Date.now()): string {
 export interface CreateSessionInput {
   id: string; mode: SessionMode; filter: PoolFilter; startedAt: number;
   deadlineAt?: number | null; durationSeconds?: number | null; perQuestionSeconds?: number | null; rule?: ScoringRule | null;
+  /** Marking-profile snapshot stored with the session so history is immune to later profile edits/removal. */
+  ruleProfile?: ProfileSnapshot | null;
 }
 
 export async function createSession(db: SqlDb, s: CreateSessionInput): Promise<void> {
   await db.runAsync(
     `INSERT INTO practice_sessions (id, mode, status, filter_json, started_at, deadline_at, duration_seconds, per_question_seconds,
-       rule_correct_marks, rule_incorrect_penalty, rule_unanswered_marks, rule_status, rule_total_marks)
-     VALUES (?, ?, 'active', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       rule_correct_marks, rule_incorrect_penalty, rule_unanswered_marks, rule_status, rule_total_marks, rule_profile_json)
+     VALUES (?, ?, 'active', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [s.id, s.mode, JSON.stringify(s.filter), s.startedAt, s.deadlineAt ?? null, s.durationSeconds ?? null, s.perQuestionSeconds ?? null,
-      s.rule?.correctMarks ?? null, s.rule?.incorrectPenalty ?? null, s.rule?.unansweredMarks ?? null, s.rule?.status ?? null, s.rule?.totalMarks ?? null]
+      s.rule?.correctMarks ?? null, s.rule?.incorrectPenalty ?? null, s.rule?.unansweredMarks ?? null, s.rule?.status ?? null, s.rule?.totalMarks ?? null,
+      s.ruleProfile ? JSON.stringify(s.ruleProfile) : null]
   );
 }
 
@@ -75,6 +80,20 @@ export async function saveExamSelection(db: SqlDb, sessionId: string, questionId
   return r.changes === 1;
 }
 
+/**
+ * Mark-for-review flag. Same guard as selections (active session, before the deadline) so a finished exam never changes;
+ * it is independent of the serialized selection writes and never touches the answer or outcome.
+ */
+export async function setExamFlag(db: SqlDb, sessionId: string, questionId: string, flagged: boolean, at: number): Promise<boolean> {
+  const r = await db.runAsync(
+    `UPDATE session_answers SET flagged = ?
+     WHERE session_id = ? AND question_id = ? AND outcome = 'unanswered'
+       AND EXISTS (SELECT 1 FROM practice_sessions s WHERE s.id = ? AND s.status = 'active' AND (s.deadline_at IS NULL OR s.deadline_at > ?))`,
+    [flagged ? 1 : 0, sessionId, questionId, sessionId, at]
+  );
+  return r.changes === 1;
+}
+
 export async function getSession(db: SqlDb, id: string): Promise<SessionRow | null> {
   const r = await db.getFirstAsync<RawSession>("SELECT * FROM practice_sessions WHERE id = ?", [id]);
   return r ? toSession(r) : null;
@@ -82,13 +101,18 @@ export async function getSession(db: SqlDb, id: string): Promise<SessionRow | nu
 
 export interface SessionAnswerRow {
   position: number; questionId: string; selectedKeys: string[]; outcome: "correct" | "incorrect" | "skipped" | "timed_out" | "unanswered"; timeSpentMs: number | null;
+  /** Exam mark-for-review flag (Phase 5). */
+  flagged: boolean;
 }
 
 export async function getSessionAnswers(db: SqlDb, sessionId: string): Promise<SessionAnswerRow[]> {
-  const rows = await db.getAllAsync<{ position: number; question_id: string; selected_keys: string; outcome: SessionAnswerRow["outcome"]; time_spent_ms: number | null }>(
-    "SELECT position, question_id, selected_keys, outcome, time_spent_ms FROM session_answers WHERE session_id = ? ORDER BY position", [sessionId]
+  const rows = await db.getAllAsync<{ position: number; question_id: string; selected_keys: string; outcome: SessionAnswerRow["outcome"]; time_spent_ms: number | null; flagged: number | null }>(
+    "SELECT position, question_id, selected_keys, outcome, time_spent_ms, flagged FROM session_answers WHERE session_id = ? ORDER BY position", [sessionId]
   );
-  return rows.map((r) => ({ position: Number(r.position), questionId: r.question_id, selectedKeys: JSON.parse(r.selected_keys) as string[], outcome: r.outcome, timeSpentMs: r.time_spent_ms }));
+  return rows.map((r) => ({
+    position: Number(r.position), questionId: r.question_id, selectedKeys: JSON.parse(r.selected_keys) as string[], outcome: r.outcome,
+    timeSpentMs: r.time_spent_ms, flagged: Number(r.flagged ?? 0) === 1
+  }));
 }
 
 export async function getActiveExam(db: SqlDb): Promise<SessionRow | null> {

@@ -1,4 +1,148 @@
+## Android preview v0.1.6 — built, installed and owner-verified — 2026-11-13
+
+**Status:** Complete for the current preview candidate. Owner reports the app installed and ran successfully; all previously reported Hero/theme/runtime issues are fixed and there are no outstanding app issues at this time.
+
+- [x] EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` reached **FINISHED** (completed 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.
+- [x] APK artifact: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- [x] Owner installed and ran v0.1.6 / Android versionCode 7 and confirmed the earlier reported issues are resolved.
+- [x] Final docs record the build result and owner verification; this finalization contains documentation changes only.
+- Release identity remains `com.admissionbd.app`; EAS project/signing identity unchanged. No push was performed.
+- The last two commits before this finalization (`2f1176b`, `6b7eeac`) contain documentation files only; their changed-path lists were checked and no application code/config/assets/tests changed.
+- Cover remains a reference-derived 782×382 crop; its internal preview was owner-tested. Its provenance/rights note remains relevant before any public-store redistribution.
+
+## ASPECT Science Master QB — extraction/import authorized — 2026-11-13
+
+**Status:** READY FOR EXTRACTION AND IMPORT. Full owner permission is confirmed for digitisation, transcription, app storage, offline bundling and distribution in BD Admission App. Treat the book as approved project content; do not reopen a rights-review gate or stop for permission confirmation.
+
+- [x] Confirmed existing ASPECT publisher ID `pub-aspect` and reviewed Phase 8 LibraryPack schema, validator, importer and app routes.
+- [x] Inspected source metadata and rendered sample pages. Source is a 1,027-page image-based scan; Poppler rendering succeeds. OCR/text extraction must use rendered page images and page-by-page review.
+- [x] Documented source SHA-256, source hierarchy plan, extraction ledger requirements, formula/figure/reference support work and import validation plan.
+- [ ] Build full page/subject/topic inventory and extract all MCQs, answer markers, worked solutions, formulae, diagrams and printed references in resumable batches.
+- [ ] Extend math, asset and reference UI as needed; create ASPECT LibraryPack(s), validate, import and run fresh SQLite/idempotency checks.
+- [ ] Verify book browsing and question rendering on Android; update counts, QA and handoff after actual import.
+- No questions have been transcribed or imported yet; no app code or APK was changed by the intake audit.
+
+Detailed execution plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+
+## Home Hero runtime follow-up and Android preview v0.1.6 — implementation record (2026-11-13)
+
+**Status:** Implementation and automated checks complete; EAS build and owner device verification are recorded in the completion section at the top. No push or Play Store submission.
+
+- [x] Home Hero cover and native CTA composition implemented; previous button destinations and resume route preserved.
+- [x] Profile Stat dark-theme foreground fixed without a global `Txt` change.
+- [x] Provisional-only setup duplicate count query removed by reusing the read-only result; no question selection or scoring behavior changed.
+- [x] Full tests: 240/240; TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff hygiene passed on Node 22.23.1.
+- [x] Removed the unused ESLint-disable directive that produced the prior single lint warning; the touched file passes targeted ESLint.
+- [x] Release metadata prepared and locally committed (`0c9e90f`): app/package/brand version 0.1.6, Android versionCode 7. App ID `com.admissionbd.app`, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`, preview APK profile and EAS-managed signing remain unchanged.
+- [x] EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` FINISHED and APK artifact published: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- [x] Owner installed and ran the preview; previous reported Hero/theme/runtime issues are fixed and no new issue is currently reported. Device model/OS and exhaustive per-screen coverage were not supplied.
+- Cover remains a 782×382 crop from the owner-supplied reference; check its visual sharpness and confirm image usage rights before public distribution. See `assets/home/README.md`.
+
+
 # Task state
+
+## Optional Phases 9–10 — 2026-11-13
+
+Phase 9: partially implemented (manifest validation, install/update planning, integrity contract using an injected SHA-256 hasher, pack installation, soft remove/restore; no concrete hasher, remote source, UI or downloader). Phase 10: deferred, contract documented only. Neither is deployed; the app stays fully offline. Details: docs/implementation/PHASE_09_ONLINE_OFFLINE.md, PHASE_10_BACKEND_CMS.md.
+
+## Roadmap Phase 8 — Publications & books library — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
+
+- Done: library screens (Home entry, publisher sections, book/unit pages), importer/validator, book scope through Flash/Exam/Browse/history/result, SVG logo pipeline (react-native-svg), DU/RU/JU SVG + HSTU PNG logos.
+- Owner: rebuild dev client; verify logos on device (light/dark); supply content packs and publisher SVGs; verify Bangla publisher names.
+
+## Roadmap status (reconciled)
+
+Phase 1–8: Implemented — Pending Owner Verification · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — optional contract documentation only; no backend/CMS deployed. Current required phase: Phase 8 implementation complete; owner verification remains pending. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+
+## Roadmap Phase 7 — Home hero redesign — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_07_HOME_HERO.md.
+
+- Owner: visually check Home (light/dark, small screens, large fonts, with/without active exam).
+
+## Roadmap Phase 6 — Settings & dark mode — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_06_SETTINGS_DARK_MODE.md.
+
+- Done: theme system, Settings screen, haptics/motion/text-size preferences, dark splash config.
+- Owner: rebuild native app, test light/dark/system on device, review all screens in dark mode.
+
+## Roadmap Phase 5 — Standard Exam improvements — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_05_STANDARD_EXAM_IMPROVEMENTS.md.
+
+- Migration v7 flagged column; flag writes guarded like selections and refused after finalization.
+- Palette, flags, warnings, submit summary, per-subject breakdown, review filters, practice-missed, history headline.
+- Owner verification pending: palette scroll on a 100-question exam, flag persistence after app kill, warnings, retry flow, Bangla text, migration v7.
+
+## Roadmap Phase 4 — Configurable marking rules — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_04_CONFIGURABLE_MARKING_RULES.md.
+
+- Migration v6 (rule_profile_json, user_marking_profiles, marking_preferences) in src/db/schema.ts.
+- Pure resolver/service src/services/markingProfiles.ts; repository src/repositories/marking.ts; picker, card and management screen; result-screen profile and pass-mark line.
+- Automatic defaults never score Custom Practice or partial-official papers (ADR-028).
+- Owner verification pending: device QA of profile CRUD, defaults, Flash/Standard/Custom flows, Bangla text, migration on an existing install.
+
+## Roadmap Phase 3 — Shared subject selection — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_03_SHARED_SUBJECT_SELECTION.md.
+
+- Shared All / Single / Multiple subject selection implemented (subjectSelection.ts, SubjectSelector) and used by Flash, Custom Practice and generic Standard Exam; university paper section selection preserved.
+- Validated `subjects` and `subject` route params; combined counts via one grouped query (countPoolBySubject); Custom Practice count/duration options derived from the selected pool.
+- Selected subjects shown in history and result screens; 14 new translation keys.
+- ESLint purity error fixed. Checks run: tsc, targeted ESLint, 19 focused tests. Deferred to owner: device testing of selector, Flash/Custom flows, Bangla rendering, full suite.
+
+## Roadmap Phase 2 — University identity, logos, filters — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_02_*.md.
+
+- [x] Parent-university grouping (RU/RU-V, JU/JU-U, HSTU/HSTU-U) derived at read time; internal labels hidden.
+- [x] UniversityLogo component (raster registry + monogram fallback); SVG vs raster evaluated, raster chosen.
+- [x] Horizontal All|DU|RU|JU|HSTU filter bar on Varsity; merged paper list; university-level Flash/Exam scope via institutionIds.
+- [ ] Owner: supply licensed logos; device QA of filter/navigation/Bangla names.
+
+
+## Roadmap Phase 1 — Loading UI polish — 2026-11-13
+
+**Status:** Implemented — Pending Owner Verification. Roadmap table: docs/implementation/IMPLEMENTATION_LOG.md; phase detail: docs/implementation/PHASE_01_LOADING_UI.md.
+
+- [x] Validated audit §5.1 against code; kept commit 15f7602 behaviour.
+- [x] Returning-launch escalation (1.5 s), Home-ready fallback (4 s), splash-matching setup first frame, ready hold 520/150 ms, delayed spinner (150 ms).
+- [x] Policy tests extended (5/5 pass); targeted tsc/eslint run.
+- [ ] Owner: device QA (first run, returning, content-update escalation, failure/retry, Reduce Motion, deep link, setup→Home recording), full test suite.
+- Next (superseded 2026-11-13): Phase 2 was implemented afterwards — see the Phase 2 section above.
+
+## HSTU verified-question promotion — 2026-11-12
+
+**Status:** Imported into the normal HSTU catalogue; bundled seed and data integrity checks passed. No runtime logic changes and no push.
+
+- [x] Used Claude's accepted HSTU verification ledger as the source of truth: 664 unique verified question IDs.
+- [x] Promoted 657 questions from HSTU-U appearances into 15 papers under the existing HSTU institution; updated the 7 already attached to HSTU.
+- [x] Applied all accepted answer mappings and set both existing question status fields to verified. One accepted single-answer correction was normalized to single-choice.
+- [x] Preserved question IDs, stems, option IDs/text/order and source provenance. Left all 116 baseline pending questions unchanged; 3 off-baseline pending-ledger records were also untouched.
+- [x] Backed up all 18 changed HSTU pack files before replacement.
+- [x] Rebuilt the 217-pack / 13,609-question SQLite seed. Full test suite passed 142/142; typecheck, lint and content check passed.
+- [x] SQLite quick_check passed; foreign-key check returned zero issues. All 664 ledger IDs and correct-option mappings reconcile; no pending question object changed.
+- [x] Updated import, state, handoff, architecture, decision, QA and changelog documentation.
+- [ ] Build/install a new APK and complete physical-device QA for this content update; not included in this import task.
+
+## Startup UI targeted implementation — 2026-11-11
+
+**Status:** Targeted code changes implemented and locally verified. No data/schema/dependency/app identity changes. Physical release-device visual QA remains pending.
+
+- [x] First-run and error/retry paths retain the branded setup UI; returning cold launches skip it and keep the native splash during DB startup/content synchronization.
+- [x] Returning classification releases the existing setup-layout gate directly, avoiding a deadlock when SetupScreen is not mounted.
+- [x] Added a separate one-shot Home-ready gate; Home reports readiness only after its initial data-backed/error view has laid out.
+- [x] First-run setup overlay waits for DB and Home readiness before the existing completion hold/fade, avoiding the second Home loading surface beneath the transition.
+- [x] Added sequential native-driver checkmark opacity/scale animation (65 ms stagger / 180 ms duration) and preserved Reduce Motion. Existing loading visuals/progress math remain unchanged.
+- [x] Added pure startup UI policy tests (3 new) and ran the full suite: 142/142 pass.
+- [x] TypeScript, full lint, content:check and Android no-bytecode Metro export passed (1,853 modules, 3.5 MB JS, 123 assets).
+- [x] Updated startup audit, architecture, decisions, QA, current-state, changelog and handoff documentation.
+- [ ] Install a new release APK and verify fresh first-run, returning-launch, content-update launch, DB failure/retry, Reduced Motion, and setup-to-Home flash on the physical phone.
 
 ## Android v0.1.3 first-launch failure follow-up — v0.1.4 fix (2026-11-05)
 
@@ -263,3 +407,15 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [x] Owner installed and verified the APK on a physical Android device; first load about one minute, subsequent opens about 2–3 seconds.
 - [x] PR #2 merged and both PR CI and `main` push CI runs succeeded.
 - [ ] Build/inspect the production AAB and complete the Google Play listing, privacy/testing requirements and rollout.
+
+
+## Home hero runtime audit — 2026-11-13
+
+**Status:** Audit complete; implementation still pending. See `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`.
+
+- [x] Reviewed all three supplied Android screenshots and traced the Profile Stat foreground and Home CTA styling defects.
+- [x] Confirmed NativeWind 4.2.7 + callback-valued Pressable styles are the reason CTA style objects are not applied; confirmed the original routes and labels remain wired.
+- [x] Compared HomeHero with the earlier Phase 7 commit and measured the current university mark assets; no existing landscape cover asset/registry found.
+- [x] Full suite: 234/234 pass under Node 22.23.1.
+- [ ] Follow-up implementation: static NativeWind CTA classes, explicit Stat foreground + regression coverage, new 1024×500 Home cover, compact responsive hero and real-device verification.
+- Audit only: no app source/config/build changes; no push.

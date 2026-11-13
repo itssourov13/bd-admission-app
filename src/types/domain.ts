@@ -1,5 +1,6 @@
 import type { QuestionCategory } from "./question-pack.ts";
 import type { RuleStatus } from "../services/scoring.ts";
+import type { ProfileSnapshot } from "../services/markingProfiles.ts";
 
 export type { QuestionCategory, RuleStatus };
 
@@ -40,7 +41,11 @@ export interface QuestionView {
 export interface PoolFilter {
   category?: QuestionCategory;
   institutionId?: string;
+  /** All stored institutions of one parent university (e.g. RU and RU-V). Combined with institutionId by intersection. */
+  institutionIds?: string[];
   paperId?: string;
+  /** A resolved university exam pattern: only the questions of these papers (all share one complete stored pattern). Never combined with paperId. */
+  paperIds?: string[];
   subject?: string;
   /** Optional multiple section selection for paper-specific exams. */
   subjects?: string[];
@@ -48,6 +53,12 @@ export interface PoolFilter {
   reviewUnverified?: boolean;
   /** True only for an explicit user-chosen count/duration on a paper without a verified pattern; never scored as official. */
   customPractice?: boolean;
+  /** Practice only the questions a finished session got wrong or left unanswered (Phase 5). */
+  retrySessionId?: string;
+  /** Practice only an available publisher book (Phase 8). Replaces the paper-appearance requirement; never combined with papers. */
+  bookId?: string;
+  /** Restrict a book scope to one unit and all its sub-units. */
+  unitId?: string;
 }
 
 export interface InstitutionSummary {
@@ -98,6 +109,8 @@ export interface SessionRow {
   ruleTotalMarks: number | null;
   ruleStatus: RuleStatus | null;
   resultJson: string | null;
+  /** Marking profile used for scoring (immutable snapshot), or null for sessions without one. */
+  ruleProfile: ProfileSnapshot | null;
 }
 
 export interface HistoryItem extends SessionRow {
@@ -113,4 +126,76 @@ export interface ProfileRow {
   language: "bn" | "en";
   targetCategory: QuestionCategory | null;
   flashSeconds: number;
+}
+
+// ---- Publications library (Phase 8) -------------------------------------------------------------------------------
+
+export type PublisherKind = "publisher" | "coaching" | "institution" | "community";
+export type BookLanguage = "bn" | "en" | "mixed";
+export type BookTargetCategory = QuestionCategory | "general";
+export type BookContentType = "book" | "question_bank" | "model_test" | "mixed";
+export type BookVerification = "verified" | "unverified" | "metadata_only";
+export type LicenseStatus = "licensed" | "public_domain" | "owner_created" | "permission_pending" | "metadata_only";
+/** Availability, never existence: removed/catalogue-only books keep their rows so user data still resolves. */
+export type InstallState = "catalogue_only" | "bundled" | "installed" | "removed";
+export type UnitKind = "chapter" | "unit" | "section" | "test";
+
+export interface PublisherSummary {
+  id: string;
+  slug: string;
+  name: string;
+  nameBn: string | null;
+  kind: PublisherKind;
+  description: string | null;
+  website: string | null;
+  /** Key into the (currently empty) licensed publisher-logo registry; null means monogram fallback. */
+  logoKey: string | null;
+  /** Books whose content is usable now (bundled or installed). */
+  availableBooks: number;
+  /** Of those, books installed from a downloaded package. */
+  installedBooks: number;
+  /** Known to the catalogue but not usable right now (catalogue-only or removed). */
+  unavailableBooks: number;
+  /** Distinct questions in available books. */
+  questionCount: number;
+  categories: BookTargetCategory[];
+}
+
+export interface BookSummary {
+  id: string;
+  publisherId: string;
+  publisherName: string;
+  publisherNameBn: string | null;
+  title: string;
+  titleBn: string | null;
+  edition: string | null;
+  publicationYear: number | null;
+  subject: string | null;
+  language: BookLanguage;
+  targetCategory: BookTargetCategory;
+  contentType: BookContentType;
+  verificationStatus: BookVerification;
+  contentVersion: number;
+  versionLabel: string | null;
+  sourceNote: string | null;
+  licenseStatus: LicenseStatus;
+  licenseNote: string | null;
+  installState: InstallState;
+  /** Counted from content_unit_questions, never from the stored cache column. */
+  questionCount: number;
+  eligibleCount: number;
+  reviewCandidateCount: number;
+}
+
+export interface UnitRow {
+  id: string;
+  bookId: string;
+  parentId: string | null;
+  kind: UnitKind;
+  title: string;
+  titleBn: string | null;
+  sortOrder: number;
+  /** Distinct questions in this unit and all of its descendants. */
+  questionCount: number;
+  depth: number;
 }

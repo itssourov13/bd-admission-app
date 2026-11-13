@@ -7,10 +7,12 @@ import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateView
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
-import { colors } from "@/theme";
-import { countEligible, countReviewCandidates, getInstitution, listPapers } from "@/repositories/content";
+import { useTheme } from "@/settings";
+import { countEligible, countReviewCandidates, getInstitution, listExamPatterns, listPapers } from "@/repositories/content";
+import { examEntryAvailable } from "@/services/exam";
 
 export default function InstitutionScreen() {
+  const { colors } = useTheme();
   const t = useT();
   const num = useNum();
   const router = useRouter();
@@ -20,12 +22,13 @@ export default function InstitutionScreen() {
     inst: await getInstitution(db, id),
     papers: await listPapers(db, { institutionId: id }),
     eligible: await countEligible(db, { institutionId: id }),
-    reviewCandidates: await countReviewCandidates(db, { institutionId: id })
+    reviewCandidates: await countReviewCandidates(db, { institutionId: id }),
+    patterns: await listExamPatterns(db, [id], false)
   }), [id]);
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;
-  const { inst, papers, eligible, reviewCandidates } = q.data!;
+  const { inst, papers, eligible, reviewCandidates, patterns } = q.data!;
   const availableForPractice = eligible > 0 ? eligible : reviewCandidates;
   if (!inst) return <Screen edges={["top"]}><ScreenHeader title="" /><EmptyView title={t("catalog.notFound")} actionLabel={t("common.back")} onAction={() => router.back()} /></Screen>;
 
@@ -42,7 +45,7 @@ export default function InstitutionScreen() {
             {availableForPractice > 0 ? (
               <>
                 <Button label={t("catalog.practiceInstitution")} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", { institutionId: inst.id }))} />
-                {availableForPractice >= 100 ? <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", { institutionId: inst.id }))} /> : null}
+                {examEntryAvailable(patterns, availableForPractice) ? <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", { institutionId: inst.id }))} /> : null}
                 {eligible === 0 && reviewCandidates > 0 ? <Txt className="text-ink-500 text-xs leading-5">{t("practice.provisionalShort")}</Txt> : null}
               </>
             ) : null}
@@ -51,7 +54,7 @@ export default function InstitutionScreen() {
         }
         ListEmptyComponent={<EmptyView icon="document-outline" title={t("catalog.noPapers")} />}
         renderItem={({ item: x }) => (
-          <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(x.id)}`))}>
+          <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(x.id)}`))} className="active:opacity-90">
             <Card className="p-4 flex-row items-center gap-3">
               <View className="flex-1">
                 <Txt weight="bold" className="text-ink-900 text-base leading-6">{x.title ?? t("paper.title", { year: x.year })}</Txt>

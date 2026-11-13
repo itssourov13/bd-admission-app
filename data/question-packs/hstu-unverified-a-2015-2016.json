@@ -3,7 +3,7 @@
   "batch": {
     "id": "batch-hstu-unverified-a-2015-2016",
     "category": "varsity",
-    "description": "Hajee Mohammad Danesh Science and Technology University (HSTU) A Unit admission test, academic session 2015-2016 (Satt Academy labels it 'HSTU A Unit-2015'; the 2015-16 admission test was held 30 Nov-3 Dec 2015). PARTIAL extraction: Satt Academy lists 100 questions (Physics 25, Chemistry 26, Biology 24, English 25) but only subject page 1 (15 questions per subject, 60 total) is publicly accessible; pages 2+ redirect to a login page, so the remaining 40 questions could not be fetched and are NOT included. Question text, option order and the source's own printed correct answers (check-circle marker + hidden answer field, agreeing on all 60) are transcribed verbatim; MathML formulas linearized with ^ for superscripts and _ for subscripts. Answers are the question bank's own keys, NOT an official HSTU key, and content has not been cross-checked against an independent second source, so contentVerificationStatus is unverified. Known source data errors preserved as-is: Physics Q6 options b and c are identical in the source; Chemistry Q12 in the source carries the same four options as Chemistry Q11 (unrelated to its question text). [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "description": "HSTU historical admission-question source set. Question and option text/order and original source provenance are preserved. Claude-verified questions are attached to the HSTU paper; remaining pending questions stay attached to the separate HSTU-U paper.",
     "sourceDocumentIds": [
       "src-hstu-a-2015-2016-satt-physics",
       "src-hstu-a-2015-2016-satt-chemistry",
@@ -50,6 +50,11 @@
       "id": "hstu-unverified-bank",
       "code": "HSTU-U",
       "name": "UNVERIFIED — Hajee Mohammad Danesh Science and Technology University"
+    },
+    {
+      "id": "hstu",
+      "code": "HSTU",
+      "name": "Hajee Mohammad Danesh Science and Technology University"
     }
   ],
   "papers": [
@@ -61,12 +66,33 @@
       "academicSession": "2015-2016",
       "unit": "A",
       "title": "HSTU A Unit Admission Test — 2015-2016"
+    },
+    {
+      "id": "hstu-import-a-2015-2016",
+      "institutionId": "hstu",
+      "category": "varsity",
+      "year": 2016,
+      "academicSession": "2015-2016",
+      "unit": "A",
+      "title": "HSTU A Unit Admission Test — 2015-2016"
     }
   ],
   "examRules": [
     {
       "id": "rule-hstu-unverified-a-2015-2016",
       "paperId": "hstu-unverified-a-2015-2016",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "src-hstu-a-2015-2016-satt-physics",
+        "src-hstu-a-2015-2016-satt-chemistry",
+        "src-hstu-a-2015-2016-satt-biology",
+        "src-hstu-a-2015-2016-satt-english"
+      ],
+      "sourceNote": "No scoring rule, duration or negative-marking information was present in the fetched Satt Academy pages; no values are entered."
+    },
+    {
+      "id": "rule-hstu-import-a-2015-2016",
+      "paperId": "hstu-import-a-2015-2016",
       "verificationStatus": "unconfigured",
       "sourceDocumentIds": [
         "src-hstu-a-2015-2016-satt-physics",
@@ -109,11 +135,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 1,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -125,7 +151,7 @@
         "questionNumber": 1
       },
       "topic": "পড়ন্ত বস্তুর সূত্র",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-02",
@@ -158,11 +184,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 2,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -174,7 +200,7 @@
         "questionNumber": 2
       },
       "topic": "কুলম্ব সূত্র",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-03",
@@ -207,11 +233,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 3,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -223,7 +249,7 @@
         "questionNumber": 3
       },
       "topic": "প্রক্ষেপক বা প্রাসের গতি",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-04",
@@ -256,11 +282,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 4,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -272,7 +298,7 @@
         "questionNumber": 4
       },
       "topic": "শব্দ  Sound",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-05",
@@ -305,11 +331,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 5,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -321,7 +347,7 @@
         "questionNumber": 5
       },
       "topic": "তাড়িতচৌম্বক আবেশ সংক্রান্ত সূত্রাবলি",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-06",
@@ -403,11 +429,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 7,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -419,7 +445,7 @@
         "questionNumber": 7
       },
       "topic": "ভর শক্তির সম্পর্ক",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-08",
@@ -452,11 +478,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 8,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -468,7 +494,7 @@
         "questionNumber": 8
       },
       "topic": "আধান",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-09",
@@ -499,13 +525,13 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 9,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -517,7 +543,7 @@
         "questionNumber": 9
       },
       "topic": "ইয়ং এর স্থিতিস্থাপক গুণাঙ্ক",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-10",
@@ -550,11 +576,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 10,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -566,7 +592,7 @@
         "questionNumber": 10
       },
       "topic": "আলোর প্রতিফলন ও প্রতিসরণের সূত্র",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-11",
@@ -599,11 +625,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 11,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -615,7 +641,7 @@
         "questionNumber": 11
       },
       "topic": "স্থিতিস্থাপকা সম্পর্কিত রাশিমালা",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-12",
@@ -648,11 +674,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 12,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -664,7 +690,7 @@
         "questionNumber": 12
       },
       "topic": "স্বকীয় আবেশ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-13",
@@ -746,11 +772,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 14,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -762,7 +788,7 @@
         "questionNumber": 14
       },
       "topic": "লেঞ্জের সূত্র",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-physics-15",
@@ -795,11 +821,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 15,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-physics"
@@ -811,7 +837,7 @@
         "questionNumber": 15
       },
       "topic": "পটেনশিওমিটার, মিটার ব্রিজ ও পোস্টঅফিস বক্স",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-01",
@@ -893,11 +919,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 17,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -909,7 +935,7 @@
         "questionNumber": 17
       },
       "topic": "দ্রবের মোলার ঘনমাত্রা বা মোলারিটি নির্ণয়",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-03",
@@ -940,13 +966,13 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 18,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -958,7 +984,7 @@
         "questionNumber": 18
       },
       "topic": "জৈব যৌগের সমাণুতা ও এর প্রকারভেদ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-04",
@@ -991,11 +1017,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 19,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1007,7 +1033,7 @@
         "questionNumber": 19
       },
       "topic": "এস্টার",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-05",
@@ -1040,11 +1066,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 20,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1056,7 +1082,7 @@
         "questionNumber": 20
       },
       "topic": "অ্যালকোহল,ইথার,অ্যামিন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-06",
@@ -1089,11 +1115,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 21,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1105,7 +1131,7 @@
         "questionNumber": 21
       },
       "topic": "রিডক্স বিক্রিয়ায় জারক-বিজারক শনাক্তকরণ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-07",
@@ -1138,11 +1164,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 22,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1154,7 +1180,7 @@
         "questionNumber": 22
       },
       "topic": "ধাতুর সক্রিয়তা সিরিজ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-08",
@@ -1187,11 +1213,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 23,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1203,7 +1229,7 @@
         "questionNumber": 23
       },
       "topic": "গ্লাইকোসাইড বন্ধন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-09",
@@ -1236,11 +1262,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 24,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1252,7 +1278,7 @@
         "questionNumber": 24
       },
       "topic": "রাসায়নিক গণনা ও গ্যাসের মোলার আয়তন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-10",
@@ -1285,11 +1311,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 25,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1301,7 +1327,7 @@
         "questionNumber": 25
       },
       "topic": "পাল্প পেপার উৎপাদনের মূলনীতি",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-11",
@@ -1431,11 +1457,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 28,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1447,7 +1473,7 @@
         "questionNumber": 28
       },
       "topic": "তড়িৎদ্বার বিভব",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-14",
@@ -1480,11 +1506,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 29,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-chemistry"
@@ -1496,7 +1522,7 @@
         "questionNumber": 29
       },
       "topic": "অপ্রতিসম কার্বন পরমাণুর সংখ্যাভিত্তিক আলোক সমাণুর সংখ্যা",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-chemistry-15",
@@ -1578,11 +1604,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 31,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1594,7 +1620,7 @@
         "questionNumber": 31
       },
       "topic": "লাইসোজোম এর গঠন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-02",
@@ -1627,11 +1653,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 32,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1643,7 +1669,7 @@
         "questionNumber": 32
       },
       "topic": "ক্রোমোজোম এর গঠন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-03",
@@ -1676,11 +1702,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 33,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1692,7 +1718,7 @@
         "questionNumber": 33
       },
       "topic": "আবৃতবীজী উদ্ভিদের বৈশিষ্ট্য",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-04",
@@ -1723,13 +1749,13 @@
         }
       ],
       "correctOptionIds": [
-        "b"
+        "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 34,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1740,7 +1766,7 @@
         "pageNumber": 1,
         "questionNumber": 34
       },
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-05",
@@ -1820,13 +1846,13 @@
         }
       ],
       "correctOptionIds": [
-        "d"
+        "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 36,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1838,7 +1864,7 @@
         "questionNumber": 36
       },
       "topic": "চোখ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-07",
@@ -1871,11 +1897,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 37,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1886,7 +1912,7 @@
         "pageNumber": 1,
         "questionNumber": 37
       },
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-08",
@@ -1919,11 +1945,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 38,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1935,7 +1961,7 @@
         "questionNumber": 38
       },
       "topic": "ভাইরাসজনিত রোগ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-09",
@@ -1966,13 +1992,13 @@
         }
       ],
       "correctOptionIds": [
-        "c"
+        "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 39,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -1983,7 +2009,7 @@
         "pageNumber": 1,
         "questionNumber": 39
       },
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-10",
@@ -2016,11 +2042,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 40,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2032,7 +2058,7 @@
         "questionNumber": 40
       },
       "topic": "মানুষের পরিপাক গ্রন্থির কাজ",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-11",
@@ -2065,11 +2091,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 41,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2081,7 +2107,7 @@
         "questionNumber": 41
       },
       "topic": "ক্রোমোজোম এর গঠন",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-12",
@@ -2114,11 +2140,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 42,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2130,7 +2156,7 @@
         "questionNumber": 42
       },
       "topic": "আবৃতবীজী উদ্ভিদের বৈশিষ্ট্য",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-13",
@@ -2163,11 +2189,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 43,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2179,7 +2205,7 @@
         "questionNumber": 43
       },
       "topic": "উদ্ভিদের গোত্র পরিচিতি",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-14",
@@ -2212,11 +2238,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 44,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2228,7 +2254,7 @@
         "questionNumber": 44
       },
       "topic": "হ্যাচ এন্ড স্ল্যাক চক্র",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-biology-15",
@@ -2261,11 +2287,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 45,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-biology"
@@ -2277,7 +2303,7 @@
         "questionNumber": 45
       },
       "topic": "জেনেটিক কোড এর বৈশিষ্ট্য",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-01",
@@ -2310,11 +2336,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 46,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2326,7 +2352,7 @@
         "questionNumber": 46
       },
       "topic": "Past Continuous Tense",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-02",
@@ -2359,11 +2385,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 47,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2375,7 +2401,7 @@
         "questionNumber": 47
       },
       "topic": "Quantitative Adjectives",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-03",
@@ -2408,11 +2434,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 48,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2424,7 +2450,7 @@
         "questionNumber": 48
       },
       "topic": "Appropriate Preposition",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-04",
@@ -2457,11 +2483,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 49,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2473,7 +2499,7 @@
         "questionNumber": 49
       },
       "topic": "Articles",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-05",
@@ -2506,11 +2532,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 50,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2522,7 +2548,7 @@
         "questionNumber": 50
       },
       "topic": "Subject-Verb Agreement",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-06",
@@ -2555,11 +2581,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 51,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2571,7 +2597,7 @@
         "questionNumber": 51
       },
       "topic": "Antonyms",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-07",
@@ -2653,11 +2679,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 53,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2669,7 +2695,7 @@
         "questionNumber": 53
       },
       "topic": "Narrations: Direct and Indirect",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-09",
@@ -2702,11 +2728,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 54,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2718,7 +2744,7 @@
         "questionNumber": 54
       },
       "topic": "Narrations: Direct and Indirect",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-10",
@@ -2751,11 +2777,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 55,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2767,7 +2793,7 @@
         "questionNumber": 55
       },
       "topic": "Passive voice",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-11",
@@ -2849,11 +2875,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 57,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2865,7 +2891,7 @@
         "questionNumber": 57
       },
       "topic": "Voice",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-13",
@@ -2898,11 +2924,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 58,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2914,7 +2940,7 @@
         "questionNumber": 58
       },
       "topic": "Simple Preposition",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-14",
@@ -2947,11 +2973,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 59,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -2963,7 +2989,7 @@
         "questionNumber": 59
       },
       "topic": "Reflexive Pronouns",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     },
     {
       "id": "hstu-unverified-a-2015-2016-english-15",
@@ -2996,11 +3022,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-a-2015-2016",
+          "paperId": "hstu-import-a-2015-2016",
           "questionNumber": 60,
           "pageNumber": 1,
           "sourceDocumentId": "src-hstu-a-2015-2016-satt-english"
@@ -3012,7 +3038,8 @@
         "questionNumber": 60
       },
       "topic": "Adverb of Place",
-      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set. [UNVERIFIED import-format set] reason: single_source_no_second_source; evidence: none (no second source); not part of the verified IMPORT_READY set."
+      "extractionNote": "The archive pack marks this answer 'verified' (its key agrees with the second source) but the question content is unverified; shown 'unverified' in this set."
     }
-  ]
+  ],
+  "replaceExistingPaperContent": true
 }

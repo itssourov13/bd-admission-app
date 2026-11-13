@@ -1,3 +1,57 @@
+## v0.1.6 Home Hero runtime follow-up — 2026-11-13
+
+| Check | Result | Notes |
+|---|---|---|
+| Full repository tests | [x] Pass | 240/240, zero failures/cancellations/skips/todos, Node 22.23.1. |
+| TypeScript | [x] Pass | `pnpm typecheck`. |
+| Full lint | [x] Pass | `pnpm lint`; the previously reported unused ESLint-disable directive was removed. |
+| Content integrity | [x] Pass | `pnpm content:check`: 217 packs / 13,609 questions; current generated SQLite seed. |
+| Expo resolved config | [x] Pass | app 0.1.6, Android versionCode 7, package and EAS project ID preserved. |
+| Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`; validates JS and static asset bundling, not a native APK. |
+| Diff hygiene | [x] Pass | `git diff --check`. |
+| Hero runtime structure | [x] Automated | Decorative cover is not a tap target; native CTA controls/routes, responsive behavior and contrast are covered by tests. |
+| EAS preview APK | [x] Built | `dcf1b743-ea08-4d27-b01f-82fe26374ffa` FINISHED; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa; [APK](https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk). |
+| Physical-device QA | [x] Owner-reported pass | Owner installed and ran v0.1.6; previously reported Hero/theme/runtime issues are fixed and no current issue is reported. Device model/OS and exhaustive per-screen coverage were not recorded. |
+
+Cover note: `assets/home/hero-cover.jpg` is a 782×382 crop from the owner-supplied UI/UX reference. Check its sharpness and confirm public-distribution rights before using it in a store release.
+
+## Historical full pre-build validation after Phase 8 — 2026-11-13
+
+Environment: Node 22.23.1 (.nvmrc), pnpm 11.10.0, branch feat/import-hstu-verified-answers-2026-11-12.
+
+| Check | Result | Notes |
+|---|---|---|
+| Full repository test suite | [x] Pass | pnpm test: 211 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo. Includes the 217-pack import/idempotency tests and Phase 8 library / Phase 9 local contract tests. |
+| TypeScript | [x] Pass | pnpm typecheck (tsc --noEmit). |
+| Full-project lint | [x] Pass | pnpm lint (expo lint). |
+| Generated SQLite seed | [x] Rebuilt | Initial pnpm content:check found the ignored local seed at schema v5 while the current app migration is v8. pnpm content:build rebuilt it from canonical data/question-packs/*.json; no question-pack source JSON was edited. |
+| Content consistency / SQLite integrity | [x] Pass | pnpm content:check: 217 packs / 13,609 questions, seed 22.68 MiB. Direct SQLite check: user_version=8, quick_check=ok, 0 foreign-key issues; 217 seed packs, 13,609 questions and 54,436 options. |
+| Expo public config | [x] Pass | pnpm exec expo config --type public. |
+| Android Metro export | [x] Pass | pnpm exec expo export --platform android --no-bytecode: 2,008 modules, 3.9 MB Android JS bundle, 124 assets including the regenerated 24 MB SQLite seed. This is a bundle/export gate, not a native APK or device test. |
+| Git / whitespace | [x] Pass | git diff --check; generated seed and dist/ are ignored outputs. |
+| Native EAS APK / physical device | [ ] Pending | No version bump, EAS build or new APK installation was performed in this validation task. |
+
+Non-blocking host note: a separate local export with Hermes bytecode generation (without --no-bytecode) previously terminated inside the host hermesc with SIGILL; no SVG transform error was reported. The CI-equivalent no-bytecode Metro export above passes. A cloud EAS build and physical-device verification are still required to validate the native artifact.
+
+Current release metadata remains unchanged: app version 0.1.4, Android versionCode 5. Next internal preview candidate should use a new version and code; do not reuse code 5.
+
+## HSTU verified-question import — 2026-11-12
+
+| Check | Result | Notes |
+|---|---|---|
+| Accepted ledger reconciliation | [x] Pass | 664 unique HSTU verified IDs; 116 baseline pending IDs remain outside the import. |
+| Question/options and answer mapping | [x] Pass | All 664 stems and option ID/text maps match the accepted ledger; all 664 correct-option mappings match exactly. |
+| Verified catalogue placement | [x] Pass | 657 IDs moved from HSTU-U appearances to 15 new HSTU papers; 7 existing HSTU IDs updated. All 664 active appearances resolve under HSTU. |
+| Verification statuses | [x] Pass | Both existing status fields are verified for all 664 imported IDs. Normal HSTU contains 939 fully verified single-choice questions. |
+| Pending preservation | [x] Pass | All 116 baseline pending question objects are unchanged; HSTU-U retains 105 pending questions. Three off-baseline pending-ledger records were not touched. |
+| Backup and staged pack copy | [x] Pass | All 18 changed packs have pre-import backups; staged and active app pack SHA-256 hashes match. |
+| Content build and check | [x] Pass | Node 22.23.1: content build and content check; 217 packs / 13,609 questions. |
+| Full repository tests | [x] Pass | 142/142 passed. |
+| TypeScript / ESLint / content check | [x] Pass | All passed. |
+| SQLite integrity | [x] Pass | quick_check = ok; foreign_key_check returned zero issues. |
+| Other institutions / runtime logic | [x] Unchanged | No JU/RU/DU pack or app-runtime logic changed; exam rules were not changed. |
+| Physical-device update | [ ] Not run | No new APK was built or installed as part of this data import. |
+
 ## v0.1.4 Android first-launch seed fix — 2026-11-05
 
 | Check | Result | Notes |
@@ -16,13 +70,27 @@
 | Replacement EAS APK | [x] Built and verified | EAS build 040c75b2-0bbd-47b5-b859-cdb7f179f968 is FINISHED; APK https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk; size 117,408,124 bytes; app 0.1.4 / code 5. Full APK ZIP test passes for all 1,367 entries; APK SHA-256 recorded in release docs. Embedded seed SHA matches source; SQLite quick_check ok, FK violations 0, schema v5, 217 packs / 13,609 questions. |
 | Owner physical-device verification | [x] Owner-confirmed pass | Owner installed and checked v0.1.4 on a physical phone and reports that everything works as expected. This is an owner-reported overall verification; individual timing/retention measurements are not separately recorded here. |
 
+## Startup UI targeted implementation — 2026-11-11
+
+| Check | Result | Notes |
+|---|---|---|
+| Startup UI policy (first-run / returning / failure) | [x] Automated pass | Three focused policy tests verify first-run visibility, returning gate release, failure/retry visibility and Home readiness requirements. |
+| Home first-content readiness | [x] Source/typecheck/lint pass | Home signals readiness only from its data-backed or actionable error view after layout; its temporary initial LoadingView does not resolve the gate. |
+| Full automated suite | [x] Pass | 142 passed, 0 failed. |
+| TypeScript / full ESLint | [x] Pass | pnpm typecheck and pnpm lint. |
+| Bundled SQLite seed | [x] Pass | pnpm content:check: 217 packs / 13,609 questions; seed 22.63 MiB and up to date. |
+| Android JS export | [x] Pass | No-bytecode Metro export: 1,853 modules, 3.5 MB JS, 123 assets. This is not an APK/native-device test. |
+| Physical Android startup visuals | [ ] Pending | Install a new release APK; check first-run, returning cold start, update sync, retry/error, Reduce Motion and square-flash transition on the same phone. |
+
 ## Human runtime issues — owner-reported follow-ups
 
-These are observations to retain for the next grouped fix/polish pass. No code changes are included for either note.
+The three startup UI observations now have targeted source fixes. Automated verification is complete; release-device visual verification remains open.
 
 | Item | Priority | Observation / next step | Status |
 |---|---|---|---|
-| Loading UI → Home transition flash | Low / cosmetic | During the transition from the loading/setup UI to the Home screen, the owner notices a very brief, extremely subtle square-shaped flash. Possible cause is the immediate Home render/transition timing; this is only a hypothesis, not a confirmed root cause. Consider a slightly slower/faded native-supported transition to make the handoff smoother. Re-check on the same phone before changing animation behavior. | Open note; defer implementation |
+| Full setup UI on returning cold launches | Medium / UX | Implemented: returning mode releases the setup gate directly and keeps the native splash over SQLite/content startup. First-run and fatal error/retry paths retain the branded setup screen. | Source/tests pass; verify on a release APK that returning startup never exposes a blank frame or full setup card. |
+| Five stage checkmarks | Low / visual | Implemented: completed checkmarks use a short staggered native-driver opacity/scale transition; Reduced Motion remains immediate. Five real stage states/progress values are unchanged. | Source/tests pass; verify perceived sequencing and smoothness on the physical phone. |
+| Loading UI → Home transition flash | Low / cosmetic | Implemented: first-run overlay dismissal and returning native-splash dismissal both wait for Home's initial data-backed/error view to lay out. This addresses the identified intermediate Home LoadingView path, but the exact square flash was not recorded/reproduced locally. | Handoff source/export pass; exact visual outcome pending release-build recording on the same phone. |
 | Expo Doctor SDK patch alignment | Maintenance | EAS Expo Doctor reported 20/21 checks: five Expo SDK packages were one patch behind (expo, expo-asset, expo-constants, expo-router, expo-splash-screen). The v0.1.4 Gradle build and APK completed successfully despite this advisory. Align the five packages with the SDK-recommended patches in a separate dependency-maintenance pass and rerun pnpm doctor; no rebuild is requested by this note alone. | Open maintenance note; non-blocking |
 
 ## Historical v0.1.3 Android preview — built, then failed on owner's phone
@@ -305,3 +373,13 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 | EAS preview APK build | [x] Completed and published | Build ID `d5e516cd-eefe-44f4-866d-b440ef188da9`; APK is attached to GitHub pre-release `v0.1.0-preview.1`. |
 | Android installation/device QA | [x] Owner-reported pass | APK installed and checked on a physical Android device; see owner-reported scope above. |
 | Production AAB / Play Store | [ ] Not run | Production AAB, Play Console listing and rollout remain outstanding; see docs/ANDROID_RELEASE.md. |
+
+## Phase 1 loading UI — owner verification (2026-11-13)
+
+- [ ] Fresh install: splash → setup shows no colour jump or empty frame; progress completes; ≈0.5 s hold; fade to Home without a spinner.
+- [ ] Returning launch: splash → Home directly; no setup card; no spinner flash.
+- [ ] Returning launch after a content-bundle update: setup progress UI appears if sync exceeds ~1.5 s.
+- [ ] Launch via a deep link to a non-Home route: splash/overlay is released within ~4 s.
+- [ ] Reduce Motion on: immediate checkmarks, ≈0.15 s hold, no loops.
+- [ ] Tab switches (Varsity/Medical/Profile): no spinner flash on warm DB.
+- [ ] DB failure/retry UI still shows.

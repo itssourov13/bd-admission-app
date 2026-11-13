@@ -1,15 +1,16 @@
 import type { ReactNode } from "react";
 import { Pressable, ActivityIndicator, View, type PressableProps } from "react-native";
 import { Txt } from "./Text";
-import { colors, shadow } from "@/theme";
+import { useTheme } from "@/settings";
 
 type Variant = "primary" | "accent" | "outline" | "ghost";
 type Size = "md" | "lg";
 
 const bg: Record<Variant, string> = {
-  primary: "bg-brand-500",
+  // brand600 (not brand500): white text on brand500 is 4.51:1, right at the AA limit; brand600 gives 5.80:1.
+  primary: "bg-brand-600",
   accent: "bg-gold-500",
-  outline: "bg-surface border border-sand-300",
+  outline: "bg-surface border border-outline",
   ghost: "bg-transparent",
 };
 const fg: Record<Variant, string> = {
@@ -42,6 +43,7 @@ export function Button({
   style,
   ...props
 }: ButtonProps) {
+  const { colors, shadow } = useTheme();
   const elevated = variant === "primary" || variant === "accent";
   return (
     <Pressable

@@ -3,7 +3,7 @@
   "batch": {
     "id": "batch-hstu-unverified-2016-2017-unassigned",
     "category": "varsity",
-    "description": "HSTU admission paper, academic session 2016-2017, transcribed 2026-10-31 by direct visual reading of the HSTU section (printed book pp.273-279) of the Udvash 'GST গুচ্ছ প্রশ্নব্যাংক' compilation scan (TargetPDF/CamScanner). The source prints NO unit label and NO set/shift label anywhere, so the paper is recorded with unit 'unassigned'; unit identification by question-level matching against Satt Academy's per-unit 2016-17 banks is a separate later stage. 100 questions: Physics 25 + Chemistry 25 + Biology 25 + English 25, each subject numbered 1-25 independently, with Physics/Chemistry/Biology split across printed Short/Extra/Old syllabus-tier boxes that partition 1-25 exactly once (merged here by printed number). Answers are inline in the source ([Ans: x] tags and/or worked solutions headed 'সমাধান: (x)'); there is no separate answer table. The scan's right edge crops the [Ans:] column: 17 questions' keys are not recoverable from this source and are encoded unknown (Biology Extra 01, 02, 04, 05, 06, 10, 11; English 01-07, 09, 10; Chemistry Extra 21), and several further tags are partially cropped but legible (noted per question). EXTRACTION STAGE: all questions content-UNVERIFIED, all recorded keys answer-UNVERIFIED. Bengali numerals converted to Western digits and mathematics linearised (fractions as a/b, powers as ^) per project convention; original wording, option order, numbering and original errors preserved. [UNVERIFIED import-format edition: only the questions that did NOT pass cross-source verification, with true statuses preserved; see Admission-Unverified-Import/README.md.]",
+    "description": "HSTU historical admission-question source set. Question and option text/order and original source provenance are preserved. Claude-verified questions are attached to the HSTU paper; remaining pending questions stay attached to the separate HSTU-U paper.",
     "sourceDocumentIds": [
       "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
     ]
@@ -23,6 +23,11 @@
       "id": "hstu-unverified-bank",
       "code": "HSTU-U",
       "name": "UNVERIFIED — Hajee Mohammad Danesh Science and Technology University"
+    },
+    {
+      "id": "hstu",
+      "code": "HSTU",
+      "name": "Hajee Mohammad Danesh Science and Technology University"
     }
   ],
   "papers": [
@@ -34,12 +39,30 @@
       "academicSession": "2016-2017",
       "unit": "unassigned",
       "title": "HSTU 2016-2017 — unit not printed in source (Physics/Chemistry/Biology/English, 100 questions)"
+    },
+    {
+      "id": "hstu-import-2016-2017-unassigned",
+      "institutionId": "hstu",
+      "category": "varsity",
+      "year": 2017,
+      "academicSession": "2016-2017",
+      "unit": "unassigned",
+      "title": "HSTU 2016-2017 — unit not printed in source (Physics/Chemistry/Biology/English, 100 questions)"
     }
   ],
   "examRules": [
     {
       "id": "rule-hstu-unverified-2016-2017-unassigned",
       "paperId": "hstu-unverified-2016-2017-unassigned",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
+      ],
+      "sourceNote": "Paper header (compilation PDF p.1) states: পূর্ণমান: ১০০ (full marks 100), MCQ, সময়: ১ ঘণ্টা ৩০ মিনিট (1 hour 30 minutes), 100 questions in 4 subjects of 25. These are transcribed from the compilation's paper header only and are NOT entered as a verified scoring rule; no penalty or selection rule is printed in the source."
+    },
+    {
+      "id": "rule-hstu-import-2016-2017-unassigned",
+      "paperId": "hstu-import-2016-2017-unassigned",
       "verificationStatus": "unconfigured",
       "sourceDocumentIds": [
         "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -79,11 +102,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 3,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -93,8 +116,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 1,
         "questionNumber": 3
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-04",
@@ -127,11 +149,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 4,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -141,8 +163,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 1,
         "questionNumber": 4
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-05",
@@ -175,11 +196,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 5,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -189,8 +210,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 1,
         "questionNumber": 5
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-06",
@@ -223,11 +243,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 6,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -237,8 +257,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 1,
         "questionNumber": 6
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-07",
@@ -271,12 +290,12 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "Option (a) prints 'ওয়েট' as printed in the source.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Option (a) prints 'ওয়েট' as printed in the source.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 7,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -319,12 +338,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "Stem transcribed verbatim as printed; the printed wording of the thermometer readings is garbled in the source itself (documented, not repaired).  [UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Stem transcribed verbatim as printed; the printed wording of the thermometer readings is garbled in the source itself (documented, not repaired).",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 9,
           "pageNumber": 1,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -367,11 +386,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 12,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -381,8 +400,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 2,
         "questionNumber": 12
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-14",
@@ -463,12 +481,12 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "Option (a) prints '16 πr^2' with no T factor, as printed in the source.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Option (a) prints '16 πr^2' with no T factor, as printed in the source.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 15,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -511,11 +529,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 16,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -525,8 +543,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 16
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-17",
@@ -559,11 +576,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 17,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -573,8 +590,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 17
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-18",
@@ -607,11 +623,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 18,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -621,8 +637,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 2,
         "questionNumber": 18
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-20",
@@ -655,12 +670,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 20,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -703,11 +718,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 21,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -717,8 +732,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 2,
         "questionNumber": 21
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-23",
@@ -751,11 +765,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 23,
           "pageNumber": 2,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -765,8 +779,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 2,
         "questionNumber": 23
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-physics-25",
@@ -799,11 +812,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 25,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -813,8 +826,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 25
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-01",
@@ -845,14 +857,14 @@
         }
       ],
       "correctOptionIds": [
-        "a"
+        "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 1,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -895,12 +907,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "Option (a) prints '85mLH2O' (spacing as printed) and option (d) prints 'CH2COOH', both as printed in the source.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Option (a) prints '85mLH2O' (spacing as printed) and option (d) prints 'CH2COOH', both as printed in the source.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 4,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -943,11 +955,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 5,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -957,8 +969,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 5
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-06",
@@ -1039,11 +1050,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 7,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1053,8 +1064,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 7
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-09",
@@ -1087,11 +1097,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 9,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1101,8 +1111,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 9
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-10",
@@ -1135,11 +1144,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 10,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1149,8 +1158,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 10
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-11",
@@ -1183,11 +1191,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 11,
           "pageNumber": 3,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1197,8 +1205,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 3,
         "questionNumber": 11
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-14",
@@ -1231,11 +1238,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 14,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1245,8 +1252,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 4,
         "questionNumber": 14
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-chemistry-15",
@@ -1279,12 +1285,12 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (c) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (c) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 15,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1327,12 +1333,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 16,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1375,12 +1381,12 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "Printed [Ans:] tag reads '[Ans: c, c' before the crop — a duplicated-letter tag; the key is recorded as the single letter (c).  [UNVERIFIED import-format set] reason: key_conflict_with_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "Printed [Ans:] tag reads '[Ans: c, c' before the crop — a duplicated-letter tag; the key is recorded as the single letter (c).",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 18,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1423,12 +1429,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 19,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1471,12 +1477,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 20,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1516,13 +1522,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 21,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1565,12 +1573,12 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 23,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1613,12 +1621,12 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (b) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 24,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1661,12 +1669,12 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.  [UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "[Ans:] tag partially cropped at the scan's right edge; the key letter (a) remains legibly printed and is recorded.",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 25,
           "pageNumber": 4,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1754,13 +1762,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 4,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1800,13 +1810,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source Options (a) and (c) both print 'i ও ii' in the source (duplicated option text, preserved as printed).  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source Options (a) and (c) both print 'i ও ii' in the source (duplicated option text, preserved as printed).",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 5,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1846,13 +1858,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 6,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1895,11 +1909,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 8,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1909,8 +1923,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 8
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-09",
@@ -1943,11 +1956,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 9,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -1957,8 +1970,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 9
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-10",
@@ -1988,13 +2000,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 10,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2034,13 +2048,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 11,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2083,11 +2099,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 13,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2097,8 +2113,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 13
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-14",
@@ -2131,11 +2146,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 14,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2145,8 +2160,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 14
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-15",
@@ -2179,11 +2193,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 15,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2193,8 +2207,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 15
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-16",
@@ -2227,11 +2240,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 16,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2241,8 +2254,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 16
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-18",
@@ -2275,11 +2287,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 18,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2289,8 +2301,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 18
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-19",
@@ -2323,11 +2334,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 19,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2337,8 +2348,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 19
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-20",
@@ -2371,11 +2381,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 20,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2385,8 +2395,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 20
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-21",
@@ -2419,11 +2428,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 21,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2433,8 +2442,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 21
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-22",
@@ -2467,11 +2475,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 22,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2481,8 +2489,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 22
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-biology-23",
@@ -2563,11 +2570,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 24,
           "pageNumber": 5,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2577,8 +2584,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 5,
         "questionNumber": 24
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-01",
@@ -2608,13 +2614,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 1,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2654,13 +2662,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 2,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2700,13 +2710,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 3,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2746,13 +2758,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 4,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2792,13 +2806,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 5,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2838,13 +2854,15 @@
           "order": 4
         }
       ],
-      "correctOptionIds": null,
-      "answerVerificationStatus": "unknown",
-      "contentVerificationStatus": "unverified",
-      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source  [UNVERIFIED import-format set] reason: keyless_no_key_in_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set.",
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "extractionNote": "answer tag cropped off-page in the scan; key not recoverable from this source",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 6,
           "pageNumber": 6,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2933,11 +2951,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 11,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2947,8 +2965,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 11
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-12",
@@ -2981,11 +2998,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 12,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -2995,8 +3012,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 12
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-13",
@@ -3029,11 +3045,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 13,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3043,8 +3059,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 13
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-14",
@@ -3077,11 +3092,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 14,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3091,8 +3106,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 14
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-15",
@@ -3173,11 +3187,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 16,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3187,8 +3201,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 16
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-17",
@@ -3221,11 +3234,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 17,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3235,8 +3248,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 17
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-18",
@@ -3269,11 +3281,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 18,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3283,8 +3295,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 18
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-19",
@@ -3317,11 +3328,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 19,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3331,8 +3342,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 19
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-20",
@@ -3365,11 +3375,11 @@
       "correctOptionIds": [
         "c"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 20,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3379,8 +3389,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 20
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-21",
@@ -3413,11 +3422,11 @@
       "correctOptionIds": [
         "d"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 21,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3427,8 +3436,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 21
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-23",
@@ -3461,11 +3469,11 @@
       "correctOptionIds": [
         "a"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 23,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3475,8 +3483,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 23
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-24",
@@ -3509,11 +3516,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 24,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3523,8 +3530,7 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 24
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: content_differs_from_second_source; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     },
     {
       "id": "hstu-unverified-2016-2017-unassigned-english-25",
@@ -3557,11 +3563,11 @@
       "correctOptionIds": [
         "b"
       ],
-      "answerVerificationStatus": "unverified",
-      "contentVerificationStatus": "unverified",
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
       "appearances": [
         {
-          "paperId": "hstu-unverified-2016-2017-unassigned",
+          "paperId": "hstu-import-2016-2017-unassigned",
           "questionNumber": 25,
           "pageNumber": 7,
           "sourceDocumentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned"
@@ -3571,8 +3577,8 @@
         "documentId": "udvash-gst-bank-hstu-2016-2017--batch-hstu-unverified-2016-2017-unassigned",
         "pageNumber": 7,
         "questionNumber": 25
-      },
-      "extractionNote": "[UNVERIFIED import-format set] reason: not_publicly_comparable_login_gate; evidence: hstu-2016-2017-unassigned.VERIFICATION.md; not part of the verified IMPORT_READY set."
+      }
     }
-  ]
+  ],
+  "replaceExistingPaperContent": true
 }

@@ -1,16 +1,18 @@
 import type { SqlDb, SqlParam } from "../db/types.ts";
+import { likePattern } from "./search.ts";
 import type {
   AppearanceView, InstitutionSummary, OptionView, PaperSummary, PoolFilter, QuestionCategory, QuestionView, RuleStatus
 } from "../types/domain.ts";
 import { resolveRule, UNCONFIGURED_RULE, type ScoringRule } from "../services/scoring.ts";
+import { groupExamPatterns, patternScope, type ExamPatternOption, type PatternPaper } from "../services/exam.ts";
 
 /** Scored-practice questions require verified content and key, single-choice type, 2+ options and one correct option. */
-const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
+export const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND EXISTS (SELECT 1 FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1)`;
 
 /** Source-key candidates remain unverified. Exclude ambiguous or structurally unsupported options. */
-const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'
+export const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) = 1
   AND NOT EXISTS (
@@ -31,17 +33,49 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   // Historical question rows may remain after a source-paper replacement so old
   // bookmarks and attempts keep resolving. Only rows with a current active paper
   // appearance belong to the active browse/practice catalogue.
-  const where: string[] = ["EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)"];
+  const where: string[] = [];
+  if (filter.bookId) {
+    // Publisher/book scope: membership in an AVAILABLE book (bundled/installed). Removed or catalogue-only books drop
+    // out of practice, but their question rows (and all user data referencing them) stay untouched.
+    where.push(`EXISTS (SELECT 1 FROM content_unit_questions cq JOIN content_books cb ON cb.id = cq.book_id
+      WHERE cq.question_id = q.id AND cq.book_id = ? AND cb.install_state IN ('bundled','installed'))`);
+    params.push(filter.bookId);
+    if (filter.unitId) {
+      where.push(`q.id IN (SELECT cu.question_id FROM content_unit_questions cu WHERE cu.book_id = ? AND cu.unit_id IN (
+        WITH RECURSIVE tree(id) AS (SELECT id FROM content_units WHERE id = ? AND book_id = ? UNION ALL SELECT u.id FROM content_units u JOIN tree t ON u.parent_id = t.id)
+        SELECT id FROM tree))`);
+      params.push(filter.bookId, filter.unitId, filter.bookId);
+    }
+  } else {
+    // Default pool = university paper content only; book-only questions stay out of it.
+    where.push("EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)");
+  }
   if (filter.category) { where.push("q.category = ?"); params.push(filter.category); }
   if (filter.subject) { where.push("q.subject = ?"); params.push(filter.subject); }
   if (filter.subjects?.length) {
     where.push(`q.subject IN (${filter.subjects.map(() => "?").join(",")})`);
     params.push(...filter.subjects);
   }
-  if (filter.institutionId || filter.paperId) {
+  if (filter.retrySessionId) {
+    // Incorrect, skipped, timed-out and never-answered questions of one finished session (read-only on user data).
+    where.push(`q.id IN (SELECT sa.question_id FROM session_answers sa WHERE sa.session_id = ?
+      AND (sa.outcome IN ('incorrect','skipped','timed_out') OR (sa.outcome = 'unanswered' AND sa.selected_keys = '[]')))`);
+    params.push(filter.retrySessionId);
+  }
+  const institutionIds = filter.institutionIds?.length ? filter.institutionIds : null;
+  const paperIds = filter.paperIds?.length ? filter.paperIds : null;
+  if (filter.institutionId || institutionIds || filter.paperId || paperIds) {
     joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id";
     if (filter.institutionId) { where.push("p.institution_id = ?"); params.push(filter.institutionId); }
+    if (institutionIds) {
+      where.push(`p.institution_id IN (${institutionIds.map(() => "?").join(",")})`);
+      params.push(...institutionIds);
+    }
     if (filter.paperId) { where.push("p.id = ?"); params.push(filter.paperId); }
+    if (paperIds) {
+      where.push(`p.id IN (${paperIds.map(() => "?").join(",")})`);
+      params.push(...paperIds);
+    }
   }
   return { joins, where: where.length ? " AND " + where.join(" AND ") : "", params };
 }
@@ -120,6 +154,42 @@ export async function listInstitutions(db: SqlDb, category: QuestionCategory): P
   return out;
 }
 
+/**
+ * Papers of several institutions with all per-paper counts computed in three grouped queries (instead of two queries
+ * per paper), so a whole university - or every university - can be listed without an N+1 cost.
+ */
+export async function listPapersByInstitutions(db: SqlDb, opts: { institutionIds: string[]; category?: QuestionCategory }): Promise<PaperSummary[]> {
+  if (opts.institutionIds.length === 0) return [];
+  const ph = opts.institutionIds.map(() => "?").join(",");
+  const params: SqlParam[] = [...opts.institutionIds];
+  let categoryClause = "";
+  if (opts.category) { categoryClause = " AND p.category = ?"; params.push(opts.category); }
+  const rows = await db.getAllAsync<PaperRow>(
+    `SELECT p.id, p.institution_id, i.code, i.name AS iname, p.category, p.year, p.academic_session, p.unit, p.title,
+       (SELECT COUNT(DISTINCT a.question_id) FROM question_appearances a WHERE a.paper_id = p.id) AS qn,
+       (SELECT r.verification_status FROM exam_rules r WHERE r.paper_id = p.id ORDER BY r.id LIMIT 1) AS rule_status
+     FROM exam_papers p JOIN institutions i ON i.id = p.institution_id
+     WHERE p.institution_id IN (${ph})${categoryClause} ORDER BY p.year DESC, p.unit, p.id`,
+    params
+  );
+  const grouped = async (predicate: string): Promise<Map<string, number>> => {
+    const counts = await db.getAllAsync<{ paper_id: string; n: number }>(
+      `SELECT a.paper_id AS paper_id, COUNT(DISTINCT q.id) AS n FROM questions q
+       JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id
+       WHERE (${predicate}) AND p.institution_id IN (${ph})${categoryClause} GROUP BY a.paper_id`,
+      params
+    );
+    return new Map(counts.map((c) => [c.paper_id, Number(c.n)]));
+  };
+  const eligible = await grouped(ELIGIBLE_SQL);
+  const candidates = await grouped(REVIEW_CANDIDATE_SQL);
+  return rows.map((r) => ({
+    id: r.id, institutionId: r.institution_id, institutionCode: r.code, institutionName: r.iname, category: r.category,
+    year: Number(r.year), academicSession: r.academic_session, unit: r.unit, title: r.title,
+    questionCount: Number(r.qn), eligibleCount: eligible.get(r.id) ?? 0, reviewCandidateCount: candidates.get(r.id) ?? 0, ruleStatus: r.rule_status
+  }));
+}
+
 export async function getInstitution(db: SqlDb, id: string): Promise<{ id: string; code: string; name: string } | null> {
   return db.getFirstAsync("SELECT id, code, name FROM institutions WHERE id = ?", [id]);
 }
@@ -157,14 +227,16 @@ export async function listPapers(db: SqlDb, opts: { institutionId?: string; cate
 }
 
 /** Paper question IDs grouped in canonical subject order, then printed order within each subject. */
-export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: number, offset: number, subject?: string): Promise<string[]> {
+export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: number, offset: number, subject?: string, search?: string): Promise<string[]> {
   const params: SqlParam[] = [paperId];
   if (subject) params.push(subject);
+  const pattern = likePattern(search);
+  if (pattern) params.push(pattern);
   params.push(limit, offset);
   const rows = await db.getAllAsync<{ question_id: string }>(
     `SELECT a.question_id AS question_id FROM question_appearances a
      JOIN questions q ON q.id = a.question_id
-     WHERE a.paper_id = ?${subject ? " AND q.subject = ?" : ""}
+     WHERE a.paper_id = ?${subject ? " AND q.subject = ?" : ""}${pattern ? " AND q.text LIKE ? ESCAPE '\\'" : ""}
      ORDER BY
        CASE
          WHEN q.subject = 'Physics' THEN 0
@@ -199,6 +271,30 @@ export async function countQuestionsBySubject(db: SqlDb, filter: PoolFilter): Pr
   const bySubject: Record<string, number> = {};
   for (const r of rows) if (r.subject) bySubject[r.subject] = Number(r.n);
   return { total: Number(totalRow?.n ?? 0), bySubject };
+}
+
+/**
+ * Practice-pool size per subject for a scope in ONE grouped query (replaces one count query per subject).
+ * `includeUnverified` mirrors practiceQuestionIds (verified OR provisional candidates). `total` also counts
+ * questions without a subject. Any `subject`/`subjects` restriction on `filter` is ignored on purpose: the counts
+ * describe the scope the selection is made from.
+ */
+export async function countPoolBySubject(
+  db: SqlDb, filter: PoolFilter, includeUnverified = false
+): Promise<{ total: number; bySubject: Record<string, number> }> {
+  const c = filterClauses({ ...filter, subject: undefined, subjects: undefined });
+  const cond = includeUnverified ? `((${ELIGIBLE_SQL}) OR (${REVIEW_CANDIDATE_SQL}))` : `(${ELIGIBLE_SQL})`;
+  const rows = await db.getAllAsync<{ subject: string | null; n: number }>(
+    `SELECT q.subject AS subject, COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE ${cond}${c.where} GROUP BY q.subject`,
+    c.params
+  );
+  const bySubject: Record<string, number> = {};
+  let total = 0;
+  for (const r of rows) {
+    total += Number(r.n);
+    if (r.subject) bySubject[r.subject] = Number(r.n);
+  }
+  return { total, bySubject };
 }
 
 export async function listSubjects(db: SqlDb, filter: PoolFilter): Promise<string[]> {
@@ -266,13 +362,24 @@ interface RuleRow {
  */
 export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], filter: PoolFilter): Promise<ScoringRule> {
   if (questionIds.length === 0) return UNCONFIGURED_RULE;
+  // A publisher book has no source-backed exam pattern. A book question that also appears in a university paper must
+  // not pick up that paper's official rule just because the book is being practised.
+  if (filter.bookId) return UNCONFIGURED_RULE;
   const paperIds = new Set<string>();
   for (const part of chunk(questionIds)) {
     const ph = part.map(() => "?").join(",");
     const params: SqlParam[] = [...part];
     let extra = "";
     if (filter.paperId) { extra += " AND a.paper_id = ?"; params.push(filter.paperId); }
+    if (filter.paperIds?.length) {
+      extra += ` AND a.paper_id IN (${filter.paperIds.map(() => "?").join(",")})`;
+      params.push(...filter.paperIds);
+    }
     if (filter.institutionId) { extra += " AND p.institution_id = ?"; params.push(filter.institutionId); }
+    if (filter.institutionIds?.length) {
+      extra += ` AND p.institution_id IN (${filter.institutionIds.map(() => "?").join(",")})`;
+      params.push(...filter.institutionIds);
+    }
     const rows = await db.getAllAsync<{ paper_id: string }>(
       `SELECT DISTINCT a.paper_id FROM question_appearances a JOIN exam_papers p ON p.id = a.paper_id WHERE a.question_id IN (${ph})${extra}`, params
     );
@@ -328,4 +435,39 @@ export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringR
 /** The rule that would apply to a practice/exam scope (used to tell the user how scoring will work before starting). */
 export async function scopeRule(db: SqlDb, filter: PoolFilter, includeUnverified = false): Promise<ScoringRule> {
   return resolveRuleForQuestions(db, await practiceQuestionIds(db, filter, includeUnverified), filter);
+}
+
+export interface ExamPatternChoice extends ExamPatternOption {
+  /** Eligible (or provisional, when `includeUnverified`) questions this pattern can draw from. */
+  eligible: number;
+}
+
+/**
+ * The exam patterns a university (one or more stored institutions) can run: only papers with a complete stored
+ * pattern count (see groupExamPatterns). Nothing is inferred for papers without a rule.
+ */
+export async function listExamPatterns(db: SqlDb, institutionIds: string[], includeUnverified = false): Promise<ExamPatternChoice[]> {
+  if (institutionIds.length === 0) return [];
+  const rows = await db.getAllAsync<RuleRow & { id: string; academic_session: string | null; unit: string | null }>(
+    `SELECT p.id AS id, p.academic_session, p.unit, r.paper_id, r.correct_marks, r.incorrect_penalty, r.unanswered_marks,
+            r.duration_seconds, r.total_questions, r.total_marks, r.verification_status, r.selection_config
+     FROM exam_papers p LEFT JOIN exam_rules r ON r.id = (SELECT x.id FROM exam_rules x WHERE x.paper_id = p.id ORDER BY x.id LIMIT 1)
+     WHERE p.institution_id IN (${institutionIds.map(() => "?").join(",")}) ORDER BY p.id`,
+    institutionIds
+  );
+  const papers: PatternPaper[] = rows.map((r) => ({
+    id: r.id,
+    academicSession: r.academic_session,
+    unit: r.unit,
+    rule: r.verification_status
+      ? { status: r.verification_status, totalQuestions: r.total_questions, durationSeconds: r.duration_seconds, selectionConfig: r.selection_config ? JSON.parse(r.selection_config) : null }
+      : null
+  }));
+  const options = groupExamPatterns(papers);
+  const out: ExamPatternChoice[] = [];
+  for (const option of options) {
+    const pool = await practiceQuestionIds(db, { institutionIds, ...patternScope(option) }, includeUnverified);
+    out.push({ ...option, eligible: pool.length });
+  }
+  return out;
 }

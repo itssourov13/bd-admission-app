@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useLang, useT } from "@/i18n";
-import { colors } from "@/theme";
+import { useTheme } from "@/settings";
 
 type IconName = keyof typeof Ionicons.glyphMap;
 
@@ -13,6 +13,7 @@ const tabIcons: Record<string, IconName> = {
 };
 
 export default function TabsLayout() {
+  const { colors } = useTheme();
   const t = useT();
   const { lang } = useLang();
 

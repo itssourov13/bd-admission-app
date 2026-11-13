@@ -135,10 +135,14 @@ test("different paper rules in one institution scope are never merged into a fal
   const a = { correctMarks: 1, incorrectPenalty: 0.25, unansweredMarks: 0, totalQuestions: 10, durationSeconds: 600, verificationStatus: "verified" as const };
   const b = { ...a, incorrectPenalty: 0.5, totalQuestions: 20 };
   assert.equal((await importQuestionPack(db, packWith([{ id: "paper-a", rule: a }, { id: "paper-b", rule: b }], 60))).ok, true);
-  const started = await startStandardExam(db, { institutionId: "inst-syn" }, 1000, rng);
+  // Phase 11: an institution scope no longer inherits the generic defaults; only the category/all-catalogue scope does.
+  const institution = await startStandardExam(db, { institutionId: "inst-syn" }, 1000, rng);
+  assert.equal(institution.ok, false);
+  if (!institution.ok) assert.equal(institution.reason, "rule_unavailable");
+  const started = await startStandardExam(db, { category: "varsity" }, 1000, rng);
   assert.equal(started.ok, true);
   if (!started.ok) return;
   const session = (await getSession(db, started.sessionId))!;
   assert.notEqual(session.ruleStatus, "verified", "conflicting paper rules cannot become one official rule");
-  assert.equal((await loadExam(db, started.sessionId))!.questions.length, 100, "a global/institution scope uses the generic defaults, not either paper's count");
+  assert.equal((await loadExam(db, started.sessionId))!.questions.length, 100, "the category scope uses the generic defaults, not either paper's count");
 });

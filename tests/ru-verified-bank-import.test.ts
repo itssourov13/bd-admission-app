@@ -151,8 +151,13 @@ test("the separate RU verified-source bank imports as its own institution, prese
   assert.deepEqual({ ...counts }, { questions: 1828, papers: 15, batches: 15, answerVerified: 1828, keyUnknown: 0, contentVerified: 1828 });
   assert.equal((await eligibleQuestionIds(db, { institutionId: "ru-verified-bank" })).length, 1800);
 
-  const started = await startStandardExam(db, { institutionId: "ru-verified-bank" }, Date.UTC(2026, 9, 29));
-  assert.equal(started.ok, true, "the separate verified bank should expose Standard Exam");
+  // Phase 11: RU-V packs store no exam rule, so the university scope must not fall back to the generic 100/60 rule.
+  const refused = await startStandardExam(db, { institutionId: "ru-verified-bank" }, Date.UTC(2026, 9, 29));
+  assert.equal(refused.ok, false);
+  if (!refused.ok) assert.equal(refused.reason, "rule_unavailable");
+
+  const started = await startStandardExam(db, { institutionId: "ru-verified-bank" }, Date.UTC(2026, 9, 29), undefined, { custom: { questions: 100, seconds: 3600 } });
+  assert.equal(started.ok, true, "the verified bank runs as an explicit, unscored Custom Practice session");
   if (!started.ok) return;
   const exam = await loadExam(db, started.sessionId);
   assert.ok(exam);

@@ -1,27 +1,36 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, ScrollView, View } from "react-native";
 import { useLocalSearchParams } from "expo-router";
+import { scopeFromParams } from "@/features/navigation/links";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { ChoiceChip } from "@/components/common/Toggle";
+import { TextField } from "@/components/common/TextField";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { QuestionCard } from "@/components/common/QuestionCard";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useNum, useT, type TranslationKey } from "@/i18n";
 import { countQuestionsBySubject, listPaperQuestionIds, loadQuestions } from "@/repositories/content";
+import { listBookQuestionIds } from "@/repositories/library";
 import { bookmarkedIds, toggleBookmark } from "@/repositories/userData";
+import { normalizeSearch, SEARCH_MAX_CHARS } from "@/repositories/search";
+import { createRequestGate } from "@/services/requestGate";
 import { buildSubjectOptions, SUBJECT_LABEL_KEYS, type SubjectOption } from "@/services/subjects";
 import type { QuestionView } from "@/types/domain";
 
 const PAGE = 20;
+const SEARCH_DEBOUNCE_MS = 300;
 
 /** Read-only paper browser, grouped by canonical subject order and filterable without losing pagination. */
 export default function BrowseScreen() {
   const t = useT();
   const num = useNum();
   const db = useDb();
-  const p = useLocalSearchParams<{ paperId?: string }>();
+  const p = scopeFromParams(useLocalSearchParams());
   const paperId = String(p.paperId ?? "");
+  // Book/unit browsing (Phase 8) shares this screen: same list, subject filter and bookmarks, different id source.
+  const bookId = p.bookId;
+  const unitId = p.unitId;
   const [items, setItems] = useState<QuestionView[]>([]);
   const [marks, setMarks] = useState<Set<string>>(new Set());
   const [subjectOptions, setSubjectOptions] = useState<SubjectOption[]>([]);
@@ -30,40 +39,55 @@ export default function BrowseScreen() {
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
   const [more, setMore] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearch] = useState<string | undefined>();
+  // Only the newest request may write state, so a slow older query can never overwrite fresher results.
+  const gate = useRef(createRequestGate()).current;
 
-  const loadPage = useCallback(async (offset: number, selectedSubject = subject) => {
-    const ids = await listPaperQuestionIds(db, paperId, PAGE, offset, selectedSubject);
+  // Debounce typing: one bounded query per pause, never per keystroke. Terms under 2 characters clear the search.
+  useEffect(() => {
+    const timer = setTimeout(() => setSearch(normalizeSearch(searchInput) ?? undefined), SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
+
+  const loadPage = useCallback(async (offset: number, selectedSubject = subject, term = search) => {
+    const ids = bookId ? await listBookQuestionIds(db, { bookId, unitId }, PAGE, offset, selectedSubject, term) : await listPaperQuestionIds(db, paperId, PAGE, offset, selectedSubject, term);
     const qs = await loadQuestions(db, ids);
     const b = await bookmarkedIds(db, ids);
     return { qs, ids, b };
-  }, [db, paperId, subject]);
+  }, [db, paperId, bookId, unitId, subject, search]);
 
-  const first = useCallback(() => (
-    countQuestionsBySubject(db, { paperId })
+  const first = useCallback(() => {
+    const id = gate.begin();
+    return countQuestionsBySubject(db, bookId ? { bookId, unitId } : { paperId })
       .then(async (counts) => {
-        const { qs, ids, b } = await loadPage(0, subject);
+        const { qs, ids, b } = await loadPage(0, subject, search);
+        if (!gate.isCurrent(id)) return;
         setSubjectOptions(buildSubjectOptions(counts.bySubject));
         setTotal(counts.total);
         setItems(qs);
         setMarks(b);
         setMore(ids.length === PAGE);
+        setState("ready");
       })
-      .then(() => setState("ready"))
-      .catch(() => setState("error"))
-  ), [db, paperId, loadPage, subject]);
+      .catch(() => { if (gate.isCurrent(id)) setState("error"); });
+  }, [db, paperId, bookId, unitId, loadPage, subject, search, gate]);
 
   useEffect(() => { void first(); }, [first]);
 
   const loadMore = async () => {
     if (busy || !more) return;
     setBusy(true);
+    const id = gate.current();
     try {
-      const { qs, ids, b } = await loadPage(items.length, subject);
+      const { qs, ids, b } = await loadPage(items.length, subject, search);
+      if (!gate.isCurrent(id)) return;
       setItems((cur) => [...cur, ...qs]);
       setMarks((cur) => new Set([...cur, ...b]));
       setMore(ids.length === PAGE);
     } catch {
-      setState("error");
+      // A failure from a request that a newer search/filter already replaced must not blank the fresh list.
+      if (gate.isCurrent(id)) setState("error");
     } finally {
       setBusy(false);
     }
@@ -90,7 +114,20 @@ export default function BrowseScreen() {
 
   return (
     <Screen edges={["top", "bottom"]}>
-      <ScreenHeader title={t("browse.title")} />
+      <ScreenHeader title={bookId ? t("library.browseTitle") : t("browse.title")} />
+      <View className="px-5 pb-3">
+        <TextField
+          value={searchInput}
+          onChangeText={setSearchInput}
+          placeholder={t("browse.searchPlaceholder")}
+          accessibilityLabel={t("browse.searchLabel")}
+          maxLength={SEARCH_MAX_CHARS}
+          returnKeyType="search"
+          autoCorrect={false}
+          autoCapitalize="none"
+          clearButtonMode="while-editing"
+        />
+      </View>
       {subjectOptions.length > 0 ? (
         <View className="pb-3">
           <Txt weight="semibold" className="text-ink-900 px-5 mb-2">{t("browse.subjectFilter")}</Txt>
@@ -119,9 +156,14 @@ export default function BrowseScreen() {
           data={items}
           keyExtractor={(x) => x.id}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: items.length === 0 ? 1 : undefined }}
+          onEndReached={() => void loadMore()}
+          onEndReachedThreshold={0.6}
+          keyboardShouldPersistTaps="handled"
           ItemSeparatorComponent={() => <View className="h-4" />}
           ListEmptyComponent={
-            subject
+            search
+              ? <EmptyView title={t("browse.searchEmpty", { q: search })} actionLabel={t("browse.clearSearch")} onAction={() => setSearchInput("")} />
+              : subject
               ? <EmptyView title={t("browse.subjectEmpty", { subject: subjectLabel(subject) })} actionLabel={t("browse.showAll")} onAction={() => changeSubject(undefined)} />
               : <EmptyView title={t("browse.empty")} />
           }

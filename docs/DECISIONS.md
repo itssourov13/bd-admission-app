@@ -18,6 +18,12 @@ Status: accepted, 2026-11-05.
 
 Animate a transform (translateX) rather than layout width, using React Native Animated with the native driver. This is sufficient for the startup progress fill and avoids introducing Reanimated worklets/plugin wiring solely for one transform. Preserve Reduce Motion and accessibility semantics. Adopt Reanimated only when a broader UI requirement justifies shared values/worklets and after Expo SDK / New Architecture compatibility is rechecked.
 
+
+## ADR-025 — Reserve branded startup UI for first-run and synchronize Home handoff
+Status: accepted, 2026-11-11.
+
+Show the existing branded five-stage setup UI for a first-run library setup and for actionable startup failures/retries. On returning cold launches, keep the native splash visible while SQLite migration and content reconciliation run, release the setup-screen sync gate once returning mode is known, and hide the native splash only after Home's first data-backed or actionable error view has laid out. On first-run, keep the branded overlay until startup and Home are both ready before fading out. Completed stage ticks receive a short staggered native-driver opacity/scale transition; respect Reduce Motion. Use the existing React Native Animated API, keep the current visual design/progress calculation, and add no dependency, artificial work delay, schema change or content change.
+
 # Architecture and product decisions
 
 ## ADR-001 — Independent workspace
@@ -125,3 +131,55 @@ Render a branded Bangla/English setup screen while SQLite initialization and the
 Status: accepted, 2026-11-01.
 
 For the next internal preview, bump the user-facing app version from `0.1.0` to `0.1.1` and Android `versionCode` from `1` to `2`, while retaining package ID `com.admissionbd.app`, the linked EAS project and the existing EAS-managed signing keystore. The Android version code must increase for an upgrade install; the package/signing identity must remain stable so an existing install can be updated without uninstalling and deleting local app data. Preview delivery remains internal through the EAS build page; do not publish a GitHub or Play Store release implicitly.
+
+## ADR-023 — Promote accepted HSTU verification-ledger IDs into the normal HSTU catalogue
+Status: accepted, 2026-11-12.
+
+The initial JU/HSTU candidate-bank separation recorded in ADR-018 described the original import checkpoint, not an immutable prohibition on future promotion. After explicit user authorization, Claude's accepted HSTU verification ledger is the source of truth for 664 unique question IDs. Promote all 664 into the existing HSTU catalogue and set the existing answer/content status fields to verified; move 657 HSTU-U appearances to 15 HSTU papers and update the 7 IDs already attached to HSTU. Preserve stable batch/question IDs, question text, option text/order and source provenance. Leave the 116 baseline pending questions untouched. Do not change JU/RU/DU data, exam rules or runtime logic as part of this data-only import.
+
+## ADR-024 — Startup UI thresholds live in a pure policy module; escalate instead of adding screens
+Status: accepted, 2026-11-13.
+
+Returning startups stay behind the native splash but escalate to the existing SetupScreen after `RETURNING_ESCALATION_MS` (1500 ms) when still syncing, because Android's splash cannot fade (`setOptions({fade})` is iOS-only) and a long silent splash looks frozen. The Home-ready gate has a `HOME_READY_TIMEOUT_MS` (4000 ms) fallback because Home is not guaranteed to be the first route. SetupScreen's first frame matches the flat splash colour with the brand mark visible, and the gradient/card fade in over it. Spinners are delayed by `LOADING_INDICATOR_DELAY_MS` (150 ms). Rejected: Reanimated animated splash, in-Home skeleton progress (revisit in Phase 9), splash asset changes (Phase 6, requires native rebuild).
+
+## ADR-026 — Parent-university identity is derived, not stored; institutionIds scope
+Status: accepted, 2026-11-13.
+
+Parent universities are derived from institution codes at read time (`-U`/`-V` suffix stripped) rather than added to the schema, because content tables are importer/seed-owned. Practice scopes carry `PoolFilter.institutionIds` (optional, backward compatible with persisted session filters; validated when parsed from routes). Logos are raster-first via a static registry with a monogram fallback; the registry is empty until licensed artwork is supplied. Rejected: parent_code column, react-native-svg (native dep + rebuild) for logos.
+
+## ADR-027 — Subject selection stored on existing PoolFilter fields
+Status: accepted, 2026-11-13.
+
+Decision: a single subject keeps using `PoolFilter.subject`; two or more use `PoolFilter.subjects`; the selection module never sets both. Reason: session filters are persisted as JSON and the SQL layer already honours both fields, so existing stored sessions, routes and history keep working with no migration. Rejected: always using `subjects` (changes stored shape). Combined counts are the sum of per-subject counts because each question has exactly one subject.
+
+## ADR-028 — Marking profiles carry per-value provenance and never auto-score unscored practice
+Status: accepted, 2026-11-13.
+
+Context: scoring values come from sources of different strength, and AGENTS.md forbids presenting inferred marking as official and requires Custom Practice to be unscored.
+
+Decision: every profile value has its own provenance; a profile's status is the weakest link (verified only if correct, wrong and unanswered values are all official). Sessions store an immutable snapshot. An automatic default fills gaps only: it never overrides a complete stored rule, never scores Custom Practice, and the generic fallback never scores a paper whose official rule is only partly known. Explicit choices and saved preferences are the user's decision and always apply.
+
+Consequences: universities without a researched profile are unscored by default (as before Phase 4) unless the user selects a profile or sets a global default. Upgrading any provenance requires a documented official source.
+
+## ADR-029 — Mark-for-review is persisted separately from answers; retry uses a session-scoped pool filter
+Status: accepted, 2026-11-13.
+
+Context: flags must survive crash recovery without risking the serialized selection writes or finalized results.
+
+Decision: store `flagged` on `session_answers` and write it with its own guarded statement (active session, before deadline). Practice-from-missed is a PoolFilter field resolved by a subquery, so it reuses Flash setup/play and needs no copied question lists.
+
+Consequences: flags never affect scoring; retry pools only contain currently eligible catalogue questions.
+
+
+## ADR-024 — Theme via CSS-variable tokens and a single provider (Phase 6)
+Status: accepted, 2026-11-13.
+
+Tailwind colours resolve from `--c-*` variables set once on the root view by `AppearanceProvider`; style-prop colours come from `useTheme()`. Preferences (theme, motion, haptics, text size) live in AsyncStorage JSON because they are needed before SQLite is ready. Rejected: `dark:` variants everywhere (scattered conditionals) and per-row theme subscriptions in large lists.
+
+## ADR-030 — Shared SVG logo pipeline and authentic brand assets (Phase 8)
+
+Owner explicitly authorised authentic university/publisher logos. Decision: react-native-svg (SDK-pinned 15.15.4) + react-native-svg-transformer; one BrandLogo renderer; original files unmodified with source records; raster allowed only when no official vector exists (HSTU); missing assets show a monogram and are never redrawn.
+
+## ADR-031 — Optional content management is injected and additive (Phase 9)
+
+Network access, hashing and sources are injected interfaces; no catalogue endpoint, cloud DB or account is required, and none is faked. Removal is soft. Manifest signatures are reserved, not verified.

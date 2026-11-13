@@ -1,4 +1,118 @@
+## 2026-11-13 — v0.1.6 Android preview verified on device
+
+- EAS Android `preview` / INTERNAL APK build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed **FINISHED** at 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.
+- APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk.
+- Owner reports the v0.1.6 APK was installed and run successfully; the previously reported Home Hero CTA, theme visibility and runtime issues are fixed. No outstanding app issue is currently reported.
+- This is an owner-reported device verification; handset/OS and an exhaustive per-screen matrix were not recorded. No Git push or production Play Store release was performed.
+
+## 2026-11-13 — ASPECT Science Master QB intake — approved for extraction/import
+
+- Owner confirms full permission to digitise, transcribe, store, bundle and distribute the purchased book's content for offline use in BD Admission App. Treat as authorized project content.
+- Confirmed existing ASPECT publisher identity (`pub-aspect`) and Phase 8 LibraryPack/importer integration.
+- Recorded the 1,027-page source inventory, rendering/OCR approach, topic/question/solution/formula/reference extraction requirements, and app integration tasks.
+- Next: execute the full source extraction in resumable batches, extend math/assets/references as needed, generate and validate ASPECT library packs, import, and run QA. No content extraction/import has been completed yet.
+- Detailed plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+
+## 2026-11-13 — Home Hero runtime follow-up and Android preview v0.1.6
+
+- Rebuilt the Home Hero as a compact cover + native-control composition. The landscape image is decorative; Start Practising, Mock Exam and Resume remain real native actions. Responsive stacking is used for narrow layouts and large font scale.
+- Fixed the missing CTA surfaces (unsupported callback-valued NativeWind Pressable styles) and the Profile Stat dark-theme foreground regression.
+- Removed one duplicate provisional-only exam setup subject-pool count; large-catalogue selection and scoring behavior are unchanged.
+- Added/updated Hero contrast and structure regression tests; full suite passes 240/240. TypeScript, lint, content check, Expo public config and Android no-bytecode Metro export pass on Node 22.23.1.
+- Updated the app/package/brand version to 0.1.6 and Android versionCode to 7 for an installable preview update. EAS submission details are recorded in the release/handoff docs.
+- Cover source note: 782×382 crop from the owner-supplied UI/UX reference, temporary placeholder; public-use rights not independently verified.
+- Submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` from local commit `0c9e90f`; it subsequently completed FINISHED. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. Owner later installed and verified the app; see the completion entry at the top of this changelog.
+
+## 2026-11-13 — Android preview candidate v0.1.5
+
+- Set package/brand/app version to 0.1.5 and Android versionCode to 6.
+- Preserved application ID, Expo slug, EAS project ID, Node build profile and EAS-managed signing setup.
+- Full automated suite and CI-equivalent Android bundle gates passed immediately before the version bump; see docs/QA_CHECKLIST.md.
+- Submitted EAS internal Android APK build 41bd1c7e-9376-41a7-abb0-860ab8031273; initial status IN_PROGRESS. See https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
+
+## 2026-11-13 — Full pre-build verification
+
+- Full suite passed: 211/211; TypeScript, full lint, Expo public config and Android no-bytecode Metro export passed.
+- Rebuilt the ignored local SQLite seed from the canonical question packs after detecting it was still schema v5; it now matches app schema v8. content:check, SQLite quick check and foreign-key check pass. No source question-pack JSON was modified.
+- No app version, Android versionCode, runtime source or EAS build was changed/created.
+
 # Changelog
+
+## 2026-11-13 — Optional Phases 9–10 (partial / deferred)
+
+- Phase 9: added local catalogue manifest validation, install planning, pack integrity verification and verified install/soft-remove/restore on top of the Phase 8 importer. No remote source exists.
+- Phase 10: backend/CMS contract documented only.
+
+## 2026-11-13 — Roadmap Phase 8: Publications & books library (implemented — pending owner verification)
+
+- Library: Home entry, publisher list/detail with category sections, book details and chapter/unit practice reusing Flash/Exam/Browse; book/unit labels in history and results.
+- Migration v8, versioned library-pack importer/validator (earlier session) retained.
+- Shared SVG logo system (react-native-svg 15.15.4 + react-native-svg-transformer, BrandLogo); authentic DU/RU/JU SVG and HSTU PNG logos with recorded sources. Publisher logo slots reserved; none bundled.
+
+## 2026-11-13 — Roadmap Phase 7: Home hero redesign (implemented — pending owner verification)
+
+- New HomeHero: gradient card with admission motifs, offline-ready context line, primary Start CTA, secondary mock-exam link; resume mode replaces the separate resume card.
+
+## 2026-11-13 — Roadmap Phase 6: Settings & dark mode (implemented — pending owner verification)
+
+- Added light/dark/system theme with semantic CSS-variable tokens (src/settings), persistent preference, dark splash variant and themed status bar.
+- Added Settings screen: theme, question text size, animations/Reduce Motion, haptics, language, default Flash timer, marking-rule defaults link, content info and version. Language/Flash controls moved from Profile to Settings.
+- Added dependency expo-haptics; `src/theme.ts` no longer exports colours (use `useTheme()`).
+
+## 2026-11-13 — Roadmap Phase 5: Standard Exam improvements (implemented — pending owner verification)
+
+- Added question palette with direct navigation and persistent mark-for-review to the Standard Exam.
+- Added time-left warnings and timer urgency levels, and a submit dialog with answered/unanswered/flagged counts.
+- Result screen: per-subject breakdown, review filters and Practice missed questions; history rows show score and accuracy.
+- Added DB migration v7 (session_answers.flagged).
+
+## 2026-11-13 — Roadmap Phase 4: Configurable marking rules (implemented — pending owner verification)
+
+- Added configurable marking profiles with per-value provenance (official / secondary / derived / illustrative / user) and built-in generic, RU, JU, HSTU (partial) and DU profiles.
+- Added DB migration v6: practice_sessions.rule_profile_json, user_marking_profiles, marking_preferences.
+- Added profile picker to Flash and Standard/Custom setup, a marking-profiles management screen (Profile tab), and profile/pass-mark information on the result screen.
+- Automatic defaults no longer score Custom Practice or papers with only partial official rules.
+
+## 2026-11-13 — Roadmap Phase 3: Shared subject selection (implemented — pending owner verification)
+
+- Added a shared subject chooser (All / one / several) for Flash, Custom Practice and the generic Standard Exam.
+- Route params now carry validated `subjects`; the single `subject` param is validated too.
+- Subject counts come from one grouped query instead of one query per subject.
+- Custom Practice question counts follow the selected pool; duration is suggested from the generic exam pace.
+- History and result screens list the subjects a session covered. Added labels for General Knowledge, IQ, Mathematics, General Mathematics and Geology.
+- No database, migration or dependency changes.
+
+## 2026-11-13 — Roadmap Phase 2: University identity, logos, filters (implemented — pending owner verification)
+
+- Varsity tab now lists parent universities with a filter chip bar; internal bank variants (RU-V, JU-U, HSTU-U) are grouped under their parent.
+- Added `UniversityLogo` (monogram fallback; logo registry intentionally empty pending licensed assets), `PoolFilter.institutionIds`, and batched `listPapersByInstitutions`.
+- No DB/migration/dependency change. Not device-tested.
+
+
+## 2026-11-13 — Roadmap Phase 1: loading UI polish (implemented, pending owner verification)
+
+- Slow returning launches (still syncing after 1.5 s, e.g. a content-update release) now escalate to the existing branded progress UI instead of a silent native splash.
+- Added a 4 s fallback to the Home-ready gate so the splash/overlay cannot hang when Home is not the initial route or its query stalls.
+- SetupScreen first frame now matches the native splash (flat body colour; gradient fades in; brand mark visible immediately). First-run completion hold reduced 700 → 520 ms; 150 ms under Reduce Motion.
+- `LoadingView` shows its spinner only after 150 ms to remove spinner flashes on fast local loads.
+- Policy constants/functions in `startupUiPolicy.ts` (+2 tests). No DB, dependency, config or version change. Not device-tested.
+
+
+## 2026-11-12 — Import Claude-verified HSTU questions
+
+- Imported the 664 HSTU question IDs in the accepted Claude verification ledger into the normal HSTU catalogue. Promoted 657 appearances from HSTU-U to 15 HSTU paper records and updated the 7 already attached to HSTU.
+- Applied the accepted correct-option mappings and set both existing question status fields to verified. Preserved stable question IDs, stems, option text/order and source references.
+- Left all 116 baseline pending questions unchanged; HSTU-U retains 105 pending questions. Three off-baseline pending-ledger records were also left untouched.
+- Rebuilt the 217-pack / 13,609-question SQLite seed. Full tests passed 142/142; typecheck, lint, content check, SQLite quick check and foreign-key checks passed. No application logic, other universities or exam rules changed.
+
+## 2026-11-11 — Refine first-run startup UI and Home handoff
+
+- Restrict the full branded five-stage setup screen to first-run library setup and startup failure/retry. Returning cold launches resolve the setup-layout gate directly and keep the native splash visible through SQLite/content reconciliation.
+- Add a one-shot Home-ready signal. Home resolves it only after its initial query settles and the data-backed or actionable error view has laid out; returning splash dismissal and first-run overlay fade now wait for that signal.
+- Add a lightweight 65 ms stagger / 180 ms native-driver opacity-scale transition to completed stage checkmarks. Preserve the five actual progress states, Reduce Motion, existing progress fill, shimmer, logo and visual styling.
+- Add focused policy tests and preserve retry behavior for database/migration errors. No data/schema, app identity/version, native config or dependency changes.
+- Verification: 142/142 tests, TypeScript, full ESLint, pnpm content:check (217 packs / 13,609 questions) and Android no-bytecode Metro export (1,853 modules / 3.5 MB JS / 123 assets) passed. Physical release-device visual QA remains pending.
 
 ## 2026-11-05 — Fix Android v0.1.3 first-launch seed materialization
 
@@ -241,3 +355,10 @@
 - Added transactional `replaceExistingPaperContent` support. It clears only current appearances for the target RU-V papers, preserving old question rows and FK-backed bookmarks/session history. Active browsing and practice queries now require a current paper appearance, so preserved historical orphan records cannot leak back into global practice pools.
 - Added integration coverage for replacement, stale-question pool exclusion, bookmark/session/answer preservation and verified import status. Verification: 60 tests, typecheck, lint and 61-pack schema validation passed under Node 22.23.1 (0 errors; 4,052 warnings, primarily existing candidate-pack warnings plus repeated source option-text warnings).
 - Updated schema, import workflow, README, current-state, task-state and QA documentation. Physical Android QA and a native APK/AAB release build remain outstanding. No push performed.
+
+
+## 2026-11-13 — Home hero runtime audit (audit only)
+
+- Reviewed supplied Android Home/Profile/Practice Results screenshots and traced the hero CTA and Stat text regressions to NativeWind Pressable callback styling and a missing semantic text foreground.
+- Recorded the hero-height growth and the absence of a prior landscape university-cover system; specified a proposed 1024×500 Home cover asset contract.
+- Added `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`; full suite passes 234/234 on Node 22.23.1. No app source, assets, dependencies, app identity or EAS/release metadata changed in this audit pass.

@@ -1,6 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  AccessibilityInfo,
   ActivityIndicator,
   Animated,
   AppState,
@@ -17,10 +16,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Logo, Txt } from "@/components/ui";
 import { BRAND } from "@/brand";
 import { useLang, useT, type TranslationKey } from "@/i18n";
-import { colors, gradients, shadow } from "@/theme";
+import { useReducedMotion, useTheme } from "@/settings";
 import { percentOf, STARTUP_STAGES, stageIndex, type StartupProgress, type StartupStage } from "@/services/startupProgress";
+import { readyHoldMs } from "@/services/startupUiPolicy";
 
 const SHIMMER_WIDTH = 72;
+const CHECKMARK_STAGGER_MS = 65;
+const CHECKMARK_DURATION_MS = 180;
 const STAGE_KEY: Record<StartupStage, TranslationKey> = {
   database: "setup.stage.database",
   appData: "setup.stage.appData",
@@ -38,17 +40,6 @@ const DETAIL_KEY: Record<Exclude<StartupStage, "library">, TranslationKey> = {
 function useAnimatedValue(initial: number): Animated.Value {
   const [value] = useState(() => new Animated.Value(initial));
   return value;
-}
-
-function useReduceMotion(): boolean {
-  const [reduce, setReduce] = useState(false);
-  useEffect(() => {
-    let active = true;
-    AccessibilityInfo.isReduceMotionEnabled().then((v) => { if (active) setReduce(v); }).catch(() => undefined);
-    const sub = AccessibilityInfo.addEventListener("reduceMotionChanged", setReduce);
-    return () => { active = false; sub.remove(); };
-  }, []);
-  return reduce;
 }
 
 /**
@@ -76,6 +67,7 @@ function FadeIn({ children, reduceMotion }: { children: ReactNode; reduceMotion:
 }
 
 function BrandMark({ size, reduceMotion, appActive }: { size: number; reduceMotion: boolean; appActive: boolean }) {
+  const { colors, shadow } = useTheme();
   const pulse = useAnimatedValue(0);
   useEffect(() => {
     if (reduceMotion || !appActive) { pulse.setValue(0); return; }
@@ -120,6 +112,7 @@ function Stripe({ anim, trackWidth, stripe }: { anim: Animated.Value; trackWidth
  * fill to the current fraction because native animations may have been dropped while the app was not visible.
  */
 function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueText }: { fraction: number; active: boolean; reduceMotion: boolean; appActive: boolean; label: string; valueText: string }) {
+  const { colors, gradients } = useTheme();
   const [trackWidth, setTrackWidth] = useState(0);
   const fill = useAnimatedValue(0);
   const shimmer = useAnimatedValue(0);
@@ -163,12 +156,48 @@ function ProgressBar({ fraction, active, reduceMotion, appActive, label, valueTe
 
 type StepStatus = "done" | "active" | "failed" | "pending";
 
-const StepRow = memo(function StepRow({ label, status }: { label: string; status: StepStatus }) {
+const StepRow = memo(function StepRow({ label, status, index, reduceMotion }: { label: string; status: StepStatus; index: number; reduceMotion: boolean }) {
+  const { colors } = useTheme();
+  const checkmark = useAnimatedValue(0);
+
+  useEffect(() => {
+    checkmark.stopAnimation();
+    if (status !== "done") {
+      checkmark.setValue(0);
+      return;
+    }
+    if (reduceMotion) {
+      checkmark.setValue(1);
+      return;
+    }
+
+    const animation = Animated.timing(checkmark, {
+      toValue: 1,
+      delay: index * CHECKMARK_STAGGER_MS,
+      duration: CHECKMARK_DURATION_MS,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [checkmark, status, index, reduceMotion]);
+
+  const checkmarkScale = checkmark.interpolate({ inputRange: [0, 1], outputRange: [0.72, 1] });
+  const spinnerOpacity = checkmark.interpolate({ inputRange: [0, 1], outputRange: [1, 0] });
+
   return (
     <View className="flex-row items-center" style={{ minHeight: 26 }}>
       <View style={{ width: 22, alignItems: "center", justifyContent: "center" }}>
-        {status === "done" ? <Ionicons name="checkmark-circle" size={19} color={colors.brand600} /> : null}
-        {status === "active" ? <ActivityIndicator size="small" color={colors.brand600} style={{ transform: [{ scale: 0.72 }] }} /> : null}
+        {status === "done" ? (
+          <Animated.View style={{ opacity: checkmark, transform: [{ scale: checkmarkScale }] }}>
+            <Ionicons name="checkmark-circle" size={19} color={colors.brand600} />
+          </Animated.View>
+        ) : null}
+        {status === "active" || status === "done" ? (
+          <Animated.View style={{ opacity: spinnerOpacity }}>
+            <ActivityIndicator size="small" color={colors.brand600} style={{ transform: [{ scale: 0.72 }] }} />
+          </Animated.View>
+        ) : null}
         {status === "failed" ? <Ionicons name="alert-circle" size={19} color={colors.gold700} /> : null}
         {status === "pending" ? <Ionicons name="ellipse-outline" size={17} color={colors.ink300} /> : null}
       </View>
@@ -190,8 +219,6 @@ export interface SetupScreenProps {
   errorMessage?: string | null;
   /** Setup finished: hold briefly, fade out, then call onExited. */
   exiting: boolean;
-  /** Dwell on the completed state before fading (ms). Not progress: it only lets the user see "Ready". */
-  holdMs: number;
   onRetry: () => void;
   onExited: () => void;
   /** Fired once the first frame is laid out (used to hide the native splash without a blank flash). */
@@ -199,10 +226,11 @@ export interface SetupScreenProps {
 }
 
 /** Branded first-launch setup screen driven by real startup progress. Covers the app until setup completes. */
-export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, onRetry, onExited, onShown }: SetupScreenProps) {
+export function SetupScreen({ progress, failed, errorMessage, exiting, onRetry, onExited, onShown }: SetupScreenProps) {
+  const { colors, gradients, shadow } = useTheme();
   const t = useT();
   const { lang } = useLang();
-  const reduceMotion = useReduceMotion();
+  const reduceMotion = useReducedMotion();
   const appActive = useAppActive();
   const { width, height } = useWindowDimensions();
   const logoSize = Math.round(Math.min(104, Math.max(64, Math.min(width * 0.26, height * 0.13))));
@@ -216,13 +244,14 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
 
   useEffect(() => {
     if (!exiting) return;
+    // Dwell on the completed state (not progress) so the last checkmark can finish; minimal under Reduce Motion.
     const timer = setTimeout(() => {
       Animated.timing(exit, { toValue: 0, duration: reduceMotion ? 0 : 320, easing: Easing.out(Easing.quad), useNativeDriver: true }).start(({ finished }) => {
         if (finished) onExited();
       });
-    }, holdMs);
+    }, readyHoldMs(reduceMotion));
     return () => clearTimeout(timer);
-  }, [exiting, holdMs, exit, onExited, reduceMotion]);
+  }, [exiting, exit, onExited, reduceMotion]);
 
   const handleLayout = useCallback(() => {
     if (shown.current) return;
@@ -251,21 +280,27 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
   };
 
   return (
-    <Animated.View onLayout={handleLayout} style={[StyleSheet.absoluteFill, { opacity: exit }]}>
-      <LinearGradient colors={gradients.signin} style={{ flex: 1 }}>
+    // The native splash is a flat `bgBody` fill. Starting from the same colour (and the brand mark already visible)
+    // keeps the splash -> setup swap free of a colour jump or an empty frame; the gradient then fades in over it.
+    <Animated.View onLayout={handleLayout} style={[StyleSheet.absoluteFill, { opacity: exit, backgroundColor: colors.bgBody }]}>
+      <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: enter }]}>
+        <LinearGradient colors={gradients.signin} style={{ flex: 1 }} />
+      </Animated.View>
+      <View style={{ flex: 1 }}>
         <SafeAreaView edges={["top", "bottom"]} style={{ flex: 1 }}>
           <ScrollView
             contentContainerStyle={{ flexGrow: 1, justifyContent: "center", paddingHorizontal: 24, paddingVertical: 24 }}
             showsVerticalScrollIndicator={false}
             bounces={false}
           >
-            <Animated.View style={{ width: "100%", maxWidth: 440, alignSelf: "center", opacity: enter, transform: [{ translateY: enterY }] }}>
+            <View style={{ width: "100%", maxWidth: 440, alignSelf: "center" }}>
               <View className="items-center">
                 <BrandMark size={logoSize} reduceMotion={reduceMotion} appActive={appActive} />
                 <Txt font="display" weight="bold" className="text-ink-900 text-[30px] leading-[38px] text-center mt-1">{BRAND.name}</Txt>
                 <Txt className="text-ink-500 text-sm leading-5 text-center mt-1">{BRAND.tagline[lang]}</Txt>
               </View>
 
+              <Animated.View style={{ opacity: enter, transform: [{ translateY: enterY }] }}>
               <View className="bg-surface border border-sand-200 mt-7 p-5" style={[shadow.md, { borderRadius: 24 }]}>
                 {failed ? (
                   <View accessibilityRole="alert">
@@ -302,7 +337,7 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
                     </View>
                     <View className="mt-5 pt-4 border-t border-sand-200 gap-1">
                       {STARTUP_STAGES.map((s, i) => (
-                        <StepRow key={s} label={t(STAGE_KEY[s])} status={statusFor(i)} />
+                        <StepRow key={s} label={t(STAGE_KEY[s])} status={statusFor(i)} index={i} reduceMotion={reduceMotion} />
                       ))}
                     </View>
                   </>
@@ -317,10 +352,11 @@ export function SetupScreen({ progress, failed, errorMessage, exiting, holdMs, o
                   </View>
                 </FadeIn>
               ) : null}
-            </Animated.View>
+              </Animated.View>
+            </View>
           </ScrollView>
         </SafeAreaView>
-      </LinearGradient>
+      </View>
     </Animated.View>
   );
 }
