@@ -1,8 +1,11 @@
-## 2026-11-13 — ASPECT Master QB source intake audit (not imported)
+## 2026-11-13 — ASPECT Science Master QB intake — approved for extraction/import
 
-- Assessed the owner-supplied 1,027-page image-scan PDF; recorded its SHA-256, encryption/copy-permission metadata and watermark/readability findings.
-- Confirmed the ASPECT publisher entry and existing question-bank library pack path; documented gaps for full-text/formula/reference pages and structured university/year references.
-- Decision: hold import pending written distribution rights; no OCR batch, pack, question data, app code or build was changed. See `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+- Owner confirms full permission to digitise, transcribe, store, bundle and distribute the purchased book's content for offline use in BD Admission App. Treat as authorized project content.
+- Confirmed existing ASPECT publisher identity (`pub-aspect`) and Phase 8 LibraryPack/importer integration.
+- Recorded the 1,027-page source inventory, rendering/OCR approach, topic/question/solution/formula/reference extraction requirements, and app integration tasks.
+- Next: execute the full source extraction in resumable batches, extend math/assets/references as needed, generate and validate ASPECT library packs, import, and run QA. No content extraction/import has been completed yet.
+- Detailed plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
 
 ## 2026-11-13 — Home Hero runtime follow-up and Android preview v0.1.6
 

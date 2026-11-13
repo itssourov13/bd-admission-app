@@ -1,10 +1,35 @@
-# Handoff addendum — 2026-11-13 (ASPECT Master QB intake audit)
+# Handoff addendum — 2026-11-13 (ASPECT Science Master QB approved intake)
 
-The local ASPECT Science Master QB PDF was inspected at `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/`. The scan is 1,027 pages / 464,316,608 bytes, SHA-256 `b88b45ed5863385d98a3a43f8232562d51628208d06c0c7a6898bb7f203c83fa`, encrypted with AES-256, print allowed and copy disabled. Sampled pages render, but sampled opening pages yielded no selectable text via `pdftotext`; watermarks cross page content. This is not ready for direct extraction/import.
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Source directory:** `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/`
+**PDF:** `@AdmissionStuffs_Aspect Varsity Solution Master QB - Science.pdf`
+**Pages / size:** 1,027 / 464,316,608 bytes
+**SHA-256:** `b88b45ed5863385d98a3a43f8232562d51628208d06c0c7a6898bb7f203c83fa`
 
-ASPECT (`pub-aspect`) already exists as a publisher entry. The current LibraryPack/importer can handle chapter/topic MCQs, options, explanation text, page/question provenance and local PNG figures. It does not provide a full textbook-page/formula/reference renderer, general LaTeX, or structured university/year references for library-only questions. Full report and recommended pilot: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+## Authorization and instruction
 
-**Decision: HOLD.** PDF copying is disabled and no written right to digitise/distribute the third-party content in the app has been confirmed. Do not import until rights clearance. After permission, run the documented 10–20-page, manually reconciled pilot first. No OCR batch, question-pack generation, app-code edit, APK or build was performed in this audit.
+The owner confirms the purchased book has full permission for digitisation, transcription, transformation into structured question data, app storage, offline bundling and distribution in BD Admission App. Treat the source as approved for this project. Do not pause for a copyright/permission check or ask the owner to reconfirm.
+
+Watermark is part of the source scan and is not a workflow blocker. Do not spend time removing it. Extract from rendered page images and verify the OCR/transcription visually against those pages.
+
+## App integration
+
+ASPECT publisher is already seeded as `pub-aspect`. Use the existing Phase 8 LibraryPack, validator and transactional importer. The target deliverable is a useful book section containing the Science subject/topic hierarchy, all MCQs/options, answer markers, worked solutions, formulae, diagrams and printed university/year/unit/set references.
+
+Implement any missing math rendering, local asset indexing, structured reference data or library UI support required by the actual source. These are implementation tasks; do not stop at reporting them as limitations.
+
+Set the library pack's `licenseStatus: "licensed"` and record the owner-confirmed permission in `licenseNote`.
+
+## Execution status
+
+- Intake/source/app architecture audit: complete.
+- Full page inventory and question extraction: not started.
+- Pack generation and import: not started.
+- App enhancements and Android QA: not started.
+
+Work in resumable subject/topic batches, maintain a page/question reconciliation ledger, preserve the original source, and document actual counts. Never infer absent answer keys or source facts. Once extraction is complete: validate pack(s), run fresh SQLite import and idempotency tests, content build/check, full automated tests, and Android visual review.
+
+Detailed plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
 
 ---
 

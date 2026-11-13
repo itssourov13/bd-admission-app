@@ -1,13 +1,17 @@
-## ASPECT Master QB intake audit — 2026-11-13
+## ASPECT Science Master QB — extraction/import authorized — 2026-11-13
 
-**Status:** HOLD — source assessed; not import-ready and not imported. Detailed report: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+**Status:** READY FOR EXTRACTION AND IMPORT. Full owner permission is confirmed for digitisation, transcription, app storage, offline bundling and distribution in BD Admission App. Treat the book as approved project content; do not reopen a rights-review gate or stop for permission confirmation.
 
-- [x] Confirmed the pre-seeded ASPECT publisher (`pub-aspect`) and reviewed the Phase 8 book/library importer and schema.
-- [x] Inspected PDF metadata and rendered representative pages. The 1,027-page, ~443 MiB AES-256 scan has no usable text layer in sampled pages; page rendering works, but visible Admission Stuffs watermarks overlap some text/formula regions.
-- [x] Identified existing support for chapter/topic MCQs, explanations, page/question provenance, simple MathText and local PNG assets; identified missing prose/reference-page model, full LaTeX support, dedicated ASPECT asset indexing and visible library source footers.
-- [x] Recorded the rights gate: copying permission is disabled in the PDF and app-distribution permission is unconfirmed. Library importer must remain blocked with `permission_pending` until explicit written licence is obtained.
-- [ ] After rights clearance, run a reviewed 10–20-page pilot and decide whether university/year cross-references need a schema/UI extension.
-- No OCR batch, pack, app-code change, content import or build was performed.
+- [x] Confirmed existing ASPECT publisher ID `pub-aspect` and reviewed Phase 8 LibraryPack schema, validator, importer and app routes.
+- [x] Inspected source metadata and rendered sample pages. Source is a 1,027-page image-based scan; Poppler rendering succeeds. OCR/text extraction must use rendered page images and page-by-page review.
+- [x] Documented source SHA-256, source hierarchy plan, extraction ledger requirements, formula/figure/reference support work and import validation plan.
+- [ ] Build full page/subject/topic inventory and extract all MCQs, answer markers, worked solutions, formulae, diagrams and printed references in resumable batches.
+- [ ] Extend math, asset and reference UI as needed; create ASPECT LibraryPack(s), validate, import and run fresh SQLite/idempotency checks.
+- [ ] Verify book browsing and question rendering on Android; update counts, QA and handoff after actual import.
+- No questions have been transcribed or imported yet; no app code or APK was changed by the intake audit.
+
+Detailed execution plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
 
 ## Home Hero runtime follow-up and Android preview v0.1.6 — 2026-11-13
 

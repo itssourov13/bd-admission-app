@@ -63,3 +63,14 @@ Owner: content packs and licence records, logo files.
 
 ## 15. Next phase
 Phase 9 (optional) builds local install/removal/version contracts on this importer; see PHASE_09_ONLINE_OFFLINE.md.
+
+
+## ASPECT Science Master QB — approved content intake (2026-11-13)
+
+The owner confirms full permission to digitise and transcribe the purchased ASPECT book, store its structured content in the project, bundle it for offline use and distribute it inside BD Admission App. Use `licenseStatus: "licensed"` and record the owner-confirmed authorization in `licenseNote`. Do not pause work for a separate permission review.
+
+Source: `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/@AdmissionStuffs_Aspect Varsity Solution Master QB - Science.pdf` — 1,027 pages; SHA-256 `b88b45ed5863385d98a3a43f8232562d51628208d06c0c7a6898bb7f203c83fa`.
+
+ASPECT publisher ID `pub-aspect` already exists. Use the existing LibraryPack schema/importer. Extract the full question bank, ordered options, answer markers, explanations, formulae, diagrams and printed university/year/unit/set references. Add any needed MathText, static asset, structured-reference and library UI support as implementation work. The source is image-based: render pages, use Bengali-capable OCR where helpful, and visually reconcile each extracted record. The watermark does not block the workflow.
+
+**Execution is pending:** page inventory, transcription, pack generation, import, automated validation and Android QA must be performed and documented. See `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.

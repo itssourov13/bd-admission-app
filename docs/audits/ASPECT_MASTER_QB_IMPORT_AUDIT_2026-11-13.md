@@ -1,122 +1,142 @@
-# ASPECT Master QB — intake and import-readiness audit
+# ASPECT Master QB — approved source intake and implementation plan
 
-**Audit date:** 2026-11-13
-**Scope:** Read-only source and app-capability assessment. No question transcription, OCR batch, pack creation, import, app-code change, build or device installation was performed.
+**Updated:** 2026-11-13
+**Project:** BD Admission App
+**Source:** `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/@AdmissionStuffs_Aspect Varsity Solution Master QB - Science.pdf`
 
-## Executive finding
+## 1. Decision
 
-The existing Publications Library can host an ASPECT book as a question-bank/book pack and reuse the current Browse, Flash and Custom Practice flows. It already has an ASPECT publisher identity (`pub-aspect`).
+<badge>READY FOR EXTRACTION AND IMPORT</badge>
 
-The supplied PDF is **not import-ready as-is**. It is a large, image-only scan; `pdftotext` returned no question text for the sampled opening pages. Its visible watermark overlaps question/solution content, although the pages remain renderable and much of the text and formula work is visually legible. A carefully reviewed, page-referenced transcription is technically feasible, but OCR output cannot be trusted without human correction—especially for formulae, matrices, symbols, diagrams and answer markers.
+The owner confirms the book was purchased and full permission is available to digitise, transcribe, structure, store, bundle and distribute its content for offline use inside BD Admission App. Treat this owner confirmation as the project authorization. Do not pause the implementation for a separate rights review or ask the owner to repeat this confirmation.
 
-There is also a separate rights gate: the file's PDF permissions set copying to “no”, and the watermark credits Admission Stuffs. The file does not establish that the owner has permission to redistribute ASPECT's questions, explanations, formulae or references in this app. **Do not import or ship this source until the relevant rights holder has provided explicit written permission for digitisation and in-app distribution.** Keep its pack at `permission_pending` until that is resolved; the existing library validator correctly refuses question-bearing packs with that status.
+Proceed with the complete source-to-app workflow: extract the question bank, preserve worked solutions and references, prepare book/topic navigation, validate the library pack, import it into the content seed and verify it in the app.
 
-## 1. Source file facts
+The watermark is part of the supplied scan and does not prevent page rendering or content extraction. Do not spend time treating it as a blocker or attempting to remove it. Use the clearest rendered source view for transcription and compare OCR output against the original page.
+
+## 2. Source file inventory
 
 | Field | Observed value |
 |---|---|
-| Path | `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/@AdmissionStuffs_Aspect Varsity Solution Master QB - Science.pdf` |
+| File | `@AdmissionStuffs_Aspect Varsity Solution Master QB - Science.pdf` |
 | SHA-256 | `b88b45ed5863385d98a3a43f8232562d51628208d06c0c7a6898bb7f203c83fa` |
 | Size | 464,316,608 bytes (about 443 MiB) |
-| Pages | 1,027 PDF pages |
+| PDF pages | 1,027 |
 | Page size | A4 |
 | PDF version | 1.7 |
 | Encryption | AES-256 |
-| PDF permissions | Print allowed; copy, modification and annotation disallowed |
-| Metadata | Title/Subject “comined”; Author CamScanner |
-| Text layer | No usable text was returned by `pdftotext` for PDF pages 1–2; representative pages rendered normally |
+| Metadata title/subject | “comined” |
+| Metadata author | CamScanner |
 
-The source is an image scan, not a selectable-text PDF. Rendering with Poppler succeeded. A small sample of pages was rendered for visual inspection, including cover/introduction pages and interior science question/solution pages (PDF pages 1–3, 50, 500 and 1,000). This was a representative sample, not a 1,027-page completeness or legibility review. No bulk OCR was run.
+The file is an image-based scan. The tested opening pages do not expose a usable selectable-text layer through `pdftotext`; Poppler page rendering succeeds. Rendered samples from pages 1–3, 50, 500 and 1,000 show the cover, book overview, topic-based two-column MCQs, university/source labels, worked solutions, formulae and diagram/table content.
 
-### Watermark and readability
+The visible Admission Stuffs watermark remains on the source page. It does not stop the workflow. OCR is a transcription aid; use page images as the source of truth and visually reconcile question stems, option order, Bengali/English characters, arithmetic signs, units, exponents, subscripts, matrices, diagrams and answer markers.
 
-The scan contains several repeated overlays: “PDF Credit - Admission Stuffs”, a central translucent Admission Stuffs crest, a red “ADMISSION STUFFS” band, and Telegram/channel text near page edges. On the inspected interior samples:
+The current local Tesseract installation exposes English and orientation-detection data only. For Bengali pages, configure a Bengali-capable OCR engine/model or use another suitable page-reading workflow. Keep the original page images available for visual review. Do not silently normalize or rewrite unusual source notation.
 
-- Question stems, choices, topic labels, university abbreviations and many worked solutions remain readable.
-- The central crest/red text crosses some printed content. Where it overlaps small text, signs, subscripts, matrix entries or answer markers, it can cause OCR character substitutions or missed content.
-- Dense two-column layouts, small Bengali type, fractions, vectors, matrices, chemical notation and diagrams need page-level visual proofreading. The watermark is an accuracy risk, not a complete rendering blocker.
+## 3. Publisher and book placement in the app
 
-Do not remove, erase or crop out the watermark as an extraction shortcut. Preserve source pages and page coordinates in the working evidence so each transcribed item can be checked against its source.
-
-## 2. Edition and provenance caution
-
-The local scan's title/cover describes a topic-based “Varsity Solution / Master Question Bank” and credits Admission Stuffs. The ASPECT Series public shop has a related science question-bank listing described as the June 2026 edition and 952 pages. The local file has 1,027 PDF pages and different visible cover wording; it may be a different compilation, scan, or edition. This audit does **not** establish that the local PDF is an official ASPECT-distributed file or the same edition as the shop listing.
-
-References:
-- [ASPECT Series — science question-bank listing](https://books.aspectseries.bd/book/Varsity-Solution-Year-Science)
-- Source-file identity and SHA-256 above.
-
-Before assigning a canonical book title, edition, publication year, publisher metadata or verification state, confirm the exact edition and provenance with ASPECT. Do not infer those fields from the watermark or uploader label.
-
-## 3. Existing Admission App support
-
-The app already seeds the ASPECT publisher row:
+The app already seeds the ASPECT publisher:
 
 - Publisher ID: `pub-aspect`
 - Slug: `aspect`
-- Name: `ASPECT`
-- Bangla label currently seeded as `অ্যাসপেক্ট`
+- Display name: `ASPECT`
+- Existing Bangla label: `অ্যাসপেক্ট`
 
-Phase 8 Publications Library is implemented, but the publisher records are metadata-only and no real ASPECT book content is currently installed.
+Use this publisher identity rather than creating a duplicate publisher. Add the source as a new ASPECT Science book / varsity question bank under Publications Library. Confirm the exact book title, edition label and publication metadata from the PDF itself; keep unknown metadata null rather than guessing.
 
-The current `LibraryPack` contract can represent:
+Suggested logical structure (derive the final hierarchy from the actual book index/pages):
 
-- Book identity, edition, publication year, language, category, content type, subject and version.
-- A hierarchy of chapters, topics, sections and tests.
-- MCQ stem and option text, single- or multiple-choice type, subject/topic, source-document ID, source PDF page and printed question number.
-- Optional explanation/solution text, answer-key status, content-verification status and local image asset paths.
-- Book/unit membership and the printed order of questions.
+- Book: ASPECT Varsity Solution & Master Question Bank — Science
+- Subject groups: Physics, Chemistry, Biology, Higher Mathematics, ICT, English/Bangla or any other sections actually present.
+- Topic/chapter units: preserve the source topic numbers, names and ordering.
+- Question records: keep each printed MCQ with its ordered options, available correct answer, worked explanation and source locator.
+- Reference information: preserve every university/year/unit/set label printed with a question.
 
-A valid pack is installed transactionally through `installLibraryPack`; the current app has no in-app file picker/import screen. Pack data must be prepared in the app's content pipeline. Questions are kept separate from university paper appearances and can be browsed/practised in the selected book scope. A book import does not automatically create official university paper/year records.
+The exact book title and units must follow the source content, not these illustrative labels.
 
-### What the current UI can display
+## 4. Existing app integration points
 
-- Question stem and choices.
-- Explanations/solutions in the existing question-card reveal surface.
-- Superscript/subscript/charge notation and a limited set of simple LaTeX-like expressions through `MathText`.
-- Local PNG figures/diagrams referenced through the generated static asset map.
-- Book/chapter/topic structure and book-scoped Browse/Flash/Custom Practice.
+Phase 8 Publications Library is present and already provides:
 
-### Current limitations
+- ASPECT publisher identity and publisher → book navigation.
+- Versioned `LibraryPack` schema, structural validator and transactional `installLibraryPack` importer.
+- Book metadata, nested chapter/unit/section/test tree and ordered question memberships.
+- Shared question, option, bookmark, Browse, Flash and Custom Practice integration.
+- Question explanation and existing `MathText` display for supported inline math notation.
+- Local image-asset rendering for diagrams and figures.
+- Source document metadata plus question-level PDF page and printed question-number fields.
 
-1. **Not a full digital textbook reader.** The library has no prose-page, formula-index, reference-table, glossary or PDF-viewer content model. The current book screen shows metadata, actions and units; it does not render arbitrary textbook pages.
-2. **Math rendering is intentionally partial.** Simple forms such as `H_2`, `10^23`, `Cu^2+`, `x_{n-1}` and simple fractions can be formatted. Complex/nested LaTeX, multi-line derivations, matrices, dense tables and unusual symbols are not a general TeX renderer. Those need a carefully transcribed supported text form or a local image asset.
-3. **Image indexing is currently narrow.** Question images are local/static and the existing generator is hard-coded to `data/question-packs/assets/lokkho` and PNG. An ASPECT asset directory needs an explicit, maintainable extension to the asset indexer; do not add dynamic runtime file paths.
-4. **Publisher/source references are not fully surfaced.** The library pack stores a source PDF page and question number, but the current `QuestionCard` source footer is driven by university paper appearances. Library-only questions have no such appearances, so the book page reference is retained in data but is not currently displayed as a structured per-question citation.
-5. **University-year mapping is not modelled by the library pack.** The book can retain printed reference text in `topic`/`explanation`/source notes, but it does not create structured DU/JU/RU/etc. appearances. If the product requirement is filter/search by university, session, unit or year, the library schema and UI need an explicit reference model first. Do not invent official paper identities from shorthand printed in the book.
+Use the existing question ID, source-document and book/unit identity conventions. Book-only content must stay scoped to the ASPECT book and must not accidentally enter university-paper catalogues or global verified exam pools.
 
-## 4. Licensing and import gate
+## 5. Required implementation deliverables
 
-The library validator allows question-bearing packs only when `licenseStatus` is `licensed`, `public_domain` or `owner_created`. `permission_pending` and `metadata_only` are metadata-only states and cannot install question content. This is the correct state for this source until permission is evidenced.
+The implementation agent should complete all work needed to make the book useful inside the app. Existing gaps are work items to implement, not reasons to stop or request a new decision.
 
-The Bangladesh Copyright Act, 2023 protects literary and other listed works and treats reproduction of the whole or a substantial part as a copyright-controlled act, subject to statutory exceptions and their prescribed conditions. Do not assume that an educational purpose or a watermark-bearing PDF automatically grants a right to reproduce and distribute the material inside a public app. Obtain written permission covering, at minimum:
+### A. Complete source extraction
 
-- Digitising/transcribing the questions and answer explanations.
-- Reproducing formulae, tables, diagrams and figures.
-- Storing the resulting data/assets in the app repository and bundled APK.
-- Distribution to app users, including offline use and future updates.
-- Any publisher answer keys, reference annotations or worked solutions.
+- Process all 1,027 pages; classify front matter, subject/topic divisions, question pages, solution pages, answer/reference tables and appendices.
+- Build a page/section inventory and extraction coverage ledger.
+- Extract each MCQ stem and every option in exact printed order.
+- Capture the answer marker and the full printed explanation/solution where present.
+- Preserve Bengali and English as printed; retain original scientific symbols, units and notation.
+- Record source PDF page, printed page, printed question number, subject, topic and printed university/session/unit/set references.
+- Keep uncertain or unreadable source details explicitly flagged in the working review ledger. Never invent missing text or an answer.
 
-Primary reference: [Bangladesh Copyright Act, 2023 — official law text](https://bdlaws.minlaw.gov.bd/act-1452/act-chapter-print-2413.html). This is an engineering intake note, not a legal opinion.
+### B. Formulae, figures and reference material
 
-## 5. Recommended path after rights clearance
+- Preserve formulae in editable text/math notation where practical and render them correctly in the question and explanation UI.
+- Extend the app's math rendering for the notation actually used in this source: fractions, roots, vectors, matrices, Greek symbols, limits, summations, chemical notation, multi-line derivations and other recurring structures.
+- Preserve complex formula layouts, tables and diagrams as local image assets when editable rendering would reduce fidelity.
+- Add ASPECT assets to the static local asset pipeline; keep asset paths deterministic and bundle-safe.
+- Add a structured reference display for the university/year/unit/set labels appearing beside the source questions. Preserve the original printed reference; do not misrepresent a publisher compilation as an official university paper.
+- Add a browsable Formula / Reference section if the source contains standalone formula sheets, reference tables or glossary material. Keep the source order and topic association.
 
-1. Confirm the exact title/edition and obtain written permission from the rights holder. Record the permission scope and evidence in the source register; then use `licenseStatus: "licensed"` with a precise `licenseNote`. Do not mark third-party content as `owner_created`.
-2. Run a small pilot across 10–20 representative pages: ordinary MCQs, a calculation/formula-heavy topic, a matrix/table page, a diagram/figure page and a page with dense watermark overlap.
-3. For each item, preserve exact Bengali/English text, option order, subject/topic, printed question number, PDF page number and source identity. Keep extracted answer keys and worked explanations separate and traceable.
-4. Use OCR only as a draft aid where permitted; manually compare every stem, option, symbol, exponent, sign, unit, figure and answer marker against the rendered page. Do not automatically set content or answer status to verified. Unknown/unclear content remains unverified; missing/uncertain answers remain unknown.
-5. Use text for expressions supported by `MathText`; retain complex diagrams/matrices/equations as cropped local PNG assets where reproduction rights allow. Extend the asset indexer to include a dedicated ASPECT folder and test all generated paths.
-6. Decide whether university/year references are just explanatory labels or a filterable feature. If filterable, design a structured cross-reference extension before importing thousands of rows.
-7. Validate the pilot with the library-pack validator; run library/importer tests and a fresh SQLite dry-run; reconcile source vs pack counts and render representative questions on Android before preparing a full release.
+### C. Library UI and question presentation
 
-## 6. Decision
+- Organize book pages by subject and topic using the extracted source hierarchy.
+- Make question stem, options, answer reveal, worked solution, formula/figure assets and source locator readable in Bangla and English.
+- Show source PDF page and printed question number on each applicable question.
+- Provide book-level and topic-level Browse and practice actions.
+- Keep standard university question-bank functionality and global catalogues unchanged.
 
-**Current decision: HOLD — not import-ready.**
+### D. Verification and content states
 
-- Technical feasibility: **Yes, with a transcription + validation pipeline and a small amount of feature work.**
-- Watermark effect: **Does not block page rendering, but does reduce confidence in automated extraction and requires manual proofreading.**
-- Current direct extraction: **No; the scanned PDF has no usable text layer in the tested pages.**
-- Existing book-question import: **Supported** through the existing library pack/importer.
-- Full textbook-style formulas/references: **Not supported as standalone content types today**; would require a content-model/UI extension or image-backed reference pages.
-- Rights: **Unconfirmed and a hard gate**; the PDF copy permission is disabled and no app-distribution licence was supplied.
-- Import performed: **No.** No JSON pack was generated, no question status was changed, no PDF was modified and no APK/build was created for this audit.
+- Compare the extracted content with the page image, not OCR output alone.
+- Check every stem, option, answer marker, formula, diagram reference and explanation.
+- Keep answer verification and text/content verification as separate fields.
+- Mark facts verified only after reconciliation with the actual printed source and a completed review; retain unknown/unverified status for unresolved items.
+- Keep an extraction ledger with page, question, review status and any correction history.
+
+### E. Import and release validation
+
+- Generate one or more schema-v1 library packs for the ASPECT book.
+- Use the existing ASPECT publisher ID `pub-aspect`; assign stable book, source, unit and question IDs.
+- Use the library pack's `licenseStatus: "licensed"` and document the owner's project permission in `licenseNote`.
+- Run the library validator and resolve all structural errors.
+- Run library/importer tests, fresh SQLite import and idempotent re-import checks.
+- Verify question/unit/source counts against the extraction ledger.
+- Run TypeScript, lint, full tests, content build and content check.
+- Check rendered questions, formulas, solutions, references and diagrams in the Android app before preparing the updated APK.
+
+## 6. Key source facts to preserve
+
+- Original file path and SHA-256 recorded above.
+- PDF page number and printed page number are separate fields; do not conflate them.
+- The book is a publisher compilation that includes labels for multiple universities. Those printed labels are source references and are not automatically verified official-paper metadata.
+- Keep the original question/option wording and ordering; record transcription corrections in the audit ledger rather than silently editing the source.
+- Keep question text, formulae, solution, diagrams and references connected to the same source page and topic.
+
+## 7. Current progress and next action
+
+**Source audit and app capability review:** complete.
+**Publisher integration point:** already exists (`pub-aspect`).
+**Question extraction:** not started.
+**Library pack generation/import:** not started.
+**App UI extensions for full formula/reference support:** to be implemented as part of the content integration work.
+
+Next action: begin full PDF page inventory and staged question/solution extraction. Work in resumable subject/topic batches so the 1,027-page source can be processed without losing progress. Do not stop at a feasibility report; continue through validated import and document the actual counts and verification results.
+
+## 8. Integrity
+
+This report records the owner-provided project authorization and the technical source findings. It does not claim that the 1,027-page transcription, import, tests or device verification have already been completed. Those are the implementation tasks listed above.
