@@ -246,3 +246,13 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - Previous EAS preview build `41bd1c7e-9376-41a7-abb0-860ab8031273` is now confirmed FINISHED (v0.1.5 / Android versionCode 6), artifact: https://expo.dev/artifacts/eas/YWujsXpdg9loC_JWWtF8aj4hVhaLt_vJ-VuIM3Bz1Kg.apk. This is the earlier pre-UI-implementation build, not the new candidate.
 - Device QA remains pending: Result ring rendering, Browse typing/pagination/error recovery, light/dark contrast, Bangla/English and large font layouts. Expo Go tunnel/server is stopped.
 - Changes remain local only; no push. Release metadata (`0.1.5`, Android versionCode `6`, app ID `com.admissionbd.app`, EAS project ID) is unchanged.
+
+## New EAS Android preview submitted — 2026-11-13
+
+- Build ID: `35d0f228-a328-4e1c-898d-a853445b00ee`
+- Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/35d0f228-a328-4e1c-898d-a853445b00ee
+- Submission accepted by EAS; status at submit response: `NEW` (build not yet completed; no APK artifact URL yet). The command used `--no-wait`; no long-running monitor was started.
+- Target: Android `preview` profile, `INTERNAL` distribution, APK; app `0.1.5`, Android versionCode `6`, application ID `com.admissionbd.app`.
+- Build message: "App-wide UX polish, browse search and stability fixes". EAS reused the configured remote Android keystore and project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- Source commit: `0b235f2` (`feat(ui): polish admission app experience`). Source upload completed successfully; fingerprint was skipped using `EAS_SKIP_AUTO_FINGERPRINT=1` and project-directory upload was used because the earlier VCS archive path had an EPERM cleanup issue.
+- No push. Check this exact build ID for completion; do not start a duplicate build while it is running.
