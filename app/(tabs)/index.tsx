@@ -90,11 +90,6 @@ export default function HomeScreen() {
               title={t("home.title")}
               subtitle={t("home.subtitle")}
               contextLine={empty ? undefined : t("home.heroReady", { n: totals.eligible })}
-              features={[
-                { icon: "flash-outline", label: t("home.featPractice") },
-                { icon: "shield-checkmark-outline", label: t("home.featVerified") },
-                { icon: "cloud-offline-outline", label: t("home.featOffline") }
-              ]}
               primaryLabel={t("home.heroStart")}
               onPrimary={() => router.push(href("/flash/setup"))}
               secondaryLabel={t("home.heroExamLink")}

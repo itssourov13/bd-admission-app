@@ -10,15 +10,23 @@ test("Hero text passes AA on every gradient stop it can overlap (theme-independe
     for (const [name, fg] of Object.entries({ eyebrow: HERO.eyebrow, title: HERO.title, body: HERO.body, context: HERO.context, gold: HERO.gold })) {
       assert.ok(contrastRatio(fg, stop) >= AA, `${name}: ${fmt(fg, stop)}`);
     }
-    const pillBg = blendOver(HERO.pill.overlay, HERO.pill.alpha, stop);
-    assert.ok(contrastRatio(HERO.pill.fg, pillBg) >= AA, `pill: ${fmt(HERO.pill.fg, pillBg)}`);
-    assert.ok(contrastRatio(HERO.gold, pillBg) >= 3, `pill icon: ${fmt(HERO.gold, pillBg)}`);
-    // Secondary CTA is white text on a translucent white overlay (the pressed state is the strongest overlay used: 0.24).
-    for (const alpha of [HERO.secondary.alpha, 0.24]) {
-      const bg = blendOver(HERO.secondary.overlay, alpha, stop);
-      assert.ok(contrastRatio(HERO.secondary.fg, bg) >= AA, `secondary (${alpha}): ${fmt(HERO.secondary.fg, bg)}`);
-    }
+    // Secondary CTA is white text on a translucent white overlay.
+    const bg = blendOver(HERO.secondary.overlay, HERO.secondary.alpha, stop);
+    assert.ok(contrastRatio(HERO.secondary.fg, bg) >= AA, `secondary: ${fmt(HERO.secondary.fg, bg)}`);
   }
+});
+
+test("Hero cover text stays AA over the scrim even on a pure-white photo pixel", () => {
+  const alphas = HERO.cover.scrim.map(([, a]) => a);
+  assert.ok(Math.min(...alphas.slice(0, -1)) >= HERO.cover.textEdgeAlpha, "scrim must not fall below textEdgeAlpha before its final fade-out stop");
+  const worst = blendOver(HERO.cover.scrimColor, HERO.cover.textEdgeAlpha, "#FFFFFF");
+  for (const [name, fg] of Object.entries({ eyebrow: HERO.eyebrow, title: HERO.title })) {
+    assert.ok(contrastRatio(fg, worst) >= AA, `${name}: ${fmt(fg, worst)}`);
+  }
+  // The scrim must have faded out by the right edge so the photo is visible, and the text column must end where it still holds.
+  const edge = HERO.cover.scrim.find(([o]) => o >= HERO.cover.textMaxWidth)!;
+  assert.ok(edge[1] >= HERO.cover.textEdgeAlpha || edge[0] > HERO.cover.textMaxWidth, "scrim at the text column edge");
+  assert.equal(HERO.cover.scrim[HERO.cover.scrim.length - 1]![1], 0);
 });
 
 test("Hero CTA fills keep AA label contrast", () => {

@@ -72,8 +72,11 @@ export default function ExamSetup() {
     const paperPattern = scopeBase.paperId ? await getPaperRule(d, scopeBase.paperId) : null;
     const patternRules = !scopeBase.paperId && scopeBase.paperIds?.length ? await Promise.all(scopeBase.paperIds.map((id) => getPaperRule(d, id))) : null;
     const verified = await countPoolBySubject(d, scopeBase, false);
-    const reviewMode = verified.total === 0 && (await countPoolBySubject(d, scopeBase, true)).total > 0;
-    const pool = reviewMode ? await countPoolBySubject(d, scopeBase, true) : verified;
+    // Only a scope with no verified questions falls back to provisional ones; that grouped count is reused as the pool
+    // (it used to be run a second time with identical arguments).
+    const provisional = verified.total === 0 ? await countPoolBySubject(d, scopeBase, true) : null;
+    const reviewMode = provisional !== null && provisional.total > 0;
+    const pool = provisional !== null && reviewMode ? provisional : verified;
     const selectionConfig = paperPattern?.selectionConfig ?? null;
     return {
       reviewMode,

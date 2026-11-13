@@ -1,4 +1,21 @@
-## Full pre-build validation after Phase 8 — 2026-11-13
+## v0.1.6 Home Hero runtime follow-up — 2026-11-13
+
+| Check | Result | Notes |
+|---|---|---|
+| Full repository tests | [x] Pass | 240/240, zero failures/cancellations/skips/todos, Node 22.23.1. |
+| TypeScript | [x] Pass | `pnpm typecheck`. |
+| Full lint | [x] Pass | `pnpm lint`; the previously reported unused ESLint-disable directive was removed. |
+| Content integrity | [x] Pass | `pnpm content:check`: 217 packs / 13,609 questions; current generated SQLite seed. |
+| Expo resolved config | [x] Pass | app 0.1.6, Android versionCode 7, package and EAS project ID preserved. |
+| Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`; validates JS and static asset bundling, not a native APK. |
+| Diff hygiene | [x] Pass | `git diff --check`. |
+| Hero runtime structure | [x] Automated | Decorative cover is not a tap target; native CTA controls/routes, responsive behavior and contrast are covered by tests. |
+| EAS preview APK | [ ] Pending submission / build result | Record exact v0.1.6 build ID and artifact URL after EAS accepts/completes the job. |
+| Physical-device QA | [ ] Pending owner | Light/Dark, Bangla/English, narrow layout, large font scale, Start Practising, Mock Exam, Resume, Profile Stat and exam-pattern setup. |
+
+Cover note: `assets/home/hero-cover.jpg` is a 782×382 crop from the owner-supplied UI/UX reference. Check its sharpness and confirm public-distribution rights before using it in a store release.
+
+## Historical full pre-build validation after Phase 8 — 2026-11-13
 
 Environment: Node 22.23.1 (.nvmrc), pnpm 11.10.0, branch feat/import-hstu-verified-answers-2026-11-12.
 

@@ -1,3 +1,32 @@
+# Current handoff — 2026-11-13 (Home Hero runtime follow-up / v0.1.6 preview)
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Previous HEAD before this follow-up:** `2dfd402` (`docs: audit home hero runtime issues`).
+**Release candidate:** app/package/brand `0.1.6`, Android `versionCode 7`; package `com.admissionbd.app`; EAS project `16ba69b8-96d7-4856-a197-77acddebe1ec`. The `preview` profile remains INTERNAL APK and the existing EAS-managed signing identity is retained.
+
+## Implemented
+
+- HomeHero uses a decorative 782×382 landscape cover crop from the owner-supplied UI/UX reference, with a navy text scrim. Actual app text and interactive actions render natively below the photo; buttons stay responsive and preserve existing routes/resume behavior.
+- Removed callback-valued `Pressable.style` usage that caused NativeWind to drop CTA surfaces.
+- Profile Stat values have an explicit semantic foreground in dark mode; no broad `Txt` default change.
+- The provisional-only exam setup path reuses one read-only question-pool count instead of issuing the same query twice. No exam selection, eligibility, scoring or session semantics changed.
+- Full automated suite: 240/240. TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config, Android no-bytecode Metro export and `git diff --check` passed on Node 22.23.1.
+
+## Release notes / limitations
+
+- The previous v0.1.5 / code 6 EAS preview `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the Home Hero runtime follow-up. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
+- The new preview must use version `0.1.6` / Android code `7`; do not reuse code 6. EAS account/project and signing identity must remain unchanged.
+- Current cover is a temporary crop from the owner-provided reference, not a bespoke 1024×500 generated original. English decorative book-spine wording remains; verify quality and rights before a public store distribution.
+- Physical-device verification is still required for Light/Dark, Bangla/English, narrow/large-font layouts, both Home CTA destinations, Resume, Profile Stat, university exam-pattern setup, Browse and Result.
+- No Git push, production AAB or Play Store submission is included.
+
+## Commands
+
+Use Node 22.23.1 (`.nvmrc`). Preview APK command: `EAS_NO_VCS=1 EAS_SKIP_AUTO_FINGERPRINT=1 pnpm dlx eas-cli@latest build --platform android --profile preview --non-interactive --no-wait`.
+
+---
+
 ## Current handoff — 2026-11-11 (v0.1.4 release baseline; startup UI targeted fix)
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app

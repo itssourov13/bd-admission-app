@@ -1,47 +1,38 @@
-# Phase 7 — Home Hero Redesign
+# Phase 7 — Home Hero Redesign and Runtime Follow-up
 
-**Status:** Implemented — Pending Owner Verification (2026-11-13). Local commit only; not pushed.
+**Status:** Implemented — Pending Owner Verification (2026-11-13). The implementation and release metadata are committed locally before EAS submission; no push.
 
 ## Objective
-Improve the Home hero card (previously: eyebrow, title, subtitle on a flat gradient) while keeping the app identity, adding a clear CTA and context-aware resume information, with light/dark compatibility and no extra assets or startup work.
+Provide a compact, premium academic Home Hero with a realistic campus cover, readable text, two genuine interactive exam/practice actions, responsive sizing, and reliable light/dark foreground contrast. Preserve navigation and resume behavior.
 
-## Initial state
-Commit df87747 (Phase 6). Hero was an inline `LinearGradient` in `app/(tabs)/index.tsx`; unfinished exams appeared as a separate gold-bordered card under it; no primary action in the hero.
+## Final composition
+- `src/components/home/HomeHero.tsx` is a composite card: a decorative landscape photo and navy scrim carry the eyebrow/headline; a separate navy-to-green foreground area carries the subtitle/context and native React Native CTA controls.
+- The cover is `assets/home/hero-cover.jpg` (782×382 px; approximately 2.05:1; about 58 KB). It is cropped from the photographic right-hand portion of the owner-supplied `ui-ux-layout-ideas` reference. It is a temporary reference-derived asset, not newly generated artwork; see `assets/home/README.md` for provenance and distribution caveats.
+- The photo is decorative (`pointerEvents="none"` and hidden from assistive technology); it has no baked-in application text, logo, or fake controls. Important text and actions are rendered by the app.
+- The cover uses a minimum height derived from available width and the image ratio, capped for the default layout but allowed to grow with text; it is not a fixed-height clipping box.
+- Buttons remain real 48 dp `Pressable` controls below the photo. They sit side by side when space/font scale permits and stack on narrow screens or larger font scale. Existing route targets and resume flow are preserved.
+- The previous callback-valued `Pressable.style` pattern was replaced with supported static style objects and NativeWind active-state utilities.
 
-## Findings
-- The hero gradient (navy → brand green) is dark in both themes, so white text keeps strong contrast without theme branches; only the shadow follows the theme (`useTheme().shadow`).
-- Decorative motifs can be built from plain `View`s and an Ionicons glyph: no images, SVG or dependencies, no extra startup work.
+## Runtime and theme corrections
+- `Stat.tsx` now supplies an explicit semantic foreground for metric values where a `className` overrides `Txt` defaults; this fixes near-black Profile values on dark surfaces without a risky global `Txt` change.
+- Hero foreground colours are theme-independent because the Hero surface itself remains dark in both app themes. Contrast regression tests cover the photo/scrim worst cases and the action surfaces.
+- Home no longer passes the removed feature-pill content into the Hero.
+- In `app/exam/setup.tsx`, a provisional-only scope reuses the first `countPoolBySubject(..., true)` result instead of repeating the same read-only query. Question selection, eligibility, scoring and session semantics are unchanged.
 
-## Implementation
-- New `src/components/home/HomeHero.tsx` (memoised): gradient card with soft gold ring and green glow, a graduation-cap glyph, a 3×4 grid of OMR answer bubbles (one filled), eyebrow/title/subtitle in the existing type scale, an offline-ready context line, a full-width 48dp primary CTA and a 44dp secondary text action.
-- Context-aware: `mode="start"` shows "Start practising" (→ Flash setup), "Or take a mock exam" (→ Standard exam setup) and "N questions ready offline" (from `contentTotals().eligible`, hidden when the bank is empty). `mode="resume"` (an active exam exists) swaps to an hourglass glyph, the "Exam in progress" eyebrow, the existing resume body text and a gold "Resume exam" CTA; the separate resume card was removed to avoid duplicate prompts.
-- Responsive: title size drops below 360dp width; decorations hide below 340dp or at font scale > 1.3 so text never collides with art; decorations are `pointerEvents="none"` and hidden from assistive tech.
-- Added 3 translation keys (`home.heroStart`, `home.heroExamLink`, `home.heroReady`, BN/EN).
+## Files and data boundaries
+- Changed runtime files: `app/(tabs)/index.tsx`, `app/exam/setup.tsx`, `src/components/common/Stat.tsx`, `src/components/home/HomeHero.tsx`, `src/settings/palettes.ts`.
+- Added the cover asset and `tests/home-hero-structure.test.ts`; updated `tests/hero-contrast.test.ts`.
+- No SQLite migration, question/answer pack edit, scoring-rule change, dependency addition, or database architecture change.
 
-## Decisions
-Pure-View graphics rather than image/illustration assets (no licensing, size or load cost). A dedicated component rather than more inline Home code, so Phase 8/9 screens can reuse the pattern.
+## Verification
+- Full test suite: 240/240 passed on Node 22.23.1.
+- TypeScript: `pnpm typecheck` passed.
+- Full lint initially reported one unused ESLint-disable directive; the directive was removed and the touched HomeHero file passed targeted ESLint. Full lint is rerun as part of the final release gate.
+- `pnpm content:check`: 217 packs / 13,609 questions; generated seed current.
+- `pnpm exec expo config --type public`: resolved app version 0.1.6, Android versionCode 7, package `com.admissionbd.app`, and the existing EAS project ID.
+- `pnpm exec expo export --platform android --no-bytecode`: passed. This verifies Metro asset bundling, not a native APK or physical-device runtime.
 
-## Files
-Added: `src/components/home/HomeHero.tsx`. Modified: `app/(tabs)/index.tsx`, `src/i18n/translations.ts`.
-
-## Database / dependencies
-None.
-
-## Checks run
-`tsc --noEmit` exit 0; ESLint on the two touched areas exit 0. No visual/device check (owner).
-
-## Limitations
-Not visually inspected on any device or in dark mode; decorative positions are tuned by reasoning only. No resume progress detail (answered count) is shown — only the fact an exam is in progress.
-
-## Deferred owner testing
-Look at Home in light/dark, small (≈320dp) and large screens, large system font, Bangla/English, with and without an active exam; confirm CTA targets and that the resume path still opens the exam.
-
-## Next
-Phase 8 adds a Publications entry on Home below the hero.
-
-
-## Runtime audit follow-up — 2026-11-13
-
-The owner-provided Android screenshots exposed visual regressions that were not covered by the original static checks. Both CTA Pressables now use callback-valued `style` functions, which NativeWind does not support; the returned button styles are therefore not applied. The hero also gained more stacked content (three wrapping feature pills, offline context, larger phone art and a 52dp secondary CTA), making it substantially taller than the earlier Phase 7 layout. See `docs/audits/HOME_HERO_RUNTIME_AUDIT.md` for the root-cause and evidence.
-
-Follow-up: use NativeWind static utility classes / `active:` modifiers for CTA surfaces; keep text colours semantic; compact the card around a new wide 1024×500 Home cover; verify both routes on Android in light/dark, BN/EN and large-font layouts. The Profile metric contrast regression is shared via `src/components/common/Stat.tsx` and is documented in the runtime audit. No source implementation was changed by the audit.
+## Known limitations and owner verification
+- The cover is a crop of the supplied reference, not a bespoke 1024×500 generated original. The English decorative book-spine wording remains in the photo. Verify it visually before treating the artwork as final; confirm usage rights before public store distribution or replace it with licensed/generated art.
+- Physical Android QA is still required: Light/Dark, Bangla/English, small width, large system font, both CTA destinations, active-exam resume, and Profile metric visibility.
+- The 782×382 source ratio is retained without upscaling. High-density screen sharpness needs device review.

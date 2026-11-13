@@ -1,24 +1,17 @@
-## Android preview build v0.1.5 — 2026-11-13
+## Home Hero runtime follow-up and Android preview v0.1.6 — 2026-11-13
 
-**Status:** EAS build submitted; current status IN_PROGRESS. Build ID: 41bd1c7e-9376-41a7-abb0-860ab8031273. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
+**Status:** Implementation, tests and documentation are ready for local release commit; EAS preview submission is the next step. No push or Play Store submission.
 
-- [x] Version metadata: package/brand/Expo version 0.1.5, Android versionCode 6.
-- [x] Preview profile resolved as internal APK; existing application ID, EAS project ID and remote Android keystore preserved.
-- [x] EAS accepted the source archive and created the build record.
-- [ ] Cloud build completion, APK artifact integrity and physical-device update verification remain pending.
-- The first default VCS archive attempt failed during local shallow-clone cleanup (EPERM). Retried using EAS_NO_VCS=1 (project copy without Git) and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the upload. Source commit: 7798ef1 (local branch commit; no push was performed by this task).
+- [x] Home Hero cover and native CTA composition implemented; previous button destinations and resume route preserved.
+- [x] Profile Stat dark-theme foreground fixed without a global `Txt` change.
+- [x] Provisional-only setup duplicate count query removed by reusing the read-only result; no question selection or scoring behavior changed.
+- [x] Full tests: 240/240; TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff hygiene passed on Node 22.23.1.
+- [x] Removed the unused ESLint-disable directive that produced the prior single lint warning; the touched file passes targeted ESLint.
+- [x] Release metadata prepared: app/package/brand version 0.1.6, Android versionCode 7. App ID `com.admissionbd.app`, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`, preview APK profile and EAS-managed signing remain unchanged.
+- [ ] EAS preview submission and exact build ID — record after EAS accepts the job.
+- [ ] Owner physical-device verification (Light/Dark, BN/EN, narrow and large-font layouts, Hero actions, Profile, exam pattern setup, Browse/Result).
+- Cover remains a 782×382 crop from the owner-supplied reference; check its visual sharpness and confirm image usage rights before public distribution. See `assets/home/README.md`.
 
-## Full pre-build validation — 2026-11-13
-
-Status: All local automated / bundle gates pass after regenerating the stale local SQLite seed. No release version bump or EAS build has been made.
-
-- [x] pnpm test: 211/211; zero failures, cancellations, skips or todos.
-- [x] pnpm typecheck and pnpm lint.
-- [x] Rebuilt the gitignored seed from canonical JSON packs because the previous local asset was schema v5; current seed is schema v8.
-- [x] pnpm content:check: 217 packs / 13,609 questions; SQLite quick check OK, zero foreign-key issues, 54,436 options.
-- [x] Expo public config and Android no-bytecode Metro export (2,008 modules; 3.9 MB JS; 124 assets including SQLite seed).
-- [ ] Native EAS preview APK and physical-device update QA — next release step.
-- Next preview candidate metadata is version 0.1.5 / Android versionCode 6. Previous completed APK is version 0.1.4 / code 5. Preserve application ID, EAS project and signing identity.
 
 # Task state
 

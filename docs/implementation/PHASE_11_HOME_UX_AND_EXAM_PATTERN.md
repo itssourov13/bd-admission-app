@@ -1,7 +1,7 @@
 # Phase 11 — Home UX polish, dark-mode contrast and university-aware exam pattern
 
 Started: 2026-11-13. Branch: `feat/import-hstu-verified-answers-2026-11-12`. Node 22.23.1 (`.nvmrc`).
-Status: **Implemented — Pending Owner Verification** (local working tree, uncommitted until the final commit step; statuses: Not Started → In Progress → Implemented → Pending Owner Verification).
+Status: **Implemented — Pending Owner Verification** (source, tests and docs committed locally; EAS preview build requested; no push).
 
 ## 1. Objective and scope
 Owner real-device feedback on v0.1.5 preview (EAS build `41bd1c7e-9376-41a7-abb0-860ab8031273`, untouched):
@@ -9,7 +9,7 @@ A. Home hierarchy/CTA polish (the Hero "Or take a mock exam" text link must beco
 B. Hero redesign following the supplied BD Admission banner direction (navy + green + gold, cap motif, honest imagery).
 C. Dark-mode readability fix + broader contrast audit + automated contrast regression tests.
 D. University-aware Mock/Standard Exam (stop institution scopes inheriting generic 100q/60min; remove fixed `>= 100` UI gates).
-Out of scope: version/versionCode, app id/EAS/signing, EAS builds, pushing, emulator campaigns, question/answer data edits.
+Preserved: application ID, EAS project ID, existing signing identity, question/answer data and scoring provenance. A separate owner-authorized preview release uses version 0.1.6 / Android versionCode 7; production publishing and Git push remain out of scope.
 
 ## 2. Initial repository state (verified)
 - Branch `feat/import-hstu-verified-answers-2026-11-12`, working tree clean, HEAD `2a458ac docs: record v0.1.5 EAS preview submission`.
@@ -39,7 +39,7 @@ Out of scope: version/versionCode, app id/EAS/signing, EAS builds, pushing, emul
 - D4: Setup UI for institution scope: pattern options (labelled Official / Source-pattern practice) + Custom Practice; eligibility computed from the chosen pattern and its real pool.
 - D5: Entry-button visibility (`institution/[id]`, `VarsityScreen`) computed from patterns + pool via one helper (`examEntryAvailable`), no universal threshold.
 - D6: Session count/duration frozen at creation (already stored in session: `durationSeconds`, `deadlineAt`, rule snapshot) — unchanged.
-- D7: Hero: native RN hero (no new heavy asset): navy→green gradient, gold accents, cap motif, mini phone-frame composition built from Views (honest, non-screenshot), theme-independent light foreground tokens; primary = filled "Start practising", secondary = outlined/translucent button "Take a mock exam" with icon; resume mode shows a single Resume CTA. No Google Play claim.
+- D7: Hero evolved after runtime screenshots: compact composite layout with a decorative landscape campus photo + navy scrim for headline, then native app text and actual 48 dp Pressable actions below on the navy→green surface. It uses a small 782×382 owner-reference crop; it is not a bespoke generated 1024×500 cover and its public-distribution rights require confirmation. Buttons adapt to narrow widths/large font scale; resume mode retains a single Resume CTA.
 - D8: Contrast: add `heroForeground` tokens (not theme-flipped), fix RC1, add tests that compute contrast for every Hero text/background pair in both themes plus buttons/chips/selected states; audit hardcoded hex usages.
 
 ## 6. Progress checklist
@@ -51,13 +51,14 @@ Out of scope: version/versionCode, app id/EAS/signing, EAS builds, pushing, emul
 - [x] Exam: remove `>= 100` gates (`examEntryAvailable`; no `>= 100` left in `app/` or `src/**/*.tsx`)
 - [x] Exam tests (`tests/exam-pattern.test.ts`; two stale expectations updated, see section 7)
 - [x] Contrast: tokens + tests (`tests/hero-contrast.test.ts`)
-- [x] Home: hero redesign + CTA hierarchy (in working tree; needs real-device look)
-- [ ] Home tests (pure logic: CTA targets/mode) — not added
-- [x] Checks (2026-11-13, Node 22.23.1): `pnpm test` 227/227, `pnpm typecheck`, `pnpm lint` (0 errors), `pnpm content:check` (217 packs, 13609 questions), `git diff --check` all clean. Metro export not run.
-- [ ] Reconcile CURRENT_STATE/TASK_STATE/CHANGELOG/IMPLEMENTATION_LOG, commit
+- [x] Home: compact photographic cover, readable scrim, independent native CTA rail, responsive stacking and resume behavior.
+- [x] Home Hero structure/contrast regression tests (`tests/home-hero-structure.test.ts`, `tests/hero-contrast.test.ts`).
+- [x] Final checks (2026-11-13, Node 22.23.1): `pnpm test` 240/240, `pnpm typecheck`, `pnpm lint`, `pnpm content:check` (217 packs / 13,609 questions), Expo public config, Android no-bytecode Metro export and `git diff --check` pass.
+- [x] Reconciled CURRENT_STATE, TASK_STATE, CHANGELOG, HANDOFF, QA_CHECKLIST, ANDROID_RELEASE, Phase 7, this Phase 11 note and cover provenance.
+- [x] Prepared installable preview metadata 0.1.6 / Android versionCode 7; previous 0.1.5 / code 6 EAS build is finished and contains older source.
 
 ## 7. Files modified / schema changes / tests / commits
-- No DB migration, no version bump, no push, no EAS build.
+- No DB migration, question/answer data edits, scoring changes, dependency additions or schema changes. The preview version was incremented separately to 0.1.6 / Android versionCode 7 so the new APK can update the installed version 0.1.5 / code 6. No push.
 - Post-audit fixes (2026-11-13), from `docs/audits/APP_WIDE_AUDIT.md` F1, F2, F4:
   - F1: `tests/repositories.test.ts` and `tests/ru-verified-bank-import.test.ts` now assert that a university scope without Custom Practice is refused (`reason: "rule_unavailable"`), then start a Custom Practice session (100 q / 3600 s) and keep the original assertions. App behaviour unchanged.
   - F2: `app/exam/setup.tsx` computes `institutionIdsKey`, `paperIdsKey`, `universityIdsKey` as plain strings above the hooks, so `react-hooks/use-memo` no longer fires.
@@ -67,3 +68,12 @@ Out of scope: version/versionCode, app id/EAS/signing, EAS builds, pushing, emul
 
 ## 8. Owner verification (pending)
 Real-device check of hero in light/dark, Bangla/English, large font; institution mock exam options for JU/DU/RU/HSTU; custom-practice fallback.
+
+
+## Home Hero runtime follow-up and release readiness — 2026-11-13
+
+The owner-provided runtime screenshots exposed the CTA styling regression and Profile metric foreground issue. The follow-up is documented in `docs/implementation/PHASE_07_HOME_HERO.md` and `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. The cover is a reference-derived temporary crop; a bespoke cover can replace it without changing the native CTA architecture.
+
+Exam startup decision: the provisional-only branch previously executed an identical read-only subject-pool count twice. It now reuses the first result. The expected work of selecting among a large pack catalogue remains unchanged; no speculative indexing, caching, selection rewrite or database redesign was introduced.
+
+Verification: 240/240 tests, typecheck, lint after removing the unused directive, content check, Expo public config and Android no-bytecode export pass on Node 22.23.1. Native build and physical-device QA remain distinct checks.

@@ -104,3 +104,14 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Default VCS archive failed at local temporary shallow-clone cleanup with EPERM before an EAS build record existed. Retried with EAS_NO_VCS=1 and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the archive.
 4. Submitted internal Android APK preview build 41bd1c7e-9376-41a7-abb0-860ab8031273; status checked once as IN_PROGRESS. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273.
 5. No long monitoring, EAS completion claim, APK artifact claim, Git push or device QA was performed.
+
+
+## 2026-11-13 — Home Hero runtime follow-up and v0.1.6 preview preparation
+
+1. Replaced the missing Hero CTA surfaces with supported static Pressable styling and preserved Start Practising, Mock Exam and Resume routes. Added a compact composite cover/text/action layout using `assets/home/hero-cover.jpg`; the photo is decorative and buttons remain native controls.
+2. Fixed Profile Stat foreground in dark theme with an explicit semantic token; no global `Txt` behavior change.
+3. Removed one duplicate read-only provisional-only subject-pool count in exam setup; selection/scoring/session logic left unchanged.
+4. Removed the unused ESLint-disable directive; updated app/package/brand version to 0.1.6 and Android versionCode 7 for an installable preview update. App ID/EAS project/signing remain unchanged.
+5. Verification on Node 22.23.1: 240/240 tests, typecheck, lint, content:check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff whitespace check passed.
+6. Updated phase/state/release/QA/handoff documentation and recorded the cover's reference-derived provenance and distribution-rights caveat. Device QA remains owner-pending.
+7. No question data, DB schema, marking rules, dependencies or application identity changed; no push.

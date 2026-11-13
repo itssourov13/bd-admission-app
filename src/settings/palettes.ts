@@ -87,11 +87,24 @@ export const HERO = {
   body: "#E3EAF2",
   context: "#BFE8D9",
   gold: p.gold400,
-  primary: { bg: "#FFFFFF", fg: p.navy900 },
+  primary: { bg: "#F4F7FA", fg: p.navy900 },
   resume: { bg: p.gold400, fg: p.navy900 },
   /** Secondary button: white at `alpha` over the gradient, with a solid-enough border. */
   secondary: { overlay: "#FFFFFF", alpha: 0.14, fg: "#FFFFFF", border: "rgba(255,255,255,0.6)" },
-  pill: { overlay: "#FFFFFF", alpha: 0.12, fg: "#E3EAF2" }
+  /**
+   * Cover photo (assets/home/hero-cover.jpg, 782x382). It is decorative only: the headline sits on a navy scrim that
+   * fades left-to-right, and the text column is capped at `textMaxWidth` of the card. `scrim` is [offset, alpha] of
+   * `scrimColor`; the alpha at (and before) the text edge is the worst case for text contrast, which the tests check
+   * against a pure-white photo pixel.
+   */
+  cover: {
+    aspect: 782 / 382,
+    textMaxWidth: 0.58,
+    scrimColor: p.navy900,
+    scrim: [[0, 0.96], [0.5, 0.92], [0.62, 0.8], [1, 0]] as readonly (readonly [number, number])[],
+    /** Alpha of the scrim where the text column ends (the weakest scrim under any text). */
+    textEdgeAlpha: 0.8
+  }
 } as const;
 
 /** Blends `fg` at `alpha` over opaque `bg` (both hex) and returns the resulting opaque hex. */

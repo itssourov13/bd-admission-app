@@ -1,12 +1,16 @@
 # Current state
 
-Last updated: 2026-11-13 (Phases 1–8 implemented pending owner verification; optional Phases 9–10; full pre-build automated gates pass).
+Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gates pass; v0.1.6 Android preview submission pending/next).
 
-## Latest pre-build gate — 2026-11-13
+## Latest implementation and release candidate — 2026-11-13
 
-Full automated suite: 211/211 pass. TypeScript, lint, content check, Expo public config and Android no-bytecode Metro export pass. The ignored local SQLite seed was regenerated from canonical packs to schema v8 (217 packs / 13,609 questions / 54,436 options); quick_check is OK and foreign_key_check is empty. See docs/QA_CHECKLIST.md and docs/ANDROID_RELEASE.md for exact checks.
-
-Release candidate is v0.1.5 / Android versionCode 6. EAS preview build 41bd1c7e-9376-41a7-abb0-860ab8031273 is IN_PROGRESS (https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/41bd1c7e-9376-41a7-abb0-860ab8031273). Previous completed APK remains v0.1.4 / code 5; physical-device verification remains pending.
+- Home Hero is now a compact composite card: a decorative campus-photo cover with navy text scrim, separate native practice/mock-exam CTA controls, responsive stacking and resume behavior. Current asset: `assets/home/hero-cover.jpg` (782×382 crop from the supplied UI/UX reference); it is a temporary reference-derived image, not final bespoke artwork. Rights confirmation is required before public distribution. See `docs/implementation/PHASE_07_HOME_HERO.md` and `assets/home/README.md`.
+- Fixed the Hero CTA styling issue by removing unsupported callback-valued Pressable styles. Fixed dark Profile Stat values with an explicit semantic foreground; no global `Txt` change.
+- Exam setup received only a minimal duplicate-query reuse: the provisional-only subject-pool count is read once. The large-catalogue selection work is otherwise intentionally unchanged.
+- Automated validation on Node 22.23.1: full suite 240/240, TypeScript, lint, `pnpm content:check` (217 packs / 13,609 questions), Expo public config, Android no-bytecode Metro export and `git diff --check` pass. No physical-device UI test is claimed.
+- Release metadata for the new installable preview: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. Preview submission is recorded in `docs/TASK_STATE.md`, `docs/ANDROID_RELEASE.md` and `docs/HANDOFF.md` once EAS accepts it.
+- Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
+- Next owner action: install the new v0.1.6 preview APK over the existing app and verify Home in Light/Dark, Bangla/English, small width and large font; test Start Practising, Mock Exam and Resume. Also verify university exam-pattern availability and result/Browse UI on device.
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
