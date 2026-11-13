@@ -1,3 +1,14 @@
+## ASPECT Master QB intake audit — 2026-11-13
+
+**Status:** HOLD — source assessed; not import-ready and not imported. Detailed report: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+- [x] Confirmed the pre-seeded ASPECT publisher (`pub-aspect`) and reviewed the Phase 8 book/library importer and schema.
+- [x] Inspected PDF metadata and rendered representative pages. The 1,027-page, ~443 MiB AES-256 scan has no usable text layer in sampled pages; page rendering works, but visible Admission Stuffs watermarks overlap some text/formula regions.
+- [x] Identified existing support for chapter/topic MCQs, explanations, page/question provenance, simple MathText and local PNG assets; identified missing prose/reference-page model, full LaTeX support, dedicated ASPECT asset indexing and visible library source footers.
+- [x] Recorded the rights gate: copying permission is disabled in the PDF and app-distribution permission is unconfirmed. Library importer must remain blocked with `permission_pending` until explicit written licence is obtained.
+- [ ] After rights clearance, run a reviewed 10–20-page pilot and decide whether university/year cross-references need a schema/UI extension.
+- No OCR batch, pack, app-code change, content import or build was performed.
+
 ## Home Hero runtime follow-up and Android preview v0.1.6 — 2026-11-13
 
 **Status:** Implementation, tests and documentation are ready for local release commit; EAS preview submission is the next step. No push or Play Store submission.

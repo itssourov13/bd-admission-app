@@ -1,3 +1,13 @@
+# Handoff addendum — 2026-11-13 (ASPECT Master QB intake audit)
+
+The local ASPECT Science Master QB PDF was inspected at `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/`. The scan is 1,027 pages / 464,316,608 bytes, SHA-256 `b88b45ed5863385d98a3a43f8232562d51628208d06c0c7a6898bb7f203c83fa`, encrypted with AES-256, print allowed and copy disabled. Sampled pages render, but sampled opening pages yielded no selectable text via `pdftotext`; watermarks cross page content. This is not ready for direct extraction/import.
+
+ASPECT (`pub-aspect`) already exists as a publisher entry. The current LibraryPack/importer can handle chapter/topic MCQs, options, explanation text, page/question provenance and local PNG figures. It does not provide a full textbook-page/formula/reference renderer, general LaTeX, or structured university/year references for library-only questions. Full report and recommended pilot: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+**Decision: HOLD.** PDF copying is disabled and no written right to digitise/distribute the third-party content in the app has been confirmed. Do not import until rights clearance. After permission, run the documented 10–20-page, manually reconciled pilot first. No OCR batch, question-pack generation, app-code edit, APK or build was performed in this audit.
+
+---
+
 # Current handoff — 2026-11-13 (Home Hero runtime follow-up / v0.1.6 preview)
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`

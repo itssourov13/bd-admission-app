@@ -1,3 +1,9 @@
+## 2026-11-13 — ASPECT Master QB source intake audit (not imported)
+
+- Assessed the owner-supplied 1,027-page image-scan PDF; recorded its SHA-256, encryption/copy-permission metadata and watermark/readability findings.
+- Confirmed the ASPECT publisher entry and existing question-bank library pack path; documented gaps for full-text/formula/reference pages and structured university/year references.
+- Decision: hold import pending written distribution rights; no OCR batch, pack, question data, app code or build was changed. See `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
 ## 2026-11-13 — Home Hero runtime follow-up and Android preview v0.1.6
 
 - Rebuilt the Home Hero as a compact cover + native-control composition. The landscape image is decorative; Start Practising, Mock Exam and Resume remain real native actions. Responsive stacking is used for narrow layouts and large font scale.
