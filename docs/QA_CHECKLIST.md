@@ -10,7 +10,7 @@
 | Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`; validates JS and static asset bundling, not a native APK. |
 | Diff hygiene | [x] Pass | `git diff --check`. |
 | Hero runtime structure | [x] Automated | Decorative cover is not a tap target; native CTA controls/routes, responsive behavior and contrast are covered by tests. |
-| EAS preview APK | [ ] Pending submission / build result | Record exact v0.1.6 build ID and artifact URL after EAS accepts/completes the job. |
+| EAS preview APK | [x] Submitted; build in progress | `dcf1b743-ea08-4d27-b01f-82fe26374ffa`; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No artifact URL yet; completion is not monitored in this pass. |
 | Physical-device QA | [ ] Pending owner | Light/Dark, Bangla/English, narrow layout, large font scale, Start Practising, Mock Exam, Resume, Profile Stat and exam-pattern setup. |
 
 Cover note: `assets/home/hero-cover.jpg` is a 782×382 crop from the owner-supplied UI/UX reference. Check its sharpness and confirm public-distribution rights before using it in a store release.

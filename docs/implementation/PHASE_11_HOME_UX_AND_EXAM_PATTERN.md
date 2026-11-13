@@ -1,7 +1,7 @@
 # Phase 11 — Home UX polish, dark-mode contrast and university-aware exam pattern
 
 Started: 2026-11-13. Branch: `feat/import-hstu-verified-answers-2026-11-12`. Node 22.23.1 (`.nvmrc`).
-Status: **Implemented — Pending Owner Verification** (source, tests and docs committed locally; EAS preview build requested; no push).
+Status: **Implemented — Pending Owner Verification** (source and docs committed locally as `0c9e90f`; EAS preview `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is IN_PROGRESS; no push).
 
 ## 1. Objective and scope
 Owner real-device feedback on v0.1.5 preview (EAS build `41bd1c7e-9376-41a7-abb0-860ab8031273`, untouched):

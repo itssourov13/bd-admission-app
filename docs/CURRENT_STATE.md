@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gates pass; v0.1.6 Android preview submission pending/next).
+Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gates pass; v0.1.6 Android preview submitted and IN_PROGRESS).
 
 ## Latest implementation and release candidate — 2026-11-13
 
@@ -8,7 +8,7 @@ Last updated: 2026-11-13 (Home Hero runtime follow-up implemented; automated gat
 - Fixed the Hero CTA styling issue by removing unsupported callback-valued Pressable styles. Fixed dark Profile Stat values with an explicit semantic foreground; no global `Txt` change.
 - Exam setup received only a minimal duplicate-query reuse: the provisional-only subject-pool count is read once. The large-catalogue selection work is otherwise intentionally unchanged.
 - Automated validation on Node 22.23.1: full suite 240/240, TypeScript, lint, `pnpm content:check` (217 packs / 13,609 questions), Expo public config, Android no-bytecode Metro export and `git diff --check` pass. No physical-device UI test is claimed.
-- Release metadata for the new installable preview: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. Preview submission is recorded in `docs/TASK_STATE.md`, `docs/ANDROID_RELEASE.md` and `docs/HANDOFF.md` once EAS accepts it.
+- Release metadata: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **IN_PROGRESS**: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. The APK artifact is not available yet.
 - Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
 - Next owner action: install the new v0.1.6 preview APK over the existing app and verify Home in Light/Dark, Bangla/English, small width and large font; test Start Practising, Mock Exam and Resume. Also verify university exam-pattern availability and result/Browse UI on device.
 

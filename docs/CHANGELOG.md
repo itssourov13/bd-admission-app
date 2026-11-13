@@ -6,6 +6,7 @@
 - Added/updated Hero contrast and structure regression tests; full suite passes 240/240. TypeScript, lint, content check, Expo public config and Android no-bytecode Metro export pass on Node 22.23.1.
 - Updated the app/package/brand version to 0.1.6 and Android versionCode to 7 for an installable preview update. EAS submission details are recorded in the release/handoff docs.
 - Cover source note: 782×382 crop from the owner-supplied UI/UX reference, temporary placeholder; public-use rights not independently verified.
+- Submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` from local commit `0c9e90f`; initial status `IN_PROGRESS`. https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No long build monitoring, APK artifact or device QA is claimed.
 
 ## 2026-11-13 — Android preview candidate v0.1.5
 

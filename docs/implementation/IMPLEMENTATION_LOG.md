@@ -115,3 +115,4 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 5. Verification on Node 22.23.1: 240/240 tests, typecheck, lint, content:check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff whitespace check passed.
 6. Updated phase/state/release/QA/handoff documentation and recorded the cover's reference-derived provenance and distribution-rights caveat. Device QA remains owner-pending.
 7. No question data, DB schema, marking rules, dependencies or application identity changed; no push.
+8. Committed locally as `0c9e90f`; submitted EAS internal Android APK preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` (`IN_PROGRESS` at the one-time status check): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No artifact/device QA or long monitoring is claimed.

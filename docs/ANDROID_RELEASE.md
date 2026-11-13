@@ -7,7 +7,7 @@
 - Target: EAS `preview` profile, `INTERNAL` distribution, Android APK. Production remains configured for AAB and is not requested.
 - Existing v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but contains the previous source; do not install it as the Home Hero fix candidate. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
 - Final local gates on Node 22.23.1: 240/240 tests, TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config and Android no-bytecode export pass. The native EAS APK is a separate build gate; no physical-device QA is claimed.
-- New v0.1.6 EAS submission details and build page are recorded below after EAS accepts the job. Preserve the existing EAS-managed Android keystore; no credential rotation.
+- EAS accepted the v0.1.6 source upload: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`, status **IN_PROGRESS**; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No APK artifact URL is available yet. Preserve the existing EAS-managed Android keystore; no credential rotation.
 - Owner QA: install v0.1.6 over the previous app without clearing app storage, then verify Home Hero in Light/Dark and BN/EN, both CTA routes, Resume, Profile metrics and university exam patterns. Keep a disposable device/profile for destructive fresh-install tests.
 
 ## Preview build procedure

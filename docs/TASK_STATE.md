@@ -7,8 +7,8 @@
 - [x] Provisional-only setup duplicate count query removed by reusing the read-only result; no question selection or scoring behavior changed.
 - [x] Full tests: 240/240; TypeScript, lint, content check (217 packs / 13,609 questions), Expo public config, Android no-bytecode export and diff hygiene passed on Node 22.23.1.
 - [x] Removed the unused ESLint-disable directive that produced the prior single lint warning; the touched file passes targeted ESLint.
-- [x] Release metadata prepared: app/package/brand version 0.1.6, Android versionCode 7. App ID `com.admissionbd.app`, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`, preview APK profile and EAS-managed signing remain unchanged.
-- [ ] EAS preview submission and exact build ID — record after EAS accepts the job.
+- [x] Release metadata prepared and locally committed (`0c9e90f`): app/package/brand version 0.1.6, Android versionCode 7. App ID `com.admissionbd.app`, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`, preview APK profile and EAS-managed signing remain unchanged.
+- [x] EAS accepted the Android preview source upload: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`, current status `IN_PROGRESS`; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. No long monitoring performed; no APK artifact is available yet.
 - [ ] Owner physical-device verification (Light/Dark, BN/EN, narrow and large-font layouts, Hero actions, Profile, exam pattern setup, Browse/Result).
 - Cover remains a 782×382 crop from the owner-supplied reference; check its visual sharpness and confirm image usage rights before public distribution. See `assets/home/README.md`.
 

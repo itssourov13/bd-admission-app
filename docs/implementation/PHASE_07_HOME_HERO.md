@@ -1,6 +1,6 @@
 # Phase 7 — Home Hero Redesign and Runtime Follow-up
 
-**Status:** Implemented — Pending Owner Verification (2026-11-13). The implementation and release metadata are committed locally before EAS submission; no push.
+**Status:** Implemented — Pending Owner Verification (2026-11-13). Local implementation commit `0c9e90f`; EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is IN_PROGRESS; no push.
 
 ## Objective
 Provide a compact, premium academic Home Hero with a realistic campus cover, readable text, two genuine interactive exam/practice actions, responsive sizing, and reliable light/dark foreground contrast. Preserve navigation and resume behavior.

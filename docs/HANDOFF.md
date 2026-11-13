@@ -3,6 +3,7 @@
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
 **Previous HEAD before this follow-up:** `2dfd402` (`docs: audit home hero runtime issues`).
+**Implementation commit:** `0c9e90f` (`feat(ui): finalize home hero runtime fixes`), local only; not pushed.
 **Release candidate:** app/package/brand `0.1.6`, Android `versionCode 7`; package `com.admissionbd.app`; EAS project `16ba69b8-96d7-4856-a197-77acddebe1ec`. The `preview` profile remains INTERNAL APK and the existing EAS-managed signing identity is retained.
 
 ## Implemented
@@ -16,7 +17,8 @@
 ## Release notes / limitations
 
 - The previous v0.1.5 / code 6 EAS preview `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the Home Hero runtime follow-up. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
-- The new preview must use version `0.1.6` / Android code `7`; do not reuse code 6. EAS account/project and signing identity must remain unchanged.
+- New EAS preview submitted: build `dcf1b743-ea08-4d27-b01f-82fe26374ffa`; current status `IN_PROGRESS`; https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK artifact is not available yet.
+- The new preview uses version `0.1.6` / Android code `7`; v0.1.5/code 6 must not be reused. EAS account/project and signing identity remain unchanged.
 - Current cover is a temporary crop from the owner-provided reference, not a bespoke 1024×500 generated original. English decorative book-spine wording remains; verify quality and rights before a public store distribution.
 - Physical-device verification is still required for Light/Dark, Bangla/English, narrow/large-font layouts, both Home CTA destinations, Resume, Profile Stat, university exam-pattern setup, Browse and Result.
 - No Git push, production AAB or Play Store submission is included.
