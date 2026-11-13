@@ -38,3 +38,10 @@ Look at Home in light/dark, small (≈320dp) and large screens, large system fon
 
 ## Next
 Phase 8 adds a Publications entry on Home below the hero.
+
+
+## Runtime audit follow-up — 2026-11-13
+
+The owner-provided Android screenshots exposed visual regressions that were not covered by the original static checks. Both CTA Pressables now use callback-valued `style` functions, which NativeWind does not support; the returned button styles are therefore not applied. The hero also gained more stacked content (three wrapping feature pills, offline context, larger phone art and a 52dp secondary CTA), making it substantially taller than the earlier Phase 7 layout. See `docs/audits/HOME_HERO_RUNTIME_AUDIT.md` for the root-cause and evidence.
+
+Follow-up: use NativeWind static utility classes / `active:` modifiers for CTA surfaces; keep text colours semantic; compact the card around a new wide 1024×500 Home cover; verify both routes on Android in light/dark, BN/EN and large-font layouts. The Profile metric contrast regression is shared via `src/components/common/Stat.tsx` and is documented in the runtime audit. No source implementation was changed by the audit.

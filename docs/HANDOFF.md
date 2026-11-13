@@ -256,3 +256,8 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - Build message: "App-wide UX polish, browse search and stability fixes". EAS reused the configured remote Android keystore and project ID `16ba69b8-96d7-4856-a197-77acddebe1ec`.
 - Source commit: `0b235f2` (`feat(ui): polish admission app experience`). Source upload completed successfully; fingerprint was skipped using `EAS_SKIP_AUTO_FINGERPRINT=1` and project-directory upload was used because the earlier VCS archive path had an EPERM cleanup issue.
 - No push. Check this exact build ID for completion; do not start a duplicate build while it is running.
+
+
+## Home hero runtime audit — 2026-11-13
+
+Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot confirms both hero CTA visual surfaces are missing because the Pressables use NativeWind-unsupported callback styles; Profile Stat values lack a semantic foreground when no tone is passed. Hero content is also taller than the previous Phase 7 layout. The university catalogue currently bundles logos, not landscape covers; 1024×500 is a proposed Home hero cover dimension, not a recovered historical source spec. Full suite: 234/234 pass on Node 22.23.1. No app code or release configuration changed. Next implementation order: CTA classes, Stat foreground + regression test, add Home cover, compact responsive hero, then Android device checks (light/dark, BN/EN, large font, both CTA routes). No push.

@@ -329,3 +329,10 @@
 - Added transactional `replaceExistingPaperContent` support. It clears only current appearances for the target RU-V papers, preserving old question rows and FK-backed bookmarks/session history. Active browsing and practice queries now require a current paper appearance, so preserved historical orphan records cannot leak back into global practice pools.
 - Added integration coverage for replacement, stale-question pool exclusion, bookmark/session/answer preservation and verified import status. Verification: 60 tests, typecheck, lint and 61-pack schema validation passed under Node 22.23.1 (0 errors; 4,052 warnings, primarily existing candidate-pack warnings plus repeated source option-text warnings).
 - Updated schema, import workflow, README, current-state, task-state and QA documentation. Physical Android QA and a native APK/AAB release build remain outstanding. No push performed.
+
+
+## 2026-11-13 — Home hero runtime audit (audit only)
+
+- Reviewed supplied Android Home/Profile/Practice Results screenshots and traced the hero CTA and Stat text regressions to NativeWind Pressable callback styling and a missing semantic text foreground.
+- Recorded the hero-height growth and the absence of a prior landscape university-cover system; specified a proposed 1024×500 Home cover asset contract.
+- Added `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`; full suite passes 234/234 on Node 22.23.1. No app source, assets, dependencies, app identity or EAS/release metadata changed in this audit pass.

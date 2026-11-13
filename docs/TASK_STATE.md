@@ -387,3 +387,15 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [x] Owner installed and verified the APK on a physical Android device; first load about one minute, subsequent opens about 2–3 seconds.
 - [x] PR #2 merged and both PR CI and `main` push CI runs succeeded.
 - [ ] Build/inspect the production AAB and complete the Google Play listing, privacy/testing requirements and rollout.
+
+
+## Home hero runtime audit — 2026-11-13
+
+**Status:** Audit complete; implementation still pending. See `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`.
+
+- [x] Reviewed all three supplied Android screenshots and traced the Profile Stat foreground and Home CTA styling defects.
+- [x] Confirmed NativeWind 4.2.7 + callback-valued Pressable styles are the reason CTA style objects are not applied; confirmed the original routes and labels remain wired.
+- [x] Compared HomeHero with the earlier Phase 7 commit and measured the current university mark assets; no existing landscape cover asset/registry found.
+- [x] Full suite: 234/234 pass under Node 22.23.1.
+- [ ] Follow-up implementation: static NativeWind CTA classes, explicit Stat foreground + regression coverage, new 1024×500 Home cover, compact responsive hero and real-device verification.
+- Audit only: no app source/config/build changes; no push.

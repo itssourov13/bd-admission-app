@@ -255,3 +255,12 @@ Automated verification at this **2026-10-29 provisional-practice checkpoint**: 5
 
 ## Phase 8 content availability (2026-11-13)
 Library UI, importer, validator and SVG logo system are implemented. **No book or question content exists**: all five publishers (Udvash, ASPECT, ACS, Pankouri, Joykoli) are metadata-only. Logos: DU/RU/JU SVG and HSTU PNG bundled (sources in assets/universities/SOURCES.md); no publisher logos yet (owner-provided SVGs awaited, slots in assets/publishers/). CI-equivalent Android export with --no-bytecode passed and compiled the Metro/SVG path; a normal bytecode export hit a host Hermes SIGILL. New native dependency react-native-svg still requires a dev-client rebuild and device verification. Details: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
+
+
+## Home hero / dark-theme runtime audit — 2026-11-13
+
+- Owner screenshots from `/home/kali/screenshort/admission-runtime/` show two confirmed UI regressions: the Home hero Start practising / Take a mock exam controls have lost their intended button surfaces; Profile progress values (3, 13, 46.2%) render near-black against dark cards.
+- Root causes: `HomeHero.tsx` uses callback-valued `Pressable.style` under NativeWind 4.2.7 (unsupported; callback style object is not applied); `Stat.tsx` sends only `text-xl`, replacing `Txt`'s default semantic foreground.
+- Hero grew vertically after adding a 78×104dp phone motif, three wrapping feature pills, offline count and a full 52dp secondary CTA. The earlier Phase 7 implementation was more compact. Recommended target: ~190–220dp mobile card, tuned in device QA.
+- Existing university assets are compact logos (DU/RU/JU SVG, HSTU 1072×1363 PNG); no landscape cover registry or prior 1024×500 asset was found. A 1024×500 Home cover is the proposed new asset contract, not a verified historic university-cover spec.
+- Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. App source/config/release metadata untouched. Verification: `pnpm test` 234/234 under Node 22.23.1. CTA/Stat fixes and device QA remain follow-up implementation work.
