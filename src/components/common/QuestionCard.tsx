@@ -89,7 +89,8 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
           const isSelected = selected.includes(o.key);
           const isCorrect = showKey && o.isCorrect;
           const isWrong = showKey && isSelected && !o.isCorrect;
-          const border = isCorrect ? colors.brand500 : isWrong ? feedback.danger500 : isSelected ? colors.brand500 : colors.sand300;
+          // outline (not sand300) for the unselected border: sand300 on surface is 1.4:1, well under the 3:1 floor.
+          const border = isCorrect ? colors.brand500 : isWrong ? feedback.danger500 : isSelected ? colors.brand500 : colors.outline;
           const bg = isCorrect ? colors.brand100 : isWrong ? feedback.danger100 : isSelected ? colors.brand100 : colors.surface;
           return (
             <Pressable
@@ -104,7 +105,8 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
             >
               <View
                 className="w-8 h-8 rounded-full items-center justify-center"
-                style={{ backgroundColor: isCorrect ? colors.brand500 : isWrong ? feedback.danger500 : isSelected ? colors.brand500 : colors.sand100 }}
+                // brand600 (not brand500): this circle carries white text/icon, same AA-limit fix as Button/ChoiceChip.
+                style={{ backgroundColor: isCorrect ? colors.brand600 : isWrong ? feedback.danger500 : isSelected ? colors.brand600 : colors.sand100 }}
               >
                 {isCorrect ? <Ionicons name="checkmark" size={18} color={colors.white} />
                   : isWrong ? <Ionicons name="close" size={18} color={colors.white} />
@@ -140,7 +142,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
             </Txt>
           ))}
           {question.appearances.length > sources.length ? (
-            <Txt className="text-ink-400 text-xs mt-1">+{num(question.appearances.length - sources.length)}</Txt>
+            <Txt className="text-ink-500 text-xs mt-1">+{num(question.appearances.length - sources.length)}</Txt>
           ) : null}
         </View>
       ) : null}

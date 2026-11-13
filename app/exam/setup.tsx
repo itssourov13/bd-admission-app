@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Alert, ScrollView, View } from "react-native";
+import { useMemo, useState } from "react";
+import { Alert, Pressable, ScrollView, View } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
@@ -12,11 +12,11 @@ import { useQuery } from "@/hooks/useQuery";
 import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { countPoolBySubject, getInstitution, getPaperRule, listPapers, scopeRule } from "@/repositories/content";
+import { countPoolBySubject, getInstitution, getPaperRule, listExamPatterns, listPapers, scopeRule } from "@/repositories/content";
 import { getBookScopeLabel } from "@/repositories/library";
 import { resolveMarkingChoice } from "@/repositories/marking";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
-import { checkExamEligibility, clampCustomQuestions, customCountOptions, customMinuteOptions, planExam, suggestCustomMinutes } from "@/services/exam";
+import { checkExamEligibility, clampCustomQuestions, customCountOptions, customMinuteOptions, patternScope, planExam, planPatternScope, suggestCustomMinutes } from "@/services/exam";
 import { startStandardExam } from "@/services/practiceService";
 import type { QuestionCategory } from "@/types/domain";
 import { buildSubjectOptions, orderSubjects } from "@/services/subjects";
@@ -40,13 +40,37 @@ export default function ExamSetup() {
   const [customQuestions, setCustomQuestions] = useState<number | null>(null);
   const [customMinutes, setCustomMinutes] = useState<number | null>(null);
   const locked = Boolean(scope.institutionId || scope.institutionIds?.length || scope.paperId || scope.retrySessionId || scope.bookId);
-  const scopeBase = { ...scope, category: locked ? scope.category : category, subject: undefined, subjects: undefined };
+  // University scope (no exact paper/book/retry): the exam runs one of the university's stored patterns or Custom Practice.
+  const institutionIdsKey = (scope.institutionIds ?? []).join(",");
+  const paperIdsKey = (scope.paperIds ?? []).join(",");
+  const universityIds = useMemo(
+    () => (scope.paperId || scope.paperIds?.length || scope.bookId || scope.retrySessionId ? [] : scope.institutionIds?.length ? scope.institutionIds : scope.institutionId ? [scope.institutionId] : []),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [scope.paperId, scope.bookId, scope.retrySessionId, scope.institutionId, institutionIdsKey, paperIdsKey]
+  );
+  const universityIdsKey = universityIds.join(",");
+  const [patternKey, setPatternKey] = useState<string | null>(null);
+  const patternsQuery = useQuery(async (d) => {
+    if (universityIds.length === 0) return [];
+    const verified = await listExamPatterns(d, universityIds, false);
+    return verified.some((o) => o.eligible > 0) ? verified : listExamPatterns(d, universityIds, true);
+  }, [universityIdsKey]);
+  // University scopes wait for their stored patterns before anything else renders or queries (no "Custom practice" flash, no double pool query).
+  const patternsPending = universityIds.length > 0 && patternsQuery.data === null && !patternsQuery.error;
+  const patterns = patternsQuery.data ?? [];
+  const chosenPattern = patternKey === "custom" ? null
+    : patterns.find((o) => o.key === patternKey) ?? (patternKey === null ? patterns.find((o) => o.eligible >= o.required) ?? null : null);
+  const patternScopeKeys = chosenPattern ? patternScope(chosenPattern) : {};
+  const effectiveScope = chosenPattern ? { ...scope, ...patternScopeKeys, paperId: patternScopeKeys.paperId, paperIds: patternScopeKeys.paperIds } : scope;
+  const scopeBase = { ...effectiveScope, category: locked ? scope.category : category, subject: undefined, subjects: undefined };
   const baseKey = JSON.stringify(scopeBase);
   const selectedSections = subjectSelection.scopeKey === baseKey ? subjectSelection.subjects : [];
 
   // Scope-level data only: subject toggles never re-run these queries (counts come from one grouped query).
   const base = useQuery(async (d) => {
+    if (patternsPending) return null;
     const paperPattern = scopeBase.paperId ? await getPaperRule(d, scopeBase.paperId) : null;
+    const patternRules = !scopeBase.paperId && scopeBase.paperIds?.length ? await Promise.all(scopeBase.paperIds.map((id) => getPaperRule(d, id))) : null;
     const verified = await countPoolBySubject(d, scopeBase, false);
     const reviewMode = verified.total === 0 && (await countPoolBySubject(d, scopeBase, true)).total > 0;
     const pool = reviewMode ? await countPoolBySubject(d, scopeBase, true) : verified;
@@ -57,7 +81,9 @@ export default function ExamSetup() {
       bySubject: pool.bySubject,
       subjectOptions: buildSubjectOptions(pool.bySubject),
       paperPattern,
-      plan: planExam(scopeBase.paperId, paperPattern, { bookScoped: Boolean(scopeBase.bookId) }),
+      plan: patternRules
+        ? planPatternScope(patternRules)
+        : planExam(scopeBase.paperId, paperPattern, { bookScoped: Boolean(scopeBase.bookId), institutionScoped: Boolean(scopeBase.institutionId || scopeBase.institutionIds?.length) }),
       selectionConfig,
       subjectCounts: selectionConfig
         ? orderSubjects(selectionConfig.subjects).map((subject) => ({ subject, count: pool.bySubject[subject] ?? 0 }))
@@ -68,7 +94,7 @@ export default function ExamSetup() {
         : scopeBase.institutionIds?.length ? await universityLabel(d, scopeBase.institutionIds[0], lang)
         : scopeBase.institutionId ? (await getInstitution(d, scopeBase.institutionId))?.name ?? null : null
     };
-  }, [baseKey]);
+  }, [baseKey, patternsPending]);
 
   const baseData = base.data;
   const config = baseData?.selectionConfig ?? null;
@@ -123,11 +149,11 @@ export default function ExamSetup() {
   ]);
 
   const rule = ruleQuery.data;
-  const isIllustrative = rule?.status === "illustrative" && Boolean(scopeBase.paperId);
+  const isIllustrative = rule?.status === "illustrative" && Boolean(scopeBase.paperId || scopeBase.paperIds?.length);
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={q.data?.plan.kind === "unavailable" ? t("exam.customTitle") : isIllustrative ? t("exam.sourcePracticeTitle") : t("exam.setupTitle")} />
-      {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (() => {
+      {patternsPending || q.loading || (!q.data && !q.error) ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (() => {
         const d = q.data!;
         // Exact papers never inherit the generic 100/60 defaults: they use their own stored pattern or an explicit custom choice.
         const isCustom = d.plan.kind === "unavailable";
@@ -169,6 +195,34 @@ export default function ExamSetup() {
                     <ChoiceChip label={t("tab.medical")} selected={category === "medical"} onPress={() => setCategory("medical")} />
                   </View>
                 )}
+
+                {universityIds.length > 0 ? (
+                  <View className="mt-4">
+                    <Txt weight="semibold" className="text-ink-900 mb-2">{t("exam.patternTitle")}</Txt>
+                    {patterns.length === 0 ? <Txt className="text-ink-500 text-xs leading-5 mb-2">{t("exam.patternNone")}</Txt> : null}
+                    {patterns.map((o) => {
+                      const selectedOption = chosenPattern?.key === o.key;
+                      const enough = o.eligible >= o.required;
+                      const title = [o.academicSession ? t("paper.session", { session: o.academicSession }) : null, o.unit ? t("paper.unit", { unit: o.unit }) : null].filter(Boolean).join(" · ");
+                      return (
+                        <Pressable key={o.key} accessibilityRole="radio" accessibilityState={{ selected: selectedOption, disabled: !enough }} disabled={!enough} onPress={() => setPatternKey(o.key)} style={{ minHeight: 44 }} className="mb-2 active:opacity-90">
+                          <Card className={`p-3.5 ${selectedOption ? "border-brand-500 border-2" : ""} ${enough ? "" : "opacity-60"}`}>
+                            <Txt weight="bold" className="text-ink-900 text-sm">{title || t("exam.patternTitle")}</Txt>
+                            <Txt className="text-ink-700 text-xs leading-5 mt-0.5">{t("exam.patternMeta", { questions: num(o.required), minutes: num(Math.ceil(o.durationSeconds / 60)), ready: num(o.eligible) })}</Txt>
+                            <Txt className="text-ink-500 text-xs mt-0.5">{o.official ? t("exam.patternVerified") : t("exam.patternSource")}</Txt>
+                            {!enough ? <Txt className="text-ink-500 text-xs mt-0.5">{t("exam.patternShort", { n: num(o.required - o.eligible) })}</Txt> : null}
+                          </Card>
+                        </Pressable>
+                      );
+                    })}
+                    <Pressable accessibilityRole="radio" accessibilityState={{ selected: !chosenPattern }} onPress={() => setPatternKey("custom")} style={{ minHeight: 44 }} className="active:opacity-90">
+                      <Card className={`p-3.5 ${!chosenPattern ? "border-brand-500 border-2" : ""}`}>
+                        <Txt weight="bold" className="text-ink-900 text-sm">{t("exam.patternCustom")}</Txt>
+                        <Txt className="text-ink-700 text-xs leading-5 mt-0.5">{t("exam.patternCustomBody")}</Txt>
+                      </Card>
+                    </Pressable>
+                  </View>
+                ) : null}
 
                 {sectionConfig ? (
                   <View className="mt-4">

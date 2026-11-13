@@ -8,7 +8,8 @@ import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
-import { countEligible, listInstitutions, listPapersByInstitutions } from "@/repositories/content";
+import { countEligible, listExamPatterns, listInstitutions, listPapersByInstitutions } from "@/repositories/content";
+import { examEntryAvailable, STANDARD_EXAM_QUESTIONS } from "@/services/exam";
 import { groupInstitutions, universityDisplayName, type UniversityGroup } from "./universities";
 import type { PaperSummary } from "@/types/domain";
 
@@ -56,6 +57,11 @@ export function VarsityScreen() {
     [idsKey]
   );
 
+  const groupPatterns = useQuery(async (db) => (group ? listExamPatterns(db, group.institutionIds, false) : []), [idsKey]);
+  const examAvailable = group
+    ? examEntryAvailable(groupPatterns.data ?? [], group.eligibleCount > 0 ? group.eligibleCount : group.reviewCandidateCount)
+    : (base.data?.eligible ?? 0) >= STANDARD_EXAM_QUESTIONS;
+
   const title = t("catalog.varsityTitle");
   const subtitle = t("catalog.varsitySubtitle");
   const practiceScope = group ? { category: "varsity", institutionIds: group.institutionIds.join(",") } : { category: "varsity" };
@@ -73,7 +79,7 @@ export function VarsityScreen() {
       {practiceAvailable ? (
         <View className="mt-4 gap-2.5">
           <Button label={group ? t("catalog.practiceUniversity") : t("catalog.practiceAll")} icon={<Ionicons name="flash" size={18} color={colors.white} />} onPress={() => router.push(href("/flash/setup", practiceScope))} />
-          {!group || group.eligibleCount >= 100 ? <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", practiceScope))} /> : null}
+          {examAvailable ? <Button label={t("home.examTitle")} variant="outline" onPress={() => router.push(href("/exam/setup", practiceScope))} /> : null}
         </View>
       ) : null}
       {group ? <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-5">{universityDisplayName(group.key, group.fallbackName, lang)}</Txt> : null}
@@ -100,7 +106,7 @@ export function VarsityScreen() {
           contentContainerStyle={{ paddingBottom: 28 }}
           ItemSeparatorComponent={() => <View className="h-3" />}
           renderItem={({ item: p }) => (
-            <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(p.id)}`))}>
+            <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(p.id)}`))} className="active:opacity-90">
               <Card className="p-4 flex-row items-center gap-3">
                 <UniversityLogo universityKey={group.key} shortName={group.shortName} />
                 <View className="flex-1">
@@ -133,7 +139,7 @@ export function VarsityScreen() {
         renderItem={({ item: g }) => {
           const name = universityDisplayName(g.key, g.fallbackName, lang);
           return (
-            <Pressable accessibilityRole="button" accessibilityLabel={name} onPress={() => setSelected(g.key)}>
+            <Pressable accessibilityRole="button" accessibilityLabel={name} onPress={() => setSelected(g.key)} className="active:opacity-90">
               <Card className="p-4 flex-row items-center gap-3">
                 <UniversityLogo universityKey={g.key} shortName={g.shortName} />
                 <View className="flex-1">

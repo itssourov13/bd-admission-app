@@ -5,7 +5,7 @@ import { getPaperRule, loadQuestions, practiceQuestionIds, resolveRuleForQuestio
 import {
   addExamQuestions, createSession, finalizeExamSession, getActiveExam, getSession, getSessionAnswers, newSessionId, saveExamSelection, setExamFlag, type SessionAnswerRow
 } from "../repositories/sessions.ts";
-import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
+import { checkExamEligibility, isValidCustomPractice, pickExamQuestions, planExam, planPatternScope, type CustomPracticeConfig, type ExamEligibility } from "./exam.ts";
 import { scoreAttempt, isAnswerCorrect, UNCONFIGURED_RULE, type ExamScore, type ScorableQuestion, type ScoringRule } from "./scoring.ts";
 import { examAdvice, type AdviceKey } from "./advice.ts";
 import type { Rng } from "./flash.ts";
@@ -38,7 +38,12 @@ export async function startStandardExam(
 ): Promise<StartExamResult> {
   const getPool = (poolFilter: PoolFilter) => practiceQuestionIds(db, poolFilter, opts.includeUnverified === true);
   const storedRule = filter.paperId ? await getPaperRule(db, filter.paperId) : null;
-  const plan = planExam(filter.paperId, storedRule, { bookScoped: Boolean(filter.bookId) });
+  const patternScoped = !filter.paperId && Boolean(filter.paperIds?.length);
+  const patternRules = patternScoped ? await Promise.all(filter.paperIds!.map((id) => getPaperRule(db, id))) : [];
+  const institutionScoped = Boolean(filter.institutionId || filter.institutionIds?.length);
+  const plan = patternScoped
+    ? planPatternScope(patternRules)
+    : planExam(filter.paperId, storedRule, { bookScoped: Boolean(filter.bookId), institutionScoped });
   const customRequested = plan.kind === "unavailable" && opts.custom !== undefined;
   if (plan.kind === "unavailable" && !customRequested) {
     return { ok: false, eligibility: checkExamEligibility(0, 0), reason: "rule_unavailable" };
@@ -48,7 +53,7 @@ export async function startStandardExam(
   }
   const custom = customRequested ? opts.custom! : null;
   // Never consume another source's values: an official/source plan only supplies its own stored pattern.
-  const paperPattern = plan.kind === "paper" ? storedRule : null;
+  const paperPattern = plan.kind === "paper" && filter.paperId ? storedRule : null;
   const required = plan.kind === "unavailable" ? custom!.questions : plan.required;
   const durationSeconds = plan.kind === "unavailable" ? custom!.seconds : plan.durationSeconds;
   const selection = paperPattern?.selectionConfig ?? null;
@@ -92,7 +97,7 @@ export async function startStandardExam(
 
   const resolved = await resolveRuleForQuestions(db, picked, filter);
   // Never attach one paper's question-count/section pattern to an all-institution or global mock exam.
-  const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : {
+  const rule = custom ? { ...UNCONFIGURED_RULE } : filter.paperId ? (paperPattern ?? resolved) : patternScoped ? resolved : {
     ...resolved, totalQuestions: null, durationSeconds: null, selectionConfig: null
   };
   // Marking profile (Phase 4): same resolution for every exam type; a complete stored rule still wins over an automatic default.

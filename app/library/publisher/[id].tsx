@@ -57,7 +57,7 @@ export default function PublisherScreen() {
         renderItem={({ item: b }) => {
           const practice = bookPracticeState(b);
           return (
-            <Pressable accessibilityRole="button" accessibilityLabel={localizedName(b.title, b.titleBn, lang)} onPress={() => router.push(href(`/library/book/${encodeURIComponent(b.id)}`))}>
+            <Pressable accessibilityRole="button" accessibilityLabel={localizedName(b.title, b.titleBn, lang)} onPress={() => router.push(href(`/library/book/${encodeURIComponent(b.id)}`))} className="active:opacity-90">
               <Card className="p-4 gap-2">
                 <View className="flex-row items-center gap-2">
                   <View className="flex-1"><Txt weight="bold" className="text-ink-900 text-base leading-6">{localizedName(b.title, b.titleBn, lang)}</Txt></View>

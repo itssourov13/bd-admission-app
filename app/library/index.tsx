@@ -35,7 +35,7 @@ export default function LibraryScreen() {
             const name = localizedName(p.name, p.nameBn, lang);
             const secondary = lang === "bn" ? p.name : p.nameBn;
             return (
-              <Pressable accessibilityRole="button" accessibilityLabel={name} onPress={() => router.push(href(`/library/publisher/${encodeURIComponent(p.id)}`))}>
+              <Pressable accessibilityRole="button" accessibilityLabel={name} onPress={() => router.push(href(`/library/publisher/${encodeURIComponent(p.id)}`))} className="active:opacity-90">
                 <Card className="p-4 flex-row items-center gap-3">
                   <PublisherMark name={p.name} logoKey={p.logoKey} slug={p.slug} />
                   <View className="flex-1">

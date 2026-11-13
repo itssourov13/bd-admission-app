@@ -12,7 +12,7 @@ const p = {
   navy900: "#14243A", navy800: "#1C3451",
   brand100: "#DDF3EA", brand200: "#A9DDCC", brand500: "#16866A", brand600: "#0E735A", brand700: "#0A5B48", brand800: "#064738",
   gold100: "#FFF1CC", gold400: "#F6C65B", gold500: "#E8AB35", gold700: "#84580B",
-  ink900: "#14243A", ink800: "#263A51", ink700: "#405168", ink500: "#68778B", ink400: "#8E9BAC", ink300: "#B8C1CD",
+  ink900: "#14243A", ink800: "#263A51", ink700: "#405168", ink500: "#627185", ink400: "#8E9BAC", ink300: "#B8C1CD",
   sand50: "#FBFCFE", sand100: "#F5F7FA", sand200: "#E5EAF1", sand300: "#D3DAE5",
   body: "#F5F7FA", surface: "#FFFFFF", border: "#E5EAF1", white: "#FFFFFF"
 } as const;
@@ -22,11 +22,16 @@ export type ThemeScheme = "light" | "dark";
 
 export const lightColors = {
   navy900: p.navy900, navy800: p.navy800,
-  ink900: p.ink900, ink800: p.ink800, ink700: p.ink700, ink500: p.ink500, ink400: p.ink400, ink300: p.ink300,
+  // ink400 is hand-tuned (not p.ink400): #8190A4 clears the 3:1 UI-component/icon threshold on both surface (3.25)
+  // and body (3.03); p.ink400 stays untouched since it also feeds brand.config.json / native splash assets.
+  ink900: p.ink900, ink800: p.ink800, ink700: p.ink700, ink500: p.ink500, ink400: "#8190A4", ink300: p.ink300,
   sand50: p.sand50, sand100: p.sand100, sand200: p.sand200, sand300: p.sand300,
   brand100: p.brand100, brand200: p.brand200, brand500: p.brand500, brand600: p.brand600, brand700: p.brand700, brand800: p.brand800,
   gold100: p.gold100, gold400: p.gold400, gold500: p.gold500, gold700: p.gold700,
-  bgBody: p.body, surface: p.surface, border: p.border, white: p.white
+  bgBody: p.body, surface: p.surface, border: p.border, white: p.white,
+  // Dedicated border colour for interactive controls (unselected chips, answer-option rows, outline buttons);
+  // kept separate from `border` (generic hairline) because those need >=3:1, which `sand300` (1.4:1) does not clear.
+  outline: "#8190A4"
 } as const;
 
 export type ThemeColors = { [K in keyof typeof lightColors]: string };
@@ -38,12 +43,14 @@ export const darkColors: ThemeColors = {
   sand50: "#121C29", sand100: "#1C2939", sand200: "#273649", sand300: "#364860",
   brand100: "#12372E", brand200: "#1F5E4D", brand500: p.brand500, brand600: p.brand600, brand700: "#6FD3B5", brand800: p.brand800,
   gold100: "#3A2F12", gold400: p.gold400, gold500: p.gold500, gold700: "#F2C461",
-  bgBody: "#0E1722", surface: "#162131", border: "#273649", white: p.white
+  bgBody: "#0E1722", surface: "#162131", border: "#273649", white: p.white,
+  // Distinct from ink300 (#5E6C80, 3.03:1): #6B7B91 clears 3:1 on dark surface (3.76:1) for interactive-control borders.
+  outline: "#6B7B91"
 };
 
 export type ThemeFeedback = { danger500: string; danger100: string; danger700: string };
 export const lightFeedback: ThemeFeedback = { danger500: "#B3362A", danger100: "#FCE9E6", danger700: "#8A241B" };
-export const darkFeedback: ThemeFeedback = { danger500: "#D9493D", danger100: "#3B1D1B", danger700: "#FF9F95" };
+export const darkFeedback: ThemeFeedback = { danger500: "#CC3F34", danger100: "#3B1D1B", danger700: "#FF9F95" };
 
 export type ThemeGradients = {
   hero: readonly [string, string, string];
@@ -65,6 +72,34 @@ export function buildGradients(c: ThemeColors): ThemeGradients {
     fab: [p.brand500, p.brand800],
     signin: [c.brand100, c.bgBody, c.gold100]
   };
+}
+
+/**
+ * Home hero foreground/background tokens. The hero sits on a navy -> green gradient that is dark in BOTH themes, so its
+ * text must use light, theme-independent colours: never the theme-flipped tokens (dark `brand200` is a dark tint and was
+ * unreadable on the gradient). tests/hero-contrast.test.ts checks every pair against the gradient stops.
+ */
+export const HERO = {
+  /** Gradient stops, darkest to lightest; text must pass on every stop it can overlap. */
+  stops: [p.navy900, p.navy800, p.brand800],
+  eyebrow: "#A9DDCC",
+  title: "#FFFFFF",
+  body: "#E3EAF2",
+  context: "#BFE8D9",
+  gold: p.gold400,
+  primary: { bg: "#FFFFFF", fg: p.navy900 },
+  resume: { bg: p.gold400, fg: p.navy900 },
+  /** Secondary button: white at `alpha` over the gradient, with a solid-enough border. */
+  secondary: { overlay: "#FFFFFF", alpha: 0.14, fg: "#FFFFFF", border: "rgba(255,255,255,0.6)" },
+  pill: { overlay: "#FFFFFF", alpha: 0.12, fg: "#E3EAF2" }
+} as const;
+
+/** Blends `fg` at `alpha` over opaque `bg` (both hex) and returns the resulting opaque hex. */
+export function blendOver(fg: string, alpha: number, bg: string): string {
+  const f = hexToChannels(fg).split(" ").map(Number);
+  const b = hexToChannels(bg).split(" ").map(Number);
+  const mix = f.map((v, i) => Math.round(v * alpha + b[i]! * (1 - alpha)));
+  return "#" + mix.map((v) => v.toString(16).padStart(2, "0")).join("").toUpperCase();
 }
 
 export type ThemeShadow = {
@@ -95,7 +130,7 @@ export type ThemeTokens = {
 /** Token name -> CSS variable. Kept in sync with tailwind.config.js (which references the same `--c-*` names). */
 const VAR_TOKENS = [
   "navy900", "navy800", "ink900", "ink800", "ink700", "ink500", "ink400", "ink300",
-  "sand50", "sand100", "sand200", "sand300",
+  "sand50", "sand100", "sand200", "sand300", "outline",
   "brand100", "brand200", "brand500", "brand600", "brand700", "brand800",
   "gold100", "gold400", "gold500", "gold700"
 ] as const;

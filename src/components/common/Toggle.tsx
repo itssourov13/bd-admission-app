@@ -10,7 +10,7 @@ export function ChoiceChip({ label, selected, onPress, disabled, multi }: { labe
       disabled={disabled}
       onPress={onPress}
       style={{ minHeight: 44 }}
-      className={`rounded-full px-4 items-center justify-center border ${selected ? "bg-brand-500 border-brand-500" : "bg-surface border-sand-300"} ${disabled ? "opacity-50" : ""}`}
+      className={`rounded-full px-4 items-center justify-center border ${selected ? "bg-brand-600 border-brand-600" : "bg-surface border-outline"} ${disabled ? "opacity-50" : ""}`}
     >
       <Txt weight="semibold" className={`text-sm ${selected ? "text-white" : "text-ink-700"}`}>{label}</Txt>
     </Pressable>

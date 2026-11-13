@@ -6,6 +6,7 @@ import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { QuestionCard } from "@/components/common/QuestionCard";
 import { RuleNotice } from "@/components/common/RuleNotice";
 import { Stat } from "@/components/common/Stat";
+import { AccuracyBar, ScoreRing } from "@/components/common/ScoreRing";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useQuery } from "@/hooks/useQuery";
 import { href, scopeParams } from "@/features/navigation/links";
@@ -96,6 +97,8 @@ export default function ResultScreen() {
     timeLine = num(formatClock(r.summary.totalSeconds));
   }
 
+  const accuracyKnown = accuracyText !== t("result.notAvailable");
+
   // Exam-only extras: numbering matches the exam screen (section order), plus per-subject breakdown and the review filter.
   const provisional = session.filter.reviewUnverified === true;
   const examItems = exam ? buildExamSections(exam.questions, session.filter.paperId).flatMap((s) => s.data) : [];
@@ -121,12 +124,17 @@ export default function ResultScreen() {
           {reason ? <View className="mt-2"><Chip label={reason} /></View> : null}
           {bookLabel ? <Txt className="text-ink-500 text-xs mt-2">{t("history.book", { name: bookLabel })}</Txt> : null}
           {selectedSubjectsOf(session.filter).length ? <Txt className="text-ink-500 text-xs mt-2">{t("history.subjects", { subjects: selectedSubjectsOf(session.filter).map(subjectLabel).join(", ") })}</Txt> : null}
-          <Txt className="text-ink-700 text-sm mt-3">{t("result.accuracy")}: {accuracyText}</Txt>
+          <View className="mt-4">
+            <ScoreRing percent={accuracyKnown ? accuracy : 0} color={colors.brand700} trackColor={colors.sand200} accessibilityLabel={`${t("result.accuracy")}: ${accuracyText}`}>
+              <Txt font="display" weight="bold" className="text-ink-900 text-2xl">{accuracyText}</Txt>
+              <Txt className="text-ink-500 text-xs">{t("result.accuracy")}</Txt>
+            </ScoreRing>
+          </View>
           {timeLine ? <Txt className="text-ink-500 text-xs mt-1">{t("result.time")}: {timeLine}</Txt> : null}
         </Card>
         {session.filter.reviewUnverified ? <Card className="p-3.5 mt-3"><Txt className="text-ink-700 text-sm leading-5">{t("practice.provisionalBanner")}</Txt></Card> : null}
         <View className="flex-row flex-wrap gap-2.5 mt-3">{counts.map((c) => <Stat key={c.label} {...c} />)}</View>
-        <Txt className="text-ink-400 text-xs leading-5 mt-3">{t("result.accuracyNote")}</Txt>
+        <Txt className="text-ink-500 text-xs leading-5 mt-3">{t("result.accuracyNote")}</Txt>
         <View className="mt-4"><RuleNotice rule={rule} status={session.ruleStatus ?? "unconfigured"} /></View>
         {session.ruleProfile ? <Txt className="text-ink-500 text-xs mt-2">{t("marking.usedProfile", { name: lang === "bn" ? session.ruleProfile.name.bn || session.ruleProfile.name.en : session.ruleProfile.name.en || session.ruleProfile.name.bn })}</Txt> : null}
         {passNote ? <Txt className="text-ink-700 text-sm leading-5 mt-1">{passNote}</Txt> : null}
@@ -139,7 +147,8 @@ export default function ResultScreen() {
                   <Txt weight="semibold" className="text-ink-900 text-sm flex-1">{row.subject === null ? t("exam.sectionOther") : subjectLabel(row.subject)}</Txt>
                   <Txt className="text-ink-500 text-xs">{row.accuracyPercent === null ? t("result.notAvailable") : t("result.subjectAccuracy", { a: num(row.accuracyPercent) })}</Txt>
                 </View>
-                <Txt className="text-ink-700 text-xs mt-1">{t("result.subjectRow", { c: num(row.correct), i: num(row.incorrect), u: num(row.unanswered) })}</Txt>
+                <View className="mt-2"><AccuracyBar percent={row.accuracyPercent} color={colors.brand700} trackColor={colors.sand200} /></View>
+                <Txt className="text-ink-700 text-xs mt-2">{t("result.subjectRow", { c: num(row.correct), i: num(row.incorrect), u: num(row.unanswered) })}</Txt>
               </Card>
             ))}
           </View>

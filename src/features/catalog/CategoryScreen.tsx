@@ -58,7 +58,7 @@ export function CategoryScreen({ category }: { category: Extract<QuestionCategor
           if (item.kind === "institution") {
             const i = item.data;
             return (
-              <Pressable accessibilityRole="button" accessibilityLabel={i.name} onPress={() => router.push(href(`/institution/${encodeURIComponent(i.id)}`, { category }))}>
+              <Pressable accessibilityRole="button" accessibilityLabel={i.name} onPress={() => router.push(href(`/institution/${encodeURIComponent(i.id)}`, { category }))} className="active:opacity-90">
                 <Card className="p-4 flex-row items-center gap-3">
                   <View className="w-12 h-12 rounded-2xl bg-brand-100 items-center justify-center">
                     <Txt weight="bold" className="text-brand-700 text-sm">{i.code}</Txt>
@@ -76,7 +76,7 @@ export function CategoryScreen({ category }: { category: Extract<QuestionCategor
           }
           const p = item.data;
           return (
-            <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(p.id)}`))}>
+            <Pressable accessibilityRole="button" onPress={() => router.push(href(`/paper/${encodeURIComponent(p.id)}`))} className="active:opacity-90">
               <Card className="p-4 flex-row items-center gap-3">
                 <View className="w-12 h-12 rounded-2xl bg-gold-100 items-center justify-center">
                   <Txt weight="bold" className="text-gold-700 text-sm">{p.institutionCode}</Txt>

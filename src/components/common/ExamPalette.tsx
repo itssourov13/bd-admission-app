@@ -18,7 +18,7 @@ interface Props {
 type Cell = { bg: string; border: string; fg: string };
 function paletteCells(colors: ReturnType<typeof useTheme>["colors"]): Record<PaletteState, Cell> {
   return {
-    unanswered: { bg: colors.surface, border: colors.sand300, fg: colors.ink700 },
+    unanswered: { bg: colors.surface, border: colors.outline, fg: colors.ink700 },
     answered: { bg: colors.brand100, border: colors.brand500, fg: colors.brand700 },
     flagged: { bg: colors.gold100, border: colors.gold500, fg: colors.gold700 },
     flaggedAnswered: { bg: colors.brand100, border: colors.gold500, fg: colors.brand700 }

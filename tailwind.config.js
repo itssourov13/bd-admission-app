@@ -10,6 +10,7 @@ module.exports = {
     gold:{100:v("gold-100"),400:v("gold-400"),500:v("gold-500"),700:v("gold-700")},
     ink:{900:v("ink-900"),800:v("ink-800"),700:v("ink-700"),500:v("ink-500"),400:v("ink-400"),300:v("ink-300")},
     sand:{50:v("sand-50"),100:v("sand-100"),200:v("sand-200"),300:v("sand-300")},
+    outline:v("outline"),
     body:v("body"),surface:v("surface")
   },fontFamily:{
     display:["Fraunces_600SemiBold"],"display-bold":["Fraunces_700Bold"],sans:["Manrope_400Regular"],

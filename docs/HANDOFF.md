@@ -204,3 +204,45 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 - The default VCS archive path failed before build creation while cleaning a temporary shallow Git clone (EPERM unlink in .git/objects/pack). Retry used the documented EAS_NO_VCS=1 project-directory archive path and EAS_SKIP_AUTO_FINGERPRINT=1; EAS accepted the source upload and created the build.
 - Release metadata commit: 7798ef1. Build source was submitted from the clean local working tree. This task did not push the new version commit to GitHub.
 - Do not start a duplicate build. Wait for this build's result, then inspect the APK and perform update installation/device QA. No APK URL is available yet.
+
+
+## Phase 11 — Home UX, contrast, university-aware exam (2026-11-13) — IMPLEMENTED, PENDING OWNER VERIFICATION
+- Branch `feat/import-hstu-verified-answers-2026-11-12`, base HEAD `2a458ac`. Working tree dirty (Phase 11 code + docs), not yet committed.
+- Done: exam-pattern resolver (`src/services/exam.ts`, `PoolFilter.paperIds`, content repository pattern query, `app/exam/setup.tsx`), `>= 100` gates removed, hero/CTA/contrast work with tests. Detail: `docs/implementation/PHASE_11_HOME_UX_AND_EXAM_PATTERN.md`.
+- Post-audit fixes: two stale tests updated (university scope now refused without Custom Practice), `use-memo` lint error fixed, `setup.tsx` loading gate added (no Custom-practice flash, no duplicate queries).
+- Checks (Node 22.23.1): test 227/227, typecheck, lint, content:check, diff --check all clean. Metro export not run.
+- Skipped on purpose: Expo Go `copyAsync` failure (dev-only; use APK/dev client).
+- Next: commit locally (no push, no version bump, no EAS build); real-device check of hero (light/dark, Bangla/English), JU/DU/RU/HSTU exam options, setup-screen loading; decide U2 preset and exam-timer re-render fix.
+
+## App-wide audit (read-only) — 2026-11-13 — COMPLETE
+- Report: `docs/audits/APP_WIDE_AUDIT.md`. Audit only: no app code, config, dependency or test changed; no tests/lint/typecheck/export/dev server run; Phase 11 working tree preserved (HEAD `2a458ac`, uncommitted).
+- Health: **good; no Critical findings; architecture adequate.** Repo is not yet "green" only because of Phase 11 test/lint debt.
+- Previous issues: (1) the two failing tests (`tests/repositories.test.ts:170–183`, `tests/ru-verified-bank-import.test.ts:154`) are **stale expectations**; the Phase 11 rule (institution scope never uses generic 100/60; RU/RU-V have no stored exam rule) is correct, so update the tests, do not revert the app. (2) `use-memo` ×2 at `app/exam/setup.tsx:47`: two `.join(",")` calls in the dependency array; use plain key strings. (3) Expo Go `copyAsync` "not writable": Expo Go per-project file-system scope vs `expo-sqlite`'s app-wide `defaultDatabaseDirectory`; the APK path is owner-verified and needs no change.
+- Next smallest steps: fix the two tests; fix setup.tsx deps and add a `patternsQuery` loading gate; run `pnpm test && pnpm typecheck && pnpm lint && pnpm content:check` once; reconcile the Phase 11 docs (they still say "In Progress / none yet", which is stale) and commit locally. No push, no version bump, no EAS build.
+- Optional later: isolate the exam timer and memoize rows (smoothness), a full-length-practice preset (product decision), an Expo Go note in `docs/EXPO_LOCAL_PREVIEW.md`.
+
+## UI/UX/visual audit (read-only) — 2026-11-13 — COMPLETE
+- Report: `docs/audits/UI_UX_VISUAL_AUDIT.md`. No app code changed.
+- Verdict: visual foundation good; no Critical findings. Top items: V1 no press feedback on 14 tappable cards (`PressableCard` unused), V2 text-only Result screen, V3 Browse has no search, V4 control borders/chevrons/placeholder below 3:1, V5 white-on-brand500 only 4.51:1.
+- Next (priority order): V1 press feedback, V2 result ring/bars, V4/V5 contrast tokens + tests, V3 Browse search, then device checks for V6–V8/V10. Phase 11 commit still pending.
+
+## UI/UX implementation pass — 2026-11-13 — IMPLEMENTED (static/focused checks only), PENDING DEVICE VERIFICATION
+- Status table: `docs/audits/UI_UX_VISUAL_AUDIT.md` section 5. Nothing committed/pushed; no version, EAS or signing change; Phase 11 changes preserved.
+- Done: V4/V5 contrast tokens; V1 press feedback on all 14 card locations; V2 Result `ScoreRing` + `AccuracyBar` (`src/components/common/ScoreRing.tsx`, Views only); V3 Browse search (debounced, bounded `LIKE` on question text via `src/repositories/search.ts`, optional trailing `search` arg on `listPaperQuestionIds`/`listBookQuestionIds`) + `onEndReached` paging; 4 new i18n keys (`browse.search*`, `browse.clearSearch`); `tests/browse-search.test.ts`.
+- Deferred: V6-V10 (device look first); search over option/explanation text or FTS5; Home progress strip.
+- Next: device check (light/dark, Bangla/English, large font) of Result ring on Android, Browse search typing/scroll smoothness, press feedback; then commit locally.
+
+## Re-investigation follow-up — 2026-11-13 — FIXED (static/focused checks only)
+- Confirmed and fixed: (1) `TextField` border and `ExamPalette` unanswered-cell border now use `colors.outline` instead of `sand300`; (2) Browse stale `loadMore()` failure no longer sets `error` after a newer search/filter (new `src/services/requestGate.ts`, used in `app/browse.tsx`).
+- Tests added: `tests/request-gate.test.ts`, source-guard test in `tests/settings-theme.test.ts`. Details: `docs/audits/UI_UX_VISUAL_AUDIT.md` section 6.
+- Left unchanged on purpose: `SettingsControls` selected-segment border, native Switch off-track colour.
+- Still needs a device: border visibility (light/dark), Browse typing/paging/error behaviour. Nothing committed or pushed; no version/EAS/signing change.
+
+## Preview candidate verification — 2026-11-13
+
+- Final source state verified on Node 22.23.1 / pnpm 11.10.0: full suite **231/231 pass** (0 fail/skip/cancel); `pnpm typecheck`, full `pnpm lint`, `pnpm content:check`, `git diff --check`, and `pnpm exec expo export --platform android --no-bytecode` all pass.
+- Content integrity: 217 packs / 13,609 questions; generated SQLite seed 22.68 MiB is current. Android Metro export bundled 2,010 modules into an approximately 4 MB JS bundle. This is a bundling check, not a native APK or device runtime test.
+- The two follow-up issues in UI_UX_VISUAL_AUDIT.md section 6 were independently confirmed and fixed: TextField/ExamPalette borders now use `colors.outline`; Browse stale `loadMore` failures are guarded by the request gate. Focused tests passed 13/13 before this full-suite run.
+- Previous EAS preview build `41bd1c7e-9376-41a7-abb0-860ab8031273` is now confirmed FINISHED (v0.1.5 / Android versionCode 6), artifact: https://expo.dev/artifacts/eas/YWujsXpdg9loC_JWWtF8aj4hVhaLt_vJ-VuIM3Bz1Kg.apk. This is the earlier pre-UI-implementation build, not the new candidate.
+- Device QA remains pending: Result ring rendering, Browse typing/pagination/error recovery, light/dark contrast, Bangla/English and large font layouts. Expo Go tunnel/server is stopped.
+- Changes remain local only; no push. Release metadata (`0.1.5`, Android versionCode `6`, app ID `com.admissionbd.app`, EAS project ID) is unchanged.

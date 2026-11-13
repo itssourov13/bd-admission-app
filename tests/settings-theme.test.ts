@@ -53,3 +53,31 @@ test("light palette literals match brand.config.json", () => {
   const brand = JSON.parse(readFileSync(new URL("../brand.config.json", import.meta.url), "utf8")) as { colors: Record<string, string> };
   assert.deepEqual({ ...BRAND_LIGHT_COLORS }, brand.colors);
 });
+
+// UI_UX_VISUAL_AUDIT.md V4/V5: ink400 as an icon/placeholder colour and sand300 as an interactive-control border both
+// fell under the WCAG 3:1 non-text floor; outline is the dedicated >=3:1 token for those borders. V5: white text on
+// brand500 (4.51:1) sat right at the 4.5:1 AA text limit, so brand600 (5.80:1) is used wherever the fill carries text.
+test("ink400 and outline clear the 3:1 non-text/icon floor in both themes", () => {
+  for (const theme of [LIGHT_THEME, DARK_THEME]) {
+    for (const bg of [theme.colors.surface, theme.colors.bgBody]) {
+      assert.ok(contrastRatio(theme.colors.ink400, bg) >= 3, `ink400 on ${bg} = ${contrastRatio(theme.colors.ink400, bg).toFixed(2)}`);
+      assert.ok(contrastRatio(theme.colors.outline, bg) >= 3, `outline on ${bg} = ${contrastRatio(theme.colors.outline, bg).toFixed(2)}`);
+    }
+  }
+});
+
+test("white text/icons on brand600 clear the 4.5:1 AA text floor in both themes", () => {
+  for (const theme of [LIGHT_THEME, DARK_THEME]) {
+    assert.ok(contrastRatio(theme.colors.white, theme.colors.brand600) >= 4.5, `white on ${theme.colors.brand600} = ${contrastRatio(theme.colors.white, theme.colors.brand600).toFixed(2)}`);
+  }
+});
+
+// Guard (source-level; RN components cannot be rendered in node): control boundaries must use the >=3:1 `outline` token.
+test("TextField and ExamPalette unanswered cell use the outline token, not sand300", () => {
+  const read = (rel: string) => readFileSync(new URL(rel, import.meta.url), "utf8");
+  const field = read("../src/components/common/TextField.tsx");
+  assert.match(field, /borderColor:\s*colors\.outline/);
+  assert.doesNotMatch(field, /borderColor:\s*colors\.sand300/);
+  const palette = read("../src/components/common/ExamPalette.tsx");
+  assert.match(palette, /unanswered:\s*\{[^}]*border:\s*colors\.outline/);
+});

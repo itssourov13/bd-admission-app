@@ -1,4 +1,5 @@
 import type { SqlDb, SqlParam } from "../db/types.ts";
+import { likePattern } from "./search.ts";
 import type { BookSummary, BookTargetCategory, InstallState, PublisherSummary, UnitRow } from "../types/domain.ts";
 import { orderUnitTree, bookScopeLabel, localizedName, scopeKey } from "../features/library/model.ts";
 import { ELIGIBLE_SQL, REVIEW_CANDIDATE_SQL } from "./content.ts";
@@ -140,7 +141,7 @@ export async function getUnit(db: SqlDb, bookId: string, unitId: string): Promis
  * catalogue-only book yields nothing, matching the practice pool.
  */
 export async function listBookQuestionIds(
-  db: SqlDb, scope: { bookId: string; unitId?: string }, limit: number, offset: number, subject?: string
+  db: SqlDb, scope: { bookId: string; unitId?: string }, limit: number, offset: number, subject?: string, search?: string
 ): Promise<string[]> {
   const params: SqlParam[] = [scope.bookId];
   let unitFilter = "";
@@ -150,11 +151,13 @@ export async function listBookQuestionIds(
   }
   params.push(scope.bookId);
   if (subject) params.push(subject);
+  const pattern = likePattern(search);
+  if (pattern) params.push(pattern);
   params.push(limit, offset);
   const rows = await db.getAllAsync<{ question_id: string }>(
     `SELECT q.id AS question_id FROM questions q
      JOIN (SELECT question_id, MIN(position) AS pos FROM content_unit_questions WHERE book_id = ?${unitFilter} GROUP BY question_id) m ON m.question_id = q.id
-     WHERE EXISTS (SELECT 1 FROM content_books b WHERE b.id = ? AND b.install_state IN ${AVAILABLE})${subject ? " AND q.subject = ?" : ""}
+     WHERE EXISTS (SELECT 1 FROM content_books b WHERE b.id = ? AND b.install_state IN ${AVAILABLE})${subject ? " AND q.subject = ?" : ""}${pattern ? " AND q.text LIKE ? ESCAPE '\\'" : ""}
      ORDER BY m.pos, q.id LIMIT ? OFFSET ?`,
     params
   );

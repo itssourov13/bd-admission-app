@@ -42,7 +42,7 @@ export default function HistoryScreen() {
           renderItem={({ item: h }) => {
             const openable = h.status === "completed" && h.resultJson !== null;
             return (
-              <Pressable accessibilityRole={openable ? "button" : "summary"} disabled={!openable} onPress={() => router.push(href(`/result/${h.id}`))}>
+              <Pressable accessibilityRole={openable ? "button" : "summary"} disabled={!openable} onPress={() => router.push(href(`/result/${h.id}`))} className="active:opacity-90">
                 <Card className="p-4 flex-row items-center gap-3">
                   <View className="flex-1">
                     <View className="flex-row items-center gap-2">

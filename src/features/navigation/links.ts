@@ -16,6 +16,7 @@ export function href(path: string, params?: Params): Href {
 export function scopeParams(filter: PoolFilter): Params {
   const params: Params = { category: filter.category, institutionId: filter.institutionId, paperId: filter.paperId, subject: filter.subject };
   if (filter.institutionIds?.length) params.institutionIds = filter.institutionIds.join(",");
+  if (filter.paperIds?.length) params.paperIds = filter.paperIds.join(",");
   const subjects = formatSubjectsParam(filter.subjects);
   if (subjects) params.subjects = subjects;
   if (filter.retrySessionId) params.retry = filter.retrySessionId;
@@ -52,6 +53,8 @@ export function scopeFromParams(p: Record<string, string | string[] | undefined>
   };
   const institutionIds = parseIdList(one(p.institutionIds));
   if (institutionIds) scope.institutionIds = institutionIds;
+  const paperIds = parseIdList(one(p.paperIds));
+  if (paperIds && !scope.paperId) scope.paperIds = paperIds;
   const subjects = parseSubjectsParam(one(p.subjects));
   if (subjects.length) scope.subjects = subjects;
   const retry = one(p.retry);

@@ -44,6 +44,8 @@ export interface PoolFilter {
   /** All stored institutions of one parent university (e.g. RU and RU-V). Combined with institutionId by intersection. */
   institutionIds?: string[];
   paperId?: string;
+  /** A resolved university exam pattern: only the questions of these papers (all share one complete stored pattern). Never combined with paperId. */
+  paperIds?: string[];
   subject?: string;
   /** Optional multiple section selection for paper-specific exams. */
   subjects?: string[];
