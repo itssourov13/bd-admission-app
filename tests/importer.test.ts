@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { freshDb, openMemoryDb, syntheticPack } from "./helpers.ts";
 import { importQuestionPack } from "../src/services/importer.ts";
+import { buildSeedDatabase } from "../src/services/seedBuilder.ts";
 import { migrate, LATEST_VERSION, MIGRATIONS } from "../src/db/schema.ts";
 
 const count = async (db: Awaited<ReturnType<typeof freshDb>>, table: string) =>
@@ -115,4 +116,61 @@ test("source references and rule status are preserved", async () => {
   assert.deepEqual({ ...src }, { page_number: 1, question_number: 2 });
   const rule = await db.getFirstAsync<{ verification_status: string }>("SELECT verification_status FROM exam_rules WHERE id = 'rule-syn'");
   assert.equal(rule!.verification_status, "illustrative");
+});
+
+
+test("scoped paper replacement preserves shared canonical appearances and is recorded in the content seed", async () => {
+  const canonical = syntheticPack();
+  canonical.papers.push({
+    id: "paper-syn-pending", institutionId: "inst-syn", category: "varsity", year: 2025, unit: "Pending"
+  });
+  canonical.questions[0]!.appearances.push({
+    paperId: "paper-syn-pending", questionNumber: 1, pageNumber: 1, sourceDocumentId: "src-syn"
+  });
+
+  const extraTemplate = syntheticPack();
+  const extraQuestion = {
+    ...extraTemplate.questions[0]!,
+    id: "q-syn-extra",
+    text: "Synthetic extra question",
+    source: { documentId: "src-extra", pageNumber: 2, questionNumber: 10 },
+    appearances: [{ paperId: "paper-syn-2025", questionNumber: 10, pageNumber: 2, sourceDocumentId: "src-extra" }]
+  };
+  const addition = syntheticPack({
+    batch: { id: "batch-extra", category: "varsity", description: "scoped replacement", sourceDocumentIds: ["src-extra"] },
+    sourceDocuments: [{ id: "src-extra", filename: "extra.json", sourceType: "structured-data" }],
+    institutions: [{ id: "inst-syn", code: "SYN", name: "Synthetic University" }],
+    papers: [
+      { ...canonical.papers[0]! },
+      { id: "paper-syn-pending", institutionId: "inst-syn", category: "varsity", year: 2025, unit: "Pending" }
+    ],
+    examRules: [],
+    questions: [extraQuestion],
+    replaceExistingPaperContent: true,
+    replaceExistingPaperIds: ["paper-syn-pending"]
+  });
+
+  const db = openMemoryDb();
+  const manifest = await buildSeedDatabase(db, [canonical, addition]);
+  assert.equal(manifest.packs.length, 2);
+
+  const canonicalAppearances = await db.getFirstAsync<{ n: number }>(
+    "SELECT COUNT(*) AS n FROM question_appearances WHERE paper_id = 'paper-syn-2025'"
+  );
+  const pendingAppearances = await db.getFirstAsync<{ n: number }>(
+    "SELECT COUNT(*) AS n FROM question_appearances WHERE paper_id = 'paper-syn-pending'"
+  );
+  assert.equal(canonicalAppearances?.n, 4);
+  assert.equal(pendingAppearances?.n, 0);
+
+  const replacements = await db.getAllAsync<{ paper_id: string }>(
+    "SELECT paper_id FROM seed_replace_papers ORDER BY paper_id"
+  );
+  assert.deepEqual(replacements.map((row) => row.paper_id), ["paper-syn-pending"]);
+
+  const invalid = structuredClone(addition);
+  invalid.replaceExistingPaperIds = ["paper-not-in-this-pack"];
+  const rejected = await importQuestionPack(db, invalid);
+  assert.equal(rejected.ok, false);
+  assert.match(rejected.errors.join(" "), /references a paper outside this pack/);
 });

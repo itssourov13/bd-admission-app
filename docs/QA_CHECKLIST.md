@@ -201,7 +201,7 @@ The no-bytecode export validates JavaScript bundling only. It does **not**, by i
 | Fresh SQLite import | [x] Pass | 118/118 packs, zero failures; 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 rules, 168 sources, 7,836 appearances and 5 institutions. |
 | JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
 | Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
-| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records; see `docs/EXAM_RULE_RESEARCH.md`. HSTU historical coverage remains partial. |
+| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records. Five duplicate unconfigured HSTU aliases were removed during the 2026-11-16 consolidation; the current verified-source set has 52 logical rules (8 partial, 44 unconfigured). See docs/EXAM_RULE_RESEARCH.md. HSTU historical coverage remains partial. |
 
 
 ## JU-U + HSTU-U unverified candidate-bank verification — 2026-11-01

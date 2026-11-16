@@ -1,4 +1,34 @@
-# Latest handoff — catalogue audit complete — 2026-11-16
+# Latest implementation handoff — RU/HSTU catalogue correction — 2026-11-16
+
+**Workspace:** /home/kali/gpt-workspace/bd-admission-app
+**Branch:** feat/import-hstu-verified-answers-2026-11-12
+**Previous HEAD:** 59acc2b (docs: audit RU unit labels and HSTU paper grouping)
+**Release baseline:** BD Admission 0.1.6 / Android versionCode 7; app identity unchanged.
+
+## Implemented scope
+
+- RU: only the two 2024–25 RU-V Science packs were changed from catalogue A to C Unit. Source title/printed label remains A in provenance; no other historical RU pack was relabelled.
+- HSTU: the 34 verified questions from five import segments now reference the existing canonical 2024–25 A Shift 1–3 and B Shift 1–2 paper IDs. Catalogue total: 17 papers / 950 questions / 939 ready. HSTU-U's 105 pending questions remain separate.
+- Preserved canonical HSTU totalMarks=100 partial verified rules; removed duplicate unconfigured alias rules only.
+- Added replaceExistingPaperIds for targeted replacement and SQLite migration v9 for already-installed databases. Migration updates legacy paper appearances and active session filters without changing question rows, bookmarks, answers, result JSON or marking-profile snapshots.
+- Tests include all five pairs, user-history migration, pack importer scoping and generated-seed replacement metadata.
+- Node 22.23.1: focused tests 15/15 pass; full suite passed; typecheck, lint and content build/check passed. The SQLite seed passed quick_check and foreign_key_check.
+- No UI, dependencies, app version or unrelated university packs were changed. No APK was built or installed.
+
+## Source cross-check for owner
+
+Please check the five merged HSTU shifts against the original paper/source PDFs, especially the final question numbers and page/source references in each segment. Question IDs, answer keys and source records remain intact so discrepancies can be traced to the correct source batch.
+
+## Commit / device status
+
+- New Android preview is not built or installed; existing installed devices will receive migration v9 only through a new app build.
+- Commit will be created after final diff review. No Git push.
+
+Detailed report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
+
+---
+
+# Previous release handoff — Android preview v0.1.6 — 2026-11-13
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
@@ -145,14 +175,14 @@ The README now presents three 1080×1920 portrait graphics in `docs/assets/showc
 ## Workspace
 ## Current data handoff — 2026-11-12
 
-The HSTU verified import is complete. The app remains at 217 packs / 13,609 questions. Normal HSTU is now 22 papers / 950 questions, including 939 verified single-choice questions. All 664 question IDs in Claude's accepted HSTU ledger are answer/content verified under HSTU: 657 appearances moved from HSTU-U and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending IDs were left unchanged. Full test suite passed 142/142; typecheck, lint, content check and SQLite integrity/FK checks passed. No new APK has been built for this data update. See docs/QUESTION_IMPORT_WORKFLOW.md and docs/TASK_STATE.md.
+At the HSTU verified-import checkpoint on 2026-11-12, the app had 217 packs / 13,609 questions and normal HSTU had 22 paper rows / 950 questions, including 939 verified single-choice questions. The 2026-11-16 follow-up consolidated the five duplicate logical-paper IDs; current normal HSTU has 17 papers with the same question and ready counts. All 664 question IDs in Claude's accepted HSTU ledger are answer/content verified under HSTU: 657 appearances moved from HSTU-U and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending IDs were left unchanged. Full test suite passed 142/142; typecheck, lint, content check and SQLite integrity/FK checks passed. No new APK has been built for this data update. See docs/QUESTION_IMPORT_WORKFLOW.md and docs/TASK_STATE.md.
 
 Target: /home/kali/gpt-workspace/bd-admission-app (independent Git repo; current task branch `feat/import-ju-hstu-unverified-question-banks-2026-11-01`, based on the preceding local JU/HSTU verified-import commit; commit locally only, never push from automation).
 ScholarHub (/home/kali/gpt-workspace/scholar-hub) is historical provenance only; there is no runtime/build dependency on it and it must not be edited.
 
 ## State
 
-The app bundles **217 packs / 13,609 questions**. Current HSTU status: 22 HSTU papers / 950 questions, including 939 verified single-choice questions. The accepted Claude ledger's 664 question IDs are fully verified in the normal HSTU catalogue: 657 moved from HSTU-U appearances to HSTU papers and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending questions remain unchanged. JU-U stays at 84 / 5,011 candidates, and other DU/RU/JU data is unchanged. All original candidate-bank rules and the 15 new HSTU paper rules remain unconfigured. No new APK has been built for this import. See docs/QUESTION_IMPORT_WORKFLOW.md for complete source, backup and validation records.
+At the 2026-11-12 import checkpoint, the app bundled **217 packs / 13,609 questions** and normal HSTU had 22 paper rows / 950 questions, including 939 verified single-choice questions. After the 2026-11-16 consolidation, normal HSTU has 17 logical papers with unchanged question/ready totals. The accepted Claude ledger's 664 question IDs are fully verified in the normal HSTU catalogue: 657 moved from HSTU-U appearances to HSTU papers and 7 existing HSTU IDs were updated. HSTU-U retains 105 pending questions; all 116 baseline pending questions remain unchanged. JU-U stays at 84 / 5,011 candidates, and other DU/RU/JU data is unchanged. All original candidate-bank rules and the 15 new HSTU paper rules remain unconfigured. No new APK has been built for this import. See docs/QUESTION_IMPORT_WORKFLOW.md for complete source, backup and validation records.
 
 ## Run
     source ~/.nvm/nvm.sh && nvm use      # 22.23.1
@@ -356,12 +386,13 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 
 Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot confirms both hero CTA visual surfaces are missing because the Pressables use NativeWind-unsupported callback styles; Profile Stat values lack a semantic foreground when no tone is passed. Hero content is also taller than the previous Phase 7 layout. The university catalogue currently bundles logos, not landscape covers; 1024×500 is a proposed Home hero cover dimension, not a recovered historical source spec. Full suite: 234/234 pass on Node 22.23.1. No app code or release configuration changed. Next implementation order: CTA classes, Stat foreground + regression test, add Home cover, compact responsive hero, then Android device checks (light/dark, BN/EN, large font, both CTA routes). No push.
 
-## Handoff addendum — RU unit and HSTU paper catalogue audit (2026-11-16)
+## Handoff addendum — RU unit and HSTU paper catalogue correction (2026-11-16)
 
-**Audit report:** `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`
+**Implementation report:** docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md
 
-- RU-V's two 2024–25 Science question-bank sets are currently labelled A Unit. The official RU circular says C=Science and A=Humanities; correct the catalogue-facing metadata to C while retaining the PDF's printed Unit A in provenance. Each set has 126 questions and must remain a question-bank set, not an exact 80-question official sitting.
-- RU history is session-specific: 2010–13 contains split science units; final revised 2014–15 says C=Science; C=Science in 2016–17 and 2017–18; 2018–19 C includes Science + Engineering; 2019–25 C=Science. Oldest candidate packs/2015–16 need source-specific confirmation.
-- HSTU has five duplicated logical paper rows: 2024–25 A shifts 1, 2, 3 and B shifts 1, 2. They currently use the existing `hstu-...` ID plus a second `hstu-import-...` ID from the HSTU verification import. The 34 additional records are unique verified questions; no question ID, exact stem or subject/question-number collisions were found. Reassign their HSTU appearances to the canonical existing paper IDs; do not delete questions or merge IDs. Preserve each canonical paper's existing partially verified official `totalMarks: 100` fact; remove only the duplicate imported unconfigured rule.
-- Current normal HSTU totals remain 22 papers / 950 questions / 939 ready. After logical-paper consolidation: 17 papers, same question and ready counts. Keep HSTU-U pending and historical `unassigned` papers separate.
-- Node 22.23.1 content check passed (217 packs / 13,609 questions). No source code, tests, assets or question JSON changed. This is a docs-only audit checkpoint; implementation and new APK are still pending.
+- RU-V's two 2024–25 Science question-bank sets now catalogue as C Unit. The source-document titles retain the supplied PDF's printed Unit A; no other historical RU pack was relabelled. The 126-question sets remain question-bank practice sets, not exact 80-question official sittings.
+- Historical RU structures remain session-specific: 2010–13 split Science subunits; final revised 2014–15 says C=Science; C=Science in 2016–17/2017–18; 2018–19 C includes Science + Engineering; 2019–25 C=Science. Oldest candidate packs/2015–16 still need source-specific confirmation.
+- The 34 additional HSTU verified questions now reference the five existing canonical 2024–25 A/B shift papers. Normal HSTU is 17 papers / 950 questions / 939 ready. The five duplicate unconfigured aliases were removed; each canonical partial totalMarks=100 fact remains.
+- HSTU-U's 105 pending questions and historical unassigned papers remain separate. No question IDs, stems, options, answer mappings or source locators were rewritten.
+- Migration v9 consolidates existing installed databases. Scoped replacement is shared by the pack validator, importer, seed builder and content-build checker to prevent later imports from clearing canonical-paper appearances.
+- Node 22.23.1 verification: full suite 244/244, typecheck, lint, content build/check, seed quick_check and foreign_key_check all passed. A new APK was not built; source-PDF cross-check by the owner and on-device migration check remain follow-up steps.

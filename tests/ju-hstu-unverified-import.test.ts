@@ -77,7 +77,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   };
   const allIds = {
     batch: new Set<string>(),
-    paper: new Set<string>(),
+    paper: new Map<string, string>(),
     rule: new Set<string>(),
     question: new Set<string>(),
     source: new Set<string>()
@@ -87,8 +87,10 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
     assert.ok(!allIds.batch.has(pack.batch.id), `global batch ID collision: ${pack.batch.id}`);
     allIds.batch.add(pack.batch.id);
     for (const paper of pack.papers) {
-      assert.ok(!allIds.paper.has(paper.id), `global paper ID collision: ${paper.id}`);
-      allIds.paper.add(paper.id);
+      const signature = JSON.stringify(paper);
+      const existing = allIds.paper.get(paper.id);
+      assert.ok(existing === undefined || existing === signature, "global paper metadata mismatch: " + paper.id);
+      allIds.paper.set(paper.id, signature);
     }
     for (const rule of pack.examRules) {
       assert.ok(!allIds.rule.has(rule.id), `global exam-rule ID collision: ${rule.id}`);
@@ -135,7 +137,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
         bank === "JU-U"
           ? paper.id.startsWith("ju-unverified-")
           : paper.institutionId === "hstu"
-            ? paper.id.startsWith("hstu-import-")
+            ? paper.id.startsWith("hstu-")
             : paper.id.startsWith("hstu-unverified-"),
         filename
       );
@@ -213,7 +215,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   });
   assert.equal(ids.batch.size, 99);
   assert.equal(ids.paper.size, 114);
-  assert.equal(ids.rule.size, 114);
+  assert.equal(ids.rule.size, 109);
   assert.equal(ids.question.size, 5773);
   assert.equal(ids.source.size, 105);
 
@@ -252,9 +254,9 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
     batches: 217,
-    papers: 232,
-    rules: 173,
-    unconfiguredRules: 163,
+    papers: 227,
+    rules: 168,
+    unconfiguredRules: 158,
     sources: 286,
     appearances: 13609,
     options: 54436,
@@ -288,7 +290,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },
-    { papers: 22, questions: 950, eligible: 939 }
+    { papers: 17, questions: 950, eligible: 939 }
   );
   assert.deepEqual(
     { papers: juUnverified.paperCount, questions: juUnverified.questionCount, eligible: juUnverified.eligibleCount, candidates: juUnverified.reviewCandidateCount },
@@ -312,7 +314,13 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
     assert.equal(report.questions.inserted, 0, filename);
     assert.equal(report.questions.updated, 0, filename);
     assert.equal(report.questions.skipped, pack.questions.length, filename);
-    if (pack.replaceExistingPaperContent) {
+    if (pack.replaceExistingPaperIds?.length) {
+      const replaced = pack.questions.flatMap((question) => question.appearances)
+        .filter((appearance) => pack.replaceExistingPaperIds.includes(appearance.paperId)).length;
+      const totalAppearances = pack.questions.reduce((count, question) => count + question.appearances.length, 0);
+      assert.equal(report.appearances.inserted, replaced, filename);
+      assert.equal(report.appearances.skipped, totalAppearances - replaced, filename);
+    } else if (pack.replaceExistingPaperContent) {
       assert.equal(report.appearances.inserted, pack.questions.length, filename);
       assert.equal(report.appearances.skipped, 0, filename);
     } else {

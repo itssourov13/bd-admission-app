@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-16 (catalogue audit complete; v0.1.6 remains the owner-verified preview).
+Last updated: 2026-11-16 (RU/HSTU catalogue corrections implemented; v0.1.6 remains the owner-verified preview).
 
 ## Latest implementation and release candidate — 2026-11-13
 
@@ -11,6 +11,13 @@ Last updated: 2026-11-16 (catalogue audit complete; v0.1.6 remains the owner-ver
 - Release metadata: app/package version 0.1.6, Android versionCode 7, application ID `com.admissionbd.app`; EAS project ID and signing identity unchanged. EAS preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (completed 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka): https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. [Download the v0.1.6 APK](https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk).
 - Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
 - Owner verification: v0.1.6 installed and launched successfully; owner reports the previously raised Hero/theme/runtime issues are fixed and there are no known outstanding app issues. Exact handset/OS and a per-screen test matrix were not recorded. Keep additional device checks optional unless a new issue appears.
+
+## RU/HSTU catalogue identity correction — 2026-11-16
+
+- The two RU-V 2024–25 Science bank sets are catalogue-labelled C Unit; their source documents still show the original printed Unit A label, retained in provenance. Each 126-question set remains a practice bank, not an exact official 80-question paper. Historical RU labels outside these two packs were not changed.
+- The five duplicated normal-HSTU 2024–25 A/B shift papers now use the existing canonical IDs. Normal HSTU is 17 papers / 950 questions / 939 verified practice-ready; all 34 added verified IDs remain. HSTU-U retains 105 pending questions.
+- Migration v9 merges old alias appearances and active session filter references while preserving question rows, bookmarks, answers, immutable result snapshots and marking-profile snapshots. replaceExistingPaperIds keeps shared canonical questions safe during pack replacement/re-import.
+- Full implementation and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
 ## Roadmap status — see table (reconciled 2026-11-13)
 
@@ -41,11 +48,11 @@ Authoritative table and chronological log: docs/implementation/IMPLEMENTATION_LO
 
 - Claude's accepted HSTU verification ledger was the source of truth: **664 unique question IDs** are now in the normal HSTU catalogue with both answer and content status set to verified.
 - **657** questions moved from HSTU-U appearances to 15 new HSTU papers; **7** questions already attached to HSTU received their accepted answer mappings/status update.
-- Normal HSTU now contains **22 papers / 950 questions**. **939** have verified answers and content and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- At the 2026-11-12 import checkpoint, normal HSTU contained **22 paper rows / 950 questions**; after the 2026-11-16 consolidation it contains **17 logical papers / 950 questions**. **939** have verified answers and content and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
 - HSTU-U retains **105 pending questions** across 15 papers (102 answer-unverified, 3 answer-unknown; content remains unverified). The **116 baseline pending** questions were not promoted or modified. Three off-baseline pending-ledger records were also left unchanged.
 - Question IDs, stems, option order/text and source references were preserved. No JU, RU or DU content, runtime logic, or exam rules changed.
 - Verification: 18 pack files and the generated manifest updated; 217 packs / 13,609 questions rebuilt. Full test suite passed 142/142; typecheck, lint and content check passed; SQLite quick_check passed and foreign-key check returned zero issues. All 664 ledger IDs and keys reconcile, pending objects match the pre-import backup, and staged/app pack hashes match.
-- No new APK was built or installed for this content update; an updated bundled seed reaches an installed device through a new app build.
+- No new APK was built or installed for the 2026-11-12 import or 2026-11-16 catalogue consolidation; migration v9 and the updated seed reach an installed device through a new app build.
 
 ## Startup UI targeted implementation — 2026-11-11
 
@@ -273,6 +280,6 @@ Library UI, importer, validator and SVG logo system are implemented. **No book o
 
 - **Audit only; no app/data changes.** RU-V has two 2024–25 Science question-bank packs incorrectly catalogued as A Unit because the supplied PDF prints Unit A. RU's official 2024–25 circular says A=Humanities, B=Commerce, C=Science; the catalogue-facing label should therefore be C, with the source's printed A preserved in provenance. Each set has 126 bank questions, versus 80 questions in the official exam format, so keep them identified as question-bank sets rather than exact exam sittings.
 - Historical RU labels are not globally interchangeable: 2010–13 has split science subunits; the final revised 2014–15 notice says C=Science; 2016–17/2017–18 C=Science; 2018–19 C included Science and Engineering; 2019–25 C=Science. The oldest candidate packs and 2015–16 require source-specific review before relabelling.
-- HSTU has five duplicated logical-paper entries for 2024–25 A shifts 1–3 and B shifts 1–2. Normal HSTU currently remains 22 papers / 950 questions / 939 verified practice-ready questions; the five paired rows account for 34 additional unique verified questions split into new paper IDs. Consolidating the five pairs would result in 17 logical catalogue papers while preserving all 950 questions and 939 ready questions.
+- The five duplicated 2024–25 HSTU logical-paper entries (A shifts 1–3 and B shifts 1–2) have been consolidated under the existing canonical IDs. Their 34 additional unique verified questions remain; normal HSTU now has 17 logical papers / 950 questions / 939 verified practice-ready questions. The 105 HSTU-U pending questions and historical unassigned HSTU papers remain separate.
 - Across all five HSTU pairs there are no question-ID collisions, no exact normalized stem overlaps and no duplicate subject/question-number positions. The issue is paper identity fragmentation in the importer/catalogue, not duplicate question records. HSTU-U pending records and historical `unassigned` papers must remain separate.
 - Node 22.23.1 `pnpm content:check` passed: 217 packs / 13,609 questions, seed 22.68 MiB. Audit report and source links: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`. No code, assets, tests or question packs changed.

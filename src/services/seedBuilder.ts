@@ -26,7 +26,9 @@ export async function buildSeedDatabase(db: SqlDb, packs: readonly unknown[], no
     seen.add(report.batchId);
     const p = pack as QuestionPack;
     entries.push({ batchId: report.batchId, signature: packSignature(pack), questions: p.questions.length });
-    if (p.replaceExistingPaperContent) for (const paper of p.papers) replacePapers.push({ batchId: report.batchId, paperId: paper.id });
+    const replacementPaperIds = p.replaceExistingPaperIds
+      ?? (p.replaceExistingPaperContent ? p.papers.map((paper) => paper.id) : []);
+    for (const paperId of replacementPaperIds) replacePapers.push({ batchId: report.batchId, paperId });
   }
 
   const manifest: ContentManifest = { seedFormat: SEED_FORMAT, seedId: computeSeedId(entries), packs: entries };

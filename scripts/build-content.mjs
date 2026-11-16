@@ -77,8 +77,10 @@ function expectedContentCounts(packs) {
     for (const item of pack.papers) papers.add(item.id);
     for (const item of pack.examRules) rules.add(item.id);
     for (const item of pack.sourceDocuments) sourceDocuments.add(item.id);
-    if (pack.replaceExistingPaperContent) {
-      for (const paper of pack.papers) replacePapers.add(JSON.stringify([pack.batch.id, paper.id]));
+    const replacementPaperIds = pack.replaceExistingPaperIds
+      ?? (pack.replaceExistingPaperContent ? pack.papers.map((paper) => paper.id) : []);
+    for (const paperId of replacementPaperIds) {
+      replacePapers.add(JSON.stringify([pack.batch.id, paperId]));
     }
     for (const question of pack.questions) {
       questions += 1;

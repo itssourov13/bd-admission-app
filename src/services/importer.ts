@@ -155,15 +155,15 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
         }
       }
 
-      if (p.replaceExistingPaperContent && p.papers.length > 0) {
-        // Replacement is scoped to this pack's paper IDs and remains transactional.
-        // Remove only active paper appearances; question rows remain for FK-backed
-        // bookmarks, prior sessions, answers, and result history.
-        const paperIds = p.papers.map((paper) => paper.id);
-        const placeholders = paperIds.map(() => "?").join(",");
+      const replacementPaperIds = p.replaceExistingPaperIds
+        ?? (p.replaceExistingPaperContent ? p.papers.map((paper) => paper.id) : []);
+      if (replacementPaperIds.length > 0) {
+        // A pack may reference a shared canonical paper without owning its full appearance set.
+        // Narrow replacement to the source-owned subset; question rows and user history remain intact.
+        const placeholders = replacementPaperIds.map(() => "?").join(",");
         await tx.runAsync(
-          `DELETE FROM question_appearances WHERE paper_id IN (${placeholders})`,
-          paperIds
+          "DELETE FROM question_appearances WHERE paper_id IN (" + placeholders + ")",
+          replacementPaperIds
         );
       }
 

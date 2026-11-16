@@ -1,12 +1,13 @@
-## Catalogue identity audit — RU session labels and HSTU paper grouping — 2026-11-16
+## Catalogue identity correction — RU session labels and HSTU paper grouping — 2026-11-16
 
-This audit is read-only; canonical JSON question packs and generated content were not changed.
+**Status: Implemented.** Detailed source research, per-shift reconciliation, migration and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
-- RU-V source packs `ru-vq-2024-2025-a-noset-p001.json` and `ru-vq-2024-2025-a-noset-p012.json` contain Science-subject question-bank sets but are catalogued as A Unit because the user-supplied PDF prints Unit A. RU's official 2024–25 circular identifies Unit C as Science and Unit A as Humanities. Recommended correction: change only the catalogue-facing paper `unit/title` to C; preserve the printed source label in provenance. Each set is 126 questions, while the official 2024–25 paper format has 80, so do not configure these as exact sitting papers.
-- Historical RU units changed. 2010–13 has split Science subunits (including C/C-2 changes); the final revised 2014–15 notice says C=Science; 2016–17/2017–18 C=Science; 2018–19 C=Science+Engineering; 2019–25 C=Science. Review the oldest captures and 2015–16 against the exact session circular before changing metadata.
-- HSTU 2024–25 has five duplicate logical-paper identities across normal HSTU and the verified subset imported from HSTU-U: A shifts 1–3 and B shifts 1–2. They share session/unit/title but have different paper IDs. The 34 extra questions are unique question IDs; no exact normalized stem or subject/question-number collisions were found. Recommended fix: point only their normal-HSTU appearances at the existing canonical paper ID and remove the extra paper plus its duplicate unconfigured rule; preserve the canonical paper's partially verified official `totalMarks: 100` rule. Keep all question records, source refs and HSTU-U pending records intact.
-- Current normal HSTU: 22 paper rows / 950 questions / 939 practice-ready. After grouping five duplicate paper identities: 17 logical papers; same 950 / 939 counts.
-- Implementation safeguard: stable canonical paper identity must be explicit across source packs; do not auto-merge from title or question similarity. See the full audit report for files, per-shift counts, sources and tests.
+- RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
+- No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.
+- HSTU: the extra 34 unique verified questions now reference the five existing canonical 2024–25 papers (A shifts 1–3, B shifts 1–2). Normal HSTU is 17 papers / 950 questions / 939 ready instead of 22 duplicate rows. The canonical partial verified totalMarks=100 rule remains; only duplicate unconfigured alias rules were removed.
+- HSTU-U's 105 pending records, historical HSTU unassigned papers, question IDs, sources and answers remain intact.
+- SQLite migration v9 merges the five legacy alias IDs on existing installs and updates only active practice_sessions.filter_json paper references. Result snapshots, profile snapshots, bookmarks, session answers and question rows are preserved.
+- The five source packs use replaceExistingPaperIds to restrict replaceExistingPaperContent to their own HSTU-U pending paper. Without this subset, a shared canonical HSTU paper could be wiped during re-import. The validator, importer, seed builder and scripts/build-content.mjs all honor the subset; older packs omitting it retain the original full-pack replacement behavior.
 
 ---
 
@@ -19,6 +20,17 @@ Rule completeness is independent of source fact verification. `totalMarks` can b
 The new read-only scan is available through `pnpm audit:questions`. It reports likely extraction artifacts, repeated option text and other triage candidates across all bundled question packs. Audit flags do **not** prove content is wrong: inspect the exact original page/PDF and answer key before editing or changing verification states. Findings and scope are written to `docs/QUESTION_QUALITY_AUDIT.md`.
 
 # Question import workflow
+
+## Catalogue identity correction — RU and HSTU — 2026-11-16
+
+**Status: Implemented.** See docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md for session research, five-pair reconciliation and migration tests.
+
+- RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
+- No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.
+- HSTU: the extra 34 unique verified questions now reference the five existing canonical 2024–25 papers (A shifts 1–3, B shifts 1–2). Normal HSTU is 17 papers / 950 questions / 939 ready instead of 22 duplicate rows. The canonical partial verified totalMarks=100 rule remains; only duplicate unconfigured alias rules were removed.
+- HSTU-U's 105 pending records, historical HSTU unassigned papers, question IDs, sources and answers remain intact.
+- SQLite migration v9 merges the five legacy alias IDs on existing installs and updates only active practice_sessions.filter_json paper references. Result snapshots, profile snapshots, bookmarks, session answers and question rows are preserved.
+- The five source packs use replaceExistingPaperIds to restrict replaceExistingPaperContent to their own HSTU-U pending paper. Without this subset, a shared canonical HSTU paper could be wiped during re-import. The validator, importer, seed builder and scripts/build-content.mjs all honor the subset; older packs omitting it retain the original full-pack replacement behavior.
 
 ## HSTU verified-question import — 2026-11-12
 
@@ -34,8 +46,8 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 
 - All **116 baseline pending questions** remain unchanged. HSTU-U retains **105 pending questions** across its 15 papers (102 answer-unverified, 3 answer-unknown; content-unverified).
 - The 3 off-baseline pending-ledger records were not modified. They are outside the 780-question baseline and are not included in the 116 baseline pending count.
-- Normal HSTU now contains **22 papers / 950 questions**. **939** have both status fields verified and are eligible single-choice records in the existing verified practice pool. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
-- All 15 added HSTU paper rules remain unconfigured. No exam count, duration, selection or marking rule was added or inferred. JU, RU and DU content was not changed.
+- At the 2026-11-12 ledger-import checkpoint, normal HSTU contained **22 paper rows / 950 questions**. The five logical duplicates were consolidated on 2026-11-16; current normal HSTU contains **17 papers / 950 questions**. **939** retain both verified status fields and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- At that initial import checkpoint, all 15 added HSTU paper rules were unconfigured. The five duplicate 2024–25 unconfigured aliases were removed in the 2026-11-16 consolidation; all remaining unconfigured rules stay unconfigured. No exam count, duration, selection or marking rule was inferred. JU, RU and DU content was not changed.
 
 ### Backup and verification
 
@@ -126,7 +138,7 @@ JU also contains 6 `multiple_choice` records and 16 explicit `no_correct_option`
 
 ### Runtime and exam-rule boundary
 
-- At the initial 2026-11-01 import checkpoint, all 57 rules remained `unconfigured`. The 2026-11-05 official-source research below supersedes the status for 8 exact 2024–2025 records with partial metadata; the other 49 remain unconfigured.
+- At the initial 2026-11-01 import checkpoint, all 57 rules remained `unconfigured`. The 2026-11-05 official-source research below supersedes the status for 8 exact 2024–2025 records with partial metadata; 49 remained unconfigured at that 2026-11-05 checkpoint; five duplicate HSTU aliases were subsequently removed on 2026-11-16, leaving 44 current unconfigured rules in the verified-source group.
 - **At the 2026-11-01 import checkpoint**, a general/institution-scoped Standard Exam still used the then-global 100-question / 60-minute fallback. This historical behavior has since been narrowed: only the no-exact-paper all-catalogue path keeps that default; exact-paper sessions need their own source-backed count/duration or explicitly chosen unscored Custom Practice.
 - HSTU needs more historical sessions to meet the original coverage target. This is a follow-up research gap, not a blocker to importing the verified records already supplied.
 

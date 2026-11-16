@@ -302,6 +302,126 @@ INSERT OR IGNORE INTO publishers (id, slug, name, name_bn, kind, sort_order) VAL
   ('pub-pankouri', 'pankouri', 'Pankouri', 'পানকৌড়ি', 'publisher', 40),
   ('pub-joykoli', 'joykoli', 'Joykoli', 'জয়কলি', 'publisher', 50);
 `
+  },
+  {
+    version: 9,
+    name: "merge_hstu_2024_2025_verified_question_papers",
+    sql: `
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-1', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-1';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-1' WHERE paper_id = 'hstu-import-a-2024-2025-shift-1';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-1', 'hstu-a-2024-2025-shift-1')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-1') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-1' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-1'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-1')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-1');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-2', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-2';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-2' WHERE paper_id = 'hstu-import-a-2024-2025-shift-2';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-2', 'hstu-a-2024-2025-shift-2')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-2') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-2' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-2'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-2')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-2');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-3', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-3';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-3' WHERE paper_id = 'hstu-import-a-2024-2025-shift-3';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-3', 'hstu-a-2024-2025-shift-3')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-3') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-3' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-3'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-3')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-3');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-b-2024-2025-shift-1', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-b-2024-2025-shift-1';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-b-2024-2025-shift-1' WHERE paper_id = 'hstu-import-b-2024-2025-shift-1';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-b-2024-2025-shift-1', 'hstu-b-2024-2025-shift-1')
+WHERE instr(filter_json, 'hstu-import-b-2024-2025-shift-1') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-b-2024-2025-shift-1' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-b-2024-2025-shift-1'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-b-2024-2025-shift-1')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-b-2024-2025-shift-1');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-b-2024-2025-shift-2', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-b-2024-2025-shift-2';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-b-2024-2025-shift-2' WHERE paper_id = 'hstu-import-b-2024-2025-shift-2';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-b-2024-2025-shift-2', 'hstu-b-2024-2025-shift-2')
+WHERE instr(filter_json, 'hstu-import-b-2024-2025-shift-2') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-b-2024-2025-shift-2' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-b-2024-2025-shift-2'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-b-2024-2025-shift-2')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-b-2024-2025-shift-2');
+`
   }
 ];
 

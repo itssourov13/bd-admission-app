@@ -166,9 +166,9 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
     batches: 217,
-    papers: 232,
-    rules: 173,
-    unconfiguredRules: 163,
+    papers: 227,
+    rules: 168,
+    unconfiguredRules: 158,
     sources: 286,
     appearances: 13609,
     options: 54436,
@@ -213,13 +213,13 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },
-    { papers: 22, questions: 950, eligible: 939 }
+    { papers: 17, questions: 950, eligible: 939 }
   );
 
   const juPapers = await listPapers(db, { institutionId: "ju" });
   const hstuPapers = await listPapers(db, { institutionId: "hstu" });
   assert.equal(juPapers.length, 50);
-  assert.equal(hstuPapers.length, 22);
+  assert.equal(hstuPapers.length, 17);
   assert.equal(juPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 1526);
   assert.equal(hstuPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 950);
   assert.equal((await listPaperQuestionIds(db, "ju-a-2010-2011-set1", 100, 0)).length, 14);
@@ -231,8 +231,19 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     assert.equal(report.questions.inserted, 0, filename);
     assert.equal(report.questions.updated, 0, filename);
     assert.equal(report.questions.skipped, pack.questions.length, filename);
-    assert.equal(report.appearances.inserted, 0, filename);
-    assert.equal(report.appearances.skipped, pack.questions.length, filename);
+    if (pack.replaceExistingPaperIds?.length) {
+      const replaced = pack.questions.flatMap((question) => question.appearances)
+        .filter((appearance) => pack.replaceExistingPaperIds.includes(appearance.paperId)).length;
+      const totalAppearances = pack.questions.reduce((count, question) => count + question.appearances.length, 0);
+      assert.equal(report.appearances.inserted, replaced, filename);
+      assert.equal(report.appearances.skipped, totalAppearances - replaced, filename);
+    } else if (pack.replaceExistingPaperContent) {
+      assert.equal(report.appearances.inserted, pack.questions.length, filename);
+      assert.equal(report.appearances.skipped, 0, filename);
+    } else {
+      assert.equal(report.appearances.inserted, 0, filename);
+      assert.equal(report.appearances.skipped, pack.questions.length, filename);
+    }
   }
 
   assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 13609);

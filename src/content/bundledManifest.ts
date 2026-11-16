@@ -3,7 +3,7 @@ import type { ContentManifest } from "./seedFormat.ts";
 
 export const BUNDLED_MANIFEST: ContentManifest = {
   seedFormat: 1,
-  seedId: "8ed98f57e39810672f23",
+  seedId: "26366b594f3d51852f23",
   packs: [
   { batchId: "du-a-2024-2025", signature: "b19543e10ef97377ef85", questions: 90 },
   { batchId: "du-a-2025-2026", signature: "ec3b9f9fa317f8a7ebad", questions: 90 },
@@ -20,13 +20,13 @@ export const BUNDLED_MANIFEST: ContentManifest = {
   { batchId: "batch-hstu-unverified-2019-2020-unassigned", signature: "2a84314458fbcd1014d67", questions: 100 },
   { batchId: "batch-hstu-unverified-a-2014-2015", signature: "9d1f94dec84c9430d248", questions: 60 },
   { batchId: "batch-hstu-unverified-a-2015-2016", signature: "9372372ee1d4b29ef232", questions: 60 },
-  { batchId: "batch-hstu-unverified-a-2024-2025-shift-1", signature: "d3dfc8aefbfa09b2427f", questions: 16 },
-  { batchId: "batch-hstu-unverified-a-2024-2025-shift-2", signature: "f8567c4b0af5e56b38b6", questions: 13 },
-  { batchId: "batch-hstu-unverified-a-2024-2025-shift-3", signature: "7b8b04cc0ebf4eb42f50", questions: 10 },
+  { batchId: "batch-hstu-unverified-a-2024-2025-shift-1", signature: "f0c935dbf1183a87406b", questions: 16 },
+  { batchId: "batch-hstu-unverified-a-2024-2025-shift-2", signature: "0f1a4a594af201c536b7", questions: 13 },
+  { batchId: "batch-hstu-unverified-a-2024-2025-shift-3", signature: "11555d9509555cc92d5f", questions: 10 },
   { batchId: "batch-hstu-unverified-b-2014-2015", signature: "86c9939ec2eb38a8d102", questions: 59 },
   { batchId: "batch-hstu-unverified-b-2015-2016", signature: "a6a4ca4fceb454c9ce0d", questions: 58 },
-  { batchId: "batch-hstu-unverified-b-2024-2025-shift-1", signature: "7f72ccc72ed708c92ba6", questions: 8 },
-  { batchId: "batch-hstu-unverified-b-2024-2025-shift-2", signature: "96b55acae50b240614ad", questions: 2 },
+  { batchId: "batch-hstu-unverified-b-2024-2025-shift-1", signature: "630b00aad238b08629ca", questions: 8 },
+  { batchId: "batch-hstu-unverified-b-2024-2025-shift-2", signature: "cfabc88cacc5a8b012df", questions: 2 },
   { batchId: "batch-hstu-unverified-d-2014-2015", signature: "bae9b4f26757277cd24f", questions: 59 },
   { batchId: "batch-hstu-unverified-f-2014-2015-satt", signature: "9fde66bcae1c9804cee8", questions: 59 },
   { batchId: "batch-ju-a-2010-2011-set1", signature: "ff2d60f4d0967140513c", questions: 14 },
@@ -220,7 +220,7 @@ export const BUNDLED_MANIFEST: ContentManifest = {
   { batchId: "ru-vq-2022-2023-c-all-p044", signature: "10953ffdcc195d5b3cc90", questions: 252 },
   { batchId: "ru-vq-2023-2024-c-noset-p023", signature: "8a2fe07d1d47529d1c691", questions: 118 },
   { batchId: "ru-vq-2023-2024-c-noset-p033", signature: "764e71e4d79701241cd11", questions: 116 },
-  { batchId: "ru-vq-2024-2025-a-noset-p001", signature: "1540cfa4c809df941de7b", questions: 126 },
-  { batchId: "ru-vq-2024-2025-a-noset-p012", signature: "4ec2e86c8aad33d01e310", questions: 126 }
+  { batchId: "ru-vq-2024-2025-a-noset-p001", signature: "bd0c4319182b0b651e058", questions: 126 },
+  { batchId: "ru-vq-2024-2025-a-noset-p012", signature: "dd9c635b3f537dbf1e4ed", questions: 126 }
   ]
 };

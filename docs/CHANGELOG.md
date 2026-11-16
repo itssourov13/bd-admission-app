@@ -1,3 +1,11 @@
+## 2026-11-16 — Correct RU catalogue labels and consolidate HSTU papers
+
+- Corrected the two RU-V 2024–25 Science-set catalogue labels/titles from A to C Unit. Original PDF title/printed label is retained in source provenance; question-bank practice status and unconfigured exam rules are unchanged.
+- Consolidated the 34 additional verified HSTU questions across five 2024–25 A/B shifts into the existing canonical paper IDs. Normal HSTU is now 17 papers / 950 questions / 939 practice-ready, with 105 HSTU-U pending questions retained.
+- Added scoped paper replacement support (replaceExistingPaperIds) so shared canonical papers are not cleared by a source pack that only owns one of its appearances; updated validator, importer, seed builder and content build checks.
+- Added database migration v9 to consolidate aliases on existing installs while preserving question rows, bookmarks, answers and immutable session snapshots.
+- Detailed evidence and checks: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
+
 ## 2026-11-16 — Audit RU year-wise unit naming and HSTU paper fragmentation
 
 - Cross-checked RU unit names across historical admission structures. Confirmed the two 2024–25 RU-V Science question-bank sets are incorrectly catalogued as A Unit; official RU 2024–25 classification is C=Science, A=Humanities, B=Commerce. Preserve the supplied PDF's printed Unit A in provenance.

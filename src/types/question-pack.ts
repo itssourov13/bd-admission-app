@@ -85,6 +85,8 @@ export interface QuestionPack {
   schemaVersion: 1;
   /** Replaces active appearances for the papers in this pack inside the import transaction; preserves question rows and all user-owned history. */
   replaceExistingPaperContent?: boolean;
+  /** Optional subset to replace when replaceExistingPaperContent is true; defaults to every paper in this pack. */
+  replaceExistingPaperIds?: string[];
   batch: {
     id: string;
     category: QuestionCategory;

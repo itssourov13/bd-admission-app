@@ -40,6 +40,9 @@ export function validateQuestionPack(pack) {
   if (pack.replaceExistingPaperContent != null && typeof pack.replaceExistingPaperContent !== "boolean") {
     errors.push("replaceExistingPaperContent must be a boolean when supplied.");
   }
+  if (pack.replaceExistingPaperIds != null && !Array.isArray(pack.replaceExistingPaperIds)) {
+    errors.push("replaceExistingPaperIds must be an array when supplied.");
+  }
   if (!isObject(pack.batch)) errors.push("batch must be an object.");
   else {
     if (!nonEmpty(pack.batch.id)) errors.push("batch.id is required.");
@@ -54,6 +57,19 @@ export function validateQuestionPack(pack) {
   if (errors.length) return { valid: false, errors, warnings };
 
   for (const key of collections) addUniqueIds(pack[key], key, errors);
+
+  if (Array.isArray(pack.replaceExistingPaperIds)) {
+    if (pack.replaceExistingPaperContent !== true) errors.push("replaceExistingPaperIds requires replaceExistingPaperContent to be true.");
+    if (pack.replaceExistingPaperIds.length === 0) errors.push("replaceExistingPaperIds must contain at least one paper ID.");
+    const seenReplacementIds = new Set();
+    const paperIds = new Set(pack.papers.map((paper) => paper?.id).filter(nonEmpty));
+    for (const id of pack.replaceExistingPaperIds) {
+      if (!nonEmpty(id)) errors.push("replaceExistingPaperIds must contain only non-empty strings.");
+      else if (seenReplacementIds.has(id)) errors.push("replaceExistingPaperIds contains a duplicate ID: " + id);
+      else if (!paperIds.has(id)) errors.push("replaceExistingPaperIds references a paper outside this pack: " + id);
+      seenReplacementIds.add(id);
+    }
+  }
 
   const sourceIds = new Set(pack.sourceDocuments.map((item) => item?.id).filter(nonEmpty));
   const institutionIds = new Set(pack.institutions.map((item) => item?.id).filter(nonEmpty));

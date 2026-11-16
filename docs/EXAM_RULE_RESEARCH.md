@@ -43,4 +43,4 @@ The circular confirms a 100-mark MCQ admission-test component. The official FAQ 
 
 ## Current data status
 
-The original JU/HSTU verified-source group contains 57 rules: 3 JU and 5 HSTU 2024–2025 records now contain partial verified facts; the remaining 49 rules remain unconfigured. The separate 99 JU-U/HSTU-U candidate papers are still all unconfigured. Both RU candidate C-unit variants remain unconfigured. Do not generalize these facts to other years, units, or sets.
+Before HSTU paper consolidation, the JU/HSTU verified-source group contained 57 rule rows. The five duplicate unconfigured HSTU aliases were removed on 2026-11-16; the current catalogue has 52 logical rules: 3 JU and 5 canonical HSTU 2024–2025 records contain partial verified facts, and the remaining 44 rules remain unconfigured. The separate 99 JU-U/HSTU-U candidate papers are still all unconfigured. Both RU candidate C-unit variants remain unconfigured. Do not generalize these facts to other years, units, or sets.

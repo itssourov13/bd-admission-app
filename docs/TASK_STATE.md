@@ -420,16 +420,17 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [ ] Follow-up implementation: static NativeWind CTA classes, explicit Stat foreground + regression coverage, new 1024×500 Home cover, compact responsive hero and real-device verification.
 - Audit only: no app source/config/build changes; no push.
 
-## RU unit naming and HSTU logical-paper audit — 2026-11-16
+## RU unit naming and HSTU logical-paper consolidation — 2026-11-16
 
-**Status:** Read-only audit complete; remediation documented, not implemented.
+**Status:** Implemented; full test suite, typecheck, lint and generated-seed integrity checks pass. Detailed results: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
-- [x] Cross-checked RU unit naming by academic session using RU's official 2024–25 circular, prior revised admission notice and contemporaneous public sources.
-- [x] Confirmed the two RU-V 2024–25 Science sets are labelled A in source/import metadata even though RU's official session structure identifies Science as C; source print label should remain in provenance.
-- [x] Identified five HSTU 2024–25 duplicate logical paper pairs (A shifts 1–3; B shifts 1–2). Their distinct question records have no ID, exact normalized-stem or subject/question-number collisions.
-- [x] Documented canonical-paper reassignment, historical-label safeguards, and importer/validator regression-test requirements.
-- [x] Node 22.23.1 `pnpm content:check`: pass, 217 packs / 13,609 questions. Initial Git tree was clean; this audit changed documentation only.
-- [ ] Implement the two RU catalogue metadata corrections and five HSTU paper-appearance consolidations while preserving IDs, sources, verification statuses, HSTU-U pending content and user history.
-- [ ] Add validator/importer tests for canonical paper identity and verify fresh SQLite seed/import, full tests, typecheck, lint and Android preview after implementation.
+- [x] Changed only the two RU-V 2024–25 Science catalogue labels/titles to C Unit. Retained the printed A source title and provenance note; left exam rules unconfigured and all other RU sessions unchanged.
+- [x] Consolidated all five HSTU 2024–25 normal-paper pairs under existing canonical A/B shift IDs; retained all 34 unique verified questions and source/answer records.
+- [x] Preserved the canonical partial verified totalMarks=100 rule; removed only duplicate unconfigured HSTU alias rules; kept HSTU-U pending records and HSTU unassigned papers separate.
+- [x] Added scoped replaceExistingPaperIds support to validation, importer, seed builder and content build checks so a pack referencing a shared canonical paper only replaces IDs it owns.
+- [x] Added SQLite migration v9 for existing installs; tests confirm old appearances and active session filters are rehomed while question records, bookmarks, session answers, result snapshots and rule-profile snapshots remain intact.
+- [x] Focused catalogue tests and full test suite pass; content check validates 217 packs / 13,609 questions and the generated v9 seed has clean SQLite/FK integrity.
+- [ ] Owner: cross-check the five consolidated HSTU question ranges against the original source PDFs.
+- [ ] Build and install a new Android preview when ready so migration v9 reaches the device; no APK was built in this task.
 
-Report: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`.
+Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
