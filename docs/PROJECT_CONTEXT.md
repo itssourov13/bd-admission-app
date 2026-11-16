@@ -37,3 +37,10 @@ The Varsity catalogue now has four separate JU/HSTU entries: verified `JU` (50 p
 ## RU question-data research/staging
 
 The separate historical RU Unit A research snapshot remains external at `/home/kali/gpt-workspace/bd-admission-app-data/ru/`: eight research-only sample packs (21 questions), a coverage ledger and restricted/untranscribed source leads. Separately, the user-supplied `RU Question Bank.pdf` has been imported into a distinct `RU-V` institution, with 15 packs / 1,828 questions, as documented in `docs/QUESTION_IMPORT_WORKFLOW.md`. The previous RU C Science candidate entry remains separate and visibly prefixed `UNVERIFIED —`; the rebuilt RU-V bank contains 1,828 verified records across 15 packs.
+
+## Catalogue identity audit — 2026-11-16
+
+- RU's official 2024–25 structure is A=Humanities, B=Commerce, C=Science. The two RU-V 2024–25 source packs currently label Science questions as A because the supplied PDF prints Unit A; catalogue metadata needs to identify them as C while retaining the printed label in provenance. Their 126-question sets are question-bank sets, not exact 80-question official sittings.
+- Historical RU labels are session-specific: 2010–13 includes split science subunits; the final revised 2014–15 notice says C=Science; 2016–17 and 2017–18 say C=Science; 2018–19 C includes Science and Engineering; 2019–25 uses C=Science, A=Humanities, B=Business/Commerce. Verify earliest source-specific subunits before changing them.
+- HSTU has five duplicate logical catalogue papers for 2024–25 A shifts 1–3 and B shifts 1–2. They have different paper IDs but identical session/unit/shift/title. Consolidate appearances under the existing canonical paper IDs; retain all unique question IDs, source metadata and verified answers. The 105 HSTU-U pending questions remain separate.
+- Full findings and remediation plan: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`.

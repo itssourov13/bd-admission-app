@@ -1,4 +1,4 @@
-# Latest handoff — v0.1.6 Android preview verified — 2026-11-13
+# Latest handoff — catalogue audit complete — 2026-11-16
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
@@ -355,3 +355,13 @@ Phase 9 local contracts exist (src/services/contentManager.ts, src/types/content
 ## Home hero runtime audit — 2026-11-13
 
 Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot confirms both hero CTA visual surfaces are missing because the Pressables use NativeWind-unsupported callback styles; Profile Stat values lack a semantic foreground when no tone is passed. Hero content is also taller than the previous Phase 7 layout. The university catalogue currently bundles logos, not landscape covers; 1024×500 is a proposed Home hero cover dimension, not a recovered historical source spec. Full suite: 234/234 pass on Node 22.23.1. No app code or release configuration changed. Next implementation order: CTA classes, Stat foreground + regression test, add Home cover, compact responsive hero, then Android device checks (light/dark, BN/EN, large font, both CTA routes). No push.
+
+## Handoff addendum — RU unit and HSTU paper catalogue audit (2026-11-16)
+
+**Audit report:** `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`
+
+- RU-V's two 2024–25 Science question-bank sets are currently labelled A Unit. The official RU circular says C=Science and A=Humanities; correct the catalogue-facing metadata to C while retaining the PDF's printed Unit A in provenance. Each set has 126 questions and must remain a question-bank set, not an exact 80-question official sitting.
+- RU history is session-specific: 2010–13 contains split science units; final revised 2014–15 says C=Science; C=Science in 2016–17 and 2017–18; 2018–19 C includes Science + Engineering; 2019–25 C=Science. Oldest candidate packs/2015–16 need source-specific confirmation.
+- HSTU has five duplicated logical paper rows: 2024–25 A shifts 1, 2, 3 and B shifts 1, 2. They currently use the existing `hstu-...` ID plus a second `hstu-import-...` ID from the HSTU verification import. The 34 additional records are unique verified questions; no question ID, exact stem or subject/question-number collisions were found. Reassign their HSTU appearances to the canonical existing paper IDs; do not delete questions or merge IDs. Preserve each canonical paper's existing partially verified official `totalMarks: 100` fact; remove only the duplicate imported unconfigured rule.
+- Current normal HSTU totals remain 22 papers / 950 questions / 939 ready. After logical-paper consolidation: 17 papers, same question and ready counts. Keep HSTU-U pending and historical `unassigned` papers separate.
+- Node 22.23.1 content check passed (217 packs / 13,609 questions). No source code, tests, assets or question JSON changed. This is a docs-only audit checkpoint; implementation and new APK are still pending.

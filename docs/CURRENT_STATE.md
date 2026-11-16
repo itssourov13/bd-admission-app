@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-13 (v0.1.6 Android preview built, installed and owner-verified; no outstanding runtime issue reported).
+Last updated: 2026-11-16 (catalogue audit complete; v0.1.6 remains the owner-verified preview).
 
 ## Latest implementation and release candidate — 2026-11-13
 
@@ -268,3 +268,11 @@ Library UI, importer, validator and SVG logo system are implemented. **No book o
 - Hero grew vertically after adding a 78×104dp phone motif, three wrapping feature pills, offline count and a full 52dp secondary CTA. The earlier Phase 7 implementation was more compact. Recommended target: ~190–220dp mobile card, tuned in device QA.
 - Existing university assets are compact logos (DU/RU/JU SVG, HSTU 1072×1363 PNG); no landscape cover registry or prior 1024×500 asset was found. A 1024×500 Home cover is the proposed new asset contract, not a verified historic university-cover spec.
 - Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. App source/config/release metadata untouched. Verification: `pnpm test` 234/234 under Node 22.23.1. CTA/Stat fixes and device QA remain follow-up implementation work.
+
+## RU unit naming and HSTU paper grouping audit — 2026-11-16
+
+- **Audit only; no app/data changes.** RU-V has two 2024–25 Science question-bank packs incorrectly catalogued as A Unit because the supplied PDF prints Unit A. RU's official 2024–25 circular says A=Humanities, B=Commerce, C=Science; the catalogue-facing label should therefore be C, with the source's printed A preserved in provenance. Each set has 126 bank questions, versus 80 questions in the official exam format, so keep them identified as question-bank sets rather than exact exam sittings.
+- Historical RU labels are not globally interchangeable: 2010–13 has split science subunits; the final revised 2014–15 notice says C=Science; 2016–17/2017–18 C=Science; 2018–19 C included Science and Engineering; 2019–25 C=Science. The oldest candidate packs and 2015–16 require source-specific review before relabelling.
+- HSTU has five duplicated logical-paper entries for 2024–25 A shifts 1–3 and B shifts 1–2. Normal HSTU currently remains 22 papers / 950 questions / 939 verified practice-ready questions; the five paired rows account for 34 additional unique verified questions split into new paper IDs. Consolidating the five pairs would result in 17 logical catalogue papers while preserving all 950 questions and 939 ready questions.
+- Across all five HSTU pairs there are no question-ID collisions, no exact normalized stem overlaps and no duplicate subject/question-number positions. The issue is paper identity fragmentation in the importer/catalogue, not duplicate question records. HSTU-U pending records and historical `unassigned` papers must remain separate.
+- Node 22.23.1 `pnpm content:check` passed: 217 packs / 13,609 questions, seed 22.68 MiB. Audit report and source links: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`. No code, assets, tests or question packs changed.

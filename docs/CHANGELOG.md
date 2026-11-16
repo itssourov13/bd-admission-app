@@ -1,3 +1,10 @@
+## 2026-11-16 — Audit RU year-wise unit naming and HSTU paper fragmentation
+
+- Cross-checked RU unit names across historical admission structures. Confirmed the two 2024–25 RU-V Science question-bank sets are incorrectly catalogued as A Unit; official RU 2024–25 classification is C=Science, A=Humanities, B=Commerce. Preserve the supplied PDF's printed Unit A in provenance.
+- Identified five HSTU 2024–25 logical-paper duplicates (A shifts 1–3 and B shifts 1–2) caused by separate paper IDs across source packs. The 34 additional question records are unique and verified; recommended canonical appearance reassignment preserves question data.
+- Recorded historical RU subunit cautions, HSTU pending/unassigned safeguards and a focused implementation/test plan in `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`.
+- Verification: Node 22.23.1 `pnpm content:check` passed (217 packs / 13,609 questions). Audit only: no app source, configuration, assets or question-pack data changed.
+
 ## 2026-11-13 — v0.1.6 Android preview verified on device
 
 - EAS Android `preview` / INTERNAL APK build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed **FINISHED** at 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.

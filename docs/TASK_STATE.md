@@ -419,3 +419,17 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [x] Full suite: 234/234 pass under Node 22.23.1.
 - [ ] Follow-up implementation: static NativeWind CTA classes, explicit Stat foreground + regression coverage, new 1024×500 Home cover, compact responsive hero and real-device verification.
 - Audit only: no app source/config/build changes; no push.
+
+## RU unit naming and HSTU logical-paper audit — 2026-11-16
+
+**Status:** Read-only audit complete; remediation documented, not implemented.
+
+- [x] Cross-checked RU unit naming by academic session using RU's official 2024–25 circular, prior revised admission notice and contemporaneous public sources.
+- [x] Confirmed the two RU-V 2024–25 Science sets are labelled A in source/import metadata even though RU's official session structure identifies Science as C; source print label should remain in provenance.
+- [x] Identified five HSTU 2024–25 duplicate logical paper pairs (A shifts 1–3; B shifts 1–2). Their distinct question records have no ID, exact normalized-stem or subject/question-number collisions.
+- [x] Documented canonical-paper reassignment, historical-label safeguards, and importer/validator regression-test requirements.
+- [x] Node 22.23.1 `pnpm content:check`: pass, 217 packs / 13,609 questions. Initial Git tree was clean; this audit changed documentation only.
+- [ ] Implement the two RU catalogue metadata corrections and five HSTU paper-appearance consolidations while preserving IDs, sources, verification statuses, HSTU-U pending content and user history.
+- [ ] Add validator/importer tests for canonical paper identity and verify fresh SQLite seed/import, full tests, typecheck, lint and Android preview after implementation.
+
+Report: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`.

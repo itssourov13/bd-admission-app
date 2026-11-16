@@ -1,3 +1,15 @@
+## Catalogue identity audit — RU session labels and HSTU paper grouping — 2026-11-16
+
+This audit is read-only; canonical JSON question packs and generated content were not changed.
+
+- RU-V source packs `ru-vq-2024-2025-a-noset-p001.json` and `ru-vq-2024-2025-a-noset-p012.json` contain Science-subject question-bank sets but are catalogued as A Unit because the user-supplied PDF prints Unit A. RU's official 2024–25 circular identifies Unit C as Science and Unit A as Humanities. Recommended correction: change only the catalogue-facing paper `unit/title` to C; preserve the printed source label in provenance. Each set is 126 questions, while the official 2024–25 paper format has 80, so do not configure these as exact sitting papers.
+- Historical RU units changed. 2010–13 has split Science subunits (including C/C-2 changes); the final revised 2014–15 notice says C=Science; 2016–17/2017–18 C=Science; 2018–19 C=Science+Engineering; 2019–25 C=Science. Review the oldest captures and 2015–16 against the exact session circular before changing metadata.
+- HSTU 2024–25 has five duplicate logical-paper identities across normal HSTU and the verified subset imported from HSTU-U: A shifts 1–3 and B shifts 1–2. They share session/unit/title but have different paper IDs. The 34 extra questions are unique question IDs; no exact normalized stem or subject/question-number collisions were found. Recommended fix: point only their normal-HSTU appearances at the existing canonical paper ID and remove the extra paper plus its duplicate unconfigured rule; preserve the canonical paper's partially verified official `totalMarks: 100` rule. Keep all question records, source refs and HSTU-U pending records intact.
+- Current normal HSTU: 22 paper rows / 950 questions / 939 practice-ready. After grouping five duplicate paper identities: 17 logical papers; same 950 / 939 counts.
+- Implementation safeguard: stable canonical paper identity must be explicit across source packs; do not auto-merge from title or question similarity. See the full audit report for files, per-shift counts, sources and tests.
+
+---
+
 ## Official marking-rule research and integrity controls — 2026-11-05
 
 See `docs/EXAM_RULE_RESEARCH.md` for the source-by-source findings. The 2024–2025 follow-up added only eight partial verified facts to the existing verified-source banks (three JU rules and five HSTU rules). The separate 99 JU-U/HSTU-U candidate rules remain unconfigured. RU's official 2024–2025 80-question/100-mark pattern is confirmed, but the current C-unit Lokkho captures are 127/128-question aggregate variants, not exact official papers; the rule is documented but not attached to them. Never infer a full per-question score from a component total or treat an aggregate candidate bank as an official sitting.
