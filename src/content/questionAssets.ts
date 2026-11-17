@@ -3,6 +3,26 @@ import type { ImageSourcePropType } from "react-native";
 
 // One offline registry for every content origin (university packs and LibraryPacks). Metro needs static require() calls.
 const QUESTION_ASSETS: Readonly<Record<string, ImageSourcePropType>> = {
+  "assets/ruv-aspect/2018-2019-c-02-p107-q008-p107-n0006.png": require("../../data/question-packs/assets/ruv-aspect/2018-2019-c-02-p107-q008-p107-n0006.png"),
+  "assets/ruv-aspect/2020-2021-c-all-p089-q009-p089-n0008.png": require("../../data/question-packs/assets/ruv-aspect/2020-2021-c-all-p089-q009-p089-n0008.png"),
+  "assets/ruv-aspect/2020-2021-c-all-p089-q013-p089-n0012.png": require("../../data/question-packs/assets/ruv-aspect/2020-2021-c-all-p089-q013-p089-n0012.png"),
+  "assets/ruv-aspect/2020-2021-c-all-p089-q017-p090-n0016.png": require("../../data/question-packs/assets/ruv-aspect/2020-2021-c-all-p089-q017-p090-n0016.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-e07-p078-c1-s01-q014-r1.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-e07-p078-c1-s01-q014-r1.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-q005-p078-n0124.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-q005-p078-n0124.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-q015-p078-n0132.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-q015-p078-n0132.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-q020-p079-n0137.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-q020-p079-n0137.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-q023-p068-n0023.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-q023-p068-n0023.png"),
+  "assets/ruv-aspect/2021-2022-c-all-p067-q023-p079-n0140.png": require("../../data/question-packs/assets/ruv-aspect/2021-2022-c-all-p067-q023-p079-n0140.png"),
+  "assets/ruv-aspect/2022-2023-c-all-p044-q001-p055-n0125.png": require("../../data/question-packs/assets/ruv-aspect/2022-2023-c-all-p044-q001-p055-n0125.png"),
+  "assets/ruv-aspect/2022-2023-c-all-p044-q003-p055-n0127.png": require("../../data/question-packs/assets/ruv-aspect/2022-2023-c-all-p044-q003-p055-n0127.png"),
+  "assets/ruv-aspect/2022-2023-c-all-p044-q021-p057-n0145.png": require("../../data/question-packs/assets/ruv-aspect/2022-2023-c-all-p044-q021-p057-n0145.png"),
+  "assets/ruv-aspect/2022-2023-c-all-p044-q055-p060-n0178.png": require("../../data/question-packs/assets/ruv-aspect/2022-2023-c-all-p044-q055-p060-n0178.png"),
+  "assets/ruv-aspect/2023-2024-c-noset-p023-e02-p024-c0-s01-q015-r1.png": require("../../data/question-packs/assets/ruv-aspect/2023-2024-c-noset-p023-e02-p024-c0-s01-q015-r1.png"),
+  "assets/ruv-aspect/2023-2024-c-noset-p033-q009-p033-n0009.png": require("../../data/question-packs/assets/ruv-aspect/2023-2024-c-noset-p033-q009-p033-n0009.png"),
+  "assets/ruv-aspect/2023-2024-c-noset-p033-q012-p033-n0012.png": require("../../data/question-packs/assets/ruv-aspect/2023-2024-c-noset-p033-q012-p033-n0012.png"),
+  "assets/ruv-aspect/2024-2025-a-noset-p001-q008-p001-n0008.png": require("../../data/question-packs/assets/ruv-aspect/2024-2025-a-noset-p001-q008-p001-n0008.png"),
+  "assets/ruv-aspect/2024-2025-a-noset-p001-q018-p002-n0018.png": require("../../data/question-packs/assets/ruv-aspect/2024-2025-a-noset-p001-q018-p002-n0018.png"),
+  "assets/ruv-aspect/2024-2025-a-noset-p012-q023-p013-n0023.png": require("../../data/question-packs/assets/ruv-aspect/2024-2025-a-noset-p012-q023-p013-n0023.png"),
 };
 
 export function hasQuestionAsset(path: string): boolean {
@@ -28,4 +48,4 @@ export function resolveQuestionAssets(paths: readonly string[]): { path: string;
   return paths.map((path) => ({ path, source: getQuestionAssetSource(path) }));
 }
 
-export const QUESTION_ASSET_COUNT = 0;
+export const QUESTION_ASSET_COUNT = 20;

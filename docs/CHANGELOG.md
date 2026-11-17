@@ -1,3 +1,12 @@
+## 2026-11-17 — Bundle RU-V as an ASPECT Library publication; protect newer installed editions
+
+- Added the RU-V LibraryPack to `data/library-packs/` and its 20 figures to the shared offline asset tree; generated manifest and SQLite seed now contain one Library book (ASPECT), 26 units and 1,828 questions alongside the unchanged 158 university packs / 7,772 university questions.
+- Kept all 1,828 RU-V answer/content states unverified. The source's 1,797 printed single-choice keys are provisional; 31 records remain browse-only (22 no-correct-option, 6 multiple-answer, 3 unresolved contradictions). Eleven duplicate-option records are additionally excluded from provisional scoring; all questions remain browseable.
+- Added build-time LibraryPack validation/seed creation and startup sync for publisher, book, units and memberships. Added a pre-write content-version check so an older bundled edition cannot overwrite a newer installed Library edition; the older seed signature is checkpointed as unchanged.
+- Added regression coverage for newer-edition preservation, real-seed fresh install, existing schema-v10 upgrade, ASPECT book/question membership, RU retirement and repeat sync.
+- Verification: consolidated focused Library seed/startup, RU-V dry-run, retirement/migration and catalogue tests 35/35; typecheck, lint, `content:check` (159 entries / 9,600 question rows), `question-assets:check` (20/20), Android Metro no-bytecode export, staging SHA-256 (76/76), both archives (RU-V 36/36; Lokkho 90/90) and `git diff --check` pass. No full-suite or physical-device QA claimed.
+- No APK was built/installed and nothing was pushed. See `docs/RUV_ASPECT_IMPORT.md`.
+
 ## 2026-11-17 — RU-V count reconciliation, ASPECT Library pack builder, isolated dry-run
 
 - Added `scripts/ruv-count-reconciliation.py`, `scripts/ruv-aspect-build-pack.mjs` and `tests/ruv-aspect-dry-run.test.ts` (in-memory import; skips without the external staging workspace). Nothing imported into the active database. See docs/library/RU_V_SOURCE_AUDIT.md.

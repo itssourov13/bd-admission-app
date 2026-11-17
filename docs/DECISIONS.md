@@ -259,3 +259,15 @@ Evidence: tests/ru-retirement-migration.test.ts, docs/QA_CHECKLIST.md, and docs/
 Status: accepted, 2026-11-17.
 
 Publication rights are recorded as optional fields (existing `license_status`/`license_note`/`source_note` plus `rights_holder`, `rights_reference`, `rights_reviewed_on`). `permission_pending` is a non-blocking validator warning and does not stop preparation, validation, tests or pack installation; only `metadata_only` means "no content". The owner's explicit Phase 3 approval is the separate import control, and these fields never grant rights. RU-V is staged under collection `ASPECT` with an unidentified publisher, since the source names none. Supersedes the earlier validator rule that rejected question packs with `permission_pending`.
+
+
+## ADR-039 — Bundled Library seed sync preserves newer installed editions
+Status: accepted and implemented, 2026-11-17. This completes the RU-V ASPECT Library integration deferred at the ADR-035 archive checkpoint; it does not revive the legacy RU university question-pack identities.
+
+Context: Library publications may later be installed or updated independently of the app's bundled content. A startup seed update can therefore contain an older copy of a book already installed at a newer `content_version`. Checking the version only while copying book metadata is too late if the sync has already overwritten the shared question, option and source rows.
+
+Decision: when a pending bundled manifest entry has `libraryBookId`, `seedSync` compares the installed and bundled book versions before writing the batch, source documents, questions, options or appearances. If the installed book is newer, the local Library book/content/units are preserved and the bundled batch signature is checkpointed as the current app seed signature; the outcome is `unchanged`. If the bundled version is current or newer, normal transactional copying proceeds. A missing local batch for a supposedly newer installed book is treated as an error rather than silently skipping an incomplete state.
+
+Consequences: an app update cannot downgrade a newer installed Library edition or retry the older bundled pack at every startup. University question-pack sync behavior is unchanged. Regression coverage verifies newer book metadata, unit title, question text and option text remain intact, and that the next startup sees the bundled entry as unchanged.
+
+Evidence: `src/services/seedSync.ts`, `tests/library-bundled-seed.test.ts`, and `tests/seed-startup.test.ts`.

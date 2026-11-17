@@ -24,9 +24,14 @@ interface Props {
   showSources?: boolean;
   /** Show and provisionally score a source key that has not been independently verified. */
   provisionalScoring?: boolean;
+  /**
+   * Browse-only: show an unverified source key (one or several) as a labelled hint when the answer is not verified.
+   * Used for Library books, whose keys are printed in the source and are never presented as verified answers.
+   */
+  showSourceKey?: boolean;
 }
 
-export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false }: Props) {
+export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false, showSourceKey = false }: Props) {
   const { colors, feedback } = useTheme();
   const haptics = useHaptics();
   const t = useT();
@@ -71,8 +76,8 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
       {question.contentStatus !== "verified" ? (
         <View className="flex-row mt-2"><Chip label={t("question.contentUnverified")} tone="neutral" /></View>
       ) : null}
-      {reveal && provisionalScoring && !verified && sourceKey.length === 1 ? (
-        <Txt className="text-ink-700 text-sm mt-2">{t("question.sourceAnswerCandidate", { key: sourceKey[0]!.toUpperCase() })}</Txt>
+      {reveal && !verified && ((provisionalScoring && sourceKey.length === 1) || (showSourceKey && sourceKey.length > 0)) ? (
+        <Txt className="text-ink-700 text-sm mt-2">{t("question.sourceAnswerCandidate", { key: sourceKey.map((k) => k.toUpperCase()).join(", ") })}</Txt>
       ) : null}
       {multiple ? <Txt className="text-ink-500 text-xs mt-2">{t("question.multipleSelect")}</Txt> : null}
 
@@ -130,6 +135,19 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
           <Txt weight="semibold" className="text-ink-900 text-sm">{t("question.explanation")}</Txt>
           {question.explanation ? <MathText size={14} lineHeight={24} className="text-ink-700 mt-1">{question.explanation}</MathText> : null}
           <QuestionFigures paths={question.explanationAssetPaths} role="explanation" idPrefix={question.id + "-e"} />
+        </View>
+      ) : null}
+
+      {showSources && sources.length === 0 && question.source ? (
+        <View className="mt-4">
+          <Txt weight="semibold" className="text-ink-500 text-xs uppercase" style={{ letterSpacing: 0.6 }}>{t("question.sources")}</Txt>
+          <Txt className="text-ink-500 text-xs leading-5 mt-1">
+            {[
+              question.source.questionNumber ? t("question.number", { n: question.source.questionNumber }) : null,
+              question.source.pageNumber ? t("question.page", { n: question.source.pageNumber }) : null,
+              question.source.filename
+            ].filter(Boolean).join(" · ")}
+          </Txt>
         </View>
       ) : null}
 

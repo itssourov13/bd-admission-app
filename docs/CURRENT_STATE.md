@@ -1,6 +1,19 @@
+## RU-V ASPECT Library integration — completed local implementation — 2026-11-17
+
+- RU-V is bundled as one separate ASPECT Library publication, not as an active RU university question-pack batch. The original 15 archived JSON packs / 17 printed source sets and the Lokkho archive remain untouched and independently verifiable.
+- Prepared Library publication: 1 book, collection `ASPECT`, 26 units, 1,828 questions, 7,312 options, 1,828 source explanations, 20 figure assets and original PDF page/question provenance on all 1,828 records.
+- Source-key semantics are preserved honestly: all 1,828 question answer/content states are stored `unverified`; 1,797 are single-choice records with a marker printed in the compiled PDF (provisional only); 31 are browse-only (22 PDF `×`/no correct option, 6 multiple-answer, 3 source contradictions with keys withheld). Eleven additional duplicate-option questions are excluded from the provisional single-choice pool, leaving 1,786 provisional practice candidates. All 1,828 remain browsable.
+- The 154 raw extraction records outside the prepared set remain excluded: 38 are non-MCQ records and 116 MCQs did not have reliably extracted options. They are retained in the exclusion ledger rather than silently omitted from the audit trail.
+- Offline delivery: `data/library-packs/ruv-aspect-library-pack.json` plus 20 files under `data/question-packs/assets/ruv-aspect/` feed the generated content manifest and SQLite seed. The seed has 159 bundled entries (158 university question packs plus 1 Library pack), 9,600 question rows, 38,400 option rows and schema v12. Library storage has one book, 26 units and 1,828 unit-question memberships.
+- Startup sync supports Library publisher/book/unit/membership records. A focused regression now ensures an older bundled edition cannot overwrite an already-installed newer Library edition; the old bundled signature is checkpointed before content rows are touched.
+- Verification: focused Library/seed/startup tests 24/24; RU retirement/migration tests 5/5; Library catalogue tests 6/6; typecheck, lint, `content:check`, `question-assets:check`, `git diff --check`, Android Metro no-bytecode export, staging SHA-256 76/76, RU-V archive 36/36 and Lokkho archive 90/90 all pass. See `docs/RUV_ASPECT_IMPORT.md` for commands and scope.
+- Not performed: native APK build, physical Android installation, Library visual QA or TalkBack. The latest owner-verified v0.1.6 APK predates this change; a new preview build is needed before the device sees the new seed. These are release/device follow-ups, not failures of the local seed build/sync checks.
+
+---
+
 # Current state
 
-## Current implementation checkpoint — Phase C and Phase D — 2026-11-17
+## Historical implementation checkpoint — Phase C and Phase D archive/removal — 2026-11-17 (before RU-V Library integration)
 
 - Repository: /home/kali/gpt-workspace/bd-admission-app.
 - Branch: feat/import-hstu-verified-answers-2026-11-12.

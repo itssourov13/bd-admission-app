@@ -3,7 +3,7 @@ import type { ContentManifest } from "./seedFormat.ts";
 
 export const BUNDLED_MANIFEST: ContentManifest = {
   seedFormat: 1,
-  seedId: "ba4cd9f6b2568af6237b",
+  seedId: "a7933c78c434313223c1",
   packs: [
   { batchId: "du-a-2024-2025", signature: "b19543e10ef97377ef85", questions: 90 },
   { batchId: "du-a-2025-2026", signature: "ec3b9f9fa317f8a7ebad", questions: 90 },
@@ -162,6 +162,7 @@ export const BUNDLED_MANIFEST: ContentManifest = {
   { batchId: "batch-ju-unverified-h-2017-2018-set6", signature: "d71bd47ebde4d8ec16c5e", questions: 79 },
   { batchId: "batch-ju-unverified-h-2018-2019-seta", signature: "88a27979f81fa715b06c", questions: 35 },
   { batchId: "batch-ju-unverified-h-2019-2020-sete", signature: "ffa18bed2ff30515167b3", questions: 80 },
-  { batchId: "batch-ju-unverified-h-2020-2021-seta", signature: "c1dafb82a452da7a11e1e", questions: 60 }
+  { batchId: "batch-ju-unverified-h-2020-2021-seta", signature: "c1dafb82a452da7a11e1e", questions: 60 },
+  { batchId: "lib-aspect-ru-question-bank-verified-sets", signature: "b6e8558cf2e6e30816afdc", questions: 1828, libraryBookId: "aspect-ru-question-bank-verified-sets" }
   ]
 };

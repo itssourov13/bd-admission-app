@@ -84,6 +84,62 @@ const REPLACE_RESTORE = `INSERT OR IGNORE INTO question_appearances (question_id
 const OPTIONS_OF_CHANGED = `DELETE FROM question_options WHERE question_id IN (
   SELECT s.id FROM seed.questions s JOIN questions m ON m.id = s.id WHERE s.batch_id = ? AND m.content_hash <> s.content_hash)`;
 
+/**
+ * Bundled LibraryPack extras (publisher, book, unit tree, membership). All library-owned, never user data. The book's
+ * `install_state` is not overwritten when the user soft-removed it, and a newer installed version is never replaced.
+ */
+const LIB_PUBLISHER = `INSERT INTO publishers (id, slug, name, name_bn, kind, description, website, updated_at)
+  SELECT p.id, p.slug, p.name, p.name_bn, p.kind, p.description, p.website, ? FROM seed.publishers p
+  JOIN seed.content_books b ON b.publisher_id = p.id WHERE b.id = ?
+  ON CONFLICT(id) DO UPDATE SET name = excluded.name, name_bn = COALESCE(excluded.name_bn, publishers.name_bn), kind = excluded.kind,
+    description = COALESCE(excluded.description, publishers.description), website = COALESCE(excluded.website, publishers.website), updated_at = excluded.updated_at`;
+const LIB_BOOK_COLUMNS = "id, publisher_id, title, title_bn, edition, publication_year, subject, language, target_category, content_type, verification_status, content_version, version_label, source_note, license_status, license_note, install_state, cover_key, question_count, updated_at, authors, description, collection, identifiers_json, exam_relevance_json, coverage_note, rights_holder, rights_reference, rights_reviewed_on";
+const LIB_BOOK_UPDATE = LIB_BOOK_COLUMNS.split(", ").filter((c) => c !== "id" && c !== "install_state" && c !== "updated_at").map((c) => `${c} = excluded.${c}`).join(", ");
+const LIB_BOOK = `INSERT INTO content_books (${LIB_BOOK_COLUMNS})
+  SELECT id, publisher_id, title, title_bn, edition, publication_year, subject, language, target_category, content_type, verification_status, content_version, version_label, source_note, license_status, license_note, install_state, cover_key, question_count, ?, authors, description, collection, identifiers_json, exam_relevance_json, coverage_note, rights_holder, rights_reference, rights_reviewed_on
+  FROM seed.content_books WHERE id = ?
+  ON CONFLICT(id) DO UPDATE SET ${LIB_BOOK_UPDATE}, updated_at = excluded.updated_at,
+    install_state = CASE WHEN content_books.install_state = 'removed' THEN 'removed' ELSE excluded.install_state END`;
+const LIB_UNITS_DELETE = [`DELETE FROM content_unit_questions WHERE book_id = ?`, `DELETE FROM content_units WHERE book_id = ?`] as const;
+const LIB_UNITS = `INSERT INTO content_units (id, book_id, parent_id, kind, title, title_bn, sort_order, question_count)
+  SELECT id, book_id, parent_id, kind, title, title_bn, sort_order, question_count FROM seed.content_units WHERE book_id = ?`;
+const LIB_MEMBERSHIP = `INSERT INTO content_unit_questions (unit_id, book_id, question_id, position)
+  SELECT unit_id, book_id, question_id, position FROM seed.content_unit_questions WHERE book_id = ?`;
+const LIB_VERSIONS = `SELECT (SELECT content_version FROM content_books WHERE id = ?) AS installed, (SELECT content_version FROM seed.content_books WHERE id = ?) AS bundled`;
+const LIB_COUNTS = `SELECT (SELECT COUNT(*) FROM seed.content_units WHERE book_id = ?) AS seed_units, (SELECT COUNT(*) FROM content_units WHERE book_id = ?) AS units,
+  (SELECT COUNT(*) FROM seed.content_unit_questions WHERE book_id = ?) AS seed_members, (SELECT COUNT(*) FROM content_unit_questions WHERE book_id = ?) AS members`;
+
+/**
+ * A newer Library edition already installed by the user takes precedence over an older bundled edition.
+ * Advance only the bundled-seed checkpoint, before writing any shared question/source rows, so the older seed
+ * cannot partially downgrade the newer book or retry the same skipped pack on every launch.
+ */
+async function preserveNewerInstalledLibraryBook(tx: SqlDb, entry: BundledPackEntry): Promise<boolean> {
+  if (!entry.libraryBookId) return false;
+  const bookId = entry.libraryBookId;
+  const versions = await tx.getFirstAsync<{ installed: number | null; bundled: number | null }>(LIB_VERSIONS, [bookId, bookId]);
+  if (versions?.bundled === null || versions?.bundled === undefined) throw new Error(`Bundled seed has no book ${bookId}.`);
+  if (versions.installed === null || Number(versions.installed) <= Number(versions.bundled)) return false;
+
+  const batch = await tx.getFirstAsync<{ id: string }>("SELECT id FROM question_batches WHERE id = ?", [entry.batchId]);
+  if (!batch) throw new Error(`Newer Library book ${bookId} has no local batch ${entry.batchId}; refusing to skip an incomplete install.`);
+  const checkpoint = await tx.runAsync("UPDATE question_batches SET pack_signature = ? WHERE id = ?", [entry.signature, entry.batchId]);
+  if (checkpoint.changes !== 1) throw new Error(`Could not checkpoint older bundled version of newer Library book ${bookId}.`);
+  return true;
+}
+
+async function copyLibraryBook(tx: SqlDb, bookId: string, now: number): Promise<void> {
+  await tx.runAsync(LIB_PUBLISHER, [now, bookId]);
+  await tx.runAsync(LIB_BOOK, [now, bookId]);
+  for (const sql of LIB_UNITS_DELETE) await tx.runAsync(sql, [bookId]);
+  await tx.runAsync(LIB_UNITS, [bookId]);
+  await tx.runAsync(LIB_MEMBERSHIP, [bookId]);
+  const c = await tx.getFirstAsync<{ seed_units: number; units: number; seed_members: number; members: number }>(LIB_COUNTS, [bookId, bookId, bookId, bookId]);
+  if (!c || Number(c.units) !== Number(c.seed_units) || Number(c.members) !== Number(c.seed_members)) {
+    throw new Error(`Library book ${bookId} is incomplete after copying; rolled back.`);
+  }
+}
+
 const FOREIGN_QUESTION = `SELECT s.id AS id, m.batch_id AS owner FROM seed.questions s JOIN questions m ON m.id = s.id WHERE s.batch_id = ? AND m.batch_id <> s.batch_id LIMIT 1`;
 const FOREIGN_SOURCE = `SELECT s.id AS id, m.batch_id AS owner FROM seed.source_documents s JOIN source_documents m ON m.id = s.id WHERE s.batch_id = ? AND m.batch_id <> s.batch_id LIMIT 1`;
 const MISSING_QUESTIONS = `SELECT COUNT(*) AS n FROM seed.questions s LEFT JOIN questions m ON m.id = s.id WHERE s.batch_id = ? AND m.id IS NULL`;
@@ -97,7 +153,7 @@ const HAS_REPLACE = `SELECT 1 AS x FROM seed.seed_replace_papers WHERE batch_id 
  * Only content tables are written. User-owned tables are never touched; question options are replaced only for
  * questions whose content hash changed (the importer's rule), and no question row is ever deleted.
  */
-async function copyBatchIn(tx: SqlDb, entry: BundledPackEntry, now: number, metrics: StartupMetrics): Promise<void> {
+async function copyBatchIn(tx: SqlDb, entry: BundledPackEntry, now: number, metrics: StartupMetrics): Promise<"imported" | "unchanged"> {
   const expected = await tx.getFirstAsync<{ n: number }>(SEED_QUESTION_COUNT, [entry.batchId]);
   if (Number(expected?.n ?? 0) !== entry.questions) {
     throw new Error(`Bundled seed holds ${expected?.n ?? 0} questions for ${entry.batchId}; the app expects ${entry.questions}.`);
@@ -106,6 +162,9 @@ async function copyBatchIn(tx: SqlDb, entry: BundledPackEntry, now: number, metr
   if (foreignQuestion) throw new Error(`Question ${foreignQuestion.id} already exists in batch ${foreignQuestion.owner}; ids must be unique across batches.`);
   const foreignSource = await tx.getFirstAsync<{ id: string; owner: string }>(FOREIGN_SOURCE, [entry.batchId]);
   if (foreignSource) throw new Error(`Source document ${foreignSource.id} belongs to another batch (${foreignSource.owner}).`);
+
+  // This must happen before BATCH_ROW, source documents, questions or options are copied.
+  if (await preserveNewerInstalledLibraryBook(tx, entry)) return "unchanged";
 
   await tx.runAsync(BATCH_ROW, [now, now, entry.batchId]);
   await tx.runAsync(SOURCE_DOCUMENTS, [entry.batchId]);
@@ -119,9 +178,11 @@ async function copyBatchIn(tx: SqlDb, entry: BundledPackEntry, now: number, metr
   await tx.runAsync(SOURCES, [entry.batchId]);
   await tx.runAsync(APPEARANCES, [entry.batchId]);
   if (replaces) await tx.runAsync(REPLACE_RESTORE, [entry.batchId]);
+  if (entry.libraryBookId) await copyLibraryBook(tx, entry.libraryBookId, now);
 
   const missing = await tx.getFirstAsync<{ n: number }>(MISSING_QUESTIONS, [entry.batchId]);
   if (Number(missing?.n ?? 0) !== 0) throw new Error(`Batch ${entry.batchId} is incomplete after copying; rolled back.`);
+  return "imported";
 }
 
 /** Question budget per transaction. Fewer commits is the main speed-up; the cap keeps a rollback and a UI stall small. */
@@ -270,6 +331,8 @@ export async function syncFromSeed(db: SqlDb, options: SeedSyncOptions): Promise
       if (outcome.status === "imported") {
         metrics.count("content.packs.imported");
         metrics.count("content.questions.copied", entry.questions);
+      } else if (outcome.status === "unchanged") {
+        metrics.count("content.packs.unchanged");
       } else {
         metrics.count("content.packs.failed");
       }
@@ -282,10 +345,14 @@ export async function syncFromSeed(db: SqlDb, options: SeedSyncOptions): Promise
     for (const group of groupPending(pending)) {
       try {
         // One commit for the whole group: all-or-nothing, so a committed signature still means "this pack is complete".
+        const copied: ("imported" | "unchanged")[] = [];
         await metrics.span("content.group", () => db.withTransactionAsync(async (tx) => {
-          for (const { entry } of group) await copyBatchIn(tx, entry, now, metrics);
+          for (const { entry } of group) copied.push(await copyBatchIn(tx, entry, now, metrics));
         }));
-        for (const { entry, at } of group) await settle(entry, at, { batchId: entry.batchId, status: "imported", errors: [] });
+        for (let i = 0; i < group.length; i++) {
+          const { entry, at } = group[i]!;
+          await settle(entry, at, { batchId: entry.batchId, status: copied[i]!, errors: [] });
+        }
       } catch (groupError) {
         if (group.length === 1) {
           const { entry, at } = group[0];
@@ -296,8 +363,9 @@ export async function syncFromSeed(db: SqlDb, options: SeedSyncOptions): Promise
         metrics.count("content.groups.fallback");
         for (const { entry, at } of group) {
           try {
-            await metrics.span("content.batch", () => db.withTransactionAsync((tx) => copyBatchIn(tx, entry, now, metrics)));
-            await settle(entry, at, { batchId: entry.batchId, status: "imported", errors: [] });
+            let status: "imported" | "unchanged" = "imported";
+            await metrics.span("content.batch", () => db.withTransactionAsync(async (tx) => { status = await copyBatchIn(tx, entry, now, metrics); }));
+            await settle(entry, at, { batchId: entry.batchId, status, errors: [] });
           } catch (error) {
             await settle(entry, at, { batchId: entry.batchId, status: "failed", errors: failure(error) });
           }

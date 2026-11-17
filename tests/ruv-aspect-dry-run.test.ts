@@ -5,6 +5,7 @@ import { test } from "node:test";
 import { freshDb } from "./helpers.ts";
 import { installLibraryPack } from "../src/services/libraryImporter.ts";
 import { validateLibraryPack } from "../src/services/libraryPackValidator.ts";
+import { ELIGIBLE_SQL, REVIEW_CANDIDATE_SQL } from "../src/repositories/content.ts";
 import { getBook, listAllBooks, listBookQuestionIds, listPublishers, listUnits } from "../src/repositories/library.ts";
 
 // Isolated dry-run of the prepared RU-V/ASPECT Library pack into an IN-MEMORY database. The pack lives in the external
@@ -58,11 +59,22 @@ test("RU-V ASPECT pack: validates and dry-runs into an isolated database", { ski
     const expected = pack.questions.filter((q: { unitIds: string[] }) => q.unitIds[0] === u.id).length;
     assert.equal((await listBookQuestionIds(db, { bookId: pack.book.id, unitId: u.id }, 5000, 0)).length, expected, u.id);
   }
-  const rows = await db.getFirstAsync<{ n: number; s: number; w: number; a: number }>(
-    "SELECT COUNT(*) AS n, SUM(answer_status='verified') AS s, SUM(explanation IS NOT NULL) AS w, SUM(asset_paths IS NOT NULL) AS a FROM questions WHERE batch_id = ?",
+  // Printed source keys are never stored as independently verified answers.
+  const rows = await db.getFirstAsync<{ n: number; s: number; k: number; w: number; a: number }>(
+    "SELECT COUNT(*) AS n, SUM(answer_status='verified') AS s, SUM(EXISTS(SELECT 1 FROM question_options o WHERE o.question_id=q.id AND o.is_correct=1)) AS k, SUM(explanation IS NOT NULL) AS w, SUM(asset_paths IS NOT NULL) AS a FROM questions q WHERE batch_id = ?",
     [`lib-${pack.book.id}`]
   );
-  assert.deepEqual({ n: rows?.n, s: rows?.s, w: rows?.w, a: rows?.a }, { n: 1828, s: 1775, w: 1825, a: 20 });
+  // 1,797 source-marked + 6 multi-answer keep a key; the 3 contradictions and 22 no-correct-option records have none.
+  assert.deepEqual({ n: rows?.n, s: rows?.s, k: rows?.k, w: rows?.w, a: rows?.a }, { n: 1828, s: 0, k: 1803, w: 1828, a: 20 });
+  const candidates = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE q.batch_id = ? AND ${REVIEW_CANDIDATE_SQL}`, [`lib-${pack.book.id}`]);
+  const eligible = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE q.batch_id = ? AND ${ELIGIBLE_SQL}`, [`lib-${pack.book.id}`]);
+  assert.equal(eligible?.n, 0, "no RU-V question is presented as verified-scored");
+  // Provisional candidates = 1,797 source-marked minus those with case-insensitively duplicate option text (excluded by design).
+  assert.equal(candidates?.n, 1786, "11 duplicate-option questions stay outside the provisional single-choice pool");
+  for (const id of ["aspect-ru-vq-2022-2023-c-all-p044-q012-p056-n0136", "aspect-ru-vq-2021-2022-c-all-p067-q065-p087-n0226", "aspect-ru-vq-2017-2018-h-all-p139-e14-p140-c0-s00-q007-r1"]) {
+    const c = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE q.id = ? AND ${REVIEW_CANDIDATE_SQL}`, [id]);
+    assert.equal(c?.n, 0, `${id} must stay unscored`);
+  }
   // none of the retired legacy ids were reintroduced
   const legacy = await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM questions WHERE id LIKE 'ru-vq-%'");
   assert.equal(legacy?.n, 0);

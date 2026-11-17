@@ -169,7 +169,7 @@ export default function BrowseScreen() {
           }
           renderItem={({ item }) => (
             <Card className="p-4">
-              <QuestionCard question={item} reveal showSources bookmarked={marks.has(item.id)} onToggleBookmark={() => void toggle(item.id)} />
+              <QuestionCard question={item} reveal showSources showSourceKey={Boolean(bookId)} bookmarked={marks.has(item.id)} onToggleBookmark={() => void toggle(item.id)} />
             </Card>
           )}
           ListFooterComponent={more ? (

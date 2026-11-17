@@ -269,19 +269,22 @@ test("fresh install on the v11 schema with a non-RU seed contains no RU content 
   db.raw.close();
 }));
 
-test("fresh install with the REAL bundled seed: 158 packs, 7,772 questions, zero RU, nothing retired", { skip: !existsSync(resolve("assets/content/content_seed.db")) && "bundled seed not built" }, withTemp(async (dir) => {
+test("fresh install with the REAL bundled seed: university packs plus RU-V ASPECT Library, no legacy RU university pools", { skip: !existsSync(resolve("assets/content/content_seed.db")) && "bundled seed not built" }, withTemp(async (dir) => {
   const db = openDbAt(join(dir, "real.db"));
   await migrate(db);
   const out = await syncFromSeed(db, { manifest: BUNDLED_MANIFEST, openSeed: seedOpener(resolve("assets/content/content_seed.db")), now: 1 });
-  assert.equal(out.length, 158);
+  assert.equal(out.length, 159);
   assert.ok(out.every((o) => o.status === "imported"), out.filter((o) => o.status !== "imported").map((o) => o.batchId).join(","));
   const n = (sql: string) => (db.raw.prepare(sql).get() as { n: number }).n;
-  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 158);
-  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 7772);
+  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 159);
+  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 9600);
+  assert.equal(n("SELECT COUNT(*) AS n FROM content_books WHERE collection = 'ASPECT' AND id = 'aspect-ru-question-bank-verified-sets'"), 1);
+  assert.equal(n("SELECT COUNT(*) AS n FROM content_unit_questions WHERE book_id = 'aspect-ru-question-bank-verified-sets'"), 1828);
   assert.equal(n("SELECT COUNT(*) AS n FROM institutions WHERE id LIKE 'ru%'"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM question_batches WHERE id LIKE 'ru-%'"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-%'"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL"), 0);
+  // contentTotals() describes university/paper catalogue questions only; Library questions are counted through book membership.
   assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2512, institutions: 5 });
   assertIntegrity(db, "real seed fresh");
   db.raw.close();
@@ -295,6 +298,11 @@ test("v10 upgrade + REAL bundled seed: RU stays retired and historical, bundled 
   await assertActiveCatalogueExcludesRu(f.db, "real seed upgrade");
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-%'").get() as { n: number }).n, 8);
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL").get() as { n: number }).n, 2);
+  // Existing installations receive RU-V through the Library tree while the old RU/RU-V university rows stay retired.
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM content_books WHERE id = 'aspect-ru-question-bank-verified-sets' AND collection = 'ASPECT' AND install_state = 'bundled'").get() as { n: number }).n, 1);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id = 'lib-aspect-ru-question-bank-verified-sets'").get() as { n: number }).n, 1828);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM content_unit_questions WHERE book_id = 'aspect-ru-question-bank-verified-sets'").get() as { n: number }).n, 1828);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id = 'lib-aspect-ru-question-bank-verified-sets' AND answer_status = 'unverified'").get() as { n: number }).n, 1828);
   assertIntegrity(f.db, "real seed upgrade");
   f.db.raw.close();
 }));

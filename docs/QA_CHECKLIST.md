@@ -1,3 +1,29 @@
+## RU-V ASPECT Library integration — local seed verification — 2026-11-17 (Node 22.23.1)
+
+| Check | Result | Evidence |
+|---|---|---|
+| Prepared LibraryPack | [x] Pass | One ASPECT book; 26 units; 1,828 questions; 7,312 options; 1,828 explanations; 20 figures. |
+| Answer disposition | [x] Pass | All 1,828 stored `unverified`; 1,797 single-choice source markers retained provisionally; 31 explicit browse-only cases; 3 contradiction keys withheld. Eleven duplicate-option records are also excluded by provisional eligibility. |
+| Exclusion ledger | [x] Pass | 154 records remain outside this pack: 38 non-MCQ and 116 MCQs whose options were not reliably extracted. |
+| Staging integrity | [x] Pass | `node scripts/ruv-aspect-staging.mjs --verify`: 76/76 files, including generated Library pack and defect scan. |
+| Source archives | [x] Pass | RU-V `archive-ruv.mjs --verify`: 36/36 files; Lokkho `archive-lokkho.mjs --verify`: 90/90 files. |
+| Library pack / figure hashes | [x] Pass | Pack hash matches `manifest.json`; all 20 figure hashes match. |
+| Bundled content build | [x] Pass | `pnpm content:check`: 159 bundled entries (158 university packs + 1 Library pack), 9,600 total question rows; seed 16.83 MiB. |
+| SQLite seed integrity | [x] Pass | `user_version=12`; 159 batches; 9,600 questions; 38,400 options; 1 book; 26 units; 1,828 memberships; `quick_check=ok`; zero FK issues. |
+| Asset registry | [x] Pass | `pnpm question-assets:check`: 20 assets / 20 references / 20 unique; index current. |
+| Fresh-install / repeat sync | [x] Pass | `tests/library-bundled-seed.test.ts`; Library book and all 1,828 memberships sync, second launch is unchanged. |
+| Newer installed edition | [x] Pass | Regression test confirms the old bundled seed does not overwrite newer book metadata, unit title, question or option text; old bundle signature is checkpointed before content writes. |
+| RU retirement / existing DB | [x] Pass | `tests/ru-retirement-migration.test.ts`: 5/5; real-seed fresh install and schema-v10 upgrade retain historical RU tombstones and also receive the new ASPECT Library book. |
+| Focused integration tests | [x] Pass | Combined Library seed, startup, RU-V dry-run, retirement/migration and Library catalogue tests: 35/35. Full suite not run. |
+| TypeScript / lint | [x] Pass | `pnpm typecheck`; `pnpm lint`. |
+| Android Metro export | [x] Pass | `expo export --platform android --no-bytecode`: 1,994 modules, 100 assets including the 18MB seed and all 20 RU-V figure PNGs; ~4MB Android JS bundle. This is not a native APK. |
+| Diff hygiene | [x] Pass | `git diff --check`. |
+| Native APK / physical-device Library QA | [ ] NOT RUN | Existing owner-verified v0.1.6 APK predates this content. Build and install a new preview to verify actual device UI/startup sync. |
+
+See `docs/RUV_ASPECT_IMPORT.md` for the question-status definitions, source limitations and import path.
+
+---
+
 ## Phase C + Phase D final verification — 2026-11-17 (Node 22.23.1)
 
 | Check | Result | Notes |

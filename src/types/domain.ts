@@ -24,6 +24,14 @@ export interface AppearanceView {
   sourceFilename: string | null;
 }
 
+/** Where a Library (publisher book) question was printed: source file, page and printed question number. */
+export interface QuestionSourceView {
+  filename: string;
+  title: string | null;
+  pageNumber: number | null;
+  questionNumber: number | null;
+}
+
 export interface QuestionView {
   id: string;
   text: string;
@@ -38,6 +46,8 @@ export interface QuestionView {
   explanationAssetPaths: string[];
   options: OptionView[];
   appearances: AppearanceView[];
+  /** Single source record of the question (every content origin stores one); the Library uses it because books have no paper appearances. */
+  source?: QuestionSourceView | null;
 }
 
 export interface PoolFilter {

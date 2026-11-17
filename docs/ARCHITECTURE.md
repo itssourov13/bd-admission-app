@@ -8,6 +8,15 @@
 
 # Architecture
 
+## Bundled Library publication flow — RU-V / ASPECT — 2026-11-17
+
+Library publications that ship with the app use the existing `LibraryPack` contract and the offline SQLite seed. The RU-V pack source is `data/library-packs/ruv-aspect-library-pack.json`; its 20 figures are stored in the shared `data/question-packs/assets/ruv-aspect/` tree and referenced by the generated static asset registry. `scripts/build-content.mjs` validates Library packs separately from university packs, includes them in the bundled manifest and calls `buildSeedDatabase`; the seed builder installs the book with `installLibraryPack` and records its `lib-<bookId>` batch signature. At startup, `syncFromSeed` copies question/source/options and the associated publisher, book, units and memberships into the app's local SQLite database.
+
+For a Library manifest entry, `seedSync` checks the local and bundled `content_version` before writing any content rows. If the user already has a newer installed edition, it preserves that book and its question/option/unit content, checkpoints the older bundled signature and reports the entry unchanged. The unit tree and membership are replaced only when the bundled edition is current or newer. This keeps the bundled first-install path and later publisher-installed editions compatible without a parallel runtime content system.
+
+RU-V is one ASPECT collection publication with 26 units representing its 17 printed source sets. Its answer keys remain unverified source markers; the 31 explicitly ambiguous records and 11 duplicate-option holdbacks are not forced into provisional scoring. Details and content caveats: `docs/RUV_ASPECT_IMPORT.md`.
+
+
 ## RU content-retirement boundary — implemented under ADR-035 / ADR-037 — 2026-11-17
 
 The two RU datasets are externalized separately and absent from the active app seed:
@@ -17,7 +26,7 @@ The two RU datasets are externalized separately and absent from the active app s
 
 Migration v11 adds nullable retired_at tombstones to exam_papers and question_batches. Existing RU/RU-V rows are marked retired; active catalogue, paper browsing, eligible/provisional pools, review counts, exam patterns and batch lists exclude retired content. Historical by-ID question loading, source/provenance resolution, bookmarks, saved answer arrays, active/completed sessions and immutable result/rule snapshots remain available. Seed-sync upserts do not write retired_at, so repeated sync does not reactivate existing retired rows.
 
-Both external archives pass their dedicated verifier and SHA-256 checks (Lokkho 90/90; RU-V 36/36). Active generated content is 158 non-RU packs / 7,772 questions. assets/universities/ru.svg is retained. No RU LibraryPack was created; the owner will later handle only the 17 RU-V sets under ASPECT. Lokkho remains unverified and outside ASPECT.
+Both external archives pass their dedicated verifier and SHA-256 checks (Lokkho 90/90; RU-V 36/36). The active university catalogue contains 158 non-RU packs / 7,772 questions. Separately, one RU-V LibraryPack is bundled under ASPECT (26 units / 1,828 questions / 20 figures); it does not recreate RU/RU-V university papers or batches. `assets/universities/ru.svg` is retained. Lokkho remains unverified and outside ASPECT.
 
 ## Current implementation
 Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and NativeWind. It borrows selected UI primitives and design tokens from the separate ScholarHub mobile client, but has its own branding, app identifiers, localization keys and Git history.
@@ -32,7 +41,7 @@ Question behavior and visual rendering are shared application capabilities, inde
 
 Phase B now implements the shared multi-select contract: radio semantics for single-choice, checkbox/toggle semantics for multiple-choice, explicit Flash submission, multi-key Standard Exam/Custom Practice selection, array persistence/resume, exact-set evaluation and matched/missing/extra review. Eligibility checks correct-option cardinality (single = exactly one; multiple = at least two), keeping no-correct-option records out of scored pools. The implementation is committed as `c5ca075`; see the Phase 12 record.
 
-Phase C is partially implemented in the current working tree: shared bitmap figures render in stems/options/explanations, asset paths are validated, and the static Metro registry is generated from the shared asset tree. SQLite migration v10 adds option and explanation asset paths. Current local checks passed, but the Phase C changes remain uncommitted and `question-assets:check` is not yet in CI. MathText was not changed; structured matrix/graph/circuit rendering and physical-device QA are not complete. A real LibraryPack is not present, so Library asset coverage currently uses synthetic fixtures.
+Phase C is implemented and committed as `fe86f53`: shared bitmap figures render in stems/options/explanations, asset paths are validated, the static Metro registry is generated from the shared asset tree, and SQLite migration v10 adds option and explanation asset paths. RU-V now exercises the real LibraryPack/seed asset path with 20 figures; the 20/20 asset check and Android Metro no-bytecode export pass. Structured MathBlock support is recorded in the Phase C implementation note. Physical-device visual QA remains outstanding.
 
 ## JU and HSTU content import (2026-11-01)
 

@@ -353,6 +353,14 @@ export async function loadQuestions(db: SqlDb, ids: string[]): Promise<QuestionV
        LEFT JOIN source_documents sd ON sd.id = a.source_document_id
        WHERE a.question_id IN (${ph}) ORDER BY p.year DESC, a.id`, part
     );
+    const sourceRows = await db.getAllAsync<{ question_id: string; filename: string; title: string | null; page_number: number | null; question_number: number | null }>(
+      `SELECT s.question_id, d.filename, d.title, s.page_number, s.question_number
+       FROM question_sources s JOIN source_documents d ON d.id = s.source_document_id WHERE s.question_id IN (${ph})`, part
+    );
+    for (const r of sourceRows) {
+      const target = byId.get(r.question_id);
+      if (target) target.source = { filename: r.filename, title: r.title, pageNumber: r.page_number, questionNumber: r.question_number };
+    }
     for (const a of apps) {
       const view: AppearanceView = {
         paperId: a.paper_id, institutionCode: a.code, institutionName: a.iname, year: Number(a.year), unit: a.unit, session: a.session,

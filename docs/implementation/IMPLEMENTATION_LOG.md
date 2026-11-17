@@ -11,10 +11,17 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | Foundation implemented; real content delivery/LibraryPack installation incomplete |
+| 8 Publications & books library | Foundation + bundled RU-V ASPECT publication implemented; physical-device QA pending |
 | 9 Online + offline content management (optional) | Partially implemented — local contracts only |
 | 10 Backend & CMS foundation (optional) | Deferred — contract documented only |
 | 12 App-wide multi-select, shared visuals and RU pack externalization | Phase B c5ca075, Phase C fe86f53, Phase D committed locally; implementation, automated checks and documentation committed locally |
+
+## 2026-11-17 — RU-V ASPECT Library bundled delivery and seed-sync integrity
+1. Converted the existing corrected RU-V staging into one reusable LibraryPack for the ASPECT collection: 17 printed sets, 26 units, 1,828 questions, 7,312 options, 1,828 explanations and 20 figures. The existing 158 university packs / 7,772 university questions remain separate.
+2. Preserved source-key uncertainty: all Library question answer/content statuses are unverified; 1,797 source-marked single-choice records are provisional, 31 explicitly ambiguous records are browse-only, and eleven duplicate-option questions are additionally excluded from provisional scoring. The 154 extraction exclusions remain in the audit ledger.
+3. Added LibraryPack input to the offline SQLite content-seed build and startup sync of publisher/book/unit/membership records. Seed-sync now checks Library content versions before shared question/source/option writes and preserves a newer installed edition.
+4. Added focused regression tests for new-edition protection, real seed first-install/upgrade, ASPECT membership and RU retirement. See `docs/RUV_ASPECT_IMPORT.md`.
+5. Verification: Node 22.23.1 consolidated focused Library seed/startup/RU-V dry-run/retirement/catalogue tests 35/35; typecheck, lint, `content:check` (159 entries / 9,600 question rows), asset check (20/20), staging SHA (76/76), archive SHA, Android Metro no-bytecode export and `git diff --check` pass. No full suite or device QA.
 
 ## 2026-11-13 — Phase 1
 1. Read audit, STARTUP_UI_AUDIT.md, git state (branch feat/import-hstu-verified-answers-2026-11-12, clean tree). Found 15f7602 already covers most of Phase 1.
@@ -137,10 +144,10 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 4. Added ADR-035: owner will handle future RU-V-only ASPECT import; no LibraryPack/Library UI work now; Lokkho stays unverified and external; JU/HSTU/DU/other university content remains in the app.
 5. Detailed source inventory, schema-v10 migration implications and execution sequence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md. Documentation checkpoint only; no packs/assets were moved/deleted and no app code was changed here.
 
-## 2026-11-17 — Library implementation status re-audit
+## 2026-11-17 — Library implementation status re-audit (historical checkpoint before RU-V pack delivery)
 
 1. Re-inspected Home/Library routes, migration v8, publisher/book/unit repository, LibraryPack schema/validator/importer, Phase 9 contentManager and Phase 10 contract.
-2. Confirmed Phase 8 UI/schema/import foundation exists, but there is no real ASPECT book/LibraryPack and no app UI/runtime caller to install a real LibraryPack. All five seeded publishers are metadata-only.
+2. Historical finding at this checkpoint: Phase 8 UI/schema/import foundation existed, but no real ASPECT book/LibraryPack or app seed/runtime path was present yet; all five seeded publishers were metadata-only. This was subsequently completed by the RU-V ASPECT bundled delivery entry at the top of this log.
 3. Confirmed multiple-answer selection is still single-select, generated image indexing is Lokkho-directory-specific, MathText is intentionally limited to common notation, Phase 9 has no configured source/UI/download manager and Phase 10 is documentation only.
 4. Focused tests: 25/25 passed; typecheck and lint passed. No real pack installation, Metro/Android export or physical-device QA was run.
 5. Detailed findings and completion sequence: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md. This is a documentation-only audit; no code/content/data changed.

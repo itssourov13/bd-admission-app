@@ -1,9 +1,37 @@
-## Handoff — RU-V / Library / rights metadata — 2026-11-17 (partial)
+## Handoff — RU-V ASPECT Library bundled integration — 2026-11-17
 
-Done: v12 catalogue+rights metadata, non-blocking `permission_pending`, `updateBookRights`, staging exclusion review and ASPECT/unidentified-publisher mapping (staging at /home/kali/gpt-workspace/bd-admission-app-data/ru/ruv-aspect-staging, not imported). See docs/library/PUBLICATION_RIGHTS_MANAGEMENT.md and RU_V_SOURCE_AUDIT.md.
-Next: Library landing/ASPECT UI wiring `filterBooks`; visual verification of questions (0/1,828); answer/explanation review; then the Phase 3 proposal. Nothing imported; no RU-V content in seed or active packs. No device QA.
+**Status:** RU-V is now part of the local app content seed as a separate ASPECT Library publication. Implementation and focused automated verification are complete. No push was performed. A native APK/device installation has not been performed.
 
-# Current handoff — Phase C + Phase D implementation — 2026-11-17
+- Repository: `/home/kali/gpt-workspace/bd-admission-app`
+- Branch: `feat/import-hstu-verified-answers-2026-11-12`
+- Source PDF: `/home/kali/gpt-workspace/bd-admission-app-data/ru/RU Question Bank.pdf`
+- Immutable RU-V archive: `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`
+- Reproducible staging: `/home/kali/gpt-workspace/bd-admission-app-data/ru/ruv-aspect-staging/`
+- App Library pack: `data/library-packs/ruv-aspect-library-pack.json`
+
+### Integrated content
+
+One ASPECT Library book; 17 printed source sets represented by 26 units; 1,828 questions; 7,312 options; 1,828 source explanations; 20 offline figure assets. The 158 university packs / 7,772 university questions remain separate. The generated seed contains 159 bundled entries and 9,600 question rows overall.
+
+Every RU-V question answer/content status is `unverified`. The 1,797 single-choice records with printed source markers are provisional; 31 explicit answer-review records remain browse-only (22 source `×`, 6 multi-answer, 3 source contradictions with keys withheld). Eleven duplicate-option records are additionally withheld from provisional scoring, leaving 1,786 provisional practice candidates. All 1,828 questions remain available to browse. The 154 raw extraction records not included in this pack remain recorded in the exclusion ledger (38 non-MCQ; 116 MCQs without reliably extracted options).
+
+Rights metadata: collection `ASPECT`; publisher/rights holder unidentified; licence not verified; `permission_pending` is stored as informational/non-blocking metadata. No unsupported publisher or licence attribution was invented.
+
+### Seed delivery and regression protection
+
+`build-content.mjs` validates bundled LibraryPacks and incorporates them into the offline SQLite seed. Startup sync creates the Library publisher/book/unit tree and membership in the local DB. The seed-sync version guard runs before any question/source/option writes; a newer installed edition is preserved and the older bundled signature is checkpointed so it is not retried on each launch.
+
+### Verification
+
+- Consolidated focused Library seed, startup, RU-V dry-run, retirement/migration and Library catalogue tests: 35/35 pass, including real-seed fresh install and schema-v10 upgrade with the new Library book.
+- TypeScript, lint, content check (159 entries / 9,600 rows), asset check (20/20), Android Metro no-bytecode export, staging SHA-256 (76/76), RU-V archive (36/36), Lokkho archive (90/90) and `git diff --check`: pass.
+- The complete application test suite was not run. No native APK or physical-device visual QA was performed; v0.1.6 predates the new seed.
+
+Detailed source, answer-disposition, exclusion and verification notes: `docs/RUV_ASPECT_IMPORT.md`.
+
+---
+
+# Historical handoff — Phase C + Phase D archive implementation — 2026-11-17
 
 Workspace: /home/kali/gpt-workspace/bd-admission-app
 Branch: feat/import-hstu-verified-answers-2026-11-12
@@ -24,7 +52,7 @@ No physical Android/emulator test, TalkBack review, dark-theme/narrow-width Math
 
 ## Scope boundaries
 
-Do not create/import a RU LibraryPack now. The owner will later import only RU-V's 17 printed sets into one ASPECT RU Question Bank. Lokkho remains unverified and separate, outside ASPECT. Do not move JU/HSTU/DU or other university content. The original RU PDF, ruv-work, both external archives and assets/universities/ru.svg are preserved.
+Historical scope decision at the Phase C/D archive checkpoint: the owner had deferred the RU-V Library import. That deferral is superseded by the current completed bundled integration in the handoff at the top of this file. Lokkho remains unverified and outside ASPECT. JU/HSTU/DU and other university content remain separate. The original RU PDF, extraction workspace, both external archives and assets/universities/ru.svg are preserved.
 
 Evidence: docs/CURRENT_STATE.md; docs/TASK_STATE.md; docs/QA_CHECKLIST.md; docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md; ADR-035 through ADR-037 in docs/DECISIONS.md.
 
@@ -32,7 +60,7 @@ Evidence: docs/CURRENT_STATE.md; docs/TASK_STATE.md; docs/QA_CHECKLIST.md; docs/
 
 # Historical handoff — Publications & Books Library foundation audit — 2026-11-17
 
-> Historical checkpoint only. Phase B multi-select is now implemented and Phase C bitmap asset support is partly implemented; current state and owner scope are in the active handoff at the top of this document. The owner has deferred RU-V Library import and will handle it later.
+> Historical checkpoint only, before the RU-V ASPECT LibraryPack was bundled. The current integration and seed-sync status is in the active handoff at the top of this document.
 
 Phase 8 is implemented as a foundation (screens, v8 schema, LibraryPack schema/validator/importer, book/unit scopes and synthetic tests), but the end-to-end Library is not publication-ready. pub-aspect currently has metadata only; there are no real books or LibraryPacks. installLibraryPack() is not connected to an app UI/runtime content source. Phase 9 has local contracts only; Phase 10 backend/CMS is deferred.
 

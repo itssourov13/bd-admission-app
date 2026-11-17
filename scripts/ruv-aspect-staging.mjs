@@ -23,6 +23,9 @@ const ARCHIVE = path.join(DATA, "ru", "verified-pack-archive");
 const WORK = path.join(DATA, "ruv-work");
 const OUT = path.resolve(process.env.RUV_STAGING_OUT ?? path.join(DATA, "ru", "ruv-aspect-staging"));
 const GENERATOR = "scripts/ruv-aspect-staging.mjs";
+const REPO = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const CORRECTIONS_FILE = path.join(REPO, "scripts", "ruv-aspect-corrections", "corrections.json");
+const USE_CORRECTIONS = !process.argv.includes("--no-corrections");
 
 // Printed identity of each source set, transcribed from the archive README / source audit (examIndex order).
 // `unit` is the printed unit label of the source, NOT an official admission-unit classification.
@@ -68,6 +71,49 @@ function parseCsv(text) {
   if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
   const [head, ...rest] = rows;
   return rest.filter((r) => r.length === head.length).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+}
+
+/**
+ * Corrections overlay: deterministic, reviewable content fixes keyed by the legacy question id. Each entry carries the
+ * ORIGINAL baseline value; if the baseline no longer matches, the build fails loudly (drift guard) instead of silently
+ * rewriting different content. Supported fields: "text", "options.<a-d>.text", "explanation" (the printed explanation
+ * text) and "explanation.authored" (a new Library explanation; original must be null/empty).
+ */
+function loadCorrections() {
+  if (!USE_CORRECTIONS) return { byQuestion: new Map(), file: null, sha256: null, count: 0 };
+  const raw = fs.readFileSync(CORRECTIONS_FILE);
+  const doc = JSON.parse(raw.toString("utf8"));
+  const byQuestion = new Map();
+  for (const c of doc.corrections) {
+    if (!c.legacyQuestionId || !c.field || c.corrected === undefined || !c.reason || !c.reasonCode) throw new Error(`Malformed correction: ${JSON.stringify(c).slice(0, 120)}`);
+    const list = byQuestion.get(c.legacyQuestionId) ?? []; list.push(c); byQuestion.set(c.legacyQuestionId, list);
+  }
+  return { byQuestion, file: path.relative(REPO, CORRECTIONS_FILE), sha256: sha256(raw), count: doc.corrections.length, decisions: doc.decisions ?? [] };
+}
+
+function applyCorrections(q, list, ledger) {
+  if (!list) return { q, applied: [], authored: null };
+  const out = { ...q, options: q.options.map((o) => ({ ...o })) };
+  const applied = []; let authored = null; const seen = new Set();
+  for (const c of list) {
+    const key = c.field; if (seen.has(key)) throw new Error(`Duplicate correction for ${q.id} ${key}`); seen.add(key);
+    let current;
+    const m = /^options\.([a-d])\.text$/.exec(c.field);
+    if (c.field === "text") current = out.text;
+    else if (m) current = out.options.find((o) => o.id === m[1])?.text;
+    else if (c.field === "explanation") current = out.explanation ?? "";
+    else if (c.field === "explanation.authored") current = "";
+    else throw new Error(`Unsupported correction field ${c.field}`);
+    if (current === undefined) throw new Error(`Correction target missing: ${q.id} ${c.field}`);
+    if ((c.original ?? "") !== current) throw new Error(`Baseline drift for ${q.id} ${c.field}: expected ${JSON.stringify(c.original).slice(0, 80)} but found ${JSON.stringify(current).slice(0, 80)}`);
+    if (c.field === "text") out.text = c.corrected;
+    else if (m) out.options.find((o) => o.id === m[1]).text = c.corrected;
+    else if (c.field === "explanation") out.explanation = c.corrected;
+    else authored = c;
+    applied.push(c);
+    ledger.push({ legacyQuestionId: q.id, field: c.field, reasonCode: c.reasonCode, method: c.method, visuallyConfirmed: !!c.visuallyConfirmed });
+  }
+  return { q: out, applied, authored };
 }
 
 function guardOut() {
@@ -165,11 +211,19 @@ function build() {
   // 5. Per-question checks (automation only; NOT a substitute for visual verification) ------------------------------
   const caret = /[\u0980-\u09FF]\^|\^[\u0980-\u09FF]/u;
   const defectKeys = new Set(CONFIRMED_BOUNDARY_DEFECTS.map((d) => d.join("|")));
+  const corrections = loadCorrections(); const correctionLedger = [];
+  const unresolvedByQuestion = new Map((corrections.decisions ?? []).filter((d) => d.disposition === "unresolved").map((d) => [d.legacyQuestionId, d]));
+  // Decisions with disposition "flag_not_applicable" retire one automatic flag code for one question (e.g. a duplicate-option flag
+  // caused only by a case difference). They never touch content or answers and are recorded in the decision ledger.
+  const suppressedFlags = new Map();
+  for (const d of (corrections.decisions ?? []).filter((x) => x.disposition === "flag_not_applicable")) { if (!suppressedFlags.has(d.legacyQuestionId)) suppressedFlags.set(d.legacyQuestionId, new Set()); suppressedFlags.get(d.legacyQuestionId).add(d.flagCode); }
   const normalized = [], answers = [], explanations = [], mapping = [];
   const bySet = new Map(sets.map((s) => [s.id, []]));
   const stat = { answerStatus: {}, flags: {}, explanation: {}, dispositions: {} };
   const bump = (o, k) => { o[k] = (o[k] ?? 0) + 1; };
-  for (const { q, set, file, packPosition, page, printedNo } of questions) {
+  for (const { q: q0, set, file, packPosition, page, printedNo } of questions) {
+    const { q, applied, authored } = applyCorrections(q0, corrections.byQuestion.get(q0.id), correctionLedger);
+    const boundaryFixed = applied.some((c) => c.reasonCode === "explanation_heading_leaked_into_option");
     const opts = q.options.map((o) => ({ id: o.id, label: o.id.toUpperCase(), text: o.text, order: o.order }));
     const flags = [];
     const optNorm = opts.map((o) => norm(o.text));
@@ -181,13 +235,19 @@ function build() {
     if ([q.text, ...opts.map((o) => o.text), q.explanation ?? ""].some((t) => caret.test(t))) flags.push({ code: "bangla_caret_artefact", severity: "review" });
     if ([q.text, ...opts.map((o) => o.text), q.explanation ?? ""].some((t) => t.includes("\uFFFD"))) flags.push({ code: "replacement_character", severity: "blocking" });
     if (opts.some((o) => o.text.length > 90 && /[।.]\s/.test(o.text))) flags.push({ code: "option_possible_explanation_spill", severity: "review", detail: "heuristic: long multi-sentence option" });
-    if (defectKeys.has([set.examIndex, page, printedNo].join("|"))) flags.push({ code: "confirmed_option_explanation_boundary_defect", severity: "blocking", detail: "visually confirmed by 2026-11-17 interim audit" });
+    if (defectKeys.has([set.examIndex, page, printedNo].join("|"))) flags.push(boundaryFixed
+      ? { code: "boundary_defect_corrected", severity: "info", detail: "option/explanation boundary defect confirmed by the 2026-11-17 audit and corrected by the corrections overlay" }
+      : { code: "confirmed_option_explanation_boundary_defect", severity: "blocking", detail: "visually confirmed by 2026-11-17 interim audit" });
+    if (unresolvedByQuestion.has(q.id)) flags.push({ code: unresolvedByQuestion.get(q.id).flagCode ?? "source_inconsistency_unresolved", severity: "blocking", detail: unresolvedByQuestion.get(q.id).note });
+    if (applied.length) flags.push({ code: "content_corrected", severity: "info", detail: applied.map((c) => `${c.field}:${c.reasonCode}`).join(",") });
     const fig = figByQ.get(q.id);
     if (fig) flags.push({ code: "figure_dependent", severity: "info", detail: fig.representation });
     const multi = q.type === "multiple_choice" || q.correctOptionIds.length > 1;
     const noCorrect = q.answerDisposition === "no_correct_option" || q.correctOptionIds.length === 0;
     if (noCorrect) flags.push({ code: "no_correct_option_in_source", severity: "blocking" });
     if (multi) flags.push({ code: "multiple_correct_options", severity: "blocking", detail: "needs multi-select engine support and key review" });
+    const suppressed = suppressedFlags.get(q.id);
+    if (suppressed) for (let i = flags.length - 1; i >= 0; i--) if (suppressed.has(flags[i].code)) flags.splice(i, 1);
 
     // Answer status. Printed source marker => official_answer_key (the PDF is a compiled source; whether it equals the
     // university's own key is NOT established - see README). Any blocking flag => needs_review; never independently_verified here.
@@ -197,7 +257,8 @@ function build() {
     bump(stat.answerStatus, status); flags.forEach((f) => bump(stat.flags, f.code));
     bump(stat.dispositions, noCorrect ? "no_correct_option" : multi ? "multiple" : "single");
 
-    const explanationStatus = q.explanation ? "source_provided_unreviewed" : "pending";
+    const explanationCorrected = applied.some((c) => c.field === "explanation");
+    const explanationStatus = authored ? "authored_by_assistant_unreviewed" : explanationCorrected ? "source_provided_corrected" : q.explanation ? "source_provided_unreviewed" : "pending";
     bump(stat.explanation, explanationStatus);
     const legacyId = q.id;
     const libId = `aspect-${legacyId}`;
@@ -217,9 +278,9 @@ function build() {
     });
     explanations.push({
       questionId: libId, status: explanationStatus,
-      source: q.explanation ? { text: q.explanation, origin: "source_pdf_printed_explanation", reviewed: false } : null,
-      authored: null,
-      pendingReason: q.explanation ? "Source explanation preserved verbatim; no reviewed Bangla explanation authored yet." : "No explanation in source and none authored yet."
+      source: q.explanation ? { text: q.explanation, origin: explanationCorrected ? "source_pdf_printed_explanation_corrected" : "source_pdf_printed_explanation", reviewed: false, ...(explanationCorrected ? { originalText: q0.explanation ?? "" } : {}) } : null,
+      authored: authored ? { text: authored.corrected, origin: "authored_for_library_from_question_content", language: "bn", reviewed: false, reason: authored.reason } : null,
+      pendingReason: authored ? "Original explanation authored for the Library (the source had none); not independently reviewed by a subject expert." : q.explanation ? (explanationCorrected ? "Source explanation corrected by the overlay (extraction defect); not reviewed by a subject expert." : "Source explanation preserved verbatim; no reviewed Bangla explanation authored yet.") : "No explanation in source and none authored yet."
     });
     const importable = status === "official_answer_key";
     mapping.push({
@@ -227,7 +288,8 @@ function build() {
       proposedAnswerVerificationStatus: importable ? "verified" : "unverified",
       proposedContentVerificationStatus: "unverified",
       importDisposition: importable ? "import_scored_candidate" : "import_browse_only_needs_review",
-      holdReasons: flags.filter((f) => f.severity === "blocking").map((f) => f.code)
+      holdReasons: flags.filter((f) => f.severity === "blocking").map((f) => f.code),
+      contentCorrections: applied.map((c) => ({ field: c.field, reasonCode: c.reasonCode, visuallyConfirmed: !!c.visuallyConfirmed }))
     });
   }
 
@@ -273,11 +335,14 @@ function build() {
   });
   for (const r of normalized) if (r.assetPaths.length) r.assetPaths = r.assetPaths.map((p) => `figures/${path.basename(p)}`);
 
-  return { sets, normalized, answers, explanations, mapping, reconciliation, exclusions, exactGroups, near, figures, issues, stat, bySet, pdfSha, packSha, packs, manifest };
+  return { sets, normalized, answers, explanations, mapping, reconciliation, exclusions, exactGroups, near, figures, issues, stat, bySet, pdfSha, packSha, packs, manifest, corrections, correctionLedger };
 }
 
 function emit(r) {
-  const { sets, normalized, answers, explanations, mapping, reconciliation, exclusions, exactGroups, near, figures, issues, stat, bySet, pdfSha, packSha, packs, manifest } = r;
+  const { sets, normalized, answers, explanations, mapping, reconciliation, exclusions, exactGroups, near, figures, issues, stat, bySet, pdfSha, packSha, packs, manifest, corrections, correctionLedger } = r;
+  const unusedCorrections = [...corrections.byQuestion.keys()].filter((id) => !normalized.some((n) => n.legacyQuestionId === id));
+  if (unusedCorrections.length) throw new Error(`Corrections target unknown questions: ${unusedCorrections.slice(0, 5).join(", ")}`);
+  write("corrections-applied.json", { generatedBy: GENERATOR, overlay: corrections.file, overlaySha256: corrections.sha256, totalCorrections: correctionLedger.length, questionsCorrected: new Set(correctionLedger.map((c) => c.legacyQuestionId)).size, visuallyConfirmed: correctionLedger.filter((c) => c.visuallyConfirmed).length, byReasonCode: correctionLedger.reduce((o, c) => (o[c.reasonCode] = (o[c.reasonCode] ?? 0) + 1, o), {}), decisions: corrections.decisions ?? [], applied: correctionLedger });
   const count = (arr, f) => arr.filter(f).length;
   const ansBy = Object.fromEntries(answers.map((a) => [a.questionId, a]));
 

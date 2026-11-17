@@ -1,15 +1,22 @@
-## In progress — RU-V preparation, Library catalogue and rights metadata — 2026-11-17
+## Completed local task — RU-V ASPECT Library integration and offline seed delivery — 2026-11-17
 
-Status legend: Done / Partial / Not started / Awaiting approval.
+**Status:** Implemented and locally verified. The RU-V publication is included in the generated app content seed. A native APK has not yet been built or installed on a device.
 
-- [x] Phase 0 inspection; previous 3 test failures did not reproduce (tests/ 261/261 on Node 22.23.1 before changes; the `LATEST_VERSION === 11` assertion was already relaxed).
-- [x] Schema v12 catalogue + rights metadata, validator/importer/repository/UI line display, `updateBookRights`, tests (39 focused tests pass).
-- [x] `permission_pending` made non-blocking (ADR-038).
-- [x] Staging: exclusion review (154 decisions), ASPECT collection / unidentified publisher mapping, deterministic rebuild, hash verify.
-- [x] Library landing: search, category + collection chips (data-driven; ASPECT appears only once a book declares collection "ASPECT"), publication cards (`BookCard`), empty/no-results states; `filterBooks` wired. Typecheck, lint and focused tests pass; **no device/visual QA**.
-- [ ] In-app rights editor form, dedicated collection landing page, book-detail contents polish: **not started**.
-- [ ] Visual verification of 1,828 questions, 53 flagged answers, explanation review, figure verification: **not started** (needs page-image review).
-- [ ] Phase 3 import: **awaiting explicit owner approval; not started.**
+- [x] Preserved the existing 17-set / 1,828-question RU-V staging and correction overlay; staging SHA-256 verification covers 76/76 files.
+- [x] Built one ASPECT Library publication with 26 units, 1,828 questions, 7,312 options, 1,828 source explanations, 20 figure assets and source-page provenance for every question.
+- [x] Kept every RU-V question answer/content state `unverified`; source-printed keys are provisional only. 1,797 single-choice records have a printed marker; 31 explicit answer-review cases remain browse-only (22 `×`/no correct option, 6 multiple-answer, 3 unresolved source contradictions with keys withheld). Eleven additional duplicate-option records are withheld by the provisional scoring query; 1,786 candidates currently enter provisional single-choice practice. All 1,828 remain browsable.
+- [x] Preserved archive exclusions: 154 raw records outside the prepared set (38 non-MCQ and 116 MCQs whose options could not be reliably extracted) remain in the exclusion ledger.
+- [x] Added the LibraryPack to `data/library-packs/`, copied its 20 figures into the shared offline asset tree and regenerated the asset index and bundled manifest.
+- [x] Extended build-time seed generation and startup sync to copy Library publisher/book/unit/membership rows into the user's SQLite database.
+- [x] Fixed seed-sync edition precedence: the installed Library `content_version` is checked before any shared question/source/option writes. A newer installed edition is preserved and the older bundled signature is checkpointed as unchanged.
+- [x] Verified fresh-install and schema-v10-existing-database paths, idempotent sync, newer-installed-edition preservation and RU tombstone preservation.
+- [x] Verified `content:check` (159 bundled entries / 9,600 total question rows), 20/20 assets, staging hash 76/76, RU-V archive 36/36, Lokkho archive 90/90, typecheck, lint, focused tests and Android Metro no-bytecode export.
+- [x] Updated the active handoff, architecture, current state, rights decision and QA documentation.
+- [ ] Build/install a new Android preview and visually check Library discovery, ASPECT book detail, unit navigation, question/source/explanation/figure rendering on a physical device. The existing owner-verified v0.1.6 APK predates this integration.
+
+Key details and caveats: `docs/RUV_ASPECT_IMPORT.md`. The current source-key / explanation status is deliberately not described as independently or university verified.
+
+---
 
 ## Completed owner task — Phase C finalization and RU externalization/removal — 2026-11-17
 
@@ -31,7 +38,7 @@ Separate archives (preserve independently):
 - Lokkho: /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/
 - RU-V: /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/
 
-Deferred by owner: later Library import of only RU-V's 17 verified sets into one ASPECT RU Question Bank. No LibraryPack/ASPECT UI/import was created here. Lokkho remains unverified and out of ASPECT. JU/HSTU/DU and other non-RU content remain in the app.
+Historical boundary at the Phase C/D archive checkpoint: the owner had deferred a later Library import of RU-V's 17 sets. That deferral is superseded by the completed integration recorded at the top of this file. Lokkho remains unverified and outside ASPECT; JU/HSTU/DU and other non-RU content remain in the university catalogue.
 
 Detailed evidence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md. Governing decisions: ADR-035 through ADR-037.
 
@@ -75,22 +82,22 @@ Detailed status: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
 ---
 
-## Historical RU-V → ASPECT proposal; superseded by ADR-035 for current execution
+## Historical RU-V → ASPECT source audit and proposal — implemented under ADR-039
 
-**Historical status:** the source audit checkpoint was recorded; it has since been re-verified against the current working tree. Current action is ADR-035 archival/removal, not the original ASPECT implementation proposal.
+**Historical status:** this records the initial source-audit and pre-implementation proposal checkpoint. The ASPECT Library integration is now implemented under ADR-039; current content and verification evidence are summarized at the top of this file and in `docs/RUV_ASPECT_IMPORT.md`.
 
 - [x] Confirmed PDF identity/hash and 17 source-set occurrences represented by 15 RU-V JSON batches.
 - [x] Reconciled per-set imported/excluded counts: 1,828 included + 154 excluded = 1,982 raw records.
-- [x] Confirmed both 2024–25 source sets print Unit A; earlier C catalogue correction is superseded (not yet reverted in data).
+- [x] Confirmed both 2024–25 source sets print Unit A; the active ASPECT staging uses Unit A. The old archived pack label remains part of immutable historical input and is not used for the Library hierarchy.
 - [x] Recorded scan findings, selected source-checked extraction defects, 22 no-correct-option and six multiple-answer records.
 - [x] Documented the owner clarification that multi-select, image/diagram rendering, offline Metro indexing and math rendering are app-wide capabilities, not RU-only requirements.
-- [x] Historical owner direction identified RU-V's 17 sets as the only future ASPECT content. Current ADR-035 supersedes the old timing: the owner will perform the Library import later; the current task is separate external archiving and app removal for both RU families.
+- [x] Historical owner direction identified RU-V's 17 sets as the only ASPECT content. The later execution is completed under ADR-039: one RU-V LibraryPack is now bundled separately under the ASPECT collection; old RU/Lokkho university packs remain archived/retired.
 - [ ] Future source-quality task (deferred): visually verify RU-V included questions and 154 exclusions against the original PDF; this is not part of the current archive/removal task.
-- [x] Existing external Lokkho archive was re-verified during the current audit (44 packs / 4,009 questions / 45 assets; 90/90 SHA-256 entries pass). Original app copies are still pending removal. No optional reuse audit or Muse comparison is part of the current task.
-- [ ] Preserve the 17-set source mapping and provenance in the separate RU-V archive for the owner's later Library import.
-- [x] Confirmed RU-V LibraryPack creation/import is deferred to the owner; do not generate or install a LibraryPack in the current task.
+- [x] Existing external Lokkho archive was re-verified (44 packs / 4,009 questions / 45 assets; 90/90 SHA-256 entries pass). The later Phase D task removed the original app copies. No optional reuse audit or Muse comparison was required.
+- [x] Preserve the 17-set source mapping and provenance in the separate RU-V archive/staging and the imported LibraryPack.
+- [x] At this original audit checkpoint, RU-V LibraryPack creation/import was deferred. This deferral is historical and has since been completed under ADR-039.
 - [x] Phase B app-wide multi-select implementation is committed; Phase C shared bitmap asset support has current automated checks recorded in the active handoff.
-- [ ] Test fresh-install and existing schema-v10 upgrade after both RU pack families are removed from active app content; preserve user history and keep both archives separate.
+- [x] Test fresh-install and existing schema-v10 upgrade with both legacy RU pack families retired and RU-V delivered only through the ASPECT Library; preserve user history and keep both archives separate (tests/ru-retirement-migration.test.ts, 5/5).
 
 Reports: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md and docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
 
@@ -145,18 +152,16 @@ Detailed execution plan: `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.m
 
 Phase 9: partially implemented (manifest validation, install/update planning, integrity contract using an injected SHA-256 hasher, pack installation, soft remove/restore; no concrete hasher, remote source, UI or downloader). Phase 10: deferred, contract documented only. Neither is deployed; the app stays fully offline. Details: docs/implementation/PHASE_09_ONLINE_OFFLINE.md, PHASE_10_BACKEND_CMS.md.
 
-## Roadmap Phase 8 — Publications & books library — 2026-11-13
+## Historical roadmap Phase 8 — Library foundation before RU-V bundled integration — 2026-11-13
 
-**Status:** Foundation implemented — Pending Owner Verification and real content-delivery completion. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md; implementation audit: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
-
-> The publisher/book/unit screens and local LibraryPack services exist, but there is no real ASPECT book/LibraryPack or wired app install flow yet. Do not treat the full Publications & Books feature as complete.
+**Historical status at that checkpoint:** publisher/book/unit screens and local LibraryPack contracts existed, but there was no real ASPECT book or bundled seed path yet. This gap is now closed for the RU-V source publication; physical-device verification and optional remote CMS/download management remain separate follow-ups.
 
 - Done: library screens (Home entry, publisher sections, book/unit pages), importer/validator, book scope through Flash/Exam/Browse/history/result, SVG logo pipeline (react-native-svg), DU/RU/JU SVG + HSTU PNG logos.
 - Owner: rebuild dev client; verify logos on device (light/dark); supply content packs and publisher SVGs; verify Bangla publisher names.
 
 ## Roadmap status (reconciled)
 
-Phase 1–7: Implemented — Pending Owner Verification · Phase 8: Library foundation implemented, but real ASPECT content/delivery and owner/device verification remain open · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — contract documentation only; no backend/CMS deployed. Authoritative history: docs/implementation/IMPLEMENTATION_LOG.md; current Library audit: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
+Phase 1–7: Implemented — Pending Owner Verification · Phase 8: Library foundation and RU-V ASPECT offline content delivery implemented; physical-device QA pending · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — contract documentation only; no backend/CMS deployed. Authoritative history: docs/implementation/IMPLEMENTATION_LOG.md; current Library audit: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
 ## Roadmap Phase 7 — Home hero redesign — 2026-11-13
 
