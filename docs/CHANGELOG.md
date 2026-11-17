@@ -1,3 +1,7 @@
+## 2026-11-17 — RU-V count reconciliation, ASPECT Library pack builder, isolated dry-run
+
+- Added `scripts/ruv-count-reconciliation.py`, `scripts/ruv-aspect-build-pack.mjs` and `tests/ruv-aspect-dry-run.test.ts` (in-memory import; skips without the external staging workspace). Nothing imported into the active database. See docs/library/RU_V_SOURCE_AUDIT.md.
+
 ## 2026-11-17 — RU-V preparation + Library catalogue metadata + lightweight rights metadata (in progress, uncommitted)
 
 - Schema v12 (additive, nullable): authors, description, collection, identifiers, exam relevance, coverage note, rights holder/reference/reviewed-on; wired through pack type, validator, importer, repository, book detail screen and translations.
