@@ -1,3 +1,14 @@
+## Owner-requested ASPECT Library UX/runtime audit — completed 2026-11-17 (audit only)
+
+- Read-only audit report: `docs/audits/ASPECT_LIBRARY_UX_RUNTIME_AUDIT_2026-11-17.md`. The two owner screenshots, supplied ASPECT PNG, Library UI/data tree, RU logo registry, exam scope and SQLite query paths were cross-checked.
+- Confirmed: the ASPECT book is assigned to `pub-unidentified` with `collection: ASPECT` (the publisher identity is intentionally unknown under ADR-038), while the seeded `pub-aspect` placeholder is empty; the Library should present one ASPECT collection card without rewriting source attribution. 9 session parents / 17 source-set children are rendered as a flat list; per-session Exam action is absent; all 1,828 imported question answer/content flags and the book status remain unverified in the current pack/seed.
+- Owner's latest instruction confirms the publication/logo permissions and that the imported question material/existing source answers have been checked. This owner attestation is not yet propagated to the pack/seed; do not treat the current build as already updated. Preserve the three unresolved answer conflicts and explicitly reconcile the eleven duplicate-option cases before scored eligibility changes.
+- App-wide multi-select is already implemented in the current branch. Session-level practice should use the existing book/unit scope and be labelled timed Custom Practice, not an official RU Standard Exam until an exact source-matched paper/rule exists.
+- Host-side, read-only SQLite measurements identified expensive full-scan book-count queries and a duplicated provisional count in Flash setup; device timing remains unmeasured.
+- No app source, question data, asset, seed, config, APK or runtime behavior was changed in this audit. Implementation handoff is pending Claude.
+
+---
+
 ## Android preview v0.1.7 — EAS build finished — 2026-11-17
 
 - App version `0.1.7`, Android `versionCode 8`; package `com.admissionbd.app`, EAS project and signing identity unchanged.

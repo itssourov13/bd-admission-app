@@ -1,3 +1,13 @@
+## 2026-11-17 — Audit ASPECT Library UX and runtime follow-up (documentation only)
+
+- Cross-checked owner screenshots/logo against the current Library publisher metadata, unit hierarchy, book/set actions, RU/ASPECT asset registries, answer verification state and practice query paths.
+- Confirmed the ASPECT-vs-Unknown publisher row mismatch, flat session/set rendering, missing per-session Exam action and the data-driven Provisional labels.
+- Identified a duplicated provisional-pool query in Flash setup and expensive full-catalogue query plans for book-scoped Library counts; recorded read-only host-side SQLite timings (not Android device timings).
+- Saved the complete findings, risk handling and Claude implementation/acceptance brief in `docs/audits/ASPECT_LIBRARY_UX_RUNTIME_AUDIT_2026-11-17.md`.
+- Audit only: no application source, question data, seed, assets, dependencies, app config, APK or runtime behavior changed. No push.
+
+---
+
 ## 2026-11-17 — Prepare Android preview v0.1.7
 
 - Bumped app version to `0.1.7` and Android `versionCode` to `8`; package ID, EAS project and Android signing identity remain unchanged.

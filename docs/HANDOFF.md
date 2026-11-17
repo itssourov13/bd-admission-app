@@ -1,3 +1,27 @@
+# Latest implementation handoff — ASPECT Library UX and runtime follow-up — 2026-11-17
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch at audit:** `feat/import-hstu-verified-answers-2026-11-12`
+**Audited HEAD:** `c2727b0ce2c7aebe92c911601d0d4fca2b0a9fb7`
+**Audit:** `docs/audits/ASPECT_LIBRARY_UX_RUNTIME_AUDIT_2026-11-17.md`
+
+The owner reports the app's general behavior is working and has personally checked the current visual state. The requested changes are limited to the ASPECT Library/publisher presentation, session grouping and actions, imported question verification state, and Library loading performance. This checkpoint performed an audit only; no app code, source pack, SQLite seed, artwork, configuration or APK was changed.
+
+## Findings to implement
+
+- The 1,828-question book is intentionally assigned to `pub-unidentified` and tagged with `collection: ASPECT` under ADR-038. Present this specific collection as the visible ASPECT card and suppress the empty `pub-aspect` placeholder; preserve generic Unknown publisher data unless the owner explicitly identifies ASPECT as the actual publisher/imprint.
+- Add the owner-supplied 256×256, 77 KB ASPECT logo as a raster PNG in the publisher registry. Reuse `assets/universities/ru.svg` through the existing `UniversityLogo` component in the RU Library context; the Varsity catalogue already uses it.
+- Render nine session accordion/drawer cards containing the existing seventeen source-set child rows. Preserve current unit IDs, question memberships and descendant counts. Align the card composition with the existing university cards.
+- Add a session-scoped timed Custom Practice action using the existing `bookId`/`unitId` path. Do not advertise it as an official RU Standard Exam: current source-set pools do not correspond to exact official papers/rules.
+- Record the owner's new permission and question-review attestation in provenance and verification metadata. Reconcile the 22 source no-correct answers, 6 multi-answer records, 3 conflicting keys and 11 duplicate-option cases before final scoring eligibility. Existing app-wide multi-select is already implemented.
+- Remove the duplicated provisional pool count in Flash setup and optimize book-scoped eligibility/subject counts so the Library does not scan the whole question catalogue unnecessarily.
+
+## Guardrails and verification
+
+Preserve source keys/option ordering, unit/question identities, bookmarks, attempts, sessions and results. Bump the LibraryPack content version for synced metadata/status changes and test fresh install, existing DB upgrade, repeat sync and protection of a newer installed edition. Run focused checks and physical-device Library QA. Do not redesign unrelated screens, introduce generic 100/60 exam defaults for this book, or push the branch.
+
+---
+
 ## Handoff — RU-V ASPECT Library bundled integration — 2026-11-17
 
 **Status:** RU-V is bundled as a separate ASPECT Library publication. Implementation and focused automated verification are complete. Release metadata is v0.1.7 / Android versionCode 8. EAS internal APK build `f1584fb8-0be9-4398-a314-d0fc21507603` is **FINISHED** ([build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603)). [Download v0.1.7 APK](https://expo.dev/artifacts/eas/2wSz5i5tBMwbqy5BPwu3CAUXn6cJrXmx6fvZZwp6DYU.apk) (121,037,466 bytes (~115.4 MiB); expires 2026-12-01 17:21 Asia/Dhaka). The download endpoint returned HTTP 200. Physical-device install/visual QA remains pending.

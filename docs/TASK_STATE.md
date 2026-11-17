@@ -1,3 +1,18 @@
+## Owner-requested ASPECT Library UX/runtime audit — complete; implementation pending — 2026-11-17
+
+**Status:** Audit only complete. No application implementation was performed.
+
+- [x] Inspected the two owner screenshots and `/home/kali/screenshort/admission-runtime/aspect-logo.png`.
+- [x] Audited publisher/book metadata, the existing ASPECT and RU logo registries, session/unit tree, book/set actions, Flash/Exam/Browse scope handling, question statuses and scoring eligibility.
+- [x] Read the generated SQLite seed read-only and measured representative eligibility, candidate and browse-count SQL paths. Timings are host-side diagnostics, not Android device timings.
+- [x] Saved the evidence, severity, root causes, safe verification treatment, recommendations and Claude acceptance checklist in `docs/audits/ASPECT_LIBRARY_UX_RUNTIME_AUDIT_2026-11-17.md`.
+- [ ] Claude: implement the targeted publisher mapping/logo, session accordion/card actions, owner-attested question status/answer reconciliation and Library query optimization.
+- [ ] Verify fresh-install and existing-database seed propagation (including content-version bump/newer-edition protection), focused tests, TypeScript/lint, content/assets checks, Metro export and physical-device Library timing/visual QA.
+
+**Important:** current checked-in question/book verification flags remain `unverified` until the owner-authorized implementation is applied and the seed is regenerated. Do not merely hide Provisional labels. The 22 no-correct-option records, 3 conflicting-key records and 11 duplicate-option questions require the separate dispositions in the audit report. Existing app-wide multi-select support must be reused.
+
+---
+
 ## Completed local task — RU-V ASPECT Library integration and offline seed delivery — 2026-11-17
 
 **Status:** Implemented and locally verified. Release metadata is v0.1.7 / Android versionCode 8; EAS internal APK build `f1584fb8-0be9-4398-a314-d0fc21507603` is FINISHED; the APK artifact is available. Physical-device installation and Library visual QA remain pending.
