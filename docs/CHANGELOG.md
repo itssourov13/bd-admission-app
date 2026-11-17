@@ -1,3 +1,10 @@
+## 2026-11-17 — RU-V preparation + Library catalogue metadata + lightweight rights metadata (in progress, uncommitted)
+
+- Schema v12 (additive, nullable): authors, description, collection, identifiers, exam relevance, coverage note, rights holder/reference/reviewed-on; wired through pack type, validator, importer, repository, book detail screen and translations.
+- `permission_pending` no longer blocks pack validation/installation (warning only); `updateBookRights` repository function; `filterBooks` helper exists but is **not yet wired** to a Library landing UI.
+- Staging: exclusion review for all 154 records, ASPECT collection + unidentified-publisher mapping, `permission_pending` metadata, README wording fixed; rebuilt deterministically.
+- Not done: visual verification of 1,828 questions, answer/explanation review, landing/ASPECT UI. Phase 3 import NOT started and awaiting owner approval.
+
 ## 2026-11-17 — Phase D: RU content externalized and retired from active app
 
 - Verified separate external archives: Lokkho 44 packs / 4,009 questions / 45 images / 46 references (90/90 SHA-256 entries); RU-V 15 packs / 1,828 questions / 17 printed sets / 20 source-figure crops (36/36 SHA-256 entries).

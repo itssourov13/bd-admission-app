@@ -254,3 +254,8 @@ Decision: schema v11 adds nullable retired_at columns to exam_papers and questio
 Consequences: fresh installs contain only active non-RU content; v10 upgrades keep RU source/history rows but exclude them from new catalogue and practice flows. Validation covers v10 migration, bookmarks, active and completed sessions, multi-select saved answers, result/rule snapshots, history resolution, repeated/re-delivered seed sync, database reopen and fresh install. No destructive question/history cascade is used. Device visual QA remains a separate owner verification step.
 
 Evidence: tests/ru-retirement-migration.test.ts, docs/QA_CHECKLIST.md, and docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
+
+## ADR-038 — Rights metadata is informational, never a gate; ASPECT is a collection
+Status: accepted, 2026-11-17.
+
+Publication rights are recorded as optional fields (existing `license_status`/`license_note`/`source_note` plus `rights_holder`, `rights_reference`, `rights_reviewed_on`). `permission_pending` is a non-blocking validator warning and does not stop preparation, validation, tests or pack installation; only `metadata_only` means "no content". The owner's explicit Phase 3 approval is the separate import control, and these fields never grant rights. RU-V is staged under collection `ASPECT` with an unidentified publisher, since the source names none. Supersedes the earlier validator rule that rejected question packs with `permission_pending`.

@@ -1,3 +1,8 @@
+## Handoff — RU-V / Library / rights metadata — 2026-11-17 (partial)
+
+Done: v12 catalogue+rights metadata, non-blocking `permission_pending`, `updateBookRights`, staging exclusion review and ASPECT/unidentified-publisher mapping (staging at /home/kali/gpt-workspace/bd-admission-app-data/ru/ruv-aspect-staging, not imported). See docs/library/PUBLICATION_RIGHTS_MANAGEMENT.md and RU_V_SOURCE_AUDIT.md.
+Next: Library landing/ASPECT UI wiring `filterBooks`; visual verification of questions (0/1,828); answer/explanation review; then the Phase 3 proposal. Nothing imported; no RU-V content in seed or active packs. No device QA.
+
 # Current handoff — Phase C + Phase D implementation — 2026-11-17
 
 Workspace: /home/kali/gpt-workspace/bd-admission-app

@@ -1,3 +1,15 @@
+## In progress — RU-V preparation, Library catalogue and rights metadata — 2026-11-17
+
+Status legend: Done / Partial / Not started / Awaiting approval.
+
+- [x] Phase 0 inspection; previous 3 test failures did not reproduce (tests/ 261/261 on Node 22.23.1 before changes; the `LATEST_VERSION === 11` assertion was already relaxed).
+- [x] Schema v12 catalogue + rights metadata, validator/importer/repository/UI line display, `updateBookRights`, tests (39 focused tests pass).
+- [x] `permission_pending` made non-blocking (ADR-038).
+- [x] Staging: exclusion review (154 decisions), ASPECT collection / unidentified publisher mapping, deterministic rebuild, hash verify.
+- [~] Library landing, ASPECT section, search/filter UI: **not started** (`filterBooks` unwired). In-app rights editor UI: **not started**.
+- [ ] Visual verification of 1,828 questions, 53 flagged answers, explanation review, figure verification: **not started** (needs page-image review).
+- [ ] Phase 3 import: **awaiting explicit owner approval; not started.**
+
 ## Completed owner task — Phase C finalization and RU externalization/removal — 2026-11-17
 
 Result: Phase C and Phase D implementation, automated verification and documentation are complete. Phase D is committed locally. No push.
