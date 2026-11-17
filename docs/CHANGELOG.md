@@ -1,3 +1,26 @@
+## 2026-11-17 — Clarify app-wide multi-select and visual-content scope (documentation only)
+
+- Owner clarified that multiple-select interaction/scoring/persistence and diagram/image rendering are shared app capabilities, not RU/RU-V-only requirements.
+- Added ADR-033 and aligned Current State, Task State, Handoff, Phase 8 and the Library audit: shared runtime/asset infrastructure must support all university packs, active bundled content, LibraryPacks and future imports.
+- RU-V remains one content-specific acceptance dataset; its source diagram inventory and Library conversion are separate from the reusable app capability.
+- Documentation only; no application code, packs, DB, seed or assets changed. No commit or push.
+
+## 2026-11-17 — Audit Publications & Books Library completion (documentation only)
+
+- Confirmed Phase 8 UI/schema/LibraryPack foundation is implemented, but no real ASPECT book or LibraryPack is currently installed.
+- Identified the missing runtime pack-install path/source UI, partial Phase 9 lifecycle and deferred Phase 10 backend/CMS.
+- Documented multi-select, LibraryPack asset-indexing and math/diagram gaps.
+- Focused tests 25/25, typecheck and lint passed; real pack/device verification remains pending.
+- No code/data changes, no commit or push.
+
+## 2026-11-17 — RU audit checkpoint and ASPECT Library direction (documentation only)
+
+- Recorded interim 15-batch / 17-source-set RU-V reconciliation, per-set counts, exclusions and quality findings.
+- Superseded the RU 2024–25 C catalogue interpretation: the source PDF prints Unit A on মহানন্দা and পদ্মা; restoring source-facing A remains a future data change.
+- Documented multi-select runtime work, diagram/image asset pipeline, math rendering and full visual audit requirements.
+- Corrected the destination decision: only the 17 RU-V source sets go into one ASPECT book. RU Lokkho must be moved to an external archive for optional reuse and is never an ASPECT book; the archive transfer is still pending. Muse has separately been tasked with a new pack.
+- No app, question pack, database, seed or asset changed. Full audit and implementation pending. No commit or push.
+
 ## 2026-11-16 — Correct RU catalogue labels and consolidate HSTU papers
 
 - Corrected the two RU-V 2024–25 Science-set catalogue labels/titles from A to C Unit. Original PDF title/printed label is retained in source provenance; question-bank practice status and unconfigured exam rules are unchanged.

@@ -1,3 +1,62 @@
+## App-wide multi-select and visual-question capability — owner clarification — 2026-11-17
+
+**Scope decision:** these are shared app-engine capabilities, not an RU/RU-V-only feature. They must work consistently across all university/paper question packs, active bundled content, Publications & Books LibraryPacks and future imported sources. RU-V is only one content set that can exercise the feature.
+
+- [x] Recorded the app-wide scope in ADR-033; the earlier RU-only interpretation is superseded.
+- [ ] Implement type-aware shared choice controls: radio for single-choice, checkbox/toggle for multiple-choice, with accessible labels and selection states.
+- [ ] Support multi-answer selection, explicit Flash submission, Standard Exam/Custom Practice selection, array persistence and resume across every pool source.
+- [ ] Apply source-backed marking profiles; use exact-set comparison unless a verified rule defines partial/negative multi-answer marking. Show selected vs expected answers in review.
+- [ ] Generalize question visual content across stems/options/explanations and all content sources; include static image/diagram assets and any structured math/diagram rendering the source inventory requires.
+- [ ] Replace source-folder-specific asset indexing with a validated, offline-capable shared registry/build pipeline; reject missing or unbundled references.
+- [ ] Add regression/integration coverage across at least university-pack and LibraryPack sources, including single-choice compatibility, multi-answer scoring, persisted resume and image-dependent questions.
+- [ ] Verify Android/Metro bundling and physical-device rendering after implementation.
+
+Architecture decision: docs/DECISIONS.md — ADR-033. This work is independent of the RU-V one-book conversion and must not be scoped or tested only against RU data.
+
+---
+
+## Publications & Books Library completion — status audit — 2026-11-17
+
+**Status:** Phase 8 foundation is implemented; end-to-end Library feature is not complete.
+
+- [x] Inspected Library routes, Home navigation, migration v8, LibraryPack schema/validator/importer and repository.
+- [x] Confirmed current publishers are metadata-only; ASPECT has no books/questions and no actual LibraryPack is present.
+- [x] Confirmed installLibraryPack() has no app UI/runtime caller; no configured ContentSource, catalogue host or CMS exists.
+- [x] Verified 25 focused Library/content-manager/logo tests, typecheck and lint pass.
+- [ ] Build exactly one RU-V LibraryPack with 17 test units and wire the chosen bundled/offline installation path.
+- [ ] Implement app-wide multiple-select choices, Flash submit, answer-array persistence/resume and source-backed exact-set scoring.
+- [ ] Generalize static Metro asset indexing/validation for all supported question-pack and LibraryPack figures; validate the complete offline asset bundle.
+- [ ] Complete shared math/diagram rendering work, driven by the actual visual requirements of each content source.
+- [ ] Complete Phase 8 owner/device visual QA.
+- [ ] Decide/implement only the needed Phase 9 install/update/remove UX; Phase 10 backend/CMS remains optional/deferred.
+- [ ] Fresh-install and existing-database upgrade QA before RU-V is moved from Varsity catalogue to ASPECT.
+
+Detailed status: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
+
+---
+
+## RU-V → ASPECT Library; RU Lokkho → external archive — owner direction — 2026-11-17
+
+**Status:** Interim audit checkpoint documented; full source audit pending Claude. Implementation is not started.
+
+- [x] Confirmed PDF identity/hash and 17 source-set occurrences represented by 15 RU-V JSON batches.
+- [x] Reconciled per-set imported/excluded counts: 1,828 included + 154 excluded = 1,982 raw records.
+- [x] Confirmed both 2024–25 source sets print Unit A; earlier C catalogue correction is superseded (not yet reverted in data).
+- [x] Recorded scan findings, selected source-checked extraction defects, 22 no-correct-option and six multiple-answer records.
+- [x] Documented the owner clarification that multi-select, image/diagram rendering, offline Metro indexing and math rendering are app-wide capabilities, not RU-only requirements.
+- [x] Owner decided that only the 17 audited RU-V source sets go into one ASPECT Library book. RU Lokkho (44 packs / 4,009 candidates) must be archived outside the app and kept out of ASPECT; transfer is pending. Audit is for optional reuse only. Muse has separately been tasked with a new pack, so Lokkho may not be used.
+- [ ] Visually verify all RU-V included questions and 154 exclusions against the original PDF.
+- [ ] Hash and move the 44 Lokkho packs/assets/source manifests to an external archive outside the app bundle; the move is still pending. Audit the 4,009 questions for optional reuse and compare with Muse's new pack when available.
+- [ ] Finalize exactly 17 RU-V test units under one ASPECT book.
+- [ ] Generate/validate one RU-V ASPECT LibraryPack and its source-specific attribution/licence records.
+- [ ] Implement/test the app-wide multi-select and image/math capabilities across university packs and LibraryPacks.
+- [ ] Test fresh-install and existing-database migration; move RU-V only from Varsity into ASPECT after the one book passes. Keep RU Lokkho archived and out of ASPECT.
+
+Reports: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md and docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
+
+---
+
+
 ## Android preview v0.1.6 — built, installed and owner-verified — 2026-11-13
 
 **Status:** Complete for the current preview candidate. Owner reports the app installed and ran successfully; all previously reported Hero/theme/runtime issues are fixed and there are no outstanding app issues at this time.
@@ -48,14 +107,16 @@ Phase 9: partially implemented (manifest validation, install/update planning, in
 
 ## Roadmap Phase 8 — Publications & books library — 2026-11-13
 
-**Status:** Implemented — Pending Owner Verification. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md.
+**Status:** Foundation implemented — Pending Owner Verification and real content-delivery completion. Phase detail: docs/implementation/PHASE_08_CONTENT_LIBRARY.md; implementation audit: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
+
+> The publisher/book/unit screens and local LibraryPack services exist, but there is no real ASPECT book/LibraryPack or wired app install flow yet. Do not treat the full Publications & Books feature as complete.
 
 - Done: library screens (Home entry, publisher sections, book/unit pages), importer/validator, book scope through Flash/Exam/Browse/history/result, SVG logo pipeline (react-native-svg), DU/RU/JU SVG + HSTU PNG logos.
 - Owner: rebuild dev client; verify logos on device (light/dark); supply content packs and publisher SVGs; verify Bangla publisher names.
 
 ## Roadmap status (reconciled)
 
-Phase 1–8: Implemented — Pending Owner Verification · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — optional contract documentation only; no backend/CMS deployed. Current required phase: Phase 8 implementation complete; owner verification remains pending. Authoritative table: docs/implementation/IMPLEMENTATION_LOG.md.
+Phase 1–7: Implemented — Pending Owner Verification · Phase 8: Library foundation implemented, but real ASPECT content/delivery and owner/device verification remain open · Phase 9: Partially implemented — optional local contracts only; no remote source/UI/downloader · Phase 10: Deferred — contract documentation only; no backend/CMS deployed. Authoritative history: docs/implementation/IMPLEMENTATION_LOG.md; current Library audit: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
 ## Roadmap Phase 7 — Home hero redesign — 2026-11-13
 

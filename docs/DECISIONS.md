@@ -183,3 +183,26 @@ Owner explicitly authorised authentic university/publisher logos. Decision: reac
 ## ADR-031 — Optional content management is injected and additive (Phase 9)
 
 Network access, hashing and sources are injected interfaces; no catalogue endpoint, cloud DB or account is required, and none is faked. Removal is soft. Manifest signatures are reserved, not verified.
+
+
+## ADR-032 — Publish only the 17 RU-V sets under ASPECT; archive RU Lokkho
+Status: accepted, 2026-11-17.
+
+After the full source audit, publish only the 17 distinct source sets from the RU-V verified-source bank as one book under Publications & Books → ASPECT. The current input is 15 JSON batches / 1,828 questions; two batches each combine two printed sets. Preserve the original Unit A labels on 2024–25 মহানন্দা and পদ্মা.
+
+The separate RU Lokkho bank (44 packs / 4,009 unverified candidate questions and its 45 unique referenced assets) must remain in an external archive outside the ASPECT Library. Audit it only to determine whether selected records might be reused later; it may remain unused. The owner has separately tasked Muse with preparing a new pack; compare that output with the archived Lokkho material only when it is available. Do not create a second ASPECT book for Lokkho, merge Lokkho into RU-V, or treat archiving/auditing as verification. Preserve source provenance and the archive.
+
+The current app bundle still contains the Lokkho candidate packs at this decision checkpoint; moving them into the external archive and retiring their active bundled/SQLite state is a separate future task. Do not delete question history or user data. The ASPECT conversion and cutover scope is RU-V only.
+
+RU-V book-specific requirements are deterministic question-pack → LibraryPack conversion, 17 separate test units, source-page provenance, audited RU-V diagrams/assets, math/matrix corrections where required, and a safe RU-V-only catalogue cutover. Multi-select behavior, scoring/persistence, diagram rendering and offline asset indexing are app-wide platform requirements under ADR-033, not RU-V-only enhancements. Shared capability implementation is approved independently of RU-V content conversion; RU-V-specific transcription, pack conversion and catalogue cutover remain governed by the source audit and their own verification gates.
+
+Detailed plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
+
+## ADR-033 — Multi-select and visual-question support are app-wide capabilities
+Status: accepted, 2026-11-17.
+
+Context: the question model already represents multiple_choice answers and question-level assets, but shared Flash/Standard Exam interactions still behave as single-select, while the generated Metro asset registry is currently tied to one legacy asset directory. Treating these gaps as RU-only work would leave other universities, existing question packs and future Library books with inconsistent capabilities.
+
+Decision: implement multi-select interaction, answer persistence/resume, scoring/review and visual-content rendering/indexing as shared app capabilities. They must work for every supported content origin: existing university/paper packs, all active bundled question packs, Publications & Books LibraryPacks, and future imported content. Question type drives radio vs checkbox semantics. Multi-select must support multiple toggles, explicit submission where needed (especially Flash), array-based persistence/resume, and correct answer comparison; exact-set scoring is the safe default unless a source-backed marking profile explicitly defines another rule. Diagram/image references must resolve through one validated offline-capable asset pipeline and render consistently in question stems, options and explanations wherever the content model places them. Preserve existing single-choice behavior.
+
+Consequences: RU-V can be used as one acceptance-test dataset, but it does not own or delimit this feature. Tests must cover multiple content sources and existing single-choice regression paths. No pack may be enabled for multi-select scoring or depend on an image until its content and referenced assets validate. Content-specific diagrams are audited per source, but renderer and asset infrastructure are shared.

@@ -1,3 +1,40 @@
+# Current handoff — Publications & Books Library is foundation-only — 2026-11-17
+
+Phase 8 is implemented as a foundation (screens, v8 schema, LibraryPack schema/validator/importer, book/unit scopes and synthetic tests), but the end-to-end Library is not publication-ready. pub-aspect currently has metadata only; there are no real books or LibraryPacks. installLibraryPack() is not connected to an app UI/runtime content source. Phase 9 has local contracts only; Phase 10 backend/CMS is deferred.
+
+Focused verification: 25/25 Library/content-manager/brand tests, typecheck and lint passed. No real ASPECT pack install, Metro/Android export or device visual QA was run.
+
+App-wide platform work (shared runtime; applies to all university/paper packs, active bundled content, LibraryPacks and future imports):
+- Implement type-aware single/multiple choice controls, multi-answer interaction, Flash confirmation, selection persistence/resume, source-backed scoring and result review.
+- Generalize stem/option/explanation visual rendering and offline image/diagram asset indexing/validation for every supported content source.
+- Add source-driven MathText/matrix/diagram rendering where required and preserve all existing single-choice behavior.
+- Test the shared engine against both university-pack and LibraryPack content, including offline bundle and Android visual QA.
+
+RU-V ASPECT content-delivery work (separate from the global platform capabilities):
+- Generate one deterministic RU-V LibraryPack with 17 test units.
+- Wire an actual bundled/offline pack install path.
+- Audit and attach RU-V's own source-specific diagrams/assets and correct its source-specific math content.
+- Finish fresh-install/upgrade and book/unit QA before the RU-V catalogue cutover.
+
+RU Lokkho is external archive-only and must not be added as an ASPECT book. Full report: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
+
+---
+# Current handoff — RU source audit and ASPECT Library destination — 2026-11-17
+
+**Workspace:** /home/kali/gpt-workspace/bd-admission-app
+**Branch / HEAD:** feat/import-hstu-verified-answers-2026-11-12 / a5c46ed
+**Status:** interim audit documentation complete; full source audit and implementation pending.
+
+Owner decision: only the 17 audited RU-V source sets (currently 15 JSON batches / 1,828 questions) go into one book under Publications & Books → ASPECT. The 44 RU Lokkho packs / 4,009 candidates must be moved to an external archive and must not be added to ASPECT. The archive move is still pending; the candidate files/assets remain in the app repository at this checkpoint. Audit them for optional reuse only; the owner has separately asked Muse to make a new pack, so Lokkho may remain unused. Preserve the archive and source assets once moved. The two 2024–25 RU-V source sets print Unit A; source-facing metadata should be A.
+
+Phase 8 LibraryPack is a useful foundation for one RU-V book with 17 test units. The shared multi-select engine, scoring/persistence/review, visual-question renderer and validated offline asset pipeline are app-wide requirements under ADR-033; they must support every university pack and LibraryPack, not only RU-V. RU-V-specific work is deterministic question-pack → LibraryPack conversion, its 17 test units and source-specific asset audit, plus a safe RU-V-only existing-database cutover. RU Lokkho is an independent external archive, not a LibraryPack. Read:
+- docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md
+- docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md
+
+No question/code/DB/asset changes, no build, no commit, no push in this documentation checkpoint. Full audit is not complete.
+
+---
+
 # Latest implementation handoff — RU/HSTU catalogue correction — 2026-11-16
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
@@ -390,7 +427,7 @@ Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot 
 
 **Implementation report:** docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md
 
-- RU-V's two 2024–25 Science question-bank sets now catalogue as C Unit. The source-document titles retain the supplied PDF's printed Unit A; no other historical RU pack was relabelled. The 126-question sets remain question-bank practice sets, not exact 80-question official sittings.
+- Historical snapshot only: RU-V's two 2024–25 sets were previously changed to C. The 2026-11-17 source audit found both original PDF headers print Unit A; source-facing catalogue metadata should be A. This is pending correction and not implemented.
 - Historical RU structures remain session-specific: 2010–13 split Science subunits; final revised 2014–15 says C=Science; C=Science in 2016–17/2017–18; 2018–19 C includes Science + Engineering; 2019–25 C=Science. Oldest candidate packs/2015–16 still need source-specific confirmation.
 - The 34 additional HSTU verified questions now reference the five existing canonical 2024–25 A/B shift papers. Normal HSTU is 17 papers / 950 questions / 939 ready. The five duplicate unconfigured aliases were removed; each canonical partial totalMarks=100 fact remains.
 - HSTU-U's 105 pending questions and historical unassigned papers remain separate. No question IDs, stems, options, answer mappings or source locators were rewritten.

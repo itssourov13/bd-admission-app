@@ -2,6 +2,8 @@
 
 **Status:** Implemented — Pending Owner Verification (2026-11-13). Related local commit: see `git log` entry "feat(library): phase 8 publications and books library".
 
+> **Status clarification — 2026-11-17:** the Phase 8 foundation/screens/schema/importer are implemented, but the end-to-end Library feature is not complete until a real ASPECT LibraryPack is generated and wired into a real install path, owner/device QA is completed, and the multiple-select/image/math gaps identified in docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md are resolved. Phase 9 remains partial and Phase 10 remains deferred.
+
 ## 1. Objective
 Turn the Phase 8 foundation into a working feature: publisher library, publisher and book detail pages, chapter/unit browsing, book/unit practice reusing Flash/Exam/Browse, a versioned importer/validator, and authentic university/publisher logo rendering through a shared SVG system.
 
@@ -74,3 +76,25 @@ Source: `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/@AdmissionStuf
 ASPECT publisher ID `pub-aspect` already exists. Use the existing LibraryPack schema/importer. Extract the full question bank, ordered options, answer markers, explanations, formulae, diagrams and printed university/year/unit/set references. Add any needed MathText, static asset, structured-reference and library UI support as implementation work. The source is image-based: render pages, use Bengali-capable OCR where helpful, and visually reconcile each extracted record. The watermark does not block the workflow.
 
 **Execution is pending:** page inventory, transcription, pack generation, import, automated validation and Android QA must be performed and documented. See `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+
+## RU verified-source bank under ASPECT — planned extension (2026-11-17)
+
+Owner clarification: after the complete source audit, publish **only the RU-V verified-source bank** (15 import batches / 17 printed source sets / 1,828 current questions) as **one book** under pub-aspect in Publications & Books. The 17 source sets should appear as 17 separate test units within that book.
+
+The 44 RU Lokkho candidate packs (4,009 unverified questions) are **not** an ASPECT Library book and must not be included in the RU-V LibraryPack. Move Lokkho to an external archive (transfer pending) for source review and optional future reuse only. The owner has separately asked Muse to prepare a new pack; compare it with the audited Lokkho material when available. Lokkho may remain unused. Preserve the archived packs and assets.
+
+Existing LibraryPack primitives support publisher/book/unit/question membership, but deterministic question-pack → LibraryPack conversion is required for RU-V. Preserve question IDs, PDF page/question-number provenance and answer/content verification states.
+
+Required app-wide platform capabilities (ADR-033; these are shared app-engine requirements, not RU-V-specific work):
+- Type-aware multi-select behavior across Flash, Standard Exam, Custom Practice, Browse and review: toggle multiple choices, explicit Flash confirmation, array persistence/resume, source-backed scoring, exact-set default unless a verified marking rule says otherwise, and result review.
+- Shared visual rendering for question stems, options and explanations across all supported sources, with generalized static Metro asset indexing, missing-reference validation and offline bundling for both existing question packs and LibraryPacks.
+- Math/matrix/vector/diagram rendering improvements driven by source needs, while retaining the existing single-choice path.
+- Regression tests spanning university packs and LibraryPacks, including single-choice compatibility, multi-answer behavior, persistence and image-dependent questions.
+
+RU-V book-specific integration work:
+- Audit and attach RU-V's own source-page images/diagrams and correct source-specific math where needed.
+- Safe RU-V-only cutover from Varsity question-paper appearances to library-book membership, preserving bookmarks, attempts, answers and results on existing installs.
+- Independent source attribution/licence status for the RU PDF. The existing ASPECT Master QB permission note must not automatically be applied to RU sources.
+
+Do not remove RU-V source packs/assets from the current bundle until the LibraryPack, fresh-install behavior, upgrade migration, offline images and book/unit practice pass. Lokkho archiving is separate from this ASPECT cutover. Full plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.

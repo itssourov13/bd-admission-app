@@ -5,6 +5,8 @@
 **Branch / implementation base:** `feat/import-hstu-verified-answers-2026-11-12` / `59acc2b`
 **Status:** Implemented and regression-tested on 2026-11-16. RU catalogue metadata and five HSTU paper identities are corrected; existing-install migration v9 and scoped pack replacement preserve user history and canonical questions.
 
+> RU finding superseded — 2026-11-17: Source PDF pages 1 and 12 print Unit A for 2024–25 মহানন্দা and পদ্মা. The earlier C catalogue correction applied an official classification to a source-labelled question bank and was not source-faithful. Current source-facing catalogue metadata should be A; no JSON change has yet been made. The HSTU consolidation/migration sections remain current. See docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md.
+
 ## 1. Plan and scope
 
 1. Check Git state and current project/import documentation.

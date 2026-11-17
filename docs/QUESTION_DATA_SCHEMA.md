@@ -73,7 +73,7 @@ Question, option, appearance, paper and source IDs must be stable within the bat
 
 ## Which questions are eligible for practice?
 
-The current Flash/Standard practice pool is restricted to questions that have a **verified answer**, use the **single-choice** format, have at least two options, and identify at least one valid correct option. The schema can describe multiple-choice questions, but that does not mean the current practice engine supports them as eligible questions.
+Current implementation: the Flash/Standard practice pool is restricted to questions that have a **verified answer**, use the **single-choice** format, have at least two options, and identify at least one valid correct option. The schema can describe multiple-choice questions, but the current practice engine does not yet support them as eligible questions. This limitation is scheduled to be resolved in the shared app engine for all content origins under ADR-033; it is not a RU-only import feature.
 
 A missing or uncertain answer must remain missing/uncertain. Never infer an official answer from memory or from an unverified key.
 

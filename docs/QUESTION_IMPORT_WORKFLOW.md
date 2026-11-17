@@ -2,6 +2,8 @@
 
 **Status: Implemented.** Detailed source research, per-shift reconciliation, migration and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
+> Historical snapshot: the RU C-Unit relabel described in this 2026-11-16 entry is superseded by the 2026-11-17 source audit. The PDF pages 1 and 12 print Unit A; source-facing metadata should be A and is awaiting a data update. The HSTU consolidation below remains current. See docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md.
+
 - RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
 - No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.
 - HSTU: the extra 34 unique verified questions now reference the five existing canonical 2024–25 papers (A shifts 1–3, B shifts 1–2). Normal HSTU is 17 papers / 950 questions / 939 ready instead of 22 duplicate rows. The canonical partial verified totalMarks=100 rule remains; only duplicate unconfigured alias rules were removed.
@@ -21,9 +23,26 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 
 # Question import workflow
 
+## RU question-bank audit and ASPECT Library direction — 2026-11-17
+
+The owner has decided that **only the 17 audited RU-V source sets** (currently 15 JSON batches / 1,828 questions) will be added as one book under Publications & Books → ASPECT. The 44 RU Lokkho packs / 4,009 candidates will stay in an external archive outside ASPECT. Audit them only to determine whether selected records may be useful later. The owner has separately asked Muse to make a new pack; Lokkho may remain archived and unused. Do not create an ASPECT Lokkho book or merge Lokkho with RU-V.
+
+- Hash and move the 44 Lokkho packs/assets/source manifests from the app repository to an external archive; this move is pending. Keep them out of ASPECT. Retiring them from the active app bundle requires a separate scoped SQLite migration that preserves history.
+- Preserve original source question IDs, Unit A labels for 2024–25 মহানন্দা/পদ্মা, source hashes, printed question numbers and page references.
+- The 15 RU-V batches represent 17 sets; create 17 logical test units, not necessarily 17 JSON batches.
+- Multiple-answer interaction/persistence/scoring and image/diagram/math rendering are app-wide shared-engine requirements under ADR-033; they must work across all university/paper packs, active bundled content, LibraryPacks and future imports. RU-V contributes six multiple-choice records and its own source diagrams, but is not the only target.
+- Existing ASPECT Master QB permission does not automatically cover separate RU sources; record source-specific licence and attribution evidence.
+
+Interim audit: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md. Integration plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md. Full audit pending; the intended ASPECT payload is one RU-V book with 17 test units only.
+
+---
+
+
 ## Catalogue identity correction — RU and HSTU — 2026-11-16
 
 **Status: Implemented.** See docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md for session research, five-pair reconciliation and migration tests.
+
+> RU note superseded on 2026-11-17: the source PDF prints Unit A on both 2024–25 sets. Do not treat the C catalogue label below as the current desired state; restoring source-facing A is pending. HSTU implementation remains current.
 
 - RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
 - No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.

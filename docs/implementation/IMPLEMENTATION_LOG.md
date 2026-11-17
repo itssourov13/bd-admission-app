@@ -126,3 +126,12 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 4. Updated current state, task state, changelog, handoff, Android release guide, QA checklist and the Phase 7/11 implementation records. This finalization contains documentation changes only.
 5. Minimal check: `git diff --check` and staged-path scope verification; no source tests were rerun because no application code changed.
 6. No push; the owner will push manually.
+
+
+## 2026-11-17 — Library implementation status re-audit
+
+1. Re-inspected Home/Library routes, migration v8, publisher/book/unit repository, LibraryPack schema/validator/importer, Phase 9 contentManager and Phase 10 contract.
+2. Confirmed Phase 8 UI/schema/import foundation exists, but there is no real ASPECT book/LibraryPack and no app UI/runtime caller to install a real LibraryPack. All five seeded publishers are metadata-only.
+3. Confirmed multiple-answer selection is still single-select, generated image indexing is Lokkho-directory-specific, MathText is intentionally limited to common notation, Phase 9 has no configured source/UI/download manager and Phase 10 is documentation only.
+4. Focused tests: 25/25 passed; typecheck and lint passed. No real pack installation, Metro/Android export or physical-device QA was run.
+5. Detailed findings and completion sequence: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md. This is a documentation-only audit; no code/content/data changed.

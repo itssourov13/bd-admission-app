@@ -1,6 +1,6 @@
 # Current state
 
-Last updated: 2026-11-16 (RU/HSTU catalogue corrections implemented; v0.1.6 remains the owner-verified preview).
+Last updated: 2026-11-17 (RU source audit checkpoint and ASPECT/archive decision documented; v0.1.6 remains the owner-verified preview).
 
 ## Latest implementation and release candidate — 2026-11-13
 
@@ -12,9 +12,31 @@ Last updated: 2026-11-16 (RU/HSTU catalogue corrections implemented; v0.1.6 rema
 - Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
 - Owner verification: v0.1.6 installed and launched successfully; owner reports the previously raised Hero/theme/runtime issues are fixed and there are no known outstanding app issues. Exact handset/OS and a per-screen test matrix were not recorded. Keep additional device checks optional unless a new issue appears.
 
+## Publications & Books Library implementation audit — 2026-11-17
+
+- Verdict: Phase 8 foundation exists, but the end-to-end Library publishing/content workflow is **not complete**. The five seeded publisher rows are metadata-only; pub-aspect currently has no book/questions and no actual LibraryPack is present.
+- Implemented: Home shortcut; publisher/book/unit screens; migration v8; LibraryPack v1 type/validator/transactional importer; book/unit Browse/Flash/book-level Custom Practice scopes; history/result labels; soft remove/restore contracts.
+- Missing: actual RU-V LibraryPack conversion/build and installation path; runtime/UI caller for installLibraryPack; real catalogue/content source; install/update UI; Phase 9 source/hash/download UI wiring; Phase 10 backend/CMS.
+- App-wide gap (not RU-specific): multiple-answer questions remain single-select in the shared QuestionCard/Flash/Standard Exam paths and are excluded from ELIGIBLE_SQL. Existing question-image rendering is tied to the Lokkho-only static asset index. MathText supports common notation but is not a full TeX/matrix/diagram renderer. These shared runtime, scoring, persistence and visual-asset capabilities must serve all university packs and Library content.
+- Focused checks: Library/content-manager/brand tests 25/25 pass; typecheck pass; lint pass. No real ASPECT pack, Metro/Android export or device visual QA was exercised.
+- Next target: one RU-V ASPECT book with 17 test units only. RU Lokkho must be archived outside the app/ASPECT and remains a separate optional reuse audit.
+- Detailed report: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
+
+## RU source audit and ASPECT Library direction — 2026-11-17 (interim)
+
+- RU-V is currently 15 JSON batches / 15 paper rows / 1,828 questions, but represents 17 source sets. The two combined batches cover 2021–22 PDF pages 67/78 and 2022–23 pages 44/55. The target is 17 logical test entries, not necessarily 17 JSON batches.
+- The PDF prints Unit A on both 2024–25 sets: মহানন্দা (p1) and পদ্মা (p12). The earlier C catalogue correction is superseded; restore source-facing A in a future authorized data change. No pack JSON was edited.
+- Scanner findings: 35 duplicate-option pairs across 30 questions; 15 Bangla caret candidates; 2 replacement characters; 3 null separate-explanation fields plus additional option/explanation boundary defects. Selected examples were source-checked, but the full visual audit is not complete.
+- RU-V includes 22 no-correct-option and 6 multiple-answer records. Current eligibility remains 1,800 single-choice questions. Multiple-select needs Flash/Standard controls, persistence and exact-set scoring before multi-answer records enter scored pools.
+- All 1,828 RU-V records currently have empty assetPaths. RU-V needs its own source-driven visual inventory/crops, but the multi-select engine, diagram renderer and validated offline asset pipeline are app-wide capabilities shared with every supported question source.
+- Owner decision: only the 17 audited RU-V source sets will be added under one ASPECT Library book. The 44 RU Lokkho packs / 4,009 candidates must be moved to an external archive and kept out of ASPECT; audit them for optional reuse only. Muse has separately been asked to create a new pack, so Lokkho may remain unused. The archive move has not happened yet: the candidate packs/assets are still in the app repository.
+- Documentation-only checkpoint. App-wide multi-select/visual-content implementation, RU-V source visual audit, LibraryPack conversion and RU-V cutover remain pending; no commit/push.
+
+Reports: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md and docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
+
 ## RU/HSTU catalogue identity correction — 2026-11-16
 
-- The two RU-V 2024–25 Science bank sets are catalogue-labelled C Unit; their source documents still show the original printed Unit A label, retained in provenance. Each 126-question set remains a practice bank, not an exact official 80-question paper. Historical RU labels outside these two packs were not changed.
+- Historical implementation snapshot only: the two RU-V 2024–25 sets were changed to C Unit. The 2026-11-17 source audit found both source headers print Unit A; current source-facing metadata should be A. This correction is pending and not implemented.
 - The five duplicated normal-HSTU 2024–25 A/B shift papers now use the existing canonical IDs. Normal HSTU is 17 papers / 950 questions / 939 verified practice-ready; all 34 added verified IDs remain. HSTU-U retains 105 pending questions.
 - Migration v9 merges old alias appearances and active session filter references while preserving question rows, bookmarks, answers, immutable result snapshots and marking-profile snapshots. replaceExistingPaperIds keeps shared canonical questions safe during pack replacement/re-import.
 - Full implementation and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
