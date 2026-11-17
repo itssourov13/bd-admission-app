@@ -1,12 +1,13 @@
 # Android build and release guide
 
-## Current preview build — 2026-11-18 (v0.1.9; submitted, queued)
+## Current preview build — 2026-11-18 (v0.1.9; built and owner-tested)
 
-- Release metadata: Expo app/brand version **0.1.9**, Android **versionCode 9**; application ID `com.admissionbd.app`; target EAS `preview` / `INTERNAL` APK. Resolved Expo config was checked and reports exactly these values and the existing EAS project ID.
-- EAS accepted the cloud build submission. Build ID `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`**; the worker has not started and no APK artifact exists yet. [Open EAS build page / live status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
-- Automated gates on Node 22.23.1: full suite **301/301**, TypeScript, ESLint, content check (159 packs / 9,600 questions), asset check (20/20), ASPECT attestation check, pack validation (0 errors / 5,085 warnings), Expo config validation and `git diff --check` pass.
-- The full-suite reruns exposed eight stale expected values across three test files after the existing correct-option-duplicate eligibility guard excluded two JU questions: total verified-eligible university questions are now 2,510; JU 1,396; HSTU 939; ASPECT v1→v2 leaves 2 held/unverified records. The underlying app/runtime eligibility code was not changed in this release-prep task.
-- No runtime source, question pack, generated seed, asset, dependency or EAS credential changed. Physical-device Library QA and the native APK remain pending.
+- Release metadata: Expo app/brand version **0.1.9**, Android **versionCode 9**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Resolved Expo config was checked and reports exactly these values and the existing EAS project ID.
+- EAS Android preview build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [Open EAS build page to download/install the APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- Owner-reported Android QA: the owner manually installed and ran this APK and reports that everything checked is working normally; no issue is currently reported. The owner will record any issue discovered during continued use. Handset model/OS and exhaustive per-screen/accessibility coverage were not recorded, so this is a successful manual smoke check, not a claim of exhaustive QA.
+- Automated gates on Node 22.23.1: full suite **301/301**, TypeScript, ESLint, content check (159 packs / 9,600 questions), asset check (20/20), ASPECT attestation check, pack validation (0 errors / 5,085 warnings), resolved Expo config and `git diff --check` pass.
+- Release-preparation changes were limited to test expectations, version metadata and documentation; no app/runtime logic, question pack, generated seed, asset, dependency or EAS credential changed. This build is an internal preview, not a Google Play production release.
+
 
 ## Previous completed preview — 2026-11-17 (v0.1.7)
 
@@ -51,7 +52,7 @@ Last updated: 2026-11-18
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Next preview candidate: 0.1.9 / Android versionCode 9 (metadata validated locally; EAS build deliberately held pending the owner’s explicit submit instruction). The most recent completed EAS preview is v0.1.7 / code 8. The previous owner-verified preview is 0.1.6 / code 7. v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
+- Current preview: v0.1.9 / Android versionCode 9, EAS build `5cdcf931-9b67-46f2-9038-47bb7e144c40` FINISHED and owner-tested on Android. The next preview version/code has not been assigned. The previous completed preview is v0.1.7 / code 8; v0.1.6 / code 7 is an earlier owner-verified build. v0.1.3 / code 4 is superseded after the owner-reported first question-library import failure; the v0.1.4 fix resolved that historical issue.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
@@ -147,6 +148,22 @@ Play Store submission also requires a configured Play Console app, listing asset
 ## GitHub Releases
 
 Use **GitHub Releases**, not GitHub Packages, for downloadable app binaries.
+
+### Publish the v0.1.9 Android preview
+
+After the owner pushes this verified branch and merges it into the repository's default branch, create the GitHub release from the merged default-branch commit:
+
+- Repository: `itssourov13/bd-admission-app`
+- Release title: **BD Admission v0.1.9 — Android Preview**
+- Tag: `v0.1.9` (create a new tag on the merged default-branch commit)
+- Target: the default branch after the merge (currently expected to be `main`)
+- Mark **Set as a pre-release**.
+- Download the APK from the [v0.1.9 EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40), rename it `BD-Admission-v0.1.9-android.apk`, and attach that APK as the release asset. This preview uses the EAS `preview` profile and creates an installable APK; an AAB is not needed for this preview.
+- Generate and publish the checksum beside the asset: `sha256sum BD-Admission-v0.1.9-android.apk`. Copy the actual output; do not handwrite or assume the hash.
+- Suggested release notes: ASPECT Library collection and session-based question sets; Flash, Browse and Custom Practice entry points for supported sessions and sets; verified-question eligibility and source-conflict safeguards. State that the owner manually installed and ran the APK, and that automated tests passed 301/301.
+- Include build identity: app version 0.1.9; Android versionCode 9; package `com.admissionbd.app`; Expo SDK 57; EAS profile preview (INTERNAL APK); build `5cdcf931-9b67-46f2-9038-47bb7e144c40`. Label it a preview, not a Google Play production release.
+
+Do not create the release tag from the pre-merge feature-branch state. The owner handles push and merge; documentation work does not publish the GitHub release.
 
 The first Android preview has already been published:
 

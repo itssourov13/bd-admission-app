@@ -1,4 +1,4 @@
-# Latest implementation handoff — ASPECT Library UX, verification and performance — 2026-11-18
+# Release handoff — Android preview v0.1.9 built and owner-tested — 2026-11-18
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app` · **Branch:** `feat/import-hstu-verified-answers-2026-11-12` · local commits only, nothing pushed.
 
@@ -8,8 +8,9 @@
 - **Full verification:** `pnpm test` 301/301; typecheck; lint; content check (159 / 9,600); question-assets check (20/20); owner-attestation check; pack validation (0 errors / 5,085 warnings); Expo config assertion; `git diff --check` all pass on Node 22.23.1.
 - **Test expectation reconciliation:** the full-suite reruns exposed eight stale expected values across three test files. They included two JU questions whose correct option duplicates another option's text; the existing runtime eligibility guard correctly excludes both. Current verified eligible counts are 2,510 university-wide, JU 1,396, HSTU 939. The ASPECT upgrade expectation now correctly checks 2 remaining held/unverified records rather than 1,828. Only test expectations changed; app/runtime query logic did not.
 - **PDF page 56 Q12:** original source page reviewed. Option C prints `+2/7 k̂`, while the printed working derives `−2/7 k̂`; keep the key withheld. The two held questions remain unverified/unscored.
-- **EAS preview submitted:** build `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`** (worker has not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK/artifact or physical-device QA is available yet.
-- Follow-up changes: tests, `brand.config.json`, `app.config.js` and documentation only. No runtime app code, content pack, seed, asset, dependency, credential, EAS submission or push.
+- **EAS preview build:** `5cdcf931-9b67-46f2-9038-47bb7e144c40` is **FINISHED**. [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- **Owner device check:** owner manually installed and ran v0.1.9 on Android and reports normal operation/no currently observed issue. Further issues, if any, will be noted by the owner. Exact device/OS and exhaustive screen/accessibility coverage are not documented.
+- Follow-up changes in release preparation: test expectations, `brand.config.json`, `app.config.js` and documentation only. No app/runtime code, content pack, seed, asset, dependency or EAS credential changed. EAS build was submitted after the owner's instruction. No Git push or merge has been performed.
 
 ---
 
@@ -21,8 +22,8 @@
 - Verification: `pnpm typecheck`, `pnpm lint`, `pnpm content:check` (159 packs / 9,600 questions), `question-assets:check` (20/20), `node scripts/ruv-aspect-attest.mjs --check`, `git diff --check`, focused library/seed/startup/exam/UI-logic tests (60/60 in the library+seed group incl. fresh install, v1→v2 upgrade, repeat sync, newer-edition protection; 149/150 earlier in the wider group, the one failure was a wrong assertion that was fixed and re-run) and the Android Metro no-bytecode export (passed, one ~4 MB Android bundle). No physical-device, TalkBack, light/dark visual or Bangla/English on-screen QA was performed; no APK was built.
 
 ## Remaining work
-- Physical-device QA (drawer behaviour, logos, light/dark, Bangla/English, TalkBack, real load timings) and a new APK if wanted.
-- Wait for the owner's explicit instruction before starting the EAS `preview` cloud APK build for v0.1.9 / Android versionCode 9.
+- Owner may continue using v0.1.9 and record any newly discovered issue; the current manual Android smoke check found no issue.
+- Owner to push and merge the verified branch, then create GitHub pre-release `v0.1.9` from the merged default-branch commit and attach the APK from the EAS build page. Procedure and release-note guidance are in `docs/ANDROID_RELEASE.md`.
 - The two held questions (page 56 no. 12; page 87 no. 65) remain unverified/unscored; page 56 was checked against the original PDF and is contradictory.
 - Older sections below that call the ASPECT book unverified/permission-pending are superseded.
 

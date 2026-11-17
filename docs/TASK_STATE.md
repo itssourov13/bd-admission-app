@@ -1,20 +1,21 @@
-## ASPECT Library UX / verification / performance + preview validation — complete locally; EAS held — 2026-11-18
+## ASPECT Library UX / verification / performance + v0.1.9 Android preview — complete and owner-tested — 2026-11-18
 
-**Status:** Implementation is committed locally and the full 301-test suite now passes. Follow-up changes touched only test expectations, app release-version metadata and documentation; no runtime/app logic changed. EAS cloud build is deliberately paused until the owner explicitly says to submit. Physical-device QA remains pending.
+**Status:** Implementation and release preparation are committed locally. The v0.1.9 / Android versionCode 9 EAS preview APK built successfully and the owner manually installed and ran it on Android, reporting normal operation and no currently observed issue. The owner will record any issue found during continued use. No Git push or merge has been performed.
 
 - [x] Full suite on Node 22.23.1: `pnpm test` — 301/301 passed. Stale assertions now reflect the existing eligibility guard: 2,510 verified-eligible university questions total (JU 1,396; HSTU 939), and 2 unverified ASPECT questions after v1→v2 sync.
 - [x] `pnpm typecheck`, `pnpm lint`, `pnpm content:check` (159 packs / 9,600 questions), `pnpm question-assets:check` (20/20), `node scripts/ruv-aspect-attest.mjs --check`, `pnpm packs:validate` (0 errors / 5,085 warnings), Expo resolved config and `git diff --check`.
 - [x] Resolved Expo config: app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`, existing EAS project ID unchanged.
 - [x] Reviewed source PDF page 56, question 12: option C has `+2/7 k̂`, printed working derives `−2/7 k̂`; the source is contradictory, so the item remains held/unverified/unscored. See `docs/ASPECT_OWNER_VERIFICATION.md`.
-- [ ] Owner instruction to start the EAS `preview` cloud APK build. Do not build or submit until explicitly requested.
-- [ ] After an APK exists, physical-device Library QA: drawers, logos, light/dark, Bangla/English, TalkBack, real-device load timing.
+- [x] EAS preview APK build completed successfully: `5cdcf931-9b67-46f2-9038-47bb7e144c40` (**FINISHED**); [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- [x] Owner manually installed and ran v0.1.9 on Android and reports that all checked behavior is normal; no issue currently observed. Device model/OS and exhaustive screen/accessibility coverage were not recorded.
+- [ ] Owner to push/merge the branch, then publish GitHub pre-release `v0.1.9` from the merged default branch with the EAS APK and generated SHA-256 checksum. See `docs/ANDROID_RELEASE.md`.
 
 - [x] Presentation-layer ASPECT attribution + logo; RU logo reuse (ADR-040).
 - [x] Session drawers with set cards; Flash / Timed practice / Browse per session and set.
 - [x] Owner verification attestation applied to pack, seed and manifest (content version 2); docs/ASPECT_OWNER_VERIFICATION.md.
 - [x] Library query optimisation and benchmark script.
 - [x] Regression tests: tests/aspect-library-ux.test.ts, updated tests/library-bundled-seed.test.ts (fresh install + v1→v2 upgrade + repeat sync).
-- [ ] Physical-device Library QA: drawers, logos, light/dark, Bangla/English, TalkBack, real-device load timing.
+- [~] Owner manual Android smoke check passed with no issue reported. Detailed drawer/logo, light/dark, Bangla/English and TalkBack coverage was not explicitly recorded and remains unconfirmed.
 - [x] Owner/source cross-check of PDF page 56 completed 2026-11-18; the printed option and working contradict one another, so the key remains withheld and no `RESTORE` entry or content-version bump is appropriate.
 - [ ] If `scripts/ruv-aspect-build-pack.mjs --publish` is ever re-run it regenerates the pack as unverified: re-run `node scripts/ruv-aspect-attest.mjs` afterwards.
 

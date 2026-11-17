@@ -1,10 +1,20 @@
-## 2026-11-18 — Submit preview build v0.1.9 (queued)
+## 2026-11-18 — v0.1.9 Android preview built and owner-tested
+
+- EAS Android `preview` / `INTERNAL` APK build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- Owner manually installed and ran the v0.1.9 APK on Android and reports normal operation with no currently observed issue. Further issues, if found, will be recorded by the owner. Device model/OS and exhaustive screen/accessibility coverage were not provided.
+- Release identity: app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`.
+- Automated release gates passed before submission: 301/301 tests, TypeScript, lint, content (159 packs / 9,600 questions), question assets (20/20), ASPECT attestation, pack validation (0 errors / 5,085 warnings), Expo config and diff check.
+- GitHub release `v0.1.9` is not yet published. Owner will push/merge first, then create a pre-release from the merged default-branch commit and attach the APK with its generated SHA-256 checksum. No push/merge was performed here.
+
+---
+
+## 2026-11-18 — EAS v0.1.9 submission checkpoint (initially queued; superseded)
 
 - Set the Expo app version to `0.1.9` in `brand.config.json` and Android `versionCode` to `9` in `app.config.js`; resolved Expo config confirms `com.admissionbd.app` and the existing EAS project ID.
 - Updated only test expectations for the existing correct-option-duplicate eligibility guard: university eligible total 2,510; JU 1,396; HSTU 939. The ASPECT v1→v2 upgrade expects 2 remaining held/unverified questions. No runtime eligibility or UI code changed.
 - Full suite: 301/301 pass on Node 22.23.1. TypeScript, lint, content check, asset check, ASPECT attestation, pack validation, Expo config assertion and `git diff --check` pass.
 - Reviewed original PDF page 56 Q12: option C prints `+2/7 k̂` but the working derives `−2/7 k̂`; it remains held/unverified/unscored.
-- EAS accepted the `preview` submission as build `5cdcf931-9b67-46f2-9038-47bb7e144c40`; status at handoff is `IN_QUEUE` (worker not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK or physical-device QA is claimed.
+- At the initial submission checkpoint, EAS returned `IN_QUEUE`; this status was later superseded when the same build completed FINISHED. The owner subsequently installed and ran the APK on Android. See the completion entry above.
 
 ---
 

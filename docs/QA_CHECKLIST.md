@@ -1,4 +1,17 @@
-## Android preview v0.1.7 — build submission
+## Android preview v0.1.9 — EAS build and owner manual smoke test — 2026-11-18
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App version `0.1.9`; Android `versionCode 9`; package `com.admissionbd.app`; existing EAS project retained. |
+| EAS internal APK build | [x] Pass | Build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed FINISHED; [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). |
+| Automated validation | [x] Pass | `pnpm test` 301/301; typecheck; lint; content check (159 entries / 9,600 questions); question-assets check (20/20); ASPECT attestation; pack validation (0 errors / 5,085 warnings); resolved Expo config; `git diff --check`. Node 22.23.1. |
+| Physical Android install and run | [x] Owner-reported pass | Owner manually installed and ran this APK on Android and reports everything checked is working normally; no issue currently observed. The owner will note any future issue. Device model/OS and exhaustive screen/accessibility coverage were not recorded. |
+| GitHub pre-release | [ ] Pending owner action | After push/merge, create tag `v0.1.9` on the merged default-branch commit, attach the APK from the EAS build page and include a generated SHA-256 checksum. |
+
+---
+
+## Previous Android preview v0.1.7 — build submission
+
 
 | Check | Result | Evidence |
 |---|---|---|

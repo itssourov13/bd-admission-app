@@ -1,10 +1,11 @@
-## Preview release preparation — 2026-11-18 (EAS deliberately paused)
+## Android preview v0.1.9 — built and owner-tested — 2026-11-18
 
-- Local release metadata is set to Expo app version `0.1.9` and Android `versionCode 9`; resolved Expo config confirms package `com.admissionbd.app` and the existing EAS project ID.
-- Full suite: 301/301 pass on Node 22.23.1. TypeScript, ESLint, content/asset checks, ASPECT attestation, pack validation (0 errors / 5,085 warnings), Expo config assertion and diff check also pass.
-- The earlier failures were stale test expectations after the already-implemented duplicate-correct-option guard excluded two JU questions. Current university eligible count: 2,510 total; JU 1,396; HSTU 939. The test updates do not change app/runtime logic.
-- Original PDF page 56, Q12 was reviewed: option C shows `+2/7 k̂`, but the working derives `−2/7 k̂`; retain as one of the two held/unverified questions.
-- EAS accepted the v0.1.9 preview submission; build `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`** (worker has not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK/artifact, physical-device QA or push is claimed.
+- Release metadata: Expo app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`; resolved Expo config retains the existing EAS project ID.
+- EAS preview build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- Owner manually installed and ran the APK on Android and reports that everything checked is working normally; no issue is currently reported. Any subsequently discovered issue will be recorded by the owner. This is an owner-reported manual smoke check; handset/OS and exhaustive screen/accessibility coverage were not recorded.
+- Automated checks on Node 22.23.1: 301/301 tests; typecheck; lint; content check (159 packs / 9,600 questions); question-assets check (20/20); ASPECT attestation; pack validation (0 errors / 5,085 warnings); resolved Expo config and diff hygiene all passed.
+- The test changes only reconcile stale expected counts with the existing duplicate-correct-option eligibility guard. No app/runtime eligibility code changed during release preparation. Source PDF page 56 Q12 remains held/unverified/unscored because the printed option and working contradict one another.
+- GitHub pre-release publication remains an owner action after pushing and merging this branch: tag `v0.1.9`, target the merged default branch, attach the APK downloaded from the EAS page, and include a generated SHA-256 checksum. No push or merge has been performed here.
 
 ---
 
