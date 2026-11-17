@@ -1,3 +1,6 @@
+## Phase C status (2026-11-17)
+Phase C is implemented and committed locally: shared asset pipeline (+CI check), `mathLayout`/`MathBlock` structured math, RU-V figure inventory (20 questions, crops in `bd-admission-app-data/ru/verified-pack-archive/figures/`). 276/276 tests, typecheck, lint, content/asset/pack checks and Metro export passed. Not done: device visual QA. Next: RU-V archive, Lokkho re-verify, schema-v11 retirement migration, RU removal (Phase D).
+
 # Current state
 
 ## Current checkpoint — Phase C working tree and RU pack archival plan — 2026-11-17

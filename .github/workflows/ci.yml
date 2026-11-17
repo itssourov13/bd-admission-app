@@ -46,6 +46,9 @@ jobs:
           pnpm content:check
           git diff --exit-code -- src/content/bundledManifest.ts
 
+      - name: Validate offline question assets (references, files, deterministic index)
+        run: pnpm question-assets:check
+
       - name: Run automated tests
         run: pnpm test
 

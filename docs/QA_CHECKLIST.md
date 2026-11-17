@@ -404,3 +404,17 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [ ] Reduce Motion on: immediate checkmarks, ≈0.15 s hold, no loops.
 - [ ] Tab switches (Varsity/Medical/Profile): no spinner flash on warm DB.
 - [ ] DB failure/retry UI still shows.
+
+## Phase C — shared visual/math rendering (2026-11-17, Node 22.23.1)
+
+| Check | Result | Notes |
+|---|---|---|
+| `pnpm test` | [x] Pass | 276/276 (267 baseline + 9 `math-layout` tests built from real pack strings). |
+| `pnpm typecheck`, `pnpm lint` | [x] Pass | |
+| `pnpm content:check`, `pnpm question-assets:check`, `pnpm packs:validate` | [x] Pass | 217 packs / 13,609 questions, 0 errors; 45 assets / 46 refs. |
+| `git diff --check` | [x] Pass | |
+| Android Metro export (`expo export --platform android --no-bytecode`) | [x] Pass | exported to ignored `.local/export-c`. |
+| Parser run against all real packs | [x] Done | 11 stems + 20 options in non-RU packs resolve to matrices/determinants; 0 in RU-V. |
+| Device/emulator visual QA, dark theme, narrow widths, TalkBack, restart/offline on device | [ ] NOT RUN | No device in this session. `MathBlock` is untested visually. |
+| Question Browse / Flash / Exam / Custom / Result screens with matrices | [ ] NOT RUN | Same limitation; `QuestionCard` uses `MathText` for stem, options and explanation, so all paths share the renderer. |
+

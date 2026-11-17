@@ -1,4 +1,5 @@
 import { licenseAllowsContent } from "../features/library/model.ts";
+import { validateQuestionAssets } from "./assetRefs.mjs";
 
 export interface LibraryValidation { valid: boolean; errors: string[]; warnings: string[] }
 
@@ -103,16 +104,17 @@ export function validateLibraryPack(pack: unknown): LibraryValidation {
     if (!nonEmpty(q.text)) err(`Question ${q.id} has no text.`);
     if (q.type !== "single_choice" && q.type !== "multiple_choice") err(`Question ${q.id} has an invalid type.`);
     if (!CATEGORIES.includes(String(q.category))) err(`Question ${q.id} has an invalid category.`);
+    for (const m of validateQuestionAssets(q, `Question ${q.id}`)) err(m);
     const opts = Array.isArray(q.options) ? q.options : [];
     if (opts.length < 2) err(`Question ${q.id} needs at least two options.`);
     const optIds = new Set<string>(); const orders = new Set<number>(); const texts = new Set<string>();
     for (const o of opts as unknown[]) {
-      if (!isObj(o) || typeof o.id !== "string" || !OPTION_ID.test(o.id) || !nonEmpty(o.text) || !Number.isInteger(o.order)) { err(`Question ${q.id} has an invalid option.`); continue; }
+      if (!isObj(o) || typeof o.id !== "string" || !OPTION_ID.test(o.id) || !(nonEmpty(o.text) || (typeof o.text === "string" && Array.isArray(o.assetPaths) && o.assetPaths.length > 0)) || !Number.isInteger(o.order)) { err(`Question ${q.id} has an invalid option.`); continue; }
       if (optIds.has(o.id)) err(`Question ${q.id} repeats option id ${o.id}.`);
       if (orders.has(o.order as number)) err(`Question ${q.id} repeats an option order.`);
       optIds.add(o.id); orders.add(o.order as number);
       const norm = o.text.trim().toLowerCase();
-      if (texts.has(norm)) warnings.push(`Question ${q.id} has duplicate option text.`);
+      if (norm !== "" && texts.has(norm)) warnings.push(`Question ${q.id} has duplicate option text.`);
       texts.add(norm);
     }
     const correct = q.correctOptionIds;

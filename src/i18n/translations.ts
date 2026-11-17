@@ -247,6 +247,9 @@ export const translations = {
 
   "question.sources": { bn: "উৎস ও রেফারেন্স", en: "Source and references" },
   "question.figure": { bn: "প্রশ্নের চিত্র {n}", en: "Question figure {n}" },
+  "question.optionFigure": { bn: "অপশন {option} এর চিত্র {n}", en: "Option {option} figure {n}" },
+  "question.explanationFigure": { bn: "ব্যাখ্যার চিত্র {n}", en: "Explanation figure {n}" },
+  "question.figureMissing": { bn: "চিত্রটি এই ডিভাইসে পাওয়া যায়নি", en: "This figure is not available on this device" },
   "question.number": { bn: "প্রশ্ন নং {n}", en: "Q{n}" },
   "question.page": { bn: "পৃষ্ঠা {n}", en: "p. {n}" },
   "question.answerUnverified": { bn: "উত্তর যাচাই করা হয়নি — সঠিক/ভুল নির্ধারণ হবে না", en: "Answer not verified — no right/wrong marking" },

@@ -1,3 +1,10 @@
+## 2026-11-17 — Phase C: shared asset pipeline finalized, structured math layout, RU-V figure inventory
+
+- Finalized the shared offline asset pipeline (option/explanation assets, migration v10, deterministic index) and added `pnpm question-assets:check` to CI.
+- New `mathLayout` parser + `MathBlock` renderer: fractions, roots, matrices/determinants (LaTeX and the linearised `|a, b; c, d|` form printed in JU/DU packs), piecewise cases, aligned lines. `MathText` falls back to the unchanged Unicode path when no structure exists.
+- RU-V source figure inventory: 20 figure-dependent questions, 20 PDF crops with provenance in the external archive staging area; packs untouched.
+- 276/276 tests, typecheck, lint, content/asset/pack validation and Android no-bytecode Metro export passed. No device QA.
+
 ## 2026-11-17 — Current RU archive/removal decision and Phase C handoff (documentation only; ADR-035)
 
 - Audited the actual repo and seed: 44 Lokkho packs / 4,009 unverified questions, 15 RU-V packs / 1,828 verified questions (17 source sets), 45 Lokkho assets. All 59 packs / 5,837 questions remain in the app at this checkpoint.

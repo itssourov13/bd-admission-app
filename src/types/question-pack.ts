@@ -14,6 +14,8 @@ export interface QuestionPackOption {
   id: string;
   text: string;
   order: number;
+  /** Optional offline images for an image-based option; `text` may then be a short label or empty. */
+  assetPaths?: string[];
 }
 
 export interface QuestionPackAppearance {
@@ -43,7 +45,10 @@ export interface QuestionPackItem {
     questionNumber?: number | null;
   };
   explanation?: string | null;
+  /** Offline images shown with the question stem. */
   assetPaths?: string[];
+  /** Offline images shown with the explanation (revealed with it). */
+  explanationAssetPaths?: string[];
 }
 
 export interface QuestionPackPaper {

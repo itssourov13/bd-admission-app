@@ -53,15 +53,15 @@ const SOURCE_DOCUMENTS = `INSERT INTO source_documents (id, batch_id, filename, 
   ON CONFLICT(id) DO UPDATE SET filename = excluded.filename, title = excluded.title, sha256 = excluded.sha256,
     source_type = excluded.source_type, notes = excluded.notes`;
 
-const QUESTIONS = `INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, content_hash)
-  SELECT id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, content_hash FROM seed.questions WHERE batch_id = ?
+const QUESTIONS = `INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths, content_hash)
+  SELECT id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths, content_hash FROM seed.questions WHERE batch_id = ?
   ON CONFLICT(id) DO UPDATE SET category = excluded.category, text = excluded.text, type = excluded.type, subject = excluded.subject,
     topic = excluded.topic, answer_status = excluded.answer_status, content_status = excluded.content_status,
-    explanation = excluded.explanation, asset_paths = excluded.asset_paths, content_hash = excluded.content_hash
+    explanation = excluded.explanation, asset_paths = excluded.asset_paths, explanation_asset_paths = excluded.explanation_asset_paths, content_hash = excluded.content_hash
   WHERE questions.content_hash <> excluded.content_hash`;
 
-const OPTIONS = `INSERT OR IGNORE INTO question_options (question_id, option_key, text, sort_order, is_correct)
-  SELECT o.question_id, o.option_key, o.text, o.sort_order, o.is_correct
+const OPTIONS = `INSERT OR IGNORE INTO question_options (question_id, option_key, text, sort_order, is_correct, asset_paths)
+  SELECT o.question_id, o.option_key, o.text, o.sort_order, o.is_correct, o.asset_paths
   FROM seed.question_options o JOIN seed.questions q ON q.id = o.question_id WHERE q.batch_id = ?`;
 
 const SOURCES = `INSERT INTO question_sources (question_id, source_document_id, page_number, question_number)

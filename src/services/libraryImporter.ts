@@ -144,21 +144,22 @@ export async function installLibraryPack(db: SqlDb, pack: unknown, opts: Library
         if (prior && prior.content_hash === hash) { report.questions.skipped++; continue; }
         const correct = new Set(q.correctOptionIds ?? []);
         const assets = q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null;
+        const explAssets = q.explanationAssetPaths?.length ? JSON.stringify(q.explanationAssetPaths) : null;
         if (prior) {
           await tx.runAsync(
-            "UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, content_hash = ? WHERE id = ?",
-            [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, hash, q.id]
+            "UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, explanation_asset_paths = ?, content_hash = ? WHERE id = ?",
+            [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, explAssets, hash, q.id]
           );
           await tx.runAsync("DELETE FROM question_options WHERE question_id = ?", [q.id]);
           report.questions.updated++;
         } else {
-          fresh.push([q.id, batchId, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, hash]);
+          fresh.push([q.id, batchId, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, explAssets, hash]);
           report.questions.inserted++;
         }
-        for (const o of q.options) optionRows.push([q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0]);
+        for (const o of q.options) optionRows.push([q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0, o.assetPaths?.length ? JSON.stringify(o.assetPaths) : null]);
       }
-      await insertRows(tx, "INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, content_hash)", "", 12, fresh);
-      await insertRows(tx, "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct)", "", 5, optionRows);
+      await insertRows(tx, "INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths, content_hash)", "", 13, fresh);
+      await insertRows(tx, "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct, asset_paths)", "", 6, optionRows);
       await insertRows(tx, "INSERT INTO question_sources (question_id, source_document_id, page_number, question_number)",
         " ON CONFLICT(question_id) DO UPDATE SET source_document_id = excluded.source_document_id, page_number = excluded.page_number, question_number = excluded.question_number", 4,
         p.questions.map((q) => [q.id, q.source.documentId, q.source.pageNumber ?? null, q.source.questionNumber ?? null]));

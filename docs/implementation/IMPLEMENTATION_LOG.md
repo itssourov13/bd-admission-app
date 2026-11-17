@@ -144,3 +144,11 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 3. Confirmed multiple-answer selection is still single-select, generated image indexing is Lokkho-directory-specific, MathText is intentionally limited to common notation, Phase 9 has no configured source/UI/download manager and Phase 10 is documentation only.
 4. Focused tests: 25/25 passed; typecheck and lint passed. No real pack installation, Metro/Android export or physical-device QA was run.
 5. Detailed findings and completion sequence: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md. This is a documentation-only audit; no code/content/data changed.
+
+## Phase C — shared visual rendering — 2026-11-17
+
+1. Reviewed the uncommitted asset-pipeline work; kept it; added CI asset check.
+2. Added `src/services/mathLayout.ts`, `src/components/common/MathBlock.tsx`, `tests/math-layout.test.ts`; integrated in `MathText`.
+3. Built the RU-V figure inventory (`docs/audits/RU_V_FIGURE_INVENTORY_2026-11-17.md`) and 20 PDF crops.
+4. Checks: see QA_CHECKLIST Phase C. Device QA not run. Details: `docs/implementation/PHASE_C_SHARED_VISUAL_RENDERING.md`.
+

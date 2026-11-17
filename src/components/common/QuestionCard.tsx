@@ -1,11 +1,11 @@
-import { Image, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Chip, Txt } from "@/components/ui";
 import { MathText, useSpokenMath } from "@/components/common/MathText";
 import { useT, useNum } from "@/i18n";
 import { useHaptics, useTheme } from "@/settings";
 import type { OptionView, QuestionView } from "../../types/domain";
-import { getQuestionAssetSources } from "../../content/questionAssets";
+import { QuestionFigures } from "@/components/common/QuestionFigures";
 import { reviewSelection, selectionModeOf } from "../../services/answerSelection";
 
 export function optionLabel(o: OptionView): string {
@@ -38,7 +38,6 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
   const showKey = reveal && verified;
   const sourceKey = question.options.filter((o) => o.isCorrect).map((o) => o.key);
   const sources = question.appearances.slice(0, 3);
-  const questionAssets = getQuestionAssetSources(question.assetPaths);
   const multiple = selectionModeOf(question) === "multiple";
   const optionKeys = question.options.map((o) => o.key);
   const review = showKey ? reviewSelection(sourceKey, selected, optionKeys) : null;
@@ -64,21 +63,7 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
         ) : null}
       </View>
 
-      {questionAssets.length > 0 ? (
-        <View className="mt-3 gap-3">
-          {questionAssets.map((source, index) => (
-            <View key={`${question.id}-asset-${index}`} className="rounded-xl border border-sand-200 bg-white p-2">
-              <Image
-                source={source}
-                resizeMode="contain"
-                accessible
-                accessibilityLabel={t("question.figure", { n: num(index + 1) })}
-                style={{ width: "100%", height: 180 }}
-              />
-            </View>
-          ))}
-        </View>
-      ) : null}
+      <QuestionFigures paths={question.assetPaths} role="question" idPrefix={`${question.id}-q`} />
 
       {!verified ? (
         <View className="flex-row mt-2"><Chip label={provisionalScoring ? t("question.answerProvisional") : t("question.answerUnverified")} tone="gold" /></View>
@@ -120,7 +105,8 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
                   : <Txt weight="bold" className={`text-sm ${isSelected ? "text-white" : "text-ink-700"}`}>{optionLabel(o)}</Txt>}
               </View>
               <View className="flex-1">
-                <MathText size={16} lineHeight={24} className="text-ink-900">{o.text}</MathText>
+                {o.text.trim() !== "" ? <MathText size={16} lineHeight={24} className="text-ink-900">{o.text}</MathText> : null}
+                <QuestionFigures paths={o.assetPaths} role="option" optionLabel={optionLabel(o)} idPrefix={`${question.id}-o-${o.key}`} />
                 {annotate && multiple && (annotate.missing.includes(o.key) || annotate.extra.includes(o.key) || annotate.matched.includes(o.key)) ? (
                   <Txt className="text-ink-500 text-xs mt-1">{annotate.matched.includes(o.key) ? t("question.optionMatched") : annotate.missing.includes(o.key) ? t("question.optionMissed") : t("question.optionExtra")}</Txt>
                 ) : null}
@@ -139,10 +125,11 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
         </View>
       ) : null}
 
-      {reveal && question.explanation ? (
+      {reveal && (question.explanation || question.explanationAssetPaths.length > 0) ? (
         <View className="mt-4 rounded-2xl bg-sand-100 p-3.5">
           <Txt weight="semibold" className="text-ink-900 text-sm">{t("question.explanation")}</Txt>
-          <MathText size={14} lineHeight={24} className="text-ink-700 mt-1">{question.explanation}</MathText>
+          {question.explanation ? <MathText size={14} lineHeight={24} className="text-ink-700 mt-1">{question.explanation}</MathText> : null}
+          <QuestionFigures paths={question.explanationAssetPaths} role="explanation" idPrefix={question.id + "-e"} />
         </View>
       ) : null}
 

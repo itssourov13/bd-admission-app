@@ -146,3 +146,7 @@ Static SVGs are compiled to react-native-svg components by react-native-svg-tran
 ## Optional content management (Phase 9)
 
 contentManager.ts layers manifest validation, planning and integrity-verified install over installLibraryPack. ContentSource and Sha256Hex are injected; with no source configured nothing changes for any core journey.
+
+## Question text rendering (Phase C)
+`MathText` -> `parseMathLayout` (pure, `src/services/mathLayout.ts`) -> `MathBlock` (View/Text) when structure exists, else the Unicode sup/sub path (`mathText.ts`). Figures: `QuestionFigures` + generated `questionAssets.ts` index over `data/question-packs/assets/**` (stem, option and explanation assets). Stored text is never modified.
+

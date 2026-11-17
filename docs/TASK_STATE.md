@@ -4,7 +4,7 @@
 
 - [x] Phase A: external Lokkho archive created; re-verified at 44 packs / 4,009 questions / 45 assets / 46 refs; 90/90 SHA-256 entries pass. App copies remain pending removal.
 - [x] Phase B: app-wide multi-select committed as `c5ca075`; 253/253 tests, typecheck and lint passed in its commit checkpoint.
-- [ ] Phase C: review/finalize current uncommitted shared asset pipeline, update docs, add asset validation to CI, rerun checks and commit.
+- [x] Phase C: finalized and committed locally (asset pipeline + CI asset check, structured math layout, RU-V figure inventory). Device QA NOT run.
 - [ ] Create a separate external archive for the 15 RU-V verified packs / 1,828 questions (17 printed sets); include file manifest, sizes, SHA-256 and source PDF hash reference.
 - [ ] Copy-verify both archives against all 59 RU pack files and the 45 Lokkho assets before removing anything from the app.
 - [ ] Remove all 44 `ru-c-*.json` and 15 `ru-vq-*.json` packs, plus RU-only question images, from active app source/bundle; regenerate manifest, seed and asset registry.

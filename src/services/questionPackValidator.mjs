@@ -1,3 +1,5 @@
+import { validateQuestionAssets } from "./assetRefs.mjs";
+
 const categories = new Set(["varsity", "medical", "engineering"]);
 const answerStatuses = new Set(["verified", "unverified", "unknown"]);
 const contentStatuses = new Set(["verified", "unverified"]);
@@ -174,13 +176,16 @@ export function validateQuestionPack(pack) {
       errors.push(at + " must have at least two options.");
       continue;
     }
+    errors.push(...validateQuestionAssets(question, at));
     const optionIds = new Set();
     const optionOrders = new Set();
     for (const [optionIndex, option] of question.options.entries()) {
       if (!nonEmpty(option?.id)) errors.push(at + ".options[" + optionIndex + "].id is required.");
       else if (optionIds.has(option.id)) errors.push(at + " has duplicate option id " + option.id + ".");
       else optionIds.add(option.id);
-      if (!nonEmpty(option?.text)) errors.push(at + ".options[" + optionIndex + "].text is required.");
+      // An image-based option may carry an empty text label as long as it lists at least one asset.
+      const imageOption = Array.isArray(option?.assetPaths) && option.assetPaths.length > 0 && typeof option?.text === "string";
+      if (!nonEmpty(option?.text) && !imageOption) errors.push(at + ".options[" + optionIndex + "].text is required.");
       if (!positiveInteger(option?.order)) errors.push(at + ".options[" + optionIndex + "].order must be a positive integer.");
       else if (optionOrders.has(option.order)) errors.push(at + " has duplicate option order " + option.order + ".");
       else optionOrders.add(option.order);

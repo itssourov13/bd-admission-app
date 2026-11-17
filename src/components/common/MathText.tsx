@@ -1,6 +1,9 @@
 import { Txt, type TxtProps } from "@/components/ui/Text";
 import { useLang } from "@/i18n";
 import { useSettings } from "@/settings";
+import { useMemo } from "react";
+import { MathBlock } from "@/components/common/MathBlock";
+import { parseMathLayout, spokenMathLayout } from "../../services/mathLayout";
 import { formatMathText, spokenMathText } from "../../services/mathText";
 
 /** Plain-text label for assistive technology, e.g. an option's accessibility label. Unchanged when no notation is recognised. */
@@ -18,6 +21,16 @@ export function MathText({ children, accessibilityLabel, size, lineHeight, style
   const { textScale } = useSettings();
   // When a base size is given the text honours the "question text size" setting; otherwise className sizing is untouched.
   const scaled = size ? { fontSize: Math.round(size * textScale * 10) / 10, lineHeight: Math.round((lineHeight ?? size * 1.5) * textScale * 10) / 10 } : undefined;
+  // Structured notation (fractions, roots, matrices, determinants) is laid out as a tree; everything else stays plain text.
+  const layout = useMemo(() => parseMathLayout(children), [children]);
+  if (layout) {
+    const px = Math.round((size ?? 16) * (size ? textScale : 1) * 10) / 10;
+    const lh = Math.round((lineHeight ?? (size ?? 16) * 1.5) * (size ? textScale : 1) * 10) / 10;
+    return (
+      <MathBlock nodes={layout} fontSize={px} lineHeight={lh} className={rest.className} weight={rest.weight}
+        accessibilityLabel={accessibilityLabel ?? spokenMathLayout(layout)} />
+    );
+  }
   const shown = formatMathText(children);
   const label = accessibilityLabel ?? (shown !== children ? spokenMathText(children, lang) : undefined);
   return <Txt {...rest} style={[style, scaled]} accessibilityLabel={label}>{shown}</Txt>;

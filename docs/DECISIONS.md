@@ -232,3 +232,13 @@ Context: the question model already represents multiple_choice answers and quest
 Decision: implement multi-select interaction, answer persistence/resume, scoring/review and visual-content rendering/indexing as shared app capabilities. They must work for every supported content origin: existing university/paper packs, all active bundled question packs, Publications & Books LibraryPacks, and future imported content. Question type drives radio vs checkbox semantics. Multi-select must support multiple toggles, explicit submission where needed (especially Flash), array-based persistence/resume, and correct answer comparison; exact-set scoring is the safe default unless a source-backed marking profile explicitly defines another rule. Diagram/image references must resolve through one validated offline-capable asset pipeline and render consistently in question stems, options and explanations wherever the content model places them. Preserve existing single-choice behavior.
 
 Consequences: RU-V can be used as one acceptance-test dataset, but it does not own or delimit this feature. Tests must cover multiple content sources and existing single-choice regression paths. No pack may be enabled for multi-select scoring or depend on an image until its content and referenced assets validate. Content-specific diagrams are audited per source, but renderer and asset infrastructure are shared.
+
+## ADR-036 — Structured math is a pure parser + View renderer; circuits/graphs stay source bitmaps
+Status: accepted, 2026-11-17.
+
+Context: surveying all 13,609 questions showed LaTeX markup almost only in RU Lokkho (being retired), while surviving packs contain linearised matrices/determinants, roots and powers; the 20 RU-V circuit/graph/vector questions exist only as PDF vector drawings.
+
+Decision: (1) `mathLayout.ts` parses stored text into a tree and never rewrites it; `MathBlock` renders it with Views/Text (no WebView, bundled font or network). (2) Linearised matrices are detected conservatively (`;` rows, `,` cells, equal counts, >=2 columns, no labelled cells). (3) No bespoke circuit/graph DSL: source figures are cropped from the original PDF and carried as bitmaps through the shared asset pipeline, because redrawing would reinterpret verified questions. (4) RU-V figures live as an overlay in the external archive; archived pack JSON stays byte-identical.
+
+Consequences: no new dependency; matrix layout is not yet device-verified; a figure missed by the stem-keyword scan would not be in the inventory.
+

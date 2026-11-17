@@ -422,6 +422,15 @@ WHERE id = 'hstu-import-b-2024-2025-shift-2'
   AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-b-2024-2025-shift-2')
   AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-b-2024-2025-shift-2');
 `
+  },
+  {
+    version: 10,
+    name: "option_and_explanation_assets",
+    sql: `
+-- Shared offline visual support: image-based options and explanation figures. NULL = none (all existing rows).
+ALTER TABLE questions ADD COLUMN explanation_asset_paths TEXT;
+ALTER TABLE question_options ADD COLUMN asset_paths TEXT;
+`
   }
 ];
 

@@ -321,20 +321,21 @@ export async function loadQuestions(db: SqlDb, ids: string[]): Promise<QuestionV
     const ph = part.map(() => "?").join(",");
     const qs = await db.getAllAsync<{
       id: string; text: string; type: QuestionView["type"]; category: QuestionCategory; subject: string | null; topic: string | null;
-      answer_status: QuestionView["answerStatus"]; content_status: QuestionView["contentStatus"]; explanation: string | null; asset_paths: string | null;
-    }>(`SELECT id, text, type, category, subject, topic, answer_status, content_status, explanation, asset_paths FROM questions WHERE id IN (${ph})`, part);
+      answer_status: QuestionView["answerStatus"]; content_status: QuestionView["contentStatus"]; explanation: string | null; asset_paths: string | null; explanation_asset_paths: string | null;
+    }>(`SELECT id, text, type, category, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths FROM questions WHERE id IN (${ph})`, part);
     for (const q of qs) {
       byId.set(q.id, {
         id: q.id, text: q.text, type: q.type, category: q.category, subject: q.subject, topic: q.topic,
         answerStatus: q.answer_status, contentStatus: q.content_status, explanation: q.explanation,
-        assetPaths: q.asset_paths ? (JSON.parse(q.asset_paths) as string[]) : [], options: [], appearances: []
+        assetPaths: q.asset_paths ? (JSON.parse(q.asset_paths) as string[]) : [],
+        explanationAssetPaths: q.explanation_asset_paths ? (JSON.parse(q.explanation_asset_paths) as string[]) : [], options: [], appearances: []
       });
     }
-    const opts = await db.getAllAsync<{ question_id: string; option_key: string; text: string; sort_order: number; is_correct: number }>(
-      `SELECT question_id, option_key, text, sort_order, is_correct FROM question_options WHERE question_id IN (${ph}) ORDER BY question_id, sort_order`, part
+    const opts = await db.getAllAsync<{ question_id: string; option_key: string; text: string; sort_order: number; is_correct: number; asset_paths: string | null }>(
+      `SELECT question_id, option_key, text, sort_order, is_correct, asset_paths FROM question_options WHERE question_id IN (${ph}) ORDER BY question_id, sort_order`, part
     );
     for (const o of opts) {
-      const target: OptionView = { key: o.option_key, text: o.text, order: o.sort_order, isCorrect: o.is_correct === 1 };
+      const target: OptionView = { key: o.option_key, text: o.text, order: o.sort_order, isCorrect: o.is_correct === 1, assetPaths: o.asset_paths ? (JSON.parse(o.asset_paths) as string[]) : [] };
       byId.get(o.question_id)?.options.push(target);
     }
     const apps = await db.getAllAsync<{

@@ -9,6 +9,7 @@ export interface OptionView {
   text: string;
   order: number;
   isCorrect: boolean;
+  assetPaths: string[];
 }
 
 export interface AppearanceView {
@@ -34,6 +35,7 @@ export interface QuestionView {
   contentStatus: "verified" | "unverified";
   explanation: string | null;
   assetPaths: string[];
+  explanationAssetPaths: string[];
   options: OptionView[];
   appearances: AppearanceView[];
 }
