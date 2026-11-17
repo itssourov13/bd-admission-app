@@ -535,7 +535,17 @@ export const translations = {
   "library.provisionalNote": { bn: "এই বইয়ের প্রশ্নের উত্তর এখনো যাচাই করা হয়নি; অনুশীলন প্রাথমিক ও ফলাফল ভুল হতে পারে।", en: "Answers in this book are not verified yet; practice is provisional and results may be wrong." },
   "library.noPracticeNote": { bn: "এই বইয়ে এখনো অনুশীলনযোগ্য প্রশ্ন নেই।", en: "This book has no practice-ready questions yet." },
   "library.notFound": { bn: "এটি পাওয়া যায়নি", en: "Not found" },
-  "library.browseTitle": { bn: "বইয়ের প্রশ্ন", en: "Book questions" }
+  "library.browseTitle": { bn: "বইয়ের প্রশ্ন", en: "Book questions" },
+  "library.sessionsTitle": { bn: "সেশন ও উৎস সেট", en: "Sessions & source sets" },
+  "library.setWord": { bn: "সেট", en: "Set" },
+  "library.setsCount": { bn: "{n}টি সেট", en: "{n} sets" },
+  "library.sessionExpand": { bn: "{name} খুলুন", en: "Expand {name}" },
+  "library.sessionCollapse": { bn: "{name} বন্ধ করুন", en: "Collapse {name}" },
+  "library.sessionFlash": { bn: "ফ্ল্যাশ প্রশ্ন", en: "Flash question" },
+  "library.sessionExam": { bn: "টাইমড অনুশীলন", en: "Timed practice" },
+  "library.sessionBrowse": { bn: "প্রশ্ন দেখুন", en: "Browse questions" },
+  "library.sessionAll": { bn: "পুরো সেশন", en: "Whole session" },
+  "library.sessionExamNote": { bn: "সেশন বা সেট থেকে টাইমড অনুশীলন আপনার নির্ধারিত নম্বরহীন অনুশীলন; এটি রাজশাহী বিশ্ববিদ্যালয়ের সরকারি পরীক্ষা নয়।", en: "Timed practice from a session or set is your own unscored practice; it is not an official Rajshahi University exam." }
 } as const;
 
 export type TranslationKey = keyof typeof translations;

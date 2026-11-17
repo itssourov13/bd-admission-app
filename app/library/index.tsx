@@ -9,6 +9,7 @@ import { TextField } from "@/components/common/TextField";
 import { BookCard } from "@/components/library/BookCard";
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
+import { presentPublishers } from "@/features/library/presentation";
 import { filterBooks, isFilterActive, listCollections, localizedName, type BookFilter } from "@/features/library/model";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
@@ -41,7 +42,7 @@ export default function LibraryScreen() {
   const filtering = isFilterActive(filter);
   const rows = useMemo<Row[]>(() => filtering
     ? filterBooks(books ?? [], filter).map((b) => ({ kind: "book" as const, b }))
-    : (q.data?.publishers ?? []).map((p) => ({ kind: "publisher" as const, p })), [filtering, filter, books, q.data]);
+    : presentPublishers(q.data?.publishers ?? [], books ?? []).map((p) => ({ kind: "publisher" as const, p })), [filtering, filter, books, q.data]);
   const set = (patch: Partial<BookFilter>) => setFilter((f) => ({ ...f, ...patch }));
   const showBar = (books?.length ?? 0) > 0;
   const header = (
