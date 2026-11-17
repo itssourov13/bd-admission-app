@@ -1,6 +1,18 @@
 # Current state
 
-Last updated: 2026-11-17 (RU source audit checkpoint and ASPECT/archive decision documented; v0.1.6 remains the owner-verified preview).
+## Current checkpoint — Phase C working tree and RU pack archival plan — 2026-11-17
+
+- Branch: `feat/import-hstu-verified-answers-2026-11-12`; HEAD: `c5ca075` (Phase B multi-select commit).
+- Phase B is committed and its recorded checks passed: TypeScript, lint, 253/253 tests and diff hygiene.
+- Phase C asset/rendering work is present but uncommitted (21 files: 14 modified, 7 new). The latest independent verification passed content build/check, asset check (45 assets / 46 refs), TypeScript, lint, 267/267 tests, diff check and Android no-bytecode Metro export (~4 MB bundle). Physical Android device QA was not performed.
+- Phase C currently provides shared bitmap-image rendering for stems/options/explanations and a generalized offline asset index/validator. Structured math/diagram rendering is not complete; MathText was not changed. Asset index currently includes all 45 Lokkho images. The asset-check script is not yet in CI.
+- Exact current RU inventory: 44 Lokkho candidate packs / 4,009 unverified questions / 45 unique image assets; 15 RU-V verified packs / 1,828 questions / 17 printed source sets. Both families remain in the app repository, generated manifest and SQLite seed.
+- External Lokkho archive is already verified (90/90 SHA-256 entries; 44 packs / 4,009 questions / 45 assets). The separate RU-V archive does not exist yet.
+- Owner's current instruction: move all 59 RU pack files and RU-only pack assets out of this app project into two separate external archives. Lokkho remains unverified; RU-V remains verified. The owner will perform any later Library import. Only RU-V's 17 sets are intended for a future ASPECT import; no LibraryPack or ASPECT migration is part of the current task. Do not move any other university packs.
+- Before app removal, implement a safe schema-v10 upgrade/retirement path: existing content sync is additive, and active university pools depend on question appearances. Retire RU from new catalogue/practice while preserving historical question/source display, bookmarks, answers, sessions and results.
+- Full evidence and next-session instructions: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. Latest owner decision: ADR-035.
+
+Last updated: 2026-11-17 (Phase C working-tree verification and ADR-035 RU archive/removal decision recorded; v0.1.6 remains the owner-verified preview).
 
 ## Latest implementation and release candidate — 2026-11-13
 
@@ -12,7 +24,7 @@ Last updated: 2026-11-17 (RU source audit checkpoint and ASPECT/archive decision
 - Previous v0.1.5 / code 6 build `35d0f228-a328-4e1c-898d-a853445b00ee` is FINISHED but predates the current Home Hero runtime fixes. APK: https://expo.dev/artifacts/eas/J56SlEhV00jiqA1bmUe6BhQfFLExyGH5UASE5wkprnw.apk.
 - Owner verification: v0.1.6 installed and launched successfully; owner reports the previously raised Hero/theme/runtime issues are fixed and there are no known outstanding app issues. Exact handset/OS and a per-screen test matrix were not recorded. Keep additional device checks optional unless a new issue appears.
 
-## Publications & Books Library implementation audit — 2026-11-17
+## Historical Publications & Books Library audit — 2026-11-17 (before current owner archive decision)
 
 - Verdict: Phase 8 foundation exists, but the end-to-end Library publishing/content workflow is **not complete**. The five seeded publisher rows are metadata-only; pub-aspect currently has no book/questions and no actual LibraryPack is present.
 - Implemented: Home shortcut; publisher/book/unit screens; migration v8; LibraryPack v1 type/validator/transactional importer; book/unit Browse/Flash/book-level Custom Practice scopes; history/result labels; soft remove/restore contracts.
@@ -22,7 +34,7 @@ Last updated: 2026-11-17 (RU source audit checkpoint and ASPECT/archive decision
 - Next target: one RU-V ASPECT book with 17 test units only. RU Lokkho must be archived outside the app/ASPECT and remains a separate optional reuse audit.
 - Detailed report: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
-## RU source audit and ASPECT Library direction — 2026-11-17 (interim)
+## Historical RU source audit and initial ASPECT proposal — superseded by ADR-035
 
 - RU-V is currently 15 JSON batches / 15 paper rows / 1,828 questions, but represents 17 source sets. The two combined batches cover 2021–22 PDF pages 67/78 and 2022–23 pages 44/55. The target is 17 logical test entries, not necessarily 17 JSON batches.
 - The PDF prints Unit A on both 2024–25 sets: মহানন্দা (p1) and পদ্মা (p12). The earlier C catalogue correction is superseded; restore source-facing A in a future authorized data change. No pack JSON was edited.

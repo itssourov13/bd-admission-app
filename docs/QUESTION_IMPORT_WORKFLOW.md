@@ -1,3 +1,14 @@
+## Current RU pack archive ownership — 2026-11-17 (ADR-035)
+
+All RU question-pack datasets are scheduled to leave the active BD Admission App repository/bundle. Keep their verification states and archives separate:
+
+- RU Lokkho: 44 `ru-c-*.json` packs / 4,009 answer-unverified candidate questions / 45 unique image files. Existing external archive: `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; manifest and all 90 SHA-256 entries currently verify.
+- RU-V: 15 `ru-vq-*.json` packs / 1,828 verified questions representing 17 printed test sets. Separate archive to create: `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`. Source PDF and RU-V extraction/reconciliation materials are already external.
+
+The app still contains these packs until the follow-up archival/removal task completes. The owner will perform a later Library import. Only the 17 RU-V sets are a future ASPECT target; do not import Lokkho, do not merge the sources, and do not migrate JU/HSTU/DU or other university packs into ASPECT. Current archival/migration evidence: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+---
+
 ## Catalogue identity correction — RU session labels and HSTU paper grouping — 2026-11-16
 
 **Status: Implemented.** Detailed source research, per-shift reconciliation, migration and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
@@ -23,17 +34,17 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 
 # Question import workflow
 
-## RU question-bank audit and ASPECT Library direction — 2026-11-17
+## Historical RU source audit and future owner-led ASPECT import — superseded for current execution by ADR-035
 
-The owner has decided that **only the 17 audited RU-V source sets** (currently 15 JSON batches / 1,828 questions) will be added as one book under Publications & Books → ASPECT. The 44 RU Lokkho packs / 4,009 candidates will stay in an external archive outside ASPECT. Audit them only to determine whether selected records may be useful later. The owner has separately asked Muse to make a new pack; Lokkho may remain archived and unused. Do not create an ASPECT Lokkho book or merge Lokkho with RU-V.
+The historical source-audit outcome remains: the 15 RU-V JSON batches / 1,828 questions represent 17 printed source sets. The owner may later import only those 17 sets as one RU Question Bank under ASPECT. This import is deferred to the owner; do not generate or install a LibraryPack in the current task. Lokkho is a separate unverified dataset and must never be merged with RU-V or added to ASPECT. See current ADR-035.
 
-- Hash and move the 44 Lokkho packs/assets/source manifests from the app repository to an external archive; this move is pending. Keep them out of ASPECT. Retiring them from the active app bundle requires a separate scoped SQLite migration that preserves history.
+- The external Lokkho archive now exists and verifies (44 packs / 4,009 questions / 45 assets; 90/90 SHA-256 entries pass). The original app copies still remain and are scheduled for removal together with the RU-V packs under ADR-035. Keep Lokkho out of ASPECT; the existing schema-v10 app installations need a scoped retirement migration that preserves history.
 - Preserve original source question IDs, Unit A labels for 2024–25 মহানন্দা/পদ্মা, source hashes, printed question numbers and page references.
 - The 15 RU-V batches represent 17 sets; create 17 logical test units, not necessarily 17 JSON batches.
 - Multiple-answer interaction/persistence/scoring and image/diagram/math rendering are app-wide shared-engine requirements under ADR-033; they must work across all university/paper packs, active bundled content, LibraryPacks and future imports. RU-V contributes six multiple-choice records and its own source diagrams, but is not the only target.
 - Existing ASPECT Master QB permission does not automatically cover separate RU sources; record source-specific licence and attribution evidence.
 
-Interim audit: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md. Integration plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md. Full audit pending; the intended ASPECT payload is one RU-V book with 17 test units only.
+Source audit: `docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md`. Historical integration proposal: `docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md` (superseded for current execution by ADR-035). Current archive/removal instructions: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
 
 ---
 

@@ -1,4 +1,8 @@
-# RU Verified Source Sets → ASPECT Publications & Books — integration plan
+# Historical RU Verified Source Sets → ASPECT Publications & Books — initial integration plan
+
+> **Superseded for current execution by ADR-035 (2026-11-17):** do not execute the LibraryPack generation/import or ASPECT UI changes described in this historical plan now. The owner will handle future RU-V Library import. The current task is to archive all RU question packs outside the app in separate Lokkho and RU-V archives, remove RU active content safely, and preserve history. Only the 17 RU-V sets are a future ASPECT target; Lokkho is never part of ASPECT. Other universities' packs remain in the app. See `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+
 
 Decision recorded: 2026-11-17
 Status: Approved direction / planning only. Full audit and implementation pending.

@@ -1,3 +1,24 @@
+## Phase C asset pipeline checkpoint and RU archive baseline — 2026-11-17
+
+| Check | Result | Notes |
+|---|---|---|
+| Existing Lokkho external archive | [x] Pass | `node scripts/archive-lokkho.mjs --verify`: 44 packs / 4,009 questions / 45 assets / 46 references; `SHA256SUMS` 90/90 pass. App copies still remain. |
+| RU-V external pack archive | [ ] Not created | Destination `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/` is currently absent. |
+| RU source inventory | [x] Verified | 44 `ru-c-*.json` / 4,009 unverified questions; 15 `ru-vq-*.json` / 1,828 verified questions; 17 RU-V printed source sets; 45 Lokkho images / 46 references. |
+| Seed integrity | [x] Pass | Ignored generated seed is schema v10; SQLite quick_check ok; foreign_key_check has zero rows; 217 packs / 13,609 questions. |
+| Content build | [x] Pass | `pnpm content:build`; 217 packs / 13,609 questions. |
+| Content check | [x] Pass | `pnpm content:check`. |
+| Asset references/index | [x] Pass | `pnpm question-assets:check`: 45 assets / 46 references (45 unique). All are Lokkho assets at this checkpoint. |
+| TypeScript | [x] Pass | `pnpm typecheck` on Node 22.23.1. |
+| Lint | [x] Pass | `pnpm lint` on Node 22.23.1. |
+| Full tests | [x] Pass | `pnpm test`: 267/267. |
+| Git diff hygiene | [x] Pass | `git diff --check`. |
+| Android Metro export | [x] Pass | No-bytecode Android export completed; ~4 MB JS bundle and offline image assets. Not a native APK/device test. |
+| Physical Android visual QA | [ ] Not run | No device verification of new multi-select/figure rendering. |
+| RU app-content removal / schema-v10 retirement | [ ] Pending | All 59 RU pack files and RU content are still active in the app seed/manifest/database. |
+
+Full evidence and next task: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
 ## v0.1.6 Home Hero runtime follow-up — 2026-11-13
 
 | Check | Result | Notes |

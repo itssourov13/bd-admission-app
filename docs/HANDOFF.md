@@ -1,4 +1,26 @@
-# Current handoff — Publications & Books Library is foundation-only — 2026-11-17
+# Active handoff — externalize all RU question packs and remove from app — 2026-11-17
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch / HEAD:** `feat/import-hstu-verified-answers-2026-11-12` / `c5ca075`
+**Current uncommitted work:** Phase C asset/visual implementation (14 modified + 7 new files). Preserve it.
+
+First verify and finish Phase C; its last recorded checks passed: content build/check, asset check (45 assets / 46 references), TypeScript, lint, 267/267 tests, diff check and Android no-bytecode Metro export (~4 MB). MathText/structured diagrams are not complete; physical device QA is not done. Phase C documentation and commit are still pending.
+
+Then archive and remove **all RU question packs** from the app in two separate datasets:
+- Lokkho: existing archive `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; 44 packs / 4,009 unverified questions / 45 assets / 46 refs. Archive verification and 90/90 SHA-256 checks passed, but all app copies remain.
+- RU-V verified: create `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`; 15 packs / 1,828 verified questions / 17 printed source sets / 0 image refs. No external pack archive exists yet. Source PDF is already external at `.../ru/RU Question Bank.pdf`; SHA-256 is recorded in the audit report.
+
+After both archives are hash-verified, remove only the 44 `ru-c-*.json` and 15 `ru-vq-*.json` pack files and the 45 RU Lokkho question images from active app content. Rebuild manifest/seed/asset index. Implement a safe migration from existing schema-v10 installs so RU disappears from new catalogue/practice but historical question/source details, bookmarks, answers, sessions and results remain. Existing sync is additive; a new seed alone will not clean installed RU rows. Keep non-RU content and the RU university branding SVG.
+
+**Do not import RU content into Library now.** The owner will do the later Library import. Only RU-V's 17 sets are intended for a future ASPECT Question Bank; Lokkho stays separate, unverified and outside ASPECT. Do not move JU/HSTU/DU or other universities' verified content. Do not create a LibraryPack or start the Library UI restructuring in this task.
+
+Full verified baseline and implementation handoff: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. Governing decision: ADR-035.
+
+---
+
+# Historical handoff — Publications & Books Library foundation audit — 2026-11-17
+
+> Historical checkpoint only. Phase B multi-select is now implemented and Phase C bitmap asset support is partly implemented; current state and owner scope are in the active handoff at the top of this document. The owner has deferred RU-V Library import and will handle it later.
 
 Phase 8 is implemented as a foundation (screens, v8 schema, LibraryPack schema/validator/importer, book/unit scopes and synthetic tests), but the end-to-end Library is not publication-ready. pub-aspect currently has metadata only; there are no real books or LibraryPacks. installLibraryPack() is not connected to an app UI/runtime content source. Phase 9 has local contracts only; Phase 10 backend/CMS is deferred.
 
@@ -19,13 +41,13 @@ RU-V ASPECT content-delivery work (separate from the global platform capabilitie
 RU Lokkho is external archive-only and must not be added as an ASPECT book. Full report: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
 ---
-# Current handoff — RU source audit and ASPECT Library destination — 2026-11-17
+# Historical handoff — initial RU source audit and ASPECT proposal — superseded by ADR-035
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
 **Branch / HEAD:** feat/import-hstu-verified-answers-2026-11-12 / a5c46ed
-**Status:** interim audit documentation complete; full source audit and implementation pending.
+**Historical status:** interim source-audit checkpoint before the current Phase B/C and ADR-035 decisions. Use the active handoff at the top of this file instead.
 
-Owner decision: only the 17 audited RU-V source sets (currently 15 JSON batches / 1,828 questions) go into one book under Publications & Books → ASPECT. The 44 RU Lokkho packs / 4,009 candidates must be moved to an external archive and must not be added to ASPECT. The archive move is still pending; the candidate files/assets remain in the app repository at this checkpoint. Audit them for optional reuse only; the owner has separately asked Muse to make a new pack, so Lokkho may remain unused. Preserve the archive and source assets once moved. The two 2024–25 RU-V source sets print Unit A; source-facing metadata should be A.
+Historical proposal: RU-V's 17 source sets were identified as the only future ASPECT payload. Current ADR-035 defers the Library import to the owner and instead requires both RU pack families to be separately archived and removed from active app content. The existing Lokkho archive now verifies; its app copies remain until cleanup. See the active handoff and audit report at the top of this file.
 
 Phase 8 LibraryPack is a useful foundation for one RU-V book with 17 test units. The shared multi-select engine, scoring/persistence/review, visual-question renderer and validated offline asset pipeline are app-wide requirements under ADR-033; they must support every university pack and LibraryPack, not only RU-V. RU-V-specific work is deterministic question-pack → LibraryPack conversion, its 17 test units and source-specific asset audit, plus a safe RU-V-only existing-database cutover. RU Lokkho is an independent external archive, not a LibraryPack. Read:
 - docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md

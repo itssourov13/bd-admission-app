@@ -1,21 +1,44 @@
+## Current owner task — finish Phase C, archive all RU packs, remove RU from active app — 2026-11-17
+
+**Current scope:** finish and document the existing Phase C changes, then externalize all RU question packs and remove RU-only pack content/assets from the active app. Do not continue the Library migration or unrelated roadmap work in this task.
+
+- [x] Phase A: external Lokkho archive created; re-verified at 44 packs / 4,009 questions / 45 assets / 46 refs; 90/90 SHA-256 entries pass. App copies remain pending removal.
+- [x] Phase B: app-wide multi-select committed as `c5ca075`; 253/253 tests, typecheck and lint passed in its commit checkpoint.
+- [ ] Phase C: review/finalize current uncommitted shared asset pipeline, update docs, add asset validation to CI, rerun checks and commit.
+- [ ] Create a separate external archive for the 15 RU-V verified packs / 1,828 questions (17 printed sets); include file manifest, sizes, SHA-256 and source PDF hash reference.
+- [ ] Copy-verify both archives against all 59 RU pack files and the 45 Lokkho assets before removing anything from the app.
+- [ ] Remove all 44 `ru-c-*.json` and 15 `ru-vq-*.json` packs, plus RU-only question images, from active app source/bundle; regenerate manifest, seed and asset registry.
+- [ ] Add a safe migration from existing schema v10 installations that retires RU catalogue/practice content while preserving historical questions, source provenance, bookmarks, saved answers, sessions and result review.
+- [ ] Verify fresh installation, schema-v10 upgrade, and that all non-RU university content remains unchanged.
+- [ ] Update all handoff/architecture/import documentation and commit verified archival/removal work locally.
+
+**Separate archives:** Lokkho `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; RU-V `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/` (not created yet).
+
+**Deferred by owner:** the owner will import RU-V into Library later. Future target is only one ASPECT RU Question Bank with 17 units. Do not create/import a LibraryPack now; do not put Lokkho into ASPECT; do not migrate JU/HSTU/DU or any other university's verified packs; do not remove non-RU content.
+
+Detailed verified inventory and handoff: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. Governing decision: ADR-035.
+
+---
+
 ## App-wide multi-select and visual-question capability — owner clarification — 2026-11-17
 
 **Scope decision:** these are shared app-engine capabilities, not an RU/RU-V-only feature. They must work consistently across all university/paper question packs, active bundled content, Publications & Books LibraryPacks and future imported sources. RU-V is only one content set that can exercise the feature.
 
 - [x] Recorded the app-wide scope in ADR-033; the earlier RU-only interpretation is superseded.
-- [ ] Implement type-aware shared choice controls: radio for single-choice, checkbox/toggle for multiple-choice, with accessible labels and selection states.
-- [ ] Support multi-answer selection, explicit Flash submission, Standard Exam/Custom Practice selection, array persistence and resume across every pool source.
-- [ ] Apply source-backed marking profiles; use exact-set comparison unless a verified rule defines partial/negative multi-answer marking. Show selected vs expected answers in review.
+- [x] Implement type-aware shared choice controls: radio for single-choice, checkbox/toggle for multiple-choice, with accessible labels and selection states (Phase B, commit `c5ca075`).
+- [x] Support multi-answer selection, explicit Flash submission, Standard Exam/Custom Practice selection, array persistence and resume (Phase B, commit `c5ca075`).
+- [x] Apply exact-set comparison by default and show selected/matched/missing/extra answers in review (Phase B, commit `c5ca075`; future official partial-marking rules remain source-dependent).
 - [ ] Generalize question visual content across stems/options/explanations and all content sources; include static image/diagram assets and any structured math/diagram rendering the source inventory requires.
 - [ ] Replace source-folder-specific asset indexing with a validated, offline-capable shared registry/build pipeline; reject missing or unbundled references.
-- [ ] Add regression/integration coverage across at least university-pack and LibraryPack sources, including single-choice compatibility, multi-answer scoring, persisted resume and image-dependent questions.
-- [ ] Verify Android/Metro bundling and physical-device rendering after implementation.
+- [x] Add shared multi-select regression/integration tests for question selection, scoring, persistence/resume and review (Phase B; 253/253 suite at commit).
+- [x] Verify TypeScript, lint and Android Metro export for the current Phase C visual/asset changes (267/267 suite and Metro export passed; physical-device QA remains pending).
+- [ ] Add real LibraryPack visual-content integration tests after a real LibraryPack is created in a later owner-led task.
 
 Architecture decision: docs/DECISIONS.md — ADR-033. This work is independent of the RU-V one-book conversion and must not be scoped or tested only against RU data.
 
 ---
 
-## Publications & Books Library completion — status audit — 2026-11-17
+## Historical Publications & Books Library completion audit — 2026-11-17 (the current RU Library import is deferred)
 
 **Status:** Phase 8 foundation is implemented; end-to-end Library feature is not complete.
 
@@ -35,22 +58,22 @@ Detailed status: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md.
 
 ---
 
-## RU-V → ASPECT Library; RU Lokkho → external archive — owner direction — 2026-11-17
+## Historical RU-V → ASPECT proposal; superseded by ADR-035 for current execution
 
-**Status:** Interim audit checkpoint documented; full source audit pending Claude. Implementation is not started.
+**Historical status:** the source audit checkpoint was recorded; it has since been re-verified against the current working tree. Current action is ADR-035 archival/removal, not the original ASPECT implementation proposal.
 
 - [x] Confirmed PDF identity/hash and 17 source-set occurrences represented by 15 RU-V JSON batches.
 - [x] Reconciled per-set imported/excluded counts: 1,828 included + 154 excluded = 1,982 raw records.
 - [x] Confirmed both 2024–25 source sets print Unit A; earlier C catalogue correction is superseded (not yet reverted in data).
 - [x] Recorded scan findings, selected source-checked extraction defects, 22 no-correct-option and six multiple-answer records.
 - [x] Documented the owner clarification that multi-select, image/diagram rendering, offline Metro indexing and math rendering are app-wide capabilities, not RU-only requirements.
-- [x] Owner decided that only the 17 audited RU-V source sets go into one ASPECT Library book. RU Lokkho (44 packs / 4,009 candidates) must be archived outside the app and kept out of ASPECT; transfer is pending. Audit is for optional reuse only. Muse has separately been tasked with a new pack, so Lokkho may not be used.
-- [ ] Visually verify all RU-V included questions and 154 exclusions against the original PDF.
-- [ ] Hash and move the 44 Lokkho packs/assets/source manifests to an external archive outside the app bundle; the move is still pending. Audit the 4,009 questions for optional reuse and compare with Muse's new pack when available.
-- [ ] Finalize exactly 17 RU-V test units under one ASPECT book.
-- [ ] Generate/validate one RU-V ASPECT LibraryPack and its source-specific attribution/licence records.
-- [ ] Implement/test the app-wide multi-select and image/math capabilities across university packs and LibraryPacks.
-- [ ] Test fresh-install and existing-database migration; move RU-V only from Varsity into ASPECT after the one book passes. Keep RU Lokkho archived and out of ASPECT.
+- [x] Historical owner direction identified RU-V's 17 sets as the only future ASPECT content. Current ADR-035 supersedes the old timing: the owner will perform the Library import later; the current task is separate external archiving and app removal for both RU families.
+- [ ] Future source-quality task (deferred): visually verify RU-V included questions and 154 exclusions against the original PDF; this is not part of the current archive/removal task.
+- [x] Existing external Lokkho archive was re-verified during the current audit (44 packs / 4,009 questions / 45 assets; 90/90 SHA-256 entries pass). Original app copies are still pending removal. No optional reuse audit or Muse comparison is part of the current task.
+- [ ] Preserve the 17-set source mapping and provenance in the separate RU-V archive for the owner's later Library import.
+- [x] Confirmed RU-V LibraryPack creation/import is deferred to the owner; do not generate or install a LibraryPack in the current task.
+- [x] Phase B app-wide multi-select implementation is committed; Phase C shared bitmap asset support has current automated checks recorded in the active handoff.
+- [ ] Test fresh-install and existing schema-v10 upgrade after both RU pack families are removed from active app content; preserve user history and keep both archives separate.
 
 Reports: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md and docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
 
@@ -496,7 +519,6 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 
 Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
-## Phase 12 (2026-11-17) — in progress
-Phase A (Lokkho external archive) done and verified; Phases B–H not started. Next: shared multi-select engine. Details: docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.
+## Phase 12 (2026-11-17) — current checkpoint
 
-Phase 12 / Phase B (multi-select) implemented; automated checks recorded in the Phase 12 doc; Android device QA pending. Next: Phase C (shared asset pipeline + visual/math rendering).
+Phase B multi-select is committed as `c5ca075`. Phase C shared bitmap-asset implementation is verified but uncommitted. All 59 RU pack files remain active in the app and need separate external archives plus schema-v10 retirement. Current task and sequence are authoritative at the top of this file and in `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. RU-V Library import is deferred to the owner; no ASPECT LibraryPack is to be created in this task.

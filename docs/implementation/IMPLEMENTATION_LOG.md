@@ -1,4 +1,4 @@
-# Implementation log (roadmap phases 1–10)
+# Implementation log (roadmap phases 1–12)
 
 Statuses: Not Started → In Progress → Implemented → Pending Owner Verification. Nothing here is Verified/Production Ready.
 
@@ -11,9 +11,10 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | Implemented — Pending Owner Verification |
+| 8 Publications & books library | Foundation implemented; real content delivery/LibraryPack installation incomplete |
 | 9 Online + offline content management (optional) | Partially implemented — local contracts only |
 | 10 Backend & CMS foundation (optional) | Deferred — contract documented only |
+| 12 App-wide multi-select, shared visuals and RU pack externalization | Phase B committed; Phase C changes verified but uncommitted; separate RU archive/removal pending |
 
 ## 2026-11-13 — Phase 1
 1. Read audit, STARTUP_UI_AUDIT.md, git state (branch feat/import-hstu-verified-answers-2026-11-12, clean tree). Found 15f7602 already covers most of Phase 1.
@@ -127,6 +128,14 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 5. Minimal check: `git diff --check` and staged-path scope verification; no source tests were rerun because no application code changed.
 6. No push; the owner will push manually.
 
+
+## 2026-11-17 — Phase 12 handoff: current RU archive decision and Phase C checkpoint
+
+1. Audited the repo, generated seed, pack files, asset paths and external workspaces. The app currently has 44 RU Lokkho packs / 4,009 unverified questions and 15 RU-V verified packs / 1,828 questions (17 source sets); the two families must be archived separately and removed from active app content.
+2. Re-verified external Lokkho archive: 44 packs / 4,009 questions / 45 assets / 46 refs; all 90 SHA-256 entries pass. The RU-V external pack archive does not exist yet. Source PDF and RU-V extraction/review workspace are already outside the repo.
+3. Phase B is committed as c5ca075. Phase C implementation remains uncommitted; content build/check, asset check, typecheck, lint, 267/267 tests, diff hygiene and Android no-bytecode export passed on Node 22.23.1.
+4. Added ADR-035: owner will handle future RU-V-only ASPECT import; no LibraryPack/Library UI work now; Lokkho stays unverified and external; JU/HSTU/DU/other university content remains in the app.
+5. Detailed source inventory, schema-v10 migration implications and execution sequence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md. Documentation checkpoint only; no packs/assets were moved/deleted and no app code was changed here.
 
 ## 2026-11-17 — Library implementation status re-audit
 

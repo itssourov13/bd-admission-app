@@ -6,6 +6,14 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
+## Current RU pack ownership and archive decision — 2026-11-17
+
+The app repository currently contains two separate RU question-pack families: 44 `ru-c-*.json` Lokkho candidate packs (4,009 answer-unverified questions) and 15 `ru-vq-*.json` RU-V verified packs (1,828 verified questions representing 17 printed test sets). The owner has decided that **all 59 RU question-pack files and RU-only question assets must be moved outside this app project and removed from active app content**. Keep the datasets separate: the existing external Lokkho archive remains at `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; create a separate verified archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`.
+
+Lokkho and RU-V must never be merged. Lokkho remains unverified and must not be imported into ASPECT. The owner will handle Library import later; only the 17 RU-V sets are intended for a future owner-led import under Publications & Books → ASPECT. Do not create/install a LibraryPack now, do not migrate JU/HSTU/DU or other universities into ASPECT, and do not move non-RU packs out of the app.
+
+At this checkpoint the move/removal has **not** happened: both RU families, the 45 Lokkho images, the bundled manifest entries and the seed rows are still active in the app. Lokkho's external archive verifies; the RU-V external pack archive does not yet exist. Full inventory, current Phase C state and the continuation task are recorded in `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. This owner decision supersedes the earlier RU-to-ASPECT implementation timing in ADR-032; see ADR-035.
+
 ## Current university-bank state — 2026-11-16
 
 The normal HSTU catalogue contains 17 logical papers / 950 questions / 939 verified practice-ready questions after the 2026-11-16 merge of five duplicate paper IDs. Claude's accepted HSTU ledger supplied 664 verified IDs: 657 were moved from HSTU-U appearances into 15 HSTU papers, and 7 existing HSTU questions had their accepted answer mappings/status updated. All 664 now have both verification fields set to verified; HSTU has 939 verified single-choice questions in its practice pool. HSTU-U retains 105 pending records (102 answer-unverified, 3 answer-unknown; content-unverified); the 116 baseline pending questions were left untouched. JU and JU-U remain unchanged. The candidate-bank paper rules remain unconfigured. Of the 15 HSTU paper records added by the verified ledger import, ten older-session rules remain unconfigured; the five 2024–25 duplicate aliases were removed and their existing canonical papers retain the partial verified totalMarks=100 fact. Full details and verification evidence are in docs/QUESTION_IMPORT_WORKFLOW.md.
@@ -44,10 +52,8 @@ Multiple-select interaction and diagram/visual-question support are app-wide req
 
 Question diagrams/images and structured mathematics must use a shared renderer and a validated, offline-capable asset pipeline. Source extraction remains bank-specific, but the rendering, Metro indexing, missing-reference checks and UI behavior are reusable across all content origins. Preserve existing single-choice behavior. See ADR-033 in docs/DECISIONS.md.
 
-## RU bank audit and ASPECT Library destination — 2026-11-17
+## Historical RU source audit and initial ASPECT proposal — superseded by ADR-035
 
-- RU-V currently has 15 JSON batches / 15 paper rows / 1,828 questions representing 17 printed source sets. The target is 17 separate test units while preserving import-batch/question identities where possible.
-- The 2024–25 মহানন্দা and পদ্মা sets both print Unit A on PDF pages 1 and 12. The previous C catalogue correction is superseded; source-facing metadata should be A. No pack change has yet been made.
-- Owner direction: only the 17 audited RU-V source sets are to become one book under Publications & Books → ASPECT. RU Lokkho's 44 packs / 4,009 candidates must be moved into an external archive, not ASPECT; that archive move is still pending and the files remain in the app repository. Audit only for possible reuse. Muse has separately been tasked with a new pack, so Lokkho may remain unused. Preserve the archive and assets.
-- App-wide platform work (ADR-033): implement multi-select interaction/persistence/scoring/review and the shared offline visual/diagram asset + math renderer for every source (university packs, active bundled question packs, LibraryPacks and future imports). RU-V's six multi-answer records are one initial acceptance dataset, not the sole target. RU-V-specific work: audit its source images/diagrams, convert the 17 source sets into one LibraryPack, and safely cut over existing installs while preserving user history.
-- Interim evidence and implementation plan: docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md and docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md. The HSTU consolidation in the 2026-11-16 report remains current.
+The original 2026-11-17 source audit reconciled 15 RU-V JSON batches / 1,828 questions to 17 printed source sets, identified 22 no-correct-option and six multiple-answer records, and found the source PDF prints Unit A on the 2024–25 মহানন্দা and পদ্মা pages. The audit remains useful as source evidence.
+
+The current execution decision is different: all RU pack files are to be externalized in two separate archives and removed from this app. The Lokkho archive already exists and verifies; the RU-V archive is not yet created. The owner will do the future import of only the 17 RU-V sets into ASPECT. No LibraryPack is to be created now, Lokkho never enters ASPECT, and other universities' packs remain in the app. See ADR-035 and `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.

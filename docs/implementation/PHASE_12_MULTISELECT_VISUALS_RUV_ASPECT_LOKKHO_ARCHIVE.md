@@ -1,4 +1,8 @@
-# Phase 12 — App-wide multi-select, shared visuals, RU-V → ASPECT, Lokkho archival
+# Phase 12 — App-wide multi-select, shared visuals and RU pack externalization
+
+**Current owner direction (ADR-035, 2026-11-17):** Phase 12's immediate content task is to move all RU pack datasets out of the app in two separate external archives, not to create/import an ASPECT LibraryPack. The owner will do the later Library import; only RU-V's 17 verified sets are intended for one future ASPECT RU Question Bank. Lokkho remains unverified and separate. Other university packs stay in the app. See `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+
 
 Branch: feat/import-hstu-verified-answers-2026-11-12 (start HEAD 50966c7). Governing ADR: ADR-033. Detailed prior plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
 
@@ -12,23 +16,24 @@ Branch: feat/import-hstu-verified-answers-2026-11-12 (start HEAD 50966c7). Gover
 | Lokkho asset refs / unique | 46 / 45 | 46 / 45, all resolve |
 | Source PDF SHA-256 (`bd-admission-app-data/ru/RU Question Bank.pdf`) | — | f1fc25fa…18a49c7 |
 
-## Phase order and status
-| # | Phase | Status |
+## Current execution status — supersedes the earlier phase map
+
+| # | Work | Current status |
 |---|---|---|
-| A | Lokkho external archive: inventory, copy, manifest, SHA-256 verify | Done (this checkpoint) |
-| B | Shared answer-state + multi-select engine (UI, persistence, scoring, eligibility, review) | Implemented and committed; typecheck, lint, 253/253 tests pass; Android device QA pending |
-| C | Shared asset pipeline + visual/math rendering | Not started |
-| D | Library delivery path (bundled LibraryPack install on fresh + upgrade) | Not started |
-| E | RU-V → one ASPECT book, 17 units (conversion script, validation) | Not started |
-| F | RU-V Varsity retirement + DB migration with history aliasing | Not started |
-| G | Lokkho active-content removal + DB retirement migration + asset registry regen | Not started (gated on A, done) |
-| H | Reconciliation, full verification, docs, final report | Not started |
+| A | Lokkho external archive | External archive verified (44 packs / 4,009 questions / 45 assets; 90/90 hashes). App copy removal still pending. |
+| B | App-wide multi-select | Implemented and committed as `c5ca075`; 253/253 tests, typecheck and lint passed. |
+| C | Shared asset pipeline + bitmap figure rendering | Implementation is in the working tree and automated checks passed (267/267 tests, typecheck, lint, content/asset checks, Metro export). Documentation/commit pending; structured math/diagram work and device QA are not complete. |
+| D | Separate RU-V verified external archive | Not created; destination `ru/verified-pack-archive/` is absent. |
+| E | Remove both RU pack families from active app + schema-v10 retirement | Pending; all 59 pack files and 5,837 questions remain in the app seed/manifest/database. |
+| F | Full checks, documentation and local commits | Pending after Phase C finalization and RU archival/removal. |
+
+**Deferred by owner:** no RU LibraryPack generation/import or ASPECT UI work now. The owner will later import only the 17 RU-V sets into ASPECT. Lokkho remains separate/unverified. Other university packs stay in the app.
 
 ## Phase A — Lokkho archive (done)
 - Tool: `scripts/archive-lokkho.mjs` (`--create` refuses to overwrite and never deletes; `--verify` re-checks sizes, SHA-256, unlisted files and asset-reference resolution).
 - Destination: `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/` (`question-packs/` mirrors `data/question-packs/` so `assets/lokkho/*.png` references resolve unchanged; `MANIFEST.json`, `SHA256SUMS`, `README.md`).
 - Result: 44 packs, 4,009 questions, 46 refs / 45 unique assets, 93 files total. `node scripts/archive-lokkho.mjs --verify` ok; `sha256sum -c SHA256SUMS` zero failures.
-- App copies are **not yet removed**. Removal is Phase G because it needs the DB retirement migration (installed rows must stay for history) and asset-registry regeneration.
+- App copies are **not yet removed**. Under ADR-035, removal of both RU Lokkho and RU-V packs is now the active task after Phase C finalization. A schema-v10 retirement migration and asset-registry regeneration are required; preserve rows needed for history.
 
 ## Phase B — App-wide multi-select (implemented)
 Inspection findings (verified in source): `session_answers.selected_keys` is already a JSON array; `isAnswerCorrect`/`scoreAttempt` already compare exact sets; `selectOption(…, multiple)` existed in exam.ts. No schema migration was needed. The gaps were:
@@ -60,4 +65,10 @@ Tests: `tests/answer-selection.test.ts` (toggle, validation, review sets, exact-
 Not verified yet: on-device Android interaction (checkbox focus/TalkBack, layout of the Submit button), Browse/Library/Custom screens visually.
 
 ## Next step
-Phase C: shared offline asset pipeline (generalize `scripts/build-question-assets.mjs`, LibraryPack asset references, validation) and visual/math rendering.
+
+1. Finalize/document/commit the existing Phase C work (including the CI asset-check gate and the remaining math/diagram status).
+2. Create and verify the separate external RU-V pack archive; re-verify the Lokkho archive.
+3. Remove all 59 RU pack files and the 45 RU-only images from active app content, regenerate the seed/manifest/asset registry, and implement the schema-v10 history-preserving retirement migration.
+4. Run fresh-install and schema-v10 upgrade checks, full tests/typecheck/lint/content/asset/Metro checks, update docs and commit locally.
+
+Do not start the LibraryPack/ASPECT import. The owner will handle a later import of only RU-V's 17 source sets.

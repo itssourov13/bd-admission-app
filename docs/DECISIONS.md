@@ -207,6 +207,23 @@ Decision: `ELIGIBLE_SQL` admits a verified question only when its stored correct
 
 Consequences: no migration risk for existing installs. A future need to display the disposition explicitly can be derived from the same data.
 
+## ADR-035 — Externalize all RU question packs; defer Library import to owner
+Status: accepted, 2026-11-17. This is the current execution decision and supersedes ADR-032's earlier instruction to implement the ASPECT import in the current task.
+
+Context: the app currently bundles 44 RU Lokkho candidate packs (4,009 unverified questions) and 15 RU-V verified packs (1,828 questions representing 17 printed source sets). The owner wants the entire RU question-pack section removed from this app project and active bundle now, while retaining both sources for later owner-controlled Library import/review.
+
+Decision:
+- Move all 44 `ru-c-*.json` Lokkho packs and their 45 unique image assets to the existing external Lokkho archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; verify hashes before deleting app copies.
+- Move all 15 `ru-vq-*.json` verified packs to a separate external archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`; create its own README, manifest, file sizes and SHA-256 records. Do not mix the two archives.
+- Remove both RU pack families from active app source/catalogue/bundle and implement a safe existing-database retirement migration. Preserve historical question/source records and user-owned bookmarks, answers, active/completed sessions and results. The current seed sync is additive; simply removing JSON from the new seed is insufficient.
+- Do not create, install or import any RU LibraryPack now. The owner will handle Library import later. The only future ASPECT content target is the 17 RU-V verified source sets. Lokkho remains unverified and must never be merged into RU-V or ASPECT.
+- Do not move JU, HSTU, DU or any other university's packs, whether verified or unverified. Do not remove other universities' content. Retain general RU university branding/code; this decision concerns RU question-pack datasets.
+- Preserve the existing external RU source PDF and `ruv-work` extraction/reconciliation material. Archive the pack JSON and its provenance; do not unnecessarily relocate external research workspace files.
+
+Consequences: after this task, no RU question pack is active in Varsity or bundled app content. The two external archives remain separately verifiable and ready for future owner-led import/review. The future RU-V Library structure is one ASPECT RU Question Bank with 17 test units; this later import is explicitly outside the current task.
+
+Evidence and current state: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
 ## ADR-033 — Multi-select and visual-question support are app-wide capabilities
 Status: accepted, 2026-11-17.
 

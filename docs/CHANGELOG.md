@@ -1,3 +1,11 @@
+## 2026-11-17 — Current RU archive/removal decision and Phase C handoff (documentation only; ADR-035)
+
+- Audited the actual repo and seed: 44 Lokkho packs / 4,009 unverified questions, 15 RU-V packs / 1,828 verified questions (17 source sets), 45 Lokkho assets. All 59 packs / 5,837 questions remain in the app at this checkpoint.
+- Re-verified the existing Lokkho external archive (44 packs, 4,009 questions, 45 assets; all 90 SHA-256 entries pass). The separate RU-V verified archive is not yet created.
+- Owner decision (ADR-035): move both RU pack families outside the app in separate archives and retire them from active app content; the owner will handle a future RU-V-only ASPECT import. Do not import Lokkho or migrate other university content into ASPECT.
+- Recorded the actual Phase C uncommitted implementation and verification state, plus the required schema-v10 history-preserving retirement strategy, in the current audit/handoff documents.
+- Documentation only: no pack, asset, source code, seed or database rows were moved or deleted.
+
 ## 2026-11-17 — Clarify app-wide multi-select and visual-content scope (documentation only)
 
 - Owner clarified that multiple-select interaction/scoring/persistence and diagram/image rendering are shared app capabilities, not RU/RU-V-only requirements.
