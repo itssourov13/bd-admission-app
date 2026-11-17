@@ -1,3 +1,9 @@
+## 2026-11-17 — Prepare Android preview v0.1.7
+
+- Bumped app version to `0.1.7` and Android `versionCode` to `8`; package ID, EAS project and Android signing identity remain unchanged.
+- Preparing an EAS `preview` / internal APK containing the current bundled seed (159 entries / 9,600 questions), RU-V ASPECT Library publication and seed-sync newer-edition protection.
+- Physical-device installation and Library visual QA remain pending; this is not a Play Store production release.
+
 ## 2026-11-17 — Bundle RU-V as an ASPECT Library publication; protect newer installed editions
 
 - Added the RU-V LibraryPack to `data/library-packs/` and its 20 figures to the shared offline asset tree; generated manifest and SQLite seed now contain one Library book (ASPECT), 26 units and 1,828 questions alongside the unchanged 158 university packs / 7,772 university questions.

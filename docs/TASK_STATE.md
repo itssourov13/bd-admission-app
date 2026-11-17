@@ -1,6 +1,6 @@
 ## Completed local task — RU-V ASPECT Library integration and offline seed delivery — 2026-11-17
 
-**Status:** Implemented and locally verified. The RU-V publication is included in the generated app content seed. A native APK has not yet been built or installed on a device.
+**Status:** Implemented and locally verified. Release metadata is bumped to v0.1.7 / Android versionCode 8 and the EAS internal APK build is being submitted. Physical-device installation and Library visual QA remain pending.
 
 - [x] Preserved the existing 17-set / 1,828-question RU-V staging and correction overlay; staging SHA-256 verification covers 76/76 files.
 - [x] Built one ASPECT Library publication with 26 units, 1,828 questions, 7,312 options, 1,828 source explanations, 20 figure assets and source-page provenance for every question.
@@ -12,7 +12,8 @@
 - [x] Verified fresh-install and schema-v10-existing-database paths, idempotent sync, newer-installed-edition preservation and RU tombstone preservation.
 - [x] Verified `content:check` (159 bundled entries / 9,600 total question rows), 20/20 assets, staging hash 76/76, RU-V archive 36/36, Lokkho archive 90/90, typecheck, lint, focused tests and Android Metro no-bytecode export.
 - [x] Updated the active handoff, architecture, current state, rights decision and QA documentation.
-- [ ] Build/install a new Android preview and visually check Library discovery, ASPECT book detail, unit navigation, question/source/explanation/figure rendering on a physical device. The existing owner-verified v0.1.6 APK predates this integration.
+- [x] Prepare v0.1.7 / Android versionCode 8 for the internal APK preview; EAS submission and resulting artifact details are recorded in the latest release handoff once accepted.
+- [ ] Install the new APK and visually check Library discovery, ASPECT book detail, unit navigation, question/source/explanation/figure rendering on a physical device.
 
 Key details and caveats: `docs/RUV_ASPECT_IMPORT.md`. The current source-key / explanation status is deliberately not described as independently or university verified.
 

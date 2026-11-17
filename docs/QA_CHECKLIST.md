@@ -1,3 +1,13 @@
+## Android preview v0.1.7 — build submission
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App version `0.1.7`; Android `versionCode 8`; package ID and EAS project unchanged. |
+| EAS internal APK | [ ] Pending | Submission will be recorded in `docs/HANDOFF.md`; this is a cloud build, not device QA. |
+| Physical-device install / Library visual QA | [ ] Pending | Install the resulting APK and verify Library discovery, ASPECT book/unit navigation and source/figure rendering. |
+
+---
+
 ## RU-V ASPECT Library integration — local seed verification — 2026-11-17 (Node 22.23.1)
 
 | Check | Result | Evidence |

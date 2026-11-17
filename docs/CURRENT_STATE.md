@@ -1,3 +1,11 @@
+## Android preview v0.1.7 — release metadata prepared — 2026-11-17
+
+- App version `0.1.7`, Android `versionCode 8`; package `com.admissionbd.app`, EAS project and signing identity unchanged.
+- Target: EAS `preview` / internal Android APK. The build is being submitted for the current RU-V ASPECT Library seed and seed-sync version-protection fix.
+- Build artifact and install/device QA status will be recorded after EAS accepts the submission. No physical-device QA is claimed.
+
+---
+
 ## RU-V ASPECT Library integration — completed local implementation — 2026-11-17
 
 - RU-V is bundled as one separate ASPECT Library publication, not as an active RU university question-pack batch. The original 15 archived JSON packs / 17 printed source sets and the Lokkho archive remain untouched and independently verifiable.

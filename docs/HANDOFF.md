@@ -1,6 +1,6 @@
 ## Handoff — RU-V ASPECT Library bundled integration — 2026-11-17
 
-**Status:** RU-V is now part of the local app content seed as a separate ASPECT Library publication. Implementation and focused automated verification are complete. No push was performed. A native APK/device installation has not been performed.
+**Status:** RU-V is bundled as a separate ASPECT Library publication. Implementation and focused automated verification are complete. Release metadata is now v0.1.7 / Android versionCode 8; EAS internal APK build submission is underway. Physical-device install/visual QA remains pending.
 
 - Repository: `/home/kali/gpt-workspace/bd-admission-app`
 - Branch: `feat/import-hstu-verified-answers-2026-11-12`

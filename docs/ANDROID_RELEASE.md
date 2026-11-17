@@ -1,6 +1,10 @@
 # Android build and release guide
 
-## Latest preview candidate — 2026-11-13 (v0.1.6)
+## Latest preview candidate — 2026-11-17 (v0.1.7)
+
+- Release metadata: app/package/brand version **0.1.7**, Android **versionCode 8**. EAS `preview` / `INTERNAL` APK submission is the current release target; build ID/artifact URL will be recorded in the handoff after submission. No device QA or Play Store release is claimed.
+
+## Previous preview — v0.1.6 (2026-11-13)
 
 - App/package/brand version: **0.1.6**; Android **versionCode 7**.
 - Application ID: `com.admissionbd.app`; EAS account/project: `sk_king13` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
@@ -29,7 +33,7 @@ The `preview` profile uses internal distribution and creates an installable APK.
 - Automated verification is complete. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. ZIP integrity passed, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected. Expo Doctor: 20/21 checks passed; only an SDK patch-version mismatch across five Expo packages failed. This did not block prebuild, Gradle or APK creation. Align patches and rerun Doctor in a separate maintenance pass. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
-Last updated: 2026-11-13
+Last updated: 2026-11-17
 
 ## Release configuration
 
@@ -38,7 +42,7 @@ Last updated: 2026-11-13
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current preview candidate: 0.1.6 / Android versionCode 7 (EAS build FINISHED; artifact linked in the latest candidate section above and owner installation/run confirmed). v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
+- Current preview candidate: 0.1.7 / Android versionCode 8 (EAS internal APK submission underway; see the latest candidate section above). The previous owner-verified preview is 0.1.6 / code 7. v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
