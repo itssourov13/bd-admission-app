@@ -495,3 +495,6 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 - [ ] Build and install a new Android preview when ready so migration v9 reaches the device; no APK was built in this task.
 
 Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
+
+## Phase 12 (2026-11-17) — in progress
+Phase A (Lokkho external archive) done and verified; Phases B–H not started. Next: shared multi-select engine. Details: docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.

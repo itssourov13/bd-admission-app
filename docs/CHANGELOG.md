@@ -400,3 +400,6 @@
 - Reviewed supplied Android Home/Profile/Practice Results screenshots and traced the hero CTA and Stat text regressions to NativeWind Pressable callback styling and a missing semantic text foreground.
 - Recorded the hero-height growth and the absence of a prior landscape university-cover system; specified a proposed 1024×500 Home cover asset contract.
 - Added `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`; full suite passes 234/234 on Node 22.23.1. No app source, assets, dependencies, app identity or EAS/release metadata changed in this audit pass.
+
+## 2026-11-17 — Phase 12 (in progress)
+- Added `scripts/archive-lokkho.mjs` and created the verified external RU Lokkho archive (44 packs / 4,009 questions / 45 assets). No app content removed yet. See docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.
