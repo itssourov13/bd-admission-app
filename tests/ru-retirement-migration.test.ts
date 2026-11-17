@@ -184,7 +184,7 @@ test("v10 → v11: RU/RU-V are retired from active flows while every historical 
   const f = await buildV10(dir);
   const { db } = f;
   assert.equal(await migrate(db), LATEST_VERSION);
-  assert.equal(LATEST_VERSION, 11);
+  assert.ok(LATEST_VERSION >= 11); // v12 (additive library metadata) follows the v11 retirement migration
   assertIntegrity(db, "after v11");
 
   // Retirement flags: RU/RU-V retired, everything else active.

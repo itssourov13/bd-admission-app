@@ -29,10 +29,18 @@ export function BookProvenance({ book }: { book: BookSummary }) {
   const { lang } = useLang();
   const lines = [
     t("library.publisherLine", { name: localizedName(book.publisherName, book.publisherNameBn, lang) }),
+    book.collection ? t("library.collectionLine", { collection: book.collection }) : null,
+    book.authors ? t("library.authorsLine", { authors: book.authors }) : null,
+    ...Object.entries(book.identifiers).map(([kind, value]) => t("library.identifierLine", { kind: kind.toUpperCase(), value })),
+    book.examRelevance.length > 0 ? t("library.examRelevanceLine", { exams: book.examRelevance.join(", ") }) : null,
+    book.coverageNote ? t("library.coverageLine", { note: book.coverageNote }) : null,
     t("library.contentVersion", { n: num(book.contentVersion) }) + (book.versionLabel ? ` (${book.versionLabel})` : ""),
     book.sourceNote ? t("library.sourceInfo", { note: book.sourceNote }) : null,
     t("library.licenseInfo", { status: t(LICENSE_KEYS[book.licenseStatus]) }),
-    book.licenseNote ? t("library.licenseNote", { note: book.licenseNote }) : null
+    book.licenseNote ? t("library.licenseNote", { note: book.licenseNote }) : null,
+    t("library.rightsHolderLine", { holder: book.rightsHolder ?? t("library.rightsUnknown") }),
+    book.rightsReference ? t("library.rightsReferenceLine", { note: book.rightsReference }) : null,
+    book.rightsReviewedOn ? t("library.rightsReviewedLine", { date: book.rightsReviewedOn }) : null
   ].filter((x): x is string => x !== null);
   return <View className="gap-1">{lines.map((l) => <Txt key={l} className="text-ink-500 text-xs leading-5">{l}</Txt>)}</View>;
 }

@@ -46,6 +46,21 @@ export interface LibraryPack {
     sourceNote?: string | null;
     licenseStatus: LicenseStatus;
     licenseNote?: string | null;
+    /** Optional catalogue metadata: lets any publisher's publication describe itself without UI changes. */
+    authors?: string | null;
+    description?: string | null;
+    /** Series/collection name (kept separate from publisher, category and the publication itself). */
+    collection?: string | null;
+    /** External identifiers, e.g. { isbn: "..." }. */
+    identifiers?: Record<string, string> | null;
+    /** Exams/universities the content is relevant to. */
+    examRelevance?: string[] | null;
+    coverageNote?: string | null;
+    /** Optional rights metadata (informational; licenseStatus/licenseNote above carry the status). */
+    rightsHolder?: string | null;
+    rightsReference?: string | null;
+    /** ISO date YYYY-MM-DD. */
+    rightsReviewedOn?: string | null;
   };
   sourceDocuments: QuestionSourceDocument[];
   units: LibraryPackUnit[];

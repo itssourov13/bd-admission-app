@@ -53,6 +53,15 @@ export function validateLibraryPack(pack: unknown): LibraryValidation {
     if (!LICENSES.includes(String(book.licenseStatus))) err("book.licenseStatus is invalid.");
     if (!Number.isInteger(book.contentVersion) || (book.contentVersion as number) < 1) err("book.contentVersion must be an integer >= 1.");
     if (book.publicationYear != null && (!Number.isInteger(book.publicationYear) || (book.publicationYear as number) < 1900 || (book.publicationYear as number) > 2100)) err("book.publicationYear is out of range.");
+    for (const f of ["authors", "description", "collection", "coverageNote", "rightsHolder", "rightsReference", "rightsReviewedOn"] as const) {
+      if (book[f] != null && typeof book[f] !== "string") err(`book.${f} must be a string.`);
+    }
+    if (typeof book.rightsReviewedOn === "string" && !/^\d{4}-\d{2}-\d{2}$/.test(book.rightsReviewedOn)) err("book.rightsReviewedOn must be YYYY-MM-DD.");
+    if (book.identifiers != null) {
+      const ids = book.identifiers as Record<string, unknown>;
+      if (typeof ids !== "object" || Array.isArray(ids) || Object.values(ids).some((v) => typeof v !== "string")) err("book.identifiers must be an object of strings.");
+    }
+    if (book.examRelevance != null && (!Array.isArray(book.examRelevance) || (book.examRelevance as unknown[]).some((v) => typeof v !== "string"))) err("book.examRelevance must be an array of strings.");
   }
 
   const docs = Array.isArray(pack.sourceDocuments) ? pack.sourceDocuments : (err("sourceDocuments must be an array."), []);
@@ -88,8 +97,11 @@ export function validateLibraryPack(pack: unknown): LibraryValidation {
     const b = book as Record<string, unknown>;
     const hasQuestions = (questions as unknown[]).length > 0;
     if (hasQuestions && !licenseAllowsContent(b.licenseStatus as never)) {
-      err("Question content may only be installed when licenseStatus is licensed, public_domain or owner_created.");
+      err("licenseStatus metadata_only means catalogue metadata only; a pack with questions needs another licenseStatus.");
     }
+    // Rights information is informational: an unverified or pending licence is surfaced, never an error.
+    if (b.licenseStatus === "permission_pending") warnings.push("Rights: licenseStatus is permission_pending; permission has not been verified (informational, not blocking).");
+    if (hasQuestions && !nonEmpty(b.rightsHolder)) warnings.push("Rights: no rightsHolder recorded (informational, not blocking).");
     if (hasQuestions && b.verificationStatus === "metadata_only") err("A pack with questions cannot have verificationStatus metadata_only.");
     if (!hasQuestions && b.verificationStatus !== "metadata_only") warnings.push("Pack has no questions; it will be recorded as catalogue metadata only.");
     if (hasQuestions && (units as unknown[]).length === 0) err("A pack with questions needs at least one unit.");

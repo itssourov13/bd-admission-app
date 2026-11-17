@@ -183,6 +183,17 @@ export interface BookSummary {
   licenseStatus: LicenseStatus;
   licenseNote: string | null;
   installState: InstallState;
+  /** Optional catalogue metadata (migration v12); null/empty when a publication does not declare it. */
+  authors: string | null;
+  description: string | null;
+  collection: string | null;
+  identifiers: Record<string, string>;
+  examRelevance: string[];
+  coverageNote: string | null;
+  /** Optional rights metadata (migration v12). Informational: it never blocks installation, practice or development. */
+  rightsHolder: string | null;
+  rightsReference: string | null;
+  rightsReviewedOn: string | null;
   /** Counted from content_unit_questions, never from the stored cache column. */
   questionCount: number;
   eligibleCount: number;

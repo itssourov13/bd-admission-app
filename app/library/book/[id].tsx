@@ -7,7 +7,7 @@ import { BookChips, BookProvenance } from "@/components/library/BookMeta";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useQuery } from "@/hooks/useQuery";
 import { href, scopeParams } from "@/features/navigation/links";
-import { bookPracticeState, isBookAvailable, localizedName } from "@/features/library/model";
+import { bookPracticeState, isBookAvailable, localizedName, rightsNeedsAttention } from "@/features/library/model";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
 import { getBook, listUnits } from "@/repositories/library";
@@ -46,6 +46,8 @@ export default function BookScreen() {
           <View className="gap-3 mb-4">
             <Card className="p-4 gap-3">
               <BookChips book={book} />
+              {book.description ? <Txt className="text-ink-700 text-sm leading-6">{book.description}</Txt> : null}
+              {rightsNeedsAttention(book) ? <Txt className="text-ink-500 text-xs leading-5">{t("library.rightsAttention")}</Txt> : null}
               <Txt className="text-ink-700 text-sm leading-5">{practice === "provisional"
                 ? t("library.provisionalStats", { total: num(book.questionCount), candidates: num(book.reviewCandidateCount) })
                 : t("library.questionStats", { total: num(book.questionCount), eligible: num(book.eligibleCount) })}</Txt>

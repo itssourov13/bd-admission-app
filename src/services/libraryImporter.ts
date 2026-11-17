@@ -106,15 +106,24 @@ export async function installLibraryPack(db: SqlDb, pack: unknown, opts: Library
       const b = p.book;
       await tx.runAsync(
         `INSERT INTO content_books (id, publisher_id, title, title_bn, edition, publication_year, subject, language, target_category, content_type,
-           verification_status, content_version, version_label, source_note, license_status, license_note, install_state, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           verification_status, content_version, version_label, source_note, license_status, license_note, install_state, updated_at,
+           authors, description, collection, identifiers_json, exam_relevance_json, coverage_note,
+           rights_holder, rights_reference, rights_reviewed_on)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(id) DO UPDATE SET publisher_id = excluded.publisher_id, title = excluded.title, title_bn = excluded.title_bn, edition = excluded.edition,
            publication_year = excluded.publication_year, subject = excluded.subject, language = excluded.language, target_category = excluded.target_category,
            content_type = excluded.content_type, verification_status = excluded.verification_status, content_version = excluded.content_version,
            version_label = excluded.version_label, source_note = excluded.source_note, license_status = excluded.license_status,
-           license_note = excluded.license_note, install_state = excluded.install_state, updated_at = excluded.updated_at`,
+           license_note = excluded.license_note, install_state = excluded.install_state, updated_at = excluded.updated_at,
+           authors = excluded.authors, description = excluded.description, collection = excluded.collection, identifiers_json = excluded.identifiers_json,
+           exam_relevance_json = excluded.exam_relevance_json, coverage_note = excluded.coverage_note,
+           rights_holder = excluded.rights_holder, rights_reference = excluded.rights_reference, rights_reviewed_on = excluded.rights_reviewed_on`,
         [b.id, pub.id, b.title, b.titleBn ?? null, b.edition ?? null, b.publicationYear ?? null, b.subject ?? null, b.language, b.targetCategory, b.contentType,
-          b.verificationStatus, b.contentVersion, b.versionLabel ?? null, b.sourceNote ?? null, b.licenseStatus, b.licenseNote ?? null, state, now]
+          b.verificationStatus, b.contentVersion, b.versionLabel ?? null, b.sourceNote ?? null, b.licenseStatus, b.licenseNote ?? null, state, now,
+          b.authors ?? null, b.description ?? null, b.collection ?? null,
+          b.identifiers && Object.keys(b.identifiers).length > 0 ? JSON.stringify(b.identifiers) : null,
+          b.examRelevance && b.examRelevance.length > 0 ? JSON.stringify(b.examRelevance) : null, b.coverageNote ?? null,
+          b.rightsHolder ?? null, b.rightsReference ?? null, b.rightsReviewedOn ?? null]
       );
 
       // Replace the unit tree and membership for this book (units/membership are library-owned, never user data).

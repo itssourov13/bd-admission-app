@@ -57,13 +57,32 @@ interface BookRow {
   content_type: BookSummary["contentType"]; verification_status: BookSummary["verificationStatus"]; content_version: number;
   version_label: string | null; source_note: string | null; license_status: BookSummary["licenseStatus"]; license_note: string | null;
   install_state: InstallState;
+  authors: string | null; description: string | null; collection: string | null;
+  identifiers_json: string | null; exam_relevance_json: string | null; coverage_note: string | null;
+  rights_holder: string | null; rights_reference: string | null; rights_reviewed_on: string | null;
+}
+
+/** Tolerant JSON column readers: malformed stored JSON degrades to empty instead of breaking a catalogue screen. */
+function parseIdentifiers(raw: string | null): Record<string, string> {
+  if (!raw) return {};
+  try {
+    const v = JSON.parse(raw);
+    if (!v || typeof v !== "object" || Array.isArray(v)) return {};
+    return Object.fromEntries(Object.entries(v).filter(([, x]) => typeof x === "string")) as Record<string, string>;
+  } catch { return {}; }
+}
+function parseStringList(raw: string | null): string[] {
+  if (!raw) return [];
+  try { const v = JSON.parse(raw); return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : []; } catch { return []; }
 }
 
 async function queryBooks(db: SqlDb, where: string, params: SqlParam[]): Promise<BookSummary[]> {
   const rows = await db.getAllAsync<BookRow>(
     `SELECT b.id, b.publisher_id, p.name AS pname, p.name_bn AS pname_bn, b.title, b.title_bn, b.edition, b.publication_year, b.subject,
        b.language, b.target_category, b.content_type, b.verification_status, b.content_version, b.version_label, b.source_note,
-       b.license_status, b.license_note, b.install_state
+       b.license_status, b.license_note, b.install_state,
+       b.authors, b.description, b.collection, b.identifiers_json, b.exam_relevance_json, b.coverage_note,
+       b.rights_holder, b.rights_reference, b.rights_reviewed_on
      FROM content_books b JOIN publishers p ON p.id = b.publisher_id
      WHERE ${where}
      ORDER BY CASE WHEN b.install_state IN ${AVAILABLE} THEN 0 ELSE 1 END, b.title, b.id`,
@@ -90,6 +109,9 @@ async function queryBooks(db: SqlDb, where: string, params: SqlParam[]): Promise
     edition: r.edition, publicationYear: r.publication_year, subject: r.subject, language: r.language, targetCategory: r.target_category,
     contentType: r.content_type, verificationStatus: r.verification_status, contentVersion: Number(r.content_version), versionLabel: r.version_label,
     sourceNote: r.source_note, licenseStatus: r.license_status, licenseNote: r.license_note, installState: r.install_state,
+    authors: r.authors, description: r.description, collection: r.collection, identifiers: parseIdentifiers(r.identifiers_json),
+    examRelevance: parseStringList(r.exam_relevance_json), coverageNote: r.coverage_note,
+    rightsHolder: r.rights_holder, rightsReference: r.rights_reference, rightsReviewedOn: r.rights_reviewed_on,
     questionCount: t.get(r.id) ?? 0, eligibleCount: e.get(r.id) ?? 0, reviewCandidateCount: c.get(r.id) ?? 0
   }));
 }
@@ -194,6 +216,40 @@ export async function setBookAvailable(db: SqlDb, bookId: string, available: boo
  * Recomputes the denormalized question_count cache for one book and its units in set-based statements. Display code
  * counts live rows instead; this cache only serves cheap catalogue listings and is refreshed on every install.
  */
+export interface BookRightsPatch {
+  licenseStatus?: BookSummary["licenseStatus"];
+  licenseNote?: string | null;
+  sourceNote?: string | null;
+  rightsHolder?: string | null;
+  rightsReference?: string | null;
+  /** ISO date YYYY-MM-DD, or null to clear. */
+  rightsReviewedOn?: string | null;
+}
+const LICENSE_VALUES = ["licensed", "public_domain", "owner_created", "permission_pending", "metadata_only"];
+
+/**
+ * Owner-editable rights metadata. Only the supplied keys change ("" is stored as NULL); nothing else about the book,
+ * its questions or its availability is touched, and no rights value ever blocks anything. Returns false when the book
+ * does not exist or the patch is invalid (unknown status, malformed date).
+ */
+export async function updateBookRights(db: SqlDb, bookId: string, patch: BookRightsPatch, now: number = Date.now()): Promise<boolean> {
+  if (patch.licenseStatus !== undefined && !LICENSE_VALUES.includes(patch.licenseStatus)) return false;
+  if (patch.rightsReviewedOn != null && patch.rightsReviewedOn !== "" && !/^\d{4}-\d{2}-\d{2}$/.test(patch.rightsReviewedOn)) return false;
+  const cols: [string, SqlParam][] = [];
+  const text = (v: string | null | undefined): string | null => (v == null || v.trim() === "" ? null : v.trim());
+  if (patch.licenseStatus !== undefined) cols.push(["license_status", patch.licenseStatus]);
+  if (patch.licenseNote !== undefined) cols.push(["license_note", text(patch.licenseNote)]);
+  if (patch.sourceNote !== undefined) cols.push(["source_note", text(patch.sourceNote)]);
+  if (patch.rightsHolder !== undefined) cols.push(["rights_holder", text(patch.rightsHolder)]);
+  if (patch.rightsReference !== undefined) cols.push(["rights_reference", text(patch.rightsReference)]);
+  if (patch.rightsReviewedOn !== undefined) cols.push(["rights_reviewed_on", text(patch.rightsReviewedOn)]);
+  const exists = await db.getFirstAsync<{ id: string }>("SELECT id FROM content_books WHERE id = ?", [bookId]);
+  if (!exists) return false;
+  if (cols.length === 0) return true;
+  await db.runAsync(`UPDATE content_books SET ${cols.map(([c]) => `${c} = ?`).join(", ")}, updated_at = ? WHERE id = ?`, [...cols.map(([, v]) => v), now, bookId]);
+  return true;
+}
+
 export async function refreshBookCounts(db: SqlDb, bookId: string): Promise<void> {
   await db.runAsync(
     "UPDATE content_books SET question_count = (SELECT COUNT(DISTINCT question_id) FROM content_unit_questions WHERE book_id = ?) WHERE id = ?",

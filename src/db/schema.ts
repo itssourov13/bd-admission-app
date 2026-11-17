@@ -452,6 +452,32 @@ WHERE institution_id IN ('ru', 'ru-verified-bank') AND retired_at IS NULL;
 UPDATE question_batches SET retired_at = CAST(strftime('%s','now') AS INTEGER) * 1000
 WHERE (id LIKE 'ru-c-%' OR id LIKE 'ru-vq-%') AND retired_at IS NULL;
 `
+  },
+  {
+    version: 12,
+    name: "library_catalogue_metadata",
+    sql: `
+-- Additive catalogue metadata so any publisher's book/question bank can describe itself through data alone.
+-- All columns are nullable; existing rows are untouched and nothing is inserted, so no publication, question or
+-- retired RU/Lokkho record is created, changed or reactivated. Forward-compatible: older code ignores the columns.
+--   authors / description / collection (series name): free text shown on the book detail page
+--   identifiers_json: JSON object of external identifiers, e.g. {"isbn":"..."}; NULL when none are known
+--   exam_relevance_json: JSON array of exam/university names the content is relevant to
+--   coverage_note: what the book covers (sessions, units, page ranges)
+ALTER TABLE content_books ADD COLUMN authors TEXT;
+ALTER TABLE content_books ADD COLUMN description TEXT;
+ALTER TABLE content_books ADD COLUMN collection TEXT;
+ALTER TABLE content_books ADD COLUMN identifiers_json TEXT;
+ALTER TABLE content_books ADD COLUMN exam_relevance_json TEXT;
+ALTER TABLE content_books ADD COLUMN coverage_note TEXT;
+-- Lightweight publication rights metadata (informational only; never a gate). Status reuses license_status / license_note.
+--   rights_holder: copyright/rights holder name, NULL = not identified
+--   rights_reference: optional evidence/reference or reviewer note (free text)
+--   rights_reviewed_on: optional ISO date (YYYY-MM-DD) the owner last reviewed the rights information
+ALTER TABLE content_books ADD COLUMN rights_holder TEXT;
+ALTER TABLE content_books ADD COLUMN rights_reference TEXT;
+ALTER TABLE content_books ADD COLUMN rights_reviewed_on TEXT;
+`
   }
 ];
 
