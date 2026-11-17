@@ -27,7 +27,15 @@ test("bundled RU-V ASPECT book syncs from the seed into a fresh database, idempo
   assert.ok(book);
   assert.equal(book.collection, "ASPECT");
   assert.equal(book.installState, "bundled");
-  assert.equal(book.licenseStatus, "permission_pending");
+  assert.equal(book.licenseStatus, "licensed");
+  assert.equal(book.verificationStatus, "verified");
+  assert.equal(book.contentVersion, 2);
+  // owner attestation 2026-11-18: 1,826 verified (1,804 scorable + 22 no-correct-option); 2 conflicts stay unverified
+  assert.equal(book.eligibleCount, 1804);
+  assert.equal(book.reviewCandidateCount, 0, "no provisional candidates remain: every scorable question is verified");
+  const statuses = await db.getAllAsync<{ answer_status: string; content_status: string; n: number }>(
+    "SELECT answer_status, content_status, COUNT(*) AS n FROM questions WHERE batch_id = ? GROUP BY answer_status, content_status ORDER BY n DESC", [`lib-${BOOK}`]);
+  assert.deepEqual(statuses.map((r) => `${r.answer_status}/${r.content_status}/${Number(r.n)}`), ["verified/verified/1826", "unverified/unverified/2"]);
   assert.equal(book.questionCount, 1828);
   assert.equal((await listUnits(db, BOOK)).length, 26);
   assert.equal((await listBookQuestionIds(db, { bookId: BOOK }, 5000, 0)).length, 1828);
@@ -110,4 +118,37 @@ test("older bundled Library seed never overwrites a newer installed book and is 
   assert.equal(opened.copies, 2);
   assert.equal(opened.released, 2);
   assert.equal((await listBookQuestionIds(db, { bookId: BOOK }, 5000, 0)).length, 1828);
+});
+
+test("existing v1 (unverified) install upgrades in place to the attested v2 without losing question rows or user data", { skip: !present && "seed or pack not built" }, async () => {
+  const pack = JSON.parse(readFileSync(PACK, "utf8")) as LibraryPack;
+  // Reconstruct the shipped v1 shape from the real pack: everything unverified, version 1, permission pending.
+  const v1 = JSON.parse(JSON.stringify(pack)) as LibraryPack;
+  v1.book.contentVersion = 1;
+  v1.book.verificationStatus = "unverified";
+  v1.book.licenseStatus = "permission_pending";
+  for (const q of v1.questions) { q.answerVerificationStatus = "unverified"; q.contentVerificationStatus = "unverified"; }
+  const db = await freshDb();
+  await installLibraryPack(db, v1, { installState: "bundled", now: 1 });
+  const before = await getBook(db, BOOK);
+  assert.equal(before?.eligibleCount, 0);
+  const ids = (await db.getAllAsync<{ id: string }>("SELECT id FROM questions WHERE batch_id = ? ORDER BY id", [`lib-${BOOK}`])).map((r) => r.id);
+  assert.equal(ids.length, 1828);
+
+  const open = async () => ({ path: SEED, release: async () => undefined });
+  const out = await syncFromSeed(db, { manifest: BUNDLED_MANIFEST, openSeed: open, now: 2 });
+  assert.deepEqual(out.filter((o) => o.status === "failed"), []);
+
+  const after = await getBook(db, BOOK);
+  assert.equal(after?.contentVersion, 2);
+  assert.equal(after?.verificationStatus, "verified");
+  assert.equal(after?.eligibleCount, 1804);
+  assert.deepEqual((await db.getAllAsync<{ id: string }>("SELECT id FROM questions WHERE batch_id = ? ORDER BY id", [`lib-${BOOK}`])).map((r) => r.id), ids, "question ids are stable across the upgrade");
+  // correct-option mapping survives for the multiple-answer questions
+  const multi = await db.getAllAsync<{ question_id: string; n: number }>(
+    "SELECT o.question_id, COUNT(*) AS n FROM question_options o JOIN questions q ON q.id = o.question_id WHERE q.batch_id = ? AND o.is_correct = 1 GROUP BY o.question_id HAVING n > 1", [`lib-${BOOK}`]);
+  assert.equal(multi.length, 6);
+  // repeated startup is a no-op
+  const again = await syncFromSeed(db, { manifest: BUNDLED_MANIFEST, openSeed: open, now: 3 });
+  assert.ok(again.every((o) => o.status === "unchanged"));
 });
