@@ -1,3 +1,5 @@
+import { validateQuestionAssets } from "./assetRefs.mjs";
+
 const categories = new Set(["varsity", "medical", "engineering"]);
 const answerStatuses = new Set(["verified", "unverified", "unknown"]);
 const contentStatuses = new Set(["verified", "unverified"]);
@@ -40,6 +42,9 @@ export function validateQuestionPack(pack) {
   if (pack.replaceExistingPaperContent != null && typeof pack.replaceExistingPaperContent !== "boolean") {
     errors.push("replaceExistingPaperContent must be a boolean when supplied.");
   }
+  if (pack.replaceExistingPaperIds != null && !Array.isArray(pack.replaceExistingPaperIds)) {
+    errors.push("replaceExistingPaperIds must be an array when supplied.");
+  }
   if (!isObject(pack.batch)) errors.push("batch must be an object.");
   else {
     if (!nonEmpty(pack.batch.id)) errors.push("batch.id is required.");
@@ -54,6 +59,19 @@ export function validateQuestionPack(pack) {
   if (errors.length) return { valid: false, errors, warnings };
 
   for (const key of collections) addUniqueIds(pack[key], key, errors);
+
+  if (Array.isArray(pack.replaceExistingPaperIds)) {
+    if (pack.replaceExistingPaperContent !== true) errors.push("replaceExistingPaperIds requires replaceExistingPaperContent to be true.");
+    if (pack.replaceExistingPaperIds.length === 0) errors.push("replaceExistingPaperIds must contain at least one paper ID.");
+    const seenReplacementIds = new Set();
+    const paperIds = new Set(pack.papers.map((paper) => paper?.id).filter(nonEmpty));
+    for (const id of pack.replaceExistingPaperIds) {
+      if (!nonEmpty(id)) errors.push("replaceExistingPaperIds must contain only non-empty strings.");
+      else if (seenReplacementIds.has(id)) errors.push("replaceExistingPaperIds contains a duplicate ID: " + id);
+      else if (!paperIds.has(id)) errors.push("replaceExistingPaperIds references a paper outside this pack: " + id);
+      seenReplacementIds.add(id);
+    }
+  }
 
   const sourceIds = new Set(pack.sourceDocuments.map((item) => item?.id).filter(nonEmpty));
   const institutionIds = new Set(pack.institutions.map((item) => item?.id).filter(nonEmpty));
@@ -158,13 +176,16 @@ export function validateQuestionPack(pack) {
       errors.push(at + " must have at least two options.");
       continue;
     }
+    errors.push(...validateQuestionAssets(question, at));
     const optionIds = new Set();
     const optionOrders = new Set();
     for (const [optionIndex, option] of question.options.entries()) {
       if (!nonEmpty(option?.id)) errors.push(at + ".options[" + optionIndex + "].id is required.");
       else if (optionIds.has(option.id)) errors.push(at + " has duplicate option id " + option.id + ".");
       else optionIds.add(option.id);
-      if (!nonEmpty(option?.text)) errors.push(at + ".options[" + optionIndex + "].text is required.");
+      // An image-based option may carry an empty text label as long as it lists at least one asset.
+      const imageOption = Array.isArray(option?.assetPaths) && option.assetPaths.length > 0 && typeof option?.text === "string";
+      if (!nonEmpty(option?.text) && !imageOption) errors.push(at + ".options[" + optionIndex + "].text is required.");
       if (!positiveInteger(option?.order)) errors.push(at + ".options[" + optionIndex + "].order must be a positive integer.");
       else if (optionOrders.has(option.order)) errors.push(at + " has duplicate option order " + option.order + ".");
       else optionOrders.add(option.order);

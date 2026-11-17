@@ -106,15 +106,24 @@ export async function installLibraryPack(db: SqlDb, pack: unknown, opts: Library
       const b = p.book;
       await tx.runAsync(
         `INSERT INTO content_books (id, publisher_id, title, title_bn, edition, publication_year, subject, language, target_category, content_type,
-           verification_status, content_version, version_label, source_note, license_status, license_note, install_state, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           verification_status, content_version, version_label, source_note, license_status, license_note, install_state, updated_at,
+           authors, description, collection, identifiers_json, exam_relevance_json, coverage_note,
+           rights_holder, rights_reference, rights_reviewed_on)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(id) DO UPDATE SET publisher_id = excluded.publisher_id, title = excluded.title, title_bn = excluded.title_bn, edition = excluded.edition,
            publication_year = excluded.publication_year, subject = excluded.subject, language = excluded.language, target_category = excluded.target_category,
            content_type = excluded.content_type, verification_status = excluded.verification_status, content_version = excluded.content_version,
            version_label = excluded.version_label, source_note = excluded.source_note, license_status = excluded.license_status,
-           license_note = excluded.license_note, install_state = excluded.install_state, updated_at = excluded.updated_at`,
+           license_note = excluded.license_note, install_state = excluded.install_state, updated_at = excluded.updated_at,
+           authors = excluded.authors, description = excluded.description, collection = excluded.collection, identifiers_json = excluded.identifiers_json,
+           exam_relevance_json = excluded.exam_relevance_json, coverage_note = excluded.coverage_note,
+           rights_holder = excluded.rights_holder, rights_reference = excluded.rights_reference, rights_reviewed_on = excluded.rights_reviewed_on`,
         [b.id, pub.id, b.title, b.titleBn ?? null, b.edition ?? null, b.publicationYear ?? null, b.subject ?? null, b.language, b.targetCategory, b.contentType,
-          b.verificationStatus, b.contentVersion, b.versionLabel ?? null, b.sourceNote ?? null, b.licenseStatus, b.licenseNote ?? null, state, now]
+          b.verificationStatus, b.contentVersion, b.versionLabel ?? null, b.sourceNote ?? null, b.licenseStatus, b.licenseNote ?? null, state, now,
+          b.authors ?? null, b.description ?? null, b.collection ?? null,
+          b.identifiers && Object.keys(b.identifiers).length > 0 ? JSON.stringify(b.identifiers) : null,
+          b.examRelevance && b.examRelevance.length > 0 ? JSON.stringify(b.examRelevance) : null, b.coverageNote ?? null,
+          b.rightsHolder ?? null, b.rightsReference ?? null, b.rightsReviewedOn ?? null]
       );
 
       // Replace the unit tree and membership for this book (units/membership are library-owned, never user data).
@@ -144,21 +153,22 @@ export async function installLibraryPack(db: SqlDb, pack: unknown, opts: Library
         if (prior && prior.content_hash === hash) { report.questions.skipped++; continue; }
         const correct = new Set(q.correctOptionIds ?? []);
         const assets = q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null;
+        const explAssets = q.explanationAssetPaths?.length ? JSON.stringify(q.explanationAssetPaths) : null;
         if (prior) {
           await tx.runAsync(
-            "UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, content_hash = ? WHERE id = ?",
-            [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, hash, q.id]
+            "UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, explanation_asset_paths = ?, content_hash = ? WHERE id = ?",
+            [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, explAssets, hash, q.id]
           );
           await tx.runAsync("DELETE FROM question_options WHERE question_id = ?", [q.id]);
           report.questions.updated++;
         } else {
-          fresh.push([q.id, batchId, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, hash]);
+          fresh.push([q.id, batchId, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, assets, explAssets, hash]);
           report.questions.inserted++;
         }
-        for (const o of q.options) optionRows.push([q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0]);
+        for (const o of q.options) optionRows.push([q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0, o.assetPaths?.length ? JSON.stringify(o.assetPaths) : null]);
       }
-      await insertRows(tx, "INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, content_hash)", "", 12, fresh);
-      await insertRows(tx, "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct)", "", 5, optionRows);
+      await insertRows(tx, "INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths, content_hash)", "", 13, fresh);
+      await insertRows(tx, "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct, asset_paths)", "", 6, optionRows);
       await insertRows(tx, "INSERT INTO question_sources (question_id, source_document_id, page_number, question_number)",
         " ON CONFLICT(question_id) DO UPDATE SET source_document_id = excluded.source_document_id, page_number = excluded.page_number, question_number = excluded.question_number", 4,
         p.questions.map((q) => [q.id, q.source.documentId, q.source.pageNumber ?? null, q.source.questionNumber ?? null]));

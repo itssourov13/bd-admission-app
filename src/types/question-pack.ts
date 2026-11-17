@@ -14,6 +14,8 @@ export interface QuestionPackOption {
   id: string;
   text: string;
   order: number;
+  /** Optional offline images for an image-based option; `text` may then be a short label or empty. */
+  assetPaths?: string[];
 }
 
 export interface QuestionPackAppearance {
@@ -43,7 +45,10 @@ export interface QuestionPackItem {
     questionNumber?: number | null;
   };
   explanation?: string | null;
+  /** Offline images shown with the question stem. */
   assetPaths?: string[];
+  /** Offline images shown with the explanation (revealed with it). */
+  explanationAssetPaths?: string[];
 }
 
 export interface QuestionPackPaper {
@@ -85,6 +90,8 @@ export interface QuestionPack {
   schemaVersion: 1;
   /** Replaces active appearances for the papers in this pack inside the import transaction; preserves question rows and all user-owned history. */
   replaceExistingPaperContent?: boolean;
+  /** Optional subset to replace when replaceExistingPaperContent is true; defaults to every paper in this pack. */
+  replaceExistingPaperIds?: string[];
   batch: {
     id: string;
     category: QuestionCategory;

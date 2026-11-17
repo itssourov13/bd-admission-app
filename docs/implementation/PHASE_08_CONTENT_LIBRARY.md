@@ -2,6 +2,8 @@
 
 **Status:** Implemented — Pending Owner Verification (2026-11-13). Related local commit: see `git log` entry "feat(library): phase 8 publications and books library".
 
+> **Status clarification — 2026-11-17:** the Phase 8 foundation/screens/schema/importer are implemented, but the end-to-end Library feature is not complete until a real ASPECT LibraryPack is generated and wired into a real install path, owner/device QA is completed, and the multiple-select/image/math gaps identified in docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md are resolved. Phase 9 remains partial and Phase 10 remains deferred.
+
 ## 1. Objective
 Turn the Phase 8 foundation into a working feature: publisher library, publisher and book detail pages, chapter/unit browsing, book/unit practice reusing Flash/Exam/Browse, a versioned importer/validator, and authentic university/publisher logo rendering through a shared SVG system.
 
@@ -74,3 +76,25 @@ Source: `/home/kali/gpt-workspace/bd-admission-app-data/master-qb/@AdmissionStuf
 ASPECT publisher ID `pub-aspect` already exists. Use the existing LibraryPack schema/importer. Extract the full question bank, ordered options, answer markers, explanations, formulae, diagrams and printed university/year/unit/set references. Add any needed MathText, static asset, structured-reference and library UI support as implementation work. The source is image-based: render pages, use Bengali-capable OCR where helpful, and visually reconcile each extracted record. The watermark does not block the workflow.
 
 **Execution is pending:** page inventory, transcription, pack generation, import, automated validation and Android QA must be performed and documented. See `docs/audits/ASPECT_MASTER_QB_IMPORT_AUDIT_2026-11-13.md`.
+
+
+## Future owner-led RU-V import under ASPECT — deferred (ADR-035, 2026-11-17)
+
+Future owner plan: import **only the RU-V verified-source bank** (15 import batches / 17 printed source sets / 1,828 current questions) as **one book** under pub-aspect in Publications & Books. The 17 source sets should appear as 17 separate test units within that book. This LibraryPack creation/import is deferred to the owner and is not part of the current RU archival/app-removal task.
+
+The 44 RU Lokkho candidate packs (4,009 unverified questions) are **not** an ASPECT Library book and must never be merged into RU-V. The external Lokkho archive now exists and its 90 SHA-256 entries verify; however, the original app pack/image copies still remain at this checkpoint and are scheduled for removal with all RU packs under ADR-035. Do not create/import any RU LibraryPack in the current task; the owner will later handle only the 17 RU-V sets for ASPECT. See `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+Existing LibraryPack primitives support publisher/book/unit/question membership, but deterministic question-pack → LibraryPack conversion is required for RU-V. Preserve question IDs, PDF page/question-number provenance and answer/content verification states.
+
+Shared app-wide platform capabilities (ADR-033; status is tracked in Phase 12, not in this deferred Library-import section):
+- Multi-select across Flash, Standard Exam and Custom Practice is implemented in the shared engine (Phase B, commit `c5ca075`); LibraryPack questions will inherit this behavior through the common question model.
+- Shared bitmap figure rendering for question stems, options and explanations plus generalized offline asset indexing/validation is implemented in the uncommitted Phase C working tree; automated checks pass, but the real LibraryPack path has only synthetic test coverage so far.
+- Structured MathText/matrix/vector/graph/circuit rendering remains incomplete; it must be handled as a shared capability, not as a Library-only or RU-only feature.
+- Phase B has shared multi-select flow tests; Phase C has university-pack and synthetic LibraryPack asset round-trip tests. Real LibraryPack installation and Android device QA remain future checks.
+
+RU-V book-specific integration work:
+- Audit and attach RU-V's own source-page images/diagrams and correct source-specific math where needed.
+- Safe RU-V-only cutover from Varsity question-paper appearances to library-book membership, preserving bookmarks, attempts, answers and results on existing installs.
+- Independent source attribution/licence status for the RU PDF. The existing ASPECT Master QB permission note must not automatically be applied to RU sources.
+
+This earlier cutover rule is superseded by ADR-035: remove both RU-V and Lokkho pack datasets from the app after separate external archives verify, using a schema-v10 migration that preserves history. Do not create a LibraryPack or perform the ASPECT import now; the owner will later import only the 17 RU-V source sets. The earlier integration plan is historical, not the current execution plan. Current handoff: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.

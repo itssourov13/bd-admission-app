@@ -302,6 +302,182 @@ INSERT OR IGNORE INTO publishers (id, slug, name, name_bn, kind, sort_order) VAL
   ('pub-pankouri', 'pankouri', 'Pankouri', 'পানকৌড়ি', 'publisher', 40),
   ('pub-joykoli', 'joykoli', 'Joykoli', 'জয়কলি', 'publisher', 50);
 `
+  },
+  {
+    version: 9,
+    name: "merge_hstu_2024_2025_verified_question_papers",
+    sql: `
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-1', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-1';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-1' WHERE paper_id = 'hstu-import-a-2024-2025-shift-1';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-1', 'hstu-a-2024-2025-shift-1')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-1') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-1' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-1'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-1')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-1');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-2', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-2';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-2' WHERE paper_id = 'hstu-import-a-2024-2025-shift-2';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-2', 'hstu-a-2024-2025-shift-2')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-2') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-2' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-2'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-2')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-2');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-a-2024-2025-shift-3', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-a-2024-2025-shift-3';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-a-2024-2025-shift-3' WHERE paper_id = 'hstu-import-a-2024-2025-shift-3';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-a-2024-2025-shift-3', 'hstu-a-2024-2025-shift-3')
+WHERE instr(filter_json, 'hstu-import-a-2024-2025-shift-3') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-a-2024-2025-shift-3' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-a-2024-2025-shift-3'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-a-2024-2025-shift-3')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-a-2024-2025-shift-3');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-b-2024-2025-shift-1', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-b-2024-2025-shift-1';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-b-2024-2025-shift-1' WHERE paper_id = 'hstu-import-b-2024-2025-shift-1';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-b-2024-2025-shift-1', 'hstu-b-2024-2025-shift-1')
+WHERE instr(filter_json, 'hstu-import-b-2024-2025-shift-1') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-b-2024-2025-shift-1' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-b-2024-2025-shift-1'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-b-2024-2025-shift-1')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-b-2024-2025-shift-1');
+
+-- Create the canonical paper if an older installation only has the imported alias.
+INSERT OR IGNORE INTO exam_papers (id, institution_id, category, year, academic_session, unit, title)
+SELECT 'hstu-b-2024-2025-shift-2', institution_id, category, year, academic_session, unit, title
+FROM exam_papers WHERE id = 'hstu-import-b-2024-2025-shift-2';
+
+-- Move existing question provenance/appearances to the canonical HSTU catalogue identity.
+UPDATE question_appearances SET paper_id = 'hstu-b-2024-2025-shift-2' WHERE paper_id = 'hstu-import-b-2024-2025-shift-2';
+
+-- Keep the active practice-session paper filter linked; immutable result/profile snapshots remain unchanged.
+UPDATE practice_sessions
+SET filter_json = REPLACE(filter_json, 'hstu-import-b-2024-2025-shift-2', 'hstu-b-2024-2025-shift-2')
+WHERE instr(filter_json, 'hstu-import-b-2024-2025-shift-2') > 0;
+
+-- Remove only the duplicate unconfigured rule; the canonical verified 100-mark total is retained.
+DELETE FROM exam_rules
+WHERE paper_id = 'hstu-import-b-2024-2025-shift-2' AND verification_status = 'unconfigured';
+
+-- Remove the obsolete alias row once no active appearance or rule references it.
+DELETE FROM exam_papers
+WHERE id = 'hstu-import-b-2024-2025-shift-2'
+  AND NOT EXISTS (SELECT 1 FROM question_appearances WHERE paper_id = 'hstu-import-b-2024-2025-shift-2')
+  AND NOT EXISTS (SELECT 1 FROM exam_rules WHERE paper_id = 'hstu-import-b-2024-2025-shift-2');
+`
+  },
+  {
+    version: 10,
+    name: "option_and_explanation_assets",
+    sql: `
+-- Shared offline visual support: image-based options and explanation figures. NULL = none (all existing rows).
+ALTER TABLE questions ADD COLUMN explanation_asset_paths TEXT;
+ALTER TABLE question_options ADD COLUMN asset_paths TEXT;
+`
+  },
+  {
+    version: 11,
+    name: "retire_ru_lokkho_and_ruv_content",
+    sql: `
+-- Soft retirement (tombstone), not deletion: RU Lokkho ('ru') and RU-V ('ru-verified-bank') question-pack content is
+-- being removed from the app's active source JSON and future bundled seeds (see docs/DECISIONS.md), but any rows an
+-- existing installation already imported must stay in place so bookmarks, attempts, results and source/provenance
+-- views keep resolving. retired_at NULL = active (the default for every other institution/batch, including fresh
+-- installs, which never import this content at all). A non-NULL retired_at marks a paper or batch as excluded from
+-- the active catalogue and practice pools (see ELIGIBLE_SQL / filterClauses in src/repositories/content.ts) while
+-- every question, option, appearance, source_document and user-owned row it is reachable from remains untouched.
+ALTER TABLE exam_papers ADD COLUMN retired_at INTEGER;
+ALTER TABLE question_batches ADD COLUMN retired_at INTEGER;
+
+UPDATE exam_papers SET retired_at = CAST(strftime('%s','now') AS INTEGER) * 1000
+WHERE institution_id IN ('ru', 'ru-verified-bank') AND retired_at IS NULL;
+
+UPDATE question_batches SET retired_at = CAST(strftime('%s','now') AS INTEGER) * 1000
+WHERE (id LIKE 'ru-c-%' OR id LIKE 'ru-vq-%') AND retired_at IS NULL;
+`
+  },
+  {
+    version: 12,
+    name: "library_catalogue_metadata",
+    sql: `
+-- Additive catalogue metadata so any publisher's book/question bank can describe itself through data alone.
+-- All columns are nullable; existing rows are untouched and nothing is inserted, so no publication, question or
+-- retired RU/Lokkho record is created, changed or reactivated. Forward-compatible: older code ignores the columns.
+--   authors / description / collection (series name): free text shown on the book detail page
+--   identifiers_json: JSON object of external identifiers, e.g. {"isbn":"..."}; NULL when none are known
+--   exam_relevance_json: JSON array of exam/university names the content is relevant to
+--   coverage_note: what the book covers (sessions, units, page ranges)
+ALTER TABLE content_books ADD COLUMN authors TEXT;
+ALTER TABLE content_books ADD COLUMN description TEXT;
+ALTER TABLE content_books ADD COLUMN collection TEXT;
+ALTER TABLE content_books ADD COLUMN identifiers_json TEXT;
+ALTER TABLE content_books ADD COLUMN exam_relevance_json TEXT;
+ALTER TABLE content_books ADD COLUMN coverage_note TEXT;
+-- Lightweight publication rights metadata (informational only; never a gate). Status reuses license_status / license_note.
+--   rights_holder: copyright/rights holder name, NULL = not identified
+--   rights_reference: optional evidence/reference or reviewer note (free text)
+--   rights_reviewed_on: optional ISO date (YYYY-MM-DD) the owner last reviewed the rights information
+ALTER TABLE content_books ADD COLUMN rights_holder TEXT;
+ALTER TABLE content_books ADD COLUMN rights_reference TEXT;
+ALTER TABLE content_books ADD COLUMN rights_reviewed_on TEXT;
+`
   }
 ];
 

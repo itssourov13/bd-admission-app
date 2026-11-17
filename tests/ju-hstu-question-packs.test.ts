@@ -137,10 +137,10 @@ test("JU and HSTU packs preserve Muse metadata, statuses, and globally unique re
   assert.equal(sourceIds.size, 120);
 });
 
-test("all 217 bundled packs import transactionally, preserve eligibility, and re-import idempotently", async () => {
+test("all 158 bundled packs import transactionally, preserve eligibility, and re-import idempotently", async () => {
   const entries = loadAllPacks();
   const additions = targetPacks();
-  assert.equal(entries.length, 217);
+  assert.equal(entries.length, 158);
   assert.equal(additions.length, 57);
 
   const db = await freshDb();
@@ -151,7 +151,7 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
 
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
-  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4307, institutions: 7 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -165,19 +165,19 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 217,
-    papers: 232,
-    rules: 173,
-    unconfiguredRules: 163,
-    sources: 286,
-    appearances: 13609,
-    options: 54436,
-    verified: 4358,
-    unverified: 9043,
+    batches: 158,
+    papers: 168,
+    rules: 168,
+    unconfiguredRules: 158,
+    sources: 227,
+    appearances: 7772,
+    options: 31088,
+    verified: 2530,
+    unverified: 5034,
     unknown: 208,
-    unverifiedContent: 9127
+    unverifiedContent: 5118
   });
-  assert.equal((await countEligible(db, { institutionId: "ju" })), 1393);
+  assert.equal((await countEligible(db, { institutionId: "ju" })), 1396);
   assert.equal((await countEligible(db, { institutionId: "hstu" })), 939);
   assert.equal(await scalar("SELECT COUNT(*) AS n FROM exam_rules WHERE total_marks = 100 AND verification_status = 'verified'"), 5);
   const partialRule = await getPaperRule(db, "hstu-a-2024-2025-shift-1");
@@ -209,17 +209,17 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
   assert.ok(hstu, "HSTU must appear in the Varsity catalogue");
   assert.deepEqual(
     { papers: ju.paperCount, questions: ju.questionCount, eligible: ju.eligibleCount },
-    { papers: 50, questions: 1526, eligible: 1393 }
+    { papers: 50, questions: 1526, eligible: 1396 }
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },
-    { papers: 22, questions: 950, eligible: 939 }
+    { papers: 17, questions: 950, eligible: 939 }
   );
 
   const juPapers = await listPapers(db, { institutionId: "ju" });
   const hstuPapers = await listPapers(db, { institutionId: "hstu" });
   assert.equal(juPapers.length, 50);
-  assert.equal(hstuPapers.length, 22);
+  assert.equal(hstuPapers.length, 17);
   assert.equal(juPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 1526);
   assert.equal(hstuPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 950);
   assert.equal((await listPaperQuestionIds(db, "ju-a-2010-2011-set1", 100, 0)).length, 14);
@@ -231,10 +231,21 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     assert.equal(report.questions.inserted, 0, filename);
     assert.equal(report.questions.updated, 0, filename);
     assert.equal(report.questions.skipped, pack.questions.length, filename);
-    assert.equal(report.appearances.inserted, 0, filename);
-    assert.equal(report.appearances.skipped, pack.questions.length, filename);
+    if (pack.replaceExistingPaperIds?.length) {
+      const replaced = pack.questions.flatMap((question) => question.appearances)
+        .filter((appearance) => pack.replaceExistingPaperIds.includes(appearance.paperId)).length;
+      const totalAppearances = pack.questions.reduce((count, question) => count + question.appearances.length, 0);
+      assert.equal(report.appearances.inserted, replaced, filename);
+      assert.equal(report.appearances.skipped, totalAppearances - replaced, filename);
+    } else if (pack.replaceExistingPaperContent) {
+      assert.equal(report.appearances.inserted, pack.questions.length, filename);
+      assert.equal(report.appearances.skipped, 0, filename);
+    } else {
+      assert.equal(report.appearances.inserted, 0, filename);
+      assert.equal(report.appearances.skipped, pack.questions.length, filename);
+    }
   }
 
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 13609);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 13609);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 7772);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 7772);
 });

@@ -36,7 +36,7 @@ function loadUnverifiedPacks() {
 test("JU/HSTU unverified packs preserve statuses and are isolated from verified-bank identities", () => {
   const allEntries = loadAllPacks();
   const entries = loadUnverifiedPacks();
-  assert.equal(allEntries.length, 217);
+  assert.equal(allEntries.length, 158);
   assert.equal(entries.length, 99);
 
   const expected = {
@@ -77,7 +77,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   };
   const allIds = {
     batch: new Set<string>(),
-    paper: new Set<string>(),
+    paper: new Map<string, string>(),
     rule: new Set<string>(),
     question: new Set<string>(),
     source: new Set<string>()
@@ -87,8 +87,10 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
     assert.ok(!allIds.batch.has(pack.batch.id), `global batch ID collision: ${pack.batch.id}`);
     allIds.batch.add(pack.batch.id);
     for (const paper of pack.papers) {
-      assert.ok(!allIds.paper.has(paper.id), `global paper ID collision: ${paper.id}`);
-      allIds.paper.add(paper.id);
+      const signature = JSON.stringify(paper);
+      const existing = allIds.paper.get(paper.id);
+      assert.ok(existing === undefined || existing === signature, "global paper metadata mismatch: " + paper.id);
+      allIds.paper.set(paper.id, signature);
     }
     for (const rule of pack.examRules) {
       assert.ok(!allIds.rule.has(rule.id), `global exam-rule ID collision: ${rule.id}`);
@@ -135,7 +137,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
         bank === "JU-U"
           ? paper.id.startsWith("ju-unverified-")
           : paper.institutionId === "hstu"
-            ? paper.id.startsWith("hstu-import-")
+            ? paper.id.startsWith("hstu-")
             : paper.id.startsWith("hstu-unverified-"),
         filename
       );
@@ -213,18 +215,19 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   });
   assert.equal(ids.batch.size, 99);
   assert.equal(ids.paper.size, 114);
-  assert.equal(ids.rule.size, 114);
+  assert.equal(ids.rule.size, 109);
   assert.equal(ids.question.size, 5773);
   assert.equal(ids.source.size, 105);
 
   const institutions = new Set(allEntries.flatMap(({ pack }) => pack.institutions.map((institution) => institution.id)));
   assert.equal(institutions.has("ju-unverified-bank"), true);
   assert.equal(institutions.has("hstu-unverified-bank"), true);
-  assert.equal(institutions.size, 7);
+  assert.equal(institutions.size, 5);
+  assert.equal(institutions.has("ru") || institutions.has("ru-verified-bank"), false, "RU/RU-V packs are retired from the bundled source (Phase D)");
   assert.equal(entries.some(({ filename }) => filename.startsWith("gst-")), false, "GST_CLUSTER packs must remain excluded");
 });
 
-test("all 217 packs import without replacing verified JU/HSTU data and expose separate provisional pools", async () => {
+test("all 158 packs import without replacing verified JU/HSTU data and expose separate provisional pools", async () => {
   const entries = loadAllPacks();
   const additions = loadUnverifiedPacks();
   const db = await freshDb();
@@ -237,7 +240,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
 
-  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4307, institutions: 7 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -251,21 +254,21 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 217,
-    papers: 232,
-    rules: 173,
-    unconfiguredRules: 163,
-    sources: 286,
-    appearances: 13609,
-    options: 54436,
-    verified: 4358,
-    unverified: 9043,
+    batches: 158,
+    papers: 168,
+    rules: 168,
+    unconfiguredRules: 158,
+    sources: 227,
+    appearances: 7772,
+    options: 31088,
+    verified: 2530,
+    unverified: 5034,
     unknown: 208,
-    unverifiedContent: 9127
+    unverifiedContent: 5118
   });
 
   // Existing verified banks remain unchanged and separate from the new provisional banks.
-  assert.equal(await countEligible(db, { institutionId: "ju" }), 1393);
+  assert.equal(await countEligible(db, { institutionId: "ju" }), 1396);
   assert.equal(await countEligible(db, { institutionId: "hstu" }), 939);
   assert.equal(await countEligible(db, { institutionId: "ju-unverified-bank" }), 0);
   assert.equal(await countEligible(db, { institutionId: "hstu-unverified-bank" }), 0);
@@ -284,11 +287,11 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   assert.ok(ju && hstu && juUnverified && hstuUnverified);
   assert.deepEqual(
     { papers: ju.paperCount, questions: ju.questionCount, eligible: ju.eligibleCount },
-    { papers: 50, questions: 1526, eligible: 1393 }
+    { papers: 50, questions: 1526, eligible: 1396 }
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },
-    { papers: 22, questions: 950, eligible: 939 }
+    { papers: 17, questions: 950, eligible: 939 }
   );
   assert.deepEqual(
     { papers: juUnverified.paperCount, questions: juUnverified.questionCount, eligible: juUnverified.eligibleCount, candidates: juUnverified.reviewCandidateCount },
@@ -312,7 +315,13 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
     assert.equal(report.questions.inserted, 0, filename);
     assert.equal(report.questions.updated, 0, filename);
     assert.equal(report.questions.skipped, pack.questions.length, filename);
-    if (pack.replaceExistingPaperContent) {
+    if (pack.replaceExistingPaperIds?.length) {
+      const replaced = pack.questions.flatMap((question) => question.appearances)
+        .filter((appearance) => pack.replaceExistingPaperIds.includes(appearance.paperId)).length;
+      const totalAppearances = pack.questions.reduce((count, question) => count + question.appearances.length, 0);
+      assert.equal(report.appearances.inserted, replaced, filename);
+      assert.equal(report.appearances.skipped, totalAppearances - replaced, filename);
+    } else if (pack.replaceExistingPaperContent) {
       assert.equal(report.appearances.inserted, pack.questions.length, filename);
       assert.equal(report.appearances.skipped, 0, filename);
     } else {
@@ -320,6 +329,6 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
       assert.equal(report.appearances.skipped, pack.questions.length, filename);
     }
   }
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 13609);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 13609);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 7772);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 7772);
 });

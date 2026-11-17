@@ -18,6 +18,7 @@
     "test:import": "node --test tests/importer.test.ts scripts/tests/*.test.mjs",
     "packs:validate": "node scripts/validate-question-pack.mjs",
     "question-assets:index": "node scripts/build-question-assets.mjs",
+    "question-assets:check": "node scripts/build-question-assets.mjs --check",
     "audit:questions": "node scripts/audit-question-quality.mjs --dir data/question-packs --min review --md docs/QUESTION_QUALITY_AUDIT.md",
     "content:build": "node scripts/build-content.mjs",
     "content:ensure": "node scripts/build-content.mjs --ensure",

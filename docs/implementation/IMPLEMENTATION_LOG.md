@@ -1,4 +1,4 @@
-# Implementation log (roadmap phases 1–10)
+# Implementation log (roadmap phases 1–12)
 
 Statuses: Not Started → In Progress → Implemented → Pending Owner Verification. Nothing here is Verified/Production Ready.
 
@@ -11,9 +11,17 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 5 Standard Exam improvements | Implemented — Pending Owner Verification |
 | 6 Settings & dark mode | Implemented — Pending Owner Verification |
 | 7 Home hero redesign | Implemented — Pending Owner Verification |
-| 8 Publications & books library | Implemented — Pending Owner Verification |
+| 8 Publications & books library | Foundation + bundled RU-V ASPECT publication implemented; physical-device QA pending |
 | 9 Online + offline content management (optional) | Partially implemented — local contracts only |
 | 10 Backend & CMS foundation (optional) | Deferred — contract documented only |
+| 12 App-wide multi-select, shared visuals and RU pack externalization | Phase B c5ca075, Phase C fe86f53, Phase D committed locally; implementation, automated checks and documentation committed locally |
+
+## 2026-11-17 — RU-V ASPECT Library bundled delivery and seed-sync integrity
+1. Converted the existing corrected RU-V staging into one reusable LibraryPack for the ASPECT collection: 17 printed sets, 26 units, 1,828 questions, 7,312 options, 1,828 explanations and 20 figures. The existing 158 university packs / 7,772 university questions remain separate.
+2. Preserved source-key uncertainty: all Library question answer/content statuses are unverified; 1,797 source-marked single-choice records are provisional, 31 explicitly ambiguous records are browse-only, and eleven duplicate-option questions are additionally excluded from provisional scoring. The 154 extraction exclusions remain in the audit ledger.
+3. Added LibraryPack input to the offline SQLite content-seed build and startup sync of publisher/book/unit/membership records. Seed-sync now checks Library content versions before shared question/source/option writes and preserves a newer installed edition.
+4. Added focused regression tests for new-edition protection, real seed first-install/upgrade, ASPECT membership and RU retirement. See `docs/RUV_ASPECT_IMPORT.md`.
+5. Verification: Node 22.23.1 consolidated focused Library seed/startup/RU-V dry-run/retirement/catalogue tests 35/35; typecheck, lint, `content:check` (159 entries / 9,600 question rows), asset check (20/20), staging SHA (76/76), archive SHA, Android Metro no-bytecode export and `git diff --check` pass. No full suite or device QA.
 
 ## 2026-11-13 — Phase 1
 1. Read audit, STARTUP_UI_AUDIT.md, git state (branch feat/import-hstu-verified-answers-2026-11-12, clean tree). Found 15f7602 already covers most of Phase 1.
@@ -126,3 +134,41 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 4. Updated current state, task state, changelog, handoff, Android release guide, QA checklist and the Phase 7/11 implementation records. This finalization contains documentation changes only.
 5. Minimal check: `git diff --check` and staged-path scope verification; no source tests were rerun because no application code changed.
 6. No push; the owner will push manually.
+
+
+## 2026-11-17 — Phase 12 handoff: current RU archive decision and Phase C checkpoint
+
+1. Audited the repo, generated seed, pack files, asset paths and external workspaces. The app currently has 44 RU Lokkho packs / 4,009 unverified questions and 15 RU-V verified packs / 1,828 questions (17 source sets); the two families must be archived separately and removed from active app content.
+2. Re-verified external Lokkho archive: 44 packs / 4,009 questions / 45 assets / 46 refs; all 90 SHA-256 entries pass. The RU-V external pack archive does not exist yet. Source PDF and RU-V extraction/review workspace are already outside the repo.
+3. Phase B is committed as c5ca075. Phase C implementation remains uncommitted; content build/check, asset check, typecheck, lint, 267/267 tests, diff hygiene and Android no-bytecode export passed on Node 22.23.1.
+4. Added ADR-035: owner will handle future RU-V-only ASPECT import; no LibraryPack/Library UI work now; Lokkho stays unverified and external; JU/HSTU/DU/other university content remains in the app.
+5. Detailed source inventory, schema-v10 migration implications and execution sequence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md. Documentation checkpoint only; no packs/assets were moved/deleted and no app code was changed here.
+
+## 2026-11-17 — Library implementation status re-audit (historical checkpoint before RU-V pack delivery)
+
+1. Re-inspected Home/Library routes, migration v8, publisher/book/unit repository, LibraryPack schema/validator/importer, Phase 9 contentManager and Phase 10 contract.
+2. Historical finding at this checkpoint: Phase 8 UI/schema/import foundation existed, but no real ASPECT book/LibraryPack or app seed/runtime path was present yet; all five seeded publishers were metadata-only. This was subsequently completed by the RU-V ASPECT bundled delivery entry at the top of this log.
+3. Confirmed multiple-answer selection is still single-select, generated image indexing is Lokkho-directory-specific, MathText is intentionally limited to common notation, Phase 9 has no configured source/UI/download manager and Phase 10 is documentation only.
+4. Focused tests: 25/25 passed; typecheck and lint passed. No real pack installation, Metro/Android export or physical-device QA was run.
+5. Detailed findings and completion sequence: docs/audits/LIBRARY_IMPLEMENTATION_STATUS_AUDIT_2026-11-17.md. This is a documentation-only audit; no code/content/data changed.
+
+## Phase C — shared visual rendering — 2026-11-17
+
+1. Reviewed the uncommitted asset-pipeline work; kept it; added CI asset check.
+2. Added `src/services/mathLayout.ts`, `src/components/common/MathBlock.tsx`, `tests/math-layout.test.ts`; integrated in `MathText`.
+3. Built the RU-V figure inventory (`docs/audits/RU_V_FIGURE_INVENTORY_2026-11-17.md`) and 20 PDF crops.
+4. Checks: see QA_CHECKLIST Phase C. Device QA not run. Details: `docs/implementation/PHASE_C_SHARED_VISUAL_RENDERING.md`.
+
+
+
+## 2026-11-17 — Phase D: RU external archive, active-content retirement and migration verification
+
+1. Re-verified both external archives and source reconciliation before removal: Lokkho 44 packs / 4,009 questions / 45 assets / 46 refs / 90 hashes; RU-V 15 packs / 1,828 questions / 17 printed sets / 20 figures / 36 hashes. All original pack/image copies matched byte-for-byte.
+2. Removed 44 ru-c-*.json, 15 ru-vq-*.json and 45 Lokkho-only PNGs from active app source. Kept RU branding SVG, all non-RU packs, external PDF, ruv-work and both archives.
+3. Regenerated manifest, SQLite seed and asset registry: 158 packs / 7,772 questions / 31,088 options; 2,512 eligible questions; 5 active institutions / 168 papers; no RU batch/question or Lokkho asset references.
+4. Added schema v11 tombstone migration for RU/RU-V papers and batches; active catalogue/practice filters exclude retired rows while existing questions, sources, appearances, bookmarks, saved answers, active/completed sessions and results remain readable. Repeated seed-sync/re-delivery tests verify retirement stamps remain set.
+5. Added synthetic importer regression coverage to replace reusable behavior from retired-source tests, plus migration/fresh-install tests. Mutation testing confirmed the retired-paper guards are exercised by the new tests.
+6. Verification on Node 22.23.1: 282/282 tests; typecheck; lint; content build/check; asset index/check; pack validation (0 errors, 5,085 warnings); archive verifiers and SHA-256 checks; Android no-bytecode Metro export (~4 MB JS); diff check — passed.
+7. Physical device/emulator, TalkBack, dark-theme and narrow-width visual QA were not performed. No APK was built/installed for this content/schema change.
+8. Current evidence and follow-up: docs/CURRENT_STATE.md, docs/QA_CHECKLIST.md, ADR-037, and docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
+

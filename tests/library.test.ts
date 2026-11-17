@@ -61,13 +61,14 @@ test("migration v8 creates the library tables and seeds exactly five metadata-on
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM content_unit_questions"))?.n, 0);
 });
 
-test("validator accepts a licensed pack and blocks content without a content licence", () => {
+test("validator: metadata_only blocks content; permission_pending is a non-blocking warning", () => {
   assert.equal(validateLibraryPack(libPack()).valid, true);
-  for (const licenseStatus of ["permission_pending", "metadata_only"] as const) {
-    const v = validateLibraryPack(libPack({ licenseStatus }));
-    assert.equal(v.valid, false);
-    assert.match(v.errors.join("|"), /licenseStatus/);
-  }
+  const blocked = validateLibraryPack(libPack({ licenseStatus: "metadata_only" }));
+  assert.equal(blocked.valid, false);
+  assert.match(blocked.errors.join("|"), /licenseStatus/);
+  const pending = validateLibraryPack(libPack({ licenseStatus: "permission_pending" }));
+  assert.equal(pending.valid, true, pending.errors.join("; "));
+  assert.match(pending.warnings.join("|"), /permission_pending/);
   const meta = libPack({ licenseStatus: "permission_pending", verificationStatus: "metadata_only" }, 0);
   meta.units = [];
   assert.equal(validateLibraryPack(meta).valid, true);
@@ -215,7 +216,7 @@ test("failed installs roll back completely and ids never merge across batches", 
   }
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM questions WHERE id LIKE 'test-lq-%'"))?.n, 0);
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM question_batches WHERE id = ?", [libraryBatchId("test-book-1")]))?.n, 0);
-  const invalid = await installLibraryPack(db, libPack({ licenseStatus: "permission_pending" }));
+  const invalid = await installLibraryPack(db, libPack({ licenseStatus: "metadata_only" }));
   assert.equal(invalid.ok, false);
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM content_books"))?.n, 0);
 });
@@ -342,4 +343,15 @@ test("publisher sections group books by real metadata and hide empty sections", 
   assert.deepEqual(groupBooksIntoSections([]), []);
   const grouped = groupBooksIntoSections([mk("mixed", "general"), mk("question_bank", "varsity"), mk("book", "medical")]);
   assert.deepEqual(grouped.map((g) => g.key), ["books", "varsity", "other"]);
+});
+
+test("permission_pending content installs and practises normally; the pending status is only a warning", async () => {
+  const db = await freshDb();
+  const r = await installLibraryPack(db, libPack({ licenseStatus: "permission_pending" }));
+  assert.equal(r.ok, true, r.errors.join("; "));
+  assert.match(r.warnings.join("|"), /permission_pending/);
+  const book = await getBook(db, "test-book-1");
+  assert.equal(book?.licenseStatus, "permission_pending");
+  assert.equal(book?.installState, "installed");
+  assert.ok((book?.questionCount ?? 0) > 0);
 });

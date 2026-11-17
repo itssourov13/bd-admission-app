@@ -10,6 +10,7 @@ import {
 import { flashAdvice, type AdviceKey } from "./advice.ts";
 import { flashScore, hasCompleteScoringRule, isAnswerCorrect, type RuleStatus, type ScoringRule } from "./scoring.ts";
 import { toScorable } from "./practiceService.ts";
+import { normalizeSubmission, selectionModeOf } from "./answerSelection.ts";
 
 export type FlashPhase = "asking" | "feedback" | "loading" | "finished";
 
@@ -118,9 +119,10 @@ export class FlashController {
     if (!q) return null;
     let applied;
     if (event.type === "answer") {
-      if (event.keys.length === 0 || !q.options.some((o) => o.key === event.keys[0])) return null;
-      const correct = isAnswerCorrect(toScorable(q, this.reviewUnverified), event.keys) === true;
-      applied = applyFlashEvent(this.state, { type: "answer", position: event.position, selectedKeys: event.keys, correct }, now, this.rng);
+      const keys = normalizeSubmission(selectionModeOf(q), event.keys, q.options.map((o) => o.key));
+      if (!keys) return null;
+      const correct = isAnswerCorrect(toScorable(q, this.reviewUnverified), keys) === true;
+      applied = applyFlashEvent(this.state, { type: "answer", position: event.position, selectedKeys: keys, correct }, now, this.rng);
     } else {
       applied = applyFlashEvent(this.state, event, now, this.rng);
     }

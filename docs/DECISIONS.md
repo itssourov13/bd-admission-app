@@ -183,3 +183,103 @@ Owner explicitly authorised authentic university/publisher logos. Decision: reac
 ## ADR-031 — Optional content management is injected and additive (Phase 9)
 
 Network access, hashing and sources are injected interfaces; no catalogue endpoint, cloud DB or account is required, and none is faked. Removal is soft. Manifest signatures are reserved, not verified.
+
+
+## ADR-032 — Publish only the 17 RU-V sets under ASPECT; archive RU Lokkho
+Status: accepted, 2026-11-17.
+
+After the full source audit, publish only the 17 distinct source sets from the RU-V verified-source bank as one book under Publications & Books → ASPECT. The current input is 15 JSON batches / 1,828 questions; two batches each combine two printed sets. Preserve the original Unit A labels on 2024–25 মহানন্দা and পদ্মা.
+
+The separate RU Lokkho bank (44 packs / 4,009 unverified candidate questions and its 45 unique referenced assets) must remain in an external archive outside the ASPECT Library. Audit it only to determine whether selected records might be reused later; it may remain unused. The owner has separately tasked Muse with preparing a new pack; compare that output with the archived Lokkho material only when it is available. Do not create a second ASPECT book for Lokkho, merge Lokkho into RU-V, or treat archiving/auditing as verification. Preserve source provenance and the archive.
+
+The current app bundle still contains the Lokkho candidate packs at this decision checkpoint; moving them into the external archive and retiring their active bundled/SQLite state is a separate future task. Do not delete question history or user data. The ASPECT conversion and cutover scope is RU-V only.
+
+RU-V book-specific requirements are deterministic question-pack → LibraryPack conversion, 17 separate test units, source-page provenance, audited RU-V diagrams/assets, math/matrix corrections where required, and a safe RU-V-only catalogue cutover. Multi-select behavior, scoring/persistence, diagram rendering and offline asset indexing are app-wide platform requirements under ADR-033, not RU-V-only enhancements. Shared capability implementation is approved independently of RU-V content conversion; RU-V-specific transcription, pack conversion and catalogue cutover remain governed by the source audit and their own verification gates.
+
+Detailed plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
+
+## ADR-034 — Scored eligibility is derived from correct-option cardinality
+Status: accepted, 2026-11-17.
+
+Context: multi-select is now app-wide (ADR-033). The `no_correct_option` disposition exists only in pack JSON; SQLite stores no disposition column.
+
+Decision: `ELIGIBLE_SQL` admits a verified question only when its stored correct-option count matches its type (exactly 1 for single_choice, at least 2 for multiple_choice). This keeps `no_correct_option` records (0 correct options) out of scored pools and rejects structurally inconsistent rows without a schema change, seed-format change or backfill. Selections are always arrays of option keys in option order; scoring is exact-set unless a source-verified rule says otherwise.
+
+Consequences: no migration risk for existing installs. A future need to display the disposition explicitly can be derived from the same data.
+
+## ADR-035 — Externalize all RU question packs; defer Library import to owner
+Status: accepted and implemented, 2026-11-17. This is the current execution decision and supersedes ADR-032's earlier instruction to implement the ASPECT import in the current task.
+
+Context: the app currently bundles 44 RU Lokkho candidate packs (4,009 unverified questions) and 15 RU-V verified packs (1,828 questions representing 17 printed source sets). The owner wants the entire RU question-pack section removed from this app project and active bundle now, while retaining both sources for later owner-controlled Library import/review.
+
+Decision:
+- Move all 44 `ru-c-*.json` Lokkho packs and their 45 unique image assets to the existing external Lokkho archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; verify hashes before deleting app copies.
+- Move all 15 `ru-vq-*.json` verified packs to a separate external archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`; create its own README, manifest, file sizes and SHA-256 records. Do not mix the two archives.
+- Remove both RU pack families from active app source/catalogue/bundle and implement a safe existing-database retirement migration. Preserve historical question/source records and user-owned bookmarks, answers, active/completed sessions and results. The current seed sync is additive; simply removing JSON from the new seed is insufficient.
+- Do not create, install or import any RU LibraryPack now. The owner will handle Library import later. The only future ASPECT content target is the 17 RU-V verified source sets. Lokkho remains unverified and must never be merged into RU-V or ASPECT.
+- Do not move JU, HSTU, DU or any other university's packs, whether verified or unverified. Do not remove other universities' content. Retain general RU university branding/code; this decision concerns RU question-pack datasets.
+- Preserve the existing external RU source PDF and `ruv-work` extraction/reconciliation material. Archive the pack JSON and its provenance; do not unnecessarily relocate external research workspace files.
+
+Consequences: after this task, no RU question pack is active in Varsity or bundled app content. The two external archives remain separately verifiable and ready for future owner-led import/review. The future RU-V Library structure is one ASPECT RU Question Bank with 17 test units; this later import is explicitly outside the current task.
+
+Evidence and current state: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+## ADR-033 — Multi-select and visual-question support are app-wide capabilities
+Status: accepted, 2026-11-17.
+
+Context: the question model already represents multiple_choice answers and question-level assets, but shared Flash/Standard Exam interactions still behave as single-select, while the generated Metro asset registry is currently tied to one legacy asset directory. Treating these gaps as RU-only work would leave other universities, existing question packs and future Library books with inconsistent capabilities.
+
+Decision: implement multi-select interaction, answer persistence/resume, scoring/review and visual-content rendering/indexing as shared app capabilities. They must work for every supported content origin: existing university/paper packs, all active bundled question packs, Publications & Books LibraryPacks, and future imported content. Question type drives radio vs checkbox semantics. Multi-select must support multiple toggles, explicit submission where needed (especially Flash), array-based persistence/resume, and correct answer comparison; exact-set scoring is the safe default unless a source-backed marking profile explicitly defines another rule. Diagram/image references must resolve through one validated offline-capable asset pipeline and render consistently in question stems, options and explanations wherever the content model places them. Preserve existing single-choice behavior.
+
+Consequences: RU-V can be used as one acceptance-test dataset, but it does not own or delimit this feature. Tests must cover multiple content sources and existing single-choice regression paths. No pack may be enabled for multi-select scoring or depend on an image until its content and referenced assets validate. Content-specific diagrams are audited per source, but renderer and asset infrastructure are shared.
+
+## ADR-036 — Structured math is a pure parser + View renderer; circuits/graphs stay source bitmaps
+Status: accepted, 2026-11-17.
+
+Context: surveying all 13,609 questions showed LaTeX markup almost only in RU Lokkho (being retired), while surviving packs contain linearised matrices/determinants, roots and powers; the 20 RU-V circuit/graph/vector questions exist only as PDF vector drawings.
+
+Decision: (1) `mathLayout.ts` parses stored text into a tree and never rewrites it; `MathBlock` renders it with Views/Text (no WebView, bundled font or network). (2) Linearised matrices are detected conservatively (`;` rows, `,` cells, equal counts, >=2 columns, no labelled cells). (3) No bespoke circuit/graph DSL: source figures are cropped from the original PDF and carried as bitmaps through the shared asset pipeline, because redrawing would reinterpret verified questions. (4) RU-V figures live as an overlay in the external archive; archived pack JSON stays byte-identical.
+
+Consequences: no new dependency; matrix layout is not yet device-verified; a figure missed by the stem-keyword scan would not be in the inventory.
+
+
+
+## ADR-037 — Retire RU content with paper/batch tombstones, preserve historical records
+Status: accepted and implemented, 2026-11-17.
+
+Context: bundled content sync is additive. Removing RU JSON from a new seed cannot remove previously installed records, while deleting questions/appearances would break bookmarks, attempts, result review and source provenance.
+
+Decision: schema v11 adds nullable retired_at columns to exam_papers and question_batches, and stamps only RU (ru) / RU-V (ru-verified-bank) paper identities and ru-c-* / ru-vq-* batches. Active catalogue and practice queries explicitly require non-retired paper/batch records. History-oriented question/source/by-ID queries remain able to resolve retained rows. Seed-sync writes do not modify retired_at; repeated sync or a re-delivered source row therefore does not clear retirement. The new bundled seed contains no RU packs.
+
+Consequences: fresh installs contain only active non-RU content; v10 upgrades keep RU source/history rows but exclude them from new catalogue and practice flows. Validation covers v10 migration, bookmarks, active and completed sessions, multi-select saved answers, result/rule snapshots, history resolution, repeated/re-delivered seed sync, database reopen and fresh install. No destructive question/history cascade is used. Device visual QA remains a separate owner verification step.
+
+Evidence: tests/ru-retirement-migration.test.ts, docs/QA_CHECKLIST.md, and docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
+
+## ADR-038 — Rights metadata is informational, never a gate; ASPECT is a collection
+Status: accepted, 2026-11-17.
+
+Publication rights are recorded as optional fields (existing `license_status`/`license_note`/`source_note` plus `rights_holder`, `rights_reference`, `rights_reviewed_on`). `permission_pending` is a non-blocking validator warning and does not stop preparation, validation, tests or pack installation; only `metadata_only` means "no content". The owner's explicit Phase 3 approval is the separate import control, and these fields never grant rights. RU-V is staged under collection `ASPECT` with an unidentified publisher, since the source names none. Supersedes the earlier validator rule that rejected question packs with `permission_pending`.
+
+
+## ADR-039 — Bundled Library seed sync preserves newer installed editions
+Status: accepted and implemented, 2026-11-17. This completes the RU-V ASPECT Library integration deferred at the ADR-035 archive checkpoint; it does not revive the legacy RU university question-pack identities.
+
+Context: Library publications may later be installed or updated independently of the app's bundled content. A startup seed update can therefore contain an older copy of a book already installed at a newer `content_version`. Checking the version only while copying book metadata is too late if the sync has already overwritten the shared question, option and source rows.
+
+Decision: when a pending bundled manifest entry has `libraryBookId`, `seedSync` compares the installed and bundled book versions before writing the batch, source documents, questions, options or appearances. If the installed book is newer, the local Library book/content/units are preserved and the bundled batch signature is checkpointed as the current app seed signature; the outcome is `unchanged`. If the bundled version is current or newer, normal transactional copying proceeds. A missing local batch for a supposedly newer installed book is treated as an error rather than silently skipping an incomplete state.
+
+Consequences: an app update cannot downgrade a newer installed Library edition or retry the older bundled pack at every startup. University question-pack sync behavior is unchanged. Regression coverage verifies newer book metadata, unit title, question text and option text remain intact, and that the next startup sees the bundled entry as unchanged.
+
+Evidence: `src/services/seedSync.ts`, `tests/library-bundled-seed.test.ts`, and `tests/seed-startup.test.ts`.
+
+
+## ADR-040 — Brand attribution is presentation-only; owner attestation drives verification
+Status: accepted and implemented, 2026-11-18. Refines ADR-038.
+
+Context: the ASPECT book is stored under the unidentified publisher with collection `ASPECT`, which produced an Unknown card plus an empty ASPECT card. The inspected source still does not name a publisher or rights holder.
+
+Decision: (1) A book whose stored publisher is the `unidentified` row and whose collection equals another catalogue publisher's slug or name is DISPLAYED under that publisher (`presentation.ts`); stored provenance, the Provenance block and history are unchanged, and an unidentified row emptied by this is hidden. No brand name is hard-coded. (2) The owner's attestation (2026-11-18) that imported source answers are the source of truth promotes answer/content status in the pack and seed (content version 2, book `verified`, licence `licensed`), applied by an idempotent script, with no change to option ids, order or text. Records whose printed key conflicts with the printed working (2) stay unverified and unscored; the 22 no-correct-option records are a verified browse-only disposition. (3) `ELIGIBLE_SQL` keeps a durable guard against a correct option duplicating another option. (4) Session/set timed practice is Custom Practice (unscored), never an official RU exam, because source sets do not match any sourced official pattern.
+
+Consequences: no schema migration; upgrades flow through the existing content-version sync (newer installed editions are still protected, ADR-039). Moving the book to `pub-aspect` remains a separate owner decision.
+
+Evidence: `tests/aspect-library-ux.test.ts`, `tests/library-bundled-seed.test.ts`, `docs/ASPECT_OWNER_VERIFICATION.md`.

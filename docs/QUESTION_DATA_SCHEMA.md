@@ -10,6 +10,7 @@ A QuestionPack has schemaVersion: 1 and these fields:
 |---|---|
 | schemaVersion | Required integer. The current supported version is 1. |
 | replaceExistingPaperContent | Optional boolean. When `true`, the importer transactionally replaces active appearances for only the paper IDs declared in this pack. It does not delete question rows or bookmarks/session history. |
+| replaceExistingPaperIds | Optional array of paper IDs declared in this pack. Requires replaceExistingPaperContent=true; IDs must be unique and non-empty. When supplied, only these paper appearances are replaced. This supports packs that reference a shared canonical paper while owning only a subset of its appearances. |
 | batch | Required stable batch ID, category, optional description and source-document ID list. |
 | sourceDocuments | Required array of source metadata records. |
 | institutions | Required array of institution IDs, codes and display names. |
@@ -72,7 +73,7 @@ Question, option, appearance, paper and source IDs must be stable within the bat
 
 ## Which questions are eligible for practice?
 
-The current Flash/Standard practice pool is restricted to questions that have a **verified answer**, use the **single-choice** format, have at least two options, and identify at least one valid correct option. The schema can describe multiple-choice questions, but that does not mean the current practice engine supports them as eligible questions.
+Current implementation: the Flash/Standard practice pool is restricted to questions that have a **verified answer**, use the **single-choice** format, have at least two options, and identify at least one valid correct option. The schema can describe multiple-choice questions, but the current practice engine does not yet support them as eligible questions. This limitation is scheduled to be resolved in the shared app engine for all content origins under ADR-033; it is not a RU-only import feature.
 
 A missing or uncertain answer must remain missing/uncertain. Never infer an official answer from memory or from an unverified key.
 

@@ -15,6 +15,7 @@ import { useTheme } from "@/settings";
 import { toggleBookmark, bookmarkedIds } from "@/repositories/userData";
 import { FlashController } from "@/services/flashController";
 import { clampFlashSeconds, formatClock } from "@/services/timer";
+import { toggleSelection } from "@/services/answerSelection";
 
 type Boot = "boot" | "empty" | "error" | "run";
 
@@ -40,6 +41,13 @@ export default function FlashPlay() {
   const bump = useCallback(() => setRev((n) => n + 1), []);
   const [marks, setMarks] = useState<Set<string>>(new Set());
   const [notice, setNotice] = useState<string | null>(null);
+  // Pending selection for a multiple-choice question; submitted explicitly. It is tagged with the position it belongs to,
+  // so it is discarded automatically when the position advances (derived state, no setState-in-effect).
+  const position = c?.state.position;
+  const [pendingSel, setPendingSel] = useState<{ at: number | undefined; keys: string[] }>({ at: undefined, keys: [] });
+  const pending = pendingSel.at === position ? pendingSel.keys : [];
+  const setPending = (fn: (cur: string[]) => string[]) =>
+    setPendingSel((s) => ({ at: position, keys: fn(s.at === position ? s.keys : []) }));
 
   const begin = useCallback(() => {
     resolveMarkingChoice(db, scope, profileId).then((markingChoice) => FlashController.start(db, scope, perQuestion, { includeReviewCandidates: reviewUnverified, markingChoice })).then(
@@ -163,10 +171,13 @@ export default function FlashPlay() {
           ) : null}
           <QuestionCard
             question={q}
-            selected={fb ? fb.record.selectedKeys : []}
+            selected={fb ? fb.record.selectedKeys : pending}
             reveal={Boolean(fb)}
             disabled={Boolean(fb)}
-            onSelect={fb ? undefined : (key) => run(c.answer(c.state.position, [key]))}
+            onSelect={fb ? undefined : (key) => {
+              if (q.type === "multiple_choice") setPending((cur) => toggleSelection("multiple", cur, key, q.options.map((o) => o.key)));
+              else run(c.answer(c.state.position, [key]));
+            }}
             bookmarked={marks.has(q.id)}
             onToggleBookmark={() => void toggle(q.id)}
             showSources={Boolean(fb)}
@@ -178,7 +189,12 @@ export default function FlashPlay() {
               <Button label={t("flash.next")} icon={<Ionicons name="arrow-forward" size={18} color={colors.white} />} onPress={() => run(c.next())} />
             </View>
           ) : (
-            <View className="mt-5"><Button label={t("flash.skip")} variant="outline" onPress={() => run(c.skip(c.state.position))} /></View>
+            <View className="mt-5 gap-2.5">
+              {q.type === "multiple_choice" ? (
+                <Button label={t("flash.submitAnswer")} disabled={pending.length === 0} onPress={() => run(c.answer(c.state.position, pending))} />
+              ) : null}
+              <Button label={t("flash.skip")} variant="outline" onPress={() => run(c.skip(c.state.position))} />
+            </View>
           )}
         </ScrollView>
       )}

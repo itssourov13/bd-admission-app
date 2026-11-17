@@ -10,7 +10,8 @@ import { href } from "@/features/navigation/links";
 import { bookPracticeState, groupBooksIntoSections, localizedName } from "@/features/library/model";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
-import { getPublisher, listBooks } from "@/repositories/library";
+import { listAllBooks, listPublishers } from "@/repositories/library";
+import { booksForPublisher, presentPublishers } from "@/features/library/presentation";
 
 /**
  * Publisher → its books grouped into Books / University / Engineering / Medical / Subject-based / Other sections.
@@ -23,7 +24,11 @@ export default function PublisherScreen() {
   const { lang } = useLang();
   const router = useRouter();
   const id = String(useLocalSearchParams<{ id: string }>().id ?? "");
-  const q = useQuery(async (db) => ({ publisher: await getPublisher(db, id), books: await listBooks(db, id) }), [id]);
+  const q = useQuery(async (db) => {
+    // Brand attribution is a presentation rule (see features/library/presentation.ts), so both lists are read once and resolved in memory.
+    const [publishers, all] = await Promise.all([listPublishers(db), listAllBooks(db)]);
+    return { publisher: presentPublishers(publishers, all).find((p) => p.id === id) ?? null, books: booksForPublisher(all, publishers, id) };
+  }, [id]);
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;

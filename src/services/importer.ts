@@ -27,13 +27,16 @@ const zero = (): EntityCounts => ({ inserted: 0, updated: 0, skipped: 0 });
 
 /** Stable content fingerprint (FNV-1a 53-bit-safe) so re-imports detect real changes only. */
 export function contentHash(q: QuestionPackItem): string {
-  const payload = JSON.stringify([
+  const parts: unknown[] = [
     q.text, q.type, q.category, q.subject ?? null, q.topic ?? null,
     q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null,
     (q.assetPaths ?? []).slice(),
     q.options.slice().sort((a, b) => a.order - b.order).map((o) => [o.id, o.text, o.order]),
     q.correctOptionIds ? q.correctOptionIds.slice().sort() : null
-  ]);
+  ];
+  const optionAssets = q.options.slice().sort((a, b) => a.order - b.order).map((o) => (o.assetPaths ?? []).slice());
+  if ((q.explanationAssetPaths?.length ?? 0) > 0 || optionAssets.some((a) => a.length > 0)) parts.push([(q.explanationAssetPaths ?? []).slice(), optionAssets]);
+  const payload = JSON.stringify(parts);
   let h1 = 0x811c9dc5;
   let h2 = 0x01000193;
   for (let i = 0; i < payload.length; i++) {
@@ -155,15 +158,15 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
         }
       }
 
-      if (p.replaceExistingPaperContent && p.papers.length > 0) {
-        // Replacement is scoped to this pack's paper IDs and remains transactional.
-        // Remove only active paper appearances; question rows remain for FK-backed
-        // bookmarks, prior sessions, answers, and result history.
-        const paperIds = p.papers.map((paper) => paper.id);
-        const placeholders = paperIds.map(() => "?").join(",");
+      const replacementPaperIds = p.replaceExistingPaperIds
+        ?? (p.replaceExistingPaperContent ? p.papers.map((paper) => paper.id) : []);
+      if (replacementPaperIds.length > 0) {
+        // A pack may reference a shared canonical paper without owning its full appearance set.
+        // Narrow replacement to the source-owned subset; question rows and user history remain intact.
+        const placeholders = replacementPaperIds.map(() => "?").join(",");
         await tx.runAsync(
-          `DELETE FROM question_appearances WHERE paper_id IN (${placeholders})`,
-          paperIds
+          "DELETE FROM question_appearances WHERE paper_id IN (" + placeholders + ")",
+          replacementPaperIds
         );
       }
 
@@ -177,23 +180,23 @@ export async function importQuestionPack(db: SqlDb, pack: unknown, now: number =
           const correct = new Set(q.correctOptionIds ?? []);
           if (!existing) {
             await tx.runAsync(
-              `INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, content_hash)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-              [q.id, p.batch.id, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null, hash]
+              `INSERT INTO questions (id, batch_id, category, text, type, subject, topic, answer_status, content_status, explanation, asset_paths, explanation_asset_paths, content_hash)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              [q.id, p.batch.id, q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null, q.explanationAssetPaths?.length ? JSON.stringify(q.explanationAssetPaths) : null, hash]
             );
             report.questions.inserted++;
           } else {
             await tx.runAsync(
-              `UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, content_hash = ? WHERE id = ?`,
-              [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null, hash, q.id]
+              `UPDATE questions SET category = ?, text = ?, type = ?, subject = ?, topic = ?, answer_status = ?, content_status = ?, explanation = ?, asset_paths = ?, explanation_asset_paths = ?, content_hash = ? WHERE id = ?`,
+              [q.category, q.text, q.type, q.subject ?? null, q.topic ?? null, q.answerVerificationStatus, q.contentVerificationStatus, q.explanation ?? null, q.assetPaths?.length ? JSON.stringify(q.assetPaths) : null, q.explanationAssetPaths?.length ? JSON.stringify(q.explanationAssetPaths) : null, hash, q.id]
             );
             await tx.runAsync("DELETE FROM question_options WHERE question_id = ?", [q.id]);
             report.questions.updated++;
           }
           for (const o of q.options) {
             await tx.runAsync(
-              "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct) VALUES (?, ?, ?, ?, ?)",
-              [q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0]
+              "INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct, asset_paths) VALUES (?, ?, ?, ?, ?, ?)",
+              [q.id, o.id, o.text, o.order, correct.has(o.id) ? 1 : 0, o.assetPaths?.length ? JSON.stringify(o.assetPaths) : null]
             );
           }
         } else {

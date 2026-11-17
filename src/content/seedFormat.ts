@@ -31,6 +31,11 @@ export interface BundledPackEntry {
   /** `packSignature()` of the pack file; identical to what the importer stores in `question_batches.pack_signature`. */
   signature: string;
   questions: number;
+  /**
+   * Set only for a bundled LibraryPack (a publisher book / question bank). Its batch id is `lib-<bookId>`; besides the shared
+   * question rows, startup sync also copies the publisher, book, unit tree and unit membership. University packs omit this.
+   */
+  libraryBookId?: string;
 }
 
 /** Small, JS-bundled description of the seed. Lets startup decide what is pending without touching the seed file. */

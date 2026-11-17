@@ -1,3 +1,79 @@
+## Android preview v0.1.9 — EAS build and owner manual smoke test — 2026-11-18
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App version `0.1.9`; Android `versionCode 9`; package `com.admissionbd.app`; existing EAS project retained. |
+| EAS internal APK build | [x] Pass | Build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed FINISHED; [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). |
+| Automated validation | [x] Pass | `pnpm test` 301/301; typecheck; lint; content check (159 entries / 9,600 questions); question-assets check (20/20); ASPECT attestation; pack validation (0 errors / 5,085 warnings); resolved Expo config; `git diff --check`. Node 22.23.1. |
+| Physical Android install and run | [x] Owner-reported pass | Owner manually installed and ran this APK on Android and reports everything checked is working normally; no issue currently observed. The owner will note any future issue. Device model/OS and exhaustive screen/accessibility coverage were not recorded. |
+| GitHub pre-release | [ ] Pending owner action | After push/merge, create tag `v0.1.9` on the merged default-branch commit, attach the APK from the EAS build page and include a generated SHA-256 checksum. |
+
+---
+
+## Previous Android preview v0.1.7 — build submission
+
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App version `0.1.7`; Android `versionCode 8`; package ID and EAS project unchanged. |
+| EAS internal APK build | [x] Pass | Build `f1584fb8-0be9-4398-a314-d0fc21507603` is FINISHED; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603) · [APK](https://expo.dev/artifacts/eas/2wSz5i5tBMwbqy5BPwu3CAUXn6cJrXmx6fvZZwp6DYU.apk); download endpoint HTTP 200, 121,037,466 bytes (~115.4 MiB). |
+| Physical-device install / Library visual QA | [ ] Pending | Install the resulting APK and verify Library discovery, ASPECT book/unit navigation and source/figure rendering. |
+
+---
+
+## RU-V ASPECT Library integration — local seed verification — 2026-11-17 (Node 22.23.1)
+
+| Check | Result | Evidence |
+|---|---|---|
+| Prepared LibraryPack | [x] Pass | One ASPECT book; 26 units; 1,828 questions; 7,312 options; 1,828 explanations; 20 figures. |
+| Answer disposition | [x] Pass | All 1,828 stored `unverified`; 1,797 single-choice source markers retained provisionally; 31 explicit browse-only cases; 3 contradiction keys withheld. Eleven duplicate-option records are also excluded by provisional eligibility. |
+| Exclusion ledger | [x] Pass | 154 records remain outside this pack: 38 non-MCQ and 116 MCQs whose options were not reliably extracted. |
+| Staging integrity | [x] Pass | `node scripts/ruv-aspect-staging.mjs --verify`: 76/76 files, including generated Library pack and defect scan. |
+| Source archives | [x] Pass | RU-V `archive-ruv.mjs --verify`: 36/36 files; Lokkho `archive-lokkho.mjs --verify`: 90/90 files. |
+| Library pack / figure hashes | [x] Pass | Pack hash matches `manifest.json`; all 20 figure hashes match. |
+| Bundled content build | [x] Pass | `pnpm content:check`: 159 bundled entries (158 university packs + 1 Library pack), 9,600 total question rows; seed 16.83 MiB. |
+| SQLite seed integrity | [x] Pass | `user_version=12`; 159 batches; 9,600 questions; 38,400 options; 1 book; 26 units; 1,828 memberships; `quick_check=ok`; zero FK issues. |
+| Asset registry | [x] Pass | `pnpm question-assets:check`: 20 assets / 20 references / 20 unique; index current. |
+| Fresh-install / repeat sync | [x] Pass | `tests/library-bundled-seed.test.ts`; Library book and all 1,828 memberships sync, second launch is unchanged. |
+| Newer installed edition | [x] Pass | Regression test confirms the old bundled seed does not overwrite newer book metadata, unit title, question or option text; old bundle signature is checkpointed before content writes. |
+| RU retirement / existing DB | [x] Pass | `tests/ru-retirement-migration.test.ts`: 5/5; real-seed fresh install and schema-v10 upgrade retain historical RU tombstones and also receive the new ASPECT Library book. |
+| Focused integration tests | [x] Pass | Combined Library seed, startup, RU-V dry-run, retirement/migration and Library catalogue tests: 35/35. Full suite not run. |
+| TypeScript / lint | [x] Pass | `pnpm typecheck`; `pnpm lint`. |
+| Android Metro export | [x] Pass | `expo export --platform android --no-bytecode`: 1,994 modules, 100 assets including the 18MB seed and all 20 RU-V figure PNGs; ~4MB Android JS bundle. This is not a native APK. |
+| Diff hygiene | [x] Pass | `git diff --check`. |
+| Native APK / physical-device Library QA | [ ] NOT RUN | Existing owner-verified v0.1.6 APK predates this content. Build and install a new preview to verify actual device UI/startup sync. |
+
+See `docs/RUV_ASPECT_IMPORT.md` for the question-status definitions, source limitations and import path.
+
+---
+
+## Phase C + Phase D final verification — 2026-11-17 (Node 22.23.1)
+
+| Check | Result | Notes |
+|---|---|---|
+| Lokkho external archive | [x] Pass | 44 packs / 4,009 questions / 45 assets / 46 refs; verifier passes; all 90 SHA-256 entries pass. |
+| RU-V external archive | [x] Pass | 15 packs / 1,828 questions / 17 printed sets / 20 figures; verifier passes; all 36 SHA-256 entries pass. |
+| Archive/source reconciliation | [x] Pass | All 59 original pack JSONs and 45 Lokkho images matched their archive copies byte-for-byte before removal. |
+| Active source files | [x] Pass | 59 RU pack JSONs and 45 Lokkho image assets removed; non-RU packs retained; assets/universities/ru.svg remains. |
+| Content build/check | [x] Pass | pnpm content:build and pnpm content:check: 158 packs / 7,772 questions; generated seed 12.90 MiB. |
+| Seed content / SQLite integrity | [x] Pass | 158 batches / 7,772 questions / 31,088 options; zero RU batches/questions and zero question image refs; quick_check=ok; foreign_key_check empty. |
+| Asset index/check | [x] Pass | pnpm question-assets:index and pnpm question-assets:check: 0 local assets / 0 references; index current after Lokkho retirement. |
+| Pack validation | [x] Pass | pnpm packs:validate: 158 packs / 7,772 questions / 0 errors / 5,085 warnings. Warnings remain review findings, not schema errors. |
+| Full automated tests | [x] Pass | pnpm test: 282/282, 0 fail, 0 skipped. Includes synthetic importer regressions and schema-v10-to-v11/history tests. |
+| Migration/history preservation | [x] Pass | Realistic v10 fixture, active/completed sessions, bookmarks, multi-key answers, results/rule snapshots, source resolution, seed re-sync, re-delivered RU row, reopen and fresh-install coverage. |
+| TypeScript / lint | [x] Pass | pnpm typecheck; pnpm lint. |
+| Android Metro export | [x] Pass | pnpm exec expo export --platform android --no-bytecode; ~4 MB Android JS bundle. This is a JS/static export, not a native APK or device test. |
+| Archive SHA-256 | [x] Pass | Lokkho 90/90; RU-V 36/36; zero mismatches. |
+| Diff hygiene | [x] Pass | git diff --check. |
+| Physical Android/emulator QA | [ ] NOT RUN | No final Phase C/D APK was installed in this task. |
+| TalkBack / dark theme / narrow MathBlock visual QA | [ ] NOT RUN | Parser/layout tests and Metro export do not replace on-device visual/accessibility checks. |
+
+The latest owner-installed v0.1.6 APK predates Phase C/D. Build a new preview and install it over the existing app to verify schema-v11 upgrade/history and the new 158-pack bundle on a physical device.
+
+## Historical Phase C-only checkpoint — 2026-11-17
+
+This earlier checkpoint preceded Phase C commit fe86f53 and Phase D. Its 217-pack / 13,609-question and 45-asset results are historical, not current.
+
 ## v0.1.6 Home Hero runtime follow-up — 2026-11-13
 
 | Check | Result | Notes |
@@ -201,7 +277,7 @@ The no-bytecode export validates JavaScript bundling only. It does **not**, by i
 | Fresh SQLite import | [x] Pass | 118/118 packs, zero failures; 7,836 questions, 31,344 options, 118 batches, 118 papers, 59 rules, 168 sources, 7,836 appearances and 5 institutions. |
 | JU/HSTU practice eligibility | [x] Pass | JU 1,393; HSTU 275; combined 1,668 verified single-choice questions. Answer-state totals are recorded in `docs/QUESTION_IMPORT_WORKFLOW.md`. |
 | Re-import/idempotency | [x] Pass | All 57 new packs re-imported: 1,819 question rows and appearances skipped; database totals unchanged. |
-| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records; see `docs/EXAM_RULE_RESEARCH.md`. HSTU historical coverage remains partial. |
+| Exam patterns | [x] Intentionally unconfigured at initial import | At the 2026-11-01 import checkpoint all 57 rules were unconfigured. The 2026-11-05 source review later added partial facts to 3 JU and 5 HSTU 2024–2025 records. Five duplicate unconfigured HSTU aliases were removed during the 2026-11-16 consolidation; the current verified-source set has 52 logical rules (8 partial, 44 unconfigured). See docs/EXAM_RULE_RESEARCH.md. HSTU historical coverage remains partial. |
 
 
 ## JU-U + HSTU-U unverified candidate-bank verification — 2026-11-01
@@ -383,3 +459,17 @@ Audit files are in `/home/kali/gpt-workspace/bd-admission-app-data/ru/science-un
 - [ ] Reduce Motion on: immediate checkmarks, ≈0.15 s hold, no loops.
 - [ ] Tab switches (Varsity/Medical/Profile): no spinner flash on warm DB.
 - [ ] DB failure/retry UI still shows.
+
+## Phase C — shared visual/math rendering (2026-11-17, Node 22.23.1)
+
+| Check | Result | Notes |
+|---|---|---|
+| `pnpm test` | [x] Pass | 276/276 (267 baseline + 9 `math-layout` tests built from real pack strings). |
+| `pnpm typecheck`, `pnpm lint` | [x] Pass | |
+| `pnpm content:check`, `pnpm question-assets:check`, `pnpm packs:validate` | [x] Pass | 217 packs / 13,609 questions, 0 errors; 45 assets / 46 refs. |
+| `git diff --check` | [x] Pass | |
+| Android Metro export (`expo export --platform android --no-bytecode`) | [x] Pass | exported to ignored `.local/export-c`. |
+| Parser run against all real packs | [x] Done | 11 stems + 20 options in non-RU packs resolve to matrices/determinants; 0 in RU-V. |
+| Device/emulator visual QA, dark theme, narrow widths, TalkBack, restart/offline on device | [ ] NOT RUN | No device in this session. `MathBlock` is untested visually. |
+| Question Browse / Flash / Exam / Custom / Result screens with matrices | [ ] NOT RUN | Same limitation; `QuestionCard` uses `MathText` for stem, options and explanation, so all paths share the renderer. |
+

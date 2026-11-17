@@ -1,3 +1,29 @@
+## RU pack archive ownership and active-app status — completed 2026-11-17 (ADR-035 / ADR-037)
+
+Both RU question-pack datasets are archived separately and removed from active app source/bundle:
+
+- RU Lokkho: 44 pack files / 4,009 answer-unverified questions / 45 unique images / 46 references. Archive: /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/; verifier passes and all 90 SHA-256 entries match.
+- RU-V: 15 pack files / 1,828 verified questions representing 17 printed test sets / 20 source-figure crops. Archive: /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/; verifier passes and all 36 SHA-256 entries match.
+
+All 59 pack files and 45 Lokkho images matched their archive copies byte-for-byte before removal. The generated active bundle now contains 158 non-RU packs / 7,772 questions. Schema v11 retires RU/RU-V content on existing installations without deleting historical/source or user-owned data. The original PDF and ruv-work workspace remain external.
+
+The owner will perform a later Library import. Only RU-V's 17 sets are a future ASPECT target; do not import Lokkho, merge the sources, or migrate JU/HSTU/DU or other university packs into ASPECT. Evidence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
+
+## Catalogue identity correction — RU session labels and HSTU paper grouping — 2026-11-16
+
+**Status: Implemented.** Detailed source research, per-shift reconciliation, migration and verification: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
+
+> Historical snapshot: the RU C-Unit relabel described in this 2026-11-16 entry is superseded by the 2026-11-17 source audit. The PDF pages 1 and 12 print Unit A; source-facing metadata should be A and is awaiting a data update. The HSTU consolidation below remains current. See docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md.
+
+- RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
+- No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.
+- HSTU: the extra 34 unique verified questions now reference the five existing canonical 2024–25 papers (A shifts 1–3, B shifts 1–2). Normal HSTU is 17 papers / 950 questions / 939 ready instead of 22 duplicate rows. The canonical partial verified totalMarks=100 rule remains; only duplicate unconfigured alias rules were removed.
+- HSTU-U's 105 pending records, historical HSTU unassigned papers, question IDs, sources and answers remain intact.
+- SQLite migration v9 merges the five legacy alias IDs on existing installs and updates only active practice_sessions.filter_json paper references. Result snapshots, profile snapshots, bookmarks, session answers and question rows are preserved.
+- The five source packs use replaceExistingPaperIds to restrict replaceExistingPaperContent to their own HSTU-U pending paper. Without this subset, a shared canonical HSTU paper could be wiped during re-import. The validator, importer, seed builder and scripts/build-content.mjs all honor the subset; older packs omitting it retain the original full-pack replacement behavior.
+
+---
+
 ## Official marking-rule research and integrity controls — 2026-11-05
 
 See `docs/EXAM_RULE_RESEARCH.md` for the source-by-source findings. The 2024–2025 follow-up added only eight partial verified facts to the existing verified-source banks (three JU rules and five HSTU rules). The separate 99 JU-U/HSTU-U candidate rules remain unconfigured. RU's official 2024–2025 80-question/100-mark pattern is confirmed, but the current C-unit Lokkho captures are 127/128-question aggregate variants, not exact official papers; the rule is documented but not attached to them. Never infer a full per-question score from a component total or treat an aggregate candidate bank as an official sitting.
@@ -7,6 +33,34 @@ Rule completeness is independent of source fact verification. `totalMarks` can b
 The new read-only scan is available through `pnpm audit:questions`. It reports likely extraction artifacts, repeated option text and other triage candidates across all bundled question packs. Audit flags do **not** prove content is wrong: inspect the exact original page/PDF and answer key before editing or changing verification states. Findings and scope are written to `docs/QUESTION_QUALITY_AUDIT.md`.
 
 # Question import workflow
+
+## Historical RU source audit and future owner-led ASPECT import — superseded for current execution by ADR-035
+
+The historical source-audit outcome remains: the 15 RU-V JSON batches / 1,828 questions represent 17 printed source sets. The owner may later import only those 17 sets as one RU Question Bank under ASPECT. This import is deferred to the owner; do not generate or install a LibraryPack in the current task. Lokkho is a separate unverified dataset and must never be merged with RU-V or added to ASPECT. See current ADR-035.
+
+- The external Lokkho archive now exists and verifies (44 packs / 4,009 questions / 45 assets; 90/90 SHA-256 entries pass). The original app copies still remain and are scheduled for removal together with the RU-V packs under ADR-035. Keep Lokkho out of ASPECT; the existing schema-v10 app installations need a scoped retirement migration that preserves history.
+- Preserve original source question IDs, Unit A labels for 2024–25 মহানন্দা/পদ্মা, source hashes, printed question numbers and page references.
+- The 15 RU-V batches represent 17 sets; create 17 logical test units, not necessarily 17 JSON batches.
+- Multiple-answer interaction/persistence/scoring and image/diagram/math rendering are app-wide shared-engine requirements under ADR-033; they must work across all university/paper packs, active bundled content, LibraryPacks and future imports. RU-V contributes six multiple-choice records and its own source diagrams, but is not the only target.
+- Existing ASPECT Master QB permission does not automatically cover separate RU sources; record source-specific licence and attribution evidence.
+
+Source audit: `docs/audits/RU_VERIFIED_QUESTION_BANK_SOURCE_AUDIT_2026-11-17.md`. Historical integration proposal: `docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md` (superseded for current execution by ADR-035). Current archive/removal instructions: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+
+---
+
+
+## Catalogue identity correction — RU and HSTU — 2026-11-16
+
+**Status: Implemented.** See docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md for session research, five-pair reconciliation and migration tests.
+
+> RU note superseded on 2026-11-17: the source PDF prints Unit A on both 2024–25 sets. Do not treat the C catalogue label below as the current desired state; restoring source-facing A is pending. HSTU implementation remains current.
+
+- RU: the two 2024–25 RU-V Science question-bank sets now use catalogue C Unit and titles RU C Unit — 2024-2025 — Set মহানন্দা / পদ্মা. The original source-document title that prints RU A Unit is retained; provenance notes explain RU's official A=Humanities, B=Commerce and C=Science mapping. Both remain 126-question practice banks, not official 80-question sittings; no exam scoring rule was configured.
+- No broad historical RU rewrite was made. The 2010–13 split Science subunits, revised 2014–15 C=Science structure, unresolved 2015–16 evidence gap and wider 2018–19 C scope remain as recorded in the research report.
+- HSTU: the extra 34 unique verified questions now reference the five existing canonical 2024–25 papers (A shifts 1–3, B shifts 1–2). Normal HSTU is 17 papers / 950 questions / 939 ready instead of 22 duplicate rows. The canonical partial verified totalMarks=100 rule remains; only duplicate unconfigured alias rules were removed.
+- HSTU-U's 105 pending records, historical HSTU unassigned papers, question IDs, sources and answers remain intact.
+- SQLite migration v9 merges the five legacy alias IDs on existing installs and updates only active practice_sessions.filter_json paper references. Result snapshots, profile snapshots, bookmarks, session answers and question rows are preserved.
+- The five source packs use replaceExistingPaperIds to restrict replaceExistingPaperContent to their own HSTU-U pending paper. Without this subset, a shared canonical HSTU paper could be wiped during re-import. The validator, importer, seed builder and scripts/build-content.mjs all honor the subset; older packs omitting it retain the original full-pack replacement behavior.
 
 ## HSTU verified-question import — 2026-11-12
 
@@ -22,8 +76,8 @@ The new read-only scan is available through `pnpm audit:questions`. It reports l
 
 - All **116 baseline pending questions** remain unchanged. HSTU-U retains **105 pending questions** across its 15 papers (102 answer-unverified, 3 answer-unknown; content-unverified).
 - The 3 off-baseline pending-ledger records were not modified. They are outside the 780-question baseline and are not included in the 116 baseline pending count.
-- Normal HSTU now contains **22 papers / 950 questions**. **939** have both status fields verified and are eligible single-choice records in the existing verified practice pool. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
-- All 15 added HSTU paper rules remain unconfigured. No exam count, duration, selection or marking rule was added or inferred. JU, RU and DU content was not changed.
+- At the 2026-11-12 ledger-import checkpoint, normal HSTU contained **22 paper rows / 950 questions**. The five logical duplicates were consolidated on 2026-11-16; current normal HSTU contains **17 papers / 950 questions**. **939** retain both verified status fields and are eligible single-choice records. Eleven older baseline questions remain pending answer status in HSTU (10 unknown, 1 unverified).
+- At that initial import checkpoint, all 15 added HSTU paper rules were unconfigured. The five duplicate 2024–25 unconfigured aliases were removed in the 2026-11-16 consolidation; all remaining unconfigured rules stay unconfigured. No exam count, duration, selection or marking rule was inferred. JU, RU and DU content was not changed.
 
 ### Backup and verification
 
@@ -114,7 +168,7 @@ JU also contains 6 `multiple_choice` records and 16 explicit `no_correct_option`
 
 ### Runtime and exam-rule boundary
 
-- At the initial 2026-11-01 import checkpoint, all 57 rules remained `unconfigured`. The 2026-11-05 official-source research below supersedes the status for 8 exact 2024–2025 records with partial metadata; the other 49 remain unconfigured.
+- At the initial 2026-11-01 import checkpoint, all 57 rules remained `unconfigured`. The 2026-11-05 official-source research below supersedes the status for 8 exact 2024–2025 records with partial metadata; 49 remained unconfigured at that 2026-11-05 checkpoint; five duplicate HSTU aliases were subsequently removed on 2026-11-16, leaving 44 current unconfigured rules in the verified-source group.
 - **At the 2026-11-01 import checkpoint**, a general/institution-scoped Standard Exam still used the then-global 100-question / 60-minute fallback. This historical behavior has since been narrowed: only the no-exact-paper all-catalogue path keeps that default; exact-paper sessions need their own source-backed count/duration or explicitly chosen unscored Custom Practice.
 - HSTU needs more historical sessions to meet the original coverage target. This is a follow-up research gap, not a blocker to importing the verified records already supplied.
 

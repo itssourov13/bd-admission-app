@@ -1,4 +1,4 @@
-import type { BookSummary, InstallState, LicenseStatus, BookVerification, UnitRow } from "../../types/domain.ts";
+import type { BookSummary, BookTargetCategory, InstallState, LicenseStatus, BookVerification, UnitRow } from "../../types/domain.ts";
 
 /** Two-or-three letter fallback mark for a publisher (no real logos are bundled until licensed artwork exists). */
 export function publisherMonogram(name: string): string {
@@ -34,8 +34,12 @@ export const VERIFICATION_KEYS: Record<BookVerification, "library.verification.v
   verified: "library.verification.verified", unverified: "library.verification.unverified", metadata_only: "library.verification.metadata_only"
 };
 
-/** Licence states under which question content may be installed. Anything else is catalogue metadata only. */
-export const CONTENT_LICENSES: readonly LicenseStatus[] = ["licensed", "public_domain", "owner_created"];
+/**
+ * Licence states that allow question content to be prepared and installed. permission_pending is deliberately included:
+ * rights metadata is informational and must not block internal preparation, validation or testing (the owner's explicit
+ * import approval is a separate workflow control). Only metadata_only means "catalogue entry without content".
+ */
+export const CONTENT_LICENSES: readonly LicenseStatus[] = ["licensed", "public_domain", "owner_created", "permission_pending"];
 
 export function licenseAllowsContent(status: LicenseStatus): boolean {
   return CONTENT_LICENSES.includes(status);
@@ -104,4 +108,51 @@ export function groupBooksIntoSections<T extends Pick<BookSummary, "contentType"
   const buckets = new Map<BookSectionKey, T[]>();
   for (const b of books) { const k = bookSectionOf(b); const list = buckets.get(k) ?? []; list.push(b); buckets.set(k, list); }
   return BOOK_SECTION_ORDER.filter((k) => buckets.has(k)).map((k) => ({ key: k, data: buckets.get(k)! }));
+}
+
+/** True when a book's rights information should be flagged to the owner (non-blocking display hint only). */
+export function rightsNeedsAttention(b: Pick<BookSummary, "licenseStatus" | "rightsHolder">): boolean {
+  return b.licenseStatus === "permission_pending" || !b.rightsHolder;
+}
+
+export interface BookFilter {
+  /** Case-insensitive match over title, subject, collection, authors, publisher and identifiers. */
+  text?: string;
+  category?: BookTargetCategory | "all";
+  contentType?: BookSummary["contentType"] | "all";
+  /** Exact (case-insensitive) collection/series name, e.g. a Library section; "all" or empty = any. */
+  collection?: string | "all";
+}
+
+export function isFilterActive(f: BookFilter): boolean {
+  return Boolean((f.text ?? "").trim()) || (!!f.category && f.category !== "all") || (!!f.contentType && f.contentType !== "all") || (!!f.collection && f.collection !== "all");
+}
+
+/** Distinct collection names present in the catalogue (data-driven discovery; no publisher-specific entries). */
+export function listCollections(books: Pick<BookSummary, "collection">[]): { name: string; count: number }[] {
+  const m = new Map<string, { name: string; count: number }>();
+  for (const b of books) {
+    const name = b.collection?.trim();
+    if (!name) continue;
+    const k = name.normalize("NFC").toLowerCase();
+    const e = m.get(k); if (e) e.count++; else m.set(k, { name, count: 1 });
+  }
+  return [...m.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Pure, data-driven catalogue filter shared by every publisher's books (no publisher-specific branches). An empty
+ * filter returns the input order unchanged.
+ */
+export function filterBooks<T extends Pick<BookSummary, "title" | "titleBn" | "subject" | "collection" | "authors" | "publisherName" | "publisherNameBn" | "identifiers" | "targetCategory" | "contentType">>(books: T[], f: BookFilter): T[] {
+  const needle = (f.text ?? "").normalize("NFC").trim().toLowerCase();
+  return books.filter((b) => {
+    if (f.category && f.category !== "all" && b.targetCategory !== f.category) return false;
+    if (f.contentType && f.contentType !== "all" && b.contentType !== f.contentType) return false;
+    if (f.collection && f.collection !== "all" && (b.collection ?? "").normalize("NFC").trim().toLowerCase() !== f.collection.normalize("NFC").trim().toLowerCase()) return false;
+    if (!needle) return true;
+    const hay = [b.title, b.titleBn, b.subject, b.collection, b.authors, b.publisherName, b.publisherNameBn, ...Object.values(b.identifiers)]
+      .filter((x): x is string => Boolean(x)).join(" ").normalize("NFC").toLowerCase();
+    return hay.includes(needle);
+  });
 }

@@ -1,3 +1,132 @@
+## 2026-11-18 — v0.1.9 Android preview built and owner-tested
+
+- EAS Android `preview` / `INTERNAL` APK build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
+- Owner manually installed and ran the v0.1.9 APK on Android and reports normal operation with no currently observed issue. Further issues, if found, will be recorded by the owner. Device model/OS and exhaustive screen/accessibility coverage were not provided.
+- Release identity: app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`.
+- Automated release gates passed before submission: 301/301 tests, TypeScript, lint, content (159 packs / 9,600 questions), question assets (20/20), ASPECT attestation, pack validation (0 errors / 5,085 warnings), Expo config and diff check.
+- GitHub release `v0.1.9` is not yet published. Owner will push/merge first, then create a pre-release from the merged default-branch commit and attach the APK with its generated SHA-256 checksum. No push/merge was performed here.
+
+---
+
+## 2026-11-18 — EAS v0.1.9 submission checkpoint (initially queued; superseded)
+
+- Set the Expo app version to `0.1.9` in `brand.config.json` and Android `versionCode` to `9` in `app.config.js`; resolved Expo config confirms `com.admissionbd.app` and the existing EAS project ID.
+- Updated only test expectations for the existing correct-option-duplicate eligibility guard: university eligible total 2,510; JU 1,396; HSTU 939. The ASPECT v1→v2 upgrade expects 2 remaining held/unverified questions. No runtime eligibility or UI code changed.
+- Full suite: 301/301 pass on Node 22.23.1. TypeScript, lint, content check, asset check, ASPECT attestation, pack validation, Expo config assertion and `git diff --check` pass.
+- Reviewed original PDF page 56 Q12: option C prints `+2/7 k̂` but the working derives `−2/7 k̂`; it remains held/unverified/unscored.
+- At the initial submission checkpoint, EAS returned `IN_QUEUE`; this status was later superseded when the same build completed FINISHED. The owner subsequently installed and ran the APK on Android. See the completion entry above.
+
+---
+
+## 2026-11-18 — ASPECT Library UX, owner verification and runtime performance
+
+- **Landing/logo:** ADR-040 presentation-layer attribution (`src/features/library/presentation.ts`): the ASPECT-collection book is shown under the ASPECT publisher card, the empty duplicate Unknown card is dropped, stored `pub-unidentified` provenance is unchanged. ASPECT logo bundled as `assets/publishers/aspect.png` (256×256 PNG, byte-identical to the owner's file; kept raster because tracing would lose the fine lettering) and registered in `publisherLogos.ts`. RU logo reuses `assets/universities/ru.svg` via `UniversityLogo`.
+- **Session drawers:** `src/components/library/SessionDrawer.tsx` + `src/features/library/sessions.ts` render 9 expandable session cards holding the 17 source-set cards (Set n — name, unit chip, question count). Every session and set has Flash, Timed practice (existing `/exam/setup` Custom Practice, unscored, not an official RU exam) and Browse, scoped by `bookId`/`unitId` (descendants included once).
+- **Verification:** owner attestation of 2026-11-18 applied by `scripts/ruv-aspect-attest.mjs`; content version 2, book `verified`/`licensed`; 1,826 questions verified (1,804 scorable incl. 6 multiple-answer, 22 no-correct-option browse-only), 2 conflicting-key questions held unverified/unscored. `ELIGIBLE_SQL` now also excludes any question whose correct option duplicates another option. See `docs/ASPECT_OWNER_VERIFICATION.md`.
+- **Performance:** book/unit-scoped queries are driven from the book's membership rows; Flash uses one single-fallback pool query (`countFlashPool`); landing/book counts come from one conditional aggregate; Browse loads its first page without waiting for subject counts and counts subjects in one grouped pass. Host-side medians (3 runs, node:sqlite on a temp seed copy, not a phone): Flash setup whole book 4,580 → 19.6 ms, Browse entry 4,609 → 7.0 ms, Custom pool 2,223 → 23.3 ms, landing 32.8 → 23.1 ms. No new index: measured times did not justify a schema migration. Raw results in `.local/bench-*.json` (git-excluded); `scripts/bench-library.mjs` reproduces them.
+- Verification: `pnpm typecheck`, `pnpm lint`, `pnpm content:check` (159 packs / 9,600 questions), `question-assets:check` (20/20), `node scripts/ruv-aspect-attest.mjs --check`, `git diff --check`, focused library/seed/startup/exam/UI-logic tests (60/60 in the library+seed group incl. fresh install, v1→v2 upgrade, repeat sync, newer-edition protection; 149/150 earlier in the wider group, the one failure was a wrong assertion that was fixed and re-run) and the Android Metro no-bytecode export (passed, one ~4 MB Android bundle). No physical-device, TalkBack, light/dark visual or Bangla/English on-screen QA was performed; no APK was built.
+
+---
+
+## 2026-11-17 — Audit ASPECT Library UX and runtime follow-up (documentation only)
+
+- Cross-checked owner screenshots/logo against the current Library publisher metadata, unit hierarchy, book/set actions, RU/ASPECT asset registries, answer verification state and practice query paths.
+- Confirmed the ASPECT-vs-Unknown publisher row mismatch, flat session/set rendering, missing per-session Exam action and the data-driven Provisional labels.
+- Identified a duplicated provisional-pool query in Flash setup and expensive full-catalogue query plans for book-scoped Library counts; recorded read-only host-side SQLite timings (not Android device timings).
+- Saved the complete findings, risk handling and Claude implementation/acceptance brief in `docs/audits/ASPECT_LIBRARY_UX_RUNTIME_AUDIT_2026-11-17.md`.
+- Audit only: no application source, question data, seed, assets, dependencies, app config, APK or runtime behavior changed. No push.
+
+---
+
+## 2026-11-17 — Prepare Android preview v0.1.7
+
+- Bumped app version to `0.1.7` and Android `versionCode` to `8`; package ID, EAS project and Android signing identity remain unchanged.
+- EAS `preview` / internal APK build `f1584fb8-0be9-4398-a314-d0fc21507603` reached **FINISHED**; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603) · [download APK](https://expo.dev/artifacts/eas/2wSz5i5tBMwbqy5BPwu3CAUXn6cJrXmx6fvZZwp6DYU.apk) (121,037,466 bytes (~115.4 MiB); expires 2026-12-01 17:21 Asia/Dhaka). The APK includes the current bundled seed (159 entries / 9,600 questions), RU-V ASPECT Library publication and seed-sync newer-edition protection. Device QA remains pending.
+- Physical-device installation and Library visual QA remain pending; this is not a Play Store production release.
+
+## 2026-11-17 — Bundle RU-V as an ASPECT Library publication; protect newer installed editions
+
+- Added the RU-V LibraryPack to `data/library-packs/` and its 20 figures to the shared offline asset tree; generated manifest and SQLite seed now contain one Library book (ASPECT), 26 units and 1,828 questions alongside the unchanged 158 university packs / 7,772 university questions.
+- Kept all 1,828 RU-V answer/content states unverified. The source's 1,797 printed single-choice keys are provisional; 31 records remain browse-only (22 no-correct-option, 6 multiple-answer, 3 unresolved contradictions). Eleven duplicate-option records are additionally excluded from provisional scoring; all questions remain browseable.
+- Added build-time LibraryPack validation/seed creation and startup sync for publisher, book, units and memberships. Added a pre-write content-version check so an older bundled edition cannot overwrite a newer installed Library edition; the older seed signature is checkpointed as unchanged.
+- Added regression coverage for newer-edition preservation, real-seed fresh install, existing schema-v10 upgrade, ASPECT book/question membership, RU retirement and repeat sync.
+- Verification: consolidated focused Library seed/startup, RU-V dry-run, retirement/migration and catalogue tests 35/35; typecheck, lint, `content:check` (159 entries / 9,600 question rows), `question-assets:check` (20/20), Android Metro no-bytecode export, staging SHA-256 (76/76), both archives (RU-V 36/36; Lokkho 90/90) and `git diff --check` pass. No full-suite or physical-device QA claimed.
+- No APK was built/installed and nothing was pushed. See `docs/RUV_ASPECT_IMPORT.md`.
+
+## 2026-11-17 — RU-V count reconciliation, ASPECT Library pack builder, isolated dry-run
+
+- Added `scripts/ruv-count-reconciliation.py`, `scripts/ruv-aspect-build-pack.mjs` and `tests/ruv-aspect-dry-run.test.ts` (in-memory import; skips without the external staging workspace). Nothing imported into the active database. See docs/library/RU_V_SOURCE_AUDIT.md.
+
+## 2026-11-17 — RU-V preparation + Library catalogue metadata + lightweight rights metadata (in progress, uncommitted)
+
+- Schema v12 (additive, nullable): authors, description, collection, identifiers, exam relevance, coverage note, rights holder/reference/reviewed-on; wired through pack type, validator, importer, repository, book detail screen and translations.
+- `permission_pending` no longer blocks pack validation/installation (warning only); `updateBookRights` repository function; Library landing now has search plus category/collection filters wired to `filterBooks` (shared `BookCard`, `listAllBooks`, `listCollections`); no device QA.
+- Staging: exclusion review for all 154 records, ASPECT collection + unidentified-publisher mapping, `permission_pending` metadata, README wording fixed; rebuilt deterministically.
+- Not done: visual verification of 1,828 questions, answer/explanation review, landing/ASPECT UI. Phase 3 import NOT started and awaiting owner approval.
+
+## 2026-11-17 — Phase D: RU content externalized and retired from active app
+
+- Verified separate external archives: Lokkho 44 packs / 4,009 questions / 45 images / 46 references (90/90 SHA-256 entries); RU-V 15 packs / 1,828 questions / 17 printed sets / 20 source-figure crops (36/36 SHA-256 entries).
+- Removed the 59 RU pack JSON files and 45 Lokkho-only images from active app source; retained assets/universities/ru.svg and all non-RU content.
+- Regenerated the bundled manifest, SQLite content seed and shared static asset registry. Current content: 158 packs / 7,772 questions / 31,088 options; 2,512 verified eligible questions; 5 active institutions / 168 papers; no RU pack or Lokkho asset references.
+- Added schema v11 retirement tombstones and active-content filtering. Existing question/source rows and user history remain available; repeated sync cannot clear retirement.
+- Added synthetic importer regressions and realistic v10-to-v11, fresh-install, real-seed upgrade, repeated-sync and history-preservation tests.
+- Final Node 22.23.1 checks: 282/282 tests, typecheck, lint, content build/check, asset check, pack validation (0 errors; 5,085 warnings), archive verification, both SHA-256 manifests, Android no-bytecode Metro export (~4 MB JS) and git diff --check passed.
+- Physical-device/emulator visual QA, TalkBack, dark-theme/narrow-width MathBlock checks and a new APK install were not performed. The v0.1.6 preview predates this change.
+
+## 2026-11-17 — Phase C: shared asset pipeline finalized, structured math layout, RU-V figure inventory
+
+- Finalized the shared offline asset pipeline (option/explanation assets, migration v10, deterministic index) and added `pnpm question-assets:check` to CI.
+- New `mathLayout` parser + `MathBlock` renderer: fractions, roots, matrices/determinants (LaTeX and the linearised `|a, b; c, d|` form printed in JU/DU packs), piecewise cases, aligned lines. `MathText` falls back to the unchanged Unicode path when no structure exists.
+- RU-V source figure inventory: 20 figure-dependent questions, 20 PDF crops with provenance in the external archive staging area; packs untouched.
+- 276/276 tests, typecheck, lint, content/asset/pack validation and Android no-bytecode Metro export passed. No device QA.
+
+## 2026-11-17 — Current RU archive/removal decision and Phase C handoff (documentation only; ADR-035)
+
+- Audited the actual repo and seed: 44 Lokkho packs / 4,009 unverified questions, 15 RU-V packs / 1,828 verified questions (17 source sets), 45 Lokkho assets. All 59 packs / 5,837 questions remain in the app at this checkpoint.
+- Re-verified the existing Lokkho external archive (44 packs, 4,009 questions, 45 assets; all 90 SHA-256 entries pass). The separate RU-V verified archive is not yet created.
+- Owner decision (ADR-035): move both RU pack families outside the app in separate archives and retire them from active app content; the owner will handle a future RU-V-only ASPECT import. Do not import Lokkho or migrate other university content into ASPECT.
+- Recorded the actual Phase C uncommitted implementation and verification state, plus the required schema-v10 history-preserving retirement strategy, in the current audit/handoff documents.
+- Documentation only: no pack, asset, source code, seed or database rows were moved or deleted.
+
+## 2026-11-17 — Clarify app-wide multi-select and visual-content scope (documentation only)
+
+- Owner clarified that multiple-select interaction/scoring/persistence and diagram/image rendering are shared app capabilities, not RU/RU-V-only requirements.
+- Added ADR-033 and aligned Current State, Task State, Handoff, Phase 8 and the Library audit: shared runtime/asset infrastructure must support all university packs, active bundled content, LibraryPacks and future imports.
+- RU-V remains one content-specific acceptance dataset; its source diagram inventory and Library conversion are separate from the reusable app capability.
+- Documentation only; no application code, packs, DB, seed or assets changed. No commit or push.
+
+## 2026-11-17 — Audit Publications & Books Library completion (documentation only)
+
+- Confirmed Phase 8 UI/schema/LibraryPack foundation is implemented, but no real ASPECT book or LibraryPack is currently installed.
+- Identified the missing runtime pack-install path/source UI, partial Phase 9 lifecycle and deferred Phase 10 backend/CMS.
+- Documented multi-select, LibraryPack asset-indexing and math/diagram gaps.
+- Focused tests 25/25, typecheck and lint passed; real pack/device verification remains pending.
+- No code/data changes, no commit or push.
+
+## 2026-11-17 — RU audit checkpoint and ASPECT Library direction (documentation only)
+
+- Recorded interim 15-batch / 17-source-set RU-V reconciliation, per-set counts, exclusions and quality findings.
+- Superseded the RU 2024–25 C catalogue interpretation: the source PDF prints Unit A on মহানন্দা and পদ্মা; restoring source-facing A remains a future data change.
+- Documented multi-select runtime work, diagram/image asset pipeline, math rendering and full visual audit requirements.
+- Corrected the destination decision: only the 17 RU-V source sets go into one ASPECT book. RU Lokkho must be moved to an external archive for optional reuse and is never an ASPECT book; the archive transfer is still pending. Muse has separately been tasked with a new pack.
+- No app, question pack, database, seed or asset changed. Full audit and implementation pending. No commit or push.
+
+## 2026-11-16 — Correct RU catalogue labels and consolidate HSTU papers
+
+- Corrected the two RU-V 2024–25 Science-set catalogue labels/titles from A to C Unit. Original PDF title/printed label is retained in source provenance; question-bank practice status and unconfigured exam rules are unchanged.
+- Consolidated the 34 additional verified HSTU questions across five 2024–25 A/B shifts into the existing canonical paper IDs. Normal HSTU is now 17 papers / 950 questions / 939 practice-ready, with 105 HSTU-U pending questions retained.
+- Added scoped paper replacement support (replaceExistingPaperIds) so shared canonical papers are not cleared by a source pack that only owns one of its appearances; updated validator, importer, seed builder and content build checks.
+- Added database migration v9 to consolidate aliases on existing installs while preserving question rows, bookmarks, answers and immutable session snapshots.
+- Detailed evidence and checks: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
+
+## 2026-11-16 — Audit RU year-wise unit naming and HSTU paper fragmentation
+
+- Cross-checked RU unit names across historical admission structures. Confirmed the two 2024–25 RU-V Science question-bank sets are incorrectly catalogued as A Unit; official RU 2024–25 classification is C=Science, A=Humanities, B=Commerce. Preserve the supplied PDF's printed Unit A in provenance.
+- Identified five HSTU 2024–25 logical-paper duplicates (A shifts 1–3 and B shifts 1–2) caused by separate paper IDs across source packs. The 34 additional question records are unique and verified; recommended canonical appearance reassignment preserves question data.
+- Recorded historical RU subunit cautions, HSTU pending/unassigned safeguards and a focused implementation/test plan in `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`.
+- Verification: Node 22.23.1 `pnpm content:check` passed (217 packs / 13,609 questions). Audit only: no app source, configuration, assets or question-pack data changed.
+
 ## 2026-11-13 — v0.1.6 Android preview verified on device
 
 - EAS Android `preview` / INTERNAL APK build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` completed **FINISHED** at 2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa.
@@ -362,3 +491,8 @@
 - Reviewed supplied Android Home/Profile/Practice Results screenshots and traced the hero CTA and Stat text regressions to NativeWind Pressable callback styling and a missing semantic text foreground.
 - Recorded the hero-height growth and the absence of a prior landscape university-cover system; specified a proposed 1024×500 Home cover asset contract.
 - Added `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`; full suite passes 234/234 on Node 22.23.1. No app source, assets, dependencies, app identity or EAS/release metadata changed in this audit pass.
+
+## 2026-11-17 — Phase 12 (in progress)
+- Added `scripts/archive-lokkho.mjs` and created the verified external RU Lokkho archive (44 packs / 4,009 questions / 45 assets). No app content removed yet. See docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.
+
+- Phase B (multi-select): shared `answerSelection` module, type-aware `QuestionCard`, Flash explicit submit for multi-answer questions, Exam/Custom toggle, eligibility now admits verified multiple_choice with >=2 correct options (+11 eligible app-wide). New tests: answer-selection, multi-select-flow. See Phase 12 doc and ADR-034.

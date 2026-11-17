@@ -1,23 +1,61 @@
+## Library presentation, session drawers and query paths — 2026-11-18
+
+- **Pure presentation logic** lives in `src/features/library/presentation.ts` (brand attribution, university key from exam relevance) and `sessions.ts` (root→children grouping, set-title parsing); both are React-free and covered by `tests/aspect-library-ux.test.ts`. Stored `publisher_id` is never rewritten; the landing and publisher screens read publishers and books once and resolve attribution in memory.
+- **UI:** `SessionDrawer` (session card + set cards + `ScopeActions`) is generic: any book whose units have a root→child hierarchy gets drawers; flat books keep the plain unit list. Actions reuse the shared `bookId`/`unitId` scope on `/flash/setup`, `/exam/setup` and `/browse`. Timed practice from a book/session/set is Custom Practice (unscored, not official).
+- **Logos:** `PUBLISHER_LOGOS` supports raster assets (`{ kind: "raster", source: require(...) }`); `BrandLogo` scales with `contain`.
+- **Query paths (`src/repositories/content.ts`, `library.ts`):** book scope drives from a derived table of the scope's distinct member ids joined to `questions` by primary key (join params are collected before WHERE params); `scopeRule` short-circuits book scopes; `countFlashPool` runs the provisional fallback at most once; `queryBooks` computes total/eligible/candidate counts in one conditional aggregate over the book's memberships; `countQuestionsBySubject` is a single grouped pass. `ELIGIBLE_SQL` excludes questions whose correct option duplicates another option's text.
+- **Verification metadata:** answer and content status are stored per question; the book status mirrors them. User-facing Provisional chips/banners are data-driven, so verified questions show none.
+
+---
+
 ## Profile, mathematical presentation and exam-rule hardening — 2026-11-05
 
 - `saveDisplayName` writes the profile name and reads it back before the UI reports success. Profile drafts are persisted on blur/submit and best-effort on screen leave; user-owned profile values remain outside the content importer. The profile screen no longer lists raw import batches.
 - `src/services/mathText.ts` is a pure, display-only notation parser. `MathText` wraps the rendered question/options and supplies speech-friendly accessibility labels. The canonical database/pack strings are unchanged, and unsupported/ambiguous patterns are preserved as raw text.
 - Schema migrations 4 and 5 add `exam_rules.total_marks` and `practice_sessions.rule_total_marks` for official component-total facts and immutable session snapshots. `totalMarks` is distinct from per-question scoring values.
 - Scoring is guarded by `hasCompleteScoringRule`: correct, incorrect and unanswered components must all be present before a numerical score or maximum is produced. `null` is never coerced to zero. An exact paper needs its own count and duration to start a format-specific session. Only global all-catalogue practice uses the generic 100/60 defaults; an unavailable exact paper may be used only via explicitly selected, unscored Custom Practice.
-- The 57 verified-source JU/HSTU rules now have 8 partial verified facts (3 JU, 5 HSTU) and 49 unconfigured rules. The 99 separate JU-U/HSTU-U candidate rules remain unconfigured. See `docs/EXAM_RULE_RESEARCH.md`.
+- The verified-source JU/HSTU rules now have 52 logical rules: 8 partial verified facts (3 JU, 5 HSTU) and 44 unconfigured rules after five duplicate HSTU alias rules were removed on 2026-11-16. The 99 separate JU-U/HSTU-U candidate rules remain unconfigured. See `docs/EXAM_RULE_RESEARCH.md`.
 
 # Architecture
+
+## Bundled Library publication flow — RU-V / ASPECT — 2026-11-17
+
+Library publications that ship with the app use the existing `LibraryPack` contract and the offline SQLite seed. The RU-V pack source is `data/library-packs/ruv-aspect-library-pack.json`; its 20 figures are stored in the shared `data/question-packs/assets/ruv-aspect/` tree and referenced by the generated static asset registry. `scripts/build-content.mjs` validates Library packs separately from university packs, includes them in the bundled manifest and calls `buildSeedDatabase`; the seed builder installs the book with `installLibraryPack` and records its `lib-<bookId>` batch signature. At startup, `syncFromSeed` copies question/source/options and the associated publisher, book, units and memberships into the app's local SQLite database.
+
+For a Library manifest entry, `seedSync` checks the local and bundled `content_version` before writing any content rows. If the user already has a newer installed edition, it preserves that book and its question/option/unit content, checkpoints the older bundled signature and reports the entry unchanged. The unit tree and membership are replaced only when the bundled edition is current or newer. This keeps the bundled first-install path and later publisher-installed editions compatible without a parallel runtime content system.
+
+RU-V is one ASPECT collection publication with 26 units representing its 17 printed source sets. Its answer keys remain unverified source markers; the 31 explicitly ambiguous records and 11 duplicate-option holdbacks are not forced into provisional scoring. Details and content caveats: `docs/RUV_ASPECT_IMPORT.md`.
+
+
+## RU content-retirement boundary — implemented under ADR-035 / ADR-037 — 2026-11-17
+
+The two RU datasets are externalized separately and absent from the active app seed:
+
+- ru-c-*.json: Lokkho, 44 packs / 4,009 unverified questions / 45 PNG assets / 46 references; external archive /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/.
+- ru-vq-*.json: RU-V, 15 packs / 1,828 verified questions / 17 printed sets / 20 source-figure crops; external archive /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/.
+
+Migration v11 adds nullable retired_at tombstones to exam_papers and question_batches. Existing RU/RU-V rows are marked retired; active catalogue, paper browsing, eligible/provisional pools, review counts, exam patterns and batch lists exclude retired content. Historical by-ID question loading, source/provenance resolution, bookmarks, saved answer arrays, active/completed sessions and immutable result/rule snapshots remain available. Seed-sync upserts do not write retired_at, so repeated sync does not reactivate existing retired rows.
+
+Both external archives pass their dedicated verifier and SHA-256 checks (Lokkho 90/90; RU-V 36/36). The active university catalogue contains 158 non-RU packs / 7,772 questions. Separately, one RU-V LibraryPack is bundled under ASPECT (26 units / 1,828 questions / 20 figures); it does not recreate RU/RU-V university papers or batches. `assets/universities/ru.svg` is retained. Lokkho remains unverified and outside ASPECT.
 
 ## Current implementation
 Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and NativeWind. It borrows selected UI primitives and design tokens from the separate ScholarHub mobile client, but has its own branding, app identifiers, localization keys and Git history.
 
 ## RU source-bank separation (2026-10-29)
 
-The catalogue distinguishes source collections using separate database institution IDs, not a shared RU display alias. `ru` (`RU`) is the original 4,009-question candidate bank and its visible name begins `UNVERIFIED —`; `ru-verified-bank` (`RU-V`) is the separate 1,828-question bank rebuilt from the user-designated verified PDF. Imported packs carry source-document SHA-256 and source page/question-number provenance. Every RU-V item is marked verified: 1,800 single-choice questions are eligible for the existing practice engine, 22 source `X` records are represented as `no_correct_option`, and 6 complete multi-letter keys are represented as `multiple_choice`. No RU-specific exam pattern is inferred. All packs still sync through the same transactional, idempotent importer.
+Historically, the catalogue has distinguished RU source collections using separate institution IDs: `ru` (`RU`) for the 4,009-question unverified Lokkho candidate bank and `ru-verified-bank` (`RU-V`) for the separate 1,828-question verified-source bank. RU-V has 1,800 ordinary single-answer questions, 22 `no_correct_option` records and 6 multiple-answer questions, with source PDF/page provenance. Under ADR-035 both pack families are now scheduled for separate external archives and removal from active app content; the institutional identities and historical rows must remain readable as needed for user history. No other university content is included in this removal.
+
+## App-wide question types and visual content — ADR-033 (2026-11-17)
+
+Question behavior and visual rendering are shared application capabilities, independent of content origin. University/paper packs, all active bundled sources, Publications & Books LibraryPacks and future imports use the same type-aware question UI and practice/exam engine.
+
+Phase B now implements the shared multi-select contract: radio semantics for single-choice, checkbox/toggle semantics for multiple-choice, explicit Flash submission, multi-key Standard Exam/Custom Practice selection, array persistence/resume, exact-set evaluation and matched/missing/extra review. Eligibility checks correct-option cardinality (single = exactly one; multiple = at least two), keeping no-correct-option records out of scored pools. The implementation is committed as `c5ca075`; see the Phase 12 record.
+
+Phase C is implemented and committed as `fe86f53`: shared bitmap figures render in stems/options/explanations, asset paths are validated, the static Metro registry is generated from the shared asset tree, and SQLite migration v10 adds option and explanation asset paths. RU-V now exercises the real LibraryPack/seed asset path with 20 figures; the 20/20 asset check and Android Metro no-bytecode export pass. Structured MathBlock support is recorded in the Phase C implementation note. Physical-device visual QA remains outstanding.
 
 ## JU and HSTU content import (2026-11-01)
 
-The existing schema-v1 pack contract and transactional importer were reused without runtime changes. Fifty JU packs / 1,526 questions and seven HSTU packs / 293 questions are added as separate institutions (`ju` / `JU` and `hstu` / `HSTU`). All imported question content is marked verified as supplied; per-question answer states are retained and the normal eligible pool continues to require a verified single-choice answer. A source ID shared by 24 JU batch files was made batch-unique and all local references were rewritten. The initial 57-paper import had all rules unconfigured. The 2026-11-05 official-source follow-up verified only partial facts for 3 JU and 5 HSTU 2024–2025 papers; 49 remain unconfigured. Missing scoring/time/count values are not filled with defaults. The HSTU question collection remains historically partial.
+The existing schema-v1 pack contract and transactional importer were reused without runtime changes. Fifty JU packs / 1,526 questions and seven HSTU packs / 293 questions are added as separate institutions (`ju` / `JU` and `hstu` / `HSTU`). All imported question content is marked verified as supplied; per-question answer states are retained, and current eligible-pool rules require verified content/answers plus the correct-option cardinality appropriate to each question type (see ADR-034). A source ID shared by 24 JU batch files was made batch-unique and all local references were rewritten. The initial 57-paper import had all rules unconfigured. The 2026-11-05 official-source follow-up verified partial facts for 3 JU and 5 HSTU 2024–2025 papers; 49 other rules were then unconfigured, and five duplicate HSTU aliases were later removed on 2026-11-16 (44 remain unconfigured). Missing scoring/time/count values are not filled with defaults. The HSTU question collection remains historically partial. The 2026-11-16 catalogue follow-up consolidates five duplicate 2024–25 HSTU paper IDs under the existing canonical records (17 logical papers / 950 questions / 939 ready). Database migration v9 updates existing installs; scoped replaceExistingPaperIds support is shared by the validator, importer, seed builder and content build checker to preserve canonical appearances during re-import.
 
 ## JU-U and HSTU-U candidate-bank separation (2026-11-01)
 
@@ -61,7 +99,7 @@ Scope (category / institution / paper) travels in query params and is parsed def
 ## Local database
 Schema and migrations live in src/db/schema.ts (versioned via PRAGMA user_version; a failed migration rolls back and a newer-than-app database is refused). The SqlDb adapter serializes transactions because expo-sqlite shares one connection: statements outside a transaction wait for it, nested transactions are rejected. Questions are separate from paper appearances so one question keeps several verified references. User data (profile, bookmarks, sessions, answers) is keyed by question id and never touched by content re-imports.
 
-Eligible practice pool = answer_status verified, single choice, at least 2 options, at least one correct option.
+Eligible practice pool = verified content and answer status, at least 2 options, and correct-option cardinality matching the question type (single_choice: exactly 1; multiple_choice: at least 2).
 
 ## Subject ordering and active exam selections
 
@@ -128,3 +166,7 @@ Static SVGs are compiled to react-native-svg components by react-native-svg-tran
 ## Optional content management (Phase 9)
 
 contentManager.ts layers manifest validation, planning and integrity-verified install over installLibraryPack. ContentSource and Sha256Hex are injected; with no source configured nothing changes for any core journey.
+
+## Question text rendering (Phase C)
+`MathText` -> `parseMathLayout` (pure, `src/services/mathLayout.ts`) -> `MathBlock` (View/Text) when structure exists, else the Unicode sup/sub path (`mathText.ts`). Figures: `QuestionFigures` + generated `questionAssets.ts` index over `data/question-packs/assets/**` (stem, option and explanation assets). Stored text is never modified.
+
