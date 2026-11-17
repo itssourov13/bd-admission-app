@@ -8,7 +8,7 @@
 - **Full verification:** `pnpm test` 301/301; typecheck; lint; content check (159 / 9,600); question-assets check (20/20); owner-attestation check; pack validation (0 errors / 5,085 warnings); Expo config assertion; `git diff --check` all pass on Node 22.23.1.
 - **Test expectation reconciliation:** the full-suite reruns exposed eight stale expected values across three test files. They included two JU questions whose correct option duplicates another option's text; the existing runtime eligibility guard correctly excludes both. Current verified eligible counts are 2,510 university-wide, JU 1,396, HSTU 939. The ASPECT upgrade expectation now correctly checks 2 remaining held/unverified records rather than 1,828. Only test expectations changed; app/runtime query logic did not.
 - **PDF page 56 Q12:** original source page reviewed. Option C prints `+2/7 k̂`, while the printed working derives `−2/7 k̂`; keep the key withheld. The two held questions remain unverified/unscored.
-- **Cloud build is intentionally on hold:** do not start EAS `preview` until the owner explicitly says to submit. No v0.1.9 APK/build ID exists. No physical-device QA has been performed for this candidate.
+- **EAS preview submitted:** build `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`** (worker has not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK/artifact or physical-device QA is available yet.
 - Follow-up changes: tests, `brand.config.json`, `app.config.js` and documentation only. No runtime app code, content pack, seed, asset, dependency, credential, EAS submission or push.
 
 ---

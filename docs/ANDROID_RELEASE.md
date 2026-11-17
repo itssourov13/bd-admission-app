@@ -1,9 +1,9 @@
 # Android build and release guide
 
-## Next preview candidate — 2026-11-18 (v0.1.9; prepared, not submitted)
+## Current preview build — 2026-11-18 (v0.1.9; submitted, queued)
 
 - Release metadata: Expo app/brand version **0.1.9**, Android **versionCode 9**; application ID `com.admissionbd.app`; target EAS `preview` / `INTERNAL` APK. Resolved Expo config was checked and reports exactly these values and the existing EAS project ID.
-- **EAS build has deliberately not been started or submitted.** The owner asked to pause before cloud build and will explicitly authorize it in a later instruction. No v0.1.9 APK/build ID or artifact exists yet.
+- EAS accepted the cloud build submission. Build ID `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`**; the worker has not started and no APK artifact exists yet. [Open EAS build page / live status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
 - Automated gates on Node 22.23.1: full suite **301/301**, TypeScript, ESLint, content check (159 packs / 9,600 questions), asset check (20/20), ASPECT attestation check, pack validation (0 errors / 5,085 warnings), Expo config validation and `git diff --check` pass.
 - The full-suite reruns exposed eight stale expected values across three test files after the existing correct-option-duplicate eligibility guard excluded two JU questions: total verified-eligible university questions are now 2,510; JU 1,396; HSTU 939; ASPECT v1→v2 leaves 2 held/unverified records. The underlying app/runtime eligibility code was not changed in this release-prep task.
 - No runtime source, question pack, generated seed, asset, dependency or EAS credential changed. Physical-device Library QA and the native APK remain pending.

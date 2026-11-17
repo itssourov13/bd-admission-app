@@ -1,10 +1,10 @@
-## 2026-11-18 — Prepare preview metadata v0.1.9 (EAS build held)
+## 2026-11-18 — Submit preview build v0.1.9 (queued)
 
 - Set the Expo app version to `0.1.9` in `brand.config.json` and Android `versionCode` to `9` in `app.config.js`; resolved Expo config confirms `com.admissionbd.app` and the existing EAS project ID.
 - Updated only test expectations for the existing correct-option-duplicate eligibility guard: university eligible total 2,510; JU 1,396; HSTU 939. The ASPECT v1→v2 upgrade expects 2 remaining held/unverified questions. No runtime eligibility or UI code changed.
 - Full suite: 301/301 pass on Node 22.23.1. TypeScript, lint, content check, asset check, ASPECT attestation, pack validation, Expo config assertion and `git diff --check` pass.
 - Reviewed original PDF page 56 Q12: option C prints `+2/7 k̂` but the working derives `−2/7 k̂`; it remains held/unverified/unscored.
-- EAS cloud build was not started, at the owner's request to pause before submission. Wait for explicit owner instruction. No APK or physical-device QA is claimed.
+- EAS accepted the `preview` submission as build `5cdcf931-9b67-46f2-9038-47bb7e144c40`; status at handoff is `IN_QUEUE` (worker not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK or physical-device QA is claimed.
 
 ---
 

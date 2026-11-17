@@ -4,7 +4,7 @@
 - Full suite: 301/301 pass on Node 22.23.1. TypeScript, ESLint, content/asset checks, ASPECT attestation, pack validation (0 errors / 5,085 warnings), Expo config assertion and diff check also pass.
 - The earlier failures were stale test expectations after the already-implemented duplicate-correct-option guard excluded two JU questions. Current university eligible count: 2,510 total; JU 1,396; HSTU 939. The test updates do not change app/runtime logic.
 - Original PDF page 56, Q12 was reviewed: option C shows `+2/7 k̂`, but the working derives `−2/7 k̂`; retain as one of the two held/unverified questions.
-- **No v0.1.9 EAS build has been submitted or started.** Wait for the owner's explicit instruction before cloud build. No new APK, physical-device QA or push is claimed.
+- EAS accepted the v0.1.9 preview submission; build `5cdcf931-9b67-46f2-9038-47bb7e144c40` is currently **`IN_QUEUE`** (worker has not started). [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40). No APK/artifact, physical-device QA or push is claimed.
 
 ---
 
