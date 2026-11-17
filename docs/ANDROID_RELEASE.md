@@ -2,7 +2,8 @@
 
 ## Latest preview candidate — 2026-11-17 (v0.1.7)
 
-- Release metadata: app/package/brand version **0.1.7**, Android **versionCode 8**. EAS `preview` / `INTERNAL` APK submission is the current release target; build ID/artifact URL will be recorded in the handoff after submission. No device QA or Play Store release is claimed.
+- Release metadata: app/package/brand version **0.1.7**, Android **versionCode 8**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK.
+- EAS accepted build submission `f1584fb8-0be9-4398-a314-d0fc21507603`; [open build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603). Project archive upload completed (24.1 MB / 41 seconds). EAS completion status and APK artifact are not yet checked; no device QA or Play Store release is claimed. The existing EAS-managed Android keystore was selected.
 
 ## Previous preview — v0.1.6 (2026-11-13)
 
@@ -42,7 +43,7 @@ Last updated: 2026-11-17
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current preview candidate: 0.1.7 / Android versionCode 8 (EAS internal APK submission underway; see the latest candidate section above). The previous owner-verified preview is 0.1.6 / code 7. v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
+- Current preview candidate: 0.1.7 / Android versionCode 8 (EAS internal APK submission accepted; build result pending, see the latest candidate section above). The previous owner-verified preview is 0.1.6 / code 7. v0.1.3 / code 4 is superseded after owner-reported first question-library import failure. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 

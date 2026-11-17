@@ -3,7 +3,7 @@
 | Check | Result | Evidence |
 |---|---|---|
 | Release metadata | [x] Pass | App version `0.1.7`; Android `versionCode 8`; package ID and EAS project unchanged. |
-| EAS internal APK | [ ] Pending | Submission will be recorded in `docs/HANDOFF.md`; this is a cloud build, not device QA. |
+| EAS internal APK submission | [x] Submitted | Build `f1584fb8-0be9-4398-a314-d0fc21507603` accepted by EAS; [build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603). Build completion and APK artifact not yet checked. |
 | Physical-device install / Library visual QA | [ ] Pending | Install the resulting APK and verify Library discovery, ASPECT book/unit navigation and source/figure rendering. |
 
 ---

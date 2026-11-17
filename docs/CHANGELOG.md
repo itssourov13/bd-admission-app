@@ -1,7 +1,7 @@
 ## 2026-11-17 — Prepare Android preview v0.1.7
 
 - Bumped app version to `0.1.7` and Android `versionCode` to `8`; package ID, EAS project and Android signing identity remain unchanged.
-- Preparing an EAS `preview` / internal APK containing the current bundled seed (159 entries / 9,600 questions), RU-V ASPECT Library publication and seed-sync newer-edition protection.
+- Submitted EAS `preview` / internal APK build `f1584fb8-0be9-4398-a314-d0fc21507603` ([build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603)); the 24.1 MB project archive uploaded successfully. The build contains the current bundled seed (159 entries / 9,600 questions), RU-V ASPECT Library publication and seed-sync newer-edition protection.
 - Physical-device installation and Library visual QA remain pending; this is not a Play Store production release.
 
 ## 2026-11-17 — Bundle RU-V as an ASPECT Library publication; protect newer installed editions
