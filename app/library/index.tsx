@@ -1,15 +1,30 @@
-import { FlatList, Pressable, View } from "react-native";
+import { useMemo, useState } from "react";
+import { FlatList, Pressable, ScrollView, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Card, Chip, PublisherMark, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
+import { TextField } from "@/components/common/TextField";
+import { BookCard } from "@/components/library/BookCard";
 import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
-import { localizedName } from "@/features/library/model";
+import { filterBooks, isFilterActive, listCollections, localizedName, type BookFilter } from "@/features/library/model";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
-import { listPublishers } from "@/repositories/library";
+import { listAllBooks, listPublishers } from "@/repositories/library";
+import type { BookSummary, PublisherSummary } from "@/types/domain";
+
+type Row = { kind: "publisher"; p: PublisherSummary } | { kind: "book"; b: BookSummary };
+
+/** Tappable filter chip (selected state is announced, 44dp-friendly padding). */
+function FilterChip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  return (
+    <Pressable accessibilityRole="button" accessibilityState={{ selected }} accessibilityLabel={label} onPress={onPress} hitSlop={6}>
+      <Chip label={label} tone={selected ? "brand" : "neutral"} />
+    </Pressable>
+  );
+}
 
 /** Publications library entry point: publishers with real (possibly zero) content counts. */
 export default function LibraryScreen() {
@@ -18,20 +33,51 @@ export default function LibraryScreen() {
   const num = useNum();
   const { lang } = useLang();
   const router = useRouter();
-  const q = useQuery((db) => listPublishers(db));
+  const q = useQuery(async (db) => ({ publishers: await listPublishers(db), books: await listAllBooks(db) }));
+  const [filter, setFilter] = useState<BookFilter>({});
+  const books = q.data?.books;
+  const collections = useMemo(() => listCollections(books ?? []), [books]);
+  const categories = useMemo(() => [...new Set((books ?? []).map((b) => b.targetCategory))], [books]);
+  const filtering = isFilterActive(filter);
+  const rows = useMemo<Row[]>(() => filtering
+    ? filterBooks(books ?? [], filter).map((b) => ({ kind: "book" as const, b }))
+    : (q.data?.publishers ?? []).map((p) => ({ kind: "publisher" as const, p })), [filtering, filter, books, q.data]);
+  const set = (patch: Partial<BookFilter>) => setFilter((f) => ({ ...f, ...patch }));
+  const showBar = (books?.length ?? 0) > 0;
+  const header = (
+    <View className="mb-4 gap-3">
+      <Txt className="text-ink-500 text-sm leading-6">{t("library.subtitle")}</Txt>
+      {showBar ? (
+        <>
+          <TextField value={filter.text ?? ""} onChangeText={(text) => set({ text })} placeholder={t("library.searchPlaceholder")} accessibilityLabel={t("library.searchLabel")} returnKeyType="search" autoCorrect={false} />
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
+            <FilterChip label={t("common.all")} selected={!filtering} onPress={() => setFilter({})} />
+            {categories.map((c) => <FilterChip key={c} label={t(`library.category.${c}` as const)} selected={filter.category === c} onPress={() => set({ category: filter.category === c ? "all" : c })} />)}
+            {collections.map((c) => <FilterChip key={c.name} label={`${c.name} (${num(c.count)})`} selected={filter.collection === c.name} onPress={() => set({ collection: filter.collection === c.name ? "all" : c.name })} />)}
+          </ScrollView>
+          <Txt weight="bold" className="text-ink-900 text-base">{filtering ? t("library.resultsCount", { n: num(rows.length) }) : t("library.publishersHeading")}</Txt>
+        </>
+      ) : null}
+    </View>
+  );
 
   return (
     <Screen edges={["top", "bottom"]}>
       <ScreenHeader title={t("library.title")} />
       {q.loading ? <LoadingView /> : q.error && !q.data ? <ErrorView onRetry={q.reload} /> : (
         <FlatList
-          data={q.data!}
-          keyExtractor={(p) => p.id}
-          contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: q.data!.length === 0 ? 1 : undefined }}
+          data={rows}
+          keyExtractor={(r) => (r.kind === "book" ? `b:${r.b.id}` : `p:${r.p.id}`)}
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: rows.length === 0 ? 1 : undefined }}
           ItemSeparatorComponent={() => <View className="h-3" />}
-          ListHeaderComponent={<Txt className="text-ink-500 text-sm leading-6 mb-4">{t("library.subtitle")}</Txt>}
-          ListEmptyComponent={<EmptyView icon="library-outline" title={t("library.emptyTitle")} body={t("library.emptyBody")} />}
-          renderItem={({ item: p }) => {
+          ListHeaderComponent={header}
+          ListEmptyComponent={filtering
+            ? <EmptyView icon="search-outline" title={t("library.noResultsTitle")} body={t("library.noResultsBody")} actionLabel={t("library.clearFilters")} onAction={() => setFilter({})} />
+            : <EmptyView icon="library-outline" title={t("library.emptyTitle")} body={t("library.emptyBody")} />}
+          renderItem={({ item: row }) => {
+            if (row.kind === "book") return <BookCard book={row.b} showPublisher />;
+            const p = row.p;
             const name = localizedName(p.name, p.nameBn, lang);
             const secondary = lang === "bn" ? p.name : p.nameBn;
             return (

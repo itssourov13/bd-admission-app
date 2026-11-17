@@ -120,6 +120,11 @@ export async function listBooks(db: SqlDb, publisherId: string): Promise<BookSum
   return queryBooks(db, "b.publisher_id = ?", [publisherId]);
 }
 
+/** Every book across publishers (catalogue search/filter); available books sort first. */
+export async function listAllBooks(db: SqlDb): Promise<BookSummary[]> {
+  return queryBooks(db, "1 = 1", []);
+}
+
 export async function getBook(db: SqlDb, id: string): Promise<BookSummary | null> {
   return (await queryBooks(db, "b.id = ?", [id]))[0] ?? null;
 }

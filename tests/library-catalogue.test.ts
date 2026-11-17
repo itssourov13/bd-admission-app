@@ -127,3 +127,26 @@ test("rights metadata: optional, round-trips, is owner-editable, and never block
   // Pack-level rights fields are type-checked.
   assert.equal(validateLibraryPack(pack({ id: "test-p", slug: "test-p", name: "P" }, "test-b", { rightsReviewedOn: "yesterday" })).valid, false);
 });
+
+test("collection discovery and filtering are data-driven and publisher-agnostic", async () => {
+  const { listCollections, isFilterActive } = await import("../src/features/library/model.ts");
+  const { listAllBooks } = await import("../src/repositories/library.ts");
+  const db = openMemoryDb();
+  await migrate(db);
+  // Two different synthetic publishers; one book in a collection, one without, one in a differently-cased collection.
+  await installLibraryPack(db, pack({ id: "test-pub-a", slug: "test-pub-a", name: "Alpha Press" }, "test-book-a", { collection: "Test Section", subject: "Physics" }));
+  await installLibraryPack(db, pack({ id: "test-pub-b", slug: "test-pub-b", name: "Beta Books" }, "test-book-b", { collection: "test section", authors: "Synthetic Author" }));
+  await installLibraryPack(db, pack({ id: "test-pub-b", slug: "test-pub-b", name: "Beta Books" }, "test-book-c"));
+  const all = await listAllBooks(db);
+  assert.equal(all.length, 3);
+  assert.deepEqual(listCollections(all).map((c) => [c.name, c.count]), [["Test Section", 2]]);
+  assert.equal(filterBooks(all, { collection: "TEST SECTION" }).length, 2);
+  assert.deepEqual(filterBooks(all, { collection: "Test Section", text: "synthetic author" }).map((b) => b.id), ["test-book-b"]);
+  assert.equal(filterBooks(all, { collection: "all" }).length, 3);
+  assert.equal(filterBooks(all, { text: "beta" }).length, 2); // publisher name search
+  assert.equal(filterBooks(all, { text: "no-such-thing" }).length, 0);
+  assert.equal(isFilterActive({}), false);
+  assert.equal(isFilterActive({ collection: "all", category: "all", text: "  " }), false);
+  assert.equal(isFilterActive({ text: "x" }), true);
+  assert.equal(isFilterActive({ collection: "Test Section" }), true);
+});

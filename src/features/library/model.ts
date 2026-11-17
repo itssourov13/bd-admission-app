@@ -120,6 +120,24 @@ export interface BookFilter {
   text?: string;
   category?: BookTargetCategory | "all";
   contentType?: BookSummary["contentType"] | "all";
+  /** Exact (case-insensitive) collection/series name, e.g. a Library section; "all" or empty = any. */
+  collection?: string | "all";
+}
+
+export function isFilterActive(f: BookFilter): boolean {
+  return Boolean((f.text ?? "").trim()) || (!!f.category && f.category !== "all") || (!!f.contentType && f.contentType !== "all") || (!!f.collection && f.collection !== "all");
+}
+
+/** Distinct collection names present in the catalogue (data-driven discovery; no publisher-specific entries). */
+export function listCollections(books: Pick<BookSummary, "collection">[]): { name: string; count: number }[] {
+  const m = new Map<string, { name: string; count: number }>();
+  for (const b of books) {
+    const name = b.collection?.trim();
+    if (!name) continue;
+    const k = name.normalize("NFC").toLowerCase();
+    const e = m.get(k); if (e) e.count++; else m.set(k, { name, count: 1 });
+  }
+  return [...m.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
@@ -131,6 +149,7 @@ export function filterBooks<T extends Pick<BookSummary, "title" | "titleBn" | "s
   return books.filter((b) => {
     if (f.category && f.category !== "all" && b.targetCategory !== f.category) return false;
     if (f.contentType && f.contentType !== "all" && b.contentType !== f.contentType) return false;
+    if (f.collection && f.collection !== "all" && (b.collection ?? "").normalize("NFC").trim().toLowerCase() !== f.collection.normalize("NFC").trim().toLowerCase()) return false;
     if (!needle) return true;
     const hay = [b.title, b.titleBn, b.subject, b.collection, b.authors, b.publisherName, b.publisherNameBn, ...Object.values(b.identifiers)]
       .filter((x): x is string => Boolean(x)).join(" ").normalize("NFC").toLowerCase();

@@ -6,7 +6,8 @@ Status legend: Done / Partial / Not started / Awaiting approval.
 - [x] Schema v12 catalogue + rights metadata, validator/importer/repository/UI line display, `updateBookRights`, tests (39 focused tests pass).
 - [x] `permission_pending` made non-blocking (ADR-038).
 - [x] Staging: exclusion review (154 decisions), ASPECT collection / unidentified publisher mapping, deterministic rebuild, hash verify.
-- [~] Library landing, ASPECT section, search/filter UI: **not started** (`filterBooks` unwired). In-app rights editor UI: **not started**.
+- [x] Library landing: search, category + collection chips (data-driven; ASPECT appears only once a book declares collection "ASPECT"), publication cards (`BookCard`), empty/no-results states; `filterBooks` wired. Typecheck, lint and focused tests pass; **no device/visual QA**.
+- [ ] In-app rights editor form, dedicated collection landing page, book-detail contents polish: **not started**.
 - [ ] Visual verification of 1,828 questions, 53 flagged answers, explanation review, figure verification: **not started** (needs page-image review).
 - [ ] Phase 3 import: **awaiting explicit owner approval; not started.**
 
