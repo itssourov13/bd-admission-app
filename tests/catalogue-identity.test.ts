@@ -16,28 +16,6 @@ const hstuPairs = [
   { unit: "b", shift: 2, extra: 2, pending: 0 }
 ] as const;
 
-test("RU 2024-2025 Science packs use C Unit while retaining the PDF's printed A provenance", () => {
-  const cases = [
-    ["ru-vq-2024-2025-a-noset-p001.json", "মহানন্দা"],
-    ["ru-vq-2024-2025-a-noset-p012.json", "পদ্মা"]
-  ] as const;
-
-  for (const [name, setName] of cases) {
-    const pack = readPack(name);
-    assert.equal(pack.papers.length, 1);
-    assert.equal(pack.papers[0].unit, "C Unit");
-    assert.equal(pack.papers[0].title, "RU C Unit — 2024-2025 — Set " + setName);
-    assert.equal(pack.questions.length, 126);
-
-    const source = pack.sourceDocuments.find((item: { id: string }) => item.id === pack.questions[0].source.documentId);
-    assert.ok(source);
-    assert.match(source.title, /RU A Unit/);
-    assert.match(source.notes, /original supplied PDF header prints “Unit A”/);
-    assert.match(source.notes, /official 80-question admission paper/);
-    assert.match(source.notes, /admission\.ru\.ac\.bd\/public\/ht1NcohAKUrVC6t6Rf0OYgHL92EnKMhHqPdz3LfY\.pdf/);
-  }
-});
-
 test("HSTU split verified questions now reference the five canonical 2024-2025 papers", () => {
   const allFiles = readdirSync(fileURLToPath(dataDir)).filter((name) => name.startsWith("hstu-") && name.endsWith(".json"));
   const packs = allFiles.map(readPack);

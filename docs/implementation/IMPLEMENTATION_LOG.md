@@ -14,7 +14,7 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 | 8 Publications & books library | Foundation implemented; real content delivery/LibraryPack installation incomplete |
 | 9 Online + offline content management (optional) | Partially implemented — local contracts only |
 | 10 Backend & CMS foundation (optional) | Deferred — contract documented only |
-| 12 App-wide multi-select, shared visuals and RU pack externalization | Phase B committed; Phase C changes verified but uncommitted; separate RU archive/removal pending |
+| 12 App-wide multi-select, shared visuals and RU pack externalization | Phase B c5ca075, Phase C fe86f53, Phase D committed locally; implementation, automated checks and documentation committed locally |
 
 ## 2026-11-13 — Phase 1
 1. Read audit, STARTUP_UI_AUDIT.md, git state (branch feat/import-hstu-verified-answers-2026-11-12, clean tree). Found 15f7602 already covers most of Phase 1.
@@ -151,4 +151,17 @@ Statuses: Not Started → In Progress → Implemented → Pending Owner Verifica
 2. Added `src/services/mathLayout.ts`, `src/components/common/MathBlock.tsx`, `tests/math-layout.test.ts`; integrated in `MathText`.
 3. Built the RU-V figure inventory (`docs/audits/RU_V_FIGURE_INVENTORY_2026-11-17.md`) and 20 PDF crops.
 4. Checks: see QA_CHECKLIST Phase C. Device QA not run. Details: `docs/implementation/PHASE_C_SHARED_VISUAL_RENDERING.md`.
+
+
+
+## 2026-11-17 — Phase D: RU external archive, active-content retirement and migration verification
+
+1. Re-verified both external archives and source reconciliation before removal: Lokkho 44 packs / 4,009 questions / 45 assets / 46 refs / 90 hashes; RU-V 15 packs / 1,828 questions / 17 printed sets / 20 figures / 36 hashes. All original pack/image copies matched byte-for-byte.
+2. Removed 44 ru-c-*.json, 15 ru-vq-*.json and 45 Lokkho-only PNGs from active app source. Kept RU branding SVG, all non-RU packs, external PDF, ruv-work and both archives.
+3. Regenerated manifest, SQLite seed and asset registry: 158 packs / 7,772 questions / 31,088 options; 2,512 eligible questions; 5 active institutions / 168 papers; no RU batch/question or Lokkho asset references.
+4. Added schema v11 tombstone migration for RU/RU-V papers and batches; active catalogue/practice filters exclude retired rows while existing questions, sources, appearances, bookmarks, saved answers, active/completed sessions and results remain readable. Repeated seed-sync/re-delivery tests verify retirement stamps remain set.
+5. Added synthetic importer regression coverage to replace reusable behavior from retired-source tests, plus migration/fresh-install tests. Mutation testing confirmed the retired-paper guards are exercised by the new tests.
+6. Verification on Node 22.23.1: 282/282 tests; typecheck; lint; content build/check; asset index/check; pack validation (0 errors, 5,085 warnings); archive verifiers and SHA-256 checks; Android no-bytecode Metro export (~4 MB JS); diff check — passed.
+7. Physical device/emulator, TalkBack, dark-theme and narrow-width visual QA were not performed. No APK was built/installed for this content/schema change.
+8. Current evidence and follow-up: docs/CURRENT_STATE.md, docs/QA_CHECKLIST.md, ADR-037, and docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
 

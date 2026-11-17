@@ -6,13 +6,16 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
-## Current RU pack ownership and archive decision — 2026-11-17
+## Current RU pack ownership and archive status — 2026-11-17
 
-The app repository currently contains two separate RU question-pack families: 44 `ru-c-*.json` Lokkho candidate packs (4,009 answer-unverified questions) and 15 `ru-vq-*.json` RU-V verified packs (1,828 verified questions representing 17 printed test sets). The owner has decided that **all 59 RU question-pack files and RU-only question assets must be moved outside this app project and removed from active app content**. Keep the datasets separate: the existing external Lokkho archive remains at `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; create a separate verified archive at `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`.
+The ADR-035 decision is implemented. Both RU datasets are retained as separate external archives and removed from active app source and bundle:
 
-Lokkho and RU-V must never be merged. Lokkho remains unverified and must not be imported into ASPECT. The owner will handle Library import later; only the 17 RU-V sets are intended for a future owner-led import under Publications & Books → ASPECT. Do not create/install a LibraryPack now, do not migrate JU/HSTU/DU or other universities into ASPECT, and do not move non-RU packs out of the app.
+- Lokkho: 44 packs / 4,009 answer-unverified questions / 45 PNG assets / 46 references at /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/.
+- RU-V: 15 packs / 1,828 verified questions / 17 printed source sets / 20 source-figure crops at /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/.
 
-At this checkpoint the move/removal has **not** happened: both RU families, the 45 Lokkho images, the bundled manifest entries and the seed rows are still active in the app. Lokkho's external archive verifies; the RU-V external pack archive does not yet exist. Full inventory, current Phase C state and the continuation task are recorded in `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. This owner decision supersedes the earlier RU-to-ASPECT implementation timing in ADR-032; see ADR-035.
+Both archive verifiers pass; all 90 Lokkho and 36 RU-V SHA-256 entries match. The app no longer bundles RU packs or Lokkho question images. Schema v11 retires those rows on existing installations without deleting historical questions, sources, bookmarks, answers, sessions or results. Current generated content contains 158 non-RU packs / 7,772 questions. The assets/universities/ru.svg university branding asset remains.
+
+Lokkho remains unverified and must never be merged with RU-V or imported into ASPECT. The owner will handle a later Library import of only RU-V's 17 sets under Publications & Books → ASPECT. No LibraryPack was created in this task; JU/HSTU/DU and all other non-RU content remain active. See ADR-035, ADR-037 and the completed archive/removal report.
 
 ## Current university-bank state — 2026-11-16
 
@@ -56,4 +59,4 @@ Question diagrams/images and structured mathematics must use a shared renderer a
 
 The original 2026-11-17 source audit reconciled 15 RU-V JSON batches / 1,828 questions to 17 printed source sets, identified 22 no-correct-option and six multiple-answer records, and found the source PDF prints Unit A on the 2024–25 মহানন্দা and পদ্মা pages. The audit remains useful as source evidence.
 
-The current execution decision is different: all RU pack files are to be externalized in two separate archives and removed from this app. The Lokkho archive already exists and verifies; the RU-V archive is not yet created. The owner will do the future import of only the 17 RU-V sets into ASPECT. No LibraryPack is to be created now, Lokkho never enters ASPECT, and other universities' packs remain in the app. See ADR-035 and `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+The execution decision is now complete: both RU datasets were separately archived and removed from active app content; existing installations retire them through schema v11. The external source audit remains useful provenance, but no RU pack is active in the generated catalogue. The owner will handle a future import of only the 17 RU-V sets into ASPECT. No LibraryPack was created, Lokkho never enters ASPECT, and other universities' packs remain active. See ADR-035 and `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.

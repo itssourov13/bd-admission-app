@@ -1,21 +1,25 @@
-## Phase C status (2026-11-17)
-Phase C is implemented and committed locally: shared asset pipeline (+CI check), `mathLayout`/`MathBlock` structured math, RU-V figure inventory (20 questions, crops in `bd-admission-app-data/ru/verified-pack-archive/figures/`). 276/276 tests, typecheck, lint, content/asset/pack checks and Metro export passed. Not done: device visual QA. Next: RU-V archive, Lokkho re-verify, schema-v11 retirement migration, RU removal (Phase D).
-
 # Current state
 
-## Current checkpoint — Phase C working tree and RU pack archival plan — 2026-11-17
+## Current implementation checkpoint — Phase C and Phase D — 2026-11-17
 
-- Branch: `feat/import-hstu-verified-answers-2026-11-12`; HEAD: `c5ca075` (Phase B multi-select commit).
-- Phase B is committed and its recorded checks passed: TypeScript, lint, 253/253 tests and diff hygiene.
-- Phase C asset/rendering work is present but uncommitted (21 files: 14 modified, 7 new). The latest independent verification passed content build/check, asset check (45 assets / 46 refs), TypeScript, lint, 267/267 tests, diff check and Android no-bytecode Metro export (~4 MB bundle). Physical Android device QA was not performed.
-- Phase C currently provides shared bitmap-image rendering for stems/options/explanations and a generalized offline asset index/validator. Structured math/diagram rendering is not complete; MathText was not changed. Asset index currently includes all 45 Lokkho images. The asset-check script is not yet in CI.
-- Exact current RU inventory: 44 Lokkho candidate packs / 4,009 unverified questions / 45 unique image assets; 15 RU-V verified packs / 1,828 questions / 17 printed source sets. Both families remain in the app repository, generated manifest and SQLite seed.
-- External Lokkho archive is already verified (90/90 SHA-256 entries; 44 packs / 4,009 questions / 45 assets). The separate RU-V archive does not exist yet.
-- Owner's current instruction: move all 59 RU pack files and RU-only pack assets out of this app project into two separate external archives. Lokkho remains unverified; RU-V remains verified. The owner will perform any later Library import. Only RU-V's 17 sets are intended for a future ASPECT import; no LibraryPack or ASPECT migration is part of the current task. Do not move any other university packs.
-- Before app removal, implement a safe schema-v10 upgrade/retirement path: existing content sync is additive, and active university pools depend on question appearances. Retire RU from new catalogue/practice while preserving historical question/source display, bookmarks, answers, sessions and results.
-- Full evidence and next-session instructions: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. Latest owner decision: ADR-035.
+- Repository: /home/kali/gpt-workspace/bd-admission-app.
+- Branch: feat/import-hstu-verified-answers-2026-11-12.
+- Phase C is committed locally as fe86f53: shared offline asset pipeline + CI check, structured MathBlock rendering for fractions, roots, matrices, determinants, piecewise/aligned forms, and the 20-question RU-V source-figure inventory.
+- Phase D is committed locally: the 59 RU packs and 45 Lokkho question images are removed from active app source; schema v11 retires already-imported RU/RU-V records without deleting history; active catalogue and practice queries exclude retired papers/batches.
+- External archives are independently verified:
+  - Lokkho: 44 packs / 4,009 questions / 45 assets / 46 references; 90/90 SHA-256 entries pass.
+  - RU-V: 15 packs / 1,828 questions / 17 printed source sets / 20 figure crops; 36/36 SHA-256 entries pass.
+- Generated active content: 158 non-RU packs / 7,772 questions / 31,088 options; 2,512 verified eligible questions; 5 active institutions / 168 papers. The regenerated seed has no RU batches, questions or Lokkho asset references. assets/universities/ru.svg remains.
+- Verification on Node 22.23.1: 282/282 tests; TypeScript, lint, content build/check, asset check, pack validation (0 errors; 5,085 warnings), Android no-bytecode Metro export (~4 MB JS bundle), and git diff --check passed. Both archive verifiers and both SHA-256 manifests passed.
+- Migration tests cover realistic schema-v10 upgrade, history/user-data preservation, repeated sync, re-delivered RU seed rows, database reopen, a fresh synthetic install and fresh install with the real 158-pack seed.
+- Not performed: physical Android device/emulator QA, dark-theme/narrow-width visual review of MathBlock, TalkBack testing or installation of an APK containing this Phase C/D state. The latest owner-verified APK remains v0.1.6 and predates these changes; a new preview build/install is required for device verification.
+- Final implementation, documentation and diff review are committed locally. No push was performed.
 
-Last updated: 2026-11-17 (Phase C working-tree verification and ADR-035 RU archive/removal decision recorded; v0.1.6 remains the owner-verified preview).
+Detailed evidence:
+- Phase C: docs/implementation/PHASE_C_SHARED_VISUAL_RENDERING.md.
+- Phase D and migration: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
+- Source figures: docs/audits/RU_V_FIGURE_INVENTORY_2026-11-17.md.
+- Decisions: ADR-035, ADR-036 and ADR-037 in docs/DECISIONS.md.
 
 ## Latest implementation and release candidate — 2026-11-13
 

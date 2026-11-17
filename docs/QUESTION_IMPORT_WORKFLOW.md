@@ -1,13 +1,13 @@
-## Current RU pack archive ownership — 2026-11-17 (ADR-035)
+## RU pack archive ownership and active-app status — completed 2026-11-17 (ADR-035 / ADR-037)
 
-All RU question-pack datasets are scheduled to leave the active BD Admission App repository/bundle. Keep their verification states and archives separate:
+Both RU question-pack datasets are archived separately and removed from active app source/bundle:
 
-- RU Lokkho: 44 `ru-c-*.json` packs / 4,009 answer-unverified candidate questions / 45 unique image files. Existing external archive: `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; manifest and all 90 SHA-256 entries currently verify.
-- RU-V: 15 `ru-vq-*.json` packs / 1,828 verified questions representing 17 printed test sets. Separate archive to create: `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/`. Source PDF and RU-V extraction/reconciliation materials are already external.
+- RU Lokkho: 44 pack files / 4,009 answer-unverified questions / 45 unique images / 46 references. Archive: /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/; verifier passes and all 90 SHA-256 entries match.
+- RU-V: 15 pack files / 1,828 verified questions representing 17 printed test sets / 20 source-figure crops. Archive: /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/; verifier passes and all 36 SHA-256 entries match.
 
-The app still contains these packs until the follow-up archival/removal task completes. The owner will perform a later Library import. Only the 17 RU-V sets are a future ASPECT target; do not import Lokkho, do not merge the sources, and do not migrate JU/HSTU/DU or other university packs into ASPECT. Current archival/migration evidence: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+All 59 pack files and 45 Lokkho images matched their archive copies byte-for-byte before removal. The generated active bundle now contains 158 non-RU packs / 7,772 questions. Schema v11 retires RU/RU-V content on existing installations without deleting historical/source or user-owned data. The original PDF and ruv-work workspace remain external.
 
----
+The owner will perform a later Library import. Only RU-V's 17 sets are a future ASPECT target; do not import Lokkho, merge the sources, or migrate JU/HSTU/DU or other university packs into ASPECT. Evidence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.
 
 ## Catalogue identity correction — RU session labels and HSTU paper grouping — 2026-11-16
 

@@ -36,7 +36,7 @@ function loadUnverifiedPacks() {
 test("JU/HSTU unverified packs preserve statuses and are isolated from verified-bank identities", () => {
   const allEntries = loadAllPacks();
   const entries = loadUnverifiedPacks();
-  assert.equal(allEntries.length, 217);
+  assert.equal(allEntries.length, 158);
   assert.equal(entries.length, 99);
 
   const expected = {
@@ -222,11 +222,12 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   const institutions = new Set(allEntries.flatMap(({ pack }) => pack.institutions.map((institution) => institution.id)));
   assert.equal(institutions.has("ju-unverified-bank"), true);
   assert.equal(institutions.has("hstu-unverified-bank"), true);
-  assert.equal(institutions.size, 7);
+  assert.equal(institutions.size, 5);
+  assert.equal(institutions.has("ru") || institutions.has("ru-verified-bank"), false, "RU/RU-V packs are retired from the bundled source (Phase D)");
   assert.equal(entries.some(({ filename }) => filename.startsWith("gst-")), false, "GST_CLUSTER packs must remain excluded");
 });
 
-test("all 217 packs import without replacing verified JU/HSTU data and expose separate provisional pools", async () => {
+test("all 158 packs import without replacing verified JU/HSTU data and expose separate provisional pools", async () => {
   const entries = loadAllPacks();
   const additions = loadUnverifiedPacks();
   const db = await freshDb();
@@ -239,7 +240,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
 
-  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4318, institutions: 7 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2512, institutions: 5 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -253,17 +254,17 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 217,
-    papers: 227,
+    batches: 158,
+    papers: 168,
     rules: 168,
     unconfiguredRules: 158,
-    sources: 286,
-    appearances: 13609,
-    options: 54436,
-    verified: 4358,
-    unverified: 9043,
+    sources: 227,
+    appearances: 7772,
+    options: 31088,
+    verified: 2530,
+    unverified: 5034,
     unknown: 208,
-    unverifiedContent: 9127
+    unverifiedContent: 5118
   });
 
   // Existing verified banks remain unchanged and separate from the new provisional banks.
@@ -328,6 +329,6 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
       assert.equal(report.appearances.skipped, pack.questions.length, filename);
     }
   }
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 13609);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 13609);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 7772);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 7772);
 });

@@ -137,10 +137,10 @@ test("JU and HSTU packs preserve Muse metadata, statuses, and globally unique re
   assert.equal(sourceIds.size, 120);
 });
 
-test("all 217 bundled packs import transactionally, preserve eligibility, and re-import idempotently", async () => {
+test("all 158 bundled packs import transactionally, preserve eligibility, and re-import idempotently", async () => {
   const entries = loadAllPacks();
   const additions = targetPacks();
-  assert.equal(entries.length, 217);
+  assert.equal(entries.length, 158);
   assert.equal(additions.length, 57);
 
   const db = await freshDb();
@@ -151,7 +151,7 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
 
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
-  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4318, institutions: 7 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2512, institutions: 5 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -165,17 +165,17 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 217,
-    papers: 227,
+    batches: 158,
+    papers: 168,
     rules: 168,
     unconfiguredRules: 158,
-    sources: 286,
-    appearances: 13609,
-    options: 54436,
-    verified: 4358,
-    unverified: 9043,
+    sources: 227,
+    appearances: 7772,
+    options: 31088,
+    verified: 2530,
+    unverified: 5034,
     unknown: 208,
-    unverifiedContent: 9127
+    unverifiedContent: 5118
   });
   assert.equal((await countEligible(db, { institutionId: "ju" })), 1398);
   assert.equal((await countEligible(db, { institutionId: "hstu" })), 939);
@@ -246,6 +246,6 @@ test("all 217 bundled packs import transactionally, preserve eligibility, and re
     }
   }
 
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 13609);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 13609);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 7772);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 7772);
 });

@@ -208,7 +208,7 @@ Decision: `ELIGIBLE_SQL` admits a verified question only when its stored correct
 Consequences: no migration risk for existing installs. A future need to display the disposition explicitly can be derived from the same data.
 
 ## ADR-035 — Externalize all RU question packs; defer Library import to owner
-Status: accepted, 2026-11-17. This is the current execution decision and supersedes ADR-032's earlier instruction to implement the ASPECT import in the current task.
+Status: accepted and implemented, 2026-11-17. This is the current execution decision and supersedes ADR-032's earlier instruction to implement the ASPECT import in the current task.
 
 Context: the app currently bundles 44 RU Lokkho candidate packs (4,009 unverified questions) and 15 RU-V verified packs (1,828 questions representing 17 printed source sets). The owner wants the entire RU question-pack section removed from this app project and active bundle now, while retaining both sources for later owner-controlled Library import/review.
 
@@ -242,3 +242,15 @@ Decision: (1) `mathLayout.ts` parses stored text into a tree and never rewrites 
 
 Consequences: no new dependency; matrix layout is not yet device-verified; a figure missed by the stem-keyword scan would not be in the inventory.
 
+
+
+## ADR-037 — Retire RU content with paper/batch tombstones, preserve historical records
+Status: accepted and implemented, 2026-11-17.
+
+Context: bundled content sync is additive. Removing RU JSON from a new seed cannot remove previously installed records, while deleting questions/appearances would break bookmarks, attempts, result review and source provenance.
+
+Decision: schema v11 adds nullable retired_at columns to exam_papers and question_batches, and stamps only RU (ru) / RU-V (ru-verified-bank) paper identities and ru-c-* / ru-vq-* batches. Active catalogue and practice queries explicitly require non-retired paper/batch records. History-oriented question/source/by-ID queries remain able to resolve retained rows. Seed-sync writes do not modify retired_at; repeated sync or a re-delivered source row therefore does not clear retirement. The new bundled seed contains no RU packs.
+
+Consequences: fresh installs contain only active non-RU content; v10 upgrades keep RU source/history rows but exclude them from new catalogue and practice flows. Validation covers v10 migration, bookmarks, active and completed sessions, multi-select saved answers, result/rule snapshots, history resolution, repeated/re-delivered seed sync, database reopen and fresh install. No destructive question/history cascade is used. Device visual QA remains a separate owner verification step.
+
+Evidence: tests/ru-retirement-migration.test.ts, docs/QA_CHECKLIST.md, and docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md.

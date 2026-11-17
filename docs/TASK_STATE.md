@@ -1,22 +1,26 @@
-## Current owner task — finish Phase C, archive all RU packs, remove RU from active app — 2026-11-17
+## Completed owner task — Phase C finalization and RU externalization/removal — 2026-11-17
 
-**Current scope:** finish and document the existing Phase C changes, then externalize all RU question packs and remove RU-only pack content/assets from the active app. Do not continue the Library migration or unrelated roadmap work in this task.
+Result: Phase C and Phase D implementation, automated verification and documentation are complete. Phase D is committed locally. No push.
 
-- [x] Phase A: external Lokkho archive created; re-verified at 44 packs / 4,009 questions / 45 assets / 46 refs; 90/90 SHA-256 entries pass. App copies remain pending removal.
-- [x] Phase B: app-wide multi-select committed as `c5ca075`; 253/253 tests, typecheck and lint passed in its commit checkpoint.
-- [x] Phase C: finalized and committed locally (asset pipeline + CI asset check, structured math layout, RU-V figure inventory). Device QA NOT run.
-- [ ] Create a separate external archive for the 15 RU-V verified packs / 1,828 questions (17 printed sets); include file manifest, sizes, SHA-256 and source PDF hash reference.
-- [ ] Copy-verify both archives against all 59 RU pack files and the 45 Lokkho assets before removing anything from the app.
-- [ ] Remove all 44 `ru-c-*.json` and 15 `ru-vq-*.json` packs, plus RU-only question images, from active app source/bundle; regenerate manifest, seed and asset registry.
-- [ ] Add a safe migration from existing schema v10 installations that retires RU catalogue/practice content while preserving historical questions, source provenance, bookmarks, saved answers, sessions and result review.
-- [ ] Verify fresh installation, schema-v10 upgrade, and that all non-RU university content remains unchanged.
-- [ ] Update all handoff/architecture/import documentation and commit verified archival/removal work locally.
+- [x] Phase A: Lokkho archive verified (44 packs / 4,009 questions / 45 assets / 46 refs; 90/90 SHA-256 entries).
+- [x] Phase B: app-wide multi-select committed as c5ca075; 253/253 tests at its commit checkpoint.
+- [x] Phase C: committed locally as fe86f53; shared asset pipeline + CI check, structured math and RU-V figure inventory; 276/276 tests at its checkpoint. Device QA not performed.
+- [x] Phase D archive: separate RU-V archive created and verified (15 packs / 1,828 questions / 17 printed sets / 20 figure crops; 36/36 SHA-256 entries).
+- [x] Both external archives reconciled against all 59 original app pack files and 45 images byte-for-byte before removal.
+- [x] Removed all 44 ru-c-*.json and 15 ru-vq-*.json packs plus 45 Lokkho-only question images from active app source.
+- [x] Regenerated bundled manifest, SQLite seed and static asset index: 158 non-RU packs / 7,772 questions; zero RU content or Lokkho references; assets/universities/ru.svg retained.
+- [x] Added schema v11 soft-retirement migration and active-content query filtering. Historical questions, sources, bookmarks, answers, sessions and results remain resolvable.
+- [x] Added importer regression fixtures and realistic v10-to-v11/fresh-install tests, including seed re-sync and database reopen.
+- [x] Verified Node 22.23.1 full suite 282/282, TypeScript, lint, content build/check, asset check, pack validation (0 errors), Android no-bytecode export, archive verifiers/SHA-256 and git diff --check.
+- [ ] Physical Android device/emulator QA of the final Phase C/D APK remains for the owner after a new preview build is produced.
 
-**Separate archives:** Lokkho `/home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/`; RU-V `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/` (not created yet).
+Separate archives (preserve independently):
+- Lokkho: /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/
+- RU-V: /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/
 
-**Deferred by owner:** the owner will import RU-V into Library later. Future target is only one ASPECT RU Question Bank with 17 units. Do not create/import a LibraryPack now; do not put Lokkho into ASPECT; do not migrate JU/HSTU/DU or any other university's verified packs; do not remove non-RU content.
+Deferred by owner: later Library import of only RU-V's 17 verified sets into one ASPECT RU Question Bank. No LibraryPack/ASPECT UI/import was created here. Lokkho remains unverified and out of ASPECT. JU/HSTU/DU and other non-RU content remain in the app.
 
-Detailed verified inventory and handoff: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. Governing decision: ADR-035.
+Detailed evidence: docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md. Governing decisions: ADR-035 through ADR-037.
 
 ---
 
@@ -519,6 +523,6 @@ This entry supersedes the earlier same-day 1,799-question and 1,827-question int
 
 Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
-## Phase 12 (2026-11-17) — current checkpoint
+## Historical Phase 12 checkpoint — pre-Phase C/D implementation — 2026-11-17
 
-Phase B multi-select is committed as `c5ca075`. Phase C shared bitmap-asset implementation is verified but uncommitted. All 59 RU pack files remain active in the app and need separate external archives plus schema-v10 retirement. Current task and sequence are authoritative at the top of this file and in `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`. RU-V Library import is deferred to the owner; no ASPECT LibraryPack is to be created in this task.
+This final section records an earlier state before Phase C commit fe86f53 and Phase D. It is historical only. The completed implementation, archive locations, schema-v11 behavior and QA are recorded in the completed owner task at the top of this file and in docs/CURRENT_STATE.md.

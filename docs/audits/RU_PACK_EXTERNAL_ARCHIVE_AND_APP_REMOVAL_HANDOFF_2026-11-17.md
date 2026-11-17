@@ -4,6 +4,19 @@
 **Repository:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
 **HEAD at audit:** `c5ca075` — app-wide multi-select implementation
+Scope: historical pre-implementation audit and handoff. The items described as pending below were subsequently completed; the authoritative completion result is recorded in this update.
+
+## Completion update — 2026-11-17
+
+- Lokkho archive /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/: 44 packs / 4,009 questions / 45 assets / 46 refs; verifier passed; 90/90 SHA-256 entries pass.
+- RU-V archive /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/: 15 packs / 1,828 questions / 17 printed sets / 20 figure crops; verifier passed; 36/36 SHA-256 entries pass.
+- All 59 source pack JSONs and 45 Lokkho images matched their archive copies byte-for-byte before app removal.
+- Removed all 59 RU pack JSONs and 45 Lokkho image assets from active source; retained assets/universities/ru.svg, source PDF, ruv-work, archives and all non-RU packs.
+- Schema v11 retirement and active query filtering preserve existing RU history/bookmarks/answers/sessions/results while excluding RU from new catalogue/practice.
+- Generated content: 158 non-RU packs / 7,772 questions / 31,088 options; 2,512 eligible. No RU batches/questions or Lokkho asset references remain in the bundle.
+- Node 22.23.1 checks: 282/282 tests, typecheck, lint, content/asset/pack validation, Android no-bytecode Metro export, archive verification/SHA-256 and git diff --check passed.
+- Device/emulator QA and a new Phase C/D APK install were not performed. The owner should build/install a new preview for migration and visual QA.
+
 **Scope:** inspect and document only. No question-pack relocation, source-code edit or database migration was performed during this audit.
 
 ## 1. Owner decision (current and authoritative)

@@ -54,8 +54,11 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
       params.push(filter.bookId, filter.unitId, filter.bookId);
     }
   } else {
-    // Default pool = university paper content only; book-only questions stay out of it.
-    where.push("EXISTS (SELECT 1 FROM question_appearances active_a WHERE active_a.question_id = q.id)");
+    // Default pool = university paper content only; book-only questions stay out of it. A retired paper
+    // (exam_papers.retired_at, migration v11 — e.g. RU/RU-V) keeps its appearances for history, but a
+    // question whose ONLY appearances are on retired papers is not active catalogue/practice content.
+    where.push(`EXISTS (SELECT 1 FROM question_appearances active_a JOIN exam_papers active_p ON active_p.id = active_a.paper_id
+      WHERE active_a.question_id = q.id AND active_p.retired_at IS NULL)`);
   }
   if (filter.category) { where.push("q.category = ?"); params.push(filter.category); }
   if (filter.subject) { where.push("q.subject = ?"); params.push(filter.subject); }
@@ -72,7 +75,7 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   const institutionIds = filter.institutionIds?.length ? filter.institutionIds : null;
   const paperIds = filter.paperIds?.length ? filter.paperIds : null;
   if (filter.institutionId || institutionIds || filter.paperId || paperIds) {
-    joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id";
+    joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id AND p.retired_at IS NULL";
     if (filter.institutionId) { where.push("p.institution_id = ?"); params.push(filter.institutionId); }
     if (institutionIds) {
       where.push(`p.institution_id IN (${institutionIds.map(() => "?").join(",")})`);
@@ -133,14 +136,15 @@ export async function contentTotals(db: SqlDb): Promise<{ questions: number; eli
   const active = filterClauses({});
   const q = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE 1 = 1${active.where}`);
   const e = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(*) AS n FROM questions q WHERE ${ELIGIBLE_SQL}${active.where}`);
-  const i = await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM institutions");
+  // Institutions with at least one active (non-retired) paper, not every institution row ever imported.
+  const i = await db.getFirstAsync<{ n: number }>("SELECT COUNT(DISTINCT institution_id) AS n FROM exam_papers WHERE retired_at IS NULL");
   return { questions: Number(q?.n ?? 0), eligible: Number(e?.n ?? 0), institutions: Number(i?.n ?? 0) };
 }
 
 export async function listInstitutions(db: SqlDb, category: QuestionCategory): Promise<InstitutionSummary[]> {
   const rows = await db.getAllAsync<{ id: string; code: string; name: string; paper_count: number }>(
     `SELECT i.id, i.code, i.name, COUNT(DISTINCT p.id) AS paper_count
-     FROM institutions i JOIN exam_papers p ON p.institution_id = i.id AND p.category = ?
+     FROM institutions i JOIN exam_papers p ON p.institution_id = i.id AND p.category = ? AND p.retired_at IS NULL
      GROUP BY i.id ORDER BY i.code`,
     [category]
   );
@@ -148,7 +152,7 @@ export async function listInstitutions(db: SqlDb, category: QuestionCategory): P
   for (const r of rows) {
     const total = await db.getFirstAsync<{ n: number }>(
       `SELECT COUNT(DISTINCT a.question_id) AS n FROM question_appearances a JOIN exam_papers p ON p.id = a.paper_id
-       WHERE p.institution_id = ? AND p.category = ?`,
+       WHERE p.institution_id = ? AND p.category = ? AND p.retired_at IS NULL`,
       [r.id, category]
     );
     const eligible = await countEligible(db, { category, institutionId: r.id });
@@ -176,7 +180,7 @@ export async function listPapersByInstitutions(db: SqlDb, opts: { institutionIds
        (SELECT COUNT(DISTINCT a.question_id) FROM question_appearances a WHERE a.paper_id = p.id) AS qn,
        (SELECT r.verification_status FROM exam_rules r WHERE r.paper_id = p.id ORDER BY r.id LIMIT 1) AS rule_status
      FROM exam_papers p JOIN institutions i ON i.id = p.institution_id
-     WHERE p.institution_id IN (${ph})${categoryClause} ORDER BY p.year DESC, p.unit, p.id`,
+     WHERE p.institution_id IN (${ph})${categoryClause} AND p.retired_at IS NULL ORDER BY p.year DESC, p.unit, p.id`,
     params
   );
   const grouped = async (predicate: string): Promise<Map<string, number>> => {
@@ -207,7 +211,7 @@ interface PaperRow {
 }
 
 export async function listPapers(db: SqlDb, opts: { institutionId?: string; category?: QuestionCategory; paperId?: string }): Promise<PaperSummary[]> {
-  const where: string[] = [];
+  const where: string[] = ["p.retired_at IS NULL"];
   const params: SqlParam[] = [];
   if (opts.institutionId) { where.push("p.institution_id = ?"); params.push(opts.institutionId); }
   if (opts.category) { where.push("p.category = ?"); params.push(opts.category); }
@@ -233,7 +237,7 @@ export async function listPapers(db: SqlDb, opts: { institutionId?: string; cate
   return out;
 }
 
-/** Paper question IDs grouped in canonical subject order, then printed order within each subject. */
+/** Paper question IDs grouped in canonical subject order, then printed order within each subject. A retired paper (migration v11) yields nothing: its appearances remain for history only. */
 export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: number, offset: number, subject?: string, search?: string): Promise<string[]> {
   const params: SqlParam[] = [paperId];
   if (subject) params.push(subject);
@@ -243,6 +247,7 @@ export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: nu
   const rows = await db.getAllAsync<{ question_id: string }>(
     `SELECT a.question_id AS question_id FROM question_appearances a
      JOIN questions q ON q.id = a.question_id
+     JOIN exam_papers rp ON rp.id = a.paper_id AND rp.retired_at IS NULL
      WHERE a.paper_id = ?${subject ? " AND q.subject = ?" : ""}${pattern ? " AND q.text LIKE ? ESCAPE '\\'" : ""}
      ORDER BY
        CASE
@@ -366,7 +371,8 @@ interface RuleRow {
 
 /**
  * Resolves the single rule that applies to a set of questions, limited to the papers selected by `filter`.
- * Mixed or missing rules yield the unconfigured fallback; an illustrative rule stays illustrative.
+ * Mixed or missing rules yield the unconfigured fallback; an illustrative rule stays illustrative. Retired papers (v11) never
+ * contribute a rule: a question shared with a retired paper must not turn an active scope into a "mixed" rule.
  */
 export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], filter: PoolFilter): Promise<ScoringRule> {
   if (questionIds.length === 0) return UNCONFIGURED_RULE;
@@ -389,7 +395,7 @@ export async function resolveRuleForQuestions(db: SqlDb, questionIds: string[], 
       params.push(...filter.institutionIds);
     }
     const rows = await db.getAllAsync<{ paper_id: string }>(
-      `SELECT DISTINCT a.paper_id FROM question_appearances a JOIN exam_papers p ON p.id = a.paper_id WHERE a.question_id IN (${ph})${extra}`, params
+      `SELECT DISTINCT a.paper_id FROM question_appearances a JOIN exam_papers p ON p.id = a.paper_id AND p.retired_at IS NULL WHERE a.question_id IN (${ph})${extra}`, params
     );
     rows.forEach((r) => paperIds.add(r.paper_id));
   }
@@ -414,18 +420,18 @@ export interface BatchSummary {
   questionCount: number;
 }
 
-/** Imported question packs, newest first (used for the profile "content" section). */
+/** Imported question packs, newest first (used for the profile "content" section). Retired packs (e.g. RU) are excluded. */
 export async function listBatches(db: SqlDb): Promise<BatchSummary[]> {
   const rows = await db.getAllAsync<{ id: string; category: QuestionCategory; description: string | null; imported_at: number; n: number }>(
     `SELECT b.id, b.category, b.description, b.imported_at, (SELECT COUNT(*) FROM questions q WHERE q.batch_id = b.id) AS n
-     FROM question_batches b ORDER BY b.imported_at DESC, b.id`
+     FROM question_batches b WHERE b.retired_at IS NULL ORDER BY b.imported_at DESC, b.id`
   );
   return rows.map((r) => ({ id: r.id, category: r.category, description: r.description, importedAt: Number(r.imported_at), questionCount: Number(r.n) }));
 }
 
-/** Distinct categories that currently have at least one paper (drives data-driven category screens). */
+/** Distinct categories that currently have at least one active (non-retired) paper (drives data-driven category screens). */
 export async function categoriesWithContent(db: SqlDb): Promise<QuestionCategory[]> {
-  const rows = await db.getAllAsync<{ category: QuestionCategory }>("SELECT DISTINCT category FROM exam_papers");
+  const rows = await db.getAllAsync<{ category: QuestionCategory }>("SELECT DISTINCT category FROM exam_papers WHERE retired_at IS NULL");
   return rows.map((r) => r.category);
 }
 
@@ -452,7 +458,8 @@ export interface ExamPatternChoice extends ExamPatternOption {
 
 /**
  * The exam patterns a university (one or more stored institutions) can run: only papers with a complete stored
- * pattern count (see groupExamPatterns). Nothing is inferred for papers without a rule.
+ * pattern count (see groupExamPatterns). Nothing is inferred for papers without a rule. Retired papers (e.g. RU/RU-V)
+ * are excluded so they cannot surface as a runnable Standard Exam pattern.
  */
 export async function listExamPatterns(db: SqlDb, institutionIds: string[], includeUnverified = false): Promise<ExamPatternChoice[]> {
   if (institutionIds.length === 0) return [];
@@ -460,7 +467,7 @@ export async function listExamPatterns(db: SqlDb, institutionIds: string[], incl
     `SELECT p.id AS id, p.academic_session, p.unit, r.paper_id, r.correct_marks, r.incorrect_penalty, r.unanswered_marks,
             r.duration_seconds, r.total_questions, r.total_marks, r.verification_status, r.selection_config
      FROM exam_papers p LEFT JOIN exam_rules r ON r.id = (SELECT x.id FROM exam_rules x WHERE x.paper_id = p.id ORDER BY x.id LIMIT 1)
-     WHERE p.institution_id IN (${institutionIds.map(() => "?").join(",")}) ORDER BY p.id`,
+     WHERE p.institution_id IN (${institutionIds.map(() => "?").join(",")}) AND p.retired_at IS NULL ORDER BY p.id`,
     institutionIds
   );
   const papers: PatternPaper[] = rows.map((r) => ({

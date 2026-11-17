@@ -1,5 +1,7 @@
 # Bundled question packs
 
+Current active inventory: 158 non-RU JSON packs / 7,772 questions. RU Lokkho and RU-V are not in this directory; their separate external archives and retired status are documented in docs/QUESTION_IMPORT_WORKFLOW.md and docs/DECISIONS.md (ADR-035/ADR-037). The historical RU C section below is provenance only, not a list of active files.
+
 ## JU-U — unverified Jahangirnagar University candidates (2026-11-01)
 
 - `ju-unverified-*.json` — 84 packs / 5,011 questions, covering represented sessions from 2010–2011 through 2024–2025.
@@ -48,7 +50,7 @@
 
 The supplied publisher scans and printed answer-key states are preserved. Three questions without a printed answer letter remain unknown; two additional content-unverified questions are not scored. The publisher-scan exam pattern remains illustrative because it differs from the official DU 2025–2026 notice.
 
-## RU C Unit Science — third-party candidates for browse/review
+## Historical RU C Unit Science — third-party candidate archive (not bundled)
 
 - `ru-c-*.json` — 44 packs, 4,009 candidate questions from academic sessions 2010–2011 through 2025–2026.
 - `assets/lokkho/*.png` — 45 normalized local images referenced by 46 question asset paths.
@@ -58,7 +60,7 @@ The supplied publisher scans and printed answer-key states are preserved. Three 
 
 The verified-only pool requires verified content and answer keys, so this batch contributes **zero verified-eligible questions**. A separate provisional mode enables practice from **3,991 structurally safe candidate questions** where no verified pool is available; 18 items with duplicate normalized option text are withheld from provisional scoring. Feedback is based on the third-party source key, may be wrong, and is never described as verified/official. All 4,009 records keep their `unverified` statuses. No historical exam count, duration, subject-selection rule or marking rule has been inferred; RU exam rules are not configured.
 
-Use the validator and regenerate the generated assets after changing packs:
+For any new active pack, use the validator and regenerate the generated assets:
 
     pnpm packs:validate data/question-packs/<file>.json
     pnpm question-assets:index   # only when local question-image references/assets change

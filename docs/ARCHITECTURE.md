@@ -8,15 +8,16 @@
 
 # Architecture
 
-## Current RU content-retirement boundary — ADR-035 — 2026-11-17
+## RU content-retirement boundary — implemented under ADR-035 / ADR-037 — 2026-11-17
 
-RU question-pack content is being externalized as two independent datasets: `ru-c-*.json` is the Lokkho unverified candidate bank; `ru-vq-*.json` is the RU-V verified-source bank. Both are to be removed from active bundled app content, but their external archives must remain separate. Do not delete the general RU university logo/branding or unrelated RU code.
+The two RU datasets are externalized separately and absent from the active app seed:
 
-The current seed-sync path is additive and existing university question pools depend on `question_appearances`. A pack disappearing from the next generated seed does not, by itself, retire rows already installed on a device. The retirement migration must remove RU from new browse/practice/catalogue scopes while preserving historical question/source references, bookmarks, session answers, active/completed sessions and result review. Inspect all foreign keys and historical display paths before selecting the retirement representation; do not cascade-delete question/history rows.
+- ru-c-*.json: Lokkho, 44 packs / 4,009 unverified questions / 45 PNG assets / 46 references; external archive /home/kali/gpt-workspace/bd-admission-app-data/ru/lokkho-archive/.
+- ru-vq-*.json: RU-V, 15 packs / 1,828 verified questions / 17 printed sets / 20 source-figure crops; external archive /home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/.
 
-The app will not create/import a RU-V LibraryPack in this task. The owner will handle the future import of only the 17 RU-V source sets under ASPECT. Lokkho remains unverified and outside ASPECT. Other university packs, including JU/HSTU/DU, stay in the app.
+Migration v11 adds nullable retired_at tombstones to exam_papers and question_batches. Existing RU/RU-V rows are marked retired; active catalogue, paper browsing, eligible/provisional pools, review counts, exam patterns and batch lists exclude retired content. Historical by-ID question loading, source/provenance resolution, bookmarks, saved answer arrays, active/completed sessions and immutable result/rule snapshots remain available. Seed-sync upserts do not write retired_at, so repeated sync does not reactivate existing retired rows.
 
-Detailed inventory and migration handoff: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+Both external archives pass their dedicated verifier and SHA-256 checks (Lokkho 90/90; RU-V 36/36). Active generated content is 158 non-RU packs / 7,772 questions. assets/universities/ru.svg is retained. No RU LibraryPack was created; the owner will later handle only the 17 RU-V sets under ASPECT. Lokkho remains unverified and outside ASPECT.
 
 ## Current implementation
 Standalone Expo SDK 57 / React Native app using TypeScript, Expo Router and NativeWind. It borrows selected UI primitives and design tokens from the separate ScholarHub mobile client, but has its own branding, app identifiers, localization keys and Git history.

@@ -1,3 +1,13 @@
+## 2026-11-17 — Phase D: RU content externalized and retired from active app
+
+- Verified separate external archives: Lokkho 44 packs / 4,009 questions / 45 images / 46 references (90/90 SHA-256 entries); RU-V 15 packs / 1,828 questions / 17 printed sets / 20 source-figure crops (36/36 SHA-256 entries).
+- Removed the 59 RU pack JSON files and 45 Lokkho-only images from active app source; retained assets/universities/ru.svg and all non-RU content.
+- Regenerated the bundled manifest, SQLite content seed and shared static asset registry. Current content: 158 packs / 7,772 questions / 31,088 options; 2,512 verified eligible questions; 5 active institutions / 168 papers; no RU pack or Lokkho asset references.
+- Added schema v11 retirement tombstones and active-content filtering. Existing question/source rows and user history remain available; repeated sync cannot clear retirement.
+- Added synthetic importer regressions and realistic v10-to-v11, fresh-install, real-seed upgrade, repeated-sync and history-preservation tests.
+- Final Node 22.23.1 checks: 282/282 tests, typecheck, lint, content build/check, asset check, pack validation (0 errors; 5,085 warnings), archive verification, both SHA-256 manifests, Android no-bytecode Metro export (~4 MB JS) and git diff --check passed.
+- Physical-device/emulator visual QA, TalkBack, dark-theme/narrow-width MathBlock checks and a new APK install were not performed. The v0.1.6 preview predates this change.
+
 ## 2026-11-17 — Phase C: shared asset pipeline finalized, structured math layout, RU-V figure inventory
 
 - Finalized the shared offline asset pipeline (option/explanation assets, migration v10, deterministic index) and added `pnpm question-assets:check` to CI.

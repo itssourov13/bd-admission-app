@@ -1,6 +1,6 @@
 # Phase C — shared asset pipeline, structured math and figure rendering (2026-11-17)
 
-Governing decisions: ADR-033 (app-wide capability), ADR-036 (this phase's technical choices).
+Status: Implemented and committed locally as fe86f53 on 2026-11-17. Governing decisions: ADR-033 (app-wide capability), ADR-036 (this phase's technical choices). Phase D subsequently externalized the 20 RU-V crops with their inventory overlay and retired RU from active app content; see the Phase D audit report.
 
 ## C1 — shared asset pipeline (finalized)
 Existing uncommitted work reviewed and kept: `scripts/build-question-assets.mjs`, `scripts/lib/asset-index.mjs`, `src/services/assetRefs.mjs`, `QuestionFigures`, `figureLayout`, migration v10 (`questions.explanation_asset_paths`, `question_options.asset_paths`), importer/LibraryPack/seed-sync/validator wiring, tests (`tests/asset-pipeline.test.ts`, `scripts/tests/asset-index.test.mjs`).
@@ -21,3 +21,10 @@ See `docs/audits/RU_V_FIGURE_INVENTORY_2026-11-17.md` (20 questions, 20 crops, a
 
 ## C5 — verification (what was actually run)
 See QA_CHECKLIST "Phase C" section. Not run: physical-device or emulator visual QA, TalkBack, dark-theme and narrow-width screenshots of `MathBlock` (no device attached to this session). `MathBlock` layout is therefore unit-tested at the parser level and type/lint/bundle checked only.
+
+
+## Final implementation and verification status
+
+Phase C checks at its commit checkpoint: 276/276 tests, typecheck, lint, content/asset/pack validation and Android no-bytecode Metro export passed on Node 22.23.1. Phase D later removed the only active question-pack image set (the 45 Lokkho assets); the generic asset index now correctly validates an empty active question-asset tree (0 files / 0 refs). The 20 RU-V figure crops remain in the external verified archive as a provenance overlay, not in the app bundle.
+
+Physical-device/emulator visual QA, TalkBack, dark theme and narrow-width visual checks of MathBlock remain unperformed. No device-level visual claim is made.

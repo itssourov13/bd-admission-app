@@ -157,7 +157,7 @@ test("migration v10 upgrades a v9 database: existing rows get NULL asset columns
   db.raw.exec("INSERT INTO question_batches (id, category, description, schema_version, imported_at, updated_at) VALUES ('old-batch', 'varsity', 'old', 1, 0, 0)");
   db.raw.exec("INSERT INTO questions (id, batch_id, category, text, type, answer_status, content_status, asset_paths, content_hash) VALUES ('old-q', 'old-batch', 'varsity', 'Old question', 'single_choice', 'verified', 'verified', '[\"assets/lokkho/old.png\"]', 'h')");
   db.raw.exec("INSERT INTO question_options (question_id, option_key, text, sort_order, is_correct) VALUES ('old-q', 'a', 'A', 1, 1), ('old-q', 'b', 'B', 2, 0)");
-  await migrate(db);
+  await migrate(db, MIGRATIONS.filter((m) => m.version <= 10));
   assert.equal((await db.getFirstAsync<{ user_version: number }>("PRAGMA user_version"))?.user_version, 10);
   const rows = await db.getAllAsync<{ explanation_asset_paths: string | null }>("SELECT explanation_asset_paths FROM questions");
   assert.equal(rows.length, 1);

@@ -431,6 +431,27 @@ WHERE id = 'hstu-import-b-2024-2025-shift-2'
 ALTER TABLE questions ADD COLUMN explanation_asset_paths TEXT;
 ALTER TABLE question_options ADD COLUMN asset_paths TEXT;
 `
+  },
+  {
+    version: 11,
+    name: "retire_ru_lokkho_and_ruv_content",
+    sql: `
+-- Soft retirement (tombstone), not deletion: RU Lokkho ('ru') and RU-V ('ru-verified-bank') question-pack content is
+-- being removed from the app's active source JSON and future bundled seeds (see docs/DECISIONS.md), but any rows an
+-- existing installation already imported must stay in place so bookmarks, attempts, results and source/provenance
+-- views keep resolving. retired_at NULL = active (the default for every other institution/batch, including fresh
+-- installs, which never import this content at all). A non-NULL retired_at marks a paper or batch as excluded from
+-- the active catalogue and practice pools (see ELIGIBLE_SQL / filterClauses in src/repositories/content.ts) while
+-- every question, option, appearance, source_document and user-owned row it is reachable from remains untouched.
+ALTER TABLE exam_papers ADD COLUMN retired_at INTEGER;
+ALTER TABLE question_batches ADD COLUMN retired_at INTEGER;
+
+UPDATE exam_papers SET retired_at = CAST(strftime('%s','now') AS INTEGER) * 1000
+WHERE institution_id IN ('ru', 'ru-verified-bank') AND retired_at IS NULL;
+
+UPDATE question_batches SET retired_at = CAST(strftime('%s','now') AS INTEGER) * 1000
+WHERE (id LIKE 'ru-c-%' OR id LIKE 'ru-vq-%') AND retired_at IS NULL;
+`
   }
 ];
 

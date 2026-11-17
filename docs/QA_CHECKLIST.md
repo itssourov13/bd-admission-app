@@ -1,23 +1,29 @@
-## Phase C asset pipeline checkpoint and RU archive baseline — 2026-11-17
+## Phase C + Phase D final verification — 2026-11-17 (Node 22.23.1)
 
 | Check | Result | Notes |
 |---|---|---|
-| Existing Lokkho external archive | [x] Pass | `node scripts/archive-lokkho.mjs --verify`: 44 packs / 4,009 questions / 45 assets / 46 references; `SHA256SUMS` 90/90 pass. App copies still remain. |
-| RU-V external pack archive | [ ] Not created | Destination `/home/kali/gpt-workspace/bd-admission-app-data/ru/verified-pack-archive/` is currently absent. |
-| RU source inventory | [x] Verified | 44 `ru-c-*.json` / 4,009 unverified questions; 15 `ru-vq-*.json` / 1,828 verified questions; 17 RU-V printed source sets; 45 Lokkho images / 46 references. |
-| Seed integrity | [x] Pass | Ignored generated seed is schema v10; SQLite quick_check ok; foreign_key_check has zero rows; 217 packs / 13,609 questions. |
-| Content build | [x] Pass | `pnpm content:build`; 217 packs / 13,609 questions. |
-| Content check | [x] Pass | `pnpm content:check`. |
-| Asset references/index | [x] Pass | `pnpm question-assets:check`: 45 assets / 46 references (45 unique). All are Lokkho assets at this checkpoint. |
-| TypeScript | [x] Pass | `pnpm typecheck` on Node 22.23.1. |
-| Lint | [x] Pass | `pnpm lint` on Node 22.23.1. |
-| Full tests | [x] Pass | `pnpm test`: 267/267. |
-| Git diff hygiene | [x] Pass | `git diff --check`. |
-| Android Metro export | [x] Pass | No-bytecode Android export completed; ~4 MB JS bundle and offline image assets. Not a native APK/device test. |
-| Physical Android visual QA | [ ] Not run | No device verification of new multi-select/figure rendering. |
-| RU app-content removal / schema-v10 retirement | [ ] Pending | All 59 RU pack files and RU content are still active in the app seed/manifest/database. |
+| Lokkho external archive | [x] Pass | 44 packs / 4,009 questions / 45 assets / 46 refs; verifier passes; all 90 SHA-256 entries pass. |
+| RU-V external archive | [x] Pass | 15 packs / 1,828 questions / 17 printed sets / 20 figures; verifier passes; all 36 SHA-256 entries pass. |
+| Archive/source reconciliation | [x] Pass | All 59 original pack JSONs and 45 Lokkho images matched their archive copies byte-for-byte before removal. |
+| Active source files | [x] Pass | 59 RU pack JSONs and 45 Lokkho image assets removed; non-RU packs retained; assets/universities/ru.svg remains. |
+| Content build/check | [x] Pass | pnpm content:build and pnpm content:check: 158 packs / 7,772 questions; generated seed 12.90 MiB. |
+| Seed content / SQLite integrity | [x] Pass | 158 batches / 7,772 questions / 31,088 options; zero RU batches/questions and zero question image refs; quick_check=ok; foreign_key_check empty. |
+| Asset index/check | [x] Pass | pnpm question-assets:index and pnpm question-assets:check: 0 local assets / 0 references; index current after Lokkho retirement. |
+| Pack validation | [x] Pass | pnpm packs:validate: 158 packs / 7,772 questions / 0 errors / 5,085 warnings. Warnings remain review findings, not schema errors. |
+| Full automated tests | [x] Pass | pnpm test: 282/282, 0 fail, 0 skipped. Includes synthetic importer regressions and schema-v10-to-v11/history tests. |
+| Migration/history preservation | [x] Pass | Realistic v10 fixture, active/completed sessions, bookmarks, multi-key answers, results/rule snapshots, source resolution, seed re-sync, re-delivered RU row, reopen and fresh-install coverage. |
+| TypeScript / lint | [x] Pass | pnpm typecheck; pnpm lint. |
+| Android Metro export | [x] Pass | pnpm exec expo export --platform android --no-bytecode; ~4 MB Android JS bundle. This is a JS/static export, not a native APK or device test. |
+| Archive SHA-256 | [x] Pass | Lokkho 90/90; RU-V 36/36; zero mismatches. |
+| Diff hygiene | [x] Pass | git diff --check. |
+| Physical Android/emulator QA | [ ] NOT RUN | No final Phase C/D APK was installed in this task. |
+| TalkBack / dark theme / narrow MathBlock visual QA | [ ] NOT RUN | Parser/layout tests and Metro export do not replace on-device visual/accessibility checks. |
 
-Full evidence and next task: `docs/audits/RU_PACK_EXTERNAL_ARCHIVE_AND_APP_REMOVAL_HANDOFF_2026-11-17.md`.
+The latest owner-installed v0.1.6 APK predates Phase C/D. Build a new preview and install it over the existing app to verify schema-v11 upgrade/history and the new 158-pack bundle on a physical device.
+
+## Historical Phase C-only checkpoint — 2026-11-17
+
+This earlier checkpoint preceded Phase C commit fe86f53 and Phase D. Its 217-pack / 13,609-question and 45-asset results are historical, not current.
 
 ## v0.1.6 Home Hero runtime follow-up — 2026-11-13
 
