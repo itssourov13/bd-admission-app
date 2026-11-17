@@ -1,3 +1,9 @@
+# ASPECT Library — owner-verified, session-organised — 2026-11-18
+
+The RU-V ASPECT Library book is now owner-verified: the owner reviewed the imported questions and their source-printed answers and designated them the source of truth (not an independent solve, not a university-certified key). 1,826 of 1,828 questions are verified; 2 questions whose printed key contradicts the printed working stay unverified and unscored. The book is shown under the ASPECT card (stored publisher remains the unidentified row, ADR-038/040) with the owner-supplied ASPECT logo, and its 17 source sets are organised into 9 session drawers with Flash / Timed practice / Browse. Details: `docs/ASPECT_OWNER_VERIFICATION.md`. The paragraphs below that call RU-V unverified are historical.
+
+---
+
 # Current RU-V ASPECT Library integration — 2026-11-17
 
 The RU-V material is now bundled as one separate offline Library publication in the ASPECT collection; it is not reintroduced as a RU university question-pack batch. The app seed contains 158 university packs / 7,772 university questions plus one Library publication with 26 units, 1,828 questions, 7,312 options, 1,828 source explanations and 20 figure assets (159 bundled manifest entries / 9,600 question rows overall).

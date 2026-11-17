@@ -1,3 +1,21 @@
+# Latest implementation handoff — ASPECT Library UX, verification and performance — 2026-11-18
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app` · **Branch:** `feat/import-hstu-verified-answers-2026-11-12` · local commits only, nothing pushed.
+
+- **Landing/logo:** ADR-040 presentation-layer attribution (`src/features/library/presentation.ts`): the ASPECT-collection book is shown under the ASPECT publisher card, the empty duplicate Unknown card is dropped, stored `pub-unidentified` provenance is unchanged. ASPECT logo bundled as `assets/publishers/aspect.png` (256×256 PNG, byte-identical to the owner's file; kept raster because tracing would lose the fine lettering) and registered in `publisherLogos.ts`. RU logo reuses `assets/universities/ru.svg` via `UniversityLogo`.
+- **Session drawers:** `src/components/library/SessionDrawer.tsx` + `src/features/library/sessions.ts` render 9 expandable session cards holding the 17 source-set cards (Set n — name, unit chip, question count). Every session and set has Flash, Timed practice (existing `/exam/setup` Custom Practice, unscored, not an official RU exam) and Browse, scoped by `bookId`/`unitId` (descendants included once).
+- **Verification:** owner attestation of 2026-11-18 applied by `scripts/ruv-aspect-attest.mjs`; content version 2, book `verified`/`licensed`; 1,826 questions verified (1,804 scorable incl. 6 multiple-answer, 22 no-correct-option browse-only), 2 conflicting-key questions held unverified/unscored. `ELIGIBLE_SQL` now also excludes any question whose correct option duplicates another option. See `docs/ASPECT_OWNER_VERIFICATION.md`.
+- **Performance:** book/unit-scoped queries are driven from the book's membership rows; Flash uses one single-fallback pool query (`countFlashPool`); landing/book counts come from one conditional aggregate; Browse loads its first page without waiting for subject counts and counts subjects in one grouped pass. Host-side medians (3 runs, node:sqlite on a temp seed copy, not a phone): Flash setup whole book 4,580 → 19.6 ms, Browse entry 4,609 → 7.0 ms, Custom pool 2,223 → 23.3 ms, landing 32.8 → 23.1 ms. No new index: measured times did not justify a schema migration. Raw results in `.local/bench-*.json` (git-excluded); `scripts/bench-library.mjs` reproduces them.
+- Verification: `pnpm typecheck`, `pnpm lint`, `pnpm content:check` (159 packs / 9,600 questions), `question-assets:check` (20/20), `node scripts/ruv-aspect-attest.mjs --check`, `git diff --check`, focused library/seed/startup/exam/UI-logic tests (60/60 in the library+seed group incl. fresh install, v1→v2 upgrade, repeat sync, newer-edition protection; 149/150 earlier in the wider group, the one failure was a wrong assertion that was fixed and re-run) and the Android Metro no-bytecode export (passed, one ~4 MB Android bundle). No physical-device, TalkBack, light/dark visual or Bangla/English on-screen QA was performed; no APK was built.
+
+## Remaining work
+- Physical-device QA (drawer behaviour, logos, light/dark, Bangla/English, TalkBack, real load timings) and a new APK if wanted.
+- Owner check of PDF page 56 (vector question) to possibly restore its key; see TASK_STATE.
+- The two held questions (page 56 no. 12; page 87 no. 65) remain unverified/unscored.
+- Older sections below that call the ASPECT book unverified/permission-pending are superseded.
+
+---
+
 # Latest implementation handoff — ASPECT Library UX and runtime follow-up — 2026-11-17
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`

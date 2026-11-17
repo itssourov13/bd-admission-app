@@ -32,6 +32,10 @@ The first EAS preview APK build completed and was published as the GitHub pre-re
 
 Claude's accepted HSTU verification ledger was imported as the source of truth: **664 questions** now have both existing verification fields set to verified in the normal HSTU catalogue. Of these, 657 moved from HSTU-U paper appearances into 15 HSTU papers, and 7 were already in HSTU and received their accepted answer mappings. HSTU now contains **22 papers / 950 questions**, including **939 fully verified single-choice questions** in the normal practice pool. The **116 baseline pending** questions were left untouched; HSTU-U retains **105 pending questions** (102 answer-unverified, 3 answer-unknown). Question IDs, stems, option order/text and source references were preserved. The current bundle retains 158 non-RU university question packs / 7,772 university questions and adds one separate RU-V ASPECT Library publication / 1,828 questions in the SQLite seed (159 bundled content entries and 9,600 question rows in total). This content update has not yet shipped in a new APK. See the HSTU import workflow (docs/QUESTION_IMPORT_WORKFLOW.md) for source, backup and validation details.
 
+## ASPECT Library — owner-verified and session-organised (2026-11-18)
+
+The ASPECT RU question bank (1,828 questions, 17 source sets in 9 sessions) is owner-verified: 1,826 questions are verified (1,804 scorable, 22 no-correct-option browse-only) and 2 stay unverified. It appears under the ASPECT card with its logo and opens as session drawers offering Flash, Timed practice (unscored custom practice, not an official RU exam) and Browse. Library queries were rewritten so Flash/Browse/Custom setup open in tens of milliseconds on a host benchmark (device timing not yet measured). See `docs/ASPECT_OWNER_VERIFICATION.md`. The section below is the earlier, partly superseded description.
+
 ## RU question-bank archives and ASPECT Library — separate by source/status
 
 The old RU university question-pack families remain outside the active university catalogue and are preserved in two independently verifiable external archives:

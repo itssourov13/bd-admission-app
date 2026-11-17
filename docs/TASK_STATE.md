@@ -1,6 +1,21 @@
+## ASPECT Library UX / verification / performance implementation — complete locally — 2026-11-18
+
+**Status:** Implemented and locally verified; committed locally, not pushed. Device QA pending.
+
+- [x] Presentation-layer ASPECT attribution + logo; RU logo reuse (ADR-040).
+- [x] Session drawers with set cards; Flash / Timed practice / Browse per session and set.
+- [x] Owner verification attestation applied to pack, seed and manifest (content version 2); docs/ASPECT_OWNER_VERIFICATION.md.
+- [x] Library query optimisation and benchmark script.
+- [x] Regression tests: tests/aspect-library-ux.test.ts, updated tests/library-bundled-seed.test.ts (fresh install + v1→v2 upgrade + repeat sync).
+- [ ] Physical-device Library QA: drawers, logos, light/dark, Bangla/English, TalkBack, real-device load timing.
+- [ ] Owner: check PDF page 56 (vector question, option c sign). If the printed marker is right, add the question id to `RESTORE` in scripts/ruv-aspect-attest.mjs and re-run it, then `pnpm content:build` and bump `CONTENT_VERSION`.
+- [ ] If `scripts/ruv-aspect-build-pack.mjs --publish` is ever re-run it regenerates the pack as unverified: re-run `node scripts/ruv-aspect-attest.mjs` afterwards.
+
+---
+
 ## Owner-requested ASPECT Library UX/runtime audit — complete; implementation pending — 2026-11-17
 
-**Status:** Audit only complete. No application implementation was performed.
+**Status:** Audit complete; implementation delivered 2026-11-18 (see the section above this one). Retained for history.
 
 - [x] Inspected the two owner screenshots and `/home/kali/screenshort/admission-runtime/aspect-logo.png`.
 - [x] Audited publisher/book metadata, the existing ASPECT and RU logo registries, session/unit tree, book/set actions, Flash/Exam/Browse scope handling, question statuses and scoring eligibility.

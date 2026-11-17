@@ -1,3 +1,13 @@
+## Library presentation, session drawers and query paths — 2026-11-18
+
+- **Pure presentation logic** lives in `src/features/library/presentation.ts` (brand attribution, university key from exam relevance) and `sessions.ts` (root→children grouping, set-title parsing); both are React-free and covered by `tests/aspect-library-ux.test.ts`. Stored `publisher_id` is never rewritten; the landing and publisher screens read publishers and books once and resolve attribution in memory.
+- **UI:** `SessionDrawer` (session card + set cards + `ScopeActions`) is generic: any book whose units have a root→child hierarchy gets drawers; flat books keep the plain unit list. Actions reuse the shared `bookId`/`unitId` scope on `/flash/setup`, `/exam/setup` and `/browse`. Timed practice from a book/session/set is Custom Practice (unscored, not official).
+- **Logos:** `PUBLISHER_LOGOS` supports raster assets (`{ kind: "raster", source: require(...) }`); `BrandLogo` scales with `contain`.
+- **Query paths (`src/repositories/content.ts`, `library.ts`):** book scope drives from a derived table of the scope's distinct member ids joined to `questions` by primary key (join params are collected before WHERE params); `scopeRule` short-circuits book scopes; `countFlashPool` runs the provisional fallback at most once; `queryBooks` computes total/eligible/candidate counts in one conditional aggregate over the book's memberships; `countQuestionsBySubject` is a single grouped pass. `ELIGIBLE_SQL` excludes questions whose correct option duplicates another option's text.
+- **Verification metadata:** answer and content status are stored per question; the book status mirrors them. User-facing Provisional chips/banners are data-driven, so verified questions show none.
+
+---
+
 ## Profile, mathematical presentation and exam-rule hardening — 2026-11-05
 
 - `saveDisplayName` writes the profile name and reads it back before the UI reports success. Profile drafts are persisted on blur/submit and best-effort on screen leave; user-owned profile values remain outside the content importer. The profile screen no longer lists raw import batches.

@@ -271,3 +271,15 @@ Decision: when a pending bundled manifest entry has `libraryBookId`, `seedSync` 
 Consequences: an app update cannot downgrade a newer installed Library edition or retry the older bundled pack at every startup. University question-pack sync behavior is unchanged. Regression coverage verifies newer book metadata, unit title, question text and option text remain intact, and that the next startup sees the bundled entry as unchanged.
 
 Evidence: `src/services/seedSync.ts`, `tests/library-bundled-seed.test.ts`, and `tests/seed-startup.test.ts`.
+
+
+## ADR-040 — Brand attribution is presentation-only; owner attestation drives verification
+Status: accepted and implemented, 2026-11-18. Refines ADR-038.
+
+Context: the ASPECT book is stored under the unidentified publisher with collection `ASPECT`, which produced an Unknown card plus an empty ASPECT card. The inspected source still does not name a publisher or rights holder.
+
+Decision: (1) A book whose stored publisher is the `unidentified` row and whose collection equals another catalogue publisher's slug or name is DISPLAYED under that publisher (`presentation.ts`); stored provenance, the Provenance block and history are unchanged, and an unidentified row emptied by this is hidden. No brand name is hard-coded. (2) The owner's attestation (2026-11-18) that imported source answers are the source of truth promotes answer/content status in the pack and seed (content version 2, book `verified`, licence `licensed`), applied by an idempotent script, with no change to option ids, order or text. Records whose printed key conflicts with the printed working (2) stay unverified and unscored; the 22 no-correct-option records are a verified browse-only disposition. (3) `ELIGIBLE_SQL` keeps a durable guard against a correct option duplicating another option. (4) Session/set timed practice is Custom Practice (unscored), never an official RU exam, because source sets do not match any sourced official pattern.
+
+Consequences: no schema migration; upgrades flow through the existing content-version sync (newer installed editions are still protected, ADR-039). Moving the book to `pub-aspect` remains a separate owner decision.
+
+Evidence: `tests/aspect-library-ux.test.ts`, `tests/library-bundled-seed.test.ts`, `docs/ASPECT_OWNER_VERIFICATION.md`.
