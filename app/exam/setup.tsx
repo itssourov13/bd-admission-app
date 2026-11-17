@@ -12,7 +12,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
-import { countPoolBySubject, getInstitution, getPaperRule, listExamPatterns, listPapers, scopeRule } from "@/repositories/content";
+import { countFlashPool, getInstitution, getPaperRule, listExamPatterns, listPapers, scopeRule } from "@/repositories/content";
 import { getBookScopeLabel } from "@/repositories/library";
 import { resolveMarkingChoice } from "@/repositories/marking";
 import { abandonSession, getActiveExam } from "@/repositories/sessions";
@@ -71,12 +71,9 @@ export default function ExamSetup() {
     if (patternsPending) return null;
     const paperPattern = scopeBase.paperId ? await getPaperRule(d, scopeBase.paperId) : null;
     const patternRules = !scopeBase.paperId && scopeBase.paperIds?.length ? await Promise.all(scopeBase.paperIds.map((id) => getPaperRule(d, id))) : null;
-    const verified = await countPoolBySubject(d, scopeBase, false);
-    // Only a scope with no verified questions falls back to provisional ones; that grouped count is reused as the pool
-    // (it used to be run a second time with identical arguments).
-    const provisional = verified.total === 0 ? await countPoolBySubject(d, scopeBase, true) : null;
-    const reviewMode = provisional !== null && provisional.total > 0;
-    const pool = provisional !== null && reviewMode ? provisional : verified;
+    // Verified pool, or (only when that is empty) the provisional pool computed once and reused as the pool.
+    const pool = await countFlashPool(d, scopeBase);
+    const reviewMode = pool.reviewMode;
     const selectionConfig = paperPattern?.selectionConfig ?? null;
     return {
       reviewMode,

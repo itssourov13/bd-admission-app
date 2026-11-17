@@ -57,23 +57,34 @@ export default function BrowseScreen() {
     return { qs, ids, b };
   }, [db, paperId, bookId, unitId, subject, search]);
 
+  // The first page no longer waits for the subject counts, and a subject/search change no longer re-runs them.
   const first = useCallback(() => {
     const id = gate.begin();
-    return countQuestionsBySubject(db, bookId ? { bookId, unitId } : { paperId })
-      .then(async (counts) => {
-        const { qs, ids, b } = await loadPage(0, subject, search);
+    return loadPage(0, subject, search)
+      .then(({ qs, ids, b }) => {
         if (!gate.isCurrent(id)) return;
-        setSubjectOptions(buildSubjectOptions(counts.bySubject));
-        setTotal(counts.total);
         setItems(qs);
         setMarks(b);
         setMore(ids.length === PAGE);
         setState("ready");
       })
       .catch(() => { if (gate.isCurrent(id)) setState("error"); });
-  }, [db, paperId, bookId, unitId, loadPage, subject, search, gate]);
+  }, [loadPage, subject, search, gate]);
 
   useEffect(() => { void first(); }, [first]);
+
+  // Scope-level subject counts: computed once per scope, off the first-page critical path.
+  useEffect(() => {
+    let cancelled = false;
+    countQuestionsBySubject(db, bookId ? { bookId, unitId } : { paperId })
+      .then((counts) => {
+        if (cancelled) return;
+        setSubjectOptions(buildSubjectOptions(counts.bySubject));
+        setTotal(counts.total);
+      })
+      .catch(() => { /* Counts are decoration for the filter chips; the list itself reports its own errors. */ });
+    return () => { cancelled = true; };
+  }, [db, paperId, bookId, unitId]);
 
   const loadMore = async () => {
     if (busy || !more) return;

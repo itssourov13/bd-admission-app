@@ -91,19 +91,18 @@ async function queryBooks(db: SqlDb, where: string, params: SqlParam[]): Promise
   if (rows.length === 0) return [];
   const ids = rows.map((r) => r.id);
   const ph = ids.map(() => "?").join(",");
-  const total = await db.getAllAsync<{ book_id: string; n: number }>(
-    `SELECT book_id, COUNT(DISTINCT question_id) AS n FROM content_unit_questions WHERE book_id IN (${ph}) GROUP BY book_id`, ids
+  // One pass over the books' membership rows (not three scans): total, practice-eligible and provisional-candidate counts
+  // come from conditional aggregates, and each predicate is only evaluated for rows that reach its CASE branch.
+  const counts = await db.getAllAsync<{ book_id: string; total: number; eligible: number; candidates: number }>(
+    `SELECT cq.book_id AS book_id, COUNT(DISTINCT cq.question_id) AS total,
+       COUNT(DISTINCT CASE WHEN ${ELIGIBLE_SQL} THEN q.id END) AS eligible,
+       COUNT(DISTINCT CASE WHEN ${REVIEW_CANDIDATE_SQL} THEN q.id END) AS candidates
+     FROM content_unit_questions cq JOIN questions q ON q.id = cq.question_id
+     WHERE cq.book_id IN (${ph}) GROUP BY cq.book_id`, ids
   );
-  const eligible = await db.getAllAsync<{ book_id: string; n: number }>(
-    `SELECT cq.book_id AS book_id, COUNT(DISTINCT q.id) AS n FROM questions q JOIN content_unit_questions cq ON cq.question_id = q.id
-     WHERE cq.book_id IN (${ph}) AND (${ELIGIBLE_SQL}) GROUP BY cq.book_id`, ids
-  );
-  const candidates = await db.getAllAsync<{ book_id: string; n: number }>(
-    `SELECT cq.book_id AS book_id, COUNT(DISTINCT q.id) AS n FROM questions q JOIN content_unit_questions cq ON cq.question_id = q.id
-     WHERE cq.book_id IN (${ph}) AND (${REVIEW_CANDIDATE_SQL}) GROUP BY cq.book_id`, ids
-  );
-  const map = (list: { book_id: string; n: number }[]) => new Map(list.map((x) => [x.book_id, Number(x.n)]));
-  const t = map(total), e = map(eligible), c = map(candidates);
+  const t = new Map(counts.map((x) => [x.book_id, Number(x.total)]));
+  const e = new Map(counts.map((x) => [x.book_id, Number(x.eligible)]));
+  const c = new Map(counts.map((x) => [x.book_id, Number(x.candidates)]));
   return rows.map((r) => ({
     id: r.id, publisherId: r.publisher_id, publisherName: r.pname, publisherNameBn: r.pname_bn, title: r.title, titleBn: r.title_bn,
     edition: r.edition, publicationYear: r.publication_year, subject: r.subject, language: r.language, targetCategory: r.target_category,

@@ -16,6 +16,10 @@ export const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status =
   AND (
     (q.type = 'single_choice' AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) = 1)
     OR (q.type = 'multiple_choice' AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) >= 2)
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM question_options oc JOIN question_options od ON od.question_id = oc.question_id AND od.option_key <> oc.option_key
+    WHERE oc.question_id = q.id AND oc.is_correct = 1 AND trim(oc.text) <> '' AND trim(oc.text) = trim(od.text)
   )`;
 
 /** Source-key candidates remain unverified. Exclude ambiguous or structurally unsupported options. */
@@ -36,6 +40,8 @@ function chunk<T>(items: T[], size = 400): T[][] {
 
 function filterClauses(filter: PoolFilter): { joins: string; where: string; params: SqlParam[] } {
   const params: SqlParam[] = [];
+  // Join parameters appear before WHERE parameters in the final SQL, so they are collected separately and prepended.
+  const joinParams: SqlParam[] = [];
   let joins = "";
   // Historical question rows may remain after a source-paper replacement so old
   // bookmarks and attempts keep resolving. Only rows with a current active paper
@@ -44,15 +50,17 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   if (filter.bookId) {
     // Publisher/book scope: membership in an AVAILABLE book (bundled/installed). Removed or catalogue-only books drop
     // out of practice, but their question rows (and all user data referencing them) stay untouched.
-    where.push(`EXISTS (SELECT 1 FROM content_unit_questions cq JOIN content_books cb ON cb.id = cq.book_id
-      WHERE cq.question_id = q.id AND cq.book_id = ? AND cb.install_state IN ('bundled','installed'))`);
+    // Performance: the scope DRIVES the query. A derived table of the book's (or unit subtree's) distinct member ids is
+    // joined to questions by primary key, so the verification/option predicates run only for the scope's rows (~1.8k)
+    // instead of every question in the catalogue (~9.6k) with a per-row membership EXISTS probe.
+    where.push("EXISTS (SELECT 1 FROM content_books cb WHERE cb.id = ? AND cb.install_state IN ('bundled','installed'))");
     params.push(filter.bookId);
-    if (filter.unitId) {
-      where.push(`q.id IN (SELECT cu.question_id FROM content_unit_questions cu WHERE cu.book_id = ? AND cu.unit_id IN (
-        WITH RECURSIVE tree(id) AS (SELECT id FROM content_units WHERE id = ? AND book_id = ? UNION ALL SELECT u.id FROM content_units u JOIN tree t ON u.parent_id = t.id)
-        SELECT id FROM tree))`);
-      params.push(filter.bookId, filter.unitId, filter.bookId);
-    }
+    const unitTree = filter.unitId
+      ? ` AND unit_id IN (WITH RECURSIVE tree(id) AS (SELECT id FROM content_units WHERE id = ? AND book_id = ? UNION ALL SELECT u.id FROM content_units u JOIN tree t ON u.parent_id = t.id) SELECT id FROM tree)`
+      : "";
+    joins = ` JOIN (SELECT DISTINCT question_id FROM content_unit_questions WHERE book_id = ?${unitTree}) scope_m ON scope_m.question_id = q.id`;
+    joinParams.push(filter.bookId);
+    if (filter.unitId) joinParams.push(filter.unitId, filter.bookId);
   } else {
     // Default pool = university paper content only; book-only questions stay out of it. A retired paper
     // (exam_papers.retired_at, migration v11 — e.g. RU/RU-V) keeps its appearances for history, but a
@@ -75,7 +83,7 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
   const institutionIds = filter.institutionIds?.length ? filter.institutionIds : null;
   const paperIds = filter.paperIds?.length ? filter.paperIds : null;
   if (filter.institutionId || institutionIds || filter.paperId || paperIds) {
-    joins = " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id AND p.retired_at IS NULL";
+    joins += " JOIN question_appearances a ON a.question_id = q.id JOIN exam_papers p ON p.id = a.paper_id AND p.retired_at IS NULL";
     if (filter.institutionId) { where.push("p.institution_id = ?"); params.push(filter.institutionId); }
     if (institutionIds) {
       where.push(`p.institution_id IN (${institutionIds.map(() => "?").join(",")})`);
@@ -87,7 +95,7 @@ function filterClauses(filter: PoolFilter): { joins: string; where: string; para
       params.push(...paperIds);
     }
   }
-  return { joins, where: where.length ? " AND " + where.join(" AND ") : "", params };
+  return { joins, where: where.length ? " AND " + where.join(" AND ") : "", params: [...joinParams, ...params] };
 }
 
 export async function eligibleQuestionIds(db: SqlDb, filter: PoolFilter): Promise<string[]> {
@@ -275,14 +283,33 @@ export async function listPaperQuestionIds(db: SqlDb, paperId: string, limit: nu
  */
 export async function countQuestionsBySubject(db: SqlDb, filter: PoolFilter): Promise<{ total: number; bySubject: Record<string, number> }> {
   const c = filterClauses({ ...filter, subject: undefined, subjects: undefined });
+  // One grouped pass: a question has a single subject, so the group sizes (including the NULL-subject group) sum to the
+  // distinct total. This replaces a second full COUNT(DISTINCT) query over the same scope.
   const rows = await db.getAllAsync<{ subject: string | null; n: number }>(
     `SELECT q.subject AS subject, COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE 1 = 1${c.where} GROUP BY q.subject`,
     c.params
   );
-  const totalRow = await db.getFirstAsync<{ n: number }>(`SELECT COUNT(DISTINCT q.id) AS n FROM questions q${c.joins} WHERE 1 = 1${c.where}`, c.params);
   const bySubject: Record<string, number> = {};
-  for (const r of rows) if (r.subject) bySubject[r.subject] = Number(r.n);
-  return { total: Number(totalRow?.n ?? 0), bySubject };
+  let total = 0;
+  for (const r of rows) {
+    total += Number(r.n);
+    if (r.subject) bySubject[r.subject] = Number(r.n);
+  }
+  return { total, bySubject };
+}
+
+/**
+ * Flash/Custom setup pool counts with ONE fallback query: the verified pool when it has questions, otherwise the
+ * provisional-inclusive pool (computed once and reused as both the "has candidates" probe and the pool itself).
+ * `reviewMode` is true only when the provisional pool was used.
+ */
+export async function countFlashPool(
+  db: SqlDb, filter: PoolFilter
+): Promise<{ total: number; bySubject: Record<string, number>; reviewMode: boolean }> {
+  const verified = await countPoolBySubject(db, filter, false);
+  if (verified.total > 0) return { ...verified, reviewMode: false };
+  const provisional = await countPoolBySubject(db, filter, true);
+  return provisional.total > 0 ? { ...provisional, reviewMode: true } : { ...verified, reviewMode: false };
 }
 
 /**
@@ -456,6 +483,9 @@ export async function getPaperRule(db: SqlDb, paperId: string): Promise<ScoringR
 
 /** The rule that would apply to a practice/exam scope (used to tell the user how scoring will work before starting). */
 export async function scopeRule(db: SqlDb, filter: PoolFilter, includeUnverified = false): Promise<ScoringRule> {
+  // A publisher book never has a source-backed rule (resolveRuleForQuestions returns UNCONFIGURED_RULE for it), so do not
+  // materialise the whole practice pool just to learn that.
+  if (filter.bookId) return UNCONFIGURED_RULE;
   return resolveRuleForQuestions(db, await practiceQuestionIds(db, filter, includeUnverified), filter);
 }
 

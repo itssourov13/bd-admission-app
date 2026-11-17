@@ -15,7 +15,7 @@ import { universityLabel } from "@/features/catalog/universityLabel";
 import { href, scopeFromParams, scopeParams } from "@/features/navigation/links";
 import { useLang, useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
-import { countPoolBySubject, getInstitution, listPapers, scopeRule } from "@/repositories/content";
+import { countFlashPool, getInstitution, listPapers, scopeRule } from "@/repositories/content";
 import { getBookScopeLabel } from "@/repositories/library";
 import { getProfile, updateProfile } from "@/repositories/userData";
 import { buildSubjectOptions } from "@/services/subjects";
@@ -49,11 +49,10 @@ export default function FlashSetup() {
       ? (await listPapers(d, { paperId: baseScope.paperId }))[0]?.title ?? null
       : baseScope.institutionIds?.length ? await universityLabel(d, baseScope.institutionIds[0], lang)
       : baseScope.institutionId ? (await getInstitution(d, baseScope.institutionId))?.name ?? null : null;
-    const verified = await countPoolBySubject(d, baseScope, false);
-    const reviewMode = verified.total === 0 && (await countPoolBySubject(d, baseScope, true)).total > 0;
-    const pool = reviewMode ? await countPoolBySubject(d, baseScope, true) : verified;
+    // One verified count; the provisional pool is computed at most once (it used to run twice with identical arguments).
+    const pool = await countFlashPool(d, baseScope);
     return {
-      label, reviewMode, total: pool.total, bySubject: pool.bySubject,
+      label, reviewMode: pool.reviewMode, total: pool.total, bySubject: pool.bySubject,
       profile: await getProfile(d),
       subjectOptions: buildSubjectOptions(pool.bySubject)
     };
