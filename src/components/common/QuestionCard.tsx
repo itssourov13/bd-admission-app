@@ -6,6 +6,7 @@ import { useT, useNum } from "@/i18n";
 import { useHaptics, useTheme } from "@/settings";
 import type { OptionView, QuestionView } from "../../types/domain";
 import { getQuestionAssetSources } from "../../content/questionAssets";
+import { reviewSelection, selectionModeOf } from "../../services/answerSelection";
 
 export function optionLabel(o: OptionView): string {
   return o.key.length <= 3 ? o.key.toUpperCase() : String(o.order);
@@ -38,6 +39,12 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
   const sourceKey = question.options.filter((o) => o.isCorrect).map((o) => o.key);
   const sources = question.appearances.slice(0, 3);
   const questionAssets = getQuestionAssetSources(question.assetPaths);
+  const multiple = selectionModeOf(question) === "multiple";
+  const optionKeys = question.options.map((o) => o.key);
+  const review = showKey ? reviewSelection(sourceKey, selected, optionKeys) : null;
+  // Per-option attempt labels need a real selection; Browse (no selection) shows only the correct key.
+  const annotate = review && selected.length > 0 ? review : null;
+  const keyList = (keys: string[]) => (keys.length ? keys.map((k) => k.toUpperCase()).join(", ") : "—");
 
   return (
     <View>
@@ -82,9 +89,9 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
       {reveal && provisionalScoring && !verified && sourceKey.length === 1 ? (
         <Txt className="text-ink-700 text-sm mt-2">{t("question.sourceAnswerCandidate", { key: sourceKey[0]!.toUpperCase() })}</Txt>
       ) : null}
-      {question.type === "multiple_choice" ? <Txt className="text-ink-500 text-xs mt-2">{t("question.multiple")}</Txt> : null}
+      {multiple ? <Txt className="text-ink-500 text-xs mt-2">{t("question.multipleSelect")}</Txt> : null}
 
-      <View className="mt-4 gap-2.5" accessibilityRole="radiogroup">
+      <View className="mt-4 gap-2.5" accessibilityRole={multiple ? undefined : "radiogroup"}>
         {question.options.map((o) => {
           const isSelected = selected.includes(o.key);
           const isCorrect = showKey && o.isCorrect;
@@ -95,16 +102,16 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
           return (
             <Pressable
               key={o.key}
-              accessibilityRole="radio"
-              accessibilityLabel={`${optionLabel(o)}. ${spoken(o.text)}`}
-              accessibilityState={{ selected: isSelected, disabled }}
+              accessibilityRole={multiple ? "checkbox" : "radio"}
+              accessibilityLabel={`${optionLabel(o)}. ${spoken(o.text)}${annotate ? ". " + (annotate.matched.includes(o.key) ? t("question.optionMatched") : annotate.missing.includes(o.key) ? t("question.optionMissed") : annotate.extra.includes(o.key) ? t("question.optionExtra") : "") : ""}`}
+              accessibilityState={multiple ? { checked: isSelected, disabled } : { selected: isSelected, disabled }}
               disabled={disabled || !onSelect}
               onPress={() => { haptics.select(); onSelect?.(o.key); }}
               style={{ borderColor: border, backgroundColor: bg, borderWidth: isSelected || isCorrect || isWrong ? 2 : 1, minHeight: 52 }}
               className="flex-row items-center gap-3 rounded-2xl px-3.5 py-3 active:opacity-80"
             >
               <View
-                className="w-8 h-8 rounded-full items-center justify-center"
+                className={`w-8 h-8 items-center justify-center ${multiple ? "rounded-lg" : "rounded-full"}`}
                 // brand600 (not brand500): this circle carries white text/icon, same AA-limit fix as Button/ChoiceChip.
                 style={{ backgroundColor: isCorrect ? colors.brand600 : isWrong ? feedback.danger500 : isSelected ? colors.brand600 : colors.sand100 }}
               >
@@ -112,11 +119,25 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
                   : isWrong ? <Ionicons name="close" size={18} color={colors.white} />
                   : <Txt weight="bold" className={`text-sm ${isSelected ? "text-white" : "text-ink-700"}`}>{optionLabel(o)}</Txt>}
               </View>
-              <MathText size={16} lineHeight={24} className="flex-1 text-ink-900">{o.text}</MathText>
+              <View className="flex-1">
+                <MathText size={16} lineHeight={24} className="text-ink-900">{o.text}</MathText>
+                {annotate && multiple && (annotate.missing.includes(o.key) || annotate.extra.includes(o.key) || annotate.matched.includes(o.key)) ? (
+                  <Txt className="text-ink-500 text-xs mt-1">{annotate.matched.includes(o.key) ? t("question.optionMatched") : annotate.missing.includes(o.key) ? t("question.optionMissed") : t("question.optionExtra")}</Txt>
+                ) : null}
+              </View>
             </Pressable>
           );
         })}
       </View>
+
+      {review && multiple ? (
+        <View className="mt-3 rounded-2xl bg-sand-100 p-3.5 gap-0.5">
+          <Txt className="text-ink-900 text-sm">{t("question.correctSet", { keys: keyList(sourceKey) })}</Txt>
+          {annotate ? <Txt className="text-ink-700 text-sm">{t("question.yourSet", { keys: keyList(selected) })}</Txt> : null}
+          {annotate && review.missing.length > 0 ? <Txt className="text-ink-700 text-sm">{t("question.missingSet", { keys: keyList(review.missing) })}</Txt> : null}
+          {annotate && review.extra.length > 0 ? <Txt className="text-ink-700 text-sm">{t("question.extraSet", { keys: keyList(review.extra) })}</Txt> : null}
+        </View>
+      ) : null}
 
       {reveal && question.explanation ? (
         <View className="mt-4 rounded-2xl bg-sand-100 p-3.5">

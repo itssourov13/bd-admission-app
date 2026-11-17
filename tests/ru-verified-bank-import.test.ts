@@ -149,7 +149,7 @@ test("the separate RU verified-source bank imports as its own institution, prese
        (SELECT COUNT(*) FROM questions q JOIN question_appearances a ON a.question_id=q.id JOIN exam_papers p ON p.id=a.paper_id WHERE p.institution_id='ru-verified-bank' AND q.content_status='verified') AS contentVerified`
   );
   assert.deepEqual({ ...counts }, { questions: 1828, papers: 15, batches: 15, answerVerified: 1828, keyUnknown: 0, contentVerified: 1828 });
-  assert.equal((await eligibleQuestionIds(db, { institutionId: "ru-verified-bank" })).length, 1800);
+  assert.equal((await eligibleQuestionIds(db, { institutionId: "ru-verified-bank" })).length, 1806);
 
   // Phase 11: RU-V packs store no exam rule, so the university scope must not fall back to the generic 100/60 rule.
   const refused = await startStandardExam(db, { institutionId: "ru-verified-bank" }, Date.UTC(2026, 9, 29));

@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { QuestionCard } from "@/components/common/QuestionCard";
+import { selectionModeOf, toggleSelection } from "@/services/answerSelection";
 import { ExamPalette } from "@/components/common/ExamPalette";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
@@ -124,7 +125,12 @@ export default function ExamScreen() {
 
   const choose = (questionId: string, key: string | null) => {
     if (busy || finalizing.current || remaining <= 0) return;
-    const keys = key === null ? [] : [key];
+    let keys: string[] = [];
+    if (key !== null) {
+      const question = exam?.questions.find((qv) => qv.id === questionId);
+      if (!question) return;
+      keys = toggleSelection(selectionModeOf(question), selected[questionId] ?? [], key, question.options.map((o) => o.key));
+    }
     const queue = selectionQueue.current;
     if (!queue) {
       setNotice("exam.saveFailed");

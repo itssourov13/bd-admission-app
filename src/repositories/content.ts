@@ -6,10 +6,17 @@ import type {
 import { resolveRule, UNCONFIGURED_RULE, type ScoringRule } from "../services/scoring.ts";
 import { groupExamPatterns, patternScope, type ExamPatternOption, type PatternPaper } from "../services/exam.ts";
 
-/** Scored-practice questions require verified content and key, single-choice type, 2+ options and one correct option. */
-export const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified' AND q.type = 'single_choice'
+/**
+ * Scored-practice questions require verified content and key, 2+ options and a correct-option count that matches the
+ * type: exactly one for single_choice, two or more for multiple_choice. Verified no-correct-option records (zero correct
+ * options) are a separate disposition and never enter scored pools.
+ */
+export const ELIGIBLE_SQL = `q.answer_status = 'verified' AND q.content_status = 'verified'
   AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id) >= 2
-  AND EXISTS (SELECT 1 FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1)`;
+  AND (
+    (q.type = 'single_choice' AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) = 1)
+    OR (q.type = 'multiple_choice' AND (SELECT COUNT(*) FROM question_options o WHERE o.question_id = q.id AND o.is_correct = 1) >= 2)
+  )`;
 
 /** Source-key candidates remain unverified. Exclude ambiguous or structurally unsupported options. */
 export const REVIEW_CANDIDATE_SQL = `(q.answer_status <> 'verified' OR q.content_status <> 'verified') AND q.type = 'single_choice'

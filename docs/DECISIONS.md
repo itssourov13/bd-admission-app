@@ -198,6 +198,15 @@ RU-V book-specific requirements are deterministic question-pack → LibraryPack 
 
 Detailed plan: docs/audits/RU_ASPECT_LIBRARY_INTEGRATION_PLAN_2026-11-17.md.
 
+## ADR-034 — Scored eligibility is derived from correct-option cardinality
+Status: accepted, 2026-11-17.
+
+Context: multi-select is now app-wide (ADR-033). The `no_correct_option` disposition exists only in pack JSON; SQLite stores no disposition column.
+
+Decision: `ELIGIBLE_SQL` admits a verified question only when its stored correct-option count matches its type (exactly 1 for single_choice, at least 2 for multiple_choice). This keeps `no_correct_option` records (0 correct options) out of scored pools and rejects structurally inconsistent rows without a schema change, seed-format change or backfill. Selections are always arrays of option keys in option order; scoring is exact-set unless a source-verified rule says otherwise.
+
+Consequences: no migration risk for existing installs. A future need to display the disposition explicitly can be derived from the same data.
+
 ## ADR-033 — Multi-select and visual-question support are app-wide capabilities
 Status: accepted, 2026-11-17.
 

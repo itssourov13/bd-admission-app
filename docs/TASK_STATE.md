@@ -498,3 +498,5 @@ Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 
 ## Phase 12 (2026-11-17) — in progress
 Phase A (Lokkho external archive) done and verified; Phases B–H not started. Next: shared multi-select engine. Details: docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.
+
+Phase 12 / Phase B (multi-select) implemented; automated checks recorded in the Phase 12 doc; Android device QA pending. Next: Phase C (shared asset pipeline + visual/math rendering).

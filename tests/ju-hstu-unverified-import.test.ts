@@ -239,7 +239,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
 
-  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4307, institutions: 7 });
+  assert.deepEqual(await contentTotals(db), { questions: 13609, eligible: 4318, institutions: 7 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -267,7 +267,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   });
 
   // Existing verified banks remain unchanged and separate from the new provisional banks.
-  assert.equal(await countEligible(db, { institutionId: "ju" }), 1393);
+  assert.equal(await countEligible(db, { institutionId: "ju" }), 1398);
   assert.equal(await countEligible(db, { institutionId: "hstu" }), 939);
   assert.equal(await countEligible(db, { institutionId: "ju-unverified-bank" }), 0);
   assert.equal(await countEligible(db, { institutionId: "hstu-unverified-bank" }), 0);
@@ -286,7 +286,7 @@ test("all 217 packs import without replacing verified JU/HSTU data and expose se
   assert.ok(ju && hstu && juUnverified && hstuUnverified);
   assert.deepEqual(
     { papers: ju.paperCount, questions: ju.questionCount, eligible: ju.eligibleCount },
-    { papers: 50, questions: 1526, eligible: 1393 }
+    { papers: 50, questions: 1526, eligible: 1398 }
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },

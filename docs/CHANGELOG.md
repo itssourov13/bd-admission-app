@@ -403,3 +403,5 @@
 
 ## 2026-11-17 — Phase 12 (in progress)
 - Added `scripts/archive-lokkho.mjs` and created the verified external RU Lokkho archive (44 packs / 4,009 questions / 45 assets). No app content removed yet. See docs/implementation/PHASE_12_MULTISELECT_VISUALS_RUV_ASPECT_LOKKHO_ARCHIVE.md.
+
+- Phase B (multi-select): shared `answerSelection` module, type-aware `QuestionCard`, Flash explicit submit for multi-answer questions, Exam/Custom toggle, eligibility now admits verified multiple_choice with >=2 correct options (+11 eligible app-wide). New tests: answer-selection, multi-select-flow. See Phase 12 doc and ADR-034.
