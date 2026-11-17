@@ -1,8 +1,8 @@
-## Android preview v0.1.7 — EAS build submitted — 2026-11-17
+## Android preview v0.1.7 — EAS build finished — 2026-11-17
 
 - App version `0.1.7`, Android `versionCode 8`; package `com.admissionbd.app`, EAS project and signing identity unchanged.
 - Target: EAS `preview` / internal Android APK for the current RU-V ASPECT Library seed and seed-sync version-protection fix.
-- EAS accepted build submission `f1584fb8-0be9-4398-a314-d0fc21507603`; [open build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603). The 24.1 MB project archive uploaded successfully. Build completion and installable APK artifact have not yet been checked; no physical-device QA is claimed.
+- EAS preview build `f1584fb8-0be9-4398-a314-d0fc21507603` is **FINISHED** (completed 2026-11-17 17:41:42 Asia/Dhaka); [build page / logs](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/f1584fb8-0be9-4398-a314-d0fc21507603). [Download v0.1.7 APK](https://expo.dev/artifacts/eas/2wSz5i5tBMwbqy5BPwu3CAUXn6cJrXmx6fvZZwp6DYU.apk) (121,037,466 bytes (~115.4 MiB); expires 2026-12-01 17:21 Asia/Dhaka). APK endpoint was checked and returned HTTP 200. No physical-device installation or Library visual QA is claimed.
 
 ---
 
