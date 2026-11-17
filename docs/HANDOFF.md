@@ -2,6 +2,18 @@
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app` · **Branch:** `feat/import-hstu-verified-answers-2026-11-12` · local commits only, nothing pushed.
 
+## Release-prep follow-up — 2026-11-18
+
+- **Release metadata:** Expo app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`; resolved Expo config confirms the existing EAS project link.
+- **Full verification:** `pnpm test` 301/301; typecheck; lint; content check (159 / 9,600); question-assets check (20/20); owner-attestation check; pack validation (0 errors / 5,085 warnings); Expo config assertion; `git diff --check` all pass on Node 22.23.1.
+- **Test expectation reconciliation:** the full-suite reruns exposed eight stale expected values across three test files. They included two JU questions whose correct option duplicates another option's text; the existing runtime eligibility guard correctly excludes both. Current verified eligible counts are 2,510 university-wide, JU 1,396, HSTU 939. The ASPECT upgrade expectation now correctly checks 2 remaining held/unverified records rather than 1,828. Only test expectations changed; app/runtime query logic did not.
+- **PDF page 56 Q12:** original source page reviewed. Option C prints `+2/7 k̂`, while the printed working derives `−2/7 k̂`; keep the key withheld. The two held questions remain unverified/unscored.
+- **Cloud build is intentionally on hold:** do not start EAS `preview` until the owner explicitly says to submit. No v0.1.9 APK/build ID exists. No physical-device QA has been performed for this candidate.
+- Follow-up changes: tests, `brand.config.json`, `app.config.js` and documentation only. No runtime app code, content pack, seed, asset, dependency, credential, EAS submission or push.
+
+---
+
+
 - **Landing/logo:** ADR-040 presentation-layer attribution (`src/features/library/presentation.ts`): the ASPECT-collection book is shown under the ASPECT publisher card, the empty duplicate Unknown card is dropped, stored `pub-unidentified` provenance is unchanged. ASPECT logo bundled as `assets/publishers/aspect.png` (256×256 PNG, byte-identical to the owner's file; kept raster because tracing would lose the fine lettering) and registered in `publisherLogos.ts`. RU logo reuses `assets/universities/ru.svg` via `UniversityLogo`.
 - **Session drawers:** `src/components/library/SessionDrawer.tsx` + `src/features/library/sessions.ts` render 9 expandable session cards holding the 17 source-set cards (Set n — name, unit chip, question count). Every session and set has Flash, Timed practice (existing `/exam/setup` Custom Practice, unscored, not an official RU exam) and Browse, scoped by `bookId`/`unitId` (descendants included once).
 - **Verification:** owner attestation of 2026-11-18 applied by `scripts/ruv-aspect-attest.mjs`; content version 2, book `verified`/`licensed`; 1,826 questions verified (1,804 scorable incl. 6 multiple-answer, 22 no-correct-option browse-only), 2 conflicting-key questions held unverified/unscored. `ELIGIBLE_SQL` now also excludes any question whose correct option duplicates another option. See `docs/ASPECT_OWNER_VERIFICATION.md`.
@@ -10,8 +22,8 @@
 
 ## Remaining work
 - Physical-device QA (drawer behaviour, logos, light/dark, Bangla/English, TalkBack, real load timings) and a new APK if wanted.
-- Owner check of PDF page 56 (vector question) to possibly restore its key; see TASK_STATE.
-- The two held questions (page 56 no. 12; page 87 no. 65) remain unverified/unscored.
+- Wait for the owner's explicit instruction before starting the EAS `preview` cloud APK build for v0.1.9 / Android versionCode 9.
+- The two held questions (page 56 no. 12; page 87 no. 65) remain unverified/unscored; page 56 was checked against the original PDF and is contradictory.
 - Older sections below that call the ASPECT book unverified/permission-pending are superseded.
 
 ---

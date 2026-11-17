@@ -151,7 +151,7 @@ test("all 158 bundled packs import transactionally, preserve eligibility, and re
 
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
-  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2512, institutions: 5 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -177,7 +177,7 @@ test("all 158 bundled packs import transactionally, preserve eligibility, and re
     unknown: 208,
     unverifiedContent: 5118
   });
-  assert.equal((await countEligible(db, { institutionId: "ju" })), 1398);
+  assert.equal((await countEligible(db, { institutionId: "ju" })), 1396);
   assert.equal((await countEligible(db, { institutionId: "hstu" })), 939);
   assert.equal(await scalar("SELECT COUNT(*) AS n FROM exam_rules WHERE total_marks = 100 AND verification_status = 'verified'"), 5);
   const partialRule = await getPaperRule(db, "hstu-a-2024-2025-shift-1");
@@ -209,7 +209,7 @@ test("all 158 bundled packs import transactionally, preserve eligibility, and re
   assert.ok(hstu, "HSTU must appear in the Varsity catalogue");
   assert.deepEqual(
     { papers: ju.paperCount, questions: ju.questionCount, eligible: ju.eligibleCount },
-    { papers: 50, questions: 1526, eligible: 1398 }
+    { papers: 50, questions: 1526, eligible: 1396 }
   );
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },

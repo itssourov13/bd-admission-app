@@ -1,6 +1,6 @@
 # RU-V → ASPECT Library integration
 
-> **2026-11-18 update:** the verification statements below describe the original import. The owner's attestation has since promoted 1,826 questions to verified (content version 2, book `verified`/`licensed`); see `docs/ASPECT_OWNER_VERIFICATION.md`. Re-running `scripts/ruv-aspect-build-pack.mjs --publish` regenerates the pack as unverified, so run `node scripts/ruv-aspect-attest.mjs` afterwards.
+> **2026-11-18 update:** the verification statements below describe the original import. The owner's attestation has since promoted 1,826 questions to verified (content version 2, book `verified`/`licensed`); see `docs/ASPECT_OWNER_VERIFICATION.md`. The original PDF page 56 Q12 has now been viewed: option C and its printed working conflict, so the question remains withheld/unscored. Re-running `scripts/ruv-aspect-build-pack.mjs --publish` regenerates the pack as unverified, so run `node scripts/ruv-aspect-attest.mjs` afterwards.
 
 **Checkpoint:** 2026-11-17. The prepared RU-V publication is included in the repository's offline content seed and is synchronized into the local SQLite Library on app startup. This is a bundled content integration, not a new APK release or a claim that an already-installed device has received the update.
 

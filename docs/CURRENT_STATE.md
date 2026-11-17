@@ -1,3 +1,13 @@
+## Preview release preparation — 2026-11-18 (EAS deliberately paused)
+
+- Local release metadata is set to Expo app version `0.1.9` and Android `versionCode 9`; resolved Expo config confirms package `com.admissionbd.app` and the existing EAS project ID.
+- Full suite: 301/301 pass on Node 22.23.1. TypeScript, ESLint, content/asset checks, ASPECT attestation, pack validation (0 errors / 5,085 warnings), Expo config assertion and diff check also pass.
+- The earlier failures were stale test expectations after the already-implemented duplicate-correct-option guard excluded two JU questions. Current university eligible count: 2,510 total; JU 1,396; HSTU 939. The test updates do not change app/runtime logic.
+- Original PDF page 56, Q12 was reviewed: option C shows `+2/7 k̂`, but the working derives `−2/7 k̂`; retain as one of the two held/unverified questions.
+- **No v0.1.9 EAS build has been submitted or started.** Wait for the owner's explicit instruction before cloud build. No new APK, physical-device QA or push is claimed.
+
+---
+
 ## ASPECT Library UX, verification and performance — implemented 2026-11-18
 
 Supersedes the 2026-11-17 audit and RU-V integration sections below wherever they say the ASPECT book is unverified, permission-pending, shown under Unknown, or rendered as a flat unit list.

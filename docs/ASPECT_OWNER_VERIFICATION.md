@@ -31,9 +31,10 @@ The reconciliation originally flagged 3 conflicting keys and 11 duplicate-option
   square-root glyph lost in extraction is accounted for; the printed marker is `c`.
 - **Circle question (page 87, no. 65): held, unscored.** The printed working gives c = 25, which is option b, while the printed
   marker is `c` (√15). The source contradicts itself.
-- **Vector question (page 56, no. 12): held, unscored.** Resolving it needs the original page image (sign of the k̂ component of
-  option c). The page could not be viewed in the previous session and the PDF has no text layer. Open page 56 and check; if the
-  printed marker is right, restore it by adding the question id to the `RESTORE` map in the attest script and re-running it.
+- **Vector question (page 56, no. 12): held, unscored after direct PDF-page review (2026-11-18).** The original page image shows
+  option C with `+2/7 k̂`, while the printed working derives `−2/7 k̂`; the printed marker is C. The source therefore contradicts
+  itself. The answer remains withheld and the question stays unverified/unscored; do not add it to `RESTORE` unless a corrected
+  source edition resolves the contradiction.
 - **11 duplicate-option questions: no hold needed.** In 10 the duplicated text is among the wrong options, so the key is
   unambiguous. The 11th only looked duplicated because a lowercase comparison folded `L` and `l`.
 - **Durable guard:** `ELIGIBLE_SQL` now excludes any question whose correct option duplicates another option's text. It affects

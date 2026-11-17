@@ -285,7 +285,7 @@ test("fresh install with the REAL bundled seed: university packs plus RU-V ASPEC
   assert.equal(n("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-%'"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL"), 0);
   // contentTotals() describes university/paper catalogue questions only; Library questions are counted through book membership.
-  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2512, institutions: 5 });
+  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
   assertIntegrity(db, "real seed fresh");
   db.raw.close();
 }));
@@ -302,7 +302,7 @@ test("v10 upgrade + REAL bundled seed: RU stays retired and historical, bundled 
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM content_books WHERE id = 'aspect-ru-question-bank-verified-sets' AND collection = 'ASPECT' AND install_state = 'bundled'").get() as { n: number }).n, 1);
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id = 'lib-aspect-ru-question-bank-verified-sets'").get() as { n: number }).n, 1828);
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM content_unit_questions WHERE book_id = 'aspect-ru-question-bank-verified-sets'").get() as { n: number }).n, 1828);
-  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id = 'lib-aspect-ru-question-bank-verified-sets' AND answer_status = 'unverified'").get() as { n: number }).n, 1828);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id = 'lib-aspect-ru-question-bank-verified-sets' AND answer_status = 'unverified'").get() as { n: number }).n, 2);
   assertIntegrity(f.db, "real seed upgrade");
   f.db.raw.close();
 }));
