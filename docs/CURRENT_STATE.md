@@ -398,4 +398,4 @@ Library UI, importer, validator and SVG logo system are implemented. **No book o
 
 - Release identity: app / brand / package version `0.1.10`, Android `versionCode 10`, package `com.admissionbd.app`; existing EAS project, Expo slug and signing identity retained.
 - Target: EAS `preview` / `INTERNAL` Android APK, including the approved RU Science content. Production AAB / Play Store submission is out of scope.
-- Release gate: local metadata, the resolved Expo config, 301/301 tests, typecheck, lint, content/pack/assets checks, ASPECT attestation, linked EAS project and diff hygiene passed on Node 22.23.1. EAS submission confirmation/build ID and physical-device QA are tracked in `docs/ANDROID_RELEASE.md` and `docs/QA_CHECKLIST.md`.
+- Release gate: local metadata, resolved Expo config, 301/301 tests, typecheck, lint, content/pack/assets checks, ASPECT attestation, linked EAS project and diff hygiene passed on Node 22.23.1. EAS accepted the preview upload as build `64584a92-b1c7-4353-86ef-894152c94550`; cloud status monitoring stopped at owner-requested submission confirmation. Physical-device QA remains pending.

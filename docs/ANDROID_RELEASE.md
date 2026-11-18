@@ -4,7 +4,7 @@
 
 - Release metadata: Expo app / brand / package version **0.1.10**, Android **versionCode 10**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Existing EAS project and Android signing identity are retained.
 - Content: includes the approved RU Science varsity bank (46 packs / 4,249 questions / 45 local image assets); combined seed includes 205 entries / 13,849 question rows.
-- Local release gates: passed on Node 22.23.1 — 301/301 tests, typecheck, lint, content check, pack validation (0 errors), assets check, ASPECT attestation, EAS project identity and diff hygiene. EAS cloud upload submission remains pending. Record the build ID once accepted; acceptance does not mean the cloud build has finished.
+- Local release gates: passed on Node 22.23.1 — 301/301 tests, typecheck, lint, content check, pack validation (0 errors), assets check, ASPECT attestation, EAS project identity and diff hygiene. EAS upload accepted; build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Monitoring stopped at submission confirmation as requested; cloud completion is not asserted.
 - Physical-device QA: pending. Install as an update over the existing app without uninstalling or clearing storage; verify RU content and existing profile/bookmarks/practice history.
 - This is an internal APK preview only. No Play Store AAB, production submit, push, merge or GitHub release is included.
 

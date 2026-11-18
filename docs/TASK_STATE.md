@@ -608,5 +608,5 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 
 - [x] Bumped brand / package version `0.1.9` → `0.1.10` and Android `versionCode 9` → `10`; preserved package ID and EAS project identity.
 - [x] Selected EAS `preview` / `INTERNAL` APK, not production AAB.
-- [ ] Finish release gates and obtain EAS cloud submission confirmation; record its build ID. Per owner request, stop monitoring once EAS accepts the submission.
+- [x] Local release gates passed; EAS accepted preview upload and created build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Monitoring stopped at submission confirmation as requested; cloud completion is not claimed.
 - [ ] Owner physical-device install/update and RU content smoke test remain pending.
