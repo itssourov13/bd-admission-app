@@ -1,3 +1,11 @@
+## 2026-11-18 — Add Apache-2.0 project license
+
+- Added the canonical Apache License, Version 2.0, with the GitHub repository owner's copyright attribution (Md Sourov Mondol).
+- Added a root `NOTICE` and `docs/LICENSING.md` to make clear that third-party/source-derived admission questions and papers, institutional marks, third-party assets, and dependencies are not automatically relicensed by the project's Apache-2.0 grant.
+- Added a short license pointer to the README. No application code, question data, dependencies, package metadata or runtime behavior changed.
+
+---
+
 ## 2026-11-18 — Premium README and Android screenshot showcase
 
 - Replaced the long, historical README with a compact product landing page: branded banner, four Android screen graphics, feature summary, current preview and key documentation links.
