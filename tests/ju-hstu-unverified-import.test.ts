@@ -33,11 +33,50 @@ function loadUnverifiedPacks() {
   );
 }
 
+function loadRuSciencePacks() {
+  return loadAllPacks().filter(({ pack }) =>
+    pack.institutions.some((institution) => institution.id === "ru" && institution.code === "RU")
+  );
+}
+
 test("JU/HSTU unverified packs preserve statuses and are isolated from verified-bank identities", () => {
   const allEntries = loadAllPacks();
   const entries = loadUnverifiedPacks();
-  assert.equal(allEntries.length, 158);
+  const ruEntries = loadRuSciencePacks();
+  assert.equal(allEntries.length, 204);
   assert.equal(entries.length, 99);
+  assert.equal(ruEntries.length, 46);
+
+  const ruStats = { questions: 0, verified: 0, unresolved: 0, sources: 0, options: 0, appearances: 0 };
+  const ruUnits: Record<string, number> = {};
+  const ruSubjects: Record<string, number> = {};
+  for (const { filename, pack } of ruEntries) {
+    assert.deepEqual(pack.institutions, [{ id: "ru", code: "RU", name: "University of Rajshahi" }], filename);
+    assert.equal(pack.batch.category, "varsity", filename);
+    assert.ok(pack.batch.id.startsWith("ru-sci-"), filename);
+    assert.equal(pack.examRules.length, 0, `${filename}: no unsupported exam rules`);
+    assert.equal(pack.papers.length, 1, filename);
+    const paper = pack.papers[0]!;
+    assert.equal(paper.institutionId, "ru", filename);
+    assert.equal(paper.category, "varsity", filename);
+    assert.ok(paper.id.startsWith("ru-sci-"), filename);
+    ruUnits[paper.unit ?? "(none)"] = (ruUnits[paper.unit ?? "(none)"] ?? 0) + 1;
+    ruStats.sources += pack.sourceDocuments.length;
+    for (const question of pack.questions) {
+      ruStats.questions += 1;
+      ruStats.options += question.options.length;
+      ruStats.appearances += question.appearances.length;
+      assert.ok(question.id.startsWith("ru-sci-"), `${filename}: ${question.id}`);
+      assert.equal(question.category, "varsity", question.id);
+      assert.ok(question.appearances.every((appearance) => appearance.paperId === paper.id), question.id);
+      if (question.answerVerificationStatus === "verified" && question.contentVerificationStatus === "verified") ruStats.verified += 1;
+      else ruStats.unresolved += 1;
+      if (question.subject) ruSubjects[question.subject] = (ruSubjects[question.subject] ?? 0) + 1;
+    }
+  }
+  assert.deepEqual(ruStats, { questions: 4249, verified: 4144, unresolved: 105, sources: 90, options: 16996, appearances: 4249 });
+  assert.deepEqual(ruUnits, { "C Unit — Science": 44, "D1 Unit": 1, "F Unit": 1 });
+  assert.deepEqual(ruSubjects, { Biology: 1439, Chemistry: 968, "Higher Mathematics": 887, ICT: 98, Physics: 857 });
 
   const expected = {
     "JU-U": {
@@ -222,14 +261,16 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   const institutions = new Set(allEntries.flatMap(({ pack }) => pack.institutions.map((institution) => institution.id)));
   assert.equal(institutions.has("ju-unverified-bank"), true);
   assert.equal(institutions.has("hstu-unverified-bank"), true);
-  assert.equal(institutions.size, 5);
-  assert.equal(institutions.has("ru") || institutions.has("ru-verified-bank"), false, "RU/RU-V packs are retired from the bundled source (Phase D)");
+  assert.equal(institutions.size, 6);
+  assert.equal(institutions.has("ru"), true, "curated RU Science packs use the normal varsity institution");
+  assert.equal(institutions.has("ru-verified-bank"), false, "legacy RU-V identity remains retired");
   assert.equal(entries.some(({ filename }) => filename.startsWith("gst-")), false, "GST_CLUSTER packs must remain excluded");
 });
 
-test("all 158 packs import without replacing verified JU/HSTU data and expose separate provisional pools", async () => {
+test("all bundled varsity packs import idempotently and keep RU Science separate from JU/HSTU candidate banks", async () => {
   const entries = loadAllPacks();
   const additions = loadUnverifiedPacks();
+  const ruEntries = loadRuSciencePacks();
   const db = await freshDb();
 
   for (const { filename, pack } of entries) {
@@ -240,7 +281,7 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
 
-  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
+  assert.deepEqual(await contentTotals(db), { questions: 12021, eligible: 6654, institutions: 6 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -254,22 +295,27 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 158,
-    papers: 168,
+    batches: 204,
+    papers: 214,
     rules: 168,
     unconfiguredRules: 158,
-    sources: 227,
-    appearances: 7772,
-    options: 31088,
-    verified: 2530,
-    unverified: 5034,
+    sources: 317,
+    appearances: 12021,
+    options: 48084,
+    verified: 6674,
+    unverified: 5139,
     unknown: 208,
-    unverifiedContent: 5118
+    unverifiedContent: 5223
   });
 
   // Existing verified banks remain unchanged and separate from the new provisional banks.
   assert.equal(await countEligible(db, { institutionId: "ju" }), 1396);
   assert.equal(await countEligible(db, { institutionId: "hstu" }), 939);
+  assert.equal(await countEligible(db, { institutionId: "ru" }), 4144);
+  assert.equal(await countReviewCandidates(db, { institutionId: "ru" }), 86);
+  assert.equal((await practiceQuestionIds(db, { institutionId: "ru" })).length, 4144);
+  assert.equal((await practiceQuestionIds(db, { institutionId: "ru" }, true)).length, 4230);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM exam_rules WHERE paper_id IN (SELECT id FROM exam_papers WHERE institution_id = 'ru')"), 0);
   assert.equal(await countEligible(db, { institutionId: "ju-unverified-bank" }), 0);
   assert.equal(await countEligible(db, { institutionId: "hstu-unverified-bank" }), 0);
   assert.equal(await countReviewCandidates(db, { institutionId: "ju-unverified-bank" }), 4780);
@@ -282,9 +328,10 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
   const institutions = await listInstitutions(db, "varsity");
   const ju = institutions.find((institution) => institution.id === "ju");
   const hstu = institutions.find((institution) => institution.id === "hstu");
+  const ru = institutions.find((institution) => institution.id === "ru");
   const juUnverified = institutions.find((institution) => institution.id === "ju-unverified-bank");
   const hstuUnverified = institutions.find((institution) => institution.id === "hstu-unverified-bank");
-  assert.ok(ju && hstu && juUnverified && hstuUnverified);
+  assert.ok(ju && hstu && ru && juUnverified && hstuUnverified);
   assert.deepEqual(
     { papers: ju.paperCount, questions: ju.questionCount, eligible: ju.eligibleCount },
     { papers: 50, questions: 1526, eligible: 1396 }
@@ -292,6 +339,10 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
   assert.deepEqual(
     { papers: hstu.paperCount, questions: hstu.questionCount, eligible: hstu.eligibleCount },
     { papers: 17, questions: 950, eligible: 939 }
+  );
+  assert.deepEqual(
+    { papers: ru.paperCount, questions: ru.questionCount, eligible: ru.eligibleCount, candidates: ru.reviewCandidateCount },
+    { papers: 46, questions: 4249, eligible: 4144, candidates: 86 }
   );
   assert.deepEqual(
     { papers: juUnverified.paperCount, questions: juUnverified.questionCount, eligible: juUnverified.eligibleCount, candidates: juUnverified.reviewCandidateCount },
@@ -304,8 +355,12 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
 
   const juPapers = await listPapers(db, { institutionId: "ju-unverified-bank" });
   const hstuPapers = await listPapers(db, { institutionId: "hstu-unverified-bank" });
+  const ruPapers = await listPapers(db, { institutionId: "ru" });
   assert.equal(juPapers.length, 84);
   assert.equal(hstuPapers.length, 15);
+  assert.equal(ruPapers.length, 46);
+  assert.equal(ruPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 4249);
+  assert.ok(ruPapers.every((paper) => paper.ruleStatus === null), "RU papers have no inferred marking/exam rule");
   assert.equal(juPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 5011);
   assert.equal(hstuPapers.reduce((sum, paper) => sum + paper.questionCount, 0), 105);
 
@@ -329,6 +384,15 @@ test("all 158 packs import without replacing verified JU/HSTU data and expose se
       assert.equal(report.appearances.skipped, pack.questions.length, filename);
     }
   }
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 7772);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 7772);
+  for (const { filename, pack } of ruEntries) {
+    const report = await importQuestionPack(db, pack);
+    assert.equal(report.ok, true, `${filename} re-import: ${report.errors.join("; ")}`);
+    assert.equal(report.questions.inserted, 0, filename);
+    assert.equal(report.questions.updated, 0, filename);
+    assert.equal(report.questions.skipped, pack.questions.length, filename);
+    assert.equal(report.appearances.inserted, 0, filename);
+    assert.equal(report.appearances.skipped, pack.questions.length, filename);
+  }
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 12021);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 12021);
 });

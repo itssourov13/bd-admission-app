@@ -1,3 +1,16 @@
+## RU Science varsity import — integrated and automated checks complete — 2026-11-18
+
+- **Destination:** Varsity question packs, institution `ru` / `RU`, with source unit labels retained. Added 46 packs / 46 papers / 4,249 questions / 16,996 options / 90 source documents / 45 PNG assets. All pack, paper and question IDs use `ru-sci-*`; the separate non-science 197-question D1 Group-1 pack remains excluded.
+- **Question state:** 4,144 verified in both dimensions and eligible for default verified practice. 105 stay unverified in both answer/content fields and remain browseable. The explicit structural review predicate admits 86 unresolved candidates; these were not promoted to verified.
+- **Exam boundary:** every RU pack has `examRules: []`. No paper-specific Standard Exam pattern, question quota, timer or marking rule was inferred. Custom Practice remains available. Existing RU 2024–25 Marking Profile remains separate and does not establish an exam pattern.
+- **Current source / seed totals:** 204 varsity question-pack files / 12,021 university questions; combined seed 205 entries / 13,849 rows / 55,396 options, including one separate ASPECT Library book (1,828 questions, 26 units). Seed schema v12; DB size 26,165,248 bytes; seed ID `b8c40409b656a9432ed0`.
+- **Regression coverage:** updated JU/HSTU pack expectations and RU retirement/seed tests. Fresh install checks 46 active RU Science papers with no rule rows; v10→v12 sync checks legacy `ru-c-*`/`ru-vq-*` rows remain retired while the 46 new `ru-sci-*` papers become active. Existing JU/HSTU and ASPECT totals/flows remain covered.
+- **Verification (Node 22.23.1):** full suite 301/301; targeted import/migration tests 9/9; typecheck; lint; packs validation 204 / 12,021, 0 errors / 5,199 expected warnings; question-assets check 65 assets / 66 references / 65 unique; content build/check 205 / 13,849; Android no-bytecode Metro export 2,043 modules / 146 assets / ~4 MB JS; SQLite quick_check `ok`; foreign_key_check 0; fresh-install and v10-upgrade runtime seed tests pass.
+- **Scope:** no schema migration, DB/runtime logic, scoring implementation, UI or app identity change. Only the RU source packs/assets, generated `bundledManifest.ts`, generated question asset index, three regression test files and project docs changed. The ignored SQLite seed was regenerated locally for builds; it is not committed.
+- **Not done:** no APK/EAS build, no physical-device UI test, no push. The released v0.1.9 APK does not contain these RU packs; a new Android build is needed to distribute them.
+
+---
+
 ## Android preview v0.1.9 — built and owner-tested — 2026-11-18
 
 - Release metadata: Expo app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`; resolved Expo config retains the existing EAS project ID.
@@ -379,3 +392,10 @@ Library UI, importer, validator and SVG logo system are implemented. **No book o
 - The five duplicated 2024–25 HSTU logical-paper entries (A shifts 1–3 and B shifts 1–2) have been consolidated under the existing canonical IDs. Their 34 additional unique verified questions remain; normal HSTU now has 17 logical papers / 950 questions / 939 verified practice-ready questions. The 105 HSTU-U pending questions and historical unassigned HSTU papers remain separate.
 - Across all five HSTU pairs there are no question-ID collisions, no exact normalized stem overlaps and no duplicate subject/question-number positions. The issue is paper identity fragmentation in the importer/catalogue, not duplicate question records. HSTU-U pending records and historical `unassigned` papers must remain separate.
 - Node 22.23.1 `pnpm content:check` passed: 217 packs / 13,609 questions, seed 22.68 MiB. Audit report and source links: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`. No code, assets, tests or question packs changed.
+
+
+## Android preview candidate v0.1.10 — 2026-11-18
+
+- Release identity: app / brand / package version `0.1.10`, Android `versionCode 10`, package `com.admissionbd.app`; existing EAS project, Expo slug and signing identity retained.
+- Target: EAS `preview` / `INTERNAL` Android APK, including the approved RU Science content. Production AAB / Play Store submission is out of scope.
+- Release status: v0.1.10 / Android versionCode 10 was built through EAS preview (build `64584a92-b1c7-4353-86ef-894152c94550`) and installed/run by the owner on Android. The owner reports normal operation in the checks performed. A few answer explanations have formatting issues; further examples will be collected and fixed together. Automated source gates remain 301/301 tests plus typecheck, lint, content/pack/assets validation, ASPECT attestation and Expo config checks.

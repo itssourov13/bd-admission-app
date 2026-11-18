@@ -14,7 +14,7 @@ module.exports = {
   ios: { supportsTablet: true, bundleIdentifier: brand.applicationId },
   android: {
     package: brand.applicationId,
-    versionCode: 9,
+    versionCode: 10,
     permissions: [],
     blockedPermissions: ["android.permission.SYSTEM_ALERT_WINDOW"],
     adaptiveIcon: {

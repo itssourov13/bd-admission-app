@@ -1,4 +1,20 @@
-## RU pack archive ownership and active-app status — completed 2026-11-17 (ADR-035 / ADR-037)
+## Curated RU Science varsity import — completed — 2026-11-18
+
+**Owner-approved package:** `/home/kali/gpt-workspace/bd-admission-app-data/ru-science-import-ready/` (package v1.0.0; `SHA256SUMS` verified before the app copy).
+
+The package was integrated into `data/question-packs/` as 46 schema-v1 varsity packs for institution `ru` / `RU`, with 4,249 questions, 16,996 options, 90 source documents and 45 PNGs under `data/question-packs/assets/lokkho/`. All batch, paper and question IDs use `ru-sci-*`, deliberately distinct from the v11 retirement families. The 44 C Unit — Science, one D1 Unit and one F Unit paper labels are preserved. The separate non-science 2018–2019 D1 Group-1 pack (197 questions) remains excluded.
+
+The package preserves 4,144 questions with both answer/content state `verified` and 105 with both states `unverified`; no key or verification state changed during import. All 105 remain browseable; the app's default eligible practice pool includes 4,144 and the explicit structural review predicate admits 86 unresolved candidates. All 46 `examRules` arrays are empty. Do not infer official question count, duration, subject quota or marking from the independent RU 2024–25 Marking Profile; paper-specific Standard Exam remains unavailable until exact source-backed rules are added. Custom Practice remains available.
+
+The app source now contains 204 varsity pack files / 12,021 questions. The combined SQLite seed contains 205 bundled entries / 13,849 total question rows / 55,396 options, including the separate 1,828-question ASPECT Library content. Seed schema remains v12. The external raw Lokkho and RU-V archives are unchanged and remain separate; the new `ru-sci-*` varsity set does not revive legacy `ru-c-*` or `ru-vq-*` rows.
+
+**Checks:** 46 package file hashes; no destination asset/ID conflicts; pack validator 204 / 12,021, 0 errors; question asset index 65 assets / 66 refs / 65 unique; content build/check 205 / 13,849; targeted import/migration tests 9/9; full test suite 301/301; typecheck and lint; Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS); generated seed SQLite `quick_check=ok`, foreign-key check 0; fresh-install and existing v10→v12 seed sync both pass. All checks used Node 22.23.1. Validation reports 5,199 warnings, of which 5,085 predate RU and 114 are the documented RU unresolved/duplicate-option warnings.
+
+No DB schema or runtime importer logic changed. The installed v0.1.9 APK predates this content import; no APK build, physical-device QA, push or deployment was performed in this task.
+
+---
+
+## Historical RU pack archive and retirement checkpoint — 2026-11-17 (superseded narrowly by ADR-041)
 
 Both RU question-pack datasets are archived separately and removed from active app source/bundle:
 

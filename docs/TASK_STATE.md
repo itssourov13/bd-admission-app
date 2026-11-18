@@ -1,3 +1,23 @@
+## RU Science varsity question-bank import — complete locally — 2026-11-18
+
+**Status:** The owner-approved 46-pack curated RU Science package is integrated and committed locally on the current branch. No app database was imported directly; the normal combined offline seed was rebuilt and verified for fresh install and existing-install sync. No push.
+
+- [x] Verified the package `SHA256SUMS` (112 deliverable files) and checked all destination paths/IDs before copying; no collisions.
+- [x] Imported 46 JSON packs / 4,249 questions / 16,996 options / 90 source documents plus 45 local PNGs. All new records use institution `ru` and `ru-sci-*` IDs. Excluded the separate 197-question non-science D1 Group-1 pack.
+- [x] Preserved 4,144 answer+content verified questions and all 105 unresolved statuses/keys; no answer or verification promotion. No exam rules added.
+- [x] Updated generated asset index and manifest; combined seed is schema v12, 205 entries / 13,849 questions / 55,396 options / 65 image assets.
+- [x] Updated test expectations: current RU integration, existing JU/HSTU catalogue import, legacy RU retirement, real-seed fresh install and v10→v12 existing-install upgrade. Legacy `ru-c-*`/`ru-vq-*` records stay retired; new `ru-sci-*` papers are active.
+- [x] Full suite 301/301; focused import/migration group 9/9; typecheck, lint, `packs:validate` (0 errors / 5,199 warnings), `question-assets:check` (65 assets, 66 refs), `content:check`, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), and SQLite quick_check/FK check pass on Node 22.23.1.
+- [x] Updated README, project context, current state, changelog, decisions, question import workflow and handoff.
+- [x] Prepared the next Android preview identity: app `0.1.10` / Android `versionCode 10`, EAS preview APK; local final gates and EAS submission tracked in the current release checklist.
+- [x] Owner installed and ran the v0.1.10 APK on a physical Android device and reports normal operation in the checks performed.
+- [ ] Track answer-explanation formatting defects found during use; collect further examples and fix the confirmed cases together in a focused pass.
+- [x] Reviewed the scoped Git diff and committed all 104 intended files locally; working tree clean. No push.
+
+The existing RU 2024–25 Marking Profile was not modified. With no source-backed `examRules`, RU papers do not gain a paper-specific Standard Exam pattern; Custom Practice remains the available timed path. See `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/CURRENT_STATE.md`, and ADR-041.
+
+---
+
 ## ASPECT Library UX / verification / performance + v0.1.9 Android preview — complete and owner-tested — 2026-11-18
 
 **Status:** Implementation and release preparation are committed locally. The v0.1.9 / Android versionCode 9 EAS preview APK built successfully and the owner manually installed and ran it on Android, reporting normal operation and no currently observed issue. The owner will record any issue found during continued use. No Git push or merge has been performed.
@@ -583,3 +603,19 @@ Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 ## Historical Phase 12 checkpoint — pre-Phase C/D implementation — 2026-11-17
 
 This final section records an earlier state before Phase C commit fe86f53 and Phase D. It is historical only. The completed implementation, archive locations, schema-v11 behavior and QA are recorded in the completed owner task at the top of this file and in docs/CURRENT_STATE.md.
+
+
+## Android v0.1.10 preview delivery — 2026-11-18
+
+- [x] Bumped brand / package version `0.1.9` → `0.1.10` and Android `versionCode 9` → `10`; preserved package ID and EAS project identity.
+- [x] Selected EAS `preview` / `INTERNAL` APK, not production AAB.
+- [x] Local release gates passed; EAS accepted preview upload and created build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Monitoring stopped at submission confirmation as requested; cloud completion is not claimed.
+- [ ] Owner physical-device install/update and RU content smoke test remain pending.
+
+
+## README and Android showcase refresh — 2026-11-18
+
+- [x] Replaced the long README with a concise, branded product overview and four-screen showcase.
+- [x] Added the 1600×560 README banner and four 1080×1920 Android screenshot graphics from the owner-provided captures.
+- [x] Moved the extended product/engineering details into `docs/APP_OVERVIEW.md` and visual asset provenance into `docs/README_VISUALS.md`.
+- [x] Verified local README/doc links, image dimensions, image files, whitespace and scoped Git diff. No app source, question packs, runtime, dependencies or release metadata changed.

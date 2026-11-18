@@ -1,3 +1,15 @@
+# RU Science question-pack integration — current state — 2026-11-18
+
+The owner-approved curated RU Science package is now included in the active Varsity question-pack source. It contains 46 schema-v1 packs / 46 papers / 4,249 questions / 16,996 options / 90 sources / 45 local PNGs under institution `ru` / code `RU`, using the non-retired `ru-sci-*` ID namespace. The units remain source-labelled: 44 C Unit — Science, one D1 Unit and one F Unit. The separate 197-question non-science D1 Group-1 pack is excluded.
+
+4,144 questions have both answer and content status `verified`; 105 remain unverified in both fields and browseable only by default. The app's eligible practice pool contains 4,144 RU questions; the explicit review predicate admits 86 unresolved candidates. All imported packs keep `examRules: []`; paper-specific RU Standard Exam patterns remain unavailable until exact paper/session evidence supports them. The built-in RU 2024–25 Marking Profile is not treated as a substitute exam pattern.
+
+Current local source/bundle totals: 204 varsity question packs / 12,021 varsity questions; 205 seed entries / 13,849 total seed question rows (including the separate 1,828-question ASPECT Library book), 55,396 options and 65 static offline assets. Schema v12 is unchanged. Legacy `ru-c-*`/`ru-vq-*` papers and batches remain retired; the new `ru-sci-*` IDs are active without changing the retirement migration.
+
+The original Lokkho and RU-V archives remain preserved outside the repository. This new Varsity package is a separate curated import and does not merge or relocate the RU-V ASPECT Library publication. Automated verification (including the 2,043-module / 146-asset Android no-bytecode Metro export) is complete. The v0.1.10 EAS preview APK (build `64584a92-b1c7-4353-86ef-894152c94550`) includes this content; the owner installed and ran it on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues to collect and fix together in a later focused pass.
+
+---
+
 # ASPECT Library — owner-verified, session-organised — 2026-11-18
 
 The RU-V ASPECT Library book is now owner-verified: the owner reviewed the imported questions and their source-printed answers and designated them the source of truth (not an independent solve, not a university-certified key). 1,826 of 1,828 questions are verified; 2 questions whose printed key contradicts the printed working stay unverified and unscored. The book is shown under the ASPECT card (stored publisher remains the unidentified row, ADR-038/040) with the owner-supplied ASPECT logo, and its 17 source sets are organised into 9 session drawers with Flash / Timed practice / Browse. Details: `docs/ASPECT_OWNER_VERIFICATION.md`. The paragraphs below that call RU-V unverified are historical.
@@ -24,7 +36,7 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
-## Current RU pack ownership and archive status — 2026-11-17
+## Historical RU pack archive and retirement checkpoint — 2026-11-17 (superseded narrowly by the curated RU Science import)
 
 The ADR-035 decision is implemented. Both RU datasets are retained as separate external archives and removed from active app source and bundle:
 
@@ -78,3 +90,8 @@ Question diagrams/images and structured mathematics must use a shared renderer a
 The original 2026-11-17 source audit reconciled 15 RU-V JSON batches / 1,828 questions to 17 printed source sets, identified 22 no-correct-option and six multiple-answer records, and found the source PDF prints Unit A on the 2024–25 মহানন্দা and পদ্মা pages. The audit remains useful as source evidence.
 
 Historical checkpoint only: at the time of this initial audit, the owner had deferred the RU-V Library import while ADR-035 removed both RU university question-pack families. That later decision has since been superseded by the current RU-V ASPECT Library integration at the top of this file: RU-V is now bundled as one separate LibraryPack; the legacy RU/Lokkho university packs remain retired, and Lokkho never enters ASPECT. The original source audit remains provenance. See ADR-035, ADR-037, ADR-039 and `docs/RUV_ASPECT_IMPORT.md`.
+
+
+## Current Android delivery — v0.1.10 — 2026-11-18
+
+The v0.1.10 / Android `versionCode 10` EAS `preview` APK includes the RU Science bank, completed its cloud build, and was installed/run by the owner on a physical Android device. The owner reports normal operation in the checks performed. Answer-explanation formatting defects are the current known follow-up; no further source change is requested until the owner has collected examples. Build details and device-test scope are recorded in [ANDROID_RELEASE.md](ANDROID_RELEASE.md) and [QA_CHECKLIST.md](QA_CHECKLIST.md).

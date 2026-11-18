@@ -1,3 +1,37 @@
+# Latest implementation handoff — RU Science import and Android v0.1.10 preview — 2026-11-18
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Status:** RU Science content is integrated and committed locally. Android preview candidate is now `0.1.10` / versionCode `10`; EAS `preview` / `INTERNAL` APK delivery is the current task. Nothing pushed.
+
+## Integrated content
+
+- Destination: Varsity / Rajshahi University (`ru`, code `RU`). Added 46 packs and 46 papers containing 4,249 questions, 16,996 options and 90 source documents; 45 referenced PNG assets copied into `data/question-packs/assets/lokkho/`.
+- Source labels: 44 C Unit — Science papers, one D1 Unit and one F Unit. The separate D1 Group-1 pack with 197 non-science questions remains excluded. The question-pack schema does not have a separate admission-group column; unit metadata is preserved on each paper.
+- Verification: 4,144 questions are verified in both dimensions; 105 remain unverified in both. All original/unresolved keys and statuses are retained. The default RU eligible pool has 4,144; the explicit review predicate admits 86 unresolved candidates. All 105 remain browseable.
+- All RU package `examRules` remain empty. No Standard Exam pattern or scoring rule was invented; Custom Practice is available. The existing RU 2024–25 Marking Profile remains independent of paper-rule configuration.
+
+## Bundle and compatibility
+
+- Active university question-pack files: 204 / 12,021 questions. Combined seed: 205 entries / 13,849 question rows / 55,396 options; one ASPECT Library publication and its 1,828 questions/26 units remain separate.
+- Seed schema v12, 26,165,248 bytes, seed ID `b8c40409b656a9432ed0`; 65 local assets / 66 references / 65 unique references.
+- `ru-sci-*` IDs avoid v11 legacy retirement patterns. Fresh install and v10→v12 upgrade tests confirm all 46 new RU papers active and all old `ru-c-*`/`ru-vq-*` records remain retired/history-preserving.
+- No schema migration, runtime importer logic, scoring, exam UI, app identity, Library pack or EAS configuration change. The ignored SQLite seed is a local build artifact; tracked `src/content/bundledManifest.ts` is regenerated.
+
+## Verification
+
+- Package SHA-256 manifest verified before import; no source/destination ID or asset path conflicts.
+- Question pack validator: 204 / 12,021; zero errors / 5,199 warnings. Question asset check: 65 assets, 66 refs (65 unique), no missing references.
+- `pnpm content:build` and `pnpm content:check`: 205 / 13,849, seed 24.95 MiB.
+- Targeted JU/HSTU/RU import and retirement group: 9/9. Full app suite: 301/301.
+- TypeScript, lint, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), SQLite `quick_check`, zero foreign-key issues, actual generated seed fresh install, and v10 existing-database upgrade+seed sync all pass on Node 22.23.1.
+
+## Remaining owner release QA
+
+No APK/EAS build or physical Android QA was run. The existing v0.1.9 APK does not include RU Science. A new preview build and owner device checks are required before the user can browse/use this new bundled content on their installed app. No push or deployment was performed.
+
+---
+
 # Release handoff — Android preview v0.1.9 built and owner-tested — 2026-11-18
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app` · **Branch:** `feat/import-hstu-verified-answers-2026-11-12` · local commits only, nothing pushed.
@@ -550,3 +584,16 @@ Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot 
 - HSTU-U's 105 pending questions and historical unassigned papers remain separate. No question IDs, stems, options, answer mappings or source locators were rewritten.
 - Migration v9 consolidates existing installed databases. Scoped replacement is shared by the pack validator, importer, seed builder and content-build checker to prevent later imports from clearing canonical-paper appearances.
 - Node 22.23.1 verification: full suite 244/244, typecheck, lint, content build/check, seed quick_check and foreign_key_check all passed. A new APK was not built; source-PDF cross-check by the owner and on-device migration check remain follow-up steps.
+
+
+## Android preview delivery — v0.1.10
+
+- Version metadata: `brand.config.json` / `package.json` `0.1.10`; `app.config.js` Android `versionCode: 10`. Package remains `com.admissionbd.app`; EAS project ID and signing identity remain unchanged.
+- EAS target: `preview` profile, internal distribution, Android APK. Do not use the production AAB profile for this request.
+- Contents: the committed 46-pack RU Science bank is part of the normal combined seed generation. EAS `eas-build-pre-install` hook runs `node scripts/build-content.mjs --ensure`.
+- EAS preview build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)) is complete; the owner installed and ran v0.1.10 on Android and reports normal operation in the checks performed. A few answer explanations have formatting defects; capture additional examples during use and fix them together in a focused follow-up. No push or merge.
+
+
+## README and showcase — 2026-11-18
+
+The repository README is now a compact landing page using `docs/assets/brand/readme-banner.png` and four owner-captured Android screens under `docs/assets/showcase/`. The longer product/engineering overview is in `docs/APP_OVERVIEW.md`; source capture mapping and visual-asset notes are in `docs/README_VISUALS.md`. This was documentation/artwork only; no application source or question content changed.

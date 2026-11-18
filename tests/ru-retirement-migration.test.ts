@@ -28,6 +28,7 @@ type FileDb = SqlDb & { raw: ReturnType<typeof openDbAt>["raw"] };
 const RULE = { correctMarks: 1, incorrectPenalty: 0.25, unansweredMarks: 0, status: "verified" as const, totalQuestions: 4, durationSeconds: 1200, totalMarks: 4, selectionConfig: null };
 const SNAPSHOT = { v: 1, id: "builtin-fixture", kind: "builtin", name: { en: "Fixture", bn: "ফিক্সচার" }, origin: "default", status: "verified", passMarks: 2, questionCount: 4, provenance: {} };
 const isRuId = (id: string) => id.startsWith("ru-");
+const isLegacyRuId = (id: string) => id.startsWith("ru-c-") || id.startsWith("ru-vq-");
 
 const withTemp = (fn: (dir: string) => Promise<void>) => async () => {
   const dir = mkdtempSync(join(tmpdir(), "bd-v11-"));
@@ -131,29 +132,45 @@ async function buildSeed(dir: string, name: string, packs: QuestionPack[]) {
   return { manifest, openSeed: seedOpener(file), file };
 }
 
-async function assertActiveCatalogueExcludesRu(db: FileDb, label: string): Promise<void> {
+async function assertActiveCatalogueExcludesRu(db: FileDb, label: string, allowCuratedRuScience = false): Promise<void> {
   const institutions = await listInstitutions(db, "varsity");
-  assert.ok(institutions.every((i) => !isRuId(i.id)), `${label}: institutions`);
+  const ru = institutions.find((i) => i.id === "ru");
+  assert.equal(Boolean(ru), allowCuratedRuScience, `${label}: curated RU institution state`);
+  assert.ok(institutions.every((i) => i.id !== "ru-verified-bank"), `${label}: legacy RU-V institution retired`);
   assert.ok(institutions.some((i) => i.id === "ju"), `${label}: JU stays active`);
-  assert.ok((await listPapers(db, {})).every((p) => !isRuId(p.institutionId) && !isRuId(p.id)), `${label}: papers`);
-  assert.deepEqual(await listPapersByInstitutions(db, { institutionIds: ["ru", "ru-verified-bank"], category: "varsity" }), [], `${label}: papers by institution`);
-  assert.deepEqual(await listExamPatterns(db, ["ru", "ru-verified-bank"], true), [], `${label}: exam patterns`);
+
+  const activePapers = await listPapers(db, {});
+  assert.ok(activePapers.every((p) => !isLegacyRuId(p.id) && p.institutionId !== "ru-verified-bank"), `${label}: legacy papers`);
+  const activeRuPapers = await listPapersByInstitutions(db, { institutionIds: ["ru", "ru-verified-bank"], category: "varsity" });
+  if (allowCuratedRuScience) {
+    assert.equal(activeRuPapers.length, 46, `${label}: curated RU Science papers`);
+    assert.ok(activeRuPapers.every((p) => p.institutionId === "ru" && p.id.startsWith("ru-sci-")), `${label}: only curated RU papers active`);
+    assert.deepEqual(
+      { questions: ru!.questionCount, eligible: ru!.eligibleCount, candidates: ru!.reviewCandidateCount },
+      { questions: 4249, eligible: 4144, candidates: 86 }, `${label}: curated RU Science counts`
+    );
+    assert.equal((await practiceQuestionIds(db, { institutionId: "ru" })).length, 4144, `${label}: verified RU pool`);
+    assert.equal((await practiceQuestionIds(db, { institutionId: "ru" }, true)).length, 4230, `${label}: explicit provisional RU pool`);
+    assert.equal(await countReviewCandidates(db, { institutionId: "ru" }), 86, `${label}: RU review candidates`);
+  } else {
+    assert.deepEqual(activeRuPapers, [], `${label}: no RU content before curated seed import`);
+    assert.equal(await countReviewCandidates(db, { institutionId: "ru" }), 0, `${label}: review candidates`);
+  }
+  assert.deepEqual(await listExamPatterns(db, ["ru", "ru-verified-bank"], true), [], `${label}: no unsupported RU exam patterns`);
   assert.ok((await listExamPatterns(db, ["ju"])).length >= 1, `${label}: JU exam pattern remains`);
   for (const filter of [{}, { institutionId: "ru" }, { institutionId: "ru-verified-bank" }, { paperId: RU_PAPER }, { paperId: RUV_PAPER }, { category: "varsity" as const }]) {
-    assert.ok((await eligibleQuestionIds(db, filter)).every((id) => !isRuId(id)), `${label}: verified pool ${JSON.stringify(filter)}`);
-    assert.ok((await practiceQuestionIds(db, filter, true)).every((id) => !isRuId(id)), `${label}: provisional pool ${JSON.stringify(filter)}`);
+    assert.ok((await eligibleQuestionIds(db, filter)).every((id) => !isLegacyRuId(id)), `${label}: verified pool ${JSON.stringify(filter)}`);
+    assert.ok((await practiceQuestionIds(db, filter, true)).every((id) => !isLegacyRuId(id)), `${label}: provisional pool ${JSON.stringify(filter)}`);
   }
-  assert.equal(await countReviewCandidates(db, { institutionId: "ru" }), 0, `${label}: review candidates`);
-  assert.equal((await countPoolBySubject(db, { institutionId: "ru-verified-bank" }, true)).total, 0, `${label}: subject counts`);
+  assert.equal((await countPoolBySubject(db, { institutionId: "ru-verified-bank" }, true)).total, 0, `${label}: retired RU-V subject counts`);
   assert.deepEqual(await listPaperQuestionIds(db, RUV_PAPER, 50, 0), [], `${label}: browse retired paper`);
-  assert.ok((await listBatches(db)).every((b) => !isRuId(b.id)), `${label}: imported batches`);
+  assert.ok((await listBatches(db)).every((b) => !isLegacyRuId(b.id)), `${label}: legacy imported batches retired`);
   assert.ok((await categoriesWithContent(db)).includes("varsity"));
   const refused = await startStandardExam(db, { institutionId: "ru-verified-bank" }, 9_000, undefined, { custom: { questions: 2, seconds: 600 } });
   assert.equal(refused.ok, false, `${label}: no new exam on RU-V`);
   const refusedPaper = await startStandardExam(db, { paperId: RUV_PAPER }, 9_000);
   assert.equal(refusedPaper.ok, false, `${label}: no new exam on retired RU-V paper`);
 }
-
 async function assertHistoryIntact(f: Fixture, db: FileDb, label: string, skip: string[] = []): Promise<void> {
   const now = snapshot(db);
   for (const key of Object.keys(SNAPSHOT_SQL).filter((k) => !skip.includes(k))) assert.equal(now[key], f.before[key], `${label}: table ${key} unchanged`);
@@ -269,23 +286,28 @@ test("fresh install on the v11 schema with a non-RU seed contains no RU content 
   db.raw.close();
 }));
 
-test("fresh install with the REAL bundled seed: university packs plus RU-V ASPECT Library, no legacy RU university pools", { skip: !existsSync(resolve("assets/content/content_seed.db")) && "bundled seed not built" }, withTemp(async (dir) => {
+test("fresh install with the REAL bundled seed: active curated RU Science plus the separate RU-V ASPECT Library", { skip: !existsSync(resolve("assets/content/content_seed.db")) && "bundled seed not built" }, withTemp(async (dir) => {
   const db = openDbAt(join(dir, "real.db"));
   await migrate(db);
   const out = await syncFromSeed(db, { manifest: BUNDLED_MANIFEST, openSeed: seedOpener(resolve("assets/content/content_seed.db")), now: 1 });
-  assert.equal(out.length, 159);
+  assert.equal(out.length, 205);
   assert.ok(out.every((o) => o.status === "imported"), out.filter((o) => o.status !== "imported").map((o) => o.batchId).join(","));
   const n = (sql: string) => (db.raw.prepare(sql).get() as { n: number }).n;
-  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 159);
-  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 9600);
+  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 205);
+  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 13849);
   assert.equal(n("SELECT COUNT(*) AS n FROM content_books WHERE collection = 'ASPECT' AND id = 'aspect-ru-question-bank-verified-sets'"), 1);
   assert.equal(n("SELECT COUNT(*) AS n FROM content_unit_questions WHERE book_id = 'aspect-ru-question-bank-verified-sets'"), 1828);
-  assert.equal(n("SELECT COUNT(*) AS n FROM institutions WHERE id LIKE 'ru%'"), 0);
-  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches WHERE id LIKE 'ru-%'"), 0);
-  assert.equal(n("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-%'"), 0);
+  assert.equal(n("SELECT COUNT(*) AS n FROM institutions WHERE id = 'ru' AND code = 'RU'"), 1);
+  assert.equal(n("SELECT COUNT(*) AS n FROM institutions WHERE id = 'ru-verified-bank'"), 0);
+  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches WHERE id LIKE 'ru-c-%' OR id LIKE 'ru-vq-%'"), 0);
+  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches WHERE id LIKE 'ru-sci-%'"), 46);
+  assert.equal(n("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-sci-%'"), 4249);
+  assert.equal(n("SELECT COUNT(*) AS n FROM exam_papers WHERE institution_id = 'ru' AND retired_at IS NULL"), 46);
+  assert.equal(n("SELECT COUNT(*) AS n FROM exam_rules WHERE paper_id IN (SELECT id FROM exam_papers WHERE institution_id = 'ru')"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL"), 0);
   // contentTotals() describes university/paper catalogue questions only; Library questions are counted through book membership.
-  assert.deepEqual(await contentTotals(db), { questions: 7772, eligible: 2510, institutions: 5 });
+  assert.deepEqual(await contentTotals(db), { questions: 12021, eligible: 6654, institutions: 6 });
+  await assertActiveCatalogueExcludesRu(db, "real seed fresh", true);
   assertIntegrity(db, "real seed fresh");
   db.raw.close();
 }));
@@ -295,8 +317,11 @@ test("v10 upgrade + REAL bundled seed: RU stays retired and historical, bundled 
   await migrate(f.db);
   const out = await syncFromSeed(f.db, { manifest: BUNDLED_MANIFEST, openSeed: seedOpener(resolve("assets/content/content_seed.db")), now: 20_000 });
   assert.ok(out.every((o) => o.status === "imported"));
-  await assertActiveCatalogueExcludesRu(f.db, "real seed upgrade");
-  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-%'").get() as { n: number }).n, 8);
+  await assertActiveCatalogueExcludesRu(f.db, "real seed upgrade", true);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-c-%' OR batch_id LIKE 'ru-vq-%'").get() as { n: number }).n, 8);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM questions WHERE batch_id LIKE 'ru-sci-%'").get() as { n: number }).n, 4249);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM exam_papers WHERE institution_id = 'ru' AND retired_at IS NULL").get() as { n: number }).n, 46);
+  assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM exam_rules WHERE paper_id IN (SELECT id FROM exam_papers WHERE institution_id = 'ru')").get() as { n: number }).n, 0);
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL").get() as { n: number }).n, 2);
   // Existing installations receive RU-V through the Library tree while the old RU/RU-V university rows stay retired.
   assert.equal((f.db.raw.prepare("SELECT COUNT(*) AS n FROM content_books WHERE id = 'aspect-ru-question-bank-verified-sets' AND collection = 'ASPECT' AND install_state = 'bundled'").get() as { n: number }).n, 1);

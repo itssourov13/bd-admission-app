@@ -1,3 +1,20 @@
+## 2026-11-18 — Premium README and Android screenshot showcase
+
+- Replaced the long, historical README with a compact product landing page: branded banner, four Android screen graphics, feature summary, current preview and key documentation links.
+- Moved the product/technical overview and detailed content boundaries to `docs/APP_OVERVIEW.md`; documented screenshot source captures, visual treatment and output assets in `docs/README_VISUALS.md`.
+- Created a 1600×560 README banner and four 1080×1920 Play Store-style portrait showcase graphics from the owner's four Android captures. App screens inside the device frames retain the original captured UI; no app source, question data or runtime behavior changed.
+
+---
+
+## 2026-11-18 — Prepare v0.1.10 Android preview with RU Science content
+
+- Bumped the app / brand / package version to `0.1.10` and Android `versionCode` to `10` so the APK updates the existing `com.admissionbd.app` installation.
+- Retained the existing Expo slug, EAS project ID, Android application ID, EAS-managed signing identity and `preview` / `INTERNAL` APK profile.
+- The source includes the approved RU Science import: 46 packs / 4,249 questions / 45 PNG assets. RU paper-specific `examRules` remain empty; no official exam pattern was inferred.
+- EAS `preview` / `INTERNAL` APK build `64584a92-b1c7-4353-86ef-894152c94550` completed; the owner installed and ran the APK on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues; the owner will collect more examples so confirmed defects can be fixed together in a later pass.
+
+---
+
 ## 2026-11-18 — v0.1.9 Android preview built and owner-tested
 
 - EAS Android `preview` / `INTERNAL` APK build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [EAS build page / APK download](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
@@ -167,6 +184,17 @@
 - No app version, Android versionCode, runtime source or EAS build was changed/created.
 
 # Changelog
+
+## 2026-11-18 — Import curated RU Science varsity question bank
+
+- Added 46 curated RU varsity packs / 46 papers / 4,249 questions / 16,996 options / 90 source documents and 45 local PNGs under institution `ru`, with collision-safe `ru-sci-*` identifiers.
+- Preserved 4,144 answer+content verified questions and 105 unresolved questions without changing any answer key or verification status. The non-science D1 Group-1 pack (197 questions) remains excluded.
+- Kept `examRules` empty for all 46 papers; no paper-specific Standard Exam or marking pattern was invented. Existing RU 2024–25 Marking Profile remains separate.
+- Regenerated the static offline asset index and combined SQLite seed: 205 entries / 13,849 question rows / 55,396 options / 65 assets. Active varsity source now contains 204 packs / 12,021 questions; the separate ASPECT Library remains intact.
+- Updated the bundled-pack integration test and migration tests to prove fresh install, v10→v12 seed sync, repeated import, legacy RU retirement and new RU-SCI activation.
+- Verification: 301/301 full tests; targeted import/migration tests 9/9; typecheck, lint, pack validation (0 errors / 5,199 warnings), asset check, content check, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), SQLite quick_check and FK check pass on Node 22.23.1.
+- No schema/runtime/UI/app-identity change, APK build, physical-device QA or Git push.
+
 
 ## 2026-11-13 — Optional Phases 9–10 (partial / deferred)
 

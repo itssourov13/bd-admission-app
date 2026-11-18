@@ -207,8 +207,8 @@ Decision: `ELIGIBLE_SQL` admits a verified question only when its stored correct
 
 Consequences: no migration risk for existing installs. A future need to display the disposition explicitly can be derived from the same data.
 
-## ADR-035 — Externalize all RU question packs; defer Library import to owner
-Status: accepted and implemented, 2026-11-17. This is the current execution decision and supersedes ADR-032's earlier instruction to implement the ASPECT import in the current task.
+## ADR-035 — Externalize legacy RU question packs; defer their Library import to owner
+Status: accepted and implemented, 2026-11-17. The archive and retirement mechanics remain in force. Its blanket no-active-RU outcome is superseded narrowly for the separate curated Science set by ADR-041; this does not reactivate legacy RU/RU-V IDs or change the ASPECT Library boundary.
 
 Context: the app currently bundles 44 RU Lokkho candidate packs (4,009 unverified questions) and 15 RU-V verified packs (1,828 questions representing 17 printed source sets). The owner wants the entire RU question-pack section removed from this app project and active bundle now, while retaining both sources for later owner-controlled Library import/review.
 
@@ -283,3 +283,19 @@ Decision: (1) A book whose stored publisher is the `unidentified` row and whose 
 Consequences: no schema migration; upgrades flow through the existing content-version sync (newer installed editions are still protected, ADR-039). Moving the book to `pub-aspect` remains a separate owner decision.
 
 Evidence: `tests/aspect-library-ux.test.ts`, `tests/library-bundled-seed.test.ts`, `docs/ASPECT_OWNER_VERIFICATION.md`.
+
+## ADR-041 — Reintroduce only the curated RU Science varsity package under collision-safe IDs
+Status: accepted and implemented, 2026-11-18 (owner-approved import).
+
+Context: ADR-035 archived all legacy RU question-pack families. A separate curated RU Science package was later prepared with source/answer review, a dedicated manifest and a collision-safe ID namespace. The owner then explicitly approved importing this package into University Admission → Varsity Questions → Rajshahi University. The existing v11 retirement migration must continue to protect old RU/RU-V historical rows.
+
+Decision:
+- Add only the 46 packs / 46 papers / 4,249 questions from `bd-admission-app-data/ru-science-import-ready/` under category `varsity`, institution `ru` / code `RU`, using only `ru-sci-*` batch, paper and question IDs. Preserve the 44 C Unit — Science, one D1 Unit and one F Unit labels. Keep the separate non-science D1 Group-1 pack (197 questions) excluded.
+- Preserve the package's 4,144 answer+content verified states and 105 unresolved states exactly. Do not edit answer keys or promote review candidates during import.
+- Keep all package `examRules` empty. An existing RU marking profile does not establish an exact paper's exam count/duration/subject pattern; do not infer a Standard Exam rule.
+- Keep the old Lokkho/RU-V source archives unchanged. New `ru-sci-*` records are distinct active source records; `ru-c-*` and `ru-vq-*` remain retired under v11 and continue to resolve for history.
+- Use the existing QuestionPack importer, shared offline asset index, combined content builder and seed sync. No schema migration, runtime logic, UI, app identity or LibraryPack change is required.
+
+Consequences: current Varsity source has 204 question-pack files / 12,021 questions. The combined seed includes 205 entries / 13,849 question rows and the separate ASPECT Library. Existing installs receive the new RU Science papers through their next app content-seed sync; this data import itself does not update an already installed APK.
+
+Evidence: `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/CURRENT_STATE.md`, `tests/ju-hstu-unverified-import.test.ts`, `tests/ju-hstu-question-packs.test.ts`, and `tests/ru-retirement-migration.test.ts`.

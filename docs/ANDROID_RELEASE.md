@@ -1,6 +1,15 @@
 # Android build and release guide
 
-## Current preview build — 2026-11-18 (v0.1.9; built and owner-tested)
+## Current Android preview — 2026-11-18 (v0.1.10; built and owner-tested)
+
+- Release metadata: Expo app / brand / package version **0.1.10**, Android **versionCode 10**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Existing EAS project and Android signing identity are retained.
+- Content: includes the approved RU Science varsity bank (46 packs / 4,249 questions / 45 local image assets); combined seed includes 205 entries / 13,849 question rows.
+- Local release gates passed on Node 22.23.1: 301/301 tests, typecheck, lint, content check, pack validation (0 errors), assets check, ASPECT attestation, EAS project identity and diff hygiene. EAS Android `preview` / `INTERNAL` APK build `64584a92-b1c7-4353-86ef-894152c94550` was submitted and the owner confirms the build completed and the APK was installed and run on a physical Android phone.
+- Physical-device QA: owner-reported pass. The owner installed and ran v0.1.10 and reports the app works normally. One follow-up is recorded: some answer explanations have formatting issues. The owner will collect further examples during normal use; address the confirmed formatting cases together in a later focused fix. This is an owner smoke test, not an exhaustive screen/accessibility matrix.
+- This is an internal APK preview only, not a Google Play production release. No production AAB, Play Store submit, Git push, merge or GitHub release is included.
+
+## Previous preview — 2026-11-18 (v0.1.9; built and owner-tested)
+
 
 - Release metadata: Expo app/brand version **0.1.9**, Android **versionCode 9**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Resolved Expo config was checked and reports exactly these values and the existing EAS project ID.
 - EAS Android preview build `5cdcf931-9b67-46f2-9038-47bb7e144c40` completed successfully (**FINISHED**). [Open EAS build page to download/install the APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/5cdcf931-9b67-46f2-9038-47bb7e144c40).
