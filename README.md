@@ -14,7 +14,7 @@ A Bangladesh-focused, offline-first Android admission-preparation app for univer
 
 ## Current implementation status
 
-**Current Android preview candidate:** BD Admission **v0.1.10** / Android `versionCode 10`, package `com.admissionbd.app`. This candidate includes the RU Science varsity question-bank import (46 packs / 4,249 questions). EAS `preview` / `INTERNAL` APK submission is being prepared; build completion and physical-device QA are pending. It is not a Google Play production release. The previous owner-tested preview is v0.1.9 / `versionCode 9`.
+**Current Android preview candidate:** BD Admission **v0.1.10** / Android `versionCode 10`, package `com.admissionbd.app`. This candidate includes the RU Science varsity question-bank import (46 packs / 4,249 questions). EAS `preview` / `INTERNAL` APK submission was accepted; build [64584a92-b1c7-4353-86ef-894152c94550](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550). Cloud build completion was not monitored after submission, as requested; physical-device QA is pending. It is not a Google Play production release. The previous owner-tested preview is v0.1.9 / `versionCode 9`.
 
 **Current content verification:** RU Science is included in the combined varsity catalogue: 204 varsity packs / 12,021 university questions, with a combined seed of 205 entries / 13,849 questions. The existing app test suite passed 301/301 on Node 22.23.1 after the RU import; current release metadata is `0.1.10` / Android `versionCode 10`. The v0.1.10 EAS build is the first APK candidate containing the new RU question bank; device QA remains pending.
 

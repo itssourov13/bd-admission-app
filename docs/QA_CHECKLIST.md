@@ -5,7 +5,7 @@
 | Release metadata | [x] Pass | App / brand / package version `0.1.10`; Android `versionCode 10`; package `com.admissionbd.app`; existing EAS project ID and preview profile retained. |
 | RU content in build source | [x] Pass | 46 RU Science packs / 4,249 questions / 45 images are included in the combined tracked content and generated asset index. |
 | Local automated gates | [x] Pass | Node 22.23.1: full tests 301/301; typecheck; lint; content check 205 / 13,849; pack validation 204 / 12,021 (0 errors / 5,199 warnings); assets 65 / 66 refs; ASPECT attestation; Expo config and `git diff --check`. |
-| EAS preview APK submission | [ ] Pending | Submission/build ID and EAS queue confirmation to be recorded after cloud upload is accepted. |
+| EAS preview APK submission | [x] Submitted | EAS accepted the upload and created build `64584a92-b1c7-4353-86ef-894152c94550`; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550). Per owner request, no status monitoring was performed after submission confirmation; FINISHED is not claimed. |
 | Physical Android install and RU smoke test | [ ] Pending | Install over the existing app without clearing data; check RU listing, representative paper Browse, verified Practice/Flash, Custom Practice, image rendering and retained user data. |
 | GitHub pre-release | [ ] Owner action | After owner push/merge and device QA, create a pre-release from the merged default branch and attach the matching APK + SHA-256. |
 

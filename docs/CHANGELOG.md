@@ -3,7 +3,7 @@
 - Bumped the app / brand / package version to `0.1.10` and Android `versionCode` to `10` so the APK updates the existing `com.admissionbd.app` installation.
 - Retained the existing Expo slug, EAS project ID, Android application ID, EAS-managed signing identity and `preview` / `INTERNAL` APK profile.
 - The source includes the approved RU Science import: 46 packs / 4,249 questions / 45 PNG assets. RU paper-specific `examRules` remain empty; no official exam pattern was inferred.
-- This is an internal preview candidate, not a Play Store AAB or production submission. EAS submission ID and outcome will be appended after the cloud upload is accepted. Physical-device QA remains pending.
+- EAS `preview` / `INTERNAL` APK upload was accepted and build `64584a92-b1c7-4353-86ef-894152c94550` was created ([EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Per owner instruction, monitoring stopped as soon as the submission confirmation/build ID was received; cloud completion is not claimed. Physical-device QA remains pending.
 
 ---
 
