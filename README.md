@@ -24,6 +24,10 @@
 
 **v0.1.10** · Android `versionCode 10` · `com.admissionbd.app` · EAS `preview` (internal APK). The owner has installed and run this build on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release.
 
+## License
+
+Original application source code and project-authored materials are licensed under [Apache-2.0](LICENSE). Admission question content, institutional marks and other third-party materials retain their own rights; see [NOTICE](NOTICE) and [licensing notes](docs/LICENSING.md).
+
 ## Documentation
 
 - [Product overview and content coverage](docs/APP_OVERVIEW.md)
