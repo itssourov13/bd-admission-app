@@ -5,8 +5,9 @@
 | Release metadata | [x] Pass | App / brand / package version `0.1.10`; Android `versionCode 10`; package `com.admissionbd.app`; existing EAS project ID and preview profile retained. |
 | RU content in build source | [x] Pass | 46 RU Science packs / 4,249 questions / 45 images are included in the combined tracked content and generated asset index. |
 | Local automated gates | [x] Pass | Node 22.23.1: full tests 301/301; typecheck; lint; content check 205 / 13,849; pack validation 204 / 12,021 (0 errors / 5,199 warnings); assets 65 / 66 refs; ASPECT attestation; Expo config and `git diff --check`. |
-| EAS preview APK submission | [x] Submitted | EAS accepted the upload and created build `64584a92-b1c7-4353-86ef-894152c94550`; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550). Per owner request, no status monitoring was performed after submission confirmation; FINISHED is not claimed. |
-| Physical Android install and RU smoke test | [ ] Pending | Install over the existing app without clearing data; check RU listing, representative paper Browse, verified Practice/Flash, Custom Practice, image rendering and retained user data. |
+| EAS preview APK build | [x] Owner-confirmed complete | EAS preview build `64584a92-b1c7-4353-86ef-894152c94550`; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550). Owner confirms APK build completed and was installed. |
+| Physical Android install and run | [x] Owner-reported pass | Owner installed v0.1.10 and ran the app; reports that everything checked works normally. Device model/OS and exhaustive per-screen coverage were not supplied. |
+| Follow-up issue | [ ] Logged for grouped fix | Some answer explanations show formatting issues. Owner will collect further examples while using the app; fix the confirmed cases together in one focused pass. |
 | GitHub pre-release | [ ] Owner action | After owner push/merge and device QA, create a pre-release from the merged default branch and attach the matching APK + SHA-256. |
 
 ---

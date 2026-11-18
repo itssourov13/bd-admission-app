@@ -1,12 +1,12 @@
 # Android build and release guide
 
-## Current Android preview candidate — 2026-11-18 (v0.1.10; RU Science)
+## Current Android preview — 2026-11-18 (v0.1.10; built and owner-tested)
 
 - Release metadata: Expo app / brand / package version **0.1.10**, Android **versionCode 10**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Existing EAS project and Android signing identity are retained.
 - Content: includes the approved RU Science varsity bank (46 packs / 4,249 questions / 45 local image assets); combined seed includes 205 entries / 13,849 question rows.
-- Local release gates: passed on Node 22.23.1 — 301/301 tests, typecheck, lint, content check, pack validation (0 errors), assets check, ASPECT attestation, EAS project identity and diff hygiene. EAS upload accepted; build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Monitoring stopped at submission confirmation as requested; cloud completion is not asserted.
-- Physical-device QA: pending. Install as an update over the existing app without uninstalling or clearing storage; verify RU content and existing profile/bookmarks/practice history.
-- This is an internal APK preview only. No Play Store AAB, production submit, push, merge or GitHub release is included.
+- Local release gates passed on Node 22.23.1: 301/301 tests, typecheck, lint, content check, pack validation (0 errors), assets check, ASPECT attestation, EAS project identity and diff hygiene. EAS Android `preview` / `INTERNAL` APK build `64584a92-b1c7-4353-86ef-894152c94550` was submitted and the owner confirms the build completed and the APK was installed and run on a physical Android phone.
+- Physical-device QA: owner-reported pass. The owner installed and ran v0.1.10 and reports the app works normally. One follow-up is recorded: some answer explanations have formatting issues. The owner will collect further examples during normal use; address the confirmed formatting cases together in a later focused fix. This is an owner smoke test, not an exhaustive screen/accessibility matrix.
+- This is an internal APK preview only, not a Google Play production release. No production AAB, Play Store submit, Git push, merge or GitHub release is included.
 
 ## Previous preview — 2026-11-18 (v0.1.9; built and owner-tested)
 

@@ -10,7 +10,8 @@
 - [x] Full suite 301/301; focused import/migration group 9/9; typecheck, lint, `packs:validate` (0 errors / 5,199 warnings), `question-assets:check` (65 assets, 66 refs), `content:check`, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), and SQLite quick_check/FK check pass on Node 22.23.1.
 - [x] Updated README, project context, current state, changelog, decisions, question import workflow and handoff.
 - [x] Prepared the next Android preview identity: app `0.1.10` / Android `versionCode 10`, EAS preview APK; local final gates and EAS submission tracked in the current release checklist.
-- [ ] Install the v0.1.10 APK on a physical Android device and verify RU browsing, figures, Flash, Custom Practice and retained existing user data.
+- [x] Owner installed and ran the v0.1.10 APK on a physical Android device and reports normal operation in the checks performed.
+- [ ] Track answer-explanation formatting defects found during use; collect further examples and fix the confirmed cases together in a focused pass.
 - [x] Reviewed the scoped Git diff and committed all 104 intended files locally; working tree clean. No push.
 
 The existing RU 2024–25 Marking Profile was not modified. With no source-backed `examRules`, RU papers do not gain a paper-specific Standard Exam pattern; Custom Practice remains the available timed path. See `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/CURRENT_STATE.md`, and ADR-041.
