@@ -592,3 +592,8 @@ Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot 
 - EAS target: `preview` profile, internal distribution, Android APK. Do not use the production AAB profile for this request.
 - Contents: the committed 46-pack RU Science bank is part of the normal combined seed generation. EAS `eas-build-pre-install` hook runs `node scripts/build-content.mjs --ensure`.
 - EAS preview build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)) is complete; the owner installed and ran v0.1.10 on Android and reports normal operation in the checks performed. A few answer explanations have formatting defects; capture additional examples during use and fix them together in a focused follow-up. No push or merge.
+
+
+## README and showcase — 2026-11-18
+
+The repository README is now a compact landing page using `docs/assets/brand/readme-banner.png` and four owner-captured Android screens under `docs/assets/showcase/`. The longer product/engineering overview is in `docs/APP_OVERVIEW.md`; source capture mapping and visual-asset notes are in `docs/README_VISUALS.md`. This was documentation/artwork only; no application source or question content changed.

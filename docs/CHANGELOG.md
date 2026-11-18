@@ -1,3 +1,11 @@
+## 2026-11-18 — Premium README and Android screenshot showcase
+
+- Replaced the long, historical README with a compact product landing page: branded banner, four Android screen graphics, feature summary, current preview and key documentation links.
+- Moved the product/technical overview and detailed content boundaries to `docs/APP_OVERVIEW.md`; documented screenshot source captures, visual treatment and output assets in `docs/README_VISUALS.md`.
+- Created a 1600×560 README banner and four 1080×1920 Play Store-style portrait showcase graphics from the owner's four Android captures. App screens inside the device frames retain the original captured UI; no app source, question data or runtime behavior changed.
+
+---
+
 ## 2026-11-18 — Prepare v0.1.10 Android preview with RU Science content
 
 - Bumped the app / brand / package version to `0.1.10` and Android `versionCode` to `10` so the APK updates the existing `com.admissionbd.app` installation.

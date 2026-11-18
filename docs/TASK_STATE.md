@@ -611,3 +611,11 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 - [x] Selected EAS `preview` / `INTERNAL` APK, not production AAB.
 - [x] Local release gates passed; EAS accepted preview upload and created build `64584a92-b1c7-4353-86ef-894152c94550` ([build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/64584a92-b1c7-4353-86ef-894152c94550)). Monitoring stopped at submission confirmation as requested; cloud completion is not claimed.
 - [ ] Owner physical-device install/update and RU content smoke test remain pending.
+
+
+## README and Android showcase refresh — 2026-11-18
+
+- [x] Replaced the long README with a concise, branded product overview and four-screen showcase.
+- [x] Added the 1600×560 README banner and four 1080×1920 Android screenshot graphics from the owner-provided captures.
+- [x] Moved the extended product/engineering details into `docs/APP_OVERVIEW.md` and visual asset provenance into `docs/README_VISUALS.md`.
+- [x] Verified local README/doc links, image dimensions, image files, whitespace and scoped Git diff. No app source, question packs, runtime, dependencies or release metadata changed.
