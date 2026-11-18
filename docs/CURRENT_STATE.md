@@ -392,3 +392,10 @@ Library UI, importer, validator and SVG logo system are implemented. **No book o
 - The five duplicated 2024–25 HSTU logical-paper entries (A shifts 1–3 and B shifts 1–2) have been consolidated under the existing canonical IDs. Their 34 additional unique verified questions remain; normal HSTU now has 17 logical papers / 950 questions / 939 verified practice-ready questions. The 105 HSTU-U pending questions and historical unassigned HSTU papers remain separate.
 - Across all five HSTU pairs there are no question-ID collisions, no exact normalized stem overlaps and no duplicate subject/question-number positions. The issue is paper identity fragmentation in the importer/catalogue, not duplicate question records. HSTU-U pending records and historical `unassigned` papers must remain separate.
 - Node 22.23.1 `pnpm content:check` passed: 217 packs / 13,609 questions, seed 22.68 MiB. Audit report and source links: `docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md`. No code, assets, tests or question packs changed.
+
+
+## Android preview candidate v0.1.10 — 2026-11-18
+
+- Release identity: app / brand / package version `0.1.10`, Android `versionCode 10`, package `com.admissionbd.app`; existing EAS project, Expo slug and signing identity retained.
+- Target: EAS `preview` / `INTERNAL` Android APK, including the approved RU Science content. Production AAB / Play Store submission is out of scope.
+- Release gate: local metadata, the resolved Expo config, 301/301 tests, typecheck, lint, content/pack/assets checks, ASPECT attestation, linked EAS project and diff hygiene passed on Node 22.23.1. EAS submission confirmation/build ID and physical-device QA are tracked in `docs/ANDROID_RELEASE.md` and `docs/QA_CHECKLIST.md`.

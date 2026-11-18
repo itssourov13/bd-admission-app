@@ -1,8 +1,8 @@
-# Latest implementation handoff — RU Science varsity question-bank import — 2026-11-18
+# Latest implementation handoff — RU Science import and Android v0.1.10 preview — 2026-11-18
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
-**Status:** Imported to tracked question-pack source, verified locally and committed on this branch. Working tree is clean; nothing pushed.
+**Status:** RU Science content is integrated and committed locally. Android preview candidate is now `0.1.10` / versionCode `10`; EAS `preview` / `INTERNAL` APK delivery is the current task. Nothing pushed.
 
 ## Integrated content
 
@@ -584,3 +584,11 @@ Audit report: `docs/audits/HOME_HERO_RUNTIME_AUDIT.md`. Current Home screenshot 
 - HSTU-U's 105 pending questions and historical unassigned papers remain separate. No question IDs, stems, options, answer mappings or source locators were rewritten.
 - Migration v9 consolidates existing installed databases. Scoped replacement is shared by the pack validator, importer, seed builder and content-build checker to prevent later imports from clearing canonical-paper appearances.
 - Node 22.23.1 verification: full suite 244/244, typecheck, lint, content build/check, seed quick_check and foreign_key_check all passed. A new APK was not built; source-PDF cross-check by the owner and on-device migration check remain follow-up steps.
+
+
+## Android preview delivery — v0.1.10
+
+- Version metadata: `brand.config.json` / `package.json` `0.1.10`; `app.config.js` Android `versionCode: 10`. Package remains `com.admissionbd.app`; EAS project ID and signing identity remain unchanged.
+- EAS target: `preview` profile, internal distribution, Android APK. Do not use the production AAB profile for this request.
+- Contents: the committed 46-pack RU Science bank is part of the normal combined seed generation. EAS `eas-build-pre-install` hook runs `node scripts/build-content.mjs --ensure`.
+- On confirmed cloud submission, record build ID/link and stop polling as requested. A confirmed submission does not imply that the cloud build has finished. Physical-device QA remains owner-side.

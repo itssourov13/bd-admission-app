@@ -1,3 +1,16 @@
+## Android preview candidate v0.1.10 — 2026-11-18
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App / brand / package version `0.1.10`; Android `versionCode 10`; package `com.admissionbd.app`; existing EAS project ID and preview profile retained. |
+| RU content in build source | [x] Pass | 46 RU Science packs / 4,249 questions / 45 images are included in the combined tracked content and generated asset index. |
+| Local automated gates | [x] Pass | Node 22.23.1: full tests 301/301; typecheck; lint; content check 205 / 13,849; pack validation 204 / 12,021 (0 errors / 5,199 warnings); assets 65 / 66 refs; ASPECT attestation; Expo config and `git diff --check`. |
+| EAS preview APK submission | [ ] Pending | Submission/build ID and EAS queue confirmation to be recorded after cloud upload is accepted. |
+| Physical Android install and RU smoke test | [ ] Pending | Install over the existing app without clearing data; check RU listing, representative paper Browse, verified Practice/Flash, Custom Practice, image rendering and retained user data. |
+| GitHub pre-release | [ ] Owner action | After owner push/merge and device QA, create a pre-release from the merged default branch and attach the matching APK + SHA-256. |
+
+---
+
 ## Android preview v0.1.9 — EAS build and owner manual smoke test — 2026-11-18
 
 | Check | Result | Evidence |

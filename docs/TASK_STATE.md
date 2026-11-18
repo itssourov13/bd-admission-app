@@ -9,7 +9,8 @@
 - [x] Updated test expectations: current RU integration, existing JU/HSTU catalogue import, legacy RU retirement, real-seed fresh install and v10→v12 existing-install upgrade. Legacy `ru-c-*`/`ru-vq-*` records stay retired; new `ru-sci-*` papers are active.
 - [x] Full suite 301/301; focused import/migration group 9/9; typecheck, lint, `packs:validate` (0 errors / 5,199 warnings), `question-assets:check` (65 assets, 66 refs), `content:check`, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), and SQLite quick_check/FK check pass on Node 22.23.1.
 - [x] Updated README, project context, current state, changelog, decisions, question import workflow and handoff.
-- [ ] Build a new Android preview and perform physical-device question browsing/figure/Flash/Custom Practice QA. v0.1.9 APK predates this import.
+- [x] Prepared the next Android preview identity: app `0.1.10` / Android `versionCode 10`, EAS preview APK; local final gates and EAS submission tracked in the current release checklist.
+- [ ] Install the v0.1.10 APK on a physical Android device and verify RU browsing, figures, Flash, Custom Practice and retained existing user data.
 - [x] Reviewed the scoped Git diff and committed all 104 intended files locally; working tree clean. No push.
 
 The existing RU 2024–25 Marking Profile was not modified. With no source-backed `examRules`, RU papers do not gain a paper-specific Standard Exam pattern; Custom Practice remains the available timed path. See `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/CURRENT_STATE.md`, and ADR-041.
@@ -601,3 +602,11 @@ Report: docs/audits/RU_UNIT_NAMING_AND_HSTU_PAPER_GROUPING_AUDIT_2026-11-16.md.
 ## Historical Phase 12 checkpoint — pre-Phase C/D implementation — 2026-11-17
 
 This final section records an earlier state before Phase C commit fe86f53 and Phase D. It is historical only. The completed implementation, archive locations, schema-v11 behavior and QA are recorded in the completed owner task at the top of this file and in docs/CURRENT_STATE.md.
+
+
+## Android v0.1.10 preview delivery — 2026-11-18
+
+- [x] Bumped brand / package version `0.1.9` → `0.1.10` and Android `versionCode 9` → `10`; preserved package ID and EAS project identity.
+- [x] Selected EAS `preview` / `INTERNAL` APK, not production AAB.
+- [ ] Finish release gates and obtain EAS cloud submission confirmation; record its build ID. Per owner request, stop monitoring once EAS accepts the submission.
+- [ ] Owner physical-device install/update and RU content smoke test remain pending.
