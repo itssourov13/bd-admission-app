@@ -1,3 +1,16 @@
+## RU Science varsity import — integrated and automated checks complete — 2026-11-18
+
+- **Destination:** Varsity question packs, institution `ru` / `RU`, with source unit labels retained. Added 46 packs / 46 papers / 4,249 questions / 16,996 options / 90 source documents / 45 PNG assets. All pack, paper and question IDs use `ru-sci-*`; the separate non-science 197-question D1 Group-1 pack remains excluded.
+- **Question state:** 4,144 verified in both dimensions and eligible for default verified practice. 105 stay unverified in both answer/content fields and remain browseable. The explicit structural review predicate admits 86 unresolved candidates; these were not promoted to verified.
+- **Exam boundary:** every RU pack has `examRules: []`. No paper-specific Standard Exam pattern, question quota, timer or marking rule was inferred. Custom Practice remains available. Existing RU 2024–25 Marking Profile remains separate and does not establish an exam pattern.
+- **Current source / seed totals:** 204 varsity question-pack files / 12,021 university questions; combined seed 205 entries / 13,849 rows / 55,396 options, including one separate ASPECT Library book (1,828 questions, 26 units). Seed schema v12; DB size 26,165,248 bytes; seed ID `b8c40409b656a9432ed0`.
+- **Regression coverage:** updated JU/HSTU pack expectations and RU retirement/seed tests. Fresh install checks 46 active RU Science papers with no rule rows; v10→v12 sync checks legacy `ru-c-*`/`ru-vq-*` rows remain retired while the 46 new `ru-sci-*` papers become active. Existing JU/HSTU and ASPECT totals/flows remain covered.
+- **Verification (Node 22.23.1):** full suite 301/301; targeted import/migration tests 9/9; typecheck; lint; packs validation 204 / 12,021, 0 errors / 5,199 expected warnings; question-assets check 65 assets / 66 references / 65 unique; content build/check 205 / 13,849; Android no-bytecode Metro export 2,043 modules / 146 assets / ~4 MB JS; SQLite quick_check `ok`; foreign_key_check 0; fresh-install and v10-upgrade runtime seed tests pass.
+- **Scope:** no schema migration, DB/runtime logic, scoring implementation, UI or app identity change. Only the RU source packs/assets, generated `bundledManifest.ts`, generated question asset index, three regression test files and project docs changed. The ignored SQLite seed was regenerated locally for builds; it is not committed.
+- **Not done:** no APK/EAS build, no physical-device UI test, no push. The released v0.1.9 APK does not contain these RU packs; a new Android build is needed to distribute them.
+
+---
+
 ## Android preview v0.1.9 — built and owner-tested — 2026-11-18
 
 - Release metadata: Expo app version `0.1.9`, Android `versionCode 9`, package `com.admissionbd.app`; resolved Expo config retains the existing EAS project ID.

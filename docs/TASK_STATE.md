@@ -1,3 +1,21 @@
+## RU Science varsity question-bank import — complete locally — 2026-11-18
+
+**Status:** The owner-approved 46-pack curated RU Science package is integrated and committed locally on the current branch. No app database was imported directly; the normal combined offline seed was rebuilt and verified for fresh install and existing-install sync. No push.
+
+- [x] Verified the package `SHA256SUMS` (112 deliverable files) and checked all destination paths/IDs before copying; no collisions.
+- [x] Imported 46 JSON packs / 4,249 questions / 16,996 options / 90 source documents plus 45 local PNGs. All new records use institution `ru` and `ru-sci-*` IDs. Excluded the separate 197-question non-science D1 Group-1 pack.
+- [x] Preserved 4,144 answer+content verified questions and all 105 unresolved statuses/keys; no answer or verification promotion. No exam rules added.
+- [x] Updated generated asset index and manifest; combined seed is schema v12, 205 entries / 13,849 questions / 55,396 options / 65 image assets.
+- [x] Updated test expectations: current RU integration, existing JU/HSTU catalogue import, legacy RU retirement, real-seed fresh install and v10→v12 existing-install upgrade. Legacy `ru-c-*`/`ru-vq-*` records stay retired; new `ru-sci-*` papers are active.
+- [x] Full suite 301/301; focused import/migration group 9/9; typecheck, lint, `packs:validate` (0 errors / 5,199 warnings), `question-assets:check` (65 assets, 66 refs), `content:check`, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), and SQLite quick_check/FK check pass on Node 22.23.1.
+- [x] Updated README, project context, current state, changelog, decisions, question import workflow and handoff.
+- [ ] Build a new Android preview and perform physical-device question browsing/figure/Flash/Custom Practice QA. v0.1.9 APK predates this import.
+- [x] Reviewed the scoped Git diff and committed all 104 intended files locally; working tree clean. No push.
+
+The existing RU 2024–25 Marking Profile was not modified. With no source-backed `examRules`, RU papers do not gain a paper-specific Standard Exam pattern; Custom Practice remains the available timed path. See `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/CURRENT_STATE.md`, and ADR-041.
+
+---
+
 ## ASPECT Library UX / verification / performance + v0.1.9 Android preview — complete and owner-tested — 2026-11-18
 
 **Status:** Implementation and release preparation are committed locally. The v0.1.9 / Android versionCode 9 EAS preview APK built successfully and the owner manually installed and ran it on Android, reporting normal operation and no currently observed issue. The owner will record any issue found during continued use. No Git push or merge has been performed.

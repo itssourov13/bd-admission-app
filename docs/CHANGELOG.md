@@ -168,6 +168,17 @@
 
 # Changelog
 
+## 2026-11-18 — Import curated RU Science varsity question bank
+
+- Added 46 curated RU varsity packs / 46 papers / 4,249 questions / 16,996 options / 90 source documents and 45 local PNGs under institution `ru`, with collision-safe `ru-sci-*` identifiers.
+- Preserved 4,144 answer+content verified questions and 105 unresolved questions without changing any answer key or verification status. The non-science D1 Group-1 pack (197 questions) remains excluded.
+- Kept `examRules` empty for all 46 papers; no paper-specific Standard Exam or marking pattern was invented. Existing RU 2024–25 Marking Profile remains separate.
+- Regenerated the static offline asset index and combined SQLite seed: 205 entries / 13,849 question rows / 55,396 options / 65 assets. Active varsity source now contains 204 packs / 12,021 questions; the separate ASPECT Library remains intact.
+- Updated the bundled-pack integration test and migration tests to prove fresh install, v10→v12 seed sync, repeated import, legacy RU retirement and new RU-SCI activation.
+- Verification: 301/301 full tests; targeted import/migration tests 9/9; typecheck, lint, pack validation (0 errors / 5,199 warnings), asset check, content check, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), SQLite quick_check and FK check pass on Node 22.23.1.
+- No schema/runtime/UI/app-identity change, APK build, physical-device QA or Git push.
+
+
 ## 2026-11-13 — Optional Phases 9–10 (partial / deferred)
 
 - Phase 9: added local catalogue manifest validation, install planning, pack integrity verification and verified install/soft-remove/restore on top of the Phase 8 importer. No remote source exists.

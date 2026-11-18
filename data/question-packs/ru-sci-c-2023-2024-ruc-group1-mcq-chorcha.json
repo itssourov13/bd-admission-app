@@ -1,0 +1,6004 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+    "category": "varsity",
+    "description": "RU C Unit Science 2023-2024 — Lokkho source variant ruc-group1. University of Rajshahi admission question-bank paper, Science (destination: University Admission / Varsity Questions → Rajshahi University → Science). 129 questions: 128 verified (content and key), 1 unresolved (unverified and browseable; excluded from verified pools; explicit provisional review eligibility is governed by the app's REVIEW_CANDIDATE_SQL). Exam rules are not configured. Source provenance, ID mapping and per-question review notes are kept in the package sidecars.",
+    "sourceDocumentIds": [
+      "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+      "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-chorcha-keys"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+      "filename": "ru-c-2023-2024-ruc-group1-mcq/mcq (HTML/API capture; fetched 2026-10-28)",
+      "title": "রাজশাহী বিশ্ববিদ্যালয় (RU) (RU - Unit C Science) 2023-2024",
+      "sourceType": "structured-data",
+      "notes": "Third-party question-bank capture (HTML/API, fetched 2026-10-28): https://lokkho.org/ru-c-2023-2024-ruc-group1-mcq/mcq. Not an official RU-hosted scan. Keys were cross-checked and decided in RU-VERIFY (2026-11-18); questions that stay unresolved are marked unverified. Original note: PROVENANCE.json."
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-chorcha-keys",
+      "filename": "ru-c-2023-2024-group1.chorcha.tsv",
+      "title": "Chorcha answer-key extraction 2026-11-17 — ru-c-2023-2024-ruc-group1-mcq-chorcha",
+      "sourceType": "structured-data",
+      "notes": "Answer-key extraction (chorcha.net) used to cross-check the capture keys during RU-VERIFY. Original note: PROVENANCE.json."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "ru",
+      "code": "RU",
+      "name": "University of Rajshahi"
+    }
+  ],
+  "papers": [
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+      "institutionId": "ru",
+      "category": "varsity",
+      "year": 2024,
+      "academicSession": "2023-2024",
+      "unit": "C Unit — Science",
+      "title": "RU C Unit Science 2023-2024 — Lokkho source variant ruc-group1"
+    }
+  ],
+  "examRules": [],
+  "questions": [
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q002-111514-ch",
+      "text": "পারসেপট্রনের অর্থ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "topic": "ডেটাবেজের ধারণা, উপাদান ও DBMS-এর গুরুত্ব",
+      "options": [
+        {
+          "id": "a",
+          "text": "উচ্চ শক্তিস্তরের ইলেকট্রন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিম্ন শক্তিস্তরের ইলেকট্রন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কৃত্রিম নিউরোন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উপরের কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 2,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 2
+      },
+      "explanation": "Perceptron হলো artificial neural network-এর একটি মৌলিক computational neuron/model। এটি input-গুলোর weighted sum ও activation rule ব্যবহার করে output তৈরি করে; তাই কৃত্রিম নিউরন (c)।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q003-111518-ch",
+      "text": "if \\( (a>=80) \\) printf(\"A+\"); else if \\( (a<40) \\) printf(\"Fail\"); else printf (\"Pass\"); a এর মান 70 হলে, আউটপুট কী হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "topic": "প্রোগ্রামিং ভাষার স্তর ও অনুবাদক প্রোগ্রাম (কম্পাইলার, ইন্টারপ্রেটার, অ্যাসেম্বলার)",
+      "options": [
+        {
+          "id": "a",
+          "text": "A+",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Fail",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Pass",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 3,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 3
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q004-111541-ch",
+      "text": "নিচের কোন HTML ট্যাগের ক্লোজিং ট্যাগ প্রয়োজন হয় না-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "topic": "ওয়েবসাইট ও ওয়েবপেজের ধারণা, ডোমেইন নেম ও URL",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( < \\) br \\( > \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "< hr>",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "< img>",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এ সবগুলোরই",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 4,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 4
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q005-111616-ch",
+      "text": "\\( \\overline{\\mathbf{A B}} \\cdot(\\mathbf{A}+\\mathrm{B}) \\) এর সরলীকৃত মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "ICT",
+      "topic": "সংখ্যা পদ্ধতির প্রকারভেদ (পজিশনাল ও নন-পজিশনাল)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\overline{\\mathrm{A}}+\\mathrm{B} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{A} \\oplus \\mathrm{B} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{A}+\\overline{\\mathrm{B}} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{A}+\\mathrm{B} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 5,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 5
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q006-111071-ch",
+      "text": "5 kg ভরের একটি বস্তু স্থির অবস্থায় ছিল। 20 N বল প্রয়োগ করায় 5 s পর বস্তুটির গতিশক্তি কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কাজের সংজ্ঞা, একক ও মাত্রা (W = Fs)",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.2kj",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 kj",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1 kj",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "20 kj",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 6,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 6
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q007-111074-ch",
+      "text": "একটি গতিশীল বস্তুর সরণ \\( x=\\left(t^{2}+3 t\\right) \\) মিটার হলে 2 sec পরে বস্তুটির বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "প্রসঙ্গ কাঠামো, পরম স্থিতি ও পরম গতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "7m/s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "10 m/s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "8 m/s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 7,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 7
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q008-111080-ch",
+      "text": "পৃথিবীকে সংকুচিত করে এর ব্যাসার্ধ অর্ধেক করা হলে, অভিকর্ষজ ত্বরণের মান কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কেপলারের গ্রহের গতি সংক্রান্ত সূত্রাবলি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 9.8 \\mathrm{~ms}^{-2} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 4.9 \\mathrm{~ms}^{-2} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 39.2 \\mathrm{~ms}^{-2} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 9.6 \\mathrm{~ms}^{-2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 8,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 8
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q009-111090-ch",
+      "text": "একটি গ্রহের ব্যাস 2500 km এবং এর পৃষ্ঠে অভিকর্ষজ ত্বরণ \\( 5 \\mathrm{~ms}^{-2} \\)। গ্রহটির পৃষ্ঠ হতে একটি বস্তুর মুক্তিবেগ নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কেপলারের গ্রহের গতি সংক্রান্ত সূত্রাবলি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 3.54 \\mathrm{kms}^{-1} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 5 \\mathrm{kms}^{-1} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 7.1 \\mathrm{kms}^{-1} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 11.2 \\mathrm{kms}^{-1} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 9,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 9
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q010-111509-ch",
+      "text": "কোন গ্যাসীয় পদার্থের আয়তন V। \\( \\vec{\\nabla} \\mathbf{V} \\) ধনাত্মক হলে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "স্কেলার ও ভেক্টর রাশি এবং বিভিন্ন প্রকার ভেক্টর",
+      "options": [
+        {
+          "id": "a",
+          "text": "ঘনত্ব ও আয়তন উভয়ই বৃদ্ধি পায",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ঘনত্ব কমে, আয়তন বৃদ্ধি পায়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ঘনত্ব ও আয়তন উভয়ই কমে যায়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আয়তন কমে কিন্তু ঘনত্ব বৃদ্ধি পায়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 10,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 10
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q011-111527-ch",
+      "text": "গঠনমূলক ব্যতিচারের ক্ষেত্রে দশা পার্থক্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তরঙ্গের প্রকারভেদ (অনুপ্রস্থ ও অনুদৈর্ঘ্য তরঙ্গ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( n \\phi \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( (2 n+1) \\pi \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{n} \\pi \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 2 n \\pi \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 11,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 11
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q012-111551-ch",
+      "text": "4 kg ভরের একটি বস্তুকে 0.2 দৈর্ঘ্যের সুতা দিয়ে একটি নির্দিষ্ট অক্ষের চারিদিকে\\( 2 \\mathrm{rad} \\mathrm{s}^{-1} \\)কৌনিক বেগে ঘুরানো হলে কৌণিক ভরবেগ—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "প্রসঙ্গ কাঠামো, পরম স্থিতি ও পরম গতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 0.64 \\mathrm{kgm}^{-2} \\mathrm{~s}^{-1} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 0.32 \\mathrm{kgm}^{2} \\mathrm{~s}^{-1} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 0.323 \\mathrm{kgm}^{-2} \\mathrm{~s}^{-1} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 0.32 \\mathrm{~kg}^{-1} \\mathrm{~s}^{-1} \\mathrm{~s} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 12,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 12
+      },
+      "explanation": "কৌণিক ভরবেগ L = Iω = mr²ω। এখানে m=4 kg, r=0.2 m এবং ω=2 rad s⁻¹। তাই L=4×(0.2)²×2=0.32 kg m² s⁻¹। সঠিক উত্তর (b)।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q013-111569-ch",
+      "text": "কোন স্থানের বায়ুর প্রতি একক আয়তনে উপস্থিত জলীয় বাষ্পের ভরকে ঐ স্থানের—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আদর্শ গ্যাস ও বাস্তব গ্যাসের ধারণা",
+      "options": [
+        {
+          "id": "a",
+          "text": "আর্দ্রতা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "শিশিরাঙ্ক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পরম আর্দ্রতা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আপেক্ষিক আর্দ্রতা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 13,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 13
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q014-111572-ch",
+      "text": "ঘড়ির সেকেন্ডের কাঁটার কৌণিক বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "প্রসঙ্গ কাঠামো, পরম স্থিতি ও পরম গতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{\\pi}{3600} \\mathrm{rads}^{-1} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{\\pi}{60} \\mathrm{rads}^{-1} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{\\pi}{30} \\mathrm{rad} \\mathrm{s}^{-1} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\pi \\mathrm{rad} \\mathrm{s}^{-1} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 14,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 14
+      },
+      "explanation": "T = 60 sec; ω = 2π/T = 2π/60 = 3.14/30 = 0.104 rads⁻¹"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q015-111581-ch",
+      "text": "[IMAGE:iVRASVR2PCSZcOqjPOAEk.svg] চিত্রানুযায়ী দুইটি ভিন্ন অক্ষের সাপেক্ষে একটি দণ্ডের জড়তার ভ্রামক যথাক্রমে \\( l_{1} \\) ও \\( l_{2} \\) হলে তাদের মধ্যে সম্পর্ক—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কেপলারের গ্রহের গতি সংক্রান্ত সূত্রাবলি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( l_{1}>l_{2} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( l_{2}>l_{1} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( l_{2}=l_{1} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই সত্য নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "unverified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 15,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 15
+      },
+      "assetPaths": [
+        "assets/lokkho/ed7972c543ca4be6eeb9856d.png"
+      ]
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q016-111588-ch",
+      "text": "নিউটনের গতির দ্বিতীয় F = ma। v বেগে চলমান কোনো বস্তুর ভর শূন্য না হয়েও কখন বল শূন্য হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কাজের সংজ্ঞা, বল ও সরণের ডট গুণন",
+      "options": [
+        {
+          "id": "a",
+          "text": "v ধ্রুবক হলে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "v-এর মান কম হলে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "v-এর মান খুব বেশি হলে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলোই সঠিক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 16,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 16
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q017-111591-ch",
+      "text": "L দৈর্ঘ্য এবং A প্রস্থদের একটি তার ঝুলানো আছে। এর মুক্ত প্রান্তে M ভরের একটি বস্তু ঝুলিয়ে দিলে তারটির দৈর্ঘ্য পরিবর্তিত হয়ে L1 হলে ইয়ং গুণাঙ্কের মান হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আন্তঃআণবিক বল, পদার্থের ৩টি অবস্থা ও প্লাজমা অবস্থা",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{\\mathrm{MgL}_{1}}{\\mathrm{AL}} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{\\mathrm{MgL}}{\\mathrm{AL}_{1}} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{\\mathrm{MgL}}{\\mathrm{A}\\left(\\mathrm{L}_{1}-\\mathrm{L}\\right)} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{\\mathrm{Mg}\\left(\\mathrm{L}_{1}-\\mathrm{L}\\right)}{\\mathrm{AL}} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 17,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 17
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q018-111596-ch",
+      "text": "\\( (4 \\hat{j}+3 \\hat{k})N \\) বল প্রয়োগ করায় একটি বস্তু \\( (-2 \\hat{i}+5 \\hat{j}) \\) অবস্থান থেকে \\( (4 \\hat{i} \\) \\( +3 \\hat{\\mathbf{j}} \\) ) অবস্থান সরে যায় ।কাজ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "কাজের সংজ্ঞা, একক ও মাত্রা (W = Fs)",
+      "options": [
+        {
+          "id": "a",
+          "text": "-8J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "11J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 18,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 18
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q019-111613-ch",
+      "text": "এককের সঠিক ক্রম কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "ভৌতজগতের প্রকৃতি, পরিসর ও পদার্থবিজ্ঞানের ক্রমবিকাশ",
+      "options": [
+        {
+          "id": "a",
+          "text": "পারসেক > মেগামিটার > অ্যাংস্ট্রম > আলোকবর্ষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আলোকবর্ষ > পারসেক > মেগামিটার > অ্যাংস্ট্রম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পারসেক > আলোকবর্ষ > মেগামিটার > অ্যাংস্ট্রম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যাংস্ট্রম > পারসেক > মেগামিটার > আলোকবর্ষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 19,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 19
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q020-111077-ch",
+      "text": "\\( 2 \\Omega \\)রোধবিশিষ্ট একটি তারের দৈর্ঘ্য ও ব্যাস দ্বিগুণ করলে তারটির রোধ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আধানের কোয়ান্টায়ন ও তড়িৎ সংরক্ষণশীলতা",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 0.5 \\Omega \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 1 \\Omega \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 2 \\Omega \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 4 \\Omega \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 20,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 20
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q021-111510-ch",
+      "text": "1000 V বিভব পার্থক্যসহ দুইটি তামার পাত পরস্পর সমান্তরালে 10 m দূরত্বে অবস্থিত। পাতদ্বয়ের মাঝখানে\\( 1 \\times 10^{-10} \\mathrm{C} \\) চার্জের m ভরবিশিষ্ট একটি বস্তুর ওপর প্রযুক্তি বৈদ্যুতিক বলের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আধানের প্রকৃতি ও আধান সৃষ্টির কৌশল (ঘর্ষণ ও আবেশ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.01 ডাইন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.001 ডাইন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.01 মিলিডাইন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.1 ডাইন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 21,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 21
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q022-111548-ch",
+      "text": "তাপ ধারণ ক্ষমতার মাত্রা কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "পদার্থবিজ্ঞানের পরিসর ও ক্রমবিকাশ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{ML}^{2} \\mathrm{~T}^{-2} \\theta^{-1} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{M}^{-1} \\mathrm{~L}^{2} \\mathrm{~T}^{-2} \\theta^{-1} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{MLT}^{-2} \\theta^{-1} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{MLT}^{-2} \\theta^{-2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 22,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 22
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q023-111559-ch",
+      "text": "\\( { }^{226} \\) Ra-এর অর্ধায়ু 1620 বছর। কত বছর তেজস্ক্রিয় নিঃসরণের পর এক চতুর্থাংশ অবশিষ্ট থাকবে ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তেজস্ক্রিয়তা ও আলফা, বিটা, গামা রশ্মি",
+      "options": [
+        {
+          "id": "a",
+          "text": "810",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1620",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3240",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "405",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 23,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 23
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q024-111565-ch",
+      "text": "একক রোধের কোনো পরিবাহীর তাপমাত্রা প্রতি একক বৃদ্ধিতে রোধের যে বৃদ্ধি ঘটে তাকে বলে—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আধানের কোয়ান্টায়ন ও তড়িৎ সংরক্ষণশীলতা",
+      "options": [
+        {
+          "id": "a",
+          "text": "অতিপরিবাহিতা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "যান্ত্রিক সমতা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রোধের উষ্ণতা সহগ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 24,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 24
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q025-111566-ch",
+      "text": "Si-এর সাথে অপদ্রব্য হিসেবে As যোগ করলে কী তৈরি হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "শক্তি ব্যান্ড তত্ত্ব (যোজন ব্যান্ড, পরিবহন ব্যান্ড ও নিষিদ্ধ শক্তি ব্যান্ড)",
+      "options": [
+        {
+          "id": "a",
+          "text": "n-type অর্ধপরিবাহী",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "p-type অর্ধপরিবাহী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "pn-junction",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Si এর ধর্মের কোন পরিবর্তন হবে না ।",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 25,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 25
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q026-111574-ch",
+      "text": "একটি ফোটনের শক্তি ফোটনের শক্তি 6 eV হলে এর ভরবেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "আলোর প্রকৃতি সংক্রান্ত বিভিন্ন তত্ত্ব (কণাতত্ত্ব, তরঙ্গতত্ত্ব, তাড়িতচৌম্বক তত্ত্ব ও কোয়ান্টাম তত্ত্ব",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 3.2 \\times 10^{-30} \\mathrm{~kg} \\mathrm{~m} / \\mathrm{s} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 2.3 \\times 10^{-27} \\mathrm{~kg} \\mathrm{~m} / \\mathrm{s} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 3.2 \\times 10^{-27} \\mathrm{~kg} \\mathrm{~m} / \\mathrm{s} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 3.0 \\times 10^{-20} \\mathrm{~kg} \\mathrm{~m} / \\mathrm{s} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 26,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 26
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q027-111576-ch",
+      "text": "একটি তড়িৎ কোষের তড়িচ্চালক বল 2.0 V। এর সাথে \\( 10 \\Omega \\) একটি রোধক যুক্ত করলে কোষের পাত দুইটির মধ্যে বিভব পার্থক্য দাঁড়ায় 1.6 V। কোষটির অভ্যন্তরীণ রোধ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তড়িৎ প্রবাহ ও প্রবাহ ঘনত্ব",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 0.4 \\Omega \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 2.5 \\Omega \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 1.5 \\Omega \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 0.5 \\Omega \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 27,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 27
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q028-111580-ch",
+      "text": "শক্তির সংরক্ষণ সূত্রটি তাপগতিবিদ্যার কোন সূত্রের সাহায্যে ব্যাখ্যা করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তাপ ও তাপমাত্রার ধারণা এবং তাপগতিবিদ্যার শূন্যতম সূত্র",
+      "options": [
+        {
+          "id": "a",
+          "text": "শূন্যতম সূত্র",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রথম সূত্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "দ্বিতীয় সূত্র",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তৃতীয় সূত্র",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 28,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 28
+      },
+      "explanation": "তাপগতিবিদ্যার ১ম সূত্র: dQ = dU + dW যে কোন ব্যবস্থায় সম্পন্ন কাজ ও অভ্যন্তরীণ শক্তির পরিবর্তনের সমষ্টি সর্বদা প্রযুক্ত তাপের সমান। যা শক্তির সংরক্ষণ সূত্র।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q029-111593-ch",
+      "text": "[IMAGE:yANFGAUjfq5vUGjIxBnaY.png] বর্তনীর তুল্য রোধ নির্ণয় কর।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তড়িৎ প্রবাহ ও প্রবাহ ঘনত্ব",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 1.1 \\Omega \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 12 \\Omega \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 4.4 \\Omega \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 1.7 \\Omega \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 29,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 29
+      },
+      "assetPaths": [
+        "assets/lokkho/cb20ea4a5b8cdf66183d6fc5.png"
+      ]
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q030-111611-ch",
+      "text": "টেলিভিশনের রিমোট কন্ট্রোলে কী ব্যবহৃত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "topic": "তড়িৎ প্রবাহের চৌম্বক ক্রিয়া ও ওয়েরস্টেডের পরীক্ষা",
+      "options": [
+        {
+          "id": "a",
+          "text": "Radio wave",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Microwave",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Bluetooth",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Infrared",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 30,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 30
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q031-111073-ch",
+      "text": "নিচের কোন বিক্রিয়া অনুপাতের\\( \\left(\\mathbf{Q}_{\\mathrm{c}}\\right) \\) উপর চাপের প্রভাব নেই?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{Q}_{\\mathrm{c}}=\\frac{\\left[\\mathrm{NH}_{2}\\right]^{2}}{\\left[\\mathrm{~N}_{2}\\right]\\left[\\mathrm{H}_{2}\\right]^{3}} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{Q}_{\\mathrm{c}}=\\frac{\\left[\\mathrm{PCl}_{3}\\right]\\left[\\mathrm{Cl}_{2}\\right]}{\\left[\\mathrm{PCl}_{5}\\right]} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{Q}_{\\mathrm{c}}=\\frac{\\left[\\mathrm{H}_{2}\\right]\\left[\\mathrm{I}_{2}\\right]}{[\\mathrm{HI}]^{2}} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{Q}_{\\mathrm{c}}=\\frac{\\left[\\mathrm{NO}_{2}\\right]^{2}}{\\left.\\left[\\mathrm{NO}_{2}\\right]^{2} \\mathrm{O}_{2}\\right]} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 31,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 31
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q032-111075-ch",
+      "text": "নিচের কোন যৌগটি সম্ভব নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পর্যায় সারণির মূল ভিত্তি ও s, p, d, f ব্লকে মৌলের শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{Cl}_{2} \\mathrm{O} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{OF}_{2} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{NCl}_{5} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{SO}_{2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 32,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 32
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q033-111078-ch",
+      "text": "যদি 5 L কোন গ্যাসের চাপ ও কেলভিন তাপমাত্রা দ্বিগুণ হয়, তাহলে তার আয়তন কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "ল্যাবরেটরির নিরাপত্তা বিধি ও ব্যক্তিগত সুরক্ষা সরঞ্জাম (PPE)",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 L",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5 L",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10 L",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "25 L",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 33,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 33
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q034-111082-ch",
+      "text": "হাইড্রোজেন পরমাণুর তৃতীয় কক্ষপথের ইলেকট্রনের শক্তি প্রথম কক্ষপথের শক্তির কত গুণ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পরমাণুর মূল কণিকাসমূহ এবং রাদারফোর্ড ও বোর পরমাণু মডেল",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{1}{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{1}{6} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{1}{9} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{1}{4} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 34,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 34
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q035-111084-ch",
+      "text": "নিচের কোনটি লুইস এসিড নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{NH}_{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{B}(\\mathrm{OH})_{3} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{BF}_{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{AlCl}_{3} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 35,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 35
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q036-111501-ch",
+      "text": "100 g চুনাপাথরকে তাপে সম্পূর্ণরূপে বিয়োজিত করলে কী পরিমাণ চুন পাওয়া যাবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পর্যায় সারণির মূল ভিত্তি ও s, p, d, f ব্লকে মৌলের শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "28 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "56 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "44 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100 g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 36,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 36
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q037-111520-ch",
+      "text": "50 mL পানির নমুনা বিশ্লেষণ করে 5 mg Fe পাওয়া গেল। ppm এ Fe এর ,ঘনমাত্রা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পর্যায় সারণির মূল ভিত্তি ও s, p, d, f ব্লকে মৌলের শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "200",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "300",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1580",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 37,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 37
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q038-111523-ch",
+      "text": "বিক্রিয়ার সাম্যের উপর কোনটির প্রভাব নেই?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "চাপ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রভাবক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ঘনমাত্রা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "তাপমাত্রা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 38,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 38
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q039-111545-ch",
+      "text": "নিচের যৌগগুলোর মধ্যে কোনটিতে সর্বোচ্চ সংখ্যক নিঃসঙ্গ জোড় ইলেকট্রন বিদ্যমান?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পর্যায় সারণির মূল ভিত্তি ও s, p, d, f ব্লকে মৌলের শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{SF}_{4} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{H}_{2} \\mathrm{O} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{NH}_{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{XeF}_{2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 39,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 39
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q040-111578-ch",
+      "text": "sp³d সংকরিত যৌগ নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "পর্যায় সারণির মূল ভিত্তি ও s, p, d, f ব্লকে মৌলের শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{SF}_{4} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{PCl}_{5} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{ClF}_{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলো",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 40,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 40
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q041-111579-ch",
+      "text": "নিচের কোন এসিডটি তীব্রতম?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{HNO}_{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{H}_{2} \\mathrm{SO}_{4} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{HClO}_{4} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{HBrO}_{4} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 41,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 41
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q042-111605-ch",
+      "text": "লেমন জুসের সমুনায় \\( \\mathrm{OH}^{-} \\) আয়নের ঘনমাত্রা \\( 4.0 \\times 10^{-12} \\mathrm{M} \\) হলে \\( \\mathrm{H}_{3} \\mathrm{O}^{+} \\) আয়নের মেলার ঘনমাত্রা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 5.2 \\times 10^{-3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 2.5 \\times 10^{-4} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 2.5 \\times 10^{-3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 5.2 \\times 10^{-4} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 42,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 42
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q043-111621-ch",
+      "text": "নিচের কোনটি মৃদু তড়িৎ বিশ্লেষ্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{HCI} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{HF} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{CuSO}_{4} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\mathrm{C}_{6} \\mathrm{H}_{12} \\mathrm{O}_{6} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 43,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 43
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q044-111627-ch",
+      "text": "সম আয়তনের \\( 0.1 \\mathrm{M} \\mathrm{CH}_{3} \\mathrm{COONa} \\) এবং \\( 0.01 \\mathrm{M} \\mathrm{CH}_{3} \\mathrm{COO} \\) মিশ্রনের \\( \\mathrm{pH} \\) কত? \\( \\left[\\mathrm{CH}_{3} \\mathrm{COOH}\\right. \\) এর \\( \\left.\\mathrm{pK}_{\\mathrm{a}}=4.76\\right] \\)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বিক্রিয়ার দিক ও উভমুখী বিক্রিয়া এবং লা-শাতেলিয়ারের নীতি",
+      "options": [
+        {
+          "id": "a",
+          "text": "5.76",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3.76",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4.76",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2.76",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 44,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 44
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q045-111087-ch",
+      "text": "অ্যামনিয়াযুক্ত AgNO 3 দ্রবণ দ্বারা নিচের কোনটি শনাক্ত করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "জৈব যৌগের প্রাচুর্যের কারণ ও কার্বনের ক্যাটেনেশন ধর্ম",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যালকোহল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালডিহাইড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কিটোন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যালকিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 45,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 45
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q046-111088-ch",
+      "text": "যদি কোন জৈব যৌগে 2টি সদৃশ অপ্রতিসম কার্বন থাকে তবে ঐ যৌগের সম্ভাব্য আলোক সক্রিয় সমাণু কতটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "জৈব যৌগের প্রাচুর্যের কারণ ও কার্বনের ক্যাটেনেশন ধর্ম",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 46,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 46
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q047-111089-ch",
+      "text": "\\( \\mathrm{MnO}_{4}^{-}+\\mathrm{H}^{-}+\\mathrm{c} \\rightarrow \\mathrm{Mn}^{2+}+\\mathrm{H}_{2} \\mathrm{O} \\) অর্ধ-জারণ বিক্রিয়ায় কত মোল ইলেকট্রন জড়িত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "রাসায়নিক গণনা ও মোল ধারণা",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 47,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 47
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q048-111535-ch",
+      "text": "5% NaOH দ্রবণের মোলার ঘনমাত্রা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "রাসায়নিক গণনা ও মোল ধারণা",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.25",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12.50",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5.00",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.125",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 48,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 48
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q049-111536-ch",
+      "text": "এক মেলাল দ্রবণে 0.3 মোল দ্রব দ্রবীভূত থাকলে দ্রাবকের পরিমাণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "রাসায়নিক গণনা ও মোল ধারণা",
+      "options": [
+        {
+          "id": "a",
+          "text": "1000 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "300 mL",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "300 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100 mL",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 49,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 49
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q050-111537-ch",
+      "text": "[IMAGE:103H8FA3_XVgh-w9oLS_E.png] যৌগটির IUPAC নাম নিচের কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "জৈব যৌগের প্রাচুর্যের কারণ ও কার্বনের ক্যাটেনেশন ধর্ম",
+      "options": [
+        {
+          "id": "a",
+          "text": "মিথাইলবিউটাইল বেনজিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1,2-ডাইমিথাইলবিউটাইল বেনজিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1-বিউটাইল-2,4-ডাইমিথাইল বেনজিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1,2,4-ডাইমিথাইলবিউটাইল বেনজিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 50,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 50
+      },
+      "explanation": "CH₃–CH=C–CH₂–CH₂–CHO 6 5 4 3 2 1 IUPAC নাম: 4-ক্লোরোহেক্স-4- ইন্যাল।",
+      "assetPaths": [
+        "assets/lokkho/f00c2c0b8c1ee37643a2bb2d.png"
+      ]
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q051-111543-ch",
+      "text": "\\( \\mathrm{CO}_{2}(\\mathrm{~S})+\\mathrm{CH}_{3} \\mathrm{M}_{\\mathrm{g}} \\mathrm{X} \\xrightarrow[\\text { cther }]{\\text { dry }} \\mathrm{Y} \\xrightarrow{\\mathrm{H}^{+} / \\mathrm{H}_{2} \\mathrm{O}} \\mathrm{CH}_{3} \\mathrm{COOII} \\) বিক্রিয়ায় \\( \\mathrm{Y} \\) কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "জৈব যৌগের প্রাচুর্যের কারণ ও কার্বনের ক্যাটেনেশন ধর্ম",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\mathrm{CH}_{3} \\mathrm{CHO} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\mathrm{CH}_{3} \\mathrm{COOMgX} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\mathrm{CH}_{3} \\mathrm{COOX} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\left(\\mathrm{CH}_{3} \\mathrm{COO}\\right)_{2} \\mathrm{Mg} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 51,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 51
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q052-111546-ch",
+      "text": "27°C তাপমাত্রায় \\( 7 \\mathrm{~g} \\mathrm{~N}_{2} \\) গ্যাসের জন্য আদর্শ গ্যাস সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "বায়ুমণ্ডলের উপাদান ও বিভিন্ন স্তরের গঠন (ট্রপোস্ফিয়ার, স্ট্র্যাটোস্ফিয়ার, মেসোস্ফিয়ার, থার্মোস্ফিয়ার",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( P V=750 \\mathrm{R} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( P V=75 \\mathrm{R} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( P V=150 \\mathrm{R} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( P V=300 \\mathrm{R} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 52,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 52
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q053-111549-ch",
+      "text": "জৈব যৌগে কার্বন-কার্বন দ্বিবন্ধনের অবস্থান নির্ণয়ে নিচের কোন পদ্ধতিটি ব্যবহার করা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "জৈব যৌগের প্রাচুর্যের কারণ ও কার্বনের ক্যাটেনেশন ধর্ম",
+      "options": [
+        {
+          "id": "a",
+          "text": "ওজোনোলাইসিস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফটোলাইসিস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পলিমারাইজেশন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পাইরোলাইসিস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 53,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 53
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q054-111555-ch",
+      "text": "কক্ষ তাপমাত্রায় \\( \\mathbf{Z n}^{2+} / \\mathbf{Z n} \\) ও \\( \\mathrm{Fe}^{2+} / \\mathrm{Fe} \\)তড়িৎদ্বয়ের বিজারণ বিভব যথাক্রমে - 0.76 এবং – 0.44 V । তড়িৎ কোষটির বিভব কত ভোল্ট?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "topic": "তড়িৎ পরিবাহী ও এর শ্রেণিবিভাগ (ধাতব ও তড়িৎ বিশ্লেষ্য)",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.32",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-0.32",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-1.2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 54,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 54
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q055-111079-ch",
+      "text": "\\( \\tan \\theta=\\frac{1}{3} \\) হলে \\( \\sin 4 \\theta \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কোণের পরিমাপ: ডিগ্রি ও রেডিয়ান পরিমাপ এবং এদের সম্পর্ক",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{25}{24} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{3}{5} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{24}{25} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{9}{10} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 55,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 55
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q056-111086-ch",
+      "text": "3x-4y-3=0 সরলরেখার 3 একক দূরবর্তী সমান্তরাল সরলরেখার সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কার্তেসীয় ও পোলার স্থানাঙ্ক ব্যবস্থা এবং এদের পারস্পরিক রূপান্তর",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 3 x-4 y-3=0 \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 3 x-4 y-2=0 \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 3 x-4 y+18=0 \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 3 \\mathrm{x}-4 \\mathrm{y}+12=0 \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 56,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 56
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q057-111503-ch",
+      "text": "\\( \\sin ^{-1}(-\\cos x)+\\sin ^{-1}(\\cos 3 x)=\\text { কোনটি? } \\)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "যৌগিক কোণের ত্রিকোণমিতিক অনুপাত: sin(A±B), cos(A±B), tan(A±B)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( -4 x \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( -2 x \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\pi-2 x \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\pi-4 x \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 57,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 57
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q058-111504-ch",
+      "text": "\\( \\mathrm{y}=\\mathrm{x}^{3}+2 \\mathrm{x}+6 \\) বক্ররেখার (0.6) বিন্দুতে অভিলম্বের সমীকরণ—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ত্রিভুজের মধ্যমা ও ভরকেন্দ্র সংক্রান্ত উপপাদ্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 2 x-y+6=0 \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 2 x+y+6=0 \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( x-2 y+12=0 \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( x+2 y-12=0 \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 58,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 58
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q059-111507-ch",
+      "text": "\\( \\left|\\begin{array}{lll}a_{1} & b_{1} & c_{1} \\\\ a_{2} & b_{2} & c_{2} \\\\ a_{3} & b_{3} & c_{3}\\end{array}\\right| \\) নির্ণায়কটির ২য় সারির উপাদানগুলোর সহগুণক যথাক্রমে A 2 , B 2 এবং \\( \\mathrm{C}_{2} \\) হলে \\( \\mathrm{a}_{3} \\mathrm{~A}_{2}+\\mathrm{b}_{3} \\mathrm{~B}_{2}+\\mathrm{c}_{3} \\mathrm{C}_{2}= \\) ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ম্যাট্রিক্সের ধারণা ও প্রকারভেদ (সারি, কলাম, বর্গ, কর্ণ, স্কেলার, অভেদক, শূন্য, প্রতিসম ও বিপ্রতিসম",
+      "options": [
+        {
+          "id": "a",
+          "text": "-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 59,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 59
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q060-111508-ch",
+      "text": "\\( \\tan \\theta=\\frac{3}{4}\\left(0<\\theta<\\frac{\\pi}{2}\\right) \\)হলে \\( \\frac{\\sin \\theta-\\cos \\theta}{\\sin \\theta+\\cos \\theta} \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কোণের পরিমাপ: ডিগ্রি ও রেডিয়ান পরিমাপ এবং এদের সম্পর্ক",
+      "options": [
+        {
+          "id": "a",
+          "text": "7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{1}{7} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( -\\frac{1}{7} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-7",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 60,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 60
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q061-111512-ch",
+      "text": "যে বৃত্তের কেন্দ্র (4, 3) এবং 5x – 12y + 3 = 0 রেখাকে স্পর্শ করে তার সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বৃত্তের প্রমিত সমীকরণ, সাধারণ সমীকরণ ও কেন্দ্র-ব্যাসার্ধ নির্ণয়",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( x^{2}+y^{2}+8 x+6 y+24=0 \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( x^{2}+y^{2}-8 x-6 y-24=0 \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( x^{2}+y^{2}-8 x-6 y+24=0 \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( x^{2}+y^{2}+8 x-6 y+24=0 \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 61,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 61
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q062-111519-ch",
+      "text": "\\( \\overrightarrow{\\mathbf{A}}=\\hat{\\mathbf{i}}+2 \\hat{\\mathbf{j}}+2 \\hat{\\mathbf{k}} \\) এবং \\( \\overrightarrow{\\mathbf{B}}=3 \\hat{\\mathrm{i}}+2 \\hat{\\mathbf{j}}-\\hat{\\mathbf{k}} \\) হলে \\( \\overrightarrow{\\mathbf{A}} \\) এর ওপর \\( \\overrightarrow{\\mathbf{B}} \\) এর অভিক্ষেপ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "সমতলে ও ত্রিমাত্রিক স্থানে ভেক্টরের বীজগাণিতিক প্রকাশ ও অবস্থান ভেক্টর",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{3}{5} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{5}{3} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{2}{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{3}{2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 62,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 62
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q063-111531-ch",
+      "text": "y 2 =4x এবং y - 2x = 0 দ্বারা আবদ্ধ ক্ষেত্রের ক্ষেত্রফল কত বর্গ একক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "অনির্দিষ্ট যোগজ (Indefinite Integral) ও অন্তরীকরণের বিপরীত প্রক্রিয়া",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{1}{3} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{1}{6} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 63,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 63
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q064-111533-ch",
+      "text": "\\( x, y, z \\) এর কোন মানের জন্য \\( \\left[\\begin{array}{cc}x-y & 3 \\\\ -3 & x+2 z\\end{array}\\right] \\) একটি বিপ্রতিসম ম্যাট্রিক্স হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ম্যাট্রিক্সের ধারণা ও প্রকারভেদ (সারি, কলাম, বর্গ, কর্ণ, স্কেলার, অভেদক, শূন্য, প্রতিসম ও বিপ্রতিসম",
+      "options": [
+        {
+          "id": "a",
+          "text": "2,4,5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3,3,2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4,4, -2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1,1,1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 64,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 64
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q065-111539-ch",
+      "text": "\\( x^{19}-6 x^{11}+k \\) রাশির একটি উৎপাদক \\( (x-1) \\) হলে \\( k= \\) ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ত্রিভুজের মধ্যমা ও ভরকেন্দ্র সংক্রান্ত উপপাদ্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 65,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 65
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q066-111540-ch",
+      "text": "\\( 2 \\mathrm{x}=\\mathrm{y}^{2}+8 \\mathrm{y}+22 \\) পরাবৃত্তের শীর্ষবিন্দুর স্থানাঙ্ক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "নির্দিষ্ট অনুপাতে রেখাংশের অন্তর্বিভক্তিকরণ ও বহির্বিভক্তিকরণ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( (3,-4) \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( (-3,4) \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( (-3,-3) \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( (3,4) \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 66,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 66
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q067-111557-ch",
+      "text": "(-2, 4) ও (4,2) বিন্দুদ্বয়ের সংযোগ রেখাংশকে অক্ষরেখা কী অনুপাতে বিভক্ত করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কার্তেসীয় ও পোলার স্থানাঙ্ক ব্যবস্থা এবং এদের পারস্পরিক রূপান্তর",
+      "options": [
+        {
+          "id": "a",
+          "text": "2:1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1:2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3:4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4:3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 67,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 67
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q068-111563-ch",
+      "text": "\\( \\sin ^{-1} \\frac{4}{5}+\\cos ^{-1} \\frac{2}{\\sqrt{5}} \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কোণের পরিমাপ: ডিগ্রি ও রেডিয়ান পরিমাপ এবং এদের সম্পর্ক",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\tan ^{-1} \\frac{2}{11} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\tan ^{-1} \\frac{32}{11} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\tan ^{-1} \\frac{11}{2} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( -\\tan ^{-1} \\frac{2}{11} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 68,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 68
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q069-111568-ch",
+      "text": "x 2 + y 2 = p 2 এবং x 2 + y 2 - 8y - 9 = 0 বৃত্ত দুইটি পরস্পরকে অন্তঃস্থভাবে স্পর্শ করলে p এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "সরলরেখা বৃত্তকে স্পর্শ করার শর্ত",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 69,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 69
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q070-111570-ch",
+      "text": "\\( 3 x-p y-3=0 \\) রেখাটি \\( \\frac{5}{3} \\) ঢাল বিশিষ্ট রেখার উপর লম্ব হলে \\( p \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কার্তেসীয় ও পোলার স্থানাঙ্ক ব্যবস্থা এবং এদের পারস্পরিক রূপান্তর",
+      "options": [
+        {
+          "id": "a",
+          "text": "-5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 70,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 70
+      },
+      "explanation": "3x − py − 3 = 0 এর ঢাল m₁ = 3/p; অপর রেখার ঢাল m₂ = 5/3\nলম্ব হলে m₁m₂ = −1 ⇒ (3/p)(5/3) = −1 ⇒ p = −5\n∴ সঠিক উত্তর (a) −5।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q071-111592-ch",
+      "text": "\\( x^{2}+y^{2}-8 x-12 y+p=0 \\) বৃত্তটি x-অক্ষকে স্পর্শ করলে p এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বৃত্তের প্রমিত সমীকরণ, সাধারণ সমীকরণ ও কেন্দ্র-ব্যাসার্ধ নির্ণয়",
+      "options": [
+        {
+          "id": "a",
+          "text": "16",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-18",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-16",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "18",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 71,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 71
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q072-111595-ch",
+      "text": "\\( \\frac{2 \\pi}{3} \\)কোণে কোণে কার্যরত 4N ও 1N মানের বল দুইটির লব্ধির মান-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "যৌগিক কোণের ত্রিকোণমিতিক অনুপাত: sin(A±B), cos(A±B), tan(A±B)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\sqrt{21} \\mathrm{~N} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\sqrt{19} \\mathrm{~N} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\sqrt{13} \\mathrm{~N} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\sqrt{23} \\mathrm{~N} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 72,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 72
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q073-111606-ch",
+      "text": "\\( \\frac{d}{d x}\\left(\\tan ^{-1} \\frac{4 x}{1-4 x^{2}}\\right)= \\) কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "মূলদ ও অমূলদ সূচকের সূত্রাবলি ও প্রমাণ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{4}{1+4 x^{2}} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{4}{1+2 x^{2}} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{2}{1+4 x^{2}} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{6}{1+4 x^{2}} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 73,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 73
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q074-111608-ch",
+      "text": "\\( y=2 x^{2}+3 x+5 \\) বক্ররেখার \\( (0,1) \\) বিন্দুতে অভিলম্বের ঢাল-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ফাংশনের সীমা (Limit) ও সীমার ধর্মাবলি",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( -\\frac{1}{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{1}{3} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 74,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 74
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q075-111620-ch",
+      "text": "\\( A=\\left[\\begin{array}{ll}5 & 4 \\\\ 2 & 3\\end{array}\\right] \\) হলে Adj A হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "ম্যাট্রিক্সের ধারণা ও প্রকারভেদ (সারি, কলাম, বর্গ, কর্ণ, স্কেলার, অভেদক, শূন্য, প্রতিসম ও বিপ্রতিসম",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\left[\\begin{array}{rr}3 & 2 \\\\ -4 & 5\\end{array}\\right] \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\left[\\begin{array}{rr}3 & -4 \\\\ -2 & 5\\end{array}\\right] \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\left[\\begin{array}{rr}4 & -5 \\\\ 3 & 2\\end{array}\\right] \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\left[\\begin{array}{ll}3 & 4 \\\\ 2 & 5\\end{array}\\right] \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 75,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 75
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q076-111505-ch",
+      "text": "\\( x^{2}+2 x-2=0 \\) সমীকরণের মূলদ্বয় \\( p \\) ও \\( q \\) হলে \\( \\frac{1}{p}+\\frac{1}{q} \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বহুপদী রাশির সংজ্ঞা, ঘাত ও সহগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 76,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 76
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q077-111517-ch",
+      "text": "\\( 5 \\tan ^{2} \\theta-\\sec ^{2} \\theta=11(\\pi<\\theta<2 \\pi) \\) সমীকরণে \\( \\theta= \\) ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{7 \\pi}{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{2 \\pi}{3} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{4 \\pi}{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{\\pi}{3} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 77,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 77
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q078-111521-ch",
+      "text": "\\( \\operatorname{Arg}(z)=\\frac{\\pi}{3} \\) হলে \\( \\operatorname{Arg}(i z)= \\) কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কাল্পনিক একক 'i' ও জটিল সংখ্যার সাধারণ রূপ (z = a + ib)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{\\pi}{3} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{5 \\pi}{6} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{\\pi}{6} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 78,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 78
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q079-111524-ch",
+      "text": "\\( \\int e^x(\\cos x + \\sin x) dx \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\(e^x \\sin x + c\\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\(-e^x \\sin x + c\\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\(e^x \\cos x + c\\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\(-e^x \\cos x + c\\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 79,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 79
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q080-111525-ch",
+      "text": "12 m -1 বেগের দুই পার্শ্বে 30° ও 60° কোণে ক্রিয়ারত অংশকদ্বয় কত ms -1 ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বলের সামান্তরিক সূত্র ও লব্ধির মান ও দিক",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( 6 \\sqrt{3}, 6 \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( 6,6 \\sqrt{2} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 24,24 \\sqrt{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( 24 \\sqrt{2}, 24 \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 80,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 80
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q081-111526-ch",
+      "text": "y 2 =-8x ও x² = 16y পরাবৃত্ত দুইটির উপকেন্দ্রদ্বয়ের মধ্যবর্তী দূরত্ব কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কণিকের সংজ্ঞা, উপকেন্দ্র (Focus), দিকাক্ষ (Directrix) ও উৎকেন্দ্রিকতা (Eccentricity - e)",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\sqrt{2} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( 2 \\sqrt{5} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 81,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 81
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q082-111529-ch",
+      "text": "\\( \\int \\frac{e^{\\cos -1} x}{\\sqrt{1-x^{2}}} d x \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( e^{\\cos -1} x+c \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( -e^{\\cos -1} x+c \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( -\\frac{1}{2} e^{\\cos -1} x+c \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{1}{2} \\mathrm{e}^{\\cos -1} \\mathrm{x}+\\mathrm{c} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 82,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 82
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q083-111532-ch",
+      "text": "\\( \\mathrm{z}=\\frac{1-\\mathrm{i}}{1+\\mathrm{i}} \\text {হলে } \\operatorname{Re}(\\mathrm{z})=\\text { কোনটি? } \\)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কাল্পনিক একক 'i' ও জটিল সংখ্যার সাধারণ রূপ (z = a + ib)",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-i",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 83,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 83
+      },
+      "explanation": "(1 – i)/(1 + i) = ((1 – i) (1 – i))/((1 + i)(1 – i)) = (1 – 2i + i²)/(1 – i²) z = = (– 2i)/2 = – i = 0 + i (– 1) ∴Im (z) = – 1"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q084-111538-ch",
+      "text": "\\( y^{2}-\\frac{x^{2}}{2}=1 \\) অধিবৃত্তের উপকেন্দ্রিক লম্বের দৈর্ঘ্য কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কণিকের সংজ্ঞা, উপকেন্দ্র (Focus), দিকাক্ষ (Directrix) ও উৎকেন্দ্রিকতা (Eccentricity - e)",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\(\\sqrt{5} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 84,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 84
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q085-111542-ch",
+      "text": "\\( \\tan ^{-1} \\frac{2 x}{1-x^{2}}=\\sin ^{-1} \\frac{2 a}{1+a^{2}}+\\cos ^{-1} \\frac{1-b^{2}}{1+b^{2}} \\) সমীকরণে \\( x= \\) ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{a-b}{1+a b} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{a+b}{1-a b} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{2 a b}{1+a b} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{2 a b}{1-\\mathrm{ab}} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 85,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 85
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q086-111553-ch",
+      "text": "\\( \\frac{x^{2}}{25}+\\frac{y^{2}}{m}=1 \\) উপবৃত্তটি (4,6) বিন্দু দিয়ে অতিক্রম করলে উৎকেন্দ্রিকতা কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কণিকের সংজ্ঞা, উপকেন্দ্র (Focus), দিকাক্ষ (Directrix) ও উৎকেন্দ্রিকতা (Eccentricity - e)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{2}{\\sqrt{3}} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{\\sqrt{3}}{2} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\sqrt{3} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\sqrt{2} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 86,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 86
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q087-111564-ch",
+      "text": "\\( i=\\sqrt{2} y-1 \\text {হলে } y^{8}=\\text { কোনটি? } \\)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "কাল্পনিক একক 'i' ও জটিল সংখ্যার সাধারণ রূপ (z = a + ib)",
+      "options": [
+        {
+          "id": "a",
+          "text": "i",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-i",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 87,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 87
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q088-111571-ch",
+      "text": "\\( \\frac{d}{d x}\\left(\\log _{10} x\\right)=\\text {কোনটি } \\)",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{1}{\\mathrm{x}} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{1}{\\mathrm{x}} \\log _{10} \\mathrm{e} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{1}{\\mathrm{x}} \\log _{e} 10 \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\log _{10} \\mathrm{e} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 88,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 88
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q089-111575-ch",
+      "text": "\\( \\int_{0}^{1} \\frac{\\mathrm{x}}{\\mathrm{x}^{4}+1} \\mathrm{dx} \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{\\pi}{2} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{\\pi}{8} \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{\\pi}{6} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{\\pi}{4} \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 89,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 89
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q090-111582-ch",
+      "text": "\\( y=\\sqrt{\\sec x} \\) হলে \\( \\frac{d y}{d x}= \\) কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{\\mathrm{y}}{4} \\tan \\mathrm{x} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\frac{y}{2} \\tan x \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{y^{2}}{2} \\tan x \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( \\frac{y}{2} \\tan ^{2} x \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 90,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 90
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q091-111603-ch",
+      "text": "1-i মূল বিশিষ্ট সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বহুপদী রাশির সংজ্ঞা, ঘাত ও সহগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( x^{2}+2 x+2=0 \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( x^{2}-2 x+2=0 \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( x^{2}-2 x-2=0 \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "\\( x^{2}+2 x-2=0 \\)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 91,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 91
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q092-111610-ch",
+      "text": "\\( \\int_{0}^{2} \\frac{x}{\\sqrt{9-2 x^{2}}} d x \\) এর মান কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "topic": "বিপরীত ত্রিকোণমিতিক ফাংশনসমূহের সংজ্ঞা, ডোমেন ও মুখ্য মান (Principal Values)",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\frac{1}{2} \\)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\ln 2 \\)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\frac{1}{\\sqrt{2}} \\)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 92,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 92
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q093-111072-ch",
+      "text": "বর্তমানে কোনটি ব্যবহার করে রিকম্বিনেন্ট DNA শনাক্ত করা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "টিস্যু কালচার প্রযুক্তির মূলনীতি ও পর্যায়সমূহ (এক্সপ্লান্ট, ক্যালাস, প্লান্টলেট)",
+      "options": [
+        {
+          "id": "a",
+          "text": "SDS-Page",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ক্যালাস সৃষ্টি করে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "DNA প্রোব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 93,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 93
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q094-111083-ch",
+      "text": "প্রোটিন কোথায় তৈরি হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "কোষের ধারণা, প্রকারভেদ ও উদ্ভিদকোষের বৈশিষ্ট্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "রাইবোসোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লাইসোসেম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গলগি বডি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মাইটোকন্ড্রিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 94,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 94
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q095-111506-ch",
+      "text": "বিশ্বজনীন উদ্ভিদ বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "ভাজক টিস্যু: বৈশিষ্ট্য, অবস্থান ও শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "শৈবাল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ছত্রাক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ব্রায়োফাইটা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লাইকেন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 95,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 95
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q096-111511-ch",
+      "text": "টিস্যু কালচার প্রযুক্তির প্রাথমিক উদ্দেশ্য-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "টিস্যু কালচার প্রযুক্তির মূলনীতি ও পর্যায়সমূহ (এক্সপ্লান্ট, ক্যালাস, প্লান্টলেট)",
+      "options": [
+        {
+          "id": "a",
+          "text": "বেশি টিস্যু উৎপাদন করা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নতুন জাতের টিস্যু সৃষ্টি করা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উন্নত মানের বীজ উৎপাদন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বিভাজনক্ষম অঙ্গ থেকে নতুন চারা উৎপাদন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 96,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 96
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q097-111515-ch",
+      "text": "পানির ফটোলাইসিসের জন্য প্রয়োজন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "খনিজ লবণ পরিশোষণ: সক্রিয় ও নিষ্ক্রিয় পরিশোষণ মতবাদ (লুন্ডেগড় মতবাদ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mg",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Ca",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Fe",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Mn",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 97,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 97
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q098-111522-ch",
+      "text": "কোন নগ্নবীজী উদ্ভিদে দ্বিনিষেক ঘটে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "প্রজননের প্রকারভেদ (অযৌন ও যৌন জনন)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Gnetum",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Cycas",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Pinus",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Ephedra",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 98,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 98
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q099-111544-ch",
+      "text": "নিচের কোন কোষে সর্বাধিক সংখ্যক মাইটোকন্ড্রিয়া থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "কোষের ধারণা, প্রকারভেদ ও উদ্ভিদকোষের বৈশিষ্ট্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "মাংসপেশীর কোষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চোখের কোষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কিডনীর কোষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মস্তিস্কের কোষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 99,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 99
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q100-111558-ch",
+      "text": "উদ্ভিদ কোষের রান্নাঘর-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "কোষের ধারণা, প্রকারভেদ ও উদ্ভিদকোষের বৈশিষ্ট্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্লোরোপ্লাস্ট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মাইটোকন্ড্রিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সেন্ট্রিওল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোষ গহ্বর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 100,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 100
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q101-111560-ch",
+      "text": "খনিজ লবণ শোষণের সময় উদ্ভিদের মূল কোন ক্যাটায়ন দ্রুতগতিতে শোষণ করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "প্রজননের প্রকারভেদ (অযৌন ও যৌন জনন)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ca ++",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Mg ++",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "K +",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Na +",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 101,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 101
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q102-111561-ch",
+      "text": "ফ্যাটি অ্যাসিডের বিপাক উদ্ভিদ কোষের কোথায় ঘটে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "কোষের ধারণা, প্রকারভেদ ও উদ্ভিদকোষের বৈশিষ্ট্য",
+      "options": [
+        {
+          "id": "a",
+          "text": "গ্লাইঅক্সিসোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লাইসোসোম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রাইবোসোম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পারঅক্সিসোম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 102,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 102
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q103-111573-ch",
+      "text": "মাইটোসিস কোষ বিভাজনে ডিএনএ রেপ্লিকেশন হয় যে দশায়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "অ্যামাইটোসিস কোষ বিভাজন ও ব্যাকটেরিয়ার বিভাজন",
+      "options": [
+        {
+          "id": "a",
+          "text": "G1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "G2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "S",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সবগুলোয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 103,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 103
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q104-111577-ch",
+      "text": "গ্লাইকোলাইসিস কোষের কোন অঙ্গাণুতে ঘটে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "খনিজ লবণ পরিশোষণ: সক্রিয় ও নিষ্ক্রিয় পরিশোষণ মতবাদ (লুন্ডেগড় মতবাদ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাইটোপ্লাজম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মেসোসোম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গলগি বডি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্রোটোপ্লাস্ট",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 104,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 104
+      },
+      "explanation": "()/(অঙ্গাণু ) (কোষীয় অঙ্গাণুর বিশেষ নাম: )/(বিশেষ নাম ) (মাইটোকন্ড্রিয়া )/(ক্লোরোপ্লাস্ট )(কোষের পাওয়ার হাউস বা শক্তিঘর )/(কোষের রান্নাঘর বা শর্করা জাতীয় খাদ্যের কারখানা ) রাইবোসোম (কোষের প্রোটিন ফ্যাক্টরি বা প্রোটিন তৈরির কারখানা। )/(কোষের ট্রাফিক পুলিশ বা কার্বোহাইড্রেট ফ্যাক্টরি, কোষের ) গলগি বডি (পোস্ট অফিস বা কোষের প্যাকেজিং কেন্দ্র। )/(সুসাইডাল ব্যাগ বা আত্মঘাতি থলিকা, হাইড্রোলাইটিক ) লাইসোসোম এনজাইমের আধার।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q105-111585-ch",
+      "text": "গ্লুকোজের RQ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "খনিজ লবণ পরিশোষণ: সক্রিয় ও নিষ্ক্রিয় পরিশোষণ মতবাদ (লুন্ডেগড় মতবাদ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.5",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2.0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 105,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 105
+      },
+      "explanation": "Respiratory quotient, RQ = উৎপন্ন CO₂-এর পরিমাণ / ব্যবহৃত O₂-এর পরিমাণ। Glucose-এর সম্পূর্ণ জারণে C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O; তাই RQ = 6/6 = 1.0 (b)।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q106-111623-ch",
+      "text": "কোন উদ্ভিদ কোষে নিউক্লিয়াস থাকে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "ভাজক টিস্যু: বৈশিষ্ট্য, অবস্থান ও শ্রেণিবিভাগ",
+      "options": [
+        {
+          "id": "a",
+          "text": "সীভনল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সঙ্গীকোষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ট্রাকিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ভেসেল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 106,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 106
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q107-111076-ch",
+      "text": "হার্ট এটাক রোগীর জমাটবাঁধা রক্তকে গলিয়ে দিতে ব্যবহার করা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "জিনতত্ত্বের পরিভাষা (জিন, অ্যালিল, হোমোজাইগাস, হেটারোজাইগাস, ফিনোটাইপ, জিনোটাইপ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "স্ট্রেপটোকাইনেজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আইসোমারেজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লাইপেজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইউরোকাইনেজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 107,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 107
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q108-111081-ch",
+      "text": "ঘাসফড়িং-এর ট্রাকিয়া কখনো চুপসে যায় না, কারণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "হাইড্রার স্বভাব, বাসস্থান ও বাহ্যিক গঠন",
+      "options": [
+        {
+          "id": "a",
+          "text": "ইন্টিমা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যাট্রিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভিত্তিঝিল্লি",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "টিনিডিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 108,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 108
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q109-111085-ch",
+      "text": "ইন্টারফেরন কী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "প্রতিরক্ষার ধারণা ও ৩টি প্রতিরক্ষা স্তর",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রোটিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হরমোন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কার্বোহাইড্রেট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লিপিড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 109,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 109
+      },
+      "explanation": "Interferon হলো host cell-এর তৈরি signaling protein/cytokine, যা ভাইরাস সংক্রমণের বিরুদ্ধে প্রতিরক্ষায় এবং neighbouring cell-এ antiviral response তৈরিতে সাহায্য করে। তাই এটি protein (a)।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q110-111502-ch",
+      "text": "E. coli মানুষের অস্ত্রে নিচের কোন ভিটামিন তৈরি করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "পরিপাকতন্ত্রের গঠন (মুখগহ্বর, গলবিল, অন্ননালী, পাকস্থলী, ক্ষুদ্রান্ত্র, বৃহদান্ত্র)",
+      "options": [
+        {
+          "id": "a",
+          "text": "B 6",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "B 2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "B 12",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 110,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 110
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q111-111513-ch",
+      "text": "কোন ব্লাড গ্রুপের ব্যক্তিকে সার্বজনীন গ্রহীতা বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "A",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "B",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "AB",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "O",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 111,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 111
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q112-111516-ch",
+      "text": "পিত্তরস চর্বি জাতীয় খাদ্যকে যে প্রক্রিয়ায় ক্ষুদ্র ক্ষুদ্র কণায় পরিণত করে—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "পরিপাকতন্ত্রের গঠন (মুখগহ্বর, গলবিল, অন্ননালী, পাকস্থলী, ক্ষুদ্রান্ত্র, বৃহদান্ত্র)",
+      "options": [
+        {
+          "id": "a",
+          "text": "গ্লাইকোজেনেসিস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইমালসিফিকেশন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গ্লাইকোজেনোলাইসিস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লাইপোজেনেসিস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 112,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 112
+      },
+      "explanation": "পিত্তরস চর্বি জাতীয় খাদ্যকে ইমালসিফিকেশন (emulsification) প্রক্রিয়ায় শোষণ উপযোগী ক্ষুদ্র ক্ষুদ্র কণায় পরিণত করে। পিত্তলবণ চর্বি পরিপাককারী এনজাইম লাইপেজকে সক্রিয় করে পরিপাকে সাহায্য করে। পিত্তরস হাইড্রোট্রফিক প্রক্রিয়ায় অদ্রবণীয় ফ্যাটি এসিড, কোলেস্টেরল ইত্যাদিকে দ্রবীভূত করে অন্ত্রে শোষণের উপযোগী করে তোলে। পিত্তলবণ চর্বিতে দ্রবণীয় ভিটামিন A, D, E, K-কে শোষণে সহায়তা করে। পিত্তরসের মাধ্যমে কপার, জিংক, পারদ, টক্সিন জাতীয় পদার্থ, কোলেস্টরল ইত্যাদি নিষ্কাশিত হয়। পিত্তরসে বেশি ক্ষারক পদার্থের উপস্থিতির জন্য HCl কে প্রশমিত করে pH নিয়ন্ত্রণ করে এবং পাকস্থলি থেকে ডিওডেনামে আগত HCl কে প্রশমিত করে খাদ্য পরিপাকে সহায়তা কলে। পিত্তলবণ কোলনে পেরিস্ট্যালসিস (colon peristalasis) বাড়িয়ে মল নিষ্কাশনে সাহায্য করে।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q113-111528-ch",
+      "text": "একজন ক্যান্সার রোগীকে কেমোথেরাপী দিয়ে চিকিৎসার এক পর্যায়ে এরিথ্রোপয়েটিন দেওয়া হলো। নিম্নের কোন কারণটি এইক্ষেত্রে প্রযোজ্য নয়? এরিথ্রোপয়েটিন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "লোহিত রক্তকণিকার পরিমাণ বৃদ্ধি করে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অস্থিমজ্জা থেকে লোহিত রক্তকণিকা তৈরির প্রক্রিয়াকে উদ্দীপ্ত করে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্যান্সার কোষের মৃত্যু ঘটায়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কমে গেলে অ্যানেমিয়া হয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 113,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 113
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q114-111530-ch",
+      "text": "সোমাটোস্ট্যাটিন ক্ষরিত হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "বংশগতির উপাদান: ক্রোমোজোম, ডিএনএ (DNA), আরএনএ (RNA) ও জিন",
+      "options": [
+        {
+          "id": "a",
+          "text": "\\( \\alpha \\) - কোষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "\\( \\delta \\)-কোষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "\\( \\beta \\)-কোষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "F-কোষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 114,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 114
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q115-111534-ch",
+      "text": "Petromyzontida শ্রেণির মাছেরা কী নামে পরিচিত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "হ্যাগফিশ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ল্যামপ্রে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "স্লাইম ঈল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লাং ফিশ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 115,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 115
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q116-111547-ch",
+      "text": "কোনটি মানুষের হৃৎপিণ্ডের অংশ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যাওর্টা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যাট্রিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভেন্ট্রিকল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইউরেথ্রা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 116,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 116
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q117-111550-ch",
+      "text": "পৃথিবীর আদি প্রাণী কোন পর্বের অন্তর্ভুক্ত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "প্রাণীবৈচিত্র্যের প্রকারভেদ (জিনগত, প্রজাতিগত ও বাস্তুতান্ত্রিক বৈচিত্র্য)",
+      "options": [
+        {
+          "id": "a",
+          "text": "কডার্টা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পরিফেরা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সিলেনটারেটা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্রোটোজোয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 117,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 117
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q118-111552-ch",
+      "text": "হিস্টামিন তৈরি করে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "T- লিম্ফোসাইট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "B-লিম্ফোসাইট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মনোসাইট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বেসোফিল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 118,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 118
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q119-111554-ch",
+      "text": "অক্সিজেন সমৃদ্ধ রক্ত সরবরাহের জন্য সঠিক নির্দেশিত পথ—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফুসফুস → পালমোনারি শিরা → বাম অ্যাট্রিয়াম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফুসফুস → পালমোনারি ধমনী → বাম অ্যাট্রিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পালমোনারি শিরা → ফুসফুস → বাম অ্যাট্রিয়াম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বাম অ্যাট্রিয়াম → পালমোনারি শিরা → ফুসফুস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 119,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 119
+      },
+      "explanation": "হৃদরোগ। হৃৎপিণ্ডে রক্ত সরবরাহকারী করোনারি ধমনির সংকীর্ণতার ফলে হৃৎপেশিতে পুষ্টি এবং অক্সিজেন সরবরাহ বাধাগ্রস্থ হলে যে অবস্থার সৃষ্টি হয় তাকে করোনারি হৃদরোগ বলে। করোনারি হৃদরোগের অপর নাম ইস্কিমিয়া। অ্যানজাইনা, হার্ট অ্যাটার্ক এবং হার্ট ফেলিওর করোনারি ধমনির অস্বাভাবিকতার কারণে সৃষ্ট করোনারি হৃদরোগ।"
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q120-111556-ch",
+      "text": "সেক্স (X-Chromosome) লিংকড ডিসঅর্ডার নয় কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "জিনতত্ত্বের পরিভাষা (জিন, অ্যালিল, হোমোজাইগাস, হেটারোজাইগাস, ফিনোটাইপ, জিনোটাইপ)",
+      "options": [
+        {
+          "id": "a",
+          "text": "বর্ণান্ধতা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হিমোফিলিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "খ্রিষ্টমাস ডিজিজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মূক বধিরতা",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 120,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 120
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q121-111562-ch",
+      "text": "BMI-এর কোন মানটি হৃদরোগের জন্য সবচেয়ে ঝুকিপূর্ণ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "25",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "27",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "35",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "24",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 121,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 121
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q122-111567-ch",
+      "text": "লসিকাতন্ত্র বহন করে না-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "T-লিম্ফোসাইট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "B-লিম্ফোসাইট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লোহিত রক্তকণিকা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 122,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 122
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q123-111586-ch",
+      "text": "Gastrovascular cavity কোন প্রাণীতে পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "হাইড্রার স্বভাব, বাসস্থান ও বাহ্যিক গঠন",
+      "options": [
+        {
+          "id": "a",
+          "text": "Scypha",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Hydra",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Taenia",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Aurelia",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 123,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 123
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q124-111589-ch",
+      "text": "থোরাসিক কশেরুকা সংখ্যার ক্ষেত্রে প্রযোজ্য-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "T1-T12",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "T1-T10",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "T1-T14",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "T1-T16",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 124,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 124
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q125-111598-ch",
+      "text": "প্রাণি কোষের সর্ববৃহৎ অঙ্গাণু—",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "প্রাণীবৈচিত্র্যের প্রকারভেদ (জিনগত, প্রজাতিগত ও বাস্তুতান্ত্রিক বৈচিত্র্য)",
+      "options": [
+        {
+          "id": "a",
+          "text": "রাইবোসোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "লাইসোসোম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মাইটোকন্ড্রিয়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নিউক্লিয়াস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 125,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 125
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q126-111599-ch",
+      "text": "এরিথ্রোসাইট ধ্বংস হয় কোথায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "যকৃৎ ও প্লীহা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "যকৃৎ ও অগ্ন্যাশয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অস্থিমজ্জা ও প্লীহা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অস্থিমজ্জা ও বৃক্ক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 126,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 126
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q127-111601-ch",
+      "text": "Hydra-র টটিপোটেন্ট কোষ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "হাইড্রার স্বভাব, বাসস্থান ও বাহ্যিক গঠন",
+      "options": [
+        {
+          "id": "a",
+          "text": "ইন্টারস্টিশিয়াল কোষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "জনন কোষ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সংবেদী কোষ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নিডোসাইট",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 127,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 127
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q128-111615-ch",
+      "text": "ইউরিয়া চক্রের সঠিক নির্দেশিত পথ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রেচনতন্ত্রের গঠন (বৃক্ক, ইউরেটার, মূত্রথলি ও মূত্রনালী)",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাইট্রলিন \\( \\to \\) আরজিনোসাকসিনেট \\( \\to \\) আরজিনিন \\( \\to \\) অরনিথিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অরনিথিন \\( \\to \\) আরজিনিন \\( \\to \\) আরজিনোসাকসিনেট \\( \\to \\) সাইট্রলিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আরজিনোসাকসিনেট \\( \\to \\) সাইট্রলিন \\( \\to \\) আরজিনিন \\( \\to \\) অরনিথিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনোটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 128,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 128
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q129-111618-ch",
+      "text": "মাছ কোন অঙ্গের সাহায্যে পানির বিভিন্ন স্তর সম্পর্কে জানতে পারে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "হাইড্রার স্বভাব, বাসস্থান ও বাহ্যিক গঠন",
+      "options": [
+        {
+          "id": "a",
+          "text": "পাখনা রশ্মি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পার্শ্বরেখা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নাসারন্ধ্র",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বায়ুথলি",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 129,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 129
+      }
+    },
+    {
+      "id": "ru-sci-c-2023-2024-ruc-group1-mcq-q130-111625-ch",
+      "text": "আমরা অম্ল জাতীয় খাদ্য গ্রহণ করা সত্ত্বেও রক্তের pH এর পরিবর্তন না হওয়ার কারণ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "topic": "রক্তের উপাদান ও কাজ (রক্তরস ও রক্তকণিকা: লোহিত, শ্বেত ও অণুচক্রিকা)",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যান্টিবডি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যান্টিজেন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রক্তের গ্রুপ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বাফার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha",
+          "questionNumber": 130,
+          "sourceDocumentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture"
+        }
+      ],
+      "source": {
+        "documentId": "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha-lokkho-capture",
+        "questionNumber": 130
+      }
+    }
+  ]
+}

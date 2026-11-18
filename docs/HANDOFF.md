@@ -1,3 +1,37 @@
+# Latest implementation handoff — RU Science varsity question-bank import — 2026-11-18
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Status:** Imported to tracked question-pack source, verified locally and committed on this branch. Working tree is clean; nothing pushed.
+
+## Integrated content
+
+- Destination: Varsity / Rajshahi University (`ru`, code `RU`). Added 46 packs and 46 papers containing 4,249 questions, 16,996 options and 90 source documents; 45 referenced PNG assets copied into `data/question-packs/assets/lokkho/`.
+- Source labels: 44 C Unit — Science papers, one D1 Unit and one F Unit. The separate D1 Group-1 pack with 197 non-science questions remains excluded. The question-pack schema does not have a separate admission-group column; unit metadata is preserved on each paper.
+- Verification: 4,144 questions are verified in both dimensions; 105 remain unverified in both. All original/unresolved keys and statuses are retained. The default RU eligible pool has 4,144; the explicit review predicate admits 86 unresolved candidates. All 105 remain browseable.
+- All RU package `examRules` remain empty. No Standard Exam pattern or scoring rule was invented; Custom Practice is available. The existing RU 2024–25 Marking Profile remains independent of paper-rule configuration.
+
+## Bundle and compatibility
+
+- Active university question-pack files: 204 / 12,021 questions. Combined seed: 205 entries / 13,849 question rows / 55,396 options; one ASPECT Library publication and its 1,828 questions/26 units remain separate.
+- Seed schema v12, 26,165,248 bytes, seed ID `b8c40409b656a9432ed0`; 65 local assets / 66 references / 65 unique references.
+- `ru-sci-*` IDs avoid v11 legacy retirement patterns. Fresh install and v10→v12 upgrade tests confirm all 46 new RU papers active and all old `ru-c-*`/`ru-vq-*` records remain retired/history-preserving.
+- No schema migration, runtime importer logic, scoring, exam UI, app identity, Library pack or EAS configuration change. The ignored SQLite seed is a local build artifact; tracked `src/content/bundledManifest.ts` is regenerated.
+
+## Verification
+
+- Package SHA-256 manifest verified before import; no source/destination ID or asset path conflicts.
+- Question pack validator: 204 / 12,021; zero errors / 5,199 warnings. Question asset check: 65 assets, 66 refs (65 unique), no missing references.
+- `pnpm content:build` and `pnpm content:check`: 205 / 13,849, seed 24.95 MiB.
+- Targeted JU/HSTU/RU import and retirement group: 9/9. Full app suite: 301/301.
+- TypeScript, lint, Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS), SQLite `quick_check`, zero foreign-key issues, actual generated seed fresh install, and v10 existing-database upgrade+seed sync all pass on Node 22.23.1.
+
+## Remaining owner release QA
+
+No APK/EAS build or physical Android QA was run. The existing v0.1.9 APK does not include RU Science. A new preview build and owner device checks are required before the user can browse/use this new bundled content on their installed app. No push or deployment was performed.
+
+---
+
 # Release handoff — Android preview v0.1.9 built and owner-tested — 2026-11-18
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app` · **Branch:** `feat/import-hstu-verified-answers-2026-11-12` · local commits only, nothing pushed.

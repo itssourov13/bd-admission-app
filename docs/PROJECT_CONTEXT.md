@@ -1,3 +1,15 @@
+# RU Science question-pack integration — current state — 2026-11-18
+
+The owner-approved curated RU Science package is now included in the active Varsity question-pack source. It contains 46 schema-v1 packs / 46 papers / 4,249 questions / 16,996 options / 90 sources / 45 local PNGs under institution `ru` / code `RU`, using the non-retired `ru-sci-*` ID namespace. The units remain source-labelled: 44 C Unit — Science, one D1 Unit and one F Unit. The separate 197-question non-science D1 Group-1 pack is excluded.
+
+4,144 questions have both answer and content status `verified`; 105 remain unverified in both fields and browseable only by default. The app's eligible practice pool contains 4,144 RU questions; the explicit review predicate admits 86 unresolved candidates. All imported packs keep `examRules: []`; paper-specific RU Standard Exam patterns remain unavailable until exact paper/session evidence supports them. The built-in RU 2024–25 Marking Profile is not treated as a substitute exam pattern.
+
+Current local source/bundle totals: 204 varsity question packs / 12,021 varsity questions; 205 seed entries / 13,849 total seed question rows (including the separate 1,828-question ASPECT Library book), 55,396 options and 65 static offline assets. Schema v12 is unchanged. Legacy `ru-c-*`/`ru-vq-*` papers and batches remain retired; the new `ru-sci-*` IDs are active without changing the retirement migration.
+
+The original Lokkho and RU-V archives remain preserved outside the repository. This new Varsity package is a separate curated import and does not merge or relocate the RU-V ASPECT Library publication. Automated verification (including the 2,043-module / 146-asset Android no-bytecode Metro export) is complete; the v0.1.9 APK has not yet been rebuilt with this content and physical-device QA remains outstanding.
+
+---
+
 # ASPECT Library — owner-verified, session-organised — 2026-11-18
 
 The RU-V ASPECT Library book is now owner-verified: the owner reviewed the imported questions and their source-printed answers and designated them the source of truth (not an independent solve, not a university-certified key). 1,826 of 1,828 questions are verified; 2 questions whose printed key contradicts the printed working stay unverified and unscored. The book is shown under the ASPECT card (stored publisher remains the unidentified row, ADR-038/040) with the owner-supplied ASPECT logo, and its 17 source sets are organised into 9 session drawers with Flash / Timed practice / Browse. Details: `docs/ASPECT_OWNER_VERIFICATION.md`. The paragraphs below that call RU-V unverified are historical.
@@ -24,7 +36,7 @@ Exam-rule facts are exact paper/session-specific. The 2024–2025 verified-sourc
 
 # Project context
 
-## Current RU pack ownership and archive status — 2026-11-17
+## Historical RU pack archive and retirement checkpoint — 2026-11-17 (superseded narrowly by the curated RU Science import)
 
 The ADR-035 decision is implemented. Both RU datasets are retained as separate external archives and removed from active app source and bundle:
 
