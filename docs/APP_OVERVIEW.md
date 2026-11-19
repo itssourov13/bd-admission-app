@@ -1,6 +1,6 @@
 # BD Admission — product and engineering overview
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
 
 ## Product
 
@@ -17,7 +17,13 @@ BD Admission is an offline-first Android app for Bangladesh university (Varsity)
 
 ## Current bundled content
 
-The combined local seed contains **205 entries / 13,849 question rows / 55,396 options**, including **204 Varsity question-pack files / 12,021 university questions** and one separate ASPECT Library publication. The shared offline question-asset index contains 65 local assets.
+The combined local seed contains **231 entries / 16,407 question rows / 66,793 options**, including **230 Varsity question-pack files / 14,579 university questions** and one separate ASPECT Library publication (1,828 questions / 26 units). The shared question-figure asset index contains 65 local assets; university logos are maintained separately.
+
+### University of Chittagong — A Unit Science
+
+The CU A Unit historical collection is integrated into the Varsity catalogue under institution `cu` / code `CU`: 26 papers, 2,558 questions, 11,397 options and 68 source documents. The source-question content is verified under the owner's prior Muse AI review; answer states remain distinct at 2,185 verified / 373 unverified. The normal practice pool contains 2,185 verified-eligible questions; unverified answers remain Browse-only for CU because every CU paper has a verified pool. The partial 2025–26 rule does not enable an official scored Standard Exam; older paper rules remain unconfigured.
+
+The university's original website PNG logo is bundled in `assets/universities/cu.png` and registered through the existing university logo component.
 
 ### Rajshahi University — Science
 
@@ -68,7 +74,7 @@ pnpm packs:validate
 pnpm question-assets:check
 ```
 
-The November 18, 2026 v0.1.10 release-source checks passed: 301/301 tests, typecheck, lint, content freshness (205 / 13,849), pack validation (204 / 12,021, zero errors), asset validation (65 assets / 66 references) and ASPECT attestation. The Android EAS preview APK was built and owner-tested on a physical phone. The owner reports normal operation in the checks performed; some answer explanations have formatting issues queued for a grouped follow-up. See [QA_CHECKLIST.md](QA_CHECKLIST.md) and [ANDROID_RELEASE.md](ANDROID_RELEASE.md).
+At the November 18, 2026 pre-CU v0.1.10 release checkpoint, source checks passed: 301/301 tests, typecheck, lint, content freshness (205 / 13,849), pack validation (204 / 12,021, zero errors), asset validation (65 assets / 66 references) and ASPECT attestation. The Android EAS preview APK was built and owner-tested on a physical phone. The owner reports normal operation in the checks performed; some answer explanations have formatting issues queued for a grouped follow-up. See [QA_CHECKLIST.md](QA_CHECKLIST.md) and [ANDROID_RELEASE.md](ANDROID_RELEASE.md).
 
 ## Key project documents
 

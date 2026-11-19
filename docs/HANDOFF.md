@@ -1,30 +1,32 @@
-# Latest handoff — CU A Unit package staged and importer-verified — 2026-11-19
+# Latest handoff — CU A Unit Science imported and bundled — 2026-11-19
 
-**App workspace:** `/home/kali/gpt-workspace/bd-admission-app`
-**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
-**Package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`
-**ZIP SHA-256:** 0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba
-**Status:** Ready for owner-directed Varsity import. Not yet in active app source or bundle. No push.
+- **App workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+- **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+- **CU package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`
+- **Package ZIP SHA-256:** `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`
+- **Status:** Imported to Varsity source, generated seed rebuilt, and all automated gates pass. Locally committed; no push.
 
-## Package result
+## Imported content
 
-- 26 CU A Unit packs / 26 papers / 2,558 MCQs / 11,397 options / 68 globally unique source-doc references.
-- Institution `cu` / `CU`; category `varsity`. Place the JSON files flat in `data/question-packs/` when approved. Never put them in `data/library-packs/`.
-- Subject corrections: 22; source-ID compatibility rewrites: 29; source-disputed answer downgrades: 10. Final answer status 2,185 verified / 373 unverified after third-pass review of 721 Tier-A candidates (708 PASS / 13 HOLD). Content status is 2,558 verified / 0 unverified, reflecting prior Muse AI source verification confirmed by the owner; all explanations null.
-- 26 questions have normalized duplicate option text across 27 groups; they are retained and documented, not guessed/fixed without source scans.
-- 2025–26 rule is partial: 100 total marks / 60 minutes only. The official rule requires English plus any three science subjects and subject-dependent marks/penalties. App `planExam` returns unavailable/incomplete; no official scored Standard Exam. Other 25 rules are unconfigured.
+- 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents, institution `cu` / code `CU`, copied flat into `data/question-packs/`. No name/ID collisions; no existing file overwritten; nothing copied to Library/ASPECT.
+- Answer states remain 2,185 verified / 373 unverified; all 2,558 content records remain verified by the previously owner-confirmed Muse AI content review. The app's existing predicates return 2,185 normal practice-eligible questions and 307 structurally safe answer-review candidates. All 26 papers have at least one verified-eligible item, so no CU paper triggers the provisional-only fallback. Unverified answers remain Browse-only for this CU dataset.
+- CU 2025–26 rule preserves only the sourced 100-mark / 60-minute facts and is incomplete for the official subject-selection/scoring pattern; its Standard Exam plan remains unavailable. Other 25 rules are unconfigured.
+- Added the original University of Chittagong website PNG as `assets/universities/cu.png` (429×581 RGBA, SHA-256 `9cc7ef6e5577c21aa8d6a1f6dea1298a35c032b63abf7388c4dc38c5361d8829`) and registered it in `src/features/catalog/universityLogos.ts`. Metro export confirms the logo is bundled.
 
-## Evidence
+## Current bundle and verification
 
-- Pack validator: 26/26 valid; 0 errors / 337 warnings.
-- Actual SQLite importer: all 26 imported on a fresh in-memory DB; 2,558 questions, 11,397 options, 68 sources, 26 papers, 26 rules, 2,558 source/provenance rows, 2,558 appearances.
-- Idempotence: second pass inserted 0, updated 0, skipped 2,558; appearances inserted 0 / skipped 2,558; foreign-key violations 0.
-- App practice predicates in dry-run after content-status correction: 2,185 verified-eligible and 307 structurally safe answer-review candidates.
-- Full report: package `reports/IMPORT_READINESS_AUDIT.md`; package instructions in `README.md`.
+- Varsity source: **230 packs / 14,579 questions / 59,481 options / 7 institutions / 240 papers / 385 sources**.
+- Generated content: **231 manifest entries / 16,407 question rows / 66,793 options**, including the separate ASPECT Library publication (1,828 questions / 26 units). Seed schema v12; generated SQLite seed 28.05 MiB (gitignored/local).
+- `pnpm test`: **301/301 PASS**; `pnpm typecheck`: PASS; `pnpm lint`: PASS.
+- `pnpm packs:validate`: 230 / 14,579, 0 errors / 5,536 warnings; `pnpm question-assets:check`: 65 assets / 66 refs / 65 unique; `pnpm content:check`: 231 / 16,407, up to date.
+- SQLite: `quick_check=ok`, foreign-key violations 0; CU rows 2,558 with 2,185 answer-verified / 373 unverified / 0 content-unverified, 26 papers and 26 rule records.
+- Android no-bytecode Metro export: **2,044 modules / 147 assets / ~4 MB JS**, including `assets/universities/cu.png` and the 29 MB seed asset. This is not a native APK.
 
-## Boundary and next owner action
+## Scope / handoff
 
-No pack has been copied into the active app; the manifest, generated seed, active SQLite, APK and release version remain unchanged. Original source ZIP and extracted input snapshot remain unchanged. Owner should copy package `packs/*.json` flat into app `data/question-packs/`, then run `pnpm packs:validate`, `pnpm content:build`, `pnpm content:check`, tests/typecheck/lint, inspect warnings and build a new Android preview. This staging audit itself did not generate an APK, push or deploy.
+Only CU pack files, the original PNG plus one existing logo-registry entry, generated manifest, three affected integration/seed test files (stale expected counts plus CU regression checks), and focused documentation changed. No app logic, importer, scoring/practice implementation, schema, release version, or Library content was changed.
+
+No APK/EAS build or physical-device QA was performed. The already installed v0.1.10 APK predates this CU addition; a new Android preview build is required to test/distribute the content on a phone. **Commit:** `feat(content): import CU A Unit question bank`. Final worktree is clean. No push.
 
 ---
 

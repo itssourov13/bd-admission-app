@@ -22,7 +22,7 @@
 
 ## Current Android preview
 
-**v0.1.10** · Android `versionCode 10` · `com.admissionbd.app` · EAS `preview` (internal APK). The owner has installed and run this build on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release.
+**v0.1.10** · Android `versionCode 10` · `com.admissionbd.app` · EAS `preview` (internal APK). The owner has installed and run this build on Android and reports normal operation in the checks performed. This APK predates the CU A Unit import now present in source; a new preview build is still needed to deliver CU to the device. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release.
 
 ## License
 

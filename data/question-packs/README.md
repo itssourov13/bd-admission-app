@@ -1,6 +1,16 @@
 # Bundled question packs
 
-Current active inventory: 158 non-RU JSON packs / 7,772 questions. RU Lokkho and RU-V are not in this directory; their separate external archives and retired status are documented in docs/QUESTION_IMPORT_WORKFLOW.md and docs/DECISIONS.md (ADR-035/ADR-037). The historical RU C section below is provenance only, not a list of active files.
+Current active inventory: 230 Varsity JSON packs / 14,579 questions. This includes 46 curated RU Science packs and 26 CU A Unit packs. The separate ASPECT Library remains outside this count. RU Lokkho and RU-V are not in this directory; their separate external archives and retired status are documented in docs/QUESTION_IMPORT_WORKFLOW.md and docs/DECISIONS.md (ADR-035/ADR-037). The historical RU C section below is provenance only, not a list of active files.
+
+
+## University of Chittagong — CU A Unit Science (2026-11-19)
+
+- `cu-a-*.json` — 26 packs / 26 represented papers / 2,558 questions / 11,397 options / 68 source documents, institution `cu` / `CU`, category `varsity`.
+- All 2,558 question contents retain the owner-confirmed prior Muse AI content-verification status. Answer status remains separate: 2,185 verified and 373 unverified. The normal CU practice pool contains 2,185 verified-eligible questions; the 373 answer-unverified records stay browsable with the unverified status and hidden answer key. Each of the 26 CU papers has at least one verified-eligible question, so the provisional-only fallback is not triggered for CU.
+- The 307 structurally safe answer-review candidates remain outside the normal verified practice pool. No answer status was promoted during app integration.
+- One 2025–2026 rule stores only the sourced 100-mark / 60-minute facts and remains incomplete for official Standard Exam planning because the current rule schema cannot encode the compulsory-English / choose-three-subject structure and subject-dependent marking. The other 25 paper rules remain unconfigured.
+- CU's original university-site PNG is bundled as `assets/universities/cu.png` and registered in `src/features/catalog/universityLogos.ts`.
+
 
 ## JU-U — unverified Jahangirnagar University candidates (2026-11-01)
 

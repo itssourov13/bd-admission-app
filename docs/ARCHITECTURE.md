@@ -1,3 +1,12 @@
+## CU A Unit Varsity content integration — 2026-11-19
+
+- The existing schema-v1 university pack contract and `data/question-packs/*.json` content-build pipeline ingest CU. The 26 CU A Unit packs are flat files under institution `cu` / `CU`, category `varsity`; they are not LibraryPacks and do not touch the ASPECT/Library tree.
+- `scripts/build-content.mjs` regenerated the tracked `src/content/bundledManifest.ts` and local ignored SQLite seed. The app's existing seed sync/importer, schema v12, question eligibility predicates and scoring/practice services are unchanged.
+- CU's normal verified pool is 2,185; 373 answer-unverified questions remain browsable with hidden key. Every paper has at least one verified-eligible item, so the existing provisional-only fallback is not activated for this institution. The partial CU 2025–26 marking data does not form a complete Standard Exam rule.
+- `assets/universities/cu.png` is the original 429×581 PNG served in the University's official website header. It is registered through the existing static university logo map; `UniversityLogo`/`BrandLogo` handles the rendering. No generated/dynamic asset path or new UI logic was introduced.
+
+---
+
 ## Library presentation, session drawers and query paths — 2026-11-18
 
 - **Pure presentation logic** lives in `src/features/library/presentation.ts` (brand attribution, university key from exam relevance) and `sessions.ts` (root→children grouping, set-title parsing); both are React-free and covered by `tests/aspect-library-ux.test.ts`. Stored `publisher_id` is never rewritten; the landing and publisher screens read publishers and books once and resolve attribution in memory.

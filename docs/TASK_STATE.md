@@ -1,22 +1,21 @@
-## CU A Unit Science — audit + import-ready package prepared — 2026-11-19
+## CU A Unit Science — Varsity import complete — 2026-11-19
 
-**Status:** External package prepared and app importer dry-run verified. Waiting for owner to import into the Varsity catalogue; no active app content modified.
+**Status:** Imported into `data/question-packs/`, generated manifest and SQLite seed rebuilt, regression expectations reconciled, and CU-specific eligibility/Standard Exam boundaries verified. App logic and schema unchanged. No APK/EAS build or push.
 
-- [x] Unzipped and integrity-tested the original `CU_Science_AI_Solved_Keys_QA_2026-11-19.zip`; recorded its SHA-256 and preserved the ZIP/extracted snapshot unchanged.
-- [x] Audited all 26 packs / 2,558 questions / 11,397 options, IDs, appearances, source links, answer/content states, subject labels, duplicate options and exam-rule metadata.
-- [x] Corrected 22 subject labels and recalculated per-pack descriptions/indexes.
-- [x] Fixed source-document cross-batch ownership collisions by namespacing 29 shared source ID occurrences and updating all references.
-- [x] Applied the owner-confirmed prior Muse AI source-content verification to all 2,558 questions: corrected 928 inherited stale `contentVerificationStatus: unverified` fields to `verified`; no question/option text, order, key mapping or source reference changed. Original source snapshot remains unchanged.
-- [x] Downgraded 10 source-disputed keys that were incorrectly still `verified`; retained the candidate key IDs for traceability. Third-pass reviewed the 721 clean Tier-A candidates: 708 promoted to answer-verified and 13 held unverified; Tier-B, withdrawn and changed-key cases were not promoted.
-- [x] Preserved duplicate option text and documented 26 affected questions / 27 normalized duplicate groups; no source text was guessed.
-- [x] Researched CU 2025–26 official prospectus/circular. Added only the source-supported partial facts and retained an unavailable official Standard Exam because current rule schema cannot express required-English + choose-three-of-four and section-dependent marking. Other 25 rules remain unconfigured.
-- [x] App validator: 26/26 valid, 0 errors / 337 expected warnings. Text scan: 42 findings, 28 duplicate-option review and 14 informational.
-- [x] Fresh SQLite importer dry-run: 26/26 imports, 2,558 questions / 11,397 options / 68 source docs / 26 papers; second import idempotent (2,558 skipped; no insert/update); foreign-key violations 0.
-- [x] Wrote package README, item-level review ledgers, transformation summary and final import-readiness audit.
-- [ ] Owner: import the approved `packs/*.json` flat into app `data/question-packs/` (Varsity only, not Library), after checking backup/absence of existing CU content.
-- [ ] After owner import: regenerate and verify content seed, run full app gates, build a new Android preview and perform device QA.
+- [x] Verified original input archive and final import-ready package hashes; original ZIP and extracted source snapshot preserved unchanged.
+- [x] Confirmed no existing CU filenames or batch/paper/question/source ID collisions. Copied 26 pack JSON files flat into the Varsity `data/question-packs/` directory; no Library/ASPECT file or data path modified.
+- [x] Imported 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents for institution `cu` / `CU`.
+- [x] Preserved 2,185 answer-verified / 373 answer-unverified states and 2,558 owner-confirmed content-verified states. CU practice predicates return 2,185 eligible / 307 structurally safe review candidates; every paper has a non-zero verified pool, so no paper enters the provisional-only fallback.
+- [x] Confirmed CU's 2025–26 partial 100-mark / 60-minute rule remains unavailable for official scored Standard Exam planning; other 25 rules remain unconfigured.
+- [x] Added the original University of Chittagong website logo PNG, byte-identical to the fetched official-site image: `assets/universities/cu.png` (429×581; SHA-256 `9cc7ef6e5577c21aa8d6a1f6dea1298a35c032b63abf7388c4dc38c5361d8829`), and registered it in the existing university logo map.
+- [x] Regenerated `src/content/bundledManifest.ts` and local ignored `assets/content/content_seed.db`. Current bundle: 231 entries / 16,407 question rows; Varsity catalogue: 230 packs / 14,579 questions / 59,481 options; ASPECT remains a separate Library publication.
+- [x] Validator: 230 packs / 14,579 questions / 0 errors / 5,536 warnings. Question asset index: 65 assets / 66 refs / 65 unique. `content:build` and `content:check` pass.
+- [x] Updated only affected existing count expectations in three integration/seed regression tests; added CU-specific assertions for institution counts, verified pool, paper-level no-fallback behavior and incomplete Standard Exam availability.
+- [x] Final verification: full suite 301/301; typecheck; lint; content freshness 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; SQLite quick_check `ok` / zero FK violations; Android no-bytecode Metro export 2,044 modules / 147 assets / ~4 MB JS with `cu.png` included.
+- [x] Updated the current inventory, workflow, architecture, asset source, QA and handoff documentation. Final `git diff --check` passed before commit.
+- [x] Committed all 44 scoped files locally (`feat(content): import CU A Unit question bank`); final worktree clean. Nothing pushed.
 
-Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`. Original archive remains separate and unchanged. See `docs/QUESTION_IMPORT_WORKFLOW.md`.
+Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`. No push.
 
 ---
 
@@ -642,7 +641,7 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 - [x] Moved the extended product/engineering details into `docs/APP_OVERVIEW.md` and visual asset provenance into `docs/README_VISUALS.md`.
 - [x] Verified local README/doc links, image dimensions, image files, whitespace and scoped Git diff. No app source, question packs, runtime, dependencies or release metadata changed.
 
-## CU A Unit third-pass answer review and final package verification — 2026-11-19
+## CU A Unit staging and third-pass review — pre-import checkpoint — 2026-11-19
 
 - [x] Reviewed all 721 clean Tier-A prior-pass AI candidates across Physics, Higher Mathematics, Chemistry, English, Bangla, Biology and ICT.
 - [x] Promoted 708 clean third-pass results to `answerVerificationStatus: verified` under the owner-approved two-AI + owner manual + third-pass standard; retained 13 ambiguity/notation/corruption cases as `unverified`. No answer mappings or question/option text were changed.
@@ -650,6 +649,6 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 - [x] Revalidated all 26 packs: zero errors / 337 warnings. Fresh SQLite dry-run accepted all 26; 2,558 questions / 11,397 options / 68 sources; foreign-key check zero; idempotent second import skipped 2,558. Post-correction dry-run predicates: 2,185 verified-eligible / 307 answer-review candidates.
 - [x] Updated external package README, third-pass decision ledger, final report, import-readiness report, transformation summary and checksum/ZIP artifacts.
 - [x] Updated current-state, workflow, task, changelog and handoff documentation; ran full test/typecheck/lint and diff checks.
-- [ ] Owner: approve/import package `packs/*.json` flat into app `data/question-packs/` (Varsity only, not Library) after backup and checking no existing CU import. No active source/seed/database/APK has been changed by this staging task.
+- Historical checkpoint: app-source import was pending at the time this staging report was written. The subsequent Varsity import, regenerated seed and final checks are recorded in the completed CU task at the top of this file. The phone database and APK were not directly edited by the source-import step.
 
 Final report: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/reports/THIRD_PASS_AI_KEY_REVIEW.md`.

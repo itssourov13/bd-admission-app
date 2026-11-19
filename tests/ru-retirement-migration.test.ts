@@ -290,11 +290,11 @@ test("fresh install with the REAL bundled seed: active curated RU Science plus t
   const db = openDbAt(join(dir, "real.db"));
   await migrate(db);
   const out = await syncFromSeed(db, { manifest: BUNDLED_MANIFEST, openSeed: seedOpener(resolve("assets/content/content_seed.db")), now: 1 });
-  assert.equal(out.length, 205);
+  assert.equal(out.length, 231);
   assert.ok(out.every((o) => o.status === "imported"), out.filter((o) => o.status !== "imported").map((o) => o.batchId).join(","));
   const n = (sql: string) => (db.raw.prepare(sql).get() as { n: number }).n;
-  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 205);
-  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 13849);
+  assert.equal(n("SELECT COUNT(*) AS n FROM question_batches"), 231);
+  assert.equal(n("SELECT COUNT(*) AS n FROM questions"), 16407);
   assert.equal(n("SELECT COUNT(*) AS n FROM content_books WHERE collection = 'ASPECT' AND id = 'aspect-ru-question-bank-verified-sets'"), 1);
   assert.equal(n("SELECT COUNT(*) AS n FROM content_unit_questions WHERE book_id = 'aspect-ru-question-bank-verified-sets'"), 1828);
   assert.equal(n("SELECT COUNT(*) AS n FROM institutions WHERE id = 'ru' AND code = 'RU'"), 1);
@@ -306,7 +306,7 @@ test("fresh install with the REAL bundled seed: active curated RU Science plus t
   assert.equal(n("SELECT COUNT(*) AS n FROM exam_rules WHERE paper_id IN (SELECT id FROM exam_papers WHERE institution_id = 'ru')"), 0);
   assert.equal(n("SELECT COUNT(*) AS n FROM exam_papers WHERE retired_at IS NOT NULL"), 0);
   // contentTotals() describes university/paper catalogue questions only; Library questions are counted through book membership.
-  assert.deepEqual(await contentTotals(db), { questions: 12021, eligible: 6654, institutions: 6 });
+  assert.deepEqual(await contentTotals(db), { questions: 14579, eligible: 8839, institutions: 7 });
   await assertActiveCatalogueExcludesRu(db, "real seed fresh", true);
   assertIntegrity(db, "real seed fresh");
   db.raw.close();

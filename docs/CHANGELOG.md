@@ -1,3 +1,13 @@
+## 2026-11-19 — Import CU A Unit Science into Varsity
+
+- Imported 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents into `data/question-packs/` for institution `cu`; no filename or batch/paper/question/source ID collisions and no existing pack overwrites.
+- Preserved all source answer/content verification states: 2,185 answer-verified / 373 answer-unverified, 2,558 content-verified. Existing eligibility rules expose 2,185 normal practice questions and 307 review candidates; all 26 papers contain eligible items, so CU does not enter the provisional-only fallback. The partial 2025–26 rule remains unavailable for official scored Standard Exam; 25 older rules remain unconfigured.
+- Added the original University of Chittagong website PNG at `assets/universities/cu.png` and its existing static university-logo registry entry. Rebuilt the manifest and generated local SQLite seed.
+- Reconciled existing integration/seed test count expectations and added CU eligibility, per-paper fallback and exam-rule regression checks. No app logic, scoring implementation or database schema changed.
+- Current bundle: 230 Varsity packs / 14,579 university questions / 59,481 options; 231 manifest entries / 16,407 total question rows including the separate ASPECT Library book. Full test/typecheck/lint and final database/Metro checks are recorded in the CU import handoff. No APK/EAS build or push.
+
+---
+
 ## 2026-11-19 — Restore owner-confirmed Muse AI content verification for CU
 
 - The owner clarified that Muse AI had already source-verified the content of all 2,558 CU A Unit questions. The staged snapshot carried 928 stale `contentVerificationStatus: unverified` flags; retaining them in the final import package was incorrect.
