@@ -1,3 +1,16 @@
+# Latest handoff — Android preview v0.1.11 with CU — 2026-11-19
+
+- **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+- **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+- **Release candidate:** app / brand / package `0.1.11`, Android `versionCode 11`, package `com.admissionbd.app`.
+- **EAS target:** `preview` / `INTERNAL` Android APK, existing Expo slug/project ID/signing identity retained.
+- **Source content:** includes 26 CU A Unit packs / 2,558 questions / 11,397 options, official-site CU PNG, existing 46 RU Science packs and separate ASPECT Library content. Current combined generated seed is 231 entries / 16,407 questions.
+- **Status:** Version metadata and documentation updated; all versioned local gates pass. Resolved Expo config confirms version `0.1.11` / Android code 11 and EAS CLI confirms the existing project. EAS Android preview submission is the next step. The v0.1.10 APK predates CU and must not be presented as the CU build. No push.
+
+Local gates: 301/301 tests, typecheck, lint, content check 231 / 16,407, pack validation 230 / 14,579 (0 errors), asset check 65 / 66, resolved Expo config. See `docs/ANDROID_RELEASE.md`, `docs/QA_CHECKLIST.md` and the task at the top of `docs/TASK_STATE.md` for submission/build state. Stop monitoring after EAS confirms the build is queued or started; no long wait for completion.
+
+---
+
 # Latest handoff — CU A Unit Science imported and bundled — 2026-11-19
 
 - **App workspace:** `/home/kali/gpt-workspace/bd-admission-app`

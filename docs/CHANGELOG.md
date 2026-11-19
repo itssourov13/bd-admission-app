@@ -1,3 +1,12 @@
+## 2026-11-19 — Prepare v0.1.11 Android preview with CU A Unit Science
+
+- Bumped the Expo app / brand / package version from `0.1.10` to `0.1.11` and Android `versionCode` from `10` to `11`, preserving `com.admissionbd.app`, Expo slug, EAS project ID, preview profile and signing identity.
+- The preview source includes the newly imported CU A Unit varsity catalogue and original CU PNG logo (alongside existing RU, JU, HSTU, DU and separate ASPECT Library content).
+- Target artifact: EAS `preview` / `INTERNAL` Android APK. This is not a production AAB or Google Play submission. The v0.1.10 APK does not include CU.
+- EAS submission/build status is updated in `docs/ANDROID_RELEASE.md` and `docs/QA_CHECKLIST.md` once the upload is accepted. No push.
+
+---
+
 ## 2026-11-19 — Import CU A Unit Science into Varsity
 
 - Imported 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents into `data/question-packs/` for institution `cu`; no filename or batch/paper/question/source ID collisions and no existing pack overwrites.

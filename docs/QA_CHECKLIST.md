@@ -1,3 +1,17 @@
+## Android preview v0.1.11 — 2026-11-19
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App / brand / package `0.1.11`; Android `versionCode 11`; `com.admissionbd.app`; existing Expo slug and EAS project retained. |
+| CU content source | [x] Pass | 26 CU A Unit packs / 2,558 questions / 11,397 options and original official-site CU PNG are in the active Varsity source and generated manifest/seed. |
+| Versioned local gates | [x] Pass | 301/301 tests; typecheck; lint; content check 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; resolved Expo config; `git diff --check`. |
+| EAS preview submission | [ ] Pending | Submit `preview` / `INTERNAL` Android APK; record build ID and EAS queue/start acknowledgement. |
+| Cloud build completion | [ ] Not monitored | Stop monitoring once EAS confirms queue/start; do not claim FINISHED without an explicit later check. |
+| Physical Android QA | [ ] Pending owner install | v0.1.10 does not contain CU. Install this new APK after the owner decides the build is ready. |
+| Git | [ ] Pending | Commit release metadata and submission evidence locally; no push. |
+
+---
+
 ## CU A Unit Varsity content import — 2026-11-19
 
 | Check | Result | Evidence |

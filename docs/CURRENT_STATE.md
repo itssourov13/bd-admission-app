@@ -1,3 +1,11 @@
+## Android preview v0.1.11 — CU A Unit candidate — 2026-11-19
+
+Release metadata is now **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. Target profile is EAS `preview` / `INTERNAL` Android APK, with the current source containing all 26 CU A Unit packs and original CU logo. The current release source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.
+
+This is an internal preview build candidate, not a production AAB or Play Store submission. Submission and EAS queue/start status will be recorded after the EAS service acknowledges it. The previous v0.1.10 APK does not contain CU. No push.
+
+---
+
 ## CU A Unit Science — imported into Varsity catalogue — 2026-11-19
 
 The owner-approved CU package is now integrated into the active app source under `data/question-packs/` (flat Varsity pack layout): **26 packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents**, institution `cu` / `CU`. The original external archive and extracted source snapshot remain unchanged. The 26 incoming filenames and batch, paper, question and source IDs were checked for collisions before copying; no existing pack was overwritten.

@@ -1,3 +1,15 @@
+## Android preview v0.1.11 — CU A Unit build submission — 2026-11-19
+
+**Status:** Release metadata bumped to app/brand/package `0.1.11` / Android `versionCode 11`; EAS preview APK submission and short queue/start monitoring are the active task. No push.
+
+- [x] Confirmed previous release identity v0.1.10 / code 10, current CU source commit and clean worktree; EAS account `sk_king13` and existing EAS project authenticated.
+- [x] Updated `brand.config.json`, `package.json` and `app.config.js` to `0.1.11` / `versionCode: 11`; package ID `com.admissionbd.app`, slug, EAS project ID and preview configuration remain unchanged.
+- [x] Updated README, release guide, changelog, current state, QA and handoff docs for the new preview candidate.
+- [x] Versioned gates: full suite 301/301; `pnpm typecheck`; `pnpm lint`; `pnpm content:check` (231 / 16,407); `pnpm packs:validate` (230 / 14,579; 0 errors / 5,536 warnings); `pnpm question-assets:check` (65 assets / 66 refs).
+- [x] Resolved Expo public config: version `0.1.11`, package `com.admissionbd.app`, Android `versionCode 11`, slug `bd-admission-app`, EAS project ID unchanged. EAS CLI 27.10.0 `project:info` confirms `@sk_king13/bd-admission-app` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- [ ] Submit EAS Android `preview` / `INTERNAL` APK and confirm an EAS build ID plus queued/started state. Do not wait for cloud completion.
+- [ ] Record EAS submission response and commit the local submission handoff; no push.
+
 ## CU A Unit Science — Varsity import complete — 2026-11-19
 
 **Status:** Imported into `data/question-packs/`, generated manifest and SQLite seed rebuilt, regression expectations reconciled, and CU-specific eligibility/Standard Exam boundaries verified. App logic and schema unchanged. No APK/EAS build or push.
