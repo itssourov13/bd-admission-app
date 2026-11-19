@@ -1,0 +1,5359 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "cu-a-2010-2011",
+    "category": "varsity",
+    "description": "University of Chittagong (CU) A Unit question-bank collection — 2010-2011. 100 questions (Bangla 11, English 14, Physics 25, Chemistry 25, Higher Mathematics 25). Answer status: 53 verified / 47 unverified; this reflects answer-key review status, not an assertion that the question text is flawless. Import QA 2026-11-19: 22 subject labels corrected; cross-batch source IDs made importer-safe; source-conflicted keys remain unverified. This is a historical question-bank collection, not a claim that the pack count equals the official exam quota. the rest carry their best single-source key or no key, flagged per question. Explanations are null throughout (no cleanly alignable source). AI-solved keys (2026-11-18, not source-verified): 33. Keyless: 4. QA audit 2026-11-19: see QA_AUDIT_REPORT.md.",
+    "sourceDocumentIds": [
+      "drabsiddiq-cu-a-2010-2011",
+      "chorcha-keys-cu-a-2010-2011",
+      "cu-a-2010-2011__phase2-cu-verified-packs"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "drabsiddiq-cu-a-2010-2011",
+      "filename": "drabsiddiq-cu-a-2010-2011.html",
+      "sourceType": "other",
+      "title": "CU A Unit 2010-2011 paper transcription — Dr. Siddiq Publications blog (drabsiddiq.com)",
+      "notes": "Content source (full paper transcription, no answer key)."
+    },
+    {
+      "id": "chorcha-keys-cu-a-2010-2011",
+      "filename": "chorcha-cu-a-2010-2011.keys",
+      "sourceType": "other",
+      "title": "CU A Unit 2010-2011 — Chorcha question bank eye-button answer keys",
+      "notes": "Key source: correct option revealed by the Chorcha eye button, recorded as option TEXT and matched to this pack's options by text (option order can differ between platforms)."
+    },
+    {
+      "id": "cu-a-2010-2011__phase2-cu-verified-packs",
+      "filename": "phase2-cu-verified-packs",
+      "sourceType": "other",
+      "title": "Phase-2 cross-verified CU A packs (2026-11-07/08, Udvash book x Satt Academy)",
+      "notes": "Key + content cross-check source: questions verified under the strict standard in Phase 2; keys transferred by stem match and option TEXT."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "cu",
+      "code": "CU",
+      "name": "University of Chittagong"
+    }
+  ],
+  "papers": [
+    {
+      "id": "cu-a-2010-2011",
+      "institutionId": "cu",
+      "category": "varsity",
+      "year": 2011,
+      "academicSession": "2010-2011",
+      "unit": "A",
+      "title": "CU A Unit 2010-2011 (Set-A (Chorcha)) — full collection 2026-11-17"
+    }
+  ],
+  "questions": [
+    {
+      "id": "cu-a-2010-2011-bangla-01",
+      "text": "‘অটবী’র প্রতিশব্দ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "স্থির",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "কূল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নদী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "পাহাড়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 1,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 1
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-02",
+      "text": "এক কাজে দুরকম লাভ – এই অর্থে ব্যবহৃত প্রবাদ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "গাছে কাঁঠাল গোঁফে তেল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পেটে খেলে পিঠে সয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রথ দেখা আর কলা বেচা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এক হাতে তালি বাজে না",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "শাক দিয়ে মাছ ঢাকা",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 2,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 2
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'রথ দেখা আর কলা বেচা' (section বাংলা Q1) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 16, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-03",
+      "text": "কোন সমাসে ব্যাসবাক্য হয় না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিত্য সমাস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রাদি সমাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অব্যয়ীভাব সমাস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কর্মধারয় সমাস",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "দ্বন্দ্ব সমাস",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 3,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 3
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'নিত্য সমাস' (section বাংলা Q2) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 14, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-04",
+      "text": "কোনটি উপন্যাস নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "মেজদিদি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চোখের বালি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "মৃত্যুক্ষুধা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নকশী কাঁথার মাঠ",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "ক্রীতদাসের হাসি",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 4,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 4
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: medium. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-05",
+      "text": "“Captive Lady” রচনা করেন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "লেডি ফাতিমা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মধুসূধন দত্ত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উইলিয়াম শেক্সপিয়ার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ঝুম্পা লাহিড়ী",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "ডঃ এনামুল হক",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 5,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 5
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'মধুসুধন দত্ত' (section বাংলা Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 20, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-06",
+      "text": "কাজী নজরুল ইসলামের কাব্যগ্রন্থ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাঁঝের মায়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "সোনার তরী",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "চক্রবাক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রূপসী বাংলা",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "শাহনামা",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 6,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 6
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'চক্রবাক' (section বাংলা Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 15, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-07",
+      "text": "‘আদালত’ কোন ভাষার শব্দ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "তুর্কি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফারসি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পর্তুগিজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আরবি",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "গ্রিক",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 7,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 7
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'আরবি' (section বাংলা Q6) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'আরবি'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-08",
+      "text": "‘বনফুল’ ছদ্মনামে লিখতেন-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "বলাইচাঁদ মুখোপাধ্যায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্যারিচাঁদ মিত্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্রমথ চৌধুরী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নীরদ চৌধুরী",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "কালী প্রসন্ন সিংহ",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 8,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 8
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'বলাইচাঁদ মুখোপাধ্যায়' (section বাংলা Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 17, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-09",
+      "text": "‘শিক্ষামন্ত্রী’ কোন সমাস?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "অলুক বহুব্রীহি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মধ্যপদলোপী কর্মধারয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "সমার্থক দ্বন্দ্ব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "চতুর্থী তৎপুরুষ",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "উপমিত কর্মধারয়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 9,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 9
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'মধ্যপদলোপী কর্মধারয়' (section বাংলা Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 18, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-10",
+      "text": "রবীন্দ্রনাথের ‘শেষের কবিতা’ একটি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "গল্প",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উপন্যাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "কাব্যগ্রন্থ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কাব্যনাট্য",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "মহাকাব্য",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 10,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 10
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'উপন্যাস' (section বাংলা Q9) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'উপন্যাস'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-bangla-11",
+      "text": "রবীন্দ্রনাথের নাটক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Bangla",
+      "options": [
+        {
+          "id": "a",
+          "text": "বলাকা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ঘরে বাইরে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শেষের কবিতা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রক্তকরবী",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "সোনার তরী",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 11,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 11
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'রক্তকরবী'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-01",
+      "text": "Anis completed—degree in physics.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "four year",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "the four year",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "a four-year",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "four years",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "the four years",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 12,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 12
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'a four-year' (section English Q1)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-02",
+      "text": "Take this medicine and you will soon come-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "over",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "round",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "about",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "down",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "off",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 13,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 13
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'round' (section English Q2) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'round'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-03",
+      "text": "Choose the correct sentence-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "He was hanged for murder",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "He was hunged for murder",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He has been hunged for murder",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "He was been hunged for murder",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "He was hung for murder",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 14,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 14
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'He was hanged for murder' (section English Q3) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'He has been hunged for murder' | Chorcha dissent: Chorcha marks 'a'; the Phase-2 verified key (Udvash book x Satt) 'c' is retained. CU VERIFICATION PASS (2026-11-18): Lokkho click key DISSENTS (Lokkho key a, set position 2); pack key c kept — verification rests on the original sources; dissent recorded, not adjudicated.",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-04",
+      "text": "I like to—shopping at weekends.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "go",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "do",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "make",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "carry",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "buy",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 15,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 15
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'go'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-05",
+      "text": "Select the pair that best expresses a relationship similar to that expressed in the original pair: Silo: Corn",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vault: Valuables",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Wheat: Husk",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Mineral: Iron",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Oil: Grain",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "Love: Bucolic",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 16,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 16
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Vault : Valuables' (section English Q4) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'Vault: Valuables'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-06",
+      "text": "A person who writes about his own life writes-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Autobiography",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Biography",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Chronicle",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Diary",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "Journal",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 17,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 17
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Autobiography' (section English Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 13, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-07",
+      "text": "I never wear red. It is a colour that does not—me.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "go with",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "match",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Fit",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "protect",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "suit",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 18,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 18
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'go with' (section English Q6) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'suit' | Chorcha dissent: Chorcha marks 'a'; the Phase-2 verified key (Udvash book x Satt) 'e' is retained. CU VERIFICATION PASS (2026-11-18): Lokkho click key DISSENTS (Lokkho key a, set position 3); pack key e kept — verification rests on the original sources; dissent recorded, not adjudicated.",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-08",
+      "text": "Supply the appropriate single word for the following phrase. A place where earth and sky seem to meet.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Admiral",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Vortex",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Horizon",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Rainbow",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "None",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 19,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 19
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Horizon' (section English Q7) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'Horizon'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-09",
+      "text": "The committee consists—five members.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "of",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "in",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "from",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "with",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "about",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 20,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 20
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'of'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-10",
+      "text": "Water is—by various kinds of waste and filth.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "filled",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "used",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "sucked",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "contaminated",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "supplied",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 21,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 21
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'contaminated'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-11",
+      "text": "The younger you are,—it is to learn.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "the easy",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "the easier",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "the easiest",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "easier",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "more easy",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 22,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 22
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'the easier' (section English Q10) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'the easier'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-12",
+      "text": "Air and water are two of the important—of the environment.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "factor",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "elements",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "pollutants",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "chemical",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "products",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 23,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 23
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'elements' (section English Q11) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'elements'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-13",
+      "text": "The antonym of ‘sluggish’ is-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dull",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Heavy",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Animated",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Slow",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "Mild",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 24,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 24
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Brisk' (section English Q12) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'Animated'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-english-14",
+      "text": "I—a letter to my sister now.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "wrote",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "write",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "had written",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "am writing",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "did write",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 25,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 25
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'am writing' (section English Q13) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'am writing'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-01",
+      "text": "একটি তারের উপাদানের ইয়ং এর গুণাংক 2 ⨯ 10¹¹ Nm⁻² । তারটির দৈর্ঘ্য 15% বৃদ্ধি করতে প্রযুক্ত পীড়ন কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 ⨯ 10¹⁰ Nm⁻²",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 ⨯ 10¹⁰ Nm⁻²",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4 ⨯ 10¹⁰ Nm⁻²",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.5 ⨯ 10¹⁰ Nm⁻²",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "4.5 ⨯ 10¹⁰ Nm⁻²",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 26,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 26
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '3 x 10^10 Nm-2' (section পদার্থবিজ্ঞান Q1) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-02",
+      "text": "একটি বর্গক্ষেত্রের তিনটি কৌণিক বিন্দুতে 2 ⨯ 10⁻⁹C, 4 ⨯ 10⁻⁹C, 8 ⨯ 10⁻⁹C চার্জ স্থাপন করা হল। এর চতুর্থ কৌণিক বিন্দুতে কত চার্জ স্থাপন করলে কেন্দ্রে বিভব শুন্য হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 ⨯ 10⁻⁹ C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "−14 ⨯ 10⁻⁹ C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10 ⨯ 10⁻⁹ C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12 ⨯ 10⁻⁹ C",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "-8 ⨯ 10⁻⁹ C",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 27,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 27
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '-14 × 10^-9 C' (section পদার্থবিজ্ঞান Q2) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 45, stem score 0.95).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-03",
+      "text": "একটি ট্রান্সফরমারের মূখ্য কুন্ডলীর পাক সংখ্যা 50 এবং ভোল্টেজ 200V। গৌণ কুন্ডলীর পাক সংখ্যা 100 হলে ভোল্টেজ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "400V",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "100V",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "200V",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "450V",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "600V",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 28,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 28
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '400V' (section পদার্থবিজ্ঞান Q19)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-04",
+      "text": "একটি অবতল দর্পণের ফোকাস দূরত্ব 12cm । দর্পণ হতে 4cm দূরে একটি বস্তু রাখা হল । প্রতিবিম্বের অবস্থান কত দূরে হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "12cm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8cm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6cm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "10cm",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "14cm",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 29,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 29
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '6cm' (section পদার্থবিজ্ঞান Q20) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 47, stem score 0.94).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-05",
+      "text": "একটি তেজষ্ক্রিয় পদার্থের অর্ধায়ু 10 দিন। কত দিনে ঐ পদার্থের 75% ক্ষয়প্রাপ্ত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 দিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "15 দিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "20 দিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "25 দিন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "30 দিন",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 30,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 30
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '20 দিন' (section পদার্থবিজ্ঞান Q3) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 43, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-06",
+      "text": "100 ওয়াটের একটি বৈদ্যুতিক বাতি প্রতিদিন 5.0 ঘন্টা করে জ্বালানো হয়। প্রতি কিলোওয়াট ঘন্টা বৈদ্যুতিক শক্তির মূল্য 2.00 টাকা হলে 30.0 দিনে কত খরচ পড়বে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "20.0 টাকা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "30.0 টাকা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "40.0 টাকা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "80.0 টাকা",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "100.0 টাকা",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 31,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 31
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '30 টাকা' (section পদার্থবিজ্ঞান Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 42, stem score 0.95).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-07",
+      "text": "3μF ও 6μF ধারকত্ব বিশিষ্ট দুটি ধারককে শ্রেণী সমবায়ে সাজালে তুল্য ধারকত্বের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2μF",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3μF",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4μF",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9μF",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "18μF",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 32,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 32
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '2uF' (section পদার্থবিজ্ঞান Q5) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-08",
+      "text": "কোন স্থির তরঙ্গে সুস্পষ্ট বিন্দু ও নিস্পন্দ বিন্দুর দূরত্ব 0.5m হলে তরঙ্গ দৈর্ঘ্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.0m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.0m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.5m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.0m",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "3.5m",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 33,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 33
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '2.0 m' (section পদার্থবিজ্ঞান Q21) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 30, stem score 0.96).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-09",
+      "text": "একটি কোষের তড়িৎচালক বল 2.0Vএবং আভ্যন্তরীণ রোধ 0.5Ω | এর দুপ্রান্তে 1.5Ω, 2.0Ω এবং 4.0Ω তিনটি রোধ শ্রেণী সমবায়ে যুক্ত করা হল। 2.0Ω রোধের প্রান্তদ্বয়ে বিভব পার্থক্য কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.0V",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.0V",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.5V",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.5V",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "2.5V",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 34,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 34
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'CO2' (section রসায়ন Q7) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-10",
+      "text": "কোন একটি রোধকের মধ্য দিয়ে নির্দিষ্ট মাত্রার তড়িৎ প্রবাহ চলে। এর সাথে 120Ω রোধ শ্রেণীবদ্ধভাবে যুক্ত করলে প্রবাহ মাত্রা অর্ধেকে নেমে আসে। রোধকটির রোধ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "220Ω",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "210Ω",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "120Ω",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "320Ω",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "240Ω",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 35,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 35
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '120 ohm' (section পদার্থবিজ্ঞান Q9) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-11",
+      "text": "একটি প্রিজমের উপাদানের প্রতিসারাংক √2 এবং এর ভিতর হতে নির্গত আলোক রশ্মির ন্যূনতম বিচ্যূতি কোণ 30° হলে, প্রিজম-কোণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "60°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "55°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "40°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "35°",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "20°",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 36,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 36
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '60°' (section পদার্থবিজ্ঞান Q22) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 46, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-12",
+      "text": "মঙ্গল গ্রহের ব্যাস 6000 Km এবং এর পৃষ্ঠে অভিকর্ষীয় ত্বরণ 3.8ms⁻¹। মঙ্গল গ্রহের পৃষ্ঠে মুক্তি বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.77kms⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.77kms⁻¹",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4.88kms⁻¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5.88kms⁻¹",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "6.88kms⁻¹",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 37,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 37
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '4.77 kms-1' (section পদার্থবিজ্ঞান Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 31, stem score 0.95).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-13",
+      "text": "200 kg ভরের একটি মোটর গাড়ি 30ms⁻¹ বেগে চলছে। ব্রেকের সাহায্যে গাড়িটিকে 20m দূরত্বে থামিয়ে দেয়া হল। বাধাদানকারী বলের মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4500N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3000N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2500N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3500N",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "4000N",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 38,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 38
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '4500N' (section পদার্থবিজ্ঞান Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 32, stem score 0.87).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-14",
+      "text": "একটি রাইফেলের গুলি একটি তক্তাকে ভেদ করতে পারে। যদি গুলির বেগ চারগুণ হয়, তবে অনুরূপ কয়টি তক্তা ভেদ করতে পারবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "12",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "16",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "22",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "26",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 39,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 39
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-15",
+      "text": "একটি পুকুরের তলদেশে অবস্থিত কোন মাছের দিকে খাড়াভাবে তাকালে মাছটির দূরত্ব 3m মনে হয়। পুকুরটির প্রকৃত গভীরতা কত? [পানির প্রতিসারাংক 1.33]",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.99m",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.99m",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6.99m",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.33m",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "3.99m",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 40,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 40
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '3.99 m' (section পদার্থবিজ্ঞান Q10) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 39, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-16",
+      "text": "বায়ু ও পানিতে 300 Hz কম্পাংকের একটি শব্দের তরঙ্গ দৈর্ঘ্যের পার্থক্য 4.16m। বায়ুতে শব্দের বেগ 352ms⁻¹ হলে, পানিতে শব্দের বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1200ms⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1400ms⁻¹",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1600ms⁻¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1800ms⁻¹",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "2000ms⁻¹",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 41,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 41
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '1600 m/s' (section পদার্থবিজ্ঞান Q23) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-17",
+      "text": "দুটি গোলকের ভর যথাক্রমে 40kg এবং 15kg । এদের কেন্দ্রদ্বয়ের মধ্যবর্তী দূরত্ব 0.1m হলে পারষ্পরিক আকর্ষণ বল কত? [C- 6.66 ⨯ 10⁻¹¹ Nm²kg⁻² ]",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "39.96N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "38.39N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "37.50N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "40.37N",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "কোনটিই নয়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 42,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 42
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '39.96*10^-7N' (section পদার্থবিজ্ঞান Q11) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-18",
+      "text": "আপেক্ষিক রোধের ব্যবহারিক একক কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ওহম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ওহম-মিটার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ওহম/মিটার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "মহো-মিটার",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "মহো/মিটার",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 43,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 43
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ওহম -মিটার' (section পদার্থবিজ্ঞান Q12) | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'ওহম-মিটার'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-19",
+      "text": "4ms⁻¹ বেগে গমনকালে একজন লোক 6ms⁻¹ পতিত বৃষ্টির সম্মুখীন হল। বৃষ্টি থেকে রক্ষা পেতে হলে লোকটিকে কত কোণে ছাতা ধরতে হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "43.7°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "33.7°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "23.7⁰",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "33.2⁰",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "43.2°",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 44,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 44
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '33.7°' (section পদার্থবিজ্ঞান Q13)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-20",
+      "text": "50m উঁচু হতে একটি পাথরকে 2ms⁻¹ বেগে ফেলে দেয়া হল । পাথরটি ভূমিতে পড়তে কত সময় লাগবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.19s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5.19s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6.19s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3.19s",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "কোনটিই নয়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 45,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 45
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: medium. | QA AUDIT (2026-11-19): second-pass re-derivation agrees, but flagged for human review — assumes a horizontal throw; a downward throw gives 3.0 s, which is not an option.",
+      "verificationNotes": "Unverified: No key source reaches this question. AI-solved key (2026-11-18), not source-verified; confidence medium. QA 2026-11-19: agrees; flagged for human review.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-21",
+      "text": "সান্দ্রতা গুণাংকের মাত্রা সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ML⁻¹T⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ML⁻² T",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "M⁻¹LT",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ML⁻¹ T",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "ML T⁻¹",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 46,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 46
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ML^-1T^-1' (section পদার্থবিজ্ঞান Q14) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 29, stem score 0.87).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-22",
+      "text": "একটি তারকে বল প্রয়োগে সম্প্রসারিত করলে, তারটির একক আয়তনে সঞ্চিত শক্তির রাশি কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "¹/₂ বল × বিকৃতি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "¹/₂ বল/বিকৃতি",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "¹/₂ বল × পীড়ন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পীড়ন / বিকৃতি",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "1⁄2 দৈর্ঘ্য পীড়ন × দৈর্ঘ্য বিকৃতি",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 47,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 47
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '1/2 × পীড়ন × বিকৃতি' (section পদার্থবিজ্ঞান Q15)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-23",
+      "text": "0.2kg ভরের একটি পাথরকে 0.6m লম্বা একটি সুতার সাহায্যে বেঁধে আনুভূমিক বৃত্তাকার পথে প্রতি সেকেণ্ডে 2.5 বার ঘুরানো হচ্ছে। সূতার টান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "30N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "29.6N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "28.8N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "27N",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "25N",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 48,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 48
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '29.6 N' (section পদার্থবিজ্ঞান Q16) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 35, stem score 0.94).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-24",
+      "text": "একটি সেকেণ্ড দোলকের দৈর্ঘ্য চারগুণ বাড়ালে এর দোলন কাল কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5s",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6s",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3s",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4s",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "7s",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 49,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 49
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '4s' (section পদার্থবিজ্ঞান Q17)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-physics-25",
+      "text": "কোন তাপমাত্রা সেন্টিগ্রেড ও ফারেনহাইট স্কেলে একই হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-25°C",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-40°C",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-27°C",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "35°C",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "45°C",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 50,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 50
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '-40°' (section পদার্থবিজ্ঞান Q18) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 37, stem score 0.90).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-01",
+      "text": "একটি বাস্তব গ্যাস প্রায় আদর্শ গ্যাসের মত আচরণ করবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিম্ন তাপমাত্রায় ও নিম্ন চাপে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিম্ন তাপমাত্রায় ও উচ্চ চাপে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উচ্চ তাপমাত্রায় ও নিম্ন চাপে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উচ্চ তাপমাত্রায় ও উচ্চ চাপে",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "অতি উচ্চ চাপে",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 51,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 51
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'উচ্চ তাপমাত্রায় ও নিম্ন চাপে' (section রসায়ন Q1)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-02",
+      "text": "₄₂Mo এর সঠিক ইলেক্ট্রন বিন্যাস কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "[Kr] 5s² 5p⁴",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[Kr] 4d⁶",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[Kr]4d⁵s¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[Kr] 4d⁴5s²",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "[Kr]4d³ 5s²5p¹",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 52,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 52
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '[Kr] 4d5 5s1' (section রসায়ন Q2) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-03",
+      "text": "কোন মৌলটি XO₄²⁻ এবং X₂O₇²⁻ সংকেত বিশিষ্ট দুইটি আয়ন গঠন করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ti",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "V",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Fe",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Cu",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "Cr",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 53,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 53
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Cr' (section রসায়ন Q3)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-04",
+      "text": "অ্যাসিটাইলিন যৌগে কার্বন-কার্বন সিগমা বন্ধন সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "শুন্য",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 54,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 54
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '1' (section রসায়ন Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 62, stem score 0.91).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-05",
+      "text": "NH₃ কোন এসিডের সাথে সাদা ধোঁয়া উৎপন্ন করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "HCl",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HNO₃",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "H₂SO₃",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "H₂SO₄",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "H₃PO₄",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 55,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 55
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'HCl' (section রসায়ন Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 70, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-06",
+      "text": "দস্তা চূর্ণের সাথে ফেনলকে পাতিত করলে কি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "টলুইন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "জাইলিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বেনজিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যানিলিন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "ন্যাফথালিন",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 56,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 56
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'বেনজিন' (section রসায়ন Q6) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 65, stem score 0.94).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-07",
+      "text": "প্রোটিনকে ক্ষার সহযোগে আর্দ্র-বিশ্লেষণ করলে কি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যামাইনো এসিড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গ্লুকোজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফ্রুক্টোজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "পেকটিন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "ক্যাফেইন",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 57,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 57
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'অ্যামাইনো এসিড' (section রসায়ন Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 71, stem score 0.95).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-08",
+      "text": "কোনটি লুকাস বিকারক?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "গাঢ় HCl + ZnCl₂",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গাঢ় H₂SO₄ + ZnCl₂",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "H₂O + ZnCl₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গাঢ় NaOH + ZnCl₂",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "গাঢ় KOH + ZnCl₂",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 58,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 58
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-09",
+      "text": "কোন পরমাণু ক্রমাংক জোড়ের মৌল s-block এ অবস্থান করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "7, 15",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6, 12",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "9, 17",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5, 13",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "3, 12",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 59,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 59
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '3,11' (section রসায়ন Q24) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-10",
+      "text": "শুষ্ক বরফ (dry ice) কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "NO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CO₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CH₄",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "H₂O",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 60,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 60
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-11",
+      "text": "Na₂CO₃ এর জলীয় দ্রবণ কোন প্রকৃতির?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "নিরপেক্ষ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "এসিডিয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "উভয়ধর্মী",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্ষারীয়",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "কোনটিই নয়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 61,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 61
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ক্ষারীয়' (section রসায়ন Q10) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 49, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-12",
+      "text": "H₂O + NH₃⇔NH₄⁺ + OH⁻ বিক্রিয়ায় পানি একটি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্ষার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিরপেক্ষ যৌগ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অণুবন্ধী ক্ষারক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এসিড",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "অণুবন্ধী এসিড",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 62,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 62
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-13",
+      "text": "মেথিলেটেড স্পিরিটের মধ্যে সোডিয়াম ধাতু নিক্ষেপ করলে কোন দহনশীল গ্যাস উৎপন্ন হয় ।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "হাইড্রোজেন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "মিথেন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ইথেন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইথিলিন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "অ্যাসিটাইলিন",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 63,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 63
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'হাইড্রোজেন' (section রসায়ন Q12) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 68, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-14",
+      "text": "টলেনের বিকারকের সঙ্গে নিম্নের কোন যৌগটি আয়ন উৎপন্ন করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH₃COCH₃",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH₃CHO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH₃COOH",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "C₆H₅COOH",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "CH₃CONH₂",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 64,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 64
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'H-COOH' (section রসায়ন Q13) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-15",
+      "text": "নিম্নের কোন্ আয়নটি এসিডিয় দ্রবণে সালফইড লবণরূপে অধঃক্ষিপ্ত হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fe²⁺",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Cu²⁺",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ni²⁺",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Zn²⁺",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "Co²⁺",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 65,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 65
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'Cu2+' (section রসায়ন Q14) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 69, stem score 0.91).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-16",
+      "text": "এসিডগুলোর মধ্যে কোনটি সবচেয়ে শক্তিশালী ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "HNO₃",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "HClO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "HClO₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "HCIO₃",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "HCIO₄",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 66,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 66
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-17",
+      "text": "কোনটিতে সবচেয়ে বেশি সংখ্যক অণু আছে।",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "16 গ্রাম NO₂ গ্যাস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7 গ্রাম N₂ গ্যাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "16 গ্রাম O₂ গ্যাস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2 গ্রাম H₂ গ্যাস",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "35 গ্রাম Cl₂ গ্যাস",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 67,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 67
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '2 গ্রাম H2 গ্যাস' (section রসায়ন Q16) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 52, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-18",
+      "text": "2NO + O₂ → 2NO₂ বিক্রিয়াটি একটি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ত্রি-আণবিক বিক্রিয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "দ্বি-আণবিক বিক্রিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "এক-আণবিক বিক্রিয়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "শুন্য-আণবিক বিক্রিয়া",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "কোনটিই নয়",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 68,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 68
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ত্রি-আণবিক বিক্রিয়া' (section রসায়ন Q17) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 53, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-19",
+      "text": "CuSO₄ + KI বিক্রিয়ার প্রধান উৎপাদটি কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CuI₂",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "K",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "I₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CuS",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "K₂SO₄",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 69,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 69
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: medium. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-20",
+      "text": "0.001M KOH দ্রবণের pH কত ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "11",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "13",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 70,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 70
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text '11'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-21",
+      "text": "20 cm³ 0.05 M H₂SO₄ কে প্রশমিত করার জন্য কত আয়তনের 0.1M NaOH দ্রবণের প্রয়োজন হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "25 cm³",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20 cm³",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "15 cm³",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5 cm³",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "10 cm³",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 71,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 71
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-22",
+      "text": "পর্যায় সারনির মূল ভিত্তি কি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "পারমাণবিক সংখ্যা",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পারমাণবিক ভর",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আণবিক ভর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ইলেক্ট্রন বিন্যাস",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "পরমাণুর আকার",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 72,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 72
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ইলেক্ট্রন বিন্যাস' (section রসায়ন Q21) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 57, stem score 0.92).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-23",
+      "text": "যৌগটির নাম-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ট্রান্স-3-আয়োডো-4-ক্লোরো-3-পেন্টিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ট্রান্স-2-ক্লোরো-3-আয়োডো-2-পেন্টিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1-ক্লোরো-1-মিথাইল-2-আয়োডো-2-বিউটিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সিস-2-ক্লোরো-3- আয়োডো -2-পেন্টিন",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "সিস-3-আয়োডো-4-ক্লোরো-3-পেন্টিন",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 73,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 73
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI SOLVE ATTEMPT (2026-11-18): unsolvable from text — The compound's structure was a figure and is missing from the text; cis/trans identity cannot be determined from the name options alone Key remains absent.",
+      "verificationNotes": "Unverified: No key source reaches this question.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-24",
+      "text": "K₄Fe(CN)₆ যৌগে Fe এর জারণ সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "+3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "+2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "+1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "+4",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "-4",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 74,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 74
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-chemistry-25",
+      "text": "ক্ষারীয় KMnO₄ দ্রবণের সাহায্যে নিম্নের কোন যৌগটি সনাক্ত করা যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH₃CHO",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH₃-O-CH₃",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH₂ = CH₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "C₂H₅-O-C₂H₅",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "CH₃COOH",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 75,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 75
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'CH2=CH2' (section রসায়ন Q25) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 67, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-01",
+      "text": "এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "cos⁻¹ ²/₂₅",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "cos⁻¹ (⁻⁴/₂₁)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "cos⁻¹ ³/₂₅",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "cos⁻¹ ⁴/₂₃",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "cos⁻¹ ⁴/₂₅",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 76,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 76
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI SOLVE ATTEMPT (2026-11-18): unsolvable from text — Stem is only 'what is the value?' - the expression itself (likely an image/equation) is missing, so it cannot be evaluated Key remains absent.",
+      "verificationNotes": "Unverified: No key source reaches this question.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-02",
+      "text": "√i-√-i = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "i√2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-i√2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-2",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "1",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 77,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 77
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-03",
+      "text": "cosθ – sinθ = √2 হলে θ এর মান হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(4n+1) π/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2nπ – (π/4)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2nπ+(π/4)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "nπ+(π/4)",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "mθ+(-1)ⁿ(π/6)",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 78,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 78
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-04",
+      "text": "(3,0) এবং (-4, 1) বিন্দুদ্বয় দিয়া অতিক্রমকারী বৃত্তের কেন্দ্র y- অক্ষের উপর অবস্থিত। বৃত্তটির সমীকরণ হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "x² + y² – 8y – 9 = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x² + y ²- 8y – 1 = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "x² + y² – 6y – 2 = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x² + y² – 5x – 7 = 0",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "x² + y² + 3y – 7 = 0",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 79,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 79
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-05",
+      "text": "85 এর দ্বিমীক রূপ হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1011011",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1010101",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1100101",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1001101",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "1011111",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 80,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 80
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '1010101' (section উচ্চতর গণিত Q14) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 25, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-06",
+      "text": "D এমন একটি সেট, যাতে কোন উপাদান নেই; তাহলে D = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "{0}",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "⏀",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "{⏀}",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "U",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 81,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 81
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'ɸ' (section উচ্চতর গণিত Q15) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-07",
+      "text": "y = log (logx); (dy/dx) = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/logx",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1/2logx",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1/xlogx",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2/logx",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "3/logx",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 82,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 82
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-08",
+      "text": "∫{(2cosx+1)/(x+2sinx)} dx = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "log (x + 2sinx) + k",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "x + k",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "log(x + 2sinx)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2log (x + 2sinx)",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "2log(x +2sinx) + k",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 83,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 83
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-09",
+      "text": "একটি বৈদ্যুতিক খুঁটি 6 ফুট উচ্চতায় ভেঙ্গে গিয়ে গোড়া হতে ৪ ফুট দূরত্বে মাটি স্পর্শ করেছে। খুঁটিটির উচ্চতা কত ছিল?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "35 ফুট",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "13 ফুট",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "17 ফুট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "16 ফুট",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "12 ফুট",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 84,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 84
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '16 ফুট' (section উচ্চতর গণিত Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 89, stem score 0.90).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-10",
+      "text": "কোন সমবাহু ত্রিভূজের এক কৌণিক বিন্দুতে দুই বাহু বরাবর দু’টি বল p এবং 2p ক্রিয়া করে। বল দু’টির লব্ধি কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "√7p, tan⁻¹(√3/2)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√5p, tan⁻¹(2/3)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "√7p, tan⁻¹(1/2)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "√5p, tan⁻¹(2)",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "√5p, tan⁻¹(2/√3)",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 85,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 85
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '√7p, tan^-1(√3/2)' (section উচ্চতর গণিত Q6) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 77, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-11",
+      "text": "px² + 7x + 7 = 0 সমীকরণের দু’টি মূল α,β হলে α + 1,β+1 মূলবিশিষ্ট সমীকরণটি হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "px² + (2p – 7) x + p = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "px²+(2p-7)x+p = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "px²+(2p-7)x-p = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "px²-(2p-7)x-p = 0",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "px²+(2p-7)x-p-7 = 0",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 86,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 86
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'px²-(2p-7)x+p=0' (section উচ্চতর গণিত Q7) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI SOLVE ATTEMPT (2026-11-18): unsolvable from text — Correct equation is px^2 - (2p-7)x + p = 0 (roots sum (2p-7)/p, product 1), which matches no option; options a and b are also identical duplicates, so the option set is garbled Key remains absent.",
+      "verificationNotes": "Unverified: No key source reaches this question.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-12",
+      "text": "x এর যে সকল মান x³ ≥1 শর্তটি সিদ্ধ করে তা হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(-∞, ∞)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(-∞, 0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(0, ∞)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[1, ∞)",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "(1, ∞)",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 87,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 87
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '[1,∞)' (section উচ্চতর গণিত Q16) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-13",
+      "text": "5π/16 রেডিয়ানের মান হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "60°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "55°35′",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "75°45′",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "90°",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "56°15’",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "e"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 88,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 88
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-14",
+      "text": "যদি sin A = ¹²/₁₃ হয়, তবে cotA = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "± ⁵/₉",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "± ⁵/₁₂",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "± ⁷/₁₂",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "± ¹¹/₁₂",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "± ⁵/₁₃",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 89,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 89
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-15",
+      "text": "5x² + 3y = 9 সমীকরণটির জ্যামিতিক পরিচয় হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "পরাবৃত্ত",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উপবৃত্ত",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "যুগল সরলরেখা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বৃত্ত",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "অধিবৃত্ত",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 90,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 90
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: 'পরাবৃত্ত' (section উচ্চতর গণিত Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 83, stem score 0.88).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-16",
+      "text": "y = √(2x-1) / x-2 এর ডোমেইন কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "{-∞,∞}, {2}",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "{½ }, {∞}",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "{½ ,∞}, {2}",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "{∞}, {∞}",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "{½, ∞}, {2}",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 91,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 91
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI SOLVE ATTEMPT (2026-11-18): unsolvable from text — Domain is [1/2, infinity) excluding {2}, but options c and e are identical as transcribed, so no single answer exists Key remains absent.",
+      "verificationNotes": "Unverified: No key source reaches this question.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-17",
+      "text": "(2x²- 1/4x )¹¹ এর বিস্তৃতিতে কততম পদে x⁷ আছে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 তম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6 তম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "11 তম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5 তম",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "12 তম",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 92,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 92
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification HOLD (third-pass review 2026-11-19): Binomial term depends on whether the printed 1/4x means 1/(4x) or x/4; source typography is ambiguous. The previous two AI validations and owner manual check are retained as provenance, but the third-pass reviewer cannot safely affirm one unique key from the current stem/options. Content verification status is unchanged; resolve the stated transcription/ambiguity issue before promotion.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-18",
+      "text": "Y² = 10x অধিবৃত্তের (parabola) নাভিলম্বের (latus rectum) দৈর্ঘ্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "-10",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 93,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 93
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '10' (section উচ্চতর গণিত Q9)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-19",
+      "text": "x = 3 + 2i এবং y = 3–2i হলে x² + xy + y² =?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "20",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "23",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "26",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "29",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "35",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 94,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 94
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '23' (section উচ্চতর গণিত Q10)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-20",
+      "text": "y অক্ষ এবং (7,2) থেকে (a,5) বিন্দুটির দূরত্ব সমান হলে a এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "29/7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "7/29",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "27/9",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9/27",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "29/5",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 95,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 95
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '±7' (section উচ্চতর গণিত Q12) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-21",
+      "text": "The train was—from leaving because of a signal failure.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "forbidden",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "detained",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "cancelled",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "prevented",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "restricted",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 96,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 96
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Phase-2 pack cu-a-2010-2011-crossverified.json: key text 'detained'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-22",
+      "text": "ⁿC₈=ⁿC₁₂ হলে ⁿC₁₉ এর মান হচ্ছে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "20",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "25",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "49",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "72",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 97,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 97
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. CU VERIFICATION PASS (2026-11-18): key supplied by Lokkho click collection (set position 88); single-source key — remains UNVERIFIED.",
+      "verificationNotes": "Unverified: No key source reaches this question.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-23",
+      "text": "ত্রিভূজের তিনটি শীর্ষ বিন্দুর স্থানাংক (3,4), (-4,3) এবং (8,6) হলে ত্রিভূজটির ক্ষেত্রফল কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "9/2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "– ⁹/₂",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "11/2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "– ¹¹/₂",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "7/2",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 98,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 98
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '8' (section উচ্চতর গণিত Q2) | Chorcha's marked option text is not among this pack's options (the sources' option sets differ), so the Chorcha key could not be transferred. | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-24",
+      "text": "-5< x + 2<3 কে পরম মানের মাধ্যমে প্রকাশ করলে হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "|x + 2| < 5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "|x + 1| < 3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "|x+3|< 4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "|x+3|< 3",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "|x+2|< 8",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 99,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 99
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | No key source reaches this question. | AI-SOLVED KEY (2026-11-18): key determined by AI solving, NOT verified against any source. Confidence: high. | QA AUDIT (2026-11-19): second-pass re-derivation agrees.",
+      "verificationNotes": "Answer verification VERIFIED under the owner-approved project standard (2026-11-19). Basis: two prior AI validations and the owner manual check (owner-confirmed), plus a third-pass independent solution/knowledge review that agrees with the current keyed option. This tag applies to answer correctness only; contentVerificationStatus is unchanged. It does not claim university official-answer-key authentication or page-by-page source-transcription verification.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2010-2011-math-25",
+      "text": "52 খানা তাস হতে যে কোন একটি টেক্কা পাবার সম্ভাবনা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/52",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "4/52",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3/52",
+          "order": 4
+        },
+        {
+          "id": "e",
+          "text": "5/52",
+          "order": 5
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2010-2011",
+          "questionNumber": 100,
+          "sourceDocumentId": "drabsiddiq-cu-a-2010-2011"
+        }
+      ],
+      "source": {
+        "documentId": "drabsiddiq-cu-a-2010-2011",
+        "questionNumber": 100
+      },
+      "extractionNote": "Content: drabsiddiq S1 transcription | Chorcha key: '4/52' (section উচ্চতর গণিত Q22) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 93, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-cu-a-2010-2011",
+      "paperId": "cu-a-2010-2011",
+      "verificationStatus": "unconfigured",
+      "sourceDocumentIds": [
+        "drabsiddiq-cu-a-2010-2011"
+      ],
+      "sourceNote": "UNCONFIGURED (2026-11-19 audit): no exact session- and variant-specific official A Unit exam pattern was established for this paper from primary sources. The number of records in this question-bank collection must not be used as the official exam question quota. No duration, question selection, correct-answer marks, wrong-answer penalty or unanswered mark is inferred. Use only explicitly labelled Custom Practice until the matching official session rule is sourced."
+    }
+  ]
+}

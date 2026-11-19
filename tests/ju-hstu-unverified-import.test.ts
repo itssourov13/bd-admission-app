@@ -43,7 +43,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   const allEntries = loadAllPacks();
   const entries = loadUnverifiedPacks();
   const ruEntries = loadRuSciencePacks();
-  assert.equal(allEntries.length, 204);
+  assert.equal(allEntries.length, 230);
   assert.equal(entries.length, 99);
   assert.equal(ruEntries.length, 46);
 
@@ -261,7 +261,7 @@ test("JU/HSTU unverified packs preserve statuses and are isolated from verified-
   const institutions = new Set(allEntries.flatMap(({ pack }) => pack.institutions.map((institution) => institution.id)));
   assert.equal(institutions.has("ju-unverified-bank"), true);
   assert.equal(institutions.has("hstu-unverified-bank"), true);
-  assert.equal(institutions.size, 6);
+  assert.equal(institutions.size, 7);
   assert.equal(institutions.has("ru"), true, "curated RU Science packs use the normal varsity institution");
   assert.equal(institutions.has("ru-verified-bank"), false, "legacy RU-V identity remains retired");
   assert.equal(entries.some(({ filename }) => filename.startsWith("gst-")), false, "GST_CLUSTER packs must remain excluded");
@@ -281,7 +281,7 @@ test("all bundled varsity packs import idempotently and keep RU Science separate
   const scalar = async (sql: string): Promise<number> =>
     Number((await db.getFirstAsync<{ n: number }>(sql))?.n ?? 0);
 
-  assert.deepEqual(await contentTotals(db), { questions: 12021, eligible: 6654, institutions: 6 });
+  assert.deepEqual(await contentTotals(db), { questions: 14579, eligible: 8839, institutions: 7 });
   assert.deepEqual({
     batches: await scalar("SELECT COUNT(*) AS n FROM question_batches"),
     papers: await scalar("SELECT COUNT(*) AS n FROM exam_papers"),
@@ -295,15 +295,15 @@ test("all bundled varsity packs import idempotently and keep RU Science separate
     unknown: await scalar("SELECT COUNT(*) AS n FROM questions WHERE answer_status = 'unknown'"),
     unverifiedContent: await scalar("SELECT COUNT(*) AS n FROM questions WHERE content_status = 'unverified'")
   }, {
-    batches: 204,
-    papers: 214,
-    rules: 168,
-    unconfiguredRules: 158,
-    sources: 317,
-    appearances: 12021,
-    options: 48084,
-    verified: 6674,
-    unverified: 5139,
+    batches: 230,
+    papers: 240,
+    rules: 194,
+    unconfiguredRules: 183,
+    sources: 385,
+    appearances: 14579,
+    options: 59481,
+    verified: 8859,
+    unverified: 5512,
     unknown: 208,
     unverifiedContent: 5223
   });
@@ -393,6 +393,6 @@ test("all bundled varsity packs import idempotently and keep RU Science separate
     assert.equal(report.appearances.inserted, 0, filename);
     assert.equal(report.appearances.skipped, pack.questions.length, filename);
   }
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 12021);
-  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 12021);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM questions"), 14579);
+  assert.equal(await scalar("SELECT COUNT(*) AS n FROM question_appearances"), 14579);
 });

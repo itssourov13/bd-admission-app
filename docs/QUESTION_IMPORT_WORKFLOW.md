@@ -1,3 +1,37 @@
+## CU A Unit Science — imported into Varsity catalogue — 2026-11-19
+
+**Source package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/` (ZIP SHA-256 `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`). The original source ZIP (`0a79ef22193144c069b74e2caac537d870f6abeedbbb95c36baca17f66187c74`) and extracted source snapshot remain untouched.
+
+Imported the 26 JSON packs flat into **`data/question-packs/`**, the app's Varsity university catalogue, under institution `cu` / `CU` / category `varsity`. No data was copied into `data/library-packs/`; ASPECT remains a separate Library publication. Pre-copy checks confirmed no filename or institution/batch/paper/question/source ID collisions and no existing pack was overwritten.
+
+- Imported: **26 packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents**.
+- Question states are unchanged: **2,185 answer-verified / 373 answer-unverified**, with all **2,558 content-verified** under the owner-confirmed prior Muse AI content review. Existing app predicates return **2,185 normal verified-eligible questions / 307 structurally safe answer-review candidates**. All 26 CU papers have at least one verified-eligible question, so no CU paper enters the app's provisional-only fallback. The 373 answer-unverified items remain browseable with the unverified marker and hidden answer key.
+- The 2025–26 CU rule retains only partial verified facts (100 marks / 60 minutes) and remains unavailable/incomplete for official Standard Exam planning because the app schema cannot encode compulsory English + choose-three-of-four and section-dependent scoring. The other 25 paper rules remain unconfigured.
+- Added `assets/universities/cu.png`, the original University website header logo PNG (429×581 RGBA, SHA-256 `9cc7ef6e5577c21aa8d6a1f6dea1298a35c032b63abf7388c4dc38c5361d8829`), and one entry in `src/features/catalog/universityLogos.ts`. The source asset is recorded in `assets/universities/SOURCES.md`.
+- Current source inventory: **230 Varsity packs / 14,579 university questions / 59,481 options**. Generated manifest/seed: **231 entries / 16,407 questions / 66,793 options** (includes the separate 1,828-question ASPECT Library publication). Seed schema v12; SQLite seed 28.05 MiB.
+
+**Validation:** `pnpm packs:validate` — 230 packs / 14,579 questions / 0 errors / 5,536 warnings; `pnpm question-assets:check` — 65 assets / 66 references / 65 unique; `pnpm content:build` and `pnpm content:check` pass. The three affected integration/seed test files were updated only for new expected counts and CU-specific regression assertions; results of full tests, typecheck, lint, Metro export and SQLite integrity are recorded in the latest handoff / QA checklist.
+
+No schema migration, importer logic, scoring/practice logic, screen/UI logic or release identity changed. Generated `assets/content/content_seed.db` is local/ignored; source packs, manifest, logo asset/registry, focused tests and documentation are tracked. Existing installed APKs do not include CU; a new preview build is needed to distribute these source changes. No APK build, device QA, push or deployment was performed.
+
+---
+
+### Owner-confirmed Muse AI content verification — 2026-11-19
+
+- The owner clarified that Muse AI had already verified source-question content for all 2,558 questions before this staging pass. The upstream snapshot's 928 `unverified` content flags were stale metadata; they were not introduced by the third-pass answer review.
+- Corrected the import-ready copy to 2,558 `contentVerificationStatus: verified` / 0 unverified. This changed only the content-status metadata; no question/option wording, order, correct-option mapping, source references or appearances changed. The original source archive and extracted snapshot remain untouched.
+- Answer status remains separately controlled: 2,185 verified / 373 unverified. The 13 third-pass HOLD and other answer-key holds are not affected by content verification.
+
+### CU A Unit third-pass answer-key review — 2026-11-19
+
+- Candidate set: 721 clean Tier-A records (`qa_result=agree`, `qa_tier=A`, empty `qa_note`) drawn from the prepared CU Varsity package.
+- Third-pass outcome: 708 PASS and promoted to `answerVerificationStatus: verified`; 13 HOLD remain `unverified` because their current stem/options have ambiguous mathematical notation, multiple defensible answers, or incomplete/corrupted text. See package `reports/THIRD_PASS_AI_KEY_REVIEW.md` and `review/third_pass_review.csv`.
+- During the third-pass answer review, no `correctOptionIds`, question text, options, option order, source references, appearances, or content-verification fields were modified; the later owner-confirmed content-status correction is documented above. No answer mapping was changed.
+- Final package: 2,185 answer verified / 373 unverified; content 2,558 verified / 0 unverified after the owner-confirmed Muse AI correction. Validator warnings remain 337 (answer-key / duplicate-option warnings). Actual app SQLite dry-run: 26/26 imports, 2,558 questions, 11,397 options, 68 source documents; re-import skipped all 2,558 unchanged; foreign-key check 0. The app predicate pool is now 2,185 verified-eligible and 307 answer-review candidates.
+- This is answer verification under the owner-approved review standard, not official CU key authentication or page-by-page transcription verification. At the staging checkpoint this section records, app-source import was still pending; the later integration is recorded in the current CU section at the top. The owner/device SQLite database was not directly edited by the source import.
+
+---
+
 ## Curated RU Science varsity import — completed — 2026-11-18
 
 **Owner-approved package:** `/home/kali/gpt-workspace/bd-admission-app-data/ru-science-import-ready/` (package v1.0.0; `SHA256SUMS` verified before the app copy).
@@ -6,9 +40,9 @@ The package was integrated into `data/question-packs/` as 46 schema-v1 varsity p
 
 The package preserves 4,144 questions with both answer/content state `verified` and 105 with both states `unverified`; no key or verification state changed during import. All 105 remain browseable; the app's default eligible practice pool includes 4,144 and the explicit structural review predicate admits 86 unresolved candidates. All 46 `examRules` arrays are empty. Do not infer official question count, duration, subject quota or marking from the independent RU 2024–25 Marking Profile; paper-specific Standard Exam remains unavailable until exact source-backed rules are added. Custom Practice remains available.
 
-The app source now contains 204 varsity pack files / 12,021 questions. The combined SQLite seed contains 205 bundled entries / 13,849 total question rows / 55,396 options, including the separate 1,828-question ASPECT Library content. Seed schema remains v12. The external raw Lokkho and RU-V archives are unchanged and remain separate; the new `ru-sci-*` varsity set does not revive legacy `ru-c-*` or `ru-vq-*` rows.
+At the 2026-11-18 RU integration checkpoint, the app held 204 Varsity packs / 12,021 questions and its seed contained 205 entries / 13,849 rows / 55,396 options. This historical checkpoint is superseded by the CU integration section above. The external raw Lokkho and RU-V archives remain unchanged and separate; the `ru-sci-*` Varsity set does not revive legacy `ru-c-*` or `ru-vq-*` rows.
 
-**Checks:** 46 package file hashes; no destination asset/ID conflicts; pack validator 204 / 12,021, 0 errors; question asset index 65 assets / 66 refs / 65 unique; content build/check 205 / 13,849; targeted import/migration tests 9/9; full test suite 301/301; typecheck and lint; Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS); generated seed SQLite `quick_check=ok`, foreign-key check 0; fresh-install and existing v10→v12 seed sync both pass. All checks used Node 22.23.1. Validation reports 5,199 warnings, of which 5,085 predate RU and 114 are the documented RU unresolved/duplicate-option warnings.
+**Checks at the 2026-11-18 RU checkpoint:** 46 package file hashes; no destination asset/ID conflicts; pack validator 204 / 12,021, 0 errors; question asset index 65 assets / 66 refs / 65 unique; content build/check 205 / 13,849; targeted import/migration tests 9/9; full test suite 301/301; typecheck and lint; Android no-bytecode Metro export (2,043 modules / 146 assets / ~4 MB JS); SQLite `quick_check=ok`, foreign-key check 0; fresh-install and existing v10→v12 seed sync pass. Node 22.23.1. This is a dated historical checkpoint; current bundle totals and checks are at the top of this document.
 
 No DB schema or runtime importer logic changed. The installed v0.1.9 APK predates this content import; no APK build, physical-device QA, push or deployment was performed in this task.
 

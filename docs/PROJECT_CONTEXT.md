@@ -1,12 +1,26 @@
+## CU A Unit Science — integrated Varsity catalogue — 2026-11-19
+
+The owner-approved package is imported as 26 schema-v1 Varsity packs / 26 papers / 2,558 questions / 11,397 options / 68 sources for institution `cu` / `CU`, under `data/question-packs/`. No incoming filenames or batch/paper/question/source IDs collided with existing data. The original external archive and extracted source snapshot remain unchanged. None of this content was placed in the Library/ASPECT tree.
+
+Answer verification remains 2,185 verified / 373 unverified; all 2,558 content records retain the owner-confirmed Muse AI content verification. Existing app predicates return 2,185 normal practice-eligible and 307 structurally safe review candidates. All 26 papers have an eligible question; the provisional-only fallback is not invoked. CU's 2025–26 partial rule remains unavailable for official scored Standard Exam; the other 25 rules are unconfigured.
+
+The original official-site CU PNG is bundled at `assets/universities/cu.png` and registered in `src/features/catalog/universityLogos.ts`; the file is unchanged (429×581 RGBA, SHA-256 `9cc7ef6e5577c21aa8d6a1f6dea1298a35c032b63abf7388c4dc38c5361d8829`). The university website publishes this mark as PNG.
+
+Current source catalogue: **230 Varsity packs / 14,579 questions / 59,481 options / 7 institutions / 240 papers / 385 source documents**. Generated manifest/seed: **231 entries / 16,407 question rows / 66,793 options**, including one separate ASPECT Library publication with 1,828 questions / 26 units. Schema v12; seed 28.05 MiB. The app's generated manifest is tracked; SQLite seed is ignored/local.
+
+No importer/scoring/practice/runtime/database schema logic changed. Only CU pack data, the single university logo registry entry and logo asset, generated manifest, three stale expected-count/CU regression test updates, and focused docs changed. No APK was built or device tested; existing installed APKs need a new build to contain CU. No push.
+
+---
+
 # RU Science question-pack integration — current state — 2026-11-18
 
 The owner-approved curated RU Science package is now included in the active Varsity question-pack source. It contains 46 schema-v1 packs / 46 papers / 4,249 questions / 16,996 options / 90 sources / 45 local PNGs under institution `ru` / code `RU`, using the non-retired `ru-sci-*` ID namespace. The units remain source-labelled: 44 C Unit — Science, one D1 Unit and one F Unit. The separate 197-question non-science D1 Group-1 pack is excluded.
 
 4,144 questions have both answer and content status `verified`; 105 remain unverified in both fields and browseable only by default. The app's eligible practice pool contains 4,144 RU questions; the explicit review predicate admits 86 unresolved candidates. All imported packs keep `examRules: []`; paper-specific RU Standard Exam patterns remain unavailable until exact paper/session evidence supports them. The built-in RU 2024–25 Marking Profile is not treated as a substitute exam pattern.
 
-Current local source/bundle totals: 204 varsity question packs / 12,021 varsity questions; 205 seed entries / 13,849 total seed question rows (including the separate 1,828-question ASPECT Library book), 55,396 options and 65 static offline assets. Schema v12 is unchanged. Legacy `ru-c-*`/`ru-vq-*` papers and batches remain retired; the new `ru-sci-*` IDs are active without changing the retirement migration.
+At the pre-CU checkpoint on 2026-11-18, the source held 204 Varsity packs / 12,021 university questions; its combined seed held 205 entries / 13,849 rows and 55,396 options. The newer current totals are recorded in the CU integration section above. Schema v12 is unchanged. Legacy `ru-c-*`/`ru-vq-*` papers and batches remain retired; the new `ru-sci-*` IDs are active without changing the retirement migration.
 
-The original Lokkho and RU-V archives remain preserved outside the repository. This new Varsity package is a separate curated import and does not merge or relocate the RU-V ASPECT Library publication. Automated verification (including the 2,043-module / 146-asset Android no-bytecode Metro export) is complete. The v0.1.10 EAS preview APK (build `64584a92-b1c7-4353-86ef-894152c94550`) includes this content; the owner installed and ran it on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues to collect and fix together in a later focused pass.
+The original Lokkho and RU-V archives remain preserved outside the repository. This new Varsity package is a separate curated import and does not merge or relocate the RU-V ASPECT Library publication. At the 2026-11-18 RU checkpoint, automated verification included a 2,043-module / 146-asset Android no-bytecode Metro export. The v0.1.10 EAS preview APK (build `64584a92-b1c7-4353-86ef-894152c94550`) includes RU content but predates CU; the owner installed and ran it on Android and reports normal operation in the checks performed. Some answer explanations have formatting issues to collect and fix together in a later focused pass.
 
 ---
 
@@ -95,3 +109,7 @@ Historical checkpoint only: at the time of this initial audit, the owner had def
 ## Current Android delivery — v0.1.10 — 2026-11-18
 
 The v0.1.10 / Android `versionCode 10` EAS `preview` APK includes the RU Science bank, completed its cloud build, and was installed/run by the owner on a physical Android device. The owner reports normal operation in the checks performed. Answer-explanation formatting defects are the current known follow-up; no further source change is requested until the owner has collected examples. Build details and device-test scope are recorded in [ANDROID_RELEASE.md](ANDROID_RELEASE.md) and [QA_CHECKLIST.md](QA_CHECKLIST.md).
+
+## CU A Unit Science — external staging / third-pass checkpoint (pre-import) — 2026-11-19
+
+Historical pre-import checkpoint: at the time this staging note was written, the package remained external-only and active app source was unchanged. The subsequent Varsity import is complete and documented in the current CU integration section at the top of this file. The staging package recorded 708/721 third-pass Tier-A candidates as PASS and 13 HOLD; final answer state is 2,185 verified / 373 unverified, with 2,558 content-verified under the owner-confirmed prior Muse AI review. See `docs/QUESTION_IMPORT_WORKFLOW.md` and package `reports/THIRD_PASS_AI_KEY_REVIEW.md`.

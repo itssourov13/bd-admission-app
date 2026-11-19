@@ -1,3 +1,36 @@
+## Android preview v0.1.11 — 2026-11-19
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Pass | App / brand / package `0.1.11`; Android `versionCode 11`; `com.admissionbd.app`; existing Expo slug and EAS project retained. |
+| CU content source | [x] Pass | 26 CU A Unit packs / 2,558 questions / 11,397 options and original official-site CU PNG are in the active Varsity source and generated manifest/seed. |
+| Versioned local gates | [x] Pass | 301/301 tests; typecheck; lint; content check 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; resolved Expo config; `git diff --check`. |
+| EAS preview submission | [x] Submitted | EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` accepted; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Android / `preview` / `INTERNAL`. |
+| Cloud build completion | [x] Owner-confirmed | Owner confirms EAS build completed and the v0.1.11 APK was available for installation. [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). |
+| Physical Android install and run | [x] Owner-reported pass | Owner installed the v0.1.11 APK and reports that the app checks performed work normally. Handset model/OS and exhaustive screen/accessibility coverage were not recorded; this is a manual smoke check. |
+| Git | [x] Pass | Release metadata and EAS submission evidence are committed locally; release/device QA documentation is being recorded in this follow-up commit. No push. |
+
+---
+
+## CU A Unit Varsity content import — 2026-11-19
+
+| Check | Result | Evidence |
+|---|---|---|
+| Package integrity / collision preflight | [x] Pass | All package `SHA256SUMS` entries and ZIP sidecar verified; 26 filenames and all incoming batch/paper/question/source IDs clear. No existing pack overwritten. |
+| Varsity-only import | [x] Pass | 26 packs / 26 papers / 2,558 questions / 11,397 options / 68 sources copied flat to `data/question-packs/`; no Library/ASPECT content changed. |
+| CU verified practice gate | [x] Pass | 2,185 normal eligible questions / 307 review candidates. All 26 papers have non-zero eligible questions; no provisional-only fallback is activated. Unverified answer keys remain hidden in Browse. |
+| CU official exam-rule boundary | [x] Pass | Partial 2025–26 100-mark / 60-minute data remains unavailable/incomplete for scored Standard Exam; other 25 rules remain unconfigured. |
+| Original university logo | [x] Pass | Official University site PNG copied unchanged as `assets/universities/cu.png` (429×581 RGBA); registered in the existing logo map and source recorded in `assets/universities/SOURCES.md`. |
+| Pack validation | [x] Pass | 230 Varsity packs / 14,579 questions; 0 errors / 5,536 warnings. |
+| Question-figure asset registry | [x] Pass | 65 assets / 66 refs / 65 unique; no question-image path/index change needed. |
+| Generated content build/check | [x] Pass | 231 manifest entries / 16,407 questions / 66,793 options; local ignored seed 28.05 MiB; `content:check` matches. SQLite `quick_check=ok`, foreign-key violations 0; seed schema v12. |
+| Regression suite / type / lint | [x] Pass | Full suite 301/301; typecheck and lint pass on Node 22.23.1. Targeted CU/import/migration group 9/9. |
+| Android Metro export | [x] Pass | `pnpm exec expo export --platform android --no-bytecode`: 2,044 modules, 147 assets including `assets/universities/cu.png` and the 29 MB SQLite seed; ~4 MB JS. |
+| Android APK / device test | [ ] Not run | Existing v0.1.10 APK predates CU. No EAS build or physical-device QA was requested/performed in this import task. |
+| Git | [x] Pass | Local commit `feat(content): import CU A Unit question bank`; worktree clean, no push. |
+
+---
+
 ## Android preview candidate v0.1.10 — 2026-11-18
 
 | Check | Result | Evidence |

@@ -1,3 +1,36 @@
+## Android preview v0.1.11 — CU A Unit build, install and owner QA — 2026-11-19
+
+**Status:** EAS `preview` / `INTERNAL` APK for app `0.1.11` / Android `versionCode 11` is complete according to the owner. The owner installed it on Android and reports that the checks performed work normally. Release/device documentation is updated and committed locally; no push.
+
+- [x] Confirmed previous release identity v0.1.10 / code 10, current CU source commit and clean worktree; EAS account `sk_king13` and existing EAS project authenticated.
+- [x] Updated `brand.config.json`, `package.json` and `app.config.js` to `0.1.11` / `versionCode: 11`; package ID `com.admissionbd.app`, slug, EAS project ID and preview configuration remain unchanged.
+- [x] Versioned gates: full suite 301/301; `pnpm typecheck`; `pnpm lint`; `pnpm content:check` (231 / 16,407); `pnpm packs:validate` (230 / 14,579; 0 errors / 5,536 warnings); `pnpm question-assets:check` (65 assets / 66 refs).
+- [x] Resolved Expo public config: version `0.1.11`, package `com.admissionbd.app`, Android `versionCode 11`, slug `bd-admission-app`, EAS project ID unchanged. EAS CLI 27.10.0 `project:info` confirms `@sk_king13/bd-admission-app` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
+- [x] Submitted EAS Android `preview` / `INTERNAL` APK, build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`. [Open EAS build / APK page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c).
+- [x] Owner confirms the build completed, installed the APK and checked the app successfully. This is a manual smoke check; handset model/OS and exhaustive screen/accessibility coverage were not supplied.
+- [x] Committed version metadata locally as `60a01d0`, initial submission docs as `84299e1`, and this release/device QA documentation update locally. No push.
+
+## CU A Unit Science — Varsity import complete — 2026-11-19
+
+**Status:** Imported into `data/question-packs/`, generated manifest and SQLite seed rebuilt, regression expectations reconciled, and CU-specific eligibility/Standard Exam boundaries verified. App logic and schema unchanged. No APK/EAS build or push.
+
+- [x] Verified original input archive and final import-ready package hashes; original ZIP and extracted source snapshot preserved unchanged.
+- [x] Confirmed no existing CU filenames or batch/paper/question/source ID collisions. Copied 26 pack JSON files flat into the Varsity `data/question-packs/` directory; no Library/ASPECT file or data path modified.
+- [x] Imported 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents for institution `cu` / `CU`.
+- [x] Preserved 2,185 answer-verified / 373 answer-unverified states and 2,558 owner-confirmed content-verified states. CU practice predicates return 2,185 eligible / 307 structurally safe review candidates; every paper has a non-zero verified pool, so no paper enters the provisional-only fallback.
+- [x] Confirmed CU's 2025–26 partial 100-mark / 60-minute rule remains unavailable for official scored Standard Exam planning; other 25 rules remain unconfigured.
+- [x] Added the original University of Chittagong website logo PNG, byte-identical to the fetched official-site image: `assets/universities/cu.png` (429×581; SHA-256 `9cc7ef6e5577c21aa8d6a1f6dea1298a35c032b63abf7388c4dc38c5361d8829`), and registered it in the existing university logo map.
+- [x] Regenerated `src/content/bundledManifest.ts` and local ignored `assets/content/content_seed.db`. Current bundle: 231 entries / 16,407 question rows; Varsity catalogue: 230 packs / 14,579 questions / 59,481 options; ASPECT remains a separate Library publication.
+- [x] Validator: 230 packs / 14,579 questions / 0 errors / 5,536 warnings. Question asset index: 65 assets / 66 refs / 65 unique. `content:build` and `content:check` pass.
+- [x] Updated only affected existing count expectations in three integration/seed regression tests; added CU-specific assertions for institution counts, verified pool, paper-level no-fallback behavior and incomplete Standard Exam availability.
+- [x] Final verification: full suite 301/301; typecheck; lint; content freshness 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; SQLite quick_check `ok` / zero FK violations; Android no-bytecode Metro export 2,044 modules / 147 assets / ~4 MB JS with `cu.png` included.
+- [x] Updated the current inventory, workflow, architecture, asset source, QA and handoff documentation. Final `git diff --check` passed before commit.
+- [x] Committed all 44 scoped files locally (`feat(content): import CU A Unit question bank`); final worktree clean. Nothing pushed.
+
+Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`. No push.
+
+---
+
 ## RU Science varsity question-bank import — complete locally — 2026-11-18
 
 **Status:** The owner-approved 46-pack curated RU Science package is integrated and committed locally on the current branch. No app database was imported directly; the normal combined offline seed was rebuilt and verified for fresh install and existing-install sync. No push.
@@ -619,3 +652,15 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 - [x] Added the 1600×560 README banner and four 1080×1920 Android screenshot graphics from the owner-provided captures.
 - [x] Moved the extended product/engineering details into `docs/APP_OVERVIEW.md` and visual asset provenance into `docs/README_VISUALS.md`.
 - [x] Verified local README/doc links, image dimensions, image files, whitespace and scoped Git diff. No app source, question packs, runtime, dependencies or release metadata changed.
+
+## CU A Unit staging and third-pass review — pre-import checkpoint — 2026-11-19
+
+- [x] Reviewed all 721 clean Tier-A prior-pass AI candidates across Physics, Higher Mathematics, Chemistry, English, Bangla, Biology and ICT.
+- [x] Promoted 708 clean third-pass results to `answerVerificationStatus: verified` under the owner-approved two-AI + owner manual + third-pass standard; retained 13 ambiguity/notation/corruption cases as `unverified`. No answer mappings or question/option text were changed.
+- [x] At third-pass completion, content fields remained at their inherited 1,630 verified / 928 unverified snapshot values. After the owner confirmed Muse AI had already verified all source question content, the final package was corrected to 2,558 content verified / 0 unverified; answer statuses remain 2,185 verified / 373 unverified.
+- [x] Revalidated all 26 packs: zero errors / 337 warnings. Fresh SQLite dry-run accepted all 26; 2,558 questions / 11,397 options / 68 sources; foreign-key check zero; idempotent second import skipped 2,558. Post-correction dry-run predicates: 2,185 verified-eligible / 307 answer-review candidates.
+- [x] Updated external package README, third-pass decision ledger, final report, import-readiness report, transformation summary and checksum/ZIP artifacts.
+- [x] Updated current-state, workflow, task, changelog and handoff documentation; ran full test/typecheck/lint and diff checks.
+- Historical checkpoint: app-source import was pending at the time this staging report was written. The subsequent Varsity import, regenerated seed and final checks are recorded in the completed CU task at the top of this file. The phone database and APK were not directly edited by the source-import step.
+
+Final report: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/reports/THIRD_PASS_AI_KEY_REVIEW.md`.

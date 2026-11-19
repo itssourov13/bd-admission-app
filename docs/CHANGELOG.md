@@ -1,3 +1,47 @@
+## 2026-11-19 — Build and owner-test v0.1.11 Android preview with CU A Unit Science
+
+- Bumped the Expo app / brand / package version from `0.1.10` to `0.1.11` and Android `versionCode` from `10` to `11`, preserving `com.admissionbd.app`, Expo slug, EAS project ID, preview profile and signing identity.
+- The preview source includes the CU A Unit Varsity catalogue and original CU PNG logo (alongside existing RU, JU, HSTU, DU and separate ASPECT Library content).
+- EAS Android `preview` / `INTERNAL` build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` completed according to the owner. [Open EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). The owner installed the APK on Android and reports that the checks performed work normally; device model/OS and exhaustive screen/accessibility coverage were not recorded.
+- This is an internal preview APK, not a production AAB or Google Play submission. No push.
+
+---
+
+## 2026-11-19 — Import CU A Unit Science into Varsity
+
+- Imported 26 CU A Unit packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents into `data/question-packs/` for institution `cu`; no filename or batch/paper/question/source ID collisions and no existing pack overwrites.
+- Preserved all source answer/content verification states: 2,185 answer-verified / 373 answer-unverified, 2,558 content-verified. Existing eligibility rules expose 2,185 normal practice questions and 307 review candidates; all 26 papers contain eligible items, so CU does not enter the provisional-only fallback. The partial 2025–26 rule remains unavailable for official scored Standard Exam; 25 older rules remain unconfigured.
+- Added the original University of Chittagong website PNG at `assets/universities/cu.png` and its existing static university-logo registry entry. Rebuilt the manifest and generated local SQLite seed.
+- Reconciled existing integration/seed test count expectations and added CU eligibility, per-paper fallback and exam-rule regression checks. No app logic, scoring implementation or database schema changed.
+- Current bundle: 230 Varsity packs / 14,579 university questions / 59,481 options; 231 manifest entries / 16,407 total question rows including the separate ASPECT Library book. Full test/typecheck/lint and final database/Metro checks are recorded in the CU import handoff. No APK/EAS build or push.
+
+---
+
+## 2026-11-19 — Restore owner-confirmed Muse AI content verification for CU
+
+- The owner clarified that Muse AI had already source-verified the content of all 2,558 CU A Unit questions. The staged snapshot carried 928 stale `contentVerificationStatus: unverified` flags; retaining them in the final import package was incorrect.
+- Corrected the external Varsity import-ready copy to **2,558 content-verified / 0 content-unverified**. This was a metadata correction only; question/option text, option order, correct-option mappings, source references and appearances were not changed. The original input ZIP and extracted source snapshot remain untouched.
+- Answer verification remains separate at **2,185 verified / 373 unverified**. No app source pack, active seed, SQLite database, APK or production content was imported or changed. Rebuilt and rechecked the ZIP and SHA-256 manifests.
+
+---
+
+## 2026-11-19 — Prepare CU A Unit Science Varsity import package
+
+- Unpacked and audited 26 CU A Unit packs / 2,558 questions / 11,397 options. Created a separate import-ready package for Varsity institution `cu` (not Library); active app data and seed were not changed.
+- Corrected 22 subject labels, namespaced 29 cross-batch source-document ID references, and downgraded 10 source-disputed verified keys to unverified. Third-pass reviewed the 721 clean Tier-A candidates: 708 answer keys promoted to verified under the owner-approved standard, 13 held unverified; duplicate-option text remains source-faithful and tracked.
+- Researched official CU 2025–26 prospectus/circular; stored only partial 100-mark / 60-minute facts because current app rule model cannot express conditional subject selection and mixed marking. Other 25 paper rules stay unconfigured.
+- Validated 26/26 packs (0 errors / 337 warnings), imported all into fresh in-memory SQLite through the actual app importer, verified idempotent re-import and zero foreign-key violations. Wrote package README, review ledgers and final audit report. Owner import remains pending; no push.
+
+
+## 2026-11-19 — CU A Unit third-pass answer-key review
+
+- Reviewed all 721 clean Tier-A AI-solved candidates. 708 passed and are now answer-verified under the owner-approved two-AI + owner-manual + third-pass standard; 13 remain unverified because of ambiguous mathematics/notation, multiple defensible answers or corrupted text.
+- No question stem, options, option order, `correctOptionIds`, source reference or content-verification field was changed. No answer mapping was changed.
+- Final staged package: 26 Varsity packs / 2,558 questions; 2,185 answer-verified / 373 unverified; 1,630 content-verified / 928 unverified at the third-pass checkpoint, before the subsequent owner-confirmed correction to 2,558 / 0. App validator 26/26, zero errors / 337 warnings; importer dry-run and idempotence pass.
+- Updated CU third-pass report/ledger, package README, final import audit, transformation counts and checksums. Active app pack data/seed/database and APK are unchanged; owner import approval remains pending.
+
+---
+
 ## 2026-11-18 — Add Apache-2.0 project license
 
 - Added the canonical Apache License, Version 2.0, with the GitHub repository owner's copyright attribution (Md Sourov Mondol).

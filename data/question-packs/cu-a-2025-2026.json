@@ -1,0 +1,5838 @@
+{
+  "schemaVersion": 1,
+  "batch": {
+    "id": "cu-a-2025-2026",
+    "category": "varsity",
+    "description": "University of Chittagong (CU) A Unit question-bank collection — 2025-2026. 120 questions (English 25, Physics 25, Chemistry 25, Biology 25, Higher Mathematics 20). Answer status: 96 verified / 24 unverified; this reflects answer-key review status, not an assertion that the question text is flawless. Import QA 2026-11-19: 22 subject labels corrected; cross-batch source IDs made importer-safe; source-conflicted keys remain unverified. This is a historical question-bank collection, not a claim that the pack count equals the official exam quota. the rest carry their best single-source key or no key, flagged per question. Explanations are null throughout (no cleanly alignable source). The Chorcha set for this session has no Bangla section (120 questions). Phase-2 cross-checks come from Satt Academy x prosnosomadhan.com. AI-solved keys (2026-11-18, not source-verified): 0. Keyless: 0. QA audit 2026-11-19: see QA_AUDIT_REPORT.md. Official 2025–2026 rule facts are partially sourced (100 marks, 60 minutes); conditional subject selection and mixed marking are not represented by the current app schema, so the official Standard Exam remains unavailable.",
+    "sourceDocumentIds": [
+      "chorcha-cu-a-2025-2026",
+      "cu-a-2025-2026__phase2-cu-verified-packs",
+      "cu-a-2025-2026__cu-official-prospectus",
+      "cu-a-2025-2026__cu-official-admission-circular"
+    ]
+  },
+  "sourceDocuments": [
+    {
+      "id": "chorcha-cu-a-2025-2026",
+      "filename": "chorcha-cu-a-2025-2026",
+      "sourceType": "other",
+      "title": "CU A Unit 2025-2026 — Chorcha question bank (chorcha.net), full content transcription",
+      "notes": "Content source: read page transcribed in full (stem, all options, eye-button key) on 2026-11-17 under the account authorised by the owner for this collection."
+    },
+    {
+      "id": "cu-a-2025-2026__phase2-cu-verified-packs",
+      "filename": "phase2-cu-verified-packs",
+      "sourceType": "other",
+      "title": "Phase-2 cross-verified CU A packs (2026-11-07/08, Udvash book x Satt Academy)",
+      "notes": "Key + content cross-check source: questions verified under the strict standard in Phase 2; keys transferred by stem match and option TEXT."
+    },
+    {
+      "id": "cu-a-2025-2026__cu-official-prospectus",
+      "filename": "Prospectus_1764069074.pdf",
+      "sourceType": "pdf",
+      "title": "University of Chittagong — 2025–2026 A Unit admission prospectus",
+      "notes": "Official prospectus URL: https://cu-admission.sgp1.digitaloceanspaces.com/storage/documents/Prospectus_1764069074.pdf . It states A Unit total marks 100, pass mark 40; English 25 marks compulsory; candidates answer any three of Physics, Chemistry, Mathematics and Biology, each section worth 25 marks. Physics/Chemistry/Biology have 25 × 1-mark items; Mathematics has 20 × 1.25-mark items. Official prospectus section (8), PDF text lines 115–129. This source supports only those listed fields; the dynamic number of questions is 95 or 100 depending on selected sections."
+    },
+    {
+      "id": "cu-a-2025-2026__cu-official-admission-circular",
+      "filename": "AdmissionCircular_1764069211.pdf",
+      "sourceType": "pdf",
+      "title": "University of Chittagong — 2025–2026 undergraduate admission circular",
+      "notes": "Official circular URL: https://cu-admission.sgp1.digitaloceanspaces.com/storage/documents/AdmissionCircular_1764069211.pdf . It states the admission test is a one-hour MCQ exam and specifies wrong-answer deductions of 0.25 for 1-mark items and 0.30 for 1.25-mark items. PDF text lines 109–114. The penalty is non-uniform by section and cannot be represented by the current single-penalty scoring model."
+    }
+  ],
+  "institutions": [
+    {
+      "id": "cu",
+      "code": "CU",
+      "name": "University of Chittagong"
+    }
+  ],
+  "papers": [
+    {
+      "id": "cu-a-2025-2026",
+      "institutionId": "cu",
+      "category": "varsity",
+      "year": 2026,
+      "academicSession": "2025-2026",
+      "unit": "A",
+      "title": "CU A Unit 2025-2026 — full collection 2026-11-17"
+    }
+  ],
+  "questions": [
+    {
+      "id": "cu-a-2025-2026-english-01",
+      "text": "____ wisdom of the man impressed everyone present.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "A",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "An",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "The",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "No article",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 1,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 1
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'The' (section ENGLISH Q1) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'the'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-02",
+      "text": "The two brothers differ greatly ------- their tastes and habits.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "from",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "with",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "in",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "on",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 2,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 2
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'in' (section ENGLISH Q2) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'in'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-03",
+      "text": "It's time we ------ measures to prevent further damage.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "take",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "have taken",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "took",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "had taken",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 3,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 3
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'took' (section ENGLISH Q3) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'took'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-04",
+      "text": "The synonym of \"meticulous\":",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "hasty",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "careless",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "thorough",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "indifferent",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 4,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 4
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'thorough' (section ENGLISH Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 1, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-05",
+      "text": "The passive voice of \"People believe that he has stolen the diamond\"-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "It believes that the diamond has been stolen by him.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "It is believed that the diamond has been stolen by him.",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "He is believed that he has stolen the diamond",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "The diamond is believed that he has stolen.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 5,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 5
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'It is believed that the diamond has been stolen by him.' (section ENGLISH Q5) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'It is believed that diamond has been stolen by him.'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-06",
+      "text": "This university's programmes ------ those of Harvard.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "come second after",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "are second only to",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "are first except for",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "are second in place from",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 6,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 6
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'are second only to' (section ENGLISH Q6) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'are second only to'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-07",
+      "text": "She was appointed ___ head of the department after two years of interim leadership.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "the",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "a",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "an",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "no article",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 7,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 7
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'no article' (section ENGLISH Q7) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'no article'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-08",
+      "text": "The judge insisted that the witness ____ present at the next hearing without fail.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "be",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "were",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "was",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "is",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 8,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 8
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'be' (section ENGLISH Q8) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'be'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-09",
+      "text": "We finally----the plumber fixes the leaking pipe after several reminders.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "got",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "made",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "had",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "forced",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 9,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 9
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'had' (section ENGLISH Q9) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'had'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-10",
+      "text": "When the company went bankrupt, the employees were left high and dry. What does the underlined idiom mean?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rewarded generously",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Sent on vacation",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Left helpless",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Rehired elsewhere",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 10,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 10
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Left helpless' (section ENGLISH Q10) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'Left helpless'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-11",
+      "text": "Scarcely (a) had he reached the airport (b) when the announcement (c) was made that the flight (d) has been cancelled.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "b",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 11,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 11
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'd' (section ENGLISH Q11.1) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'has been'",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-12",
+      "text": "The research (a) findings, though impressive, (b) needs to be (c) verified through more rigorous (d) testing before publication.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "b",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 12,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 12
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'b' (section ENGLISH Q11.2)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-13",
+      "text": "(a) Until his last class at the university in 1978, Hasan always (b) turns in all (c) of his assignments (d) on time.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "b",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 13,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 13
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'b' (section ENGLISH Q11.3) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'turns'",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-14",
+      "text": "The artist tried (a) stimulate (b) interest in painting (c) by taking his students (d) to the museums.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "b",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 14,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 14
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'a' (section ENGLISH Q11.4) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'stimulate'",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-15",
+      "text": "Sara said (a) that she (b) went (c) to the supermarket (d) before coming home.",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "a",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "b",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "d",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 15,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 15
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'b' (section ENGLISH Q11.5)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-16",
+      "text": "Recombinant DNA technology consists primarily of:",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "producing several therapeutically important biomolecules",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "giving rise to large amount of protein",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "introducing genetic material from one organism into another",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "using viral enzyme called reverse transcriptase",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 16,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 16
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'introducing genetic material from one organism into another' (section ENGLISH Q12.1) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'introducing genetic material from one organism into another'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-17",
+      "text": "The word \"profound\" is closest in meaning to -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "significant",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "boring",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "dangerous",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "secret",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 17,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 17
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'significant' (section ENGLISH Q12.2)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-18",
+      "text": "The word \"isolation\" is closest in meaning to -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "destruction",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "duplication",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "segregation",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "study",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 18,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 18
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'segregation' (section ENGLISH Q12.3)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-19",
+      "text": "Recombinant DNA technology has been used in the production of all of the following biomolecules EXCEPT -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "growth hormones",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Escherichia coli",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "interferon",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "insulin",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 19,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 19
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Escherichia coli' (section ENGLISH Q12.4)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-20",
+      "text": "\"Artificially\" is closest in meaning to -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "correctly",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "synthetically",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "artistically",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "carefully",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 20,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 20
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'synthetically' (section ENGLISH Q12.5)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-21",
+      "text": "Which of the following is not true?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "The foreign gene will replicate in the bacteria, but it will not express itself through transcription and translation.",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "The bacterium Escherichia coli can be grown in large amounts in synthetic media.",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Research continues in an effort to find other uses for this technology",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Recombinant DNA technology is a recent development.",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 21,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 21
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'The foreign gene will replicate in the bacteria, but it will not express itself through transcription and translation.' (section ENGLISH Q12.6)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-22",
+      "text": "The word \"fragment\" is nearest in meaning to –",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "particle",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "reproduction",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "opposite",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "large piece",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 22,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 22
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'particle' (section ENGLISH Q12.7)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-23",
+      "text": "Expression of a gene in Escherichia coli requires-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "the viral enzyme reverse transcriptase",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "the process of transcription and translation",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "production of insulin and other biomolecules",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "that the bacteria be grown in synthetic media",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 23,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 23
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'the process of transcription and translation' (section ENGLISH Q12.8)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-24",
+      "text": "The term \"recombinant\" is used because -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "by ligation, a recombinant molecule is produced, which has the capacity of replication",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "the technique requires the combination of several types of technology",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "by ligation, a recombinant protein is produced; part of whole amino acids come from each different organism",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Escherichia coli is a recombinant organism",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 24,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 24
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'by ligation, a recombinant molecule is produced, which has the capacity of replication' (section ENGLISH Q12.9)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-english-25",
+      "text": "The word \"replicate\" is closest in meaning to -",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "English",
+      "options": [
+        {
+          "id": "a",
+          "text": "reproduce",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "join",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "reside",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "coexist",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 25,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 25
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'reproduce' (section ENGLISH Q12.10)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-01",
+      "text": "500 g ভরের একটি বস্তু 1N বলের ক্রিয়ায় বলের সাথে 60° কোণে 50 cm সরণ হলে বস্তুর উপর কৃত কাজের পরিমাণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "25 J",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.25 J",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.50 J",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12.50 J",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 26,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 26
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '0.25 J' (section PHYSICS Q1) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 28, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-02",
+      "text": "একটি α-কণায় ইলেকট্রনের সংখ্যা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 27,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 27
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '0' (section PHYSICS Q2) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '0'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-03",
+      "text": "এনট্রপির মাত্রিক সমীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "[S]=[MLT²Θ⁻¹]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[S]=[ML²T⁻¹]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[S]=[ML²T⁻²Θ⁻¹]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[S]=[ML²T⁻¹Θ⁻¹]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 28,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 28
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '[S]=[ML²T⁻²Θ⁻¹]' (section PHYSICS Q3) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 27, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-04",
+      "text": "বস্তু আলোর বেগে চললে এর ভর-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "অর্ধেক হবে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অসীম হবে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শূন্য হবে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "দ্বিগুণ হবে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 29,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 29
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'অসীম হবে' (section PHYSICS Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 34, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-05",
+      "text": "এক ব্যক্তি ত্রুটিপূর্ণ চোখে 50 cm এর অধিক দূরের বস্তু দেখতে পান না। সংশোধিত লেন্সের ক্ষমতা কত হলে তিনি সহজে ও স্পষ্টভাবে দূরের বস্তু দেখতে সক্ষম হবেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "+2D",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-2D",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "+1/50 D",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-1/50 D",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 30,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 30
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-2D' (section PHYSICS Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 35, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-06",
+      "text": "ইয়ং এর দ্বি-চিড় পরীক্ষায় চিড় দুটির দূরত্ব অর্ধেক ও চিড় থেকে পর্দার দূরত্ব দ্বিগুণ করা হলে ডোরার প্রস্থ কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 গুণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 গুণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অর্ধেক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অপরিবর্তিত থাকবে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 31,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 31
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '4 গুণ' (section PHYSICS Q6) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 33, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-07",
+      "text": "সৌর শক্তি কোন পদ্ধতিতে উৎপন্ন হয়",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "আবেশিত ফিশন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফিশন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফিউশন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রাসায়নিক বিক্রিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 32,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 32
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ফিউশন' (section PHYSICS Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 39, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-08",
+      "text": "একটি গতিশীল বস্তুর সরণের সমীকরণ x= 4t² + 10t m হলে 0.5 min পর বস্তুটির বেগ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "14 ms⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "250 ms⁻¹",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "240 ms⁻¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "4 ms⁻¹",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 33,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 33
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '250 ms⁻¹' (section PHYSICS Q8) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '250 ms⁻¹'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-09",
+      "text": "ক্রিয়া ও প্রতিক্রয়ার মধ্যে কোণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "90°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "180°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "360°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 34,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 34
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '180°' (section PHYSICS Q9) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '180°'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-10",
+      "text": "পৃথিবীর ভর ও ব্যাসার্ধ যথাক্রমে চাঁদের ভর ও ব্যাসার্ধের 81 গুণ ও 4 গুণ। পৃথিবীর পৃষ্ঠে একজন লোকের ওজন 810 N হলে তিনি চাঁদে গেলে কতটুকু ওজন হারাবেন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "650 N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "160 N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "770 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 35,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 35
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '650 N' (section PHYSICS Q10) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '650 N'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-11",
+      "text": "একটি টানা তারের টান 4 গুণ বাড়ালে তারের কম্পাংক কত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 গুণ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2 গুণ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অর্ধেক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 36,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 36
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '2 গুণ' (section PHYSICS Q11) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 18, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-12",
+      "text": "যে সব তরল কাঁচকে ভেজায় না তাদের স্পর্শ কোণ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রায় 0°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রায় 90°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90° এর চেয়ে ছোট",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "90° এর চেয়ে বড়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 37,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 37
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '90° এর চেয়ে বড়' (section PHYSICS Q12) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 22, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-13",
+      "text": "আলোর অপবর্তন ব্যাখ্যা করার জন্য কোনটির প্রয়োজন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ম্যাক্স প্ল্যাঙ্কের কোয়ান্টাম তত্ত্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "নিউটনের কণা তত্ত্ব",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হাইগেনের তরঙ্গ তত্ত্ব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ম্যাক্সওয়েলের তড়িতচৌম্বক তত্ত্ব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 38,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 38
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'হাইগেনের তরঙ্গ তত্ত্ব' (section PHYSICS Q13) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 38, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-14",
+      "text": "একটি তরঙ্গের দুটি বিন্দুর মধ্যে পথ পার্থক্য γ/8 হলে দশা পার্থক্য কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "π/4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "π/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "π/8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "π/6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 39,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 39
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'π/4' (section PHYSICS Q14) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'π/4'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-15",
+      "text": "ত্রিপারমানবিক গ্যাসের স্থির চাপ ও স্থির আয়তনে মোলার আপেক্ষিক তাপের অনুপাত কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.33",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.40",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "1.21",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.67",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 40,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 40
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '1.33' (section PHYSICS Q15) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 15, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-16",
+      "text": "A⃗ = î - 3ĵ + 5k̂ এবং B⃗ = mî + 6ĵ - 10k̂। m এর মান কত হলে ভেক্টরদ্বয় পরস্পর সমান্তরাল হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 41,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 41
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-2' (section PHYSICS Q16) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 24, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-17",
+      "text": "কোন বুলেট কোন দেয়ালে 0.04 m প্রবেশের পর 75% বেগ হারায়। বুলেটটি ঐ দেয়ালে আর কতদূর প্রবেশ করতে পারবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.67 mm",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.76 mm",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.50 mm",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "2.60 mm",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 42,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 42
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '2.67 mm' (section PHYSICS Q17) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 30, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-18",
+      "text": "কেন্দ্রমুখী বল দ্বারা কৃত কাজ-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ধনাত্মক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অসীম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "শূন্য",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ঋণাত্মক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 43,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 43
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'শূন্য' (section PHYSICS Q18) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'শূন্য'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-19",
+      "text": "30 m উচ্চতা থেকে একটি বস্তুকে বিনা বাঁধায় পড়তে দিলে কোথায় উহার গতিশক্তি বিভব শক্তির দ্বিগুণ হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ভূমি হতে 10 m উচ্চতায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ভূমি হতে 20 m উচ্চতায়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভূমি হতে 15 m উচ্চতায়",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 44,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 44
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ভূমি হতে 10 m উচ্চতায়' (section PHYSICS Q19) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'ভূমি হতে 10 m উচ্চতায়'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-20",
+      "text": "সরল ছন্দিত গতি সম্পন্ন একটি কণার গতির সমীকরণ y = 10 sin(ωt + δ), পর্যায়কাল 30 sec এবং আদি সরণ 0.05 m হলে কণাটির আদি দশা কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.286°",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.268°",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.322°",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.207°",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 45,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 45
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '0.286°' (section PHYSICS Q20) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '0.286°'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-21",
+      "text": "কোন ক্লাশ রুমের শব্দের তীব্রতা 10⁻⁶ Wm⁻² হলে শব্দের তীব্রতা লেভেল ডেসিবেলে কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "6 dB",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "60 dB",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "56 dB",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "10 dB",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 46,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 46
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '60 dB' (section PHYSICS Q21) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 16, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-22",
+      "text": "পানির ত্রৈধ বিন্দুর ভিত্তিতে স্টিম বিন্দুর তাপমাত্রা হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "273.16K",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0K",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "100 K",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "373.15 K",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 47,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 47
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '373.15 K' (section PHYSICS Q22) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '373.15 K'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-23",
+      "text": "40 ওয়াটের একটি বাল্বকে 220 ভোল্ট লাইনে সংযুক্ত করা হলে এর মধ্য দিয়ে কি পরিমাণ বিদ্যুৎ প্রবাহিত হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.5 অ্যাম্পিয়ার",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "0.18 অ্যাম্পিয়ার",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.0 অ্যাম্পিয়ার",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5.5 অ্যাম্পিয়ার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 48,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 48
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '0.18 অ্যাম্পিয়ার' (section PHYSICS Q23) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '0.18 অ্যাম্পিয়ার'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-24",
+      "text": "পানি ও কাঁচের প্রতিসরণাঙ্ক যথাক্রমে 1.33 এবং 1.50 হলে কাঁচে আলোর বেগ কত? পানিতে আলোর বেগ 2.28×10⁸ ms⁻¹",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.02×10⁸ ms⁻¹",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2.28×10⁸ ms⁻¹",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.82×10⁸ ms⁻¹",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 49,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 49
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '2.02×10⁸ ms⁻¹' (section PHYSICS Q24) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 40, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-physics-25",
+      "text": "p- টাইপ অর্ধপরিবাহী তৈরীর জন্য বিশুদ্ধ অর্ধপরিবাহীর সাথে নিচের কোন অপদ্রব্যটি মেশাতে হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Physics",
+      "options": [
+        {
+          "id": "a",
+          "text": "As",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Bi",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "P",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Ga",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 50,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 50
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Ga' (section PHYSICS Q25) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 37, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-01",
+      "text": "একটি পরমাণুর ৪র্থ অরবিটে কয়টি ইলেকট্রন থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "8",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "18",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "24",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "32",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 51,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 51
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '32' (section Chemistry Q1) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 56, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-02",
+      "text": "নিম্নের কোনটির জলীয় দ্রবণ রঙিন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CuSO4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "MgSO4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ZnSO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Na2SO4",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 52,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 52
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'CuSO4' (section Chemistry Q2) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'CuSO₄'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-03",
+      "text": "CuSO4 এর জলীয় দ্রবণে অতিরিক্ত NH4OH যোগ করলে কোনটি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "[Cu(NH3)4]SO4",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CuO",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Cu(NH3)2SO4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Cu2(SO4)2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 53,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 53
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '[Cu(NH3)4]SO4' (section Chemistry Q3) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 45, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-04",
+      "text": "12 g কয়লা পোড়ালে কত গ্রাম CO2 পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "44 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "32 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "24 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "28g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 54,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 54
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '44 g' (section Chemistry Q4) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '44 g'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-05",
+      "text": "কোনটি অবস্থাস্তর মৌলের বৈশিষ্ট্য নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "রঙিন যৌগ উৎপন্ন করে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পরিবর্তনশীল যোজ্যতা বিদামান",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "d-ব্লক মৌল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সন্নিবেশ বন্ধন তৈরী করে না",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 55,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 55
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'সন্নিবেশ বন্ধন তৈরী করে না' (section Chemistry Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 55, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-06",
+      "text": "একটি উভয়মূখী বিক্রিয়ার সাম্যাবস্থা নির্ভর করে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "বিক্রিয়ক ও উৎপাদের ঘনমাত্রার উপর",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "বিক্রিয়ার চাপের উপর",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "বিক্রিয়ার তাপমাত্রার উপর",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "উল্লেখিত সকল বিষয়ের উপর",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 56,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 56
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'উল্লেখিত সকল বিষয়ের উপর' (section Chemistry Q6) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'উল্লেখিত সকল বিষয়ের উপর'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-07",
+      "text": "ভিনাইল ফ্লোরাইড এর গাঠনিক সংকেত কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "CH≡CCl",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "CH3-CH=CHCl",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "CH3-CH(CH3)-CH2Cl",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "CH2=CHCl",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 57,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 57
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'CH2=CHCl' (section Chemistry Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 61, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-08",
+      "text": "ভিনেগার এ কোন এসিড থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "সাইট্রিক এসিড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "টারটারিক এসিড",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "এসিটিক এসিড",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সালফিউরিক এসিড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 58,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 58
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'এসিটিক এসিড' (section Chemistry Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 51, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-09",
+      "text": "কোন বিক্রিয়ার মাধ্যমে উচ্চতর অ্যালকেন উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "ক্যানিজারো বিক্রিয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "উর্টজ বিক্রিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যালডল কনডেনসেসন বিক্রিয়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোরি-হাউজ বিক্রিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 59,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 59
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'উর্টজ বিক্রিয়া' (section Chemistry Q9) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 65, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-10",
+      "text": "হ্যালোফরম (Haloform) বিক্রিয়া হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যালকেন ও অ্যালকিনের সাথে হ্যালোজেনের বিক্রিয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অ্যালকোহল ও ইথারের সাথে হ্যালোজেনের বিক্রিয়া",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "এস্টার ও অ্যালকাইনের সাথে হ্যালোজেনের বিক্রিয়া",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "অ্যালডিহাইড ও কিটোনের সাথে হ্যালোজেনের বিক্রিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 60,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 60
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'অ্যালডিহাইড ও কিটোনের সাথে হ্যালোজেনের বিক্রিয়া' (section Chemistry Q10) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 59, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-11",
+      "text": "প্রান্তীয় অ্যালকাইন এর ক্ষেত্রে কোটি সত্য?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অম্লীয়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ক্ষারীয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নিউট্রাল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আয়নিক যৌগ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 61,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 61
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'অম্লীয়' (section Chemistry Q11) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 63, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-12",
+      "text": "নিম্নের কোন মূলকটি বেনজিন বলয়কে নিষ্ক্রিয় করে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "-OH",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-OMe",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-NO2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-NH2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 62,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 62
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-NO2' (section Chemistry Q12) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '-NO₂'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-13",
+      "text": "অনার্দ্র AlCl3 এর উপস্থিতিতে বেনজিন এবং n-প্রোপাইল ক্লোরাইড এর বিক্রিয়ায় কোনটি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "n-প্রোপাইলবেনজিন",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "n- বিউটাইলবেনজিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "আইসো-প্রোপাইলবেনজিন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "টলুইন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 63,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 63
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'আইসো-প্রোপাইলবেনজিন' (section Chemistry Q13) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 58, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-14",
+      "text": "n- বিউটাইলবেনজিন কে KMnO4 এর সহিত উত্তপ্ত করলে কি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "[image: benzene ring-COOH]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[image: benzene ring-CH2-CH2-CH2-COOH]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[image: benzene ring-CHO]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[image: benzene ring-CH2-COOH]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 64,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 64
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '[image: benzene ring-COOH]' (section Chemistry Q14)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-15",
+      "text": "[image: benzene ring-NO2] এর সহিত Sn+ HCl এর বিক্রিয়ায় কোনটি উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "[image: benzene ring-NH2]",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "[image: benzene ring-N=N-benzene ring]",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[image: benzene ring-NH-NH-benzene ring]",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "[image: benzene ring-NH-NH2]",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 65,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 65
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '[image: benzene ring-NH2]' (section Chemistry Q15)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-16",
+      "text": "sp³ সংকর অরবিটালের আকৃতি কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "লিনিয়ার (Linear)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ট্রাইঅ্যাংগুলার (Triangular)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "স্কোয়ার প্লেনার (Square planar)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "টেট্রাহেড্রাল (Tetrahedral)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 66,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 66
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'টেট্রাহেড্রাল (Tetrahedral)' (section Chemistry Q16) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 52, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-17",
+      "text": "একটি দ্রবণের হাইড্রোজেন আয়নের ঘনমাত্রা 1.82×10^-5 mol L^-1। উক্ত দ্রবণের pH কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.74",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3.64",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2.52",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5.42",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 67,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 67
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '4.74' (section Chemistry Q17) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 48, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-18",
+      "text": "একটি বাফার দ্রবণে অল্প পরিমাণ শক্তিশালী এসিড বা ক্ষার যুক্ত করলে দ্রবণের pH কিরূপ হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "pH কমবে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "pH বাড়বে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "pH অপরিবর্তিত থাকবে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নির্ণয় করা যায় না।",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 68,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 68
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'pH অপরিবর্তিত থাকবে' (section Chemistry Q18) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 41, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-19",
+      "text": "PV= nRT সূত্রটি কোন গ্যাস মেনে চলে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "অ্যামোনিয়া গ্যাস",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হাইড্রোজেন গ্যাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "নাইট্রোজেন গ্যাস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "আদর্শ গ্যাস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 69,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 69
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'আদর্শ গ্যাস' (section Chemistry Q19) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 62, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-20",
+      "text": "নিম্নের কোন বিক্রিয়াটির জন্য Kp=Kc?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2SO2(g) + O2(g) ⇌ 2SO3(g)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "N2(g) + O2(g) ⇌ 2NO(g)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "N2(g) + 3H2(g) ⇌ 2NH3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "PCl3(g) + Cl2(g) ⇌ PCl5(g)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 70,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 70
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'N2(g) + O2(g) ⇌ 2NO(g)' (section Chemistry Q20) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 42, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-21",
+      "text": "নিম্নের কোন তত্ত্ব মতে BF3 একটি এসিড?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "আরহেনিয়াস তত্ত্ব",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্রনস্টেড-লউরী তত্ত্ব",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "লুইস তত্ত্ব",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ডালটন তত্ত্ব",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 71,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 71
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'লুইস তত্ত্ব' (section Chemistry Q21) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 50, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-22",
+      "text": "নিম্নের কোন মৌলটি আউফবাউ নীতি মেনে চলে না?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fe",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Zr",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Ag",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "La",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 72,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 72
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Ag' (section Chemistry Q22) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'Ag'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-23",
+      "text": "পর্যায় সারণীর গ্রুপ II A এর উপর থেকে নিচের দিকে গেলে মৌলসমূহের আয়নিকরণ শক্তি ক্রমকি হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "বৃদ্ধি পায়",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হ্রাস পায়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অপরিবর্তিত থাকে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নির্ণয় করা যায় না",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 73,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 73
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'হ্রাস পায়' (section Chemistry Q23) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 53, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-24",
+      "text": "K2Cr2O7 এর 250 mL 0.1N দ্রবণ তৈরী করতে কত গ্রাম K2Cr2O7 (Mw=294) প্রয়োজন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.3241 g",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3.1620 g",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5.1370 g",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "1.2250 g",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 74,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 74
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '1.2250 g' (section Chemistry Q24) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 47, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-chemistry-25",
+      "text": "α- কণা হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Chemistry",
+      "options": [
+        {
+          "id": "a",
+          "text": "⁴₂He⁺",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "⁴₂He",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "⁴₂He⁺⁺",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "²₁H⁺",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 75,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 75
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '⁴₂He⁺⁺' (section Chemistry Q25)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-01",
+      "text": "নিষেকের পর ডিম্বকের পরিবর্তিত রূপ হলো-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "বীজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ভ্রূণ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সস্য",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 76,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 76
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'বীজ' (section Biology Q1) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'বীজ'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-02",
+      "text": "DNA প্রতিলিপনের সময় হাইড্রোজেন বন্ধনী ভেঙ্গে দেয় কোন এনজাইম?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হেলিকেজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "প্রাইলেজ",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "পলিমারেজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "লাইগেজ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 77,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 77
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'হেলিকেজ' (section Biology Q2) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 91, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-03",
+      "text": "রিকম্বিনেন্ট DNA প্রযুক্তি দ্বারা উৎপাদিত উদ্ভিদকে বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হাইব্রিড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ট্রান্সজেনিক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্লোন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "বিশুদ্ধ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 78,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 78
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ট্রান্সজেনিক' (section Biology Q3) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 90, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-04",
+      "text": "নিম্নোক্ত কোনটি সঠিক নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "কেঁচো-নেফ্রিডিয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "চিংড়ি-হিমোসিল",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "তারামাছ- পানি সংবহনঅন্ত্র",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "গোলকৃমি- শিখাকোষ",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 79,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 79
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'গোলকৃমি- শিখাকোষ' (section Biology Q4) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 95, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-05",
+      "text": "নিম্নোক্ত কোনটি অগ্নাশয় কর্তৃক নিঃসৃত নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "লাইপেজ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ট্রিপসিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অ্যামাইলেজ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "রেনিন",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 80,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 80
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'রেনিন' (section Biology Q5) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 98, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-06",
+      "text": "হৃদপিন্ডের পেসমেকার কোনটিকে বলা হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sino- Atrial Node (SAN)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Atrio-ventricular Node",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Purkinje fibre",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Bundle of His",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 81,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 81
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Sino- Atrial Node (SAN)' (section Biology Q6) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 97, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-07",
+      "text": "নিম্নোক্ত কোন চক্রে (Cycle) ইউরিয়া উৎপন্ন হয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফ্যাটি এসিড চক্র",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অর্নিথিন চক্র",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ক্র্যাবস্ চক্র",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নাইট্রোজেন চক্র",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 82,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 82
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'অর্নিথিন চক্র' (section Biology Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 106, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-08",
+      "text": "নিম্নোক্ত কোনটি ক্রেনিয়াম (Cranium) এর অংশ নয়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফ্রন্টাল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "জাইগোমেটিক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "প্যারাইটাল",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এথময়েড",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 83,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 83
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'জাইগোমেটিক' (section Biology Q8)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-09",
+      "text": "একটি মানব মস্তিষ্কে কত বিলিয়ন নিউরন থাকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "২৫",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "৩৫",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "৪৫",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "১০০",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 84,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 84
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '১০০' (section Biology Q9) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 96, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-10",
+      "text": "রক্তরসে কোন এন্টিবডি সর্বোচ্চ সংখ্যায় পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "IgAs",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "IgEs",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "IgDs",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "IgGs",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 85,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 85
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'IgGs' (section Biology Q10) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 100, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-11",
+      "text": "Transcription (প্রতিলিপিকরন) সংঘটিত হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "প্রকৃত কোষের নিউক্লিয়াসের মধ্যে",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "আদি কোষের নিউক্লিয়াসের মধ্যে",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রাইবোজোমে",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "প্রকৃত কোষের সাইটোপ্লাজমে",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 86,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 86
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'প্রকৃত কোষের নিউক্লিয়াসের মধ্যে' (section Biology Q11) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'প্রকৃত কোষের নিউক্লিয়াসের মধ্যে'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-12",
+      "text": "হোমোলোগাস 'ক্রোমোজোমের একটি নির্দিষ্ট লোকাসে অবস্থিত দুই বা ততোধিক বিকল্প রূপের জিনের (alternative form of gene) উপস্থিতিকে বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "জেনোটাইপ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ফ্যাক্টরস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফেনোটাইপ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "এলিল",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 87,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 87
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'এলিল' (section Biology Q12) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'এলিল'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-13",
+      "text": "পতঙ্গের রক্তকে বলা হয়-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হিমোসিল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হিমোসায়ানিন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হিমোলিম্ফ",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "হিমোফিলিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 88,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 88
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'হিমোলিম্ফ' (section Biology Q13) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'হিমোলিক্ষ' CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 104, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-14",
+      "text": "আদি কোষে কোন ধরনের রাইবোজোম পাওয়া যায়?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "70S",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "80S",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "90S",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "100S",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 89,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 89
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '70S' (section Biology Q14) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 94, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-15",
+      "text": "যকৃত সিরোসিসের (Liver Cirrhosis) জন্য কোন ভাইরাস দায়ী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "হেপাটাইটিস-সি",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "হার্পিস ভাইরাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "রিট্রোভাইরাস",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সিমিয়ান ভাইরাস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 90,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 90
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'হেপাটাইটিস-সি' (section Biology Q15) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'হেপাটাইটিস-সি'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-16",
+      "text": "নিম্নের কোন অঙ্গানুটি কোষের শক্তি উৎপাদনকারী?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "মাইটোকন্ড্রিয়া",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "রাইবোজোম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "গলজিবস্তু",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "নিউক্লিয়াস",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 91,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 91
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'মাইটোকন্ড্রিয়া' (section Biology Q16) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'মাইটোকন্ড্রিয়া'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-17",
+      "text": "কোনটি প্রারম্ভিক কোডন?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "UAA",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "UGA",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "UAG",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "AUG",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 92,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 92
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'AUG' (section Biology Q17) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'AUG'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-18",
+      "text": "Synapsis কোন phase এ ঘটে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Leptotene",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Zygotene",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Pachytene",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Diplotene",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 93,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 93
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Zygotene' (section Biology Q18) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'Zygotene'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-19",
+      "text": "নিচের কোনটি ভাইরাসকে নিষ্ক্রিয় করতে পারে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "রাইবোজোম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ইন্টারফেরন",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "হরমোন",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ব্যাকটেরিয়া",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 94,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 94
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ইন্টারফেরন' (section Biology Q19) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 102, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-20",
+      "text": "নিম্নের কোনটি \"অগ্নি-শৈবাল\" নামে পরিচিত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "Euglenophyta",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "Pyrrophyta",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "Chrysophyta",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "Phaeophyta",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 95,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 95
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'Pyrrophyta' (section Biology Q20) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'Pyrrophyta'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-21",
+      "text": "ফার্ণের কুন্ডলিত কচি পাতাকে বলে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ফ্রন্ড",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "পিনা",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "র্যামেন্টাম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "ক্রোজিয়ার",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 96,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 96
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ক্রোজিয়ার' (section Biology Q21) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 93, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-22",
+      "text": "নগ্নবীজী উদ্ভিদে নিম্নের কোনটি অনুপস্থিত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "স্পোরোফিল",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "গর্ভাশয়",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ডিম্বক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "সস্য",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 97,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 97
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'গর্ভাশয়' (section Biology Q22) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 83, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-23",
+      "text": "উদ্ভিদের রোম বাট্রাইকোম কোনটির অংশ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "ত্বক",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "অধঃত্বক",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "অন্তঃত্বক",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কর্টেক্স",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 98,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 98
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ত্বক' (section Biology Q23) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 88, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-24",
+      "text": "উদ্ভিদের কান্ডের ব্যাস বৃদ্ধির জন্য দায়ী কোন টিস্যু?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "জাইলেম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ক্যাম্বিয়াম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "ফ্লোয়েম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কর্টেক্স",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 99,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 99
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ক্যাম্বিয়াম' (section Biology Q24) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 84, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-biology-25",
+      "text": "\"Biological Coin\" বলা হয় কোনটিকে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Biology",
+      "options": [
+        {
+          "id": "a",
+          "text": "NDP",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ATP",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "FAD",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "NAD",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 100,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 100
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'ATP' (section Biology Q25) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'ATP'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-01",
+      "text": "যদি A এবং B দুটি ঘটনা এবং P(A)=0.7, P(B)=0.4 ও P(A∪B)=0.8 হয়, তাহলে P(A∩B) এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1.0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "0.8",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0.1",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 101,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 101
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '0.3' (section MATH Q1)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-02",
+      "text": "∫ e^{x+e^x} dx = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "e^{e^x}+c",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "e^{x+e^x}+c",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "e^x+c",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "x+c",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 102,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 102
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'e^{e^x}+c' (section MATH Q2) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text 'e^(e^x) + c'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-03",
+      "text": "(-1+√-3)^4 + (-1-√-3)^4 = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "-1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-4",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-9",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-16",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 103,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 103
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-16' (section MATH Q3) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '-16'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-04",
+      "text": "(3x^2 - 1/x)^14 এর বিস্তৃতিতে কততম পদে x^10 পাওয়া যাবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 তম",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "6 তম",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "7 তম",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "8 তম",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 104,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 104
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '7 তম' (section MATH Q4) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '7 তম'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-05",
+      "text": "px^2 - 4x + 3 = 0 সমীকরণে p এর মান কত হলে, মূল দুটি জটিল হবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "p≥4/3",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "p>4/3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "p<4/3",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "p≤4/3",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 105,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 105
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'p>4/3' (section MATH Q5)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-06",
+      "text": "একটি ট্রেন অচল অবস্থা হতে 5 m/sec² ত্বরণে চলতে শুরু করার পর ঘন্টায় 72 km বেগ প্রাপ্ত হতে কত সময় লাগবে?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 sec",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "3 sec",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "4 sec",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "5 sec",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 106,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 106
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '4 sec' (section MATH Q6) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 23, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-07",
+      "text": "যদি 5y = x + 50 রেখাটি y^2=4ax পরাবৃত্তের একটি স্পর্শক হয়, তবে তার ফোকাস হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "(1,0)",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(2,0)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "(5,0)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "(10,0)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 107,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 107
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '(2,0)' (section MATH Q7) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 81, stem score 0.88).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-08",
+      "text": "y=1/x হলে y এর 18 তম অন্তরীকরণ কোনটি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "18!/x^19",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "19!/x^20",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "18!/x^18",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "কোনটিই নয়",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 108,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 108
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '18!/x^19' (section MATH Q8) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 67, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-09",
+      "text": "3N ও 5N মানের দুইটি বল এক বিন্দুতে পরস্পর বিপরীত দিকে ক্রিয়া করে। তাদের লব্ধির মান হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2N",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8N",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "10 N",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "12 N",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 109,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 109
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '2N' (section MATH Q9) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 25, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-10",
+      "text": "kx² + 8x + (k + 2) = 0 এর মূলদ্বয়ের যোগফল ও গুণফল সমান হলে k এর মান হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-10",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "6",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-6",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 110,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 110
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-10' (section MATH Q10) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '-10'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-11",
+      "text": "A=[1 2; 3 4], B=[1 4 7; 2 5 6], C=[1; 2; 3] হলে (AB)C ম্যাট্রিক্সের মাত্রা হবে-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "2×1",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "2×3",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "3×1",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "3×2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 111,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 111
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '2×1' (section MATH Q11) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 69, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-12",
+      "text": "যদি x⃗=2i^+4j^-6k^, y⃗=3i^+5j^-7k^ হয়, তবে y⃗ ভেক্টরের উপর x⃗ ভেক্টরের স্কেলার অভিক্ষেপ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "68/√83",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "-68/√83",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "68/83",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-68/83",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 112,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 112
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '68/√83' (section MATH Q12)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-13",
+      "text": "মূলবিন্দুগামী এবং x-অক্ষের ধনাত্মক দিকের সাথে 60° কোণ উৎপন্নকারী সরলরেখার সমীকরণ",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "√3 x - y = 0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "√3 y - x = 0",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "y + √3 x = 0",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "√3 y + x = 0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 113,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 113
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '√3 x - y = 0' (section MATH Q13) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 73, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-14",
+      "text": "k এর যে মানের জন্য (k-1)x+(k+1)y=-7 এবং 7x + 9y = 0 সরলরেখাদ্বয় সমান্তরাল হবে তা হল-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "8",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "-7",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "9",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 114,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 114
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '8' (section MATH Q14) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 71, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-15",
+      "text": "x² +y² – 6y + 5 = 0 বৃত্তে x = 2 সরলরেখাটি একটি-",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "ব্যাসার্ধ",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "ব্যাস",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "জ্যা",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "স্পর্শক",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 115,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 115
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'স্পর্শক' (section MATH Q15) CU VERIFICATION PASS (2026-11-18): verified — pack key and Lokkho click key agree on the same option (text match; Lokkho set position 76, stem score 1.00).",
+      "verificationNotes": "Verified: pack key and Lokkho click key agree on the same option text (CU verification pass 2026-11-18).",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-16",
+      "text": "একজন লোকের 7 জন বন্ধু আছে। লোকটি তার এক বা একাধিক বন্ধুকে দাওয়াত করতে পারার উপায় কয়টি?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "7",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "127",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "128",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "130",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 116,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 116
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '127' (section MATH Q16) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '127'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-17",
+      "text": "f(x)=|3x-7| এর ডোমেন এবং রেঞ্জ কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "R ; R",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "(0,∞) ; [7/3,∞)",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "[0,∞) ; [3/7,∞)",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "R ; [0,∞)",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 117,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 117
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'R ; [0,∞)' (section MATH Q17)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-18",
+      "text": "sin A/(1+cos A) + cos A/sin A এর মান কত?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "cosec A",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "cot A",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "tan A",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "sec A",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 118,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 118
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: 'cosec A' (section MATH Q18)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-19",
+      "text": "d/dx [tan^{-1}(cot x) + cot^{-1}(tan x)] = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "-2",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerVerificationStatus": "verified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 119,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 119
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '-2' (section MATH Q19) | Phase-2 pack cu-a-2025-2026-crossverified.json: key text '-2'",
+      "verificationNotes": "Verified: >=2 independent sources agree on the correct option TEXT.",
+      "explanation": null
+    },
+    {
+      "id": "cu-a-2025-2026-math-20",
+      "text": "lim x→0 (cos2x - cos3x)/x² = ?",
+      "type": "single_choice",
+      "category": "varsity",
+      "subject": "Higher Mathematics",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/5",
+          "order": 1
+        },
+        {
+          "id": "b",
+          "text": "5/2",
+          "order": 2
+        },
+        {
+          "id": "c",
+          "text": "5/4",
+          "order": 3
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "order": 4
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerVerificationStatus": "unverified",
+      "contentVerificationStatus": "verified",
+      "appearances": [
+        {
+          "paperId": "cu-a-2025-2026",
+          "questionNumber": 120,
+          "sourceDocumentId": "chorcha-cu-a-2025-2026"
+        }
+      ],
+      "source": {
+        "documentId": "chorcha-cu-a-2025-2026",
+        "questionNumber": 120
+      },
+      "extractionNote": "Content: Chorcha full-content transcription | Chorcha key: '5/2' (section MATH Q20)",
+      "verificationNotes": "Unverified: single key source only.",
+      "explanation": null
+    }
+  ],
+  "examRules": [
+    {
+      "id": "rule-cu-a-2025-2026",
+      "paperId": "cu-a-2025-2026",
+      "verificationStatus": "verified",
+      "sourceDocumentIds": [
+        "cu-a-2025-2026__cu-official-prospectus",
+        "cu-a-2025-2026__cu-official-admission-circular"
+      ],
+      "sourceNote": "PARTIAL OFFICIAL RULE — verified from the University of Chittagong 2025–2026 A Unit prospectus and admission circular. Verified facts: total marks 100; test duration 60 minutes; pass mark 40 (pass mark is documented in source note only, not a scoring input); English is compulsory for 25 marks; candidates answer any 3 of Physics/Chemistry/Mathematics/Biology, each selected subject worth 25 marks; Physics/Chemistry/Biology use 25 × 1-mark questions, while Mathematics uses 20 × 1.25-mark questions; wrong-answer deductions are 0.25 per 1-mark question and 0.30 per 1.25-mark question. The number answered is therefore 100 when Mathematics is not selected and 95 when it is selected. The current app rule model cannot express this required-English + choose-3-of-4 section rule, variable question count, subject-dependent positive marks or non-uniform negative penalty. Therefore totalQuestions, selectionConfig, correctMarks, incorrectPenalty and unansweredMarks intentionally remain unset; no official scored Standard Exam may be derived from this partial rule. The pack contains 120 bank questions across all four selectable science sections and is not a single 120-question test.",
+      "totalMarks": 100,
+      "durationSeconds": 3600
+    }
+  ]
+}
