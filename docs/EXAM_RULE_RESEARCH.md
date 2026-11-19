@@ -2,6 +2,19 @@
 
 This note records the source-backed admission-test details that were checked for the exact 2024–2025 session. A fact being verified does **not** mean every field required by the app's scoring engine is known. The data pack may store a partial verified rule, while numeric scoring remains disabled until every scoring component is sourced.
 
+
+## University of Chittagong (CU) A Unit, 2025–2026 — partially verified
+
+**Primary sources:** [CU official 2025–2026 A Unit prospectus](https://cu-admission.sgp1.digitaloceanspaces.com/storage/documents/Prospectus_1764069074.pdf) and [CU official 2025–2026 undergraduate admission circular](https://cu-admission.sgp1.digitaloceanspaces.com/storage/documents/AdmissionCircular_1764069211.pdf).
+
+The prospectus states A Unit is 100 marks with a 40-mark pass threshold. English is compulsory for 25 marks. Candidates answer any three of Physics, Chemistry, Mathematics and Biology, each selected subject worth 25 marks. Physics, Chemistry and Biology each contain 25 one-mark items; Mathematics contains 20 items worth 1.25 marks each. The circular confirms a one-hour MCQ test and wrong-answer deductions of 0.25 for a one-mark question and 0.30 for a 1.25-mark Mathematics question.
+
+Therefore a candidate answers 100 questions when Mathematics is not selected, or 95 when Mathematics is selected. A CU A Unit question bank containing all four optional science sections is not one fixed 120-question exam. The current app rule model supports one `totalQuestions`, one `selectionConfig` with a fixed subject-count × questions-per-subject shape, one `correctMarks`, and one `incorrectPenalty`. It cannot represent compulsory English plus choose-three-of-four, variable question count, 1-mark vs 1.25-mark positive marks, or different penalties by subject.
+
+**Pack treatment:** only the source-backed `totalMarks=100`, `durationSeconds=3600` and `verificationStatus=verified` are stored for the exact 2025–2026 A Unit pack. `totalQuestions`, `selectionConfig`, `correctMarks`, `incorrectPenalty` and `unansweredMarks` remain absent. The current `planExam` consequently returns `unavailable / incomplete_rule`; the app must not create an official Standard Exam or calculate an official numeric score from this partial record. An unscored, explicitly labelled Custom Practice remains the appropriate route until the app data model can express the exact rule.
+
+No 2025–2026 rule has been generalized to 2006–2007 through 2024–2025. The other 25 CU A Unit variants remain `unconfigured` in the staged package. Question/answer verification flags remain independent from exam-rule verification. Package details and exact import boundary: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/reports/IMPORT_READINESS_AUDIT.md`.
+
 ## Rajshahi University (RU), 2024–2025
 
 **Official source:** [RU's own 2024–2025 admission announcement](https://www.ru.ac.bd/blog/রাবিতে-ভর্তির-আবেদন-শুরু/), published by the university's Public Relations Office.

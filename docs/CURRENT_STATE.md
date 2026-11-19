@@ -1,3 +1,15 @@
+## CU A Unit Science — external import-ready staging — 2026-11-19
+
+The CU A Unit package has been audited, corrected and validated **outside** the active app repository at `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`. It contains 26 Varsity packs / 26 papers / 2,558 questions / 11,397 options / 68 unique source documents for institution `cu` / `CU`; no CU pack has yet been copied into `data/question-packs/` or bundled. Do not count these questions in current app/bundle totals until the owner explicitly imports them.
+
+The prepared copy applies 22 subject-label corrections, 29 batch-scoped source ID rewrites, and 10 verified→unverified downgrades for source-disputed answers. Final answer state: 1,477 verified / 1,081 unverified; content state: 1,630 verified / 928 unverified; 61 keyless; all explanations null. Twenty-six duplicate-option questions remain unchanged and are listed for source review. AI-derived keys remain unverified.
+
+App validator: 26/26 valid, 0 errors / 1,045 warnings. App-importer dry-run: 26/26 imported; 2,558 questions and 11,397 options persisted to fresh in-memory SQLite with 68 source refs and 26 papers; repeat import was idempotent and `foreign_key_check` returned zero. The 2025–26 official CU rule is only partially representable; plan is unavailable/incomplete. The other 25 rules remain unconfigured. Full detail: `docs/QUESTION_IMPORT_WORKFLOW.md` and `docs/EXAM_RULE_RESEARCH.md`.
+
+**Active app content, generated seed, SQLite database, Android APK and release metadata were not changed.** The staging package is for Varsity only and must never be placed under the Library/ASPECT directory. Owner import is pending.
+
+---
+
 ## RU Science varsity import — integrated and automated checks complete — 2026-11-18
 
 - **Destination:** Varsity question packs, institution `ru` / `RU`, with source unit labels retained. Added 46 packs / 46 papers / 4,249 questions / 16,996 options / 90 source documents / 45 PNG assets. All pack, paper and question IDs use `ru-sci-*`; the separate non-science 197-question D1 Group-1 pack remains excluded.

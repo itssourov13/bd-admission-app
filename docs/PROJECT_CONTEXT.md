@@ -1,3 +1,24 @@
+## CU A Unit Science package — import-ready staged handoff — 2026-11-19
+
+**Package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`
+**Archive:** `CU_Science_A_Unit_Import_Ready_2026-11-19.zip`
+**Archive SHA-256:** `cf8386b13ead519897ae1d06c8862d8072337189d75052e9e9a8ed25fb31fd09` (sidecar checksum: `.zip.sha256`).
+**Status:** Prepared outside the app repository; **not imported into `data/question-packs/`, the generated content manifest/SQLite seed, or any installed app database**. The owner retains the import step.
+
+- Destination is the **Varsity university question catalogue**, institution `cu` / code `CU`. It is not a Library/ASPECT pack. Future import copies the 26 JSON files flat into `data/question-packs/`, never into `data/library-packs/`.
+- Package totals: 26 batches/papers, 2,558 single-choice questions, 11,397 options and 68 source-document records. Final subjects: Bangla 252; English 369; Physics 557; Chemistry 569; Higher Mathematics 528; Biology 264; ICT 19.
+- Answer status: 1,477 verified / 1,081 unverified; content status: 1,630 verified / 928 unverified; 2,497 have a candidate key and 61 are keyless. All 2,558 explanations are null. AI-derived keys were not promoted to verified.
+- Preparation repairs: 22 subject-label corrections; 29 cross-batch source-ID reference rewrites resolving an actual importer ownership collision; 10 source-conflicted verified keys downgraded to unverified. Three duplicate-option key cases remain unverified. Twenty-six questions / 27 normalized groups with duplicate option text are logged and left source-faithful, not guessed.
+- Official CU 2025–26 primary documents support 100 total marks, 60 minutes, English compulsory plus any three of Physics/Chemistry/Mathematics/Biology, and subject-dependent marks/negative penalties. The current app model cannot encode that selection and scoring shape; only `totalMarks=100`, `durationSeconds=3600`, and partial `verified` status are stored. `totalQuestions` and scoring fields remain absent, so app exam planning returns `unavailable / incomplete_rule`. Other 25 paper rules remain `unconfigured`.
+- App validator: 26/26 packs valid, 0 errors, 1,045 warnings (1,020 unverified-answer warnings + 25 exact duplicate-option warnings). Text-quality scan: 42 findings (28 duplicate-option review, 14 informational).
+- Actual importer dry-run against the app's `freshDb()` SQLite helper: 26/26 packs imported; tables contain 26 batches, 68 sources, 1 institution, 26 papers, 26 rules, 2,558 questions/options as expected (11,397 options), 2,558 provenance rows and 2,558 appearances. Second import inserted/updated 0 questions and skipped all 2,558; no appearances duplicated; `foreign_key_check` returned 0 violations. The app's existing eligibility predicates found 1,443 verified-eligible and 1,042 structurally safe provisional/review candidates.
+- Original source ZIP SHA-256: `0a79ef22193144c069b74e2caac537d870f6abeedbbb95c36baca17f66187c74`. Original ZIP and extracted source snapshot were not changed.
+- The report does not claim page-by-page verification of every historical question: the archive lacks all source exam PDFs/images, all explanations are null, and 1,081 answer keys / 928 content records remain unverified. Preserve these flags.
+
+See `docs/QUESTION_IMPORT_WORKFLOW.md`, `docs/EXAM_RULE_RESEARCH.md` and the external package's `README.md` / `reports/IMPORT_READINESS_AUDIT.md`. App import remains pending owner action. No app question data, seed, UI, runtime or release artifact changed during this staging task.
+
+---
+
 # RU Science question-pack integration — current state — 2026-11-18
 
 The owner-approved curated RU Science package is now included in the active Varsity question-pack source. It contains 46 schema-v1 packs / 46 papers / 4,249 questions / 16,996 options / 90 sources / 45 local PNGs under institution `ru` / code `RU`, using the non-retired `ru-sci-*` ID namespace. The units remain source-labelled: 44 C Unit — Science, one D1 Unit and one F Unit. The separate 197-question non-science D1 Group-1 pack is excluded.

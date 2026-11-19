@@ -1,3 +1,24 @@
+## CU A Unit Science — audit + import-ready package prepared — 2026-11-19
+
+**Status:** External package prepared and app importer dry-run verified. Waiting for owner to import into the Varsity catalogue; no active app content modified.
+
+- [x] Unzipped and integrity-tested the original `CU_Science_AI_Solved_Keys_QA_2026-11-19.zip`; recorded its SHA-256 and preserved the ZIP/extracted snapshot unchanged.
+- [x] Audited all 26 packs / 2,558 questions / 11,397 options, IDs, appearances, source links, answer/content states, subject labels, duplicate options and exam-rule metadata.
+- [x] Corrected 22 subject labels and recalculated per-pack descriptions/indexes.
+- [x] Fixed source-document cross-batch ownership collisions by namespacing 29 shared source ID occurrences and updating all references.
+- [x] Downgraded 10 source-disputed keys that were incorrectly still `verified`; retained the candidate key IDs for traceability. Kept all AI-derived keys unverified.
+- [x] Preserved duplicate option text and documented 26 affected questions / 27 normalized duplicate groups; no source text was guessed.
+- [x] Researched CU 2025–26 official prospectus/circular. Added only the source-supported partial facts and retained an unavailable official Standard Exam because current rule schema cannot express required-English + choose-three-of-four and section-dependent marking. Other 25 rules remain unconfigured.
+- [x] App validator: 26/26 valid, 0 errors / 1,045 expected warnings. Text scan: 42 findings, 28 duplicate-option review and 14 informational.
+- [x] Fresh SQLite importer dry-run: 26/26 imports, 2,558 questions / 11,397 options / 68 source docs / 26 papers; second import idempotent (2,558 skipped; no insert/update); foreign-key violations 0.
+- [x] Wrote package README, item-level review ledgers, transformation summary and final import-readiness audit.
+- [ ] Owner: import the approved `packs/*.json` flat into app `data/question-packs/` (Varsity only, not Library), after checking backup/absence of existing CU content.
+- [ ] After owner import: regenerate and verify content seed, run full app gates, build a new Android preview and perform device QA.
+
+Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `cf8386b13ead519897ae1d06c8862d8072337189d75052e9e9a8ed25fb31fd09`. Original archive remains separate and unchanged. See `docs/QUESTION_IMPORT_WORKFLOW.md`.
+
+---
+
 ## RU Science varsity question-bank import — complete locally — 2026-11-18
 
 **Status:** The owner-approved 46-pack curated RU Science package is integrated and committed locally on the current branch. No app database was imported directly; the normal combined offline seed was rebuilt and verified for fresh install and existing-install sync. No push.

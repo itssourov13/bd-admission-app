@@ -1,3 +1,17 @@
+## CU A Unit Science — import-ready staged package — 2026-11-19
+
+External package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/` (26 schema-v1 packs / 26 papers / 2,558 questions / 11,397 options / 68 source documents). It is prepared for the **Varsity university catalogue**, institution `cu` / `CU`, category `varsity`; it is not a LibraryPack. Once owner-approved, copy `packs/*.json` flat into `data/question-packs/`. Do not copy it under `data/library-packs/`.
+
+The original supplied ZIP and extracted snapshot are preserved unchanged. The prepared copy includes 22 subject-label corrections, 29 batch-scoped source ID rewrites to satisfy the importer's globally unique source ownership contract, and 10 `verified`→`unverified` downgrades for disputed third-source keys. AI-derived keys remain unverified. Final answer statuses: 1,477 verified / 1,081 unverified; content statuses: 1,630 verified / 928 unverified; 61 keyless. All explanations are null. Twenty-six questions with duplicate option text remain unchanged and are tracked in the review ledger.
+
+Validation and importer evidence: 26/26 schema-valid, 0 errors / 1,045 warnings; actual app importer accepted all packs on a fresh in-memory SQLite database. First pass inserted 2,558 questions and 2,558 appearances; second pass skipped all 2,558 with zero inserts/updates; `foreign_key_check` returned zero. Dry-run app predicates: 1,443 verified-eligible and 1,042 structural review candidates. Do not treat review candidates as verified answers.
+
+Official CU 2025–26 primary sources confirm 100 total marks, one hour, English compulsory plus any three of Physics/Chemistry/Mathematics/Biology, with section-dependent item weights and wrong-answer deductions. The current schema cannot encode that conditional selection / non-uniform marking model. The prepared 2025–26 rule therefore contains only `totalMarks=100`, `durationSeconds=3600`, status `verified`; required `totalQuestions`, section config and per-question scoring fields are absent, so app Standard Exam remains unavailable/incomplete. The other 25 paper rules remain unconfigured. See `docs/EXAM_RULE_RESEARCH.md` and package `reports/IMPORT_READINESS_AUDIT.md`.
+
+**Import is not yet done.** No app source packs, manifest, SQLite seed, installed database or APK were changed in this staging task. Before a future owner-approved import, check that CU has not already been imported and back up the app content. Then run the normal validation/build/check/test pipeline below. The generated bundle reads JSON files directly from `data/question-packs/`, not from a nested subdirectory.
+
+---
+
 ## Curated RU Science varsity import — completed — 2026-11-18
 
 **Owner-approved package:** `/home/kali/gpt-workspace/bd-admission-app-data/ru-science-import-ready/` (package v1.0.0; `SHA256SUMS` verified before the app copy).

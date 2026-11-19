@@ -1,3 +1,12 @@
+## 2026-11-19 — Prepare CU A Unit Science Varsity import package
+
+- Unpacked and audited 26 CU A Unit packs / 2,558 questions / 11,397 options. Created a separate import-ready package for Varsity institution `cu` (not Library); active app data and seed were not changed.
+- Corrected 22 subject labels, namespaced 29 cross-batch source-document ID references, and downgraded 10 source-disputed verified keys to unverified. Candidate AI keys remain unverified; duplicate-option text remains source-faithful and is tracked.
+- Researched official CU 2025–26 prospectus/circular; stored only partial 100-mark / 60-minute facts because current app rule model cannot express conditional subject selection and mixed marking. Other 25 paper rules stay unconfigured.
+- Validated 26/26 packs (0 errors / 1,045 warnings), imported all into fresh in-memory SQLite through the actual app importer, verified idempotent re-import and zero foreign-key violations. Wrote package README, review ledgers and final audit report. Owner import remains pending; no push.
+
+---
+
 ## 2026-11-18 — Add Apache-2.0 project license
 
 - Added the canonical Apache License, Version 2.0, with the GitHub repository owner's copyright attribution (Md Sourov Mondol).

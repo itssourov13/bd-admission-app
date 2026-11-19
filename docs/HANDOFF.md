@@ -1,3 +1,33 @@
+# Latest handoff — CU A Unit package staged and importer-verified — 2026-11-19
+
+**App workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`
+**ZIP SHA-256:** `cf8386b13ead519897ae1d06c8862d8072337189d75052e9e9a8ed25fb31fd09`
+**Status:** Ready for owner-directed Varsity import. Not yet in active app source or bundle. No push.
+
+## Package result
+
+- 26 CU A Unit packs / 26 papers / 2,558 MCQs / 11,397 options / 68 globally unique source-doc references.
+- Institution `cu` / `CU`; category `varsity`. Place the JSON files flat in `data/question-packs/` when approved. Never put them in `data/library-packs/`.
+- Subject corrections: 22; source-ID compatibility rewrites: 29; source-disputed answer downgrades: 10. Answer status 1,477 verified / 1,081 unverified. Content status 1,630 verified / 928 unverified. All explanations null. Keep candidate AI keys unverified.
+- 26 questions have normalized duplicate option text across 27 groups; they are retained and documented, not guessed/fixed without source scans.
+- 2025–26 rule is partial: 100 total marks / 60 minutes only. The official rule requires English plus any three science subjects and subject-dependent marks/penalties. App `planExam` returns unavailable/incomplete; no official scored Standard Exam. Other 25 rules are unconfigured.
+
+## Evidence
+
+- Pack validator: 26/26 valid; 0 errors / 1,045 warnings.
+- Actual SQLite importer: all 26 imported on a fresh in-memory DB; 2,558 questions, 11,397 options, 68 sources, 26 papers, 26 rules, 2,558 source/provenance rows, 2,558 appearances.
+- Idempotence: second pass inserted 0, updated 0, skipped 2,558; appearances inserted 0 / skipped 2,558; foreign-key violations 0.
+- App practice predicates in dry-run: 1,443 verified-eligible and 1,042 structurally safe review candidates (still unverified).
+- Full report: package `reports/IMPORT_READINESS_AUDIT.md`; package instructions in `README.md`.
+
+## Boundary and next owner action
+
+No pack has been copied into the active app; the manifest, generated seed, active SQLite, APK and release version remain unchanged. Original source ZIP and extracted input snapshot remain unchanged. Owner should copy package `packs/*.json` flat into app `data/question-packs/`, then run `pnpm packs:validate`, `pnpm content:build`, `pnpm content:check`, tests/typecheck/lint, inspect warnings and build a new Android preview. This staging audit itself did not generate an APK, push or deploy.
+
+---
+
 # Latest implementation handoff — RU Science import and Android v0.1.10 preview — 2026-11-18
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
