@@ -6,7 +6,7 @@
 - Content: includes CU A Unit Science (26 papers / 2,558 questions / 11,397 options / 68 sources) and the existing RU/JU/HSTU/DU/ASPECT content. Combined generated seed contains 231 entries / 16,407 question rows; Varsity catalogue contains 230 packs / 14,579 questions. CU's original University website PNG is included.
 - Versioned source gates passed on Node 22.23.1: 301/301 tests, typecheck, lint, content check (231 / 16,407), pack validation (230 / 14,579; 0 errors / 5,536 warnings), question assets (65 / 66 refs), resolved Expo config and `git diff --check`. EAS CLI 27.10.0 confirms the existing project identity.
 - Target: EAS Android `preview` / `INTERNAL` APK. This is not a production AAB or Google Play submission. The v0.1.10 APK predates CU and is not the artifact to install for CU QA.
-- Build submission status and EAS build ID will be recorded here after EAS confirms the upload. Monitoring stops at queue/start confirmation as requested; cloud build completion is not assumed.
+- EAS accepted the source upload and created build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` on 2026-11-19. [Open build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). A direct `build:view` check confirmed **`IN_PROGRESS`** for app version `0.1.11`, Android `versionCode 11`, Android / `preview` / `INTERNAL`. Monitoring stopped at start confirmation as requested; completion is not claimed and the APK is not yet available.
 
 ## Previous preview — 2026-11-18 (v0.1.9; built and owner-tested)
 

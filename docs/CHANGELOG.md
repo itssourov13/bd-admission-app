@@ -3,7 +3,7 @@
 - Bumped the Expo app / brand / package version from `0.1.10` to `0.1.11` and Android `versionCode` from `10` to `11`, preserving `com.admissionbd.app`, Expo slug, EAS project ID, preview profile and signing identity.
 - The preview source includes the newly imported CU A Unit varsity catalogue and original CU PNG logo (alongside existing RU, JU, HSTU, DU and separate ASPECT Library content).
 - Target artifact: EAS `preview` / `INTERNAL` Android APK. This is not a production AAB or Google Play submission. The v0.1.10 APK does not include CU.
-- EAS submission/build status is updated in `docs/ANDROID_RELEASE.md` and `docs/QA_CHECKLIST.md` once the upload is accepted. No push.
+- EAS accepted the upload and created Android preview build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`; status was checked once as **`IN_PROGRESS`**. [Open EAS build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Monitoring stopped at start; no completion or APK availability is claimed. No push.
 
 ---
 

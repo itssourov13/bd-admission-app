@@ -7,8 +7,9 @@
 - [x] Updated README, release guide, changelog, current state, QA and handoff docs for the new preview candidate.
 - [x] Versioned gates: full suite 301/301; `pnpm typecheck`; `pnpm lint`; `pnpm content:check` (231 / 16,407); `pnpm packs:validate` (230 / 14,579; 0 errors / 5,536 warnings); `pnpm question-assets:check` (65 assets / 66 refs).
 - [x] Resolved Expo public config: version `0.1.11`, package `com.admissionbd.app`, Android `versionCode 11`, slug `bd-admission-app`, EAS project ID unchanged. EAS CLI 27.10.0 `project:info` confirms `@sk_king13/bd-admission-app` / `16ba69b8-96d7-4856-a197-77acddebe1ec`.
-- [ ] Submit EAS Android `preview` / `INTERNAL` APK and confirm an EAS build ID plus queued/started state. Do not wait for cloud completion.
-- [ ] Record EAS submission response and commit the local submission handoff; no push.
+- [x] Submitted EAS Android `preview` / `INTERNAL` APK. Upload accepted; build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` created. [Open EAS build](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c).
+- [x] One `build:view` status check confirmed `IN_PROGRESS` for app version `0.1.11` / Android code `11`; monitoring stopped at build-start confirmation as requested. Cloud completion and APK availability are not claimed.
+- [x] Committed version metadata locally as `60a01d0`; submission handoff/docs are committed in the follow-up documentation commit. No push.
 
 ## CU A Unit Science — Varsity import complete — 2026-11-19
 

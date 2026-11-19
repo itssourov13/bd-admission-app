@@ -2,7 +2,7 @@
 
 Release metadata is now **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. Target profile is EAS `preview` / `INTERNAL` Android APK, with the current source containing all 26 CU A Unit packs and original CU logo. The current release source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.
 
-This is an internal preview build candidate, not a production AAB or Play Store submission. Submission and EAS queue/start status will be recorded after the EAS service acknowledges it. The previous v0.1.10 APK does not contain CU. No push.
+This is an internal preview build, not a production AAB or Play Store submission. EAS accepted the source upload and created build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`; one status check confirmed **`IN_PROGRESS`** for Android / `preview` / `INTERNAL`. [Open EAS build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Monitoring stopped at start confirmation as requested; no finish or APK availability is claimed. The v0.1.10 APK does not contain CU. No push.
 
 ---
 

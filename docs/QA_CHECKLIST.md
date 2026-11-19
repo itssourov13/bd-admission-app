@@ -5,10 +5,10 @@
 | Release metadata | [x] Pass | App / brand / package `0.1.11`; Android `versionCode 11`; `com.admissionbd.app`; existing Expo slug and EAS project retained. |
 | CU content source | [x] Pass | 26 CU A Unit packs / 2,558 questions / 11,397 options and original official-site CU PNG are in the active Varsity source and generated manifest/seed. |
 | Versioned local gates | [x] Pass | 301/301 tests; typecheck; lint; content check 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; resolved Expo config; `git diff --check`. |
-| EAS preview submission | [ ] Pending | Submit `preview` / `INTERNAL` Android APK; record build ID and EAS queue/start acknowledgement. |
-| Cloud build completion | [ ] Not monitored | Stop monitoring once EAS confirms queue/start; do not claim FINISHED without an explicit later check. |
+| EAS preview submission | [x] Submitted | EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` accepted; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Android / `preview` / `INTERNAL`. |
+| Cloud build completion | [ ] Not monitored | One status read returned `IN_PROGRESS`; monitoring stopped at start confirmation as requested. No `FINISHED` status or APK is claimed. |
 | Physical Android QA | [ ] Pending owner install | v0.1.10 does not contain CU. Install this new APK after the owner decides the build is ready. |
-| Git | [ ] Pending | Commit release metadata and submission evidence locally; no push. |
+| Git | [x] Pass | Version bump and EAS submission evidence committed locally; working tree clean, no push. |
 
 ---
 
