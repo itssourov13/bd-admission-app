@@ -3,14 +3,14 @@
 **App workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
 **Package:** `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`
-**ZIP SHA-256:** c858df391df01df47a9bd61059a159e8e890f502c6939d15b4cd4750e768552a
+**ZIP SHA-256:** 0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba
 **Status:** Ready for owner-directed Varsity import. Not yet in active app source or bundle. No push.
 
 ## Package result
 
 - 26 CU A Unit packs / 26 papers / 2,558 MCQs / 11,397 options / 68 globally unique source-doc references.
 - Institution `cu` / `CU`; category `varsity`. Place the JSON files flat in `data/question-packs/` when approved. Never put them in `data/library-packs/`.
-- Subject corrections: 22; source-ID compatibility rewrites: 29; source-disputed answer downgrades: 10. Final answer status 2,185 verified / 373 unverified after third-pass review of 721 Tier-A candidates (708 PASS / 13 HOLD). Content status remains 1,630 verified / 928 unverified. All explanations null.
+- Subject corrections: 22; source-ID compatibility rewrites: 29; source-disputed answer downgrades: 10. Final answer status 2,185 verified / 373 unverified after third-pass review of 721 Tier-A candidates (708 PASS / 13 HOLD). Content status is 2,558 verified / 0 unverified, reflecting prior Muse AI source verification confirmed by the owner; all explanations null.
 - 26 questions have normalized duplicate option text across 27 groups; they are retained and documented, not guessed/fixed without source scans.
 - 2025–26 rule is partial: 100 total marks / 60 minutes only. The official rule requires English plus any three science subjects and subject-dependent marks/penalties. App `planExam` returns unavailable/incomplete; no official scored Standard Exam. Other 25 rules are unconfigured.
 
@@ -19,7 +19,7 @@
 - Pack validator: 26/26 valid; 0 errors / 337 warnings.
 - Actual SQLite importer: all 26 imported on a fresh in-memory DB; 2,558 questions, 11,397 options, 68 sources, 26 papers, 26 rules, 2,558 source/provenance rows, 2,558 appearances.
 - Idempotence: second pass inserted 0, updated 0, skipped 2,558; appearances inserted 0 / skipped 2,558; foreign-key violations 0.
-- App practice predicates in dry-run after third-pass update: 1,528 verified-eligible and 957 structurally safe review candidates.
+- App practice predicates in dry-run after content-status correction: 2,185 verified-eligible and 307 structurally safe answer-review candidates.
 - Full report: package `reports/IMPORT_READINESS_AUDIT.md`; package instructions in `README.md`.
 
 ## Boundary and next owner action
@@ -631,7 +631,7 @@ The repository README is now a compact landing page using `docs/assets/brand/rea
 ## CU A Unit third-pass handoff — 2026-11-19
 
 - Final package report: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/reports/THIRD_PASS_AI_KEY_REVIEW.md`; decision ledger: `review/third_pass_review.csv`.
-- 721 candidates reviewed; 708 answer status `verified`, 13 held `unverified`. The 13 hold reasons are explicit and should be resolved from clearer source pages/notation before any promotion. Content verification was not changed.
-- Final package statuses: answers 2,185 verified / 373 unverified; content 1,630 verified / 928 unverified. Validation 26 packs / 0 errors / 337 warnings. Actual importer fresh-DB dry-run passed and is idempotent; foreign-key check zero.
-- Dry-run app eligibility: 1,528 normal verified/content-verified eligible; 957 structural review candidates.
+- 721 candidates reviewed; 708 answer status `verified`, 13 held `unverified`. The 13 hold reasons are explicit and should be resolved from clearer source pages/notation before any promotion. Content verification was not changed during that third-pass answer review; it was subsequently set to verified for all 2,558 questions based on the owner-confirmed prior Muse AI review.
+- Final package statuses: answers 2,185 verified / 373 unverified; content 2,558 verified / 0 unverified (owner-confirmed prior Muse AI content verification). Validation 26 packs / 0 errors / 337 warnings. Actual importer fresh-DB dry-run passed and is idempotent; foreign-key check zero.
+- Dry-run app eligibility: 2,185 normal verified/content-verified eligible; 307 answer-review candidates.
 - Owner step remains: review package and approve import. Copy JSON files flat into `data/question-packs/` for Varsity. Do not place in Library. No import/build of active content, no APK, no push/deploy was done.

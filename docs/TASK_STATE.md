@@ -6,6 +6,7 @@
 - [x] Audited all 26 packs / 2,558 questions / 11,397 options, IDs, appearances, source links, answer/content states, subject labels, duplicate options and exam-rule metadata.
 - [x] Corrected 22 subject labels and recalculated per-pack descriptions/indexes.
 - [x] Fixed source-document cross-batch ownership collisions by namespacing 29 shared source ID occurrences and updating all references.
+- [x] Applied the owner-confirmed prior Muse AI source-content verification to all 2,558 questions: corrected 928 inherited stale `contentVerificationStatus: unverified` fields to `verified`; no question/option text, order, key mapping or source reference changed. Original source snapshot remains unchanged.
 - [x] Downgraded 10 source-disputed keys that were incorrectly still `verified`; retained the candidate key IDs for traceability. Third-pass reviewed the 721 clean Tier-A candidates: 708 promoted to answer-verified and 13 held unverified; Tier-B, withdrawn and changed-key cases were not promoted.
 - [x] Preserved duplicate option text and documented 26 affected questions / 27 normalized duplicate groups; no source text was guessed.
 - [x] Researched CU 2025–26 official prospectus/circular. Added only the source-supported partial facts and retained an unavailable official Standard Exam because current rule schema cannot express required-English + choose-three-of-four and section-dependent marking. Other 25 rules remain unconfigured.
@@ -15,7 +16,7 @@
 - [ ] Owner: import the approved `packs/*.json` flat into app `data/question-packs/` (Varsity only, not Library), after checking backup/absence of existing CU content.
 - [ ] After owner import: regenerate and verify content seed, run full app gates, build a new Android preview and perform device QA.
 
-Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `c858df391df01df47a9bd61059a159e8e890f502c6939d15b4cd4750e768552a`. Original archive remains separate and unchanged. See `docs/QUESTION_IMPORT_WORKFLOW.md`.
+Package: `/home/kali/gpt-workspace/bd-admission-app-data/CU/CU_Science_AI_Import_Ready_2026-11-19/`; ZIP SHA-256: `0a2b398bbdaf2554ec3cc8ecd8dd1098e282534de686ed24c29d5cdecec521ba`. Original archive remains separate and unchanged. See `docs/QUESTION_IMPORT_WORKFLOW.md`.
 
 ---
 
@@ -645,8 +646,8 @@ This final section records an earlier state before Phase C commit fe86f53 and Ph
 
 - [x] Reviewed all 721 clean Tier-A prior-pass AI candidates across Physics, Higher Mathematics, Chemistry, English, Bangla, Biology and ICT.
 - [x] Promoted 708 clean third-pass results to `answerVerificationStatus: verified` under the owner-approved two-AI + owner manual + third-pass standard; retained 13 ambiguity/notation/corruption cases as `unverified`. No answer mappings or question/option text were changed.
-- [x] Preserved all content verification states; final package totals are 2,185 answer verified / 373 unverified and 1,630 content verified / 928 unverified.
-- [x] Revalidated all 26 packs: zero errors / 337 warnings. Fresh SQLite dry-run accepted all 26; 2,558 questions / 11,397 options / 68 sources; foreign-key check zero; idempotent second import skipped 2,558. Dry-run predicates: 1,528 verified-eligible / 957 review candidates.
+- [x] At third-pass completion, content fields remained at their inherited 1,630 verified / 928 unverified snapshot values. After the owner confirmed Muse AI had already verified all source question content, the final package was corrected to 2,558 content verified / 0 unverified; answer statuses remain 2,185 verified / 373 unverified.
+- [x] Revalidated all 26 packs: zero errors / 337 warnings. Fresh SQLite dry-run accepted all 26; 2,558 questions / 11,397 options / 68 sources; foreign-key check zero; idempotent second import skipped 2,558. Post-correction dry-run predicates: 2,185 verified-eligible / 307 answer-review candidates.
 - [x] Updated external package README, third-pass decision ledger, final report, import-readiness report, transformation summary and checksum/ZIP artifacts.
 - [x] Updated current-state, workflow, task, changelog and handoff documentation; ran full test/typecheck/lint and diff checks.
 - [ ] Owner: approve/import package `packs/*.json` flat into app `data/question-packs/` (Varsity only, not Library) after backup and checking no existing CU import. No active source/seed/database/APK has been changed by this staging task.
