@@ -1,12 +1,12 @@
 # Android build and release guide
 
-## Current Android preview candidate — 2026-11-19 (v0.1.11; EAS submission pending)
+## Current Android preview — 2026-11-19 (v0.1.11; built and owner-tested)
 
 - Release metadata: Expo app / brand / package version **0.1.11**, Android **versionCode 11**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. The existing Expo slug, EAS project ID and EAS-managed Android signing identity are retained.
 - Content: includes CU A Unit Science (26 papers / 2,558 questions / 11,397 options / 68 sources) and the existing RU/JU/HSTU/DU/ASPECT content. Combined generated seed contains 231 entries / 16,407 question rows; Varsity catalogue contains 230 packs / 14,579 questions. CU's original University website PNG is included.
 - Versioned source gates passed on Node 22.23.1: 301/301 tests, typecheck, lint, content check (231 / 16,407), pack validation (230 / 14,579; 0 errors / 5,536 warnings), question assets (65 / 66 refs), resolved Expo config and `git diff --check`. EAS CLI 27.10.0 confirms the existing project identity.
 - Target: EAS Android `preview` / `INTERNAL` APK. This is not a production AAB or Google Play submission. The v0.1.10 APK predates CU and is not the artifact to install for CU QA.
-- EAS accepted the source upload and created build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` on 2026-11-19. [Open build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). A direct `build:view` check confirmed **`IN_PROGRESS`** for app version `0.1.11`, Android `versionCode 11`, Android / `preview` / `INTERNAL`. Monitoring stopped at start confirmation as requested; completion is not claimed and the APK is not yet available.
+- EAS created Android preview build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` on 2026-11-19. The owner confirms the build completed, installed the APK on an Android device, and checked the app successfully. [Open the EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an owner-reported manual smoke check; handset model/OS and exhaustive screen/accessibility coverage were not recorded. The build is an internal preview, not a production AAB or Google Play release.
 
 ## Previous preview — 2026-11-18 (v0.1.9; built and owner-tested)
 
@@ -52,7 +52,7 @@ The `preview` profile uses internal distribution and creates an installable APK.
 - Automated verification is complete. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. ZIP integrity passed, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected. Expo Doctor: 20/21 checks passed; only an SDK patch-version mismatch across five Expo packages failed. This did not block prebuild, Gradle or APK creation. Align patches and rerun Doctor in a separate maintenance pass. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
 
 ## Release configuration
 
@@ -61,7 +61,7 @@ Last updated: 2026-11-18
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current preview: v0.1.9 / Android versionCode 9, EAS build `5cdcf931-9b67-46f2-9038-47bb7e144c40` FINISHED and owner-tested on Android. The next preview version/code has not been assigned. The previous completed preview is v0.1.7 / code 8; v0.1.6 / code 7 is an earlier owner-verified build. v0.1.3 / code 4 is superseded after the owner-reported first question-library import failure; the v0.1.4 fix resolved that historical issue.
+- Current preview: v0.1.11 / Android versionCode 11, EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`; owner confirms the build completed and the APK was installed and checked successfully on Android. Device model/OS and exhaustive coverage are not recorded. The prior v0.1.10 / code 10 and v0.1.9 / code 9 releases are historical. v0.1.3 / code 4 is superseded after the owner-reported first question-library import failure; the v0.1.4 fix resolved that historical issue.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 

@@ -22,7 +22,7 @@
 
 ## Current Android preview
 
-**v0.1.11 candidate** · Android `versionCode 11` · `com.admissionbd.app` · EAS `preview` (internal APK). EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` has been submitted and is `IN_PROGRESS`; no APK is available or device-tested yet. [Open build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). The owner-tested v0.1.10 APK predates the CU A Unit import. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release.
+**v0.1.11** · Android `versionCode 11` · `com.admissionbd.app` · EAS `preview` (internal APK). EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` is complete; the owner installed the APK on Android and reports that the checks performed work normally. [Open the EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). This build includes CU A Unit. The owner did not provide handset/OS details or an exhaustive test log, so this is a successful manual smoke check. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release.
 
 ## License
 

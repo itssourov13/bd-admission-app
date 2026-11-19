@@ -6,9 +6,9 @@
 | CU content source | [x] Pass | 26 CU A Unit packs / 2,558 questions / 11,397 options and original official-site CU PNG are in the active Varsity source and generated manifest/seed. |
 | Versioned local gates | [x] Pass | 301/301 tests; typecheck; lint; content check 231 / 16,407; pack validation 230 / 14,579 (0 errors / 5,536 warnings); question assets 65 / 66 refs; resolved Expo config; `git diff --check`. |
 | EAS preview submission | [x] Submitted | EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` accepted; [build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Android / `preview` / `INTERNAL`. |
-| Cloud build completion | [ ] Not monitored | One status read returned `IN_PROGRESS`; monitoring stopped at start confirmation as requested. No `FINISHED` status or APK is claimed. |
-| Physical Android QA | [ ] Pending owner install | v0.1.10 does not contain CU. Install this new APK after the owner decides the build is ready. |
-| Git | [x] Pass | Version bump and EAS submission evidence committed locally; working tree clean, no push. |
+| Cloud build completion | [x] Owner-confirmed | Owner confirms EAS build completed and the v0.1.11 APK was available for installation. [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). |
+| Physical Android install and run | [x] Owner-reported pass | Owner installed the v0.1.11 APK and reports that the app checks performed work normally. Handset model/OS and exhaustive screen/accessibility coverage were not recorded; this is a manual smoke check. |
+| Git | [x] Pass | Release metadata and EAS submission evidence are committed locally; release/device QA documentation is being recorded in this follow-up commit. No push. |
 
 ---
 

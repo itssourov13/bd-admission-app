@@ -1,13 +1,13 @@
-# Latest handoff — Android preview v0.1.11 with CU — 2026-11-19
+# Latest handoff — Android preview v0.1.11 with CU — built and owner-tested — 2026-11-19
 
 - **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 - **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
-- **Release candidate:** app / brand / package `0.1.11`, Android `versionCode 11`, package `com.admissionbd.app`.
+- **Release:** app / brand / package `0.1.11`, Android `versionCode 11`, package `com.admissionbd.app`.
 - **EAS target:** `preview` / `INTERNAL` Android APK, existing Expo slug/project ID/signing identity retained.
-- **Source content:** includes 26 CU A Unit packs / 2,558 questions / 11,397 options, official-site CU PNG, existing 46 RU Science packs and separate ASPECT Library content. Current combined generated seed is 231 entries / 16,407 questions.
-- **Status:** EAS upload accepted; build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` created and one direct status check returned **`IN_PROGRESS`**. Versioned local gates pass. Resolved Expo config confirms version `0.1.11` / Android code 11 and the existing EAS project. The v0.1.10 APK predates CU and must not be presented as the CU build. No push.
+- **Source content:** includes 26 CU A Unit packs / 2,558 questions / 11,397 options, official-site CU PNG, existing 46 RU Science packs and separate ASPECT Library content. Combined generated seed: 231 entries / 16,407 questions.
+- **Build and device status:** The owner confirms EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` completed, installed the APK on Android, and checked the app successfully. [Open the EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an owner-reported manual smoke check; handset model/OS and exhaustive screen/accessibility coverage were not supplied. No push.
 
-Local gates: 301/301 tests, typecheck, lint, content check 231 / 16,407, pack validation 230 / 14,579 (0 errors), asset check 65 / 66, resolved Expo config. [Open EAS build 8aa4643c-e312-4a0b-af08-9b3f7779b68c](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Direct status check: `IN_PROGRESS`; monitoring stopped at build start. No completion or APK availability is claimed. See `docs/ANDROID_RELEASE.md`, `docs/QA_CHECKLIST.md` and the task at the top of `docs/TASK_STATE.md`.
+Pre-build source gates: 301/301 tests, typecheck, lint, content check 231 / 16,407, pack validation 230 / 14,579 (0 errors), question assets 65 / 66, resolved Expo config. See `docs/ANDROID_RELEASE.md`, `docs/QA_CHECKLIST.md` and the task at the top of `docs/TASK_STATE.md`.
 
 ---
 

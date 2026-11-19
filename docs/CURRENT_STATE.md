@@ -1,8 +1,8 @@
-## Android preview v0.1.11 — CU A Unit candidate — 2026-11-19
+## Android preview v0.1.11 — CU A Unit build and owner device check — 2026-11-19
 
-Release metadata is now **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. Target profile is EAS `preview` / `INTERNAL` Android APK, with the current source containing all 26 CU A Unit packs and original CU logo. The current release source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.
+Release metadata is **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. The EAS `preview` / `INTERNAL` APK contains all 26 CU A Unit packs and the original CU logo. The source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.
 
-This is an internal preview build, not a production AAB or Play Store submission. EAS accepted the source upload and created build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`; one status check confirmed **`IN_PROGRESS`** for Android / `preview` / `INTERNAL`. [Open EAS build status](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). Monitoring stopped at start confirmation as requested; no finish or APK availability is claimed. The v0.1.10 APK does not contain CU. No push.
+EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` was completed according to the owner, who installed the APK on Android and reports that the checks performed work normally. [Open the EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is owner-reported manual smoke QA; handset model/OS and exhaustive screen/accessibility coverage were not recorded. This internal preview is not a production AAB or Play Store submission. No push.
 
 ---
 
