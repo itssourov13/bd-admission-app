@@ -1,9 +1,17 @@
 ## 2026-11-19 — Prepare CU A Unit Science Varsity import package
 
 - Unpacked and audited 26 CU A Unit packs / 2,558 questions / 11,397 options. Created a separate import-ready package for Varsity institution `cu` (not Library); active app data and seed were not changed.
-- Corrected 22 subject labels, namespaced 29 cross-batch source-document ID references, and downgraded 10 source-disputed verified keys to unverified. Candidate AI keys remain unverified; duplicate-option text remains source-faithful and is tracked.
+- Corrected 22 subject labels, namespaced 29 cross-batch source-document ID references, and downgraded 10 source-disputed verified keys to unverified. Third-pass reviewed the 721 clean Tier-A candidates: 708 answer keys promoted to verified under the owner-approved standard, 13 held unverified; duplicate-option text remains source-faithful and tracked.
 - Researched official CU 2025–26 prospectus/circular; stored only partial 100-mark / 60-minute facts because current app rule model cannot express conditional subject selection and mixed marking. Other 25 paper rules stay unconfigured.
-- Validated 26/26 packs (0 errors / 1,045 warnings), imported all into fresh in-memory SQLite through the actual app importer, verified idempotent re-import and zero foreign-key violations. Wrote package README, review ledgers and final audit report. Owner import remains pending; no push.
+- Validated 26/26 packs (0 errors / 337 warnings), imported all into fresh in-memory SQLite through the actual app importer, verified idempotent re-import and zero foreign-key violations. Wrote package README, review ledgers and final audit report. Owner import remains pending; no push.
+
+
+## 2026-11-19 — CU A Unit third-pass answer-key review
+
+- Reviewed all 721 clean Tier-A AI-solved candidates. 708 passed and are now answer-verified under the owner-approved two-AI + owner-manual + third-pass standard; 13 remain unverified because of ambiguous mathematics/notation, multiple defensible answers or corrupted text.
+- No question stem, options, option order, `correctOptionIds`, source reference or content-verification field was changed. No answer mapping was changed.
+- Final staged package: 26 Varsity packs / 2,558 questions; 2,185 answer-verified / 373 unverified; 1,630 content-verified / 928 unverified. App validator 26/26, zero errors / 337 warnings; importer dry-run and idempotence pass.
+- Updated CU third-pass report/ledger, package README, final import audit, transformation counts and checksums. Active app pack data/seed/database and APK are unchanged; owner import approval remains pending.
 
 ---
 
