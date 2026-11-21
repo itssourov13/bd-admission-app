@@ -1,3 +1,11 @@
+## 2026-11-22 — Profile / CU localization / question issue reporting audit
+
+A read-only audit is recorded at `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. The current CU display-name resolver correctly maps `CU` to `cu`, but the bilingual known-university list lacks the `cu` entry, so the catalogue falls back to the stored English title in Bangla mode. Profile's last two shortcuts are currently Settings then Marking rules; requested order is Marking rules then Settings. The app has local bookmarks but no issue-report flow yet.
+
+Recommended future direction (not implemented/accepted as a schema decision): issue reports should be offline-first and separate from bookmarks, stored with a question/source snapshot, shown in Profile, and exported as a versioned JSON file via the Android system Sharesheet. Proposed additive schema migration: v13. Existing source state is unchanged; focused baseline tests pass 27/27.
+
+---
+
 ## CU A Unit Science — integrated Varsity catalogue — 2026-11-19
 
 The owner-approved package is imported as 26 schema-v1 Varsity packs / 26 papers / 2,558 questions / 11,397 options / 68 sources for institution `cu` / `CU`, under `data/question-packs/`. No incoming filenames or batch/paper/question/source IDs collided with existing data. The original external archive and extracted source snapshot remain unchanged. None of this content was placed in the Library/ASPECT tree.

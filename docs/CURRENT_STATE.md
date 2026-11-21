@@ -1,3 +1,11 @@
+## Profile, CU localization & question issue reporting audit — 2026-11-22
+
+**Status:** Read-only audit completed; no app source, question data, schema, dependency, release metadata or runtime behavior changed. Confirmed CU's Bangla name is missing from the bilingual university display map, the Profile actions place Settings before Marking rules, and no question-issue reporting flow currently exists. The detailed findings, UX/data model, JSON export contract, SDK 57 sharing approach, acceptance checks and source links are in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md).
+
+Focused baseline verification under Node 22.23.1: `tests/universities.test.ts` + `tests/repositories.test.ts`, 27/27 passed. Implementation is pending; latest owner-reported Android preview remains v0.1.11. No push.
+
+---
+
 ## Android preview v0.1.11 — CU A Unit build and owner device check — 2026-11-19
 
 Release metadata is **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. The EAS `preview` / `INTERNAL` APK contains all 26 CU A Unit packs and the original CU logo. The source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.

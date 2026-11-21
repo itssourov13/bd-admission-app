@@ -1,3 +1,27 @@
+# Latest handoff — Profile actions, CU localization & question issue reporting audit — 2026-11-22
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch / audited HEAD:** `feat/import-hstu-verified-answers-2026-11-12` / `a636fb8`
+**Status:** Read-only audit complete. No app source, content, schema, dependencies, release metadata, APK or runtime behavior changed.
+
+## Findings
+
+1. CU's institution key is normalized correctly to `cu`, but `src/features/catalog/universities.ts` does not contain a CU entry in `KNOWN_UNIVERSITIES`. Therefore Bengali mode falls back to the stored English name. Recommended label: `চট্টগ্রাম বিশ্ববিদ্যালয়`. The existing CU PNG registry is already in place.
+2. Profile currently renders Bookmarks → Practice history → Settings → Marking rules. Swap the last two blocks only; keep their labels, icons, handlers and routes.
+3. Shared `QuestionCard` supports bookmarking but no issue-report action exists. There is no issue-report SQLite table, Profile list, JSON export or share flow.
+
+## Recommended implementation sequence
+
+- **Phase 1:** add CU bilingual display metadata and reorder the two Profile buttons. Keep the changes display-only and add localization/order regression coverage.
+- **Phase 2:** add append-only SQLite migration v13 and a local issue-report repository; add a reusable flag action and bilingual issue composer; show a reported-question count/list under Profile with view, edit and delete. Preserve a question/source snapshot and deduplicate by canonical question ID.
+- **Phase 3:** export a versioned JSON bundle and use the SDK 57-compatible Expo Sharing package to open Android's system Sharesheet. The learner chooses WhatsApp, Telegram, email or another compatible target and confirms the recipient/send action. Do not silently send, mark delivery based only on share-sheet launch, or delete local reports. Keep personal profile/attempt data out of the export.
+
+Detailed schema, proposed JSON format, privacy boundary, Android test requirements, sources and checklist: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+
+**Verification:** reproducible CU display fallback confirmed; focused existing tests `tests/universities.test.ts` + `tests/repositories.test.ts` pass 27/27 under Node 22.23.1. Full suite, typecheck/lint, APK build and physical-device QA were not run for this audit. No push.
+
+---
+
 # Latest handoff — Android preview v0.1.11 with CU — built and owner-tested — 2026-11-19
 
 - **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`

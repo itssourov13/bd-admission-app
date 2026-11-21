@@ -1,3 +1,12 @@
+## 2026-11-22 — Audit CU localization, Profile actions and question issue reporting
+
+- Completed a read-only audit of the CU Bengali display fallback, Profile action order and the proposed question issue-report workflow.
+- Confirmed the CU display-name map is missing `cu`; the Profile action order can be corrected by swapping two existing buttons; issue reporting requires new local persistence and UI.
+- Saved detailed findings, recommended SQLite v13 schema, JSON export shape, SDK 57-compatible file-sharing approach and acceptance checklist in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+- Focused baseline tests: 27/27 pass under Node 22.23.1. No app source, question data, dependencies, schema, release metadata or runtime behavior changed; no build or push.
+
+---
+
 ## 2026-11-19 — Build and owner-test v0.1.11 Android preview with CU A Unit Science
 
 - Bumped the Expo app / brand / package version from `0.1.10` to `0.1.11` and Android `versionCode` from `10` to `11`, preserving `com.admissionbd.app`, Expo slug, EAS project ID, preview profile and signing identity.

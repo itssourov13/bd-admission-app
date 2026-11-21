@@ -1,3 +1,19 @@
+## Profile actions, CU Bangla display & question issue reports — audit complete — 2026-11-22
+
+**Status:** Read-only audit and implementation recommendation saved. No app behavior changed.
+
+- [x] Reproduced the CU localization fallback: code `CU` resolves to key `cu`, but `KNOWN_UNIVERSITIES` has no Bengali display entry.
+- [x] Confirmed Profile order is Bookmarks → Practice history → Settings → Marking rules; requested order only requires swapping the final two existing buttons.
+- [x] Confirmed QuestionCard has bookmark support but no issue-report action; no local issue-report table, screen or export/share flow exists.
+- [x] Audited local SQLite, QuestionView/QuestionCard call sites, Expo SDK 57 dependencies and migration history. Recommended offline-first reports, one report per canonical question, snapshot-based JSON export and Android Sharesheet delivery.
+- [x] Saved detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+- [x] Existing focused tests pass: 27/27 under Node 22.23.1.
+- [ ] Implement the two small presentation fixes and the issue-report feature in the phased scope after owner approval. New v13 migration and new preview build will be needed for the issue-report database/sharing implementation.
+
+No app source or content changed; no APK/build, physical-device UX test, push or deployment performed for this audit.
+
+---
+
 ## Android preview v0.1.11 — CU A Unit build, install and owner QA — 2026-11-19
 
 **Status:** EAS `preview` / `INTERNAL` APK for app `0.1.11` / Android `versionCode 11` is complete according to the owner. The owner installed it on Android and reports that the checks performed work normally. Release/device documentation is updated and committed locally; no push.
