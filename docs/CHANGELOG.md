@@ -1,3 +1,12 @@
+## 2026-11-22 — Follow-up audit: keep Exam Flag for review separate from issue reporting
+
+- Confirmed the existing Standard Exam review flag is session-scoped in `session_answers.flagged` (SQLite migration v7), is consumed by the exam palette/progress/submission and completed-result filter, and is independent of answer selection/scoring.
+- Re-ran `tests/exam-review.test.ts`: 7/7 pass. The flag survives reload and finalization; post-finalization writes are rejected.
+- Updated the issue-report design to use a separate global table/repository, explicit “Report question issue / প্রশ্নে সমস্যা জানান” wording, a non-flag icon and a visually separate action area. Do not reuse or alter the existing Exam flag.
+- This follow-up changes documentation only. No app source, database schema, runtime behavior, APK or push.
+
+---
+
 ## 2026-11-22 — Audit CU localization, Profile actions and question issue reporting
 
 - Completed a read-only audit of the CU Bengali display fallback, Profile action order and the proposed question issue-report workflow.

@@ -1,3 +1,17 @@
+## Standard Exam review-flag separation — follow-up audit — 2026-11-22
+
+**Status:** Follow-up audit completed; app code unchanged.
+
+- [x] Confirmed existing Standard Exam Flag for review is stored in `session_answers.flagged`, migration v7, scoped per session/question.
+- [x] Traced the active Exam marker, question palette, progress/submission counts, completed Result marker/filter and finalization guard.
+- [x] Confirmed the exam flag is independent of selected answers and scoring; it is personal per-attempt review state, not a content defect report.
+- [x] Re-ran `tests/exam-review.test.ts`: 7/7 passed, including reload persistence and post-finalization immutability.
+- [x] Updated the audit recommendation: distinct “Report question issue / প্রশ্নে সমস্যা জানান” action, non-flag icon, separate placement and a separate global issue-report table. Existing exam flag behavior must not change.
+
+Detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. No app source changes, APK, physical-device test or push.
+
+---
+
 ## Profile actions, CU Bangla display & question issue reports — audit complete — 2026-11-22
 
 **Status:** Read-only audit and implementation recommendation saved. No app behavior changed.

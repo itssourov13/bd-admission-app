@@ -1,3 +1,11 @@
+## 2026-11-22 — Existing Exam review flag and new question-issue report must stay separate
+
+The Standard Exam already has a complete **Flag for review** workflow. SQLite migration v7 adds `session_answers.flagged`, scoped to `(session_id, question_id)`. It appears in the active Exam question marker/palette/progress/submission summary and is preserved for the completed Result's Flagged filter. It is a learner's per-attempt revision reminder, independent of answer selection/scoring; finalization prevents further flag writes. Follow-up audit and 7/7 regression result are saved in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+
+Any new content issue report is a separate global question-level record. It must have its own repository/table, explicit “Report question issue / প্রশ্নে সমস্যা জানান” label, non-flag issue icon and separate visual placement—not beside the exam review flag and never stored in `session_answers.flagged`. While reporting during an active exam, the UI must state that the exam timer continues. No app code has changed.
+
+---
+
 ## 2026-11-22 — Profile / CU localization / question issue reporting audit
 
 A read-only audit is recorded at `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. The current CU display-name resolver correctly maps `CU` to `cu`, but the bilingual known-university list lacks the `cu` entry, so the catalogue falls back to the stored English title in Bangla mode. Profile's last two shortcuts are currently Settings then Marking rules; requested order is Marking rules then Settings. The app has local bookmarks but no issue-report flow yet.

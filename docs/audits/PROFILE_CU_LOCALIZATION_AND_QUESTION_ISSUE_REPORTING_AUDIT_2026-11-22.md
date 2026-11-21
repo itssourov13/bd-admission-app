@@ -8,9 +8,9 @@
 
 ## Executive summary
 
-All three requests are feasible and fit the existing app architecture. The first two are tiny presentation-only changes. The third is a worthwhile offline-first feature: let a learner flag a question, keep the report on-device, review it from Profile, then export/share a structured JSON file so the maintainer can reproduce and correct the issue.
+All three requests are feasible and fit the existing app architecture. The first two are tiny presentation-only changes. The third is a worthwhile offline-first feature, but the app already has an important Standard Exam **Flag for review** control. That existing control must remain unchanged and must not be repurposed for content-issue reporting. A new report feature needs its own wording, icon, UI placement, storage and lifecycle.
 
-**Recommended order:** implement CU's Bengali display mapping and reorder the Profile actions first; then implement issue capture/listing; finally add JSON export and Android share-sheet delivery. Keep issue reports separate from bookmarks and do not add a server/account requirement.
+**Recommended order:** implement CU's Bengali display mapping and reorder the Profile actions first; then implement a distinct question-issue report flow; finally add JSON export and Android share-sheet delivery. Keep issue reports separate from bookmarks and exam-session flags; do not add a server/account requirement.
 
 ## 1. Chattogram University Bengali name is missing
 
@@ -61,20 +61,47 @@ This uses the existing language-aware display path. It should translate the univ
 
 Swap only the two existing JSX button blocks. Keep their labels, icons, destinations and styling unchanged. No database, navigation, translation or preference behavior needs to change.
 
-## 3. Question issue reporting — product and technical audit
+## 3. Existing Standard Exam review flag — confirmed separation requirement
+
+The app already implements a complete exam-specific **Flag for review** feature. This is not a content defect report.
+
+### Confirmed behavior and data path
+
+- The feature was introduced by SQLite migration **v7** (`exam_answer_review_flag`), which adds `flagged INTEGER NOT NULL DEFAULT 0` to `session_answers`.
+- Its storage is **per exam attempt and question**: `session_answers(session_id, question_id, flagged)`. It is not a global question-level flag.
+- During an active, unexpired Standard Exam, `persistFlag()` / `setExamFlag()` updates the current session's flag. The write is guarded by the session being active and its deadline not having passed. The flag is independent of saved answer selection and does not change the answer or score.
+- The active Exam UI already uses the flag marker `⚑`, the labels “Flag for review” / “Remove flag”, flagged counters in the progress/submission summary, and the question palette state.
+- When the exam is completed, the stored flags remain available in Result review: the result screen shows the marker and provides a separate “Flagged” filter. Further flag writes are rejected after completion.
+- Existing regression coverage in `tests/exam-review.test.ts` verifies toggle/un-toggle, persistence across reload (crash recovery), answer independence, flags surviving finalization, and post-finalization writes being rejected.
+
+I re-ran this focused suite during the follow-up audit: **7/7 passed** under Node 22.23.1.
+
+### Conflict assessment
+
+There is **no underlying database or state conflict** when content reports use their own global table and repository. There **is a real UX collision risk** if the new report action also uses a flag icon, “Flag” wording, the same gold marker, or is placed beside the existing Exam “Flag for review” button. Reusing `session_answers.flagged` would be semantically wrong: it is scoped to one exam attempt, is designed for personal revision, and is already consumed by exam progress and Result filters.
+
+### Required separation
+
+- Preserve the existing exam flag behavior, label, gold `⚑` marker, palette, progress counts, submission warning and Result filter exactly as they are.
+- Never write content reports into `session_answers.flagged`, and never let a report action toggle/clear an Exam review flag.
+- Name the new action **“Report question issue” / “প্রশ্নে সমস্যা জানান”**. Use a distinct `alert-circle-outline` or `bug-outline` style icon; do not use a flag glyph or the same gold flagged treatment.
+- Place the report action in a distinct section at the bottom of the question card, visually separate from the Exam action row that contains “Flag for review” and “Clear”. Do not place the content-report action in the same action row as exam review controls.
+- If the report composer is opened during an active exam, clearly state that the exam timer continues. Saving a report must not pause, extend, finalize or otherwise mutate the active exam.
+
+## 4. Question issue reporting — product and technical audit
 
 ### Current architecture
 
 - The app is local-first: Profile copy says user information stays on the device and no account or internet is required.
 - Bookmarks are stored in the local SQLite `bookmarks` table; the current row contains the question ID and creation timestamp.
 - `QuestionCard` is the shared renderer and currently exposes a bookmark action through `onToggleBookmark`; it has no report/flag callback or issue composer.
-- The shared question card is used in Browse, Bookmarks, Flash, active Exam and Result review. This gives a natural place for one consistent issue affordance.
+- The shared question card is used in Browse, Bookmarks, Flash, active Exam and Result review. This gives a natural place for one consistent issue affordance, but it must be rendered in a separate content-report section and must not merge with the Exam-specific flag row.
 - The latest database migration is v12. There is no issue-report table, repository, screen, export or feedback endpoint in the inspected app source.
 - `expo-file-system` is already installed at the SDK 57-compatible version. `expo-sharing` is not currently in `package.json`.
 
 ### Recommended user experience
 
-**A. Report from a question.** Add a small flag/report action beside the existing bookmark action in the reusable question header. Tapping it opens a compact Bangla/English form. The learner should not need to leave the question or manually copy its ID.
+**A. Report from a question.** Add a clearly labelled **Report question issue / প্রশ্নে সমস্যা জানান** action in its own bottom section of the reusable question card. Do not use a flag icon or place it beside the bookmark icon or the Exam's “Flag for review” control. Use a distinct issue/bug icon (for example `alert-circle-outline`) and a neutral secondary treatment. Tapping it opens a compact Bangla/English form; question ID and source context are captured automatically. During an active exam, state clearly that the timer continues.
 
 Suggested multi-select issue categories:
 
@@ -170,7 +197,7 @@ For the current Expo SDK 57 app, the documented route is `expo-file-system/legac
 
 **Phase 2 — local issue capture**
 - Add migration v13 and an issue-report repository.
-- Add the reusable QuestionCard flag action and compact bilingual form.
+- Add the reusable QuestionCard issue-report action (never a flag action) and compact bilingual form. Keep the existing Standard Exam review-flag action and its session state untouched.
 - Add Profile count/list/detail/edit/delete UI.
 - Preserve reports across app restarts and content re-imports.
 - Verify upgrade from schema v12 without losing bookmarks, attempts, sessions, results or profile data.
@@ -189,6 +216,8 @@ For the current Expo SDK 57 app, the documented route is `expo-file-system/legac
 - [ ] Profile order is Bookmarks → Practice history → Marking rules → Settings.
 - [ ] A report can be created offline from each intended question surface and survives app restart.
 - [ ] Re-reporting the same canonical question edits/updates its existing report rather than duplicating it.
+- [ ] Exam “Flag for review” remains session-scoped and unchanged; reporting an issue neither sets nor clears the exam flag, and the exam palette/progress/result filter remain driven only by `session_answers.flagged`.
+- [ ] The report action has distinct “Report question issue / প্রশ্নে সমস্যা জানান” wording and a non-flag icon; it is not adjacent to the exam review-flag control. The active exam timer continues while its composer is open.
 - [ ] Report list supports view, edit and delete; empty state and count are correct in both languages.
 - [ ] v12→v13 migration preserves existing profile, bookmarks and practice history.
 - [ ] Export is valid UTF-8 JSON, versioned, includes the original question snapshot and source references, and excludes personal/attempt data.
@@ -197,11 +226,12 @@ For the current Expo SDK 57 app, the documented route is `expo-file-system/legac
 
 ## Verification performed for this audit
 
-- Confirmed clean working tree at audit start; branch `feat/import-hstu-verified-answers-2026-11-12`, HEAD `a636fb8`.
-- Inspected Profile, university display/grouping, university logo registry, language provider/translations, QuestionCard call sites, bookmark repository/schema, migration list and Expo dependencies.
+- Original localization/Profile audit source baseline: branch `feat/import-hstu-verified-answers-2026-11-12`, source HEAD `a636fb8`; prior docs-only audit commit `3451639`. Follow-up exam-flag review inspected the same unchanged app source.
+- Inspected Profile, university display/grouping, university logo registry, language provider/translations, QuestionCard call sites, bookmark repository/schema, migration list, Expo dependencies, Standard Exam flag state, Result review and exam-flag regression tests.
 - Reproduced the CU Bangla fallback defect using the current source function.
-- Ran focused existing regression suites under Node 22.23.1: `tests/universities.test.ts` + `tests/repositories.test.ts` — **27/27 passed**.
-- No source changes, full suite, typecheck, lint, APK build or physical-device visual test was performed for this audit. The owner-reported v0.1.11 device check from 2026-11-19 remains the latest recorded device smoke test.
+- Localization/Profile + repository focused suites under Node 22.23.1: `tests/universities.test.ts` + `tests/repositories.test.ts` — **27/27 passed**.
+- Follow-up exam-review suite: `tests/exam-review.test.ts` — **7/7 passed**, including flag toggle/un-toggle, persistence after reload, independence from answer selection, preservation after finalization and rejection of post-finalization writes.
+- No app source changes, full suite, typecheck, lint, APK build or physical-device visual test was performed for either audit. The owner-reported v0.1.11 device check from 2026-11-19 remains the latest recorded device smoke test.
 
 ## References
 

@@ -1,3 +1,30 @@
+# Latest handoff — Standard Exam flag / question issue reporting separation audit — 2026-11-22
+
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Audited app source:** unchanged from `a636fb8`; prior docs audit commit `3451639`.
+**Status:** Follow-up audit and documentation only; no app source or runtime behavior changed.
+
+## Confirmed existing Exam behavior
+
+- Migration v7 (`exam_answer_review_flag`) adds `session_answers.flagged INTEGER NOT NULL DEFAULT 0`.
+- The flag is keyed by exam session and question, not globally. It is used in active Exam question markers/palette/progress/submission warning and retained for the completed Result review's Flagged filter.
+- The write requires an active, unexpired session. The feature is independent of answer selection and scoring, and post-finalization updates are rejected.
+- `tests/exam-review.test.ts` passes 7/7, including state persistence across reload and finalization.
+
+## Required issue-report separation
+
+- Do not repurpose `session_answers.flagged`, its repository methods, translations, gold flag marker, progress counters or result filter.
+- The content issue report is a persistent, global question-level record in its own v13 table/repository; it represents an asserted content defect, not a learner's reminder to revisit an unanswered/uncertain exam question.
+- Label it **Report question issue / প্রশ্নে সমস্যা জানান** and use a distinct `alert-circle-outline` / bug-style icon, never a flag glyph.
+- Render the report action in its own bottom section of the question card, not beside the Exam “Flag for review” / “Remove flag” control. During an active exam, tell the learner that the exam timer continues while the report composer is open. Report save must not modify, pause, extend or finalize the attempt.
+
+The original CU/Profile/issue-report analysis, proposed schema and JSON export contract remain in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. This follow-up supersedes the earlier suggestion to put a report/flag action beside the Bookmark; that placement is rejected to avoid semantic collision.
+
+**Verification:** `tests/exam-review.test.ts` — 7/7; earlier localization + repository suite — 27/27, all under Node 22.23.1. No full suite, typecheck/lint, APK or device UX test was run. No push.
+
+---
+
 # Latest handoff — Profile actions, CU localization & question issue reporting audit — 2026-11-22
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`

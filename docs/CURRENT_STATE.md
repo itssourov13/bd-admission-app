@@ -1,3 +1,11 @@
+## Standard Exam review flag and question-issue reporting — follow-up audit — 2026-11-22
+
+A follow-up code audit confirmed the existing Standard Exam **Flag for review** feature is already implemented and must remain separate from any global content-issue report. Migration v7 adds `session_answers.flagged`, stored per `(session_id, question_id)`. It feeds the active Exam marker/palette, progress and submission counts, then the completed Result's Flagged filter. It does not change answer selection or score and cannot be changed after finalization. `tests/exam-review.test.ts` passed 7/7. The issue report must have its own table/repository, a distinct “Report question issue / প্রশ্নে সমস্যা জানান” action and a non-flag icon; never reuse the exam flag or put both actions side by side.
+
+Detailed separation requirements and revised UX recommendation are recorded in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md). No app source/runtime change; no push.
+
+---
+
 ## Profile, CU localization & question issue reporting audit — 2026-11-22
 
 **Status:** Read-only audit completed; no app source, question data, schema, dependency, release metadata or runtime behavior changed. Confirmed CU's Bangla name is missing from the bilingual university display map, the Profile actions place Settings before Marking rules, and no question-issue reporting flow currently exists. The detailed findings, UX/data model, JSON export contract, SDK 57 sharing approach, acceptance checks and source links are in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md).
