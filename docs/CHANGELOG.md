@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 19
+
+- Added 62 RU Chemistry explanation updates in ch_06 (55 authored explanations plus 7 identical-text duplicate propagations across 13 packs); explanation fields only. Five ambiguous, garbled or answer-key-conflicting questions were deferred with documented reasons; other wording/convention caveats were noted without changing source questions or answer keys.
+
 ## 2026-11-22 — RU explanations, checkpoint 18
 
 - Added 61 RU Chemistry explanation updates in ch_05 (58 authored explanations plus 3 identical-text duplicate propagations across 6 packs); explanation fields only. Two source/key issues were deferred, and OCR/conceptual caveats were recorded without changing question stems or answer keys.
