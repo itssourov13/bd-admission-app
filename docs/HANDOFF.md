@@ -4,7 +4,7 @@
 **Branch:** feat/import-hstu-verified-answers-2026-11-12
 **App metadata:** 0.1.11 / Android versionCode 11 (not bumped)
 **SQLite:** schema v13
-**Status:** Local implementation, final automated verification, documentation and commit 8f36b13 are complete. No push and no EAS build.
+**Status:** Local implementation, final automated verification, documentation and commit 1a76488 are complete. No push and no EAS build.
 
 ## Delivered
 - CU catalogue display name switches between “চট্টগ্রাম বিশ্ববিদ্যালয়” and “University of Chittagong”.

@@ -1,6 +1,6 @@
 ## CU localization, Profile ordering & question issue reporting — implemented and automated checks passed — 2026-11-22
 
-**Local source status:** Implemented and committed locally on feat/import-hstu-verified-answers-2026-11-12 as 8f36b13; automated verification passed on Node 22.23.1. No push or EAS build has been performed. App release metadata remains **0.1.11 / Android versionCode 11** until a separately approved release update.
+**Local source status:** Implemented and committed locally on feat/import-hstu-verified-answers-2026-11-12 as 1a76488; automated verification passed on Node 22.23.1. No push or EAS build has been performed. App release metadata remains **0.1.11 / Android versionCode 11** until a separately approved release update.
 
 - CU's bilingual catalogue metadata now resolves to **চট্টগ্রাম বিশ্ববিদ্যালয়** in Bangla and **University of Chittagong** in English. The existing CU logo and question-pack data are unchanged.
 - Profile shortcuts are ordered Bookmarks → Practice history → Marking rules → Settings. Reported questions is an additional, separate Profile entry.

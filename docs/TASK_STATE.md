@@ -1,6 +1,6 @@
 ## CU localization, Profile ordering & question issue reporting — implementation complete locally — 2026-11-22
 
-**Status:** Implementation, automated verification, documentation and local commit 8f36b13 are complete on the current feature branch. No EAS build or push.
+**Status:** Implementation, automated verification, documentation and local commit 1a76488 are complete on the current feature branch. No EAS build or push.
 
 - [x] Add CU bilingual catalogue metadata; verify Bangla/English display with regression coverage.
 - [x] Reorder Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings; add a separate Reported questions entry.
