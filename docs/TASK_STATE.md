@@ -1,4 +1,22 @@
-## Standard Exam review-flag separation — follow-up audit — 2026-11-22
+## CU localization, Profile ordering & question issue reporting — implementation complete locally — 2026-11-22
+
+**Status:** Implementation, automated verification, documentation and local commit 8f36b13 are complete on the current feature branch. No EAS build or push.
+
+- [x] Add CU bilingual catalogue metadata; verify Bangla/English display with regression coverage.
+- [x] Reorder Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings; add a separate Reported questions entry.
+- [x] Add the offline issue-report flow to Browse, Bookmarks, Flash, Exam and Result. Report appears immediately below Bookmark in the QuestionCard's fixed-width vertical action stack; option layout is unchanged.
+- [x] Preserve the existing Exam Flag for review separately. Migration v7 and session_answers.flagged remain the only source of session-scoped exam flags.
+- [x] Add additive SQLite migration v13, repository/service, category validation, per-question de-duplication, immutable first-report snapshot, edit/delete/list management and share/export state.
+- [x] Add privacy-bounded JSON schema v1 export and native Android Sharesheet hand-off using SDK 57-compatible Expo packages.
+- [x] Resolve SDK 57 package alignment, including @expo/cli 57.0.34 and direct @expo/metro-runtime ~57.0.18.
+- [x] Final checks on Node 22.23.1: typecheck, lint, Expo install check, targeted tests 54/54, full test suite 318/318, diff check and Expo Doctor 21/21.
+- [ ] Manual Android preview QA: narrow/wide layouts, active exam/flash timer while report sheet is open, JSON attachment hand-off to installed share targets and post-share file readability.
+
+Implementation detail and limitations: docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md. Existing v0.1.11 APK is unchanged and does not include this implementation.
+
+---
+
+## Historical audit checkpoint — Standard Exam review-flag separation — 2026-11-22
 
 **Status:** Follow-up audit completed; app code unchanged.
 
@@ -12,7 +30,7 @@ Detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTI
 
 ---
 
-## Profile actions, CU Bangla display & question issue reports — audit complete — 2026-11-22
+## Historical pre-implementation audit checkpoint — Profile, CU localization & question reports — 2026-11-22
 
 **Status:** Read-only audit and implementation recommendation saved. No app behavior changed.
 
@@ -22,7 +40,7 @@ Detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTI
 - [x] Audited local SQLite, QuestionView/QuestionCard call sites, Expo SDK 57 dependencies and migration history. Recommended offline-first reports, one report per canonical question, snapshot-based JSON export and Android Sharesheet delivery.
 - [x] Saved detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
 - [x] Existing focused tests pass: 27/27 under Node 22.23.1.
-- [ ] Implement the two small presentation fixes and the issue-report feature in the phased scope after owner approval. New v13 migration and new preview build will be needed for the issue-report database/sharing implementation.
+- [x] At this historical checkpoint, record implementation as pending. The implementation was subsequently completed; see the current task entry at the top of this file.
 
 No app source or content changed; no APK/build, physical-device UX test, push or deployment performed for this audit.
 

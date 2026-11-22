@@ -1,4 +1,16 @@
-## 2026-11-22 — Existing Exam review flag and new question-issue report must stay separate
+## 2026-11-22 — Local implementation: CU localization, Profile actions and question issue reporting
+
+The CU catalogue card now uses the bilingual university-name map. Profile actions are ordered Bookmarks → Practice history → Marking rules → Settings, with a separate Reported questions entry.
+
+Question issue reporting is a local/offline feature, separate from bookmarks and the Standard Exam review flag. Browse, Bookmarks, Flash, Exam and Result pass the report handler to the shared QuestionCard. The alert-circle icon action appears directly below Bookmark in a fixed-width vertical action stack; A/B/C/D options stay in their own full-width section. The report sheet tells timed-session users that the timer continues.
+
+SQLite v13 adds question_issue_reports (unique canonical question, issue types, details, origin surface, first-report snapshot, timestamps and last share-sheet hand-off time). Profile report screens provide count/list/detail/edit/delete and share. JSON uses bd-admission-question-issues schema v1 and excludes profile identity, chosen answers and attempt history. Native sharing uses Expo SDK 57 expo-sharing ~57.0.26 with expo-file-system/legacy.
+
+Final checks under Node 22.23.1: typecheck/lint/Expo install check pass, targeted 54/54, full suite 318/318, diff check pass, Expo Doctor 21/21. The current v0.1.11 APK does not include these local changes. Physical Android UI and actual file-share target testing remain outstanding; no push or EAS build has been done.
+
+---
+
+## Historical 2026-11-22 audit baseline — Existing Exam review flag and new issue-report separation
 
 The Standard Exam already has a complete **Flag for review** workflow. SQLite migration v7 adds `session_answers.flagged`, scoped to `(session_id, question_id)`. It appears in the active Exam question marker/palette/progress/submission summary and is preserved for the completed Result's Flagged filter. It is a learner's per-attempt revision reminder, independent of answer selection/scoring; finalization prevents further flag writes. Follow-up audit and 7/7 regression result are saved in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
 
@@ -6,11 +18,11 @@ Any new content issue report is a separate global question-level record. It must
 
 ---
 
-## 2026-11-22 — Profile / CU localization / question issue reporting audit
+## Historical pre-implementation audit baseline — Profile / CU localization / question issue reporting — 2026-11-22
 
-A read-only audit is recorded at `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. The current CU display-name resolver correctly maps `CU` to `cu`, but the bilingual known-university list lacks the `cu` entry, so the catalogue falls back to the stored English title in Bangla mode. Profile's last two shortcuts are currently Settings then Marking rules; requested order is Marking rules then Settings. The app has local bookmarks but no issue-report flow yet.
+A read-only baseline audit was recorded before implementation. At that checkpoint, CU's bilingual metadata entry and the issue-report flow were still missing, and Profile's last two shortcuts were Settings then Marking rules. Those findings are historical; see the implemented state at the top of this file.
 
-Recommended future direction (not implemented/accepted as a schema decision): issue reports should be offline-first and separate from bookmarks, stored with a question/source snapshot, shown in Profile, and exported as a versioned JSON file via the Android system Sharesheet. Proposed additive schema migration: v13. Existing source state is unchanged; focused baseline tests pass 27/27.
+Historical recommendation (subsequently implemented): issue reports are offline-first and separate from bookmarks, stored with a question/source snapshot, shown in Profile, and exported as a versioned JSON file via the Android system Sharesheet. Additive schema migration v13 is now present. The current source and final verification are summarized at the top of this file.
 
 ---
 

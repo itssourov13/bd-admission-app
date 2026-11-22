@@ -1,9 +1,43 @@
-# Latest handoff — Standard Exam flag / question issue reporting separation audit — 2026-11-22
+# Latest handoff — CU localization, Profile ordering & issue reporting implemented — 2026-11-22
+
+**Workspace:** /home/kali/gpt-workspace/bd-admission-app
+**Branch:** feat/import-hstu-verified-answers-2026-11-12
+**App metadata:** 0.1.11 / Android versionCode 11 (not bumped)
+**SQLite:** schema v13
+**Status:** Local implementation, final automated verification, documentation and commit 8f36b13 are complete. No push and no EAS build.
+
+## Delivered
+- CU catalogue display name switches between “চট্টগ্রাম বিশ্ববিদ্যালয়” and “University of Chittagong”.
+- Profile shortcut order is Bookmarks, Practice history, Marking rules, Settings, followed by Reported questions.
+- Users can report an issue from Browse, Bookmarks, Flash, active Exam and Result. The alert-circle action is directly below Bookmark in a fixed 44px action column. Existing question and A/B/C/D option layout remains separate.
+- The report composer captures multiple issue categories and up to 1,000 characters of optional detail; during timed Exam/Flash it explicitly states the timer continues.
+- Local SQLite v13 stores one report per canonical question, origin surface and a question snapshot. Reports can be listed, opened, edited and deleted from Profile.
+- JSON export uses bd-admission-question-issues schema v1 and hands a UTF-8 cache file to the Android Sharesheet. App/version/platform/language/DB schema, report timestamps/types/notes and question snapshots are included; personal identity and exam attempts/answers are excluded.
+- The existing Standard Exam flag remains migration-v7 session_answers.flagged, per session/question, with its original palette/progress/result behavior.
+
+## Final automated verification — Node 22.23.1
+- TypeScript tsc --noEmit: PASS (exit 0).
+- expo lint: PASS (exit 0).
+- expo install --check: PASS — dependencies up to date.
+- Targeted issue-report/localization/Profile/Exam/repository/UI suites: **54/54 PASS**.
+- Full pnpm test: **318/318 PASS**.
+- git diff --check: PASS.
+- Expo Doctor: **21/21 PASS**, no issues detected.
+- Expo SDK patch line: expo 57.0.33, expo-asset 57.0.21, expo-constants 57.0.24, expo-linking 57.0.14, expo-router 57.0.31, expo-splash-screen 57.0.11, expo-sqlite 57.0.5, expo-sharing 57.0.26, direct @expo/metro-runtime 57.0.18; @expo/cli resolves to 57.0.34.
+
+## Release/device work still pending
+1. Create a new Android preview build only when the owner asks; current v0.1.11 installed APK does not include this source change.
+2. On a physical device verify layout at narrow and wider widths, the Report sheet while Exam/Flash timers run, valid JSON attachment hand-off and file readability in installed WhatsApp, Telegram, Files/Drive or other chosen targets.
+3. A share-sheet opening is not evidence that a recipient received the report. Reports remain stored locally.
+
+---
+
+# Historical handoff — Standard Exam flag / question issue reporting separation audit — 2026-11-22
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch:** `feat/import-hstu-verified-answers-2026-11-12`
 **Audited app source:** unchanged from `a636fb8`; prior docs audit commit `3451639`.
-**Status:** Follow-up audit and documentation only; no app source or runtime behavior changed.
+**Historical status at that checkpoint:** Follow-up audit and documentation only; it predates the implementation handoff at the top of this file.
 
 ## Confirmed existing Exam behavior
 
@@ -17,31 +51,31 @@
 - Do not repurpose `session_answers.flagged`, its repository methods, translations, gold flag marker, progress counters or result filter.
 - The content issue report is a persistent, global question-level record in its own v13 table/repository; it represents an asserted content defect, not a learner's reminder to revisit an unanswered/uncertain exam question.
 - Label it **Report question issue / প্রশ্নে সমস্যা জানান** and use a distinct `alert-circle-outline` / bug-style icon, never a flag glyph.
-- Render the report action in its own bottom section of the question card, not beside the Exam “Flag for review” / “Remove flag” control. During an active exam, tell the learner that the exam timer continues while the report composer is open. Report save must not modify, pause, extend or finalize the attempt.
+- The initial audit proposed a separate bottom section for reporting. The owner's final placement decision superseded that proposal: the implemented Report icon is directly below Bookmark in the QuestionCard vertical action stack. It remains separate from the Exam “Flag for review” / “Remove flag” control row. During an active exam the timer continues while the report composer is open.
 
-The original CU/Profile/issue-report analysis, proposed schema and JSON export contract remain in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. This follow-up supersedes the earlier suggestion to put a report/flag action beside the Bookmark; that placement is rejected to avoid semantic collision.
+The original CU/Profile/issue-report analysis, proposed schema and JSON export contract remain in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. The owner's final placement clarification supersedes the original bottom-section proposal: Report is placed directly below Bookmark, while the Exam Flag remains in its own controls below the options.
 
 **Verification:** `tests/exam-review.test.ts` — 7/7; earlier localization + repository suite — 27/27, all under Node 22.23.1. No full suite, typecheck/lint, APK or device UX test was run. No push.
 
 ---
 
-# Latest handoff — Profile actions, CU localization & question issue reporting audit — 2026-11-22
+# Historical handoff — Profile actions, CU localization & question issue reporting audit — 2026-11-22
 
 **Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch / audited HEAD:** `feat/import-hstu-verified-answers-2026-11-12` / `a636fb8`
-**Status:** Read-only audit complete. No app source, content, schema, dependencies, release metadata, APK or runtime behavior changed.
+**Historical status at that checkpoint:** Read-only audit complete; the implementation described in the current handoff above was still pending.
 
 ## Findings
 
 1. CU's institution key is normalized correctly to `cu`, but `src/features/catalog/universities.ts` does not contain a CU entry in `KNOWN_UNIVERSITIES`. Therefore Bengali mode falls back to the stored English name. Recommended label: `চট্টগ্রাম বিশ্ববিদ্যালয়`. The existing CU PNG registry is already in place.
 2. Profile currently renders Bookmarks → Practice history → Settings → Marking rules. Swap the last two blocks only; keep their labels, icons, handlers and routes.
-3. Shared `QuestionCard` supports bookmarking but no issue-report action exists. There is no issue-report SQLite table, Profile list, JSON export or share flow.
+3. At that historical checkpoint, Shared QuestionCard supported bookmarking but no issue-report action existed. The report table, Profile list, JSON export and share flow have since been implemented.
 
 ## Recommended implementation sequence
 
 - **Phase 1:** add CU bilingual display metadata and reorder the two Profile buttons. Keep the changes display-only and add localization/order regression coverage.
-- **Phase 2:** add append-only SQLite migration v13 and a local issue-report repository; add a reusable flag action and bilingual issue composer; show a reported-question count/list under Profile with view, edit and delete. Preserve a question/source snapshot and deduplicate by canonical question ID.
-- **Phase 3:** export a versioned JSON bundle and use the SDK 57-compatible Expo Sharing package to open Android's system Sharesheet. The learner chooses WhatsApp, Telegram, email or another compatible target and confirms the recipient/send action. Do not silently send, mark delivery based only on share-sheet launch, or delete local reports. Keep personal profile/attempt data out of the export.
+- **Phase 2 (historical plan, now implemented):** add append-only SQLite migration v13 and a local issue-report repository; add a distinct report action and bilingual issue composer; show a reported-question count/list under Profile with view, edit and delete. Preserve a question/source snapshot and deduplicate by canonical question ID.
+- **Phase 3 (historical plan, now implemented; device verification remains pending):** export a versioned JSON bundle and use the SDK 57-compatible Expo Sharing package to open Android's system Sharesheet. The learner chooses WhatsApp, Telegram, email or another compatible target and confirms the recipient/send action. Do not silently send, mark delivery based only on share-sheet launch, or delete local reports. Keep personal profile/attempt data out of the export.
 
 Detailed schema, proposed JSON format, privacy boundary, Android test requirements, sources and checklist: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
 

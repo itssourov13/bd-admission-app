@@ -4,7 +4,25 @@
 **Repository:** `/home/kali/gpt-workspace/bd-admission-app`
 **Branch / audited HEAD:** `feat/import-hstu-verified-answers-2026-11-12` / `a636fb8`
 **App:** `0.1.11` · Android `versionCode 11` · Expo SDK 57 · SQLite schema v12
-**Status:** Read-only audit and design recommendation. No app source, question data, assets, schema, dependency, release metadata, or runtime behavior changed.
+**Original audit status:** Read-only baseline audit at source HEAD a636fb8; the implementation follow-up below supersedes the baseline's pending-work status and earlier proposed report placement.
+
+## Implementation follow-up — completed locally — 2026-11-22
+
+The original audit recommendations have now been implemented in the current local branch:
+
+- CU is included in the existing bilingual university metadata map. Its catalogue title is **চট্টগ্রাম বিশ্ববিদ্যালয়** in Bangla and **University of Chittagong** in English; the logo, pack metadata, question text and paper names were not rewritten.
+- Profile shortcuts now appear as Bookmarks → Practice history → Marking rules → Settings, with Reported questions as an additional entry.
+- Reports can be opened from Browse, Bookmarks, Flash, Exam and Result. The final owner-approved placement is **directly below Bookmark** in the QuestionCard's compact vertical action column. The action uses an alert-circle icon and a localized accessibility label; it does not use the exam flag glyph. The question text's action column is fixed at 44px and the options remain in their separate full-width section.
+- The report composer supports the seven issue categories, optional details (maximum 1,000 characters), editing existing reports, and a timed-session notice. Exam/Flash timers continue while the native modal is open.
+- Profile → Reported questions lists/counts, opens, edits, deletes and shares reports. SQLite migration v13 adds question_issue_reports and an update-time index. The table stores one report per canonical question ID, issue categories, details, originating surface, a snapshot of the question at first report, timestamps and the last share-sheet hand-off timestamp. Content re-import does not clear this user-owned table.
+- JSON format is bd-admission-question-issues, schemaVersion 1. Export metadata includes app version, platform, UI language and DB schema version. Each report includes IDs, ISO timestamps, origin surface, categories, note and question snapshot. Profile identity, phone, device ID, answers and exam/session history are excluded. The UTF-8 cache file is passed to Expo's native Sharesheet via expo-sharing; hand-off is not recipient delivery.
+- SDK 57 package alignment: Expo 57.0.33, expo-asset 57.0.21, expo-constants 57.0.24, expo-linking 57.0.14, expo-router 57.0.31, expo-splash-screen 57.0.11, expo-sqlite 57.0.5, expo-sharing 57.0.26, direct @expo/metro-runtime 57.0.18; @expo/cli resolves to 57.0.34.
+
+**Final automated verification under Node 22.23.1:** typecheck PASS; lint PASS; expo install --check PASS; targeted suites 54/54; full pnpm test 318/318; git diff --check PASS; Expo Doctor 21/21. The prior Doctor 20/21 log predates the explicit metro-runtime dependency and workspace CLI pin; the final run after those fixes is 21/21.
+
+**Not yet verified:** physical Android layout at different widths, real native file-sharing hand-off/attachment read by WhatsApp, Telegram or Files, and a new preview APK. The existing v0.1.11 APK does not include this implementation. No push or EAS build has been performed.
+
+---
 
 ## Executive summary
 
@@ -85,12 +103,12 @@ There is **no underlying database or state conflict** when content reports use t
 - Preserve the existing exam flag behavior, label, gold `⚑` marker, palette, progress counts, submission warning and Result filter exactly as they are.
 - Never write content reports into `session_answers.flagged`, and never let a report action toggle/clear an Exam review flag.
 - Name the new action **“Report question issue” / “প্রশ্নে সমস্যা জানান”**. Use a distinct `alert-circle-outline` or `bug-outline` style icon; do not use a flag glyph or the same gold flagged treatment.
-- Place the report action in a distinct section at the bottom of the question card, visually separate from the Exam action row that contains “Flag for review” and “Clear”. Do not place the content-report action in the same action row as exam review controls.
+- Place Report **immediately below Bookmark** in the QuestionCard's narrow vertical action column beside the question stem. Keep the options in their existing full-width section. The Exam “Flag for review” and “Clear” controls remain in their own action row below the options; never merge the report action into that exam-control row.
 - If the report composer is opened during an active exam, clearly state that the exam timer continues. Saving a report must not pause, extend, finalize or otherwise mutate the active exam.
 
 ## 4. Question issue reporting — product and technical audit
 
-### Current architecture
+### Architecture observed at the original audit baseline (before implementation)
 
 - The app is local-first: Profile copy says user information stays on the device and no account or internet is required.
 - Bookmarks are stored in the local SQLite `bookmarks` table; the current row contains the question ID and creation timestamp.
@@ -101,7 +119,7 @@ There is **no underlying database or state conflict** when content reports use t
 
 ### Recommended user experience
 
-**A. Report from a question.** Add a clearly labelled **Report question issue / প্রশ্নে সমস্যা জানান** action in its own bottom section of the reusable question card. Do not use a flag icon or place it beside the bookmark icon or the Exam's “Flag for review” control. Use a distinct issue/bug icon (for example `alert-circle-outline`) and a neutral secondary treatment. Tapping it opens a compact Bangla/English form; question ID and source context are captured automatically. During an active exam, state clearly that the timer continues.
+**A. Report from a question.** The implemented action uses a distinct `alert-circle-outline` icon immediately below Bookmark in the QuestionCard's vertical action stack beside the question stem. Its localized label is exposed as an accessibility label. It is not a flag icon and is not merged with the Exam's separate “Flag for review” control row. Tapping opens a compact Bangla/English modal; question ID and source context are captured automatically. During an active timed session, the modal states that the timer continues.
 
 Suggested multi-select issue categories:
 
@@ -190,19 +208,19 @@ For the current Expo SDK 57 app, the documented route is `expo-file-system/legac
 
 ### Implementation phases
 
-**Phase 1 — tiny presentation fixes**
+**Phase 1 — presentation fixes (implemented)**
 - Add CU bilingual display metadata and a regression test.
 - Reorder Profile buttons without changing behavior.
 - Verify Bangla/English labels and Profile navigation.
 
-**Phase 2 — local issue capture**
+**Phase 2 — local issue capture and Profile management (implemented)**
 - Add migration v13 and an issue-report repository.
 - Add the reusable QuestionCard issue-report action (never a flag action) and compact bilingual form. Keep the existing Standard Exam review-flag action and its session state untouched.
 - Add Profile count/list/detail/edit/delete UI.
 - Preserve reports across app restarts and content re-imports.
 - Verify upgrade from schema v12 without losing bookmarks, attempts, sessions, results or profile data.
 
-**Phase 3 — export and share**
+**Phase 3 — export and share (implemented; device verification pending)**
 - Add SDK 57-compatible `expo-sharing`.
 - Generate and validate the versioned JSON export.
 - Add share-sheet and, if requested, Save-to-folder behavior.
@@ -211,17 +229,17 @@ For the current Expo SDK 57 app, the documented route is `expo-file-system/legac
 
 ## Acceptance / regression checklist
 
-- [ ] CU name is Bengali only when app language is Bangla; English label is unchanged.
-- [ ] CU remains grouped as `CU`; logo, question data, sources and exam rules are untouched.
-- [ ] Profile order is Bookmarks → Practice history → Marking rules → Settings.
-- [ ] A report can be created offline from each intended question surface and survives app restart.
-- [ ] Re-reporting the same canonical question edits/updates its existing report rather than duplicating it.
-- [ ] Exam “Flag for review” remains session-scoped and unchanged; reporting an issue neither sets nor clears the exam flag, and the exam palette/progress/result filter remain driven only by `session_answers.flagged`.
-- [ ] The report action has distinct “Report question issue / প্রশ্নে সমস্যা জানান” wording and a non-flag icon; it is not adjacent to the exam review-flag control. The active exam timer continues while its composer is open.
-- [ ] Report list supports view, edit and delete; empty state and count are correct in both languages.
-- [ ] v12→v13 migration preserves existing profile, bookmarks and practice history.
-- [ ] Export is valid UTF-8 JSON, versioned, includes the original question snapshot and source references, and excludes personal/attempt data.
-- [ ] Cancelling the share sheet leaves reports intact; sharing does not claim recipient delivery.
+- [x] CU name is Bengali only when app language is Bangla; English label is unchanged.
+- [x] CU remains grouped as `CU`; logo, question data, sources and exam rules are untouched.
+- [x] Profile order is Bookmarks → Practice history → Marking rules → Settings.
+- [x] Automated tests cover local report creation, all wired surfaces, persistence/re-import behavior and restart-safe SQLite data.
+- [x] Re-reporting the same canonical question edits/updates its existing report rather than duplicating it.
+- [x] Exam “Flag for review” remains session-scoped and unchanged; the issue-report regression tests verify it is independent from reporting.
+- [x] Report is immediately below Bookmark in the fixed-width vertical QuestionCard action stack, with a distinct alert-circle icon/accessibility label; options retain their full-width layout and the Exam review-flag row remains separate. The timed-session composer states that the timer continues.
+- [x] Report list/detail, edit/delete, empty/count states and Bangla/English strings are implemented; storage and localization tests pass.
+- [x] v12→v13 migration test verifies existing profile, bookmarks and content remain available.
+- [x] Export tests verify valid versioned JSON, first-report snapshot/source data and exclusion of personal/attempt data.
+- [x] Sharing retains local reports and labels hand-off rather than claiming recipient delivery; actual receiver-side file acceptance remains a device check.
 - [ ] Android device testing verifies Files, WhatsApp and Telegram where installed; verify file name, MIME type, readable JSON and recipient-side attachment.
 
 ## Verification performed for this audit

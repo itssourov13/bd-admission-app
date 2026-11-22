@@ -478,6 +478,33 @@ ALTER TABLE content_books ADD COLUMN rights_holder TEXT;
 ALTER TABLE content_books ADD COLUMN rights_reference TEXT;
 ALTER TABLE content_books ADD COLUMN rights_reviewed_on TEXT;
 `
+  },
+  {
+    version: 13,
+    name: "question_issue_reports",
+    sql: `
+-- User-owned content-defect reports ("this question looks wrong"). Entirely separate from bookmarks and from the exam
+-- review flag (session_answers.flagged, a per-attempt revision aid). One report per canonical question (UNIQUE), so a
+-- later report of the same question edits the existing row instead of duplicating it. Like bookmarks there is no
+-- cascade from questions (question rows are never deleted) and content imports never touch this table.
+--   issue_types_json: JSON array of issue category ids (validated in src/services/issueReports.ts)
+--   question_snapshot_json: the question exactly as the learner saw it when first reported (text, options, key state,
+--     explanation, figure paths, source appearances), so later content corrections do not erase the evidence
+--   surface: where it was reported (flash/exam/result/browse/bookmarks), for triage only
+--   exported_at: last time the report was handed to the OS share sheet; NOT a delivery receipt (NULL = never)
+CREATE TABLE question_issue_reports (
+  id TEXT PRIMARY KEY NOT NULL,
+  question_id TEXT NOT NULL UNIQUE REFERENCES questions(id),
+  issue_types_json TEXT NOT NULL,
+  details TEXT NOT NULL DEFAULT '',
+  surface TEXT NOT NULL,
+  question_snapshot_json TEXT NOT NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  exported_at INTEGER
+);
+CREATE INDEX idx_question_issue_reports_updated ON question_issue_reports(updated_at DESC);
+`
   }
 ];
 

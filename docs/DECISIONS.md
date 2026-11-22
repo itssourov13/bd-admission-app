@@ -1,3 +1,19 @@
+## ADR-042 — Keep content issue reports separate from personal bookmarks and exam review flags
+
+Status: accepted and implemented locally, 2026-11-22.
+
+Context: learners need a way to notify the maintainer about a suspect question, while Bookmark remains personal saved content and Standard Exam's existing Flag for review remains a per-attempt reminder stored in session_answers.flagged.
+
+Decision:
+- Store content reports in a dedicated SQLite v13 table and repository, one record per canonical question ID. Keep them offline and device-local; do not introduce an account, server or upload requirement.
+- Preserve a first-report question snapshot and the report origin surface so later content updates do not erase investigation context.
+- Place the distinct alert-circle Report action immediately below Bookmark in QuestionCard's compact vertical action stack; keep the existing Exam Flag action in its separate exam controls below the options. Do not change option layout or flag persistence/behavior.
+- Manage reports from Profile and export a privacy-bounded, versioned JSON file through the operating-system Sharesheet. The share hand-off timestamp is not a delivery receipt.
+
+Consequences: no existing bookmark or exam flag data is repurposed. The feature works offline. Native file sharing requires an SDK-compatible native build; WhatsApp/Telegram/Files behavior remains subject to physical-device verification.
+
+---
+
 ## ADR-021 — Partial official facts do not imply complete scoring or an exact paper
 Status: accepted, 2026-11-05.
 

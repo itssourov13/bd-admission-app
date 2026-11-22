@@ -14,6 +14,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { href } from "@/features/navigation/links";
 import { useNum, useT } from "@/i18n";
 import { useTheme } from "@/settings";
+import { countIssueReports } from "@/repositories/issueReports";
 import { activitySummary, getProfile, saveDisplayName, updateProfile } from "@/repositories/userData";
 import type { QuestionCategory } from "@/types/domain";
 
@@ -24,6 +25,7 @@ export default function ProfileScreen() {
   const db = useDb();
   const router = useRouter();
   const q = useQuery(async (d) => ({ profile: await getProfile(d), activity: await activitySummary(d) }));
+  const reports = useQuery((d) => countIssueReports(d));
   const [typedName, setName] = useState<string | null>(null);
   const [nameStatus, setNameStatus] = useState<"idle" | "saved" | "error">("idle");
   const [savingName, setSavingName] = useState(false);
@@ -118,9 +120,13 @@ export default function ProfileScreen() {
         <View className="mt-3 gap-2.5">
           <Button label={`${t("profile.openBookmarks")} (${num(activity.bookmarks)})`} variant="outline" icon={<Ionicons name="bookmark-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/bookmarks"))} />
           <Button label={t("profile.openHistory")} variant="outline" icon={<Ionicons name="time-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/history"))} />
-          <Button label={t("settings.open")} variant="outline" icon={<Ionicons name="settings-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/settings"))} />
           <Button label={t("marking.title")} variant="outline" icon={<Ionicons name="calculator-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/marking-profiles"))} />
+          <Button label={t("settings.open")} variant="outline" icon={<Ionicons name="settings-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/settings"))} />
         </View>
+
+        {/* Kept apart from the four shortcuts above so their order stays exact; reporting is a separate feature. */}
+        <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-6 mb-3">{t("profile.reportsSection")}</Txt>
+        <Button label={`${t("profile.openReports")}${reports.data !== undefined && reports.data !== null ? ` (${num(reports.data)})` : ""}`} variant="outline" icon={<Ionicons name="alert-circle-outline" size={18} color={colors.brand700} />} onPress={() => router.push(href("/reports"))} />
 
         <Txt font="display" weight="bold" className="text-ink-900 text-lg mt-6 mb-2">{t("profile.about")}</Txt>
         <Txt className="text-ink-500 text-sm leading-6">{BRAND.name} · {t("profile.version", { v: String(Constants.expoConfig?.version ?? "0.1.0") })}</Txt>

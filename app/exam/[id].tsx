@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Button, Card, Screen, Txt } from "@/components/ui";
 import { QuestionCard } from "@/components/common/QuestionCard";
+import { useQuestionReporting } from "@/features/reports/useQuestionReporting";
 import { selectionModeOf, toggleSelection } from "@/services/answerSelection";
 import { ExamPalette } from "@/components/common/ExamPalette";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
@@ -197,6 +198,8 @@ export default function ExamScreen() {
     return () => sub.remove();
   }, [confirmLeave]);
 
+  const reporting = useQuestionReporting("exam", { timerRunning: true });
+
   if (state === "loading") return <Screen edges={["top", "bottom"]}><LoadingView /></Screen>;
   if (state === "error") return <Screen edges={["top", "bottom"]}><ErrorView onRetry={() => { setState("loading"); void load(); }} /></Screen>;
   if (state === "missing" || !exam) {
@@ -246,7 +249,7 @@ export default function ExamScreen() {
         }}
         sections={sections}
         keyExtractor={(item) => item.question.id}
-        extraData={{ selected, marks, busy, flagged }}
+        extraData={{ selected, marks, busy, flagged, reported: reporting.reported }}
         contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 20, flexGrow: sections.length === 0 ? 1 : undefined }}
         stickySectionHeadersEnabled={false}
         initialNumToRender={5}
@@ -287,6 +290,8 @@ export default function ExamScreen() {
                     () => setNotice("error.saveFailed")
                   );
                 }}
+                onReport={() => reporting.open(question)}
+                reported={reporting.reported.has(question.id)}
               />
               <View className="mt-2 flex-row flex-wrap">
                 <Button label={flagged.has(question.id) ? t("exam.unflag") : t("exam.flag")} variant="ghost" size="md" onPress={() => toggleFlag(question.id)} />
@@ -307,6 +312,7 @@ export default function ExamScreen() {
           disabled={busy}
         />
       </View>
+      {reporting.sheet}
     </Screen>
   );
 }

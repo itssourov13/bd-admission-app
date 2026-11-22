@@ -21,6 +21,10 @@ interface Props {
   disabled?: boolean;
   bookmarked?: boolean;
   onToggleBookmark?: () => void;
+  /** Opens the issue-report composer. Rendered directly below Bookmark; independent of the exam review flag. */
+  onReport?: () => void;
+  /** True when this question already has a saved report (filled icon; the action then opens it for editing). */
+  reported?: boolean;
   showSources?: boolean;
   /** Show and provisionally score a source key that has not been independently verified. */
   provisionalScoring?: boolean;
@@ -31,7 +35,7 @@ interface Props {
   showSourceKey?: boolean;
 }
 
-export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, showSources = false, provisionalScoring = false, showSourceKey = false }: Props) {
+export function QuestionCard({ question, selected = [], onSelect, reveal = false, disabled = false, bookmarked, onToggleBookmark, onReport, reported = false, showSources = false, provisionalScoring = false, showSourceKey = false }: Props) {
   const { colors, feedback } = useTheme();
   const haptics = useHaptics();
   const t = useT();
@@ -54,17 +58,35 @@ export function QuestionCard({ question, selected = [], onSelect, reveal = false
     <View>
       <View className="flex-row items-start gap-2">
         <MathText weight="semibold" size={17} lineHeight={28} className="flex-1 text-ink-900">{question.text}</MathText>
-        {onToggleBookmark ? (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={bookmarked ? t("question.unbookmark") : t("question.bookmark")}
-            accessibilityState={{ selected: Boolean(bookmarked) }}
-            onPress={() => { haptics.select(); onToggleBookmark(); }}
-            hitSlop={6}
-            className="w-11 h-11 items-center justify-center rounded-full active:bg-sand-100"
-          >
-            <Ionicons name={bookmarked ? "bookmark" : "bookmark-outline"} size={24} color={bookmarked ? colors.gold500 : colors.ink500} />
-          </Pressable>
+        {onToggleBookmark || onReport ? (
+          // Fixed-width (44px) vertical action stack: the question text keeps exactly the width it had with a lone
+          // bookmark button, and the options below are outside this row so their columns are never affected.
+          <View className="items-center" style={{ width: 44 }}>
+            {onToggleBookmark ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={bookmarked ? t("question.unbookmark") : t("question.bookmark")}
+                accessibilityState={{ selected: Boolean(bookmarked) }}
+                onPress={() => { haptics.select(); onToggleBookmark(); }}
+                hitSlop={{ top: 6, left: 6, right: 6 }}
+                className="w-11 h-11 items-center justify-center rounded-full active:bg-sand-100"
+              >
+                <Ionicons name={bookmarked ? "bookmark" : "bookmark-outline"} size={24} color={bookmarked ? colors.gold500 : colors.ink500} />
+              </Pressable>
+            ) : null}
+            {onReport ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={reported ? t("report.edit") : t("report.action")}
+                accessibilityState={{ selected: reported }}
+                onPress={() => { haptics.select(); onReport(); }}
+                hitSlop={{ bottom: 6, left: 6, right: 6 }}
+                className="w-11 h-11 items-center justify-center rounded-full active:bg-sand-100"
+              >
+                <Ionicons name={reported ? "alert-circle" : "alert-circle-outline"} size={23} color={reported ? feedback.danger500 : colors.ink500} />
+              </Pressable>
+            ) : null}
+          </View>
         ) : null}
       </View>
 

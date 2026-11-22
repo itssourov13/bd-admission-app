@@ -10,12 +10,11 @@ allowBuilds:
 # Explicit pnpm v11 dependency-age policy; SDK-pinned packages below are intentional exceptions.
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
-  - '@expo/cli@57.0.32'
   - '@expo/config-plugins@57.0.11'
   - 'expo@57.0.31'
   - 'expo-router@57.0.29'
   - 'expo-modules-core@57.0.23'
 
 overrides:
-  '@expo/cli': 57.0.32
+  '@expo/cli': 57.0.34
   expo-modules-core: 57.0.23

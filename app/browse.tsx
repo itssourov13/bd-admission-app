@@ -7,6 +7,7 @@ import { ChoiceChip } from "@/components/common/Toggle";
 import { TextField } from "@/components/common/TextField";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { QuestionCard } from "@/components/common/QuestionCard";
+import { useQuestionReporting } from "@/features/reports/useQuestionReporting";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useNum, useT, type TranslationKey } from "@/i18n";
@@ -40,6 +41,7 @@ export default function BrowseScreen() {
   const [more, setMore] = useState(false);
   const [busy, setBusy] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const reporting = useQuestionReporting("browse");
   const [search, setSearch] = useState<string | undefined>();
   // Only the newest request may write state, so a slow older query can never overwrite fresher results.
   const gate = useRef(createRequestGate()).current;
@@ -166,6 +168,7 @@ export default function BrowseScreen() {
         <FlatList
           data={items}
           keyExtractor={(x) => x.id}
+          extraData={{ marks, reported: reporting.reported }}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 28, flexGrow: items.length === 0 ? 1 : undefined }}
           onEndReached={() => void loadMore()}
           onEndReachedThreshold={0.6}
@@ -180,7 +183,7 @@ export default function BrowseScreen() {
           }
           renderItem={({ item }) => (
             <Card className="p-4">
-              <QuestionCard question={item} reveal showSources showSourceKey={Boolean(bookId)} bookmarked={marks.has(item.id)} onToggleBookmark={() => void toggle(item.id)} />
+              <QuestionCard question={item} reveal showSources showSourceKey={Boolean(bookId)} bookmarked={marks.has(item.id)} onToggleBookmark={() => void toggle(item.id)} onReport={() => reporting.open(item)} reported={reporting.reported.has(item.id)} />
             </Card>
           )}
           ListFooterComponent={more ? (
@@ -190,6 +193,7 @@ export default function BrowseScreen() {
           ) : null}
         />
       )}
+      {reporting.sheet}
     </Screen>
   );
 }

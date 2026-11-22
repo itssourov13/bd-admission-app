@@ -1,3 +1,15 @@
+## 2026-11-22 — Implement CU localization, Profile ordering and question issue reporting
+
+- Added CU's English/Bangla catalogue display name and reordered Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings. Added the Reported questions entry.
+- Added a local-first question issue reporting flow from Browse, Bookmarks, Flash, Exam and Result. The alert-circle icon sits directly below Bookmark in the shared QuestionCard action stack; question/options layout stays intact. The exam's separate Flag for review remains unchanged.
+- Added additive SQLite migration v13 (question_issue_reports plus an update-time index), per-question de-duplication, issue-category validation, updatable details, origin surface and a first-report question snapshot.
+- Added Profile report listing/detail/edit/delete and versioned JSON export via the Android native Sharesheet. JSON format: bd-admission-question-issues, schemaVersion 1; includes app/platform/language/DB schema metadata and report snapshots, while excluding profile identity and exam-answer history.
+- Added SDK 57-compatible expo-sharing ~57.0.26 and direct @expo/metro-runtime ~57.0.18; aligned Expo patch packages and workspace @expo/cli pin to 57.0.34.
+- Final automated checks on Node 22.23.1: typecheck, lint, expo install --check, targeted tests 54/54, full test suite 318/318, git diff --check and Expo Doctor 21/21 all passed.
+- Physical Android preview QA and a new preview APK remain pending. No push or deployment.
+
+---
+
 ## 2026-11-22 — Follow-up audit: keep Exam Flag for review separate from issue reporting
 
 - Confirmed the existing Standard Exam review flag is session-scoped in `session_answers.flagged` (SQLite migration v7), is consumed by the exam palette/progress/submission and completed-result filter, and is independent of answer selection/scoring.

@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Button, Card, Chip, Screen, Txt } from "@/components/ui";
 import { QuestionCard } from "@/components/common/QuestionCard";
+import { useQuestionReporting } from "@/features/reports/useQuestionReporting";
 import { EmptyView, ErrorView, LoadingView } from "@/components/common/StateViews";
 import { useDb } from "@/db/provider";
 import { useNow } from "@/hooks/useNow";
@@ -115,6 +116,8 @@ export default function FlashPlay() {
     } catch { setNotice(t("error.saveFailed")); }
   };
 
+  const reporting = useQuestionReporting("flash", { timerRunning: running });
+
   if (boot === "boot") return <Screen edges={["top", "bottom"]}><LoadingView /></Screen>;
   if (boot === "error") return <Screen edges={["top", "bottom"]}><ErrorView onRetry={() => { setBoot("boot"); begin(); }} /></Screen>;
   if (boot === "empty" || !c) {
@@ -180,6 +183,8 @@ export default function FlashPlay() {
             }}
             bookmarked={marks.has(q.id)}
             onToggleBookmark={() => void toggle(q.id)}
+            onReport={() => reporting.open(q)}
+            reported={reporting.reported.has(q.id)}
             showSources={Boolean(fb)}
             provisionalScoring={c.reviewUnverified}
           />
@@ -198,6 +203,7 @@ export default function FlashPlay() {
           )}
         </ScrollView>
       )}
+      {reporting.sheet}
     </Screen>
   );
 }

@@ -1,3 +1,20 @@
+## CU localization, Profile ordering & question issue reporting — implemented and automated checks passed — 2026-11-22
+
+**Local source status:** Implemented and committed locally on feat/import-hstu-verified-answers-2026-11-12 as 8f36b13; automated verification passed on Node 22.23.1. No push or EAS build has been performed. App release metadata remains **0.1.11 / Android versionCode 11** until a separately approved release update.
+
+- CU's bilingual catalogue metadata now resolves to **চট্টগ্রাম বিশ্ববিদ্যালয়** in Bangla and **University of Chittagong** in English. The existing CU logo and question-pack data are unchanged.
+- Profile shortcuts are ordered Bookmarks → Practice history → Marking rules → Settings. Reported questions is an additional, separate Profile entry.
+- Question issue reporting is available from Browse, Bookmarks, Flash, active Exam and Result question cards. The alert-circle action is directly below Bookmark in a fixed-width vertical action stack next to the question stem; the A/B/C/D options remain in their existing full-width section. The existing Exam **Flag for review** remains a separate per-session feature below the options.
+- SQLite migration **v13** adds question_issue_reports and an updated_at DESC index. Reports are offline/local, unique per canonical question, retain the first-reported question snapshot and record the originating surface. They do not reuse bookmarks or session_answers.flagged.
+- Profile → Reported questions supports list/count, detail, edit, delete and JSON share. The versioned JSON envelope is bd-admission-question-issues schema v1; sharing uses SDK-57-compatible expo-sharing ~57.0.26 and expo-file-system/legacy through Android's native Sharesheet. A share-sheet hand-off is not proof of recipient delivery.
+- SDK 57 package alignment now includes Expo 57.0.33 and direct @expo/metro-runtime ~57.0.18; @expo/cli resolves to 57.0.34. All package compatibility checks and Expo Doctor pass.
+
+**Final automated verification (Node 22.23.1):** TypeScript typecheck PASS; Expo lint PASS; expo install --check PASS; targeted suites **54/54**; full pnpm test **318/318**; git diff --check PASS; Expo Doctor **21/21**. Console reports normal Node experimental SQLite and module-type performance warnings; no test failures.
+
+**Still required:** physical Android preview QA for responsive QuestionCard layout, modal/timer behavior and file attachment sharing through available targets (especially WhatsApp, Telegram and Files). The currently published/installed v0.1.11 APK does not include these local changes; build a new preview only after this local commit is reviewed and the owner requests it.
+
+---
+
 ## Standard Exam review flag and question-issue reporting — follow-up audit — 2026-11-22
 
 A follow-up code audit confirmed the existing Standard Exam **Flag for review** feature is already implemented and must remain separate from any global content-issue report. Migration v7 adds `session_answers.flagged`, stored per `(session_id, question_id)`. It feeds the active Exam marker/palette, progress and submission counts, then the completed Result's Flagged filter. It does not change answer selection or score and cannot be changed after finalization. `tests/exam-review.test.ts` passed 7/7. The issue report must have its own table/repository, a distinct “Report question issue / প্রশ্নে সমস্যা জানান” action and a non-flag icon; never reuse the exam flag or put both actions side by side.
@@ -6,11 +23,11 @@ Detailed separation requirements and revised UX recommendation are recorded in [
 
 ---
 
-## Profile, CU localization & question issue reporting audit — 2026-11-22
+## Historical pre-implementation audit baseline — Profile, CU localization & issue reporting — 2026-11-22
 
-**Status:** Read-only audit completed; no app source, question data, schema, dependency, release metadata or runtime behavior changed. Confirmed CU's Bangla name is missing from the bilingual university display map, the Profile actions place Settings before Marking rules, and no question-issue reporting flow currently exists. The detailed findings, UX/data model, JSON export contract, SDK 57 sharing approach, acceptance checks and source links are in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md).
+**Historical status at the time of this entry:** Read-only baseline audit only; its pending implementation statement is superseded by the completed implementation entry at the top of this file. The detailed findings, UX/data model, JSON export contract, SDK 57 sharing approach, acceptance checks and source links are in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md).
 
-Focused baseline verification under Node 22.23.1: `tests/universities.test.ts` + `tests/repositories.test.ts`, 27/27 passed. Implementation is pending; latest owner-reported Android preview remains v0.1.11. No push.
+Focused baseline verification at that earlier checkpoint under Node 22.23.1: tests/universities.test.ts + tests/repositories.test.ts, 27/27 passed. Implementation was pending at that time; it is now complete in the current local source. The Android preview remains v0.1.11 until a new build is requested. No push.
 
 ---
 
