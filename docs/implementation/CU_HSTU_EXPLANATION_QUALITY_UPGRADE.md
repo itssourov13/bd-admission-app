@@ -46,5 +46,5 @@ Deferral means the original question and key remain unchanged and no new explana
 - HSTU verification against ledger baseline 2,100 passed: 850 changed unique IDs matched 850 new ledger entries; final explanation text matched the latest ledger entry; all changed records remained verified; non-explanation field changes were zero.
 - Deferred reconciliation found no verified question group missing both an explanation and a documented deferral; no stale deferred question IDs remained.
 - No app logic, schema, exam marking, question source, answer key or verification status changes were part of this task.
-- HSTU pack changes and final generated-content/type/test validation are being completed separately from the already-committed CU checkpoint. No push has been made.
+- HSTU pack changes were committed in 5c2bf49; generated-content validation, typecheck and all 318 tests passed after both university upgrades. No push or app build has been made.
 
