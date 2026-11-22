@@ -23,7 +23,7 @@
 
 ## Current Android preview
 
-**v0.1.11** · Android `versionCode 11` · `com.admissionbd.app` · EAS `preview` (internal APK). EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c` is complete; the owner installed the APK on Android and reports that the checks performed work normally. [Open the EAS build page / APK](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c). This build includes CU A Unit. The owner did not provide handset/OS details or an exhaustive test log, so this is a successful manual smoke check. Some answer explanations have formatting issues; further examples are being collected for a grouped fix. This is a preview, not a Google Play release. The current local source additionally includes CU Bangla localization, the reordered Profile shortcuts and question issue reporting (SQLite v13); these changes are not in the v0.1.11 APK. A new preview build is required for device QA and distribution.
+**v0.1.12 candidate** · Android versionCode 12 · com.admissionbd.app · EAS preview (internal APK). This release candidate contains CU Bangla catalogue localization, the reordered Profile shortcuts, local question issue reporting (SQLite v13), Profile report management and JSON export through the Android Sharesheet. EAS cloud submission is being prepared; no v0.1.12 APK is available or device-tested yet. The previous v0.1.11 build remains the last completed and owner-tested preview (EAS build 8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an internal preview candidate, not a Google Play release.
 
 ## License
 

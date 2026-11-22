@@ -1,3 +1,14 @@
+## 2026-11-22 — Prepare v0.1.12 Android preview with CU localization and question issue reporting
+
+- Bumped Expo app / brand / package version from 0.1.11 to 0.1.12 and Android versionCode from 11 to 12.
+- Preserved Android application ID com.admissionbd.app, Expo slug, EAS project ID, preview / INTERNAL APK profile and EAS-managed signing identity.
+- This candidate includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, additive SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
+- Automated implementation gates previously passed on Node 22.23.1: full suite 318/318, targeted tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
+- Target is an internal APK preview only; not a production AAB or Google Play submission. Existing v0.1.11 remains the last completed and owner-tested APK. Physical Android QA of v0.1.12 will follow the cloud build.
+- EAS cloud submission status will be recorded after the service accepts the job. No push.
+
+---
+
 ## 2026-11-22 — Implement CU localization, Profile ordering and question issue reporting
 
 - Added CU's English/Bangla catalogue display name and reordered Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings. Added the Reported questions entry.

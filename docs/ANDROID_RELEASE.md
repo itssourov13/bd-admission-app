@@ -1,6 +1,16 @@
+## Current Android preview candidate — 2026-11-22 (v0.1.12; EAS submission pending)
+
+- Release metadata: Expo app / brand / package **0.1.12**, Android **versionCode 12**; application ID com.admissionbd.app; EAS preview / INTERNAL APK. Existing Expo slug, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec and EAS-managed Android signing identity are retained.
+- Feature scope: CU Bangla catalogue-name localization, Profile shortcut ordering, offline question issue reports (SQLite v13), Profile list/detail/edit/delete, privacy-bounded versioned JSON export and native Android Sharesheet. Report is directly below Bookmark and remains distinct from the Standard Exam review flag.
+- Automated implementation gates already passed on Node 22.23.1: 318/318 full tests, 54/54 focused tests, TypeScript, lint, Expo install check, diff check and Expo Doctor 21/21.
+- Target: internal APK only. The existing v0.1.11 build is the last completed and owner-tested preview; it does not include these features. Physical-device QA must be performed on the v0.1.12 APK after EAS completes.
+- **EAS status:** build submission is pending at this candidate checkpoint. Record returned build ID plus accepted/queued/started state after EAS acknowledges it. Stop monitoring once accepted; do not wait for completion. This is not a production AAB or Google Play submission.
+
+---
+
 # Android build and release guide
 
-## Current Android preview — 2026-11-19 (v0.1.11; built and owner-tested)
+## Previous completed preview — 2026-11-19 (v0.1.11; built and owner-tested)
 
 - Release metadata: Expo app / brand / package version **0.1.11**, Android **versionCode 11**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. The existing Expo slug, EAS project ID and EAS-managed Android signing identity are retained.
 - Content: includes CU A Unit Science (26 papers / 2,558 questions / 11,397 options / 68 sources) and the existing RU/JU/HSTU/DU/ASPECT content. Combined generated seed contains 231 entries / 16,407 question rows; Varsity catalogue contains 230 packs / 14,579 questions. CU's original University website PNG is included.
@@ -52,7 +62,7 @@ The `preview` profile uses internal distribution and creates an installable APK.
 - Automated verification is complete. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. ZIP integrity passed, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected. Expo Doctor: 20/21 checks passed; only an SDK patch-version mismatch across five Expo packages failed. This did not block prebuild, Gradle or APK creation. Align patches and rerun Doctor in a separate maintenance pass. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
-Last updated: 2026-11-19
+Last updated: 2026-11-22
 
 ## Release configuration
 

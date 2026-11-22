@@ -1,3 +1,17 @@
+# Latest handoff — Android preview v0.1.12 EAS submission — 2026-11-22
+
+**Workspace:** /home/kali/gpt-workspace/bd-admission-app
+**Branch:** feat/import-hstu-verified-answers-2026-11-12
+**Release candidate:** app / brand / package 0.1.12, Android versionCode 12, application ID com.admissionbd.app.
+**EAS target:** preview / INTERNAL Android APK; existing Expo slug, EAS project ID and EAS-managed signing identity retained.
+**Account:** sk_king13 (authenticated owner); linked EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec.
+
+The v0.1.12 source includes the recently committed CU Bangla catalogue localization, Profile shortcut order, local-first question issue reports, SQLite schema v13, Profile report management and privacy-bounded JSON export/native Sharesheet. Previous automated verification on Node 22.23.1 passed: 318/318 full tests, 54/54 focused tests, typecheck, lint, Expo install check, git diff check and Expo Doctor 21/21.
+
+**Current submission state:** release metadata and documentation prepared; EAS build request has not yet been sent. Confirm resolved Expo config and run the preview Android build with no-wait behavior. Once EAS returns a build ID and accepted/queued/started state, update this handoff and stop monitoring. Do not wait for the cloud build to finish. This is an internal APK preview, not Google Play production submission. No push.
+
+---
+
 # Latest handoff — CU localization, Profile ordering & issue reporting implemented — 2026-11-22
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app

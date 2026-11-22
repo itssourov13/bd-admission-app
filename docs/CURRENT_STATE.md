@@ -1,3 +1,15 @@
+## Android preview v0.1.12 — release candidate — 2026-11-22
+
+**Release metadata:** app / brand / package **0.1.12**, Android **versionCode 12**, application ID com.admissionbd.app. Target is the existing EAS preview / INTERNAL Android APK profile. Expo slug, EAS project ID and EAS-managed signing identity remain unchanged.
+
+- Includes CU Bangla catalogue-name localization, the requested Profile shortcut order, the complete local question-issue reporting flow (SQLite v13), JSON report export and native Android Sharesheet integration. This is the first preview candidate containing those changes.
+- Source automated gates on Node 22.23.1: typecheck, lint, Expo dependency check, targeted tests **54/54**, full suite **318/318**, git diff check, and Expo Doctor **21/21** pass. Content/pack/asset inputs are unchanged from the already verified implementation commit.
+- The v0.1.11 APK remains the last completed/owner-tested preview and does not include this implementation. The v0.1.12 candidate must receive physical-device checks before broader distribution.
+- EAS preview generates an internal APK, not a production AAB and not a Google Play submission. Preserve the existing app ID, linked EAS project and managed Android signing identity.
+- **Submission status:** versioned source is prepared; EAS cloud submission is pending. After submission, record the EAS build ID and confirm the service accepted it into the queue/started state. Stop monitoring there; do not wait for cloud build completion. No push.
+
+---
+
 ## CU localization, Profile ordering & question issue reporting — implemented and automated checks passed — 2026-11-22
 
 **Local source status:** Implemented and committed locally on feat/import-hstu-verified-answers-2026-11-12 as 1a76488; automated verification passed on Node 22.23.1. No push or EAS build has been performed. App release metadata remains **0.1.11 / Android versionCode 11** until a separately approved release update.

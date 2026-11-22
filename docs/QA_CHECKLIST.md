@@ -1,3 +1,19 @@
+## Android preview candidate v0.1.12 — 2026-11-22
+
+| Check | Result | Evidence |
+|---|---|---|
+| Release metadata | [x] Prepared | App / brand / package 0.1.12; Android versionCode 12; package com.admissionbd.app; Expo slug and EAS project preserved. |
+| Feature scope | [x] Included in source | CU Bangla catalogue display, Profile ordering, SQLite v13 question issue reports, Profile list/detail/edit/delete, versioned JSON export and Android Sharesheet. |
+| Automated implementation gates | [x] Pass | Node 22.23.1: full tests 318/318; focused tests 54/54; typecheck; lint; Expo dependency check; Expo Doctor 21/21; diff check. |
+| Resolved Expo config | [ ] Pending | Verify 0.1.12, Android versionCode 12, package com.admissionbd.app, slug bd-admission-app and existing EAS project ID before upload. |
+| EAS preview submission | [ ] Pending | Submit Android preview / INTERNAL APK; record build ID and confirm accepted/queued/started. Stop monitoring after acceptance. |
+| Cloud build completion | [ ] Not awaited | Deliberately do not monitor until finish; inspect only after the owner requests it. |
+| Physical Android install and run | [ ] Pending | Install v0.1.12 APK and test layout, timed report composer, local persistence and JSON attachment sharing. |
+| Google Play production release | [ ] Not requested | Internal APK only; no production AAB or Play submission. |
+| Git | [ ] Pending | Commit release metadata and candidate documentation, then commit EAS submission handoff locally. No push. |
+
+---
+
 ## Android preview v0.1.11 — 2026-11-19
 
 | Check | Result | Evidence |

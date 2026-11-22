@@ -1,3 +1,18 @@
+## Android preview v0.1.12 — versioned and ready for EAS cloud submission — 2026-11-22
+
+**Status:** Release metadata bumped to app/brand/package 0.1.12 / Android versionCode 12. Target: EAS Android preview / INTERNAL APK. EAS cloud submission is next; monitoring stops after the service accepts/queues the build. No push.
+
+- [x] Confirmed clean starting worktree, branch and previous release 0.1.11 / Android code 11.
+- [x] Bumped package.json, brand.config.json and app.config.js to 0.1.12 / versionCode 12.
+- [x] Preserved com.admissionbd.app, Expo slug bd-admission-app, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec, preview profile and EAS-managed Android signing identity.
+- [x] Updated README and Android release/current-state/task/changelog/handoff/QA documentation for the v0.1.12 candidate and the actual feature scope (CU Bangla display, Profile ordering, local reports, SQLite v13, JSON export/Sharesheet).
+- [x] Previously completed implementation verification remains green on Node 22.23.1: TypeScript, lint, Expo install check, targeted 54/54, full suite 318/318, diff check, Expo Doctor 21/21.
+- [ ] Resolve Expo public config and recheck release version/package/versionCode/project ID.
+- [ ] Submit the EAS Android preview build and record the returned build ID / accepted queue state.
+- [ ] Commit the final EAS submission handoff locally. No push and no long monitoring/build-completion wait.
+
+---
+
 ## CU localization, Profile ordering & question issue reporting — implementation complete locally — 2026-11-22
 
 **Status:** Implementation, automated verification, documentation and local commit 1a76488 are complete on the current feature branch. No EAS build or push.
