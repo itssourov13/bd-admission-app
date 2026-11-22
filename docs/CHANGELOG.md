@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 25
+
+- Completed the remaining eligible RU Chemistry explanation work. Replaced 4 garbled explanations in the 2018-19 D1 VQ book and added 5 updates for the remaining valid unique Chemistry questions (3 authored + 2 exact duplicate propagations). Reconciled all 947 verified Chemistry questions: 905 explained and 42 source/key-issue questions explicitly deferred; no eligible unexplained Chemistry questions remain.
+
 ## 2026-11-22 — RU explanations, checkpoint 24
 
 - Added 48 new RU Chemistry explanations and replaced 11 garbled explanations in ch_11 (59 explanation-only pack updates across 6 packs). One physically impossible aqueous electrolysis question was deferred; source/OCR and unit caveats were documented without changing original question data or keys.
