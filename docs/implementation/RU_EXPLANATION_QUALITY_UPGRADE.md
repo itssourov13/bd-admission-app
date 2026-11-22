@@ -56,5 +56,8 @@ ch_01 (55 authored + 6 duplicate propagations = 61 additions across 8 packs: ruc
 ## Checkpoint 15 (2026-11-22)
 ch_02 (64 authored + 13 duplicate propagations = 77 additions across 15 packs: ruh 2010-11, ruc/ruf/rug/ruh 2011-12 and later-year duplicates). Answers derived from stems during authoring. At apply time: dry run (0 errors), automated check that each explanation's final option letter equals the stored key (64/64), numeric recompute of the calculation items, and web checks for three deferrals (TSP P2O5 range, brass/Dutch metal composition, CuSO4.5H2O crystal system). Post-apply check (verify_final.py 1289): 77/77 tree changes match ledger, 0 non-explanation changes, all still verified. 6 new deferrals documented. No full build by design.
 
+## Checkpoint 16 (2026-11-22)
+ch_03 (57 authored + 8 duplicate propagations = 65 ledger rows across 11 packs). Answers derived from stems during authoring. Checks: dry run 0 errors; final option letter in each explanation equals the stored key (57/57); numeric items recomputed by hand (stoichiometry, half-lives, Graham's law, KE of gas, empirical formula); source image for ruc q027 opened (p-chlorotoluene); web checks for trimethylamine Kb and asbestos formula. Post-apply check (verify_final.py 1366): 65/65 tree changes match ledger, 0 non-explanation changes, all still verified. 5 new deferrals documented. No full build by design.
+
 ## Remaining
-Physics 26 (all documented deferrals), Chemistry 559, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
+Physics 26 (all documented deferrals), Chemistry 497, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
