@@ -1,3 +1,7 @@
+## RU explanation content — checkpoint 9 (in progress)
+
+- RU explanation upgrade — checkpoint 9 (2026-11-22): ph_07 applied (42 ledger rows, 860 total / 855 unique): Physics 476/845 (369 remaining); Chemistry 250/947; Biology 384/1,416; HM 799/838; ICT 97/98. RU verified explained 2,006/4,144; 2,056/4,249 total. No deferrals in ph_07. Full build/validation intentionally deferred to the end of all RU/CU/HSTU content work (last full cycle: checkpoint 5).
+
 ## RU explanation content — checkpoint 8 (in progress)
 
 - RU explanation upgrade — checkpoint 8 (2026-11-22): ph_02-ph_06 + fix_03 (ICT gate image verified) applied: 168 ledger rows (818 total / 813 unique). 2,014/4,249 explanations; verified explained 1,964/4,144; Physics 434/845 (411 remaining incl. deferrals), Chemistry 250/947, Biology 384/1,416, HM 799/838, ICT 97/98. Six more Physics deferrals recorded. No build run; manifest and seed untouched. Next: ph_07.
