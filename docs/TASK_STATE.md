@@ -1,3 +1,7 @@
+## RU explanation upgrade — checkpoint 10 (In Progress) — 2026-11-22
+
+- RU explanation upgrade — checkpoint 10 (2026-11-22): ph_08-ph_12 applied (196 ledger rows: 40/39/40/39/38; 1,056 rows total / 1,051 unique; one intentional duplicate propagation, ru-sci-c-2015-2016-ruh-mcq-q017-109954-ch, in ph_09). RU explanations 2,246/4,249; verified explained 2,196/4,144; Physics 666/845 (179 remaining incl. deferrals); Chemistry 250/947 (697 remaining); Biology 384/1,416 (1,032 remaining); HM 799/838 (39 documented deferrals); ICT 97/98. Five new Physics deferrals (ph_09: rug q012-109344, rug q020-109900; ph_11: ruh q031-110341; ph_12: ruc q016-109755, rug q025-110801), each with a reason in REVIEW_FLAGS.md; deferred.txt now 53 entries. verify_final.py 860: 196/196 changed ids match the ledger, 0 non-explanation changes, all still verified. No build run; manifest and seed untouched (last full cycle: checkpoint 5). Next: ph_13.
+
 ## RU explanation upgrade — checkpoint 9 (In Progress) — 2026-11-22
 
 - RU explanation upgrade — checkpoint 9 (2026-11-22): ph_07 applied (42 ledger rows, 860 total / 855 unique): Physics 476/845 (369 remaining); Chemistry 250/947; Biology 384/1,416; HM 799/838; ICT 97/98. RU verified explained 2,006/4,144; 2,056/4,249 total. No deferrals in ph_07. Full build/validation intentionally deferred to the end of all RU/CU/HSTU content work (last full cycle: checkpoint 5).

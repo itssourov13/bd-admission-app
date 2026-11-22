@@ -38,5 +38,8 @@ ph_02-ph_06 and fix_03: 168 ledger rows; hand-derived and post-apply verified; o
 ## Checkpoint 9 (2026-11-22)
 ph_07 (42 additions across ru-sci-c-2014-2015 ruc/ruf/rug/ruh). Every answer derived independently from the stem; circuit image (ruc q013) inspected; Higgs mechanism fact checked against CERN. Post-apply check (verify_final.py 818): 42/42 tree changes match ledger, 0 non-explanation field changes, all still verified. Intermediate batches run no full build by design.
 
+## Checkpoint 10 (2026-11-22)
+ph_08-ph_12 (196 additions across 12 ru-sci-c packs, 2014-15 to 2017-18). Answers derived independently from stems; the one image-based item (ruc 2015-16 q014-109069 circuit) re-inspected. Post-apply check (verify_final.py 860): 196/196 tree changes match ledger, 0 non-explanation field changes, all still verified. 5 new deferrals documented in REVIEW_FLAGS.md. No full build by design.
+
 ## Remaining
-Physics 369, Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
+Physics 179 (incl. 14 documented deferrals), Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
