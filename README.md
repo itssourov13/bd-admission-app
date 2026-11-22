@@ -23,7 +23,7 @@
 
 ## Current Android preview
 
-**v0.1.12 candidate** · Android versionCode 12 · com.admissionbd.app · EAS preview (internal APK). This release candidate contains CU Bangla catalogue localization, the reordered Profile shortcuts, local question issue reporting (SQLite v13), Profile report management and JSON export through the Android Sharesheet. EAS cloud submission is being prepared; no v0.1.12 APK is available or device-tested yet. The previous v0.1.11 build remains the last completed and owner-tested preview (EAS build 8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an internal preview candidate, not a Google Play release.
+**v0.1.12 candidate** · Android versionCode 12 · com.admissionbd.app · EAS preview (internal APK). This release candidate contains CU Bangla catalogue localization, the reordered Profile shortcuts, local question issue reporting (SQLite v13), Profile report management and JSON export through the Android Sharesheet. EAS upload was attempted but had not been accepted when the short monitoring window ended; no v0.1.12 build ID, APK or device test is available yet. The previous v0.1.11 build remains the last completed and owner-tested preview (EAS build 8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an internal preview candidate, not a Google Play release.
 
 ## License
 

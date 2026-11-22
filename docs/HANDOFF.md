@@ -8,7 +8,7 @@
 
 The v0.1.12 source includes the recently committed CU Bangla catalogue localization, Profile shortcut order, local-first question issue reports, SQLite schema v13, Profile report management and privacy-bounded JSON export/native Sharesheet. Previous automated verification on Node 22.23.1 passed: 318/318 full tests, 54/54 focused tests, typecheck, lint, Expo install check, git diff check and Expo Doctor 21/21.
 
-**Current submission state:** release metadata and documentation prepared; EAS build request has not yet been sent. Confirm resolved Expo config and run the preview Android build with no-wait behavior. Once EAS returns a build ID and accepted/queued/started state, update this handoff and stop monitoring. Do not wait for the cloud build to finish. This is an internal APK preview, not Google Play production submission. No push.
+**Submission attempt outcome:** the no-wait EAS CLI command resolved the preview environment and existing remote Android credentials/keystore, then began archive compression/upload. The last visible progress was 0 / 36.6 MB; after approximately 4m54s there was no further output, build ID or acceptance acknowledgement. A separate EAS build-list query showed only the previous v0.1.11 build (8aa4643c-e312-4a0b-af08-9b3f7779b68c), not a new v0.1.12 entry. The upload process was stopped in accordance with the short-monitoring instruction. No v0.1.12 cloud build is confirmed; retry when connectivity is responsive. Do not wait for a future build to finish. This is an internal APK preview, not Google Play production submission. No push.
 
 ---
 

@@ -1,10 +1,10 @@
-## Current Android preview candidate — 2026-11-22 (v0.1.12; EAS submission pending)
+## Current Android preview candidate — 2026-11-22 (v0.1.12; EAS upload not accepted)
 
 - Release metadata: Expo app / brand / package **0.1.12**, Android **versionCode 12**; application ID com.admissionbd.app; EAS preview / INTERNAL APK. Existing Expo slug, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec and EAS-managed Android signing identity are retained.
 - Feature scope: CU Bangla catalogue-name localization, Profile shortcut ordering, offline question issue reports (SQLite v13), Profile list/detail/edit/delete, privacy-bounded versioned JSON export and native Android Sharesheet. Report is directly below Bookmark and remains distinct from the Standard Exam review flag.
 - Automated implementation gates already passed on Node 22.23.1: 318/318 full tests, 54/54 focused tests, TypeScript, lint, Expo install check, diff check and Expo Doctor 21/21.
 - Target: internal APK only. The existing v0.1.11 build is the last completed and owner-tested preview; it does not include these features. Physical-device QA must be performed on the v0.1.12 APK after EAS completes.
-- **EAS status:** build submission is pending at this candidate checkpoint. Record returned build ID plus accepted/queued/started state after EAS acknowledges it. Stop monitoring once accepted; do not wait for completion. This is not a production AAB or Google Play submission.
+- **EAS status:** a no-wait upload attempt reached archive upload but stalled at the last visible 0 / 36.6 MB marker for approximately 4m54s. No build ID or queue acknowledgement was returned; build-list still showed only v0.1.11. The upload was stopped to avoid long monitoring. No v0.1.12 cloud build is confirmed. Retry when connectivity is responsive. This is not a production AAB or Google Play submission.
 
 ---
 

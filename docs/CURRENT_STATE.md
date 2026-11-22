@@ -6,7 +6,7 @@
 - Source automated gates on Node 22.23.1: typecheck, lint, Expo dependency check, targeted tests **54/54**, full suite **318/318**, git diff check, and Expo Doctor **21/21** pass. Content/pack/asset inputs are unchanged from the already verified implementation commit.
 - The v0.1.11 APK remains the last completed/owner-tested preview and does not include this implementation. The v0.1.12 candidate must receive physical-device checks before broader distribution.
 - EAS preview generates an internal APK, not a production AAB and not a Google Play submission. Preserve the existing app ID, linked EAS project and managed Android signing identity.
-- **Submission status:** versioned source is prepared; EAS cloud submission is pending. After submission, record the EAS build ID and confirm the service accepted it into the queue/started state. Stop monitoring there; do not wait for cloud build completion. No push.
+- **Submission status:** a no-wait EAS submission attempt reached archive upload, but the last visible progress remained 0 / 36.6 MB after approximately 4m54s and no build ID/acceptance acknowledgement arrived. A separate build-list query still showed only the previous v0.1.11 build. The upload process was stopped to avoid extended monitoring; no new EAS build is confirmed. Retry the upload when connectivity is responsive. No push.
 
 ---
 

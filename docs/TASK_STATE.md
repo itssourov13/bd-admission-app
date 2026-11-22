@@ -1,15 +1,15 @@
-## Android preview v0.1.12 — versioned and ready for EAS cloud submission — 2026-11-22
+## Android preview v0.1.12 — versioned; EAS upload did not reach acceptance — 2026-11-22
 
-**Status:** Release metadata bumped to app/brand/package 0.1.12 / Android versionCode 12. Target: EAS Android preview / INTERNAL APK. EAS cloud submission is next; monitoring stops after the service accepts/queues the build. No push.
+**Status:** Release metadata and source preflight are complete. A no-wait EAS preview upload attempt stalled at 0 / 36.6 MB for approximately 4m54s with no build ID or service acceptance; the process was stopped rather than monitored for longer. No cloud build is confirmed. No push.
 
 - [x] Confirmed clean starting worktree, branch and previous release 0.1.11 / Android code 11.
 - [x] Bumped package.json, brand.config.json and app.config.js to 0.1.12 / versionCode 12.
 - [x] Preserved com.admissionbd.app, Expo slug bd-admission-app, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec, preview profile and EAS-managed Android signing identity.
 - [x] Updated README and Android release/current-state/task/changelog/handoff/QA documentation for the v0.1.12 candidate and the actual feature scope (CU Bangla display, Profile ordering, local reports, SQLite v13, JSON export/Sharesheet).
 - [x] Previously completed implementation verification remains green on Node 22.23.1: TypeScript, lint, Expo install check, targeted 54/54, full suite 318/318, diff check, Expo Doctor 21/21.
-- [ ] Resolve Expo public config and recheck release version/package/versionCode/project ID.
-- [ ] Submit the EAS Android preview build and record the returned build ID / accepted queue state.
-- [ ] Commit the final EAS submission handoff locally. No push and no long monitoring/build-completion wait.
+- [x] Resolved Expo public config: version 0.1.12, Android versionCode 12, application ID com.admissionbd.app, slug bd-admission-app and existing EAS project ID all match.
+- [ ] Retry EAS Android preview submission when the archive upload connection is responsive; no build ID/acceptance was obtained in this attempt.
+- [x] Record the unsuccessful short submission attempt in release docs and commit locally. No push and no monitoring of build completion.
 
 ---
 
