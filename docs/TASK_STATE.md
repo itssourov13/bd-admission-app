@@ -1,3 +1,7 @@
+## RU explanation upgrade — checkpoint 15 (In Progress) — 2026-11-22
+
+- RU explanation upgrade — checkpoint 15 (2026-11-22): ch_02 applied (77 explanation additions: 64 authored + 13 duplicate propagations; RU Chemistry 2010-11 ruh and 2011-12 ruc/ruf/rug/ruh, 15 packs). Coverage 2,537/4,249 (59.7%); verified explained 2,487/4,144 (60.0%); Physics 819/845, Chemistry 388/947, Biology 384/1,416, HM 799/838, ICT 97/98. 6 new deferrals documented (ruh 2010-11 q038; ruf 2011-12 q027, q029, q031; rug 2011-12 q025; ruh 2011-12 q032; deferred.txt = 77), reasons in REVIEW_FLAGS.md. Ledger 1,366 rows / 1,361 unique IDs. verify_final.py 1289 passed (77/77 match, 0 non-explanation changes, all still verified). No build or test run by design.
+
 ## RU explanation upgrade — checkpoint 14 (In Progress) — 2026-11-22
 
 - RU explanation upgrade — checkpoint 14 (2026-11-22): ch_01 applied (61 explanation additions: 55 authored + 6 duplicate propagations; RU Chemistry 2010-11 plus later-year duplicates, 8 packs). Coverage 2,460/4,249 (57.9%); verified explained 2,410/4,144 (58.2%); Physics 819/845, Chemistry 311/947, Biology 384/1,416, HM 799/838, ICT 97/98. 5 new deferrals documented (stored key conflicts with the chemistry; deferred.txt = 71). Ledger 1,289 rows / 1,284 unique IDs. verify_final.py 1228 passed (61/61 match, 0 non-explanation changes, all still verified). No build or test run by design.
