@@ -1,3 +1,70 @@
+## Android preview v0.1.12 — build and owner device QA complete — 2026-11-22
+
+**Status:** EAS Android `preview` / `INTERNAL` APK is `FINISHED`; the owner installed it and performed device checks. The owner confirms the question-report feature works as expected. The build is not a production AAB or Google Play submission. Current open follow-up is RUNTIME-001, a small perceived delay while WhatsApp prepares a report shared through Android Sharesheet; timing and the responsible stage are not yet measured. No push or merge.
+
+- [x] Confirmed release identity: app / brand / package 0.1.12, Android versionCode 12, `com.admissionbd.app`; existing Expo slug, EAS project and managed signing identity preserved.
+- [x] Completed source checks on Node 22.23.1: TypeScript, lint, Expo install check, focused tests 54/54, full suite 318/318, `git diff --check` and Expo Doctor 21/21.
+- [x] Submitted EAS build `32339eb3-cef2-45fa-b268-2917fecd82be` using Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0.
+- [x] Verified cloud build `FINISHED` at 2026-11-22 05:52:33 UTC / 11:52:33 Asia/Dhaka.
+- [x] APK artifact available: https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk
+- [x] Owner installed v0.1.12 and reports on-device checks complete; question-report feature works as expected.
+- [x] Updated release, handoff, current-state, QA, changelog, README and build-guide documentation to record actual completion and manual QA.
+- [x] Added [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md) and QA follow-up RUNTIME-001 for the perceived WhatsApp target-preparation delay.
+- [ ] RUNTIME-001 timing breakdown and reproduction: pending; no code fix approved or made.
+- [ ] Git push / merge: owner-managed; not performed.
+
+---
+
+## Historical implementation checkpoint — CU localization, Profile ordering & question issue reporting — 2026-11-22
+
+*Historical snapshot:* this source-implementation checklist predates the completed v0.1.12 cloud build and owner device QA recorded above.
+
+**Status:** Implementation, automated verification, documentation and local commit 1a76488 are complete on the current feature branch. No EAS build or push.
+
+- [x] Add CU bilingual catalogue metadata; verify Bangla/English display with regression coverage.
+- [x] Reorder Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings; add a separate Reported questions entry.
+- [x] Add the offline issue-report flow to Browse, Bookmarks, Flash, Exam and Result. Report appears immediately below Bookmark in the QuestionCard's fixed-width vertical action stack; option layout is unchanged.
+- [x] Preserve the existing Exam Flag for review separately. Migration v7 and session_answers.flagged remain the only source of session-scoped exam flags.
+- [x] Add additive SQLite migration v13, repository/service, category validation, per-question de-duplication, immutable first-report snapshot, edit/delete/list management and share/export state.
+- [x] Add privacy-bounded JSON schema v1 export and native Android Sharesheet hand-off using SDK 57-compatible Expo packages.
+- [x] Resolve SDK 57 package alignment, including @expo/cli 57.0.34 and direct @expo/metro-runtime ~57.0.18.
+- [x] Final checks on Node 22.23.1: typecheck, lint, Expo install check, targeted tests 54/54, full test suite 318/318, diff check and Expo Doctor 21/21.
+- [ ] Manual Android preview QA: narrow/wide layouts, active exam/flash timer while report sheet is open, JSON attachment hand-off to installed share targets and post-share file readability.
+
+Implementation detail and limitations: docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md. Existing v0.1.11 APK is unchanged and does not include this implementation.
+
+---
+
+## Historical audit checkpoint — Standard Exam review-flag separation — 2026-11-22
+
+**Status:** Follow-up audit completed; app code unchanged.
+
+- [x] Confirmed existing Standard Exam Flag for review is stored in `session_answers.flagged`, migration v7, scoped per session/question.
+- [x] Traced the active Exam marker, question palette, progress/submission counts, completed Result marker/filter and finalization guard.
+- [x] Confirmed the exam flag is independent of selected answers and scoring; it is personal per-attempt review state, not a content defect report.
+- [x] Re-ran `tests/exam-review.test.ts`: 7/7 passed, including reload persistence and post-finalization immutability.
+- [x] Updated the audit recommendation: distinct “Report question issue / প্রশ্নে সমস্যা জানান” action, non-flag icon, separate placement and a separate global issue-report table. Existing exam flag behavior must not change.
+
+Detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`. No app source changes, APK, physical-device test or push.
+
+---
+
+## Historical pre-implementation audit checkpoint — Profile, CU localization & question reports — 2026-11-22
+
+**Status:** Read-only audit and implementation recommendation saved. No app behavior changed.
+
+- [x] Reproduced the CU localization fallback: code `CU` resolves to key `cu`, but `KNOWN_UNIVERSITIES` has no Bengali display entry.
+- [x] Confirmed Profile order is Bookmarks → Practice history → Settings → Marking rules; requested order only requires swapping the final two existing buttons.
+- [x] Confirmed QuestionCard has bookmark support but no issue-report action; no local issue-report table, screen or export/share flow exists.
+- [x] Audited local SQLite, QuestionView/QuestionCard call sites, Expo SDK 57 dependencies and migration history. Recommended offline-first reports, one report per canonical question, snapshot-based JSON export and Android Sharesheet delivery.
+- [x] Saved detailed report: `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+- [x] Existing focused tests pass: 27/27 under Node 22.23.1.
+- [x] At this historical checkpoint, record implementation as pending. The implementation was subsequently completed; see the current task entry at the top of this file.
+
+No app source or content changed; no APK/build, physical-device UX test, push or deployment performed for this audit.
+
+---
+
 ## Android preview v0.1.11 — CU A Unit build, install and owner QA — 2026-11-19
 
 **Status:** EAS `preview` / `INTERNAL` APK for app `0.1.11` / Android `versionCode 11` is complete according to the owner. The owner installed it on Android and reports that the checks performed work normally. Release/device documentation is updated and committed locally; no push.

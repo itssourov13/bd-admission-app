@@ -1,3 +1,54 @@
+## 2026-11-22 — Complete v0.1.12 Android preview and owner device QA
+
+- EAS Android `preview` / `INTERNAL` build `32339eb3-cef2-45fa-b268-2917fecd82be` completed successfully (**FINISHED**) at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Release metadata: app / brand / package 0.1.12, Android versionCode 12, application ID `com.admissionbd.app`.
+- [Download the v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk) · [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be). This is an internal APK, not a production AAB or Google Play submission; artifact expires 2026-12-06 at approximately 11:37 Asia/Dhaka.
+- Owner installed the APK and completed on-device checks; the question-report feature is confirmed working as expected. Device model/Android version and exhaustive per-case matrix were not recorded.
+- Open observation RUNTIME-001: a short delay is perceived while WhatsApp prepares a shared report after Android Sharesheet hand-off. The flow works; elapsed time and responsible stage are unknown. See `docs/RUNTIME_ISSUES.md`.
+- No application source, data, asset, dependency or configuration change was made in this documentation update. No push or merge.
+
+---
+
+## 2026-11-22 — Submit v0.1.12 Android preview with CU localization and question issue reporting
+
+- App / brand / package version is 0.1.12; Android versionCode is 12. Preserved com.admissionbd.app, Expo slug, EAS project ID, preview / INTERNAL APK profile and the existing EAS-managed signing identity.
+- The release source includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
+- Automated implementation gates passed on Node 22.23.1: full suite 318/318, focused tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
+- Submitted with Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0. EAS accepted the 36.6 MB archive upload (1m 4s) and created build 32339eb3-cef2-45fa-b268-2917fecd82be. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be.
+- The build initially reported IN_PROGRESS at 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka; it subsequently completed at 05:52:33 UTC. Final completion and owner QA are recorded above.
+- The previous 0 / 36.6 MB appearance was a non-TTY spinner-visibility issue, not proof that the upload was stuck. The successful invocation used script -q -f -e -c to provide a pseudo-terminal. The repeatable procedure and troubleshooting are in docs/ANDROID_BUILD_GUIDE.md. No source/config/dependency change, no push.
+
+---
+
+## 2026-11-22 — Implement CU localization, Profile ordering and question issue reporting
+
+- Added CU's English/Bangla catalogue display name and reordered Profile shortcuts to Bookmarks → Practice history → Marking rules → Settings. Added the Reported questions entry.
+- Added a local-first question issue reporting flow from Browse, Bookmarks, Flash, Exam and Result. The alert-circle icon sits directly below Bookmark in the shared QuestionCard action stack; question/options layout stays intact. The exam's separate Flag for review remains unchanged.
+- Added additive SQLite migration v13 (question_issue_reports plus an update-time index), per-question de-duplication, issue-category validation, updatable details, origin surface and a first-report question snapshot.
+- Added Profile report listing/detail/edit/delete and versioned JSON export via the Android native Sharesheet. JSON format: bd-admission-question-issues, schemaVersion 1; includes app/platform/language/DB schema metadata and report snapshots, while excluding profile identity and exam-answer history.
+- Added SDK 57-compatible expo-sharing ~57.0.26 and direct @expo/metro-runtime ~57.0.18; aligned Expo patch packages and workspace @expo/cli pin to 57.0.34.
+- Final automated checks on Node 22.23.1: typecheck, lint, expo install --check, targeted tests 54/54, full test suite 318/318, git diff --check and Expo Doctor 21/21 all passed.
+- Physical Android preview QA and a new preview APK remain pending. No push or deployment.
+
+---
+
+## 2026-11-22 — Follow-up audit: keep Exam Flag for review separate from issue reporting
+
+- Confirmed the existing Standard Exam review flag is session-scoped in `session_answers.flagged` (SQLite migration v7), is consumed by the exam palette/progress/submission and completed-result filter, and is independent of answer selection/scoring.
+- Re-ran `tests/exam-review.test.ts`: 7/7 pass. The flag survives reload and finalization; post-finalization writes are rejected.
+- Updated the issue-report design to use a separate global table/repository, explicit “Report question issue / প্রশ্নে সমস্যা জানান” wording, a non-flag icon and a visually separate action area. Do not reuse or alter the existing Exam flag.
+- This follow-up changes documentation only. No app source, database schema, runtime behavior, APK or push.
+
+---
+
+## 2026-11-22 — Audit CU localization, Profile actions and question issue reporting
+
+- Completed a read-only audit of the CU Bengali display fallback, Profile action order and the proposed question issue-report workflow.
+- Confirmed the CU display-name map is missing `cu`; the Profile action order can be corrected by swapping two existing buttons; issue reporting requires new local persistence and UI.
+- Saved detailed findings, recommended SQLite v13 schema, JSON export shape, SDK 57-compatible file-sharing approach and acceptance checklist in `docs/audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md`.
+- Focused baseline tests: 27/27 pass under Node 22.23.1. No app source, question data, dependencies, schema, release metadata or runtime behavior changed; no build or push.
+
+---
+
 ## 2026-11-19 — Build and owner-test v0.1.11 Android preview with CU A Unit Science
 
 - Bumped the Expo app / brand / package version from `0.1.10` to `0.1.11` and Android `versionCode` from `10` to `11`, preserving `com.admissionbd.app`, Expo slug, EAS project ID, preview profile and signing identity.

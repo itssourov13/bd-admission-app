@@ -19,7 +19,8 @@ export const KNOWN_UNIVERSITIES: readonly UniversityMeta[] = [
   {
     key: "hstu", shortName: "HSTU",
     name: { en: "Hajee Mohammad Danesh Science and Technology University", bn: "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়" }
-  }
+  },
+  { key: "cu", shortName: "CU", name: { en: "University of Chittagong", bn: "চট্টগ্রাম বিশ্ববিদ্যালয়" } }
 ];
 
 const VARIANT_SUFFIX = /^(.+)-(?:U|V)$/i;

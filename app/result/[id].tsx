@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Button, Card, Chip, Screen, Txt } from "@/components/ui";
 import { ScreenHeader } from "@/components/common/ScreenHeader";
 import { QuestionCard } from "@/components/common/QuestionCard";
+import { useQuestionReporting } from "@/features/reports/useQuestionReporting";
 import { RuleNotice } from "@/components/common/RuleNotice";
 import { Stat } from "@/components/common/Stat";
 import { AccuracyBar, ScoreRing } from "@/components/common/ScoreRing";
@@ -41,6 +42,8 @@ export default function ResultScreen() {
     const bookLabel = session?.filter.bookId ? await getBookScopeLabel(db, { bookId: session.filter.bookId, unitId: session.filter.unitId }, lang) : null;
     return { session, exam, bookLabel };
   }, [id, lang]);
+
+  const reporting = useQuestionReporting("result");
 
   if (q.loading) return <Screen edges={["top"]}><ScreenHeader title="" /><LoadingView /></Screen>;
   if (q.error && !q.data) return <Screen edges={["top"]}><ScreenHeader title="" /><ErrorView onRetry={q.reload} /></Screen>;
@@ -175,13 +178,14 @@ export default function ResultScreen() {
                   <Txt className="text-ink-500 text-xs">{t("flash.questionNo", { n: it.number })}</Txt>
                   {flaggedSet.has(it.question.id) ? <Txt weight="semibold" className="text-xs" style={{ color: colors.gold700 }}>⚑ {t("exam.flagged")}</Txt> : null}
                 </View>
-                <QuestionCard question={it.question} selected={exam.selected[it.question.id] ?? []} reveal disabled showSources provisionalScoring={provisional} />
+                <QuestionCard question={it.question} selected={exam.selected[it.question.id] ?? []} reveal disabled showSources provisionalScoring={provisional} onReport={() => reporting.open(it.question)} reported={reporting.reported.has(it.question.id)} />
                 {(exam.selected[it.question.id] ?? []).length === 0 ? <Txt className="text-ink-500 text-xs mt-2">{t("result.noSelection")}</Txt> : null}
               </Card>
             ))}
           </View>
         ) : null}
       </ScrollView>
+      {reporting.sheet}
     </Screen>
   );
 }

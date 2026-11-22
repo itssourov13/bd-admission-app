@@ -71,3 +71,12 @@ test("batched paper listing matches the per-paper listing and institutionIds sco
   assert.equal(await countEligible(db, { institutionIds: ["missing"] }), 0);
   assert.deepEqual(await listPapersByInstitutions(db, { institutionIds: [] }), []);
 });
+
+test("Chittagong University shows its Bengali name in Bengali mode and the English name otherwise, whatever name is stored", () => {
+  for (const stored of ["Chittagong University", "University of Chittagong", "CU"]) {
+    assert.equal(universityDisplayName("CU", stored, "bn"), "চট্টগ্রাম বিশ্ববিদ্যালয়");
+    assert.equal(universityDisplayName("CU", stored, "en"), "University of Chittagong");
+  }
+  assert.equal(universityDisplayName("cu", "x", "bn"), "চট্টগ্রাম বিশ্ববিদ্যালয়");
+  assert.equal(universityShortName("CU"), "CU");
+});

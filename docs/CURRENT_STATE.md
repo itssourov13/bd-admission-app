@@ -1,3 +1,52 @@
+## Android preview v0.1.12 — built, installed and owner-checked — 2026-11-22
+
+**Release metadata:** app / brand / package 0.1.12, Android versionCode 12, application ID `com.admissionbd.app`. EAS target: `preview` / `INTERNAL` Android APK. Existing Expo slug, EAS project ID and EAS-managed Android signing identity are unchanged.
+
+- Release scope: CU Bangla catalogue-name localization, Profile shortcut ordering, local question-issue reporting (SQLite v13), Profile report management, privacy-bounded JSON export and native Android Sharesheet integration.
+- Source automated gates on Node 22.23.1: TypeScript, lint, Expo dependency check, targeted tests 54/54, full suite 318/318, `git diff --check` and Expo Doctor 21/21 passed. The content/pack/asset inputs were unchanged from the verified implementation.
+- EAS build `32339eb3-cef2-45fa-b268-2917fecd82be` reached **FINISHED** on 2026-11-22 at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Platform ANDROID, profile `preview`, distribution `INTERNAL`, app version 0.1.12, Android build version 12, package `com.admissionbd.app`. [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be).
+- [Download the v0.1.12 Android APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk). This is an internal preview APK, not a production AAB or Google Play submission. EAS artifact expiry: 2026-12-06 at approximately 11:37 Asia/Dhaka.
+- **Owner-reported device QA:** APK installed successfully; the owner checked the app on-device and confirms the question-report feature works as expected. Exact handset/Android version and a detailed per-case matrix were not recorded, so this is owner-reported manual QA rather than an independently reproduced exhaustive test.
+- **Open runtime observation:** after handing the JSON report to Android Sharesheet and choosing WhatsApp, the target app appears to take a little time to prepare the share. The report/share flow works as checked, but the perceived delay has no measured duration and has not been attributed to app-side export, Android intent hand-off or WhatsApp. Track as RUNTIME-001 in [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md); no app fix is implied yet.
+- No application source/config/dependency change was made during this documentation follow-up. No push or merge.
+
+---
+
+## Historical implementation checkpoint — CU localization, Profile ordering & question issue reporting — 2026-11-22
+
+*Historical snapshot:* this entry records the source-only checkpoint before the v0.1.12 EAS build and owner device QA. Its pending-release statements are superseded by the current v0.1.12 entry above.
+
+**Local source status:** Implemented and committed locally on feat/import-hstu-verified-answers-2026-11-12 as 1a76488; automated verification passed on Node 22.23.1. No push or EAS build has been performed. App release metadata remains **0.1.11 / Android versionCode 11** until a separately approved release update.
+
+- CU's bilingual catalogue metadata now resolves to **চট্টগ্রাম বিশ্ববিদ্যালয়** in Bangla and **University of Chittagong** in English. The existing CU logo and question-pack data are unchanged.
+- Profile shortcuts are ordered Bookmarks → Practice history → Marking rules → Settings. Reported questions is an additional, separate Profile entry.
+- Question issue reporting is available from Browse, Bookmarks, Flash, active Exam and Result question cards. The alert-circle action is directly below Bookmark in a fixed-width vertical action stack next to the question stem; the A/B/C/D options remain in their existing full-width section. The existing Exam **Flag for review** remains a separate per-session feature below the options.
+- SQLite migration **v13** adds question_issue_reports and an updated_at DESC index. Reports are offline/local, unique per canonical question, retain the first-reported question snapshot and record the originating surface. They do not reuse bookmarks or session_answers.flagged.
+- Profile → Reported questions supports list/count, detail, edit, delete and JSON share. The versioned JSON envelope is bd-admission-question-issues schema v1; sharing uses SDK-57-compatible expo-sharing ~57.0.26 and expo-file-system/legacy through Android's native Sharesheet. A share-sheet hand-off is not proof of recipient delivery.
+- SDK 57 package alignment now includes Expo 57.0.33 and direct @expo/metro-runtime ~57.0.18; @expo/cli resolves to 57.0.34. All package compatibility checks and Expo Doctor pass.
+
+**Final automated verification (Node 22.23.1):** TypeScript typecheck PASS; Expo lint PASS; expo install --check PASS; targeted suites **54/54**; full pnpm test **318/318**; git diff --check PASS; Expo Doctor **21/21**. Console reports normal Node experimental SQLite and module-type performance warnings; no test failures.
+
+**Still required:** physical Android preview QA for responsive QuestionCard layout, modal/timer behavior and file attachment sharing through available targets (especially WhatsApp, Telegram and Files). The currently published/installed v0.1.11 APK does not include these local changes; build a new preview only after this local commit is reviewed and the owner requests it.
+
+---
+
+## Standard Exam review flag and question-issue reporting — follow-up audit — 2026-11-22
+
+A follow-up code audit confirmed the existing Standard Exam **Flag for review** feature is already implemented and must remain separate from any global content-issue report. Migration v7 adds `session_answers.flagged`, stored per `(session_id, question_id)`. It feeds the active Exam marker/palette, progress and submission counts, then the completed Result's Flagged filter. It does not change answer selection or score and cannot be changed after finalization. `tests/exam-review.test.ts` passed 7/7. The issue report must have its own table/repository, a distinct “Report question issue / প্রশ্নে সমস্যা জানান” action and a non-flag icon; never reuse the exam flag or put both actions side by side.
+
+Detailed separation requirements and revised UX recommendation are recorded in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md). No app source/runtime change; no push.
+
+---
+
+## Historical pre-implementation audit baseline — Profile, CU localization & issue reporting — 2026-11-22
+
+**Historical status at the time of this entry:** Read-only baseline audit only; its pending implementation statement is superseded by the completed implementation entry at the top of this file. The detailed findings, UX/data model, JSON export contract, SDK 57 sharing approach, acceptance checks and source links are in [the audit report](audits/PROFILE_CU_LOCALIZATION_AND_QUESTION_ISSUE_REPORTING_AUDIT_2026-11-22.md).
+
+Focused baseline verification at that earlier checkpoint under Node 22.23.1: tests/universities.test.ts + tests/repositories.test.ts, 27/27 passed. Implementation was pending at that time; it is now complete in the current local source. The Android preview remains v0.1.11 until a new build is requested. No push.
+
+---
+
 ## Android preview v0.1.11 — CU A Unit build and owner device check — 2026-11-19
 
 Release metadata is **0.1.11 / Android `versionCode 11`**. Application ID remains `com.admissionbd.app`, Expo slug and existing EAS project identity are preserved. The EAS `preview` / `INTERNAL` APK contains all 26 CU A Unit packs and the original CU logo. The source contains 230 Varsity packs / 14,579 university questions; the combined seed has 231 entries / 16,407 question rows including the separate ASPECT Library.

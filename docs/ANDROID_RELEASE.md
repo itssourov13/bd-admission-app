@@ -1,6 +1,22 @@
-# Android build and release guide
+## Current Android preview — 2026-11-22 (v0.1.12; built, installed and owner-checked)
 
-## Current Android preview — 2026-11-19 (v0.1.11; built and owner-tested)
+- Release metadata: Expo app / brand / package `0.1.12`, Android versionCode `12`; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Existing Expo slug, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec` and EAS-managed Android signing identity are retained.
+- Feature scope: CU Bangla catalogue localization, Profile shortcut ordering, local question issue reports (SQLite v13), Profile list/detail/edit/delete, privacy-bounded versioned JSON export and native Android Sharesheet. Report action remains distinct from Standard Exam Flag for review.
+- Automated source gates passed on Node 22.23.1: full tests 318/318, focused tests 54/54, TypeScript, lint, Expo install check, `git diff --check` and Expo Doctor 21/21.
+- EAS build `32339eb3-cef2-45fa-b268-2917fecd82be` reached **FINISHED** on 2026-11-22 at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Platform ANDROID, profile `preview`, distribution `INTERNAL`, app version 0.1.12, build version 12, application ID `com.admissionbd.app`. [Open EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be).
+- **[Download the v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk)**. The artifact is an internal preview APK, not a production AAB or Google Play submission. EAS artifact expiry is 2026-12-06 at approximately 11:37 Asia/Dhaka.
+- Owner confirms the APK was installed and the app was checked on-device; the question-report feature works as expected. This is owner-reported manual QA; the exact handset/Android version and exhaustive case matrix were not supplied.
+- Open non-blocking runtime observation: a short delay is noticed while WhatsApp prepares a report passed through Android Sharesheet. The report flow works as checked; the phase and elapsed time are unknown. Track [RUNTIME-001](RUNTIME_ISSUES.md) before attributing the delay to app code.
+
+---
+
+## Canonical build procedure
+
+**Canonical repeatable procedure:** [ANDROID_BUILD_GUIDE.md](ANDROID_BUILD_GUIDE.md). Use it for future EAS Android builds from this workspace. It documents the verified Node/EAS CLI versions, exact pseudo-TTY submission command, how to distinguish hidden non-TTY progress from a real upload failure, how to verify EAS acceptance and when to stop monitoring.
+
+---
+
+## Previous completed preview — 2026-11-19 (v0.1.11; built and owner-tested)
 
 - Release metadata: Expo app / brand / package version **0.1.11**, Android **versionCode 11**; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. The existing Expo slug, EAS project ID and EAS-managed Android signing identity are retained.
 - Content: includes CU A Unit Science (26 papers / 2,558 questions / 11,397 options / 68 sources) and the existing RU/JU/HSTU/DU/ASPECT content. Combined generated seed contains 231 entries / 16,407 question rows; Varsity catalogue contains 230 packs / 14,579 questions. CU's original University website PNG is included.
@@ -33,7 +49,9 @@
 - EAS Android preview build `dcf1b743-ea08-4d27-b01f-82fe26374ffa` is **FINISHED** (2026-11-13 11:50:33 UTC / 17:50:33 Asia/Dhaka); https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/dcf1b743-ea08-4d27-b01f-82fe26374ffa. APK: https://expo.dev/artifacts/eas/YQKciJKyuDUM1AJVS8fRe3xqjnNz-k0xvT0MjSe7bD8.apk. The existing EAS-managed Android keystore was reused; no credential rotation.
 - Owner QA: the owner has installed and run v0.1.6 and reports all previously raised issues fixed, with no current outstanding app issue. This is owner-reported; exact handset/OS and exhaustive per-screen coverage were not recorded. Keep a disposable device/profile for destructive fresh-install tests.
 
-## Preview build procedure
+## Historical first-preview build procedure (v0.1.0-preview.1)
+
+The command below records the original first-preview submission. For all future builds, follow the current pseudo-TTY workflow in docs/ANDROID_BUILD_GUIDE.md instead.
 
 ```sh
 source "$HOME/.nvm/nvm.sh"
@@ -52,7 +70,7 @@ The `preview` profile uses internal distribution and creates an installable APK.
 - Automated verification is complete. EAS v0.1.4 preview build 040c75b2-0bbd-47b5-b859-cdb7f179f968 completed successfully (FINISHED) on 2026-11-05 at 14:59:43 UTC / 20:59:43 Asia/Dhaka. Build metrics: queue 23m07.529s, worker build 18m48.733s (Gradle phase 17m19.883s), total 42m00.902s. App version 0.1.4, Android versionCode 5, application ID com.admissionbd.app. APK: https://expo.dev/artifacts/eas/ePmli5F3NH4vc9q1RupboKmJbt2FxkI8YdjbMW54-Jo.apk (~112 MiB; 117,408,124 bytes). APK SHA-256: 980cdfdd216ac588148b8d78a079df6660143a35f793d543b24fc25d8bfab670. The embedded assets/content_seed.db is 23,724,032 bytes; its SHA-256 1f26f2eb1ad59b2d3dee7272908bc1e91476452dc1c1035dfb06a60785fbf32e exactly matches the generated source seed. ZIP integrity passed, SQLite quick_check is ok, user_version=5, and foreign_key_check reports zero violations. Seed catalogue counts: 217 exam papers/packs, 13,609 questions, 54,436 options, 217 question batches. User-owned bookmarks, profiles and practice-session tables are empty in the bundled seed as expected. Expo Doctor: 20/21 checks passed; only an SDK patch-version mismatch across five Expo packages failed. This did not block prebuild, Gradle or APK creation. Align patches and rerun Doctor in a separate maintenance pass. The owner has now installed and verified v0.1.4 on a physical phone and reports that everything works as expected. The original v0.1.3 first-import issue is considered resolved for this candidate. The subtle loading-to-home square flash and Expo Doctor patch alignment are tracked as non-blocking follow-ups in docs/QA_CHECKLIST.md.
 - Keep the existing app installed when updating. Do not uninstall or clear app storage; the package ID and EAS-managed signing identity are unchanged.
 
-Last updated: 2026-11-19
+Last updated: 2026-11-22 (v0.1.12 EAS submission accepted; build guide added)
 
 ## Release configuration
 
@@ -61,7 +79,7 @@ Last updated: 2026-11-19
 - Expo slug: `bd-admission-app`
 - Expo account/project: `@sk_king13/bd-admission-app`
 - EAS project ID: `16ba69b8-96d7-4856-a197-77acddebe1ec`
-- Current preview: v0.1.11 / Android versionCode 11, EAS build `8aa4643c-e312-4a0b-af08-9b3f7779b68c`; owner confirms the build completed and the APK was installed and checked successfully on Android. Device model/OS and exhaustive coverage are not recorded. The prior v0.1.10 / code 10 and v0.1.9 / code 9 releases are historical. v0.1.3 / code 4 is superseded after the owner-reported first question-library import failure; the v0.1.4 fix resolved that historical issue.
+- Current preview: v0.1.12 / Android versionCode 12, EAS build 32339eb3-cef2-45fa-b268-2917fecd82be (IN_PROGRESS when verified on 2026-11-22 05:38 UTC). Current EAS build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be. The previous v0.1.11 / code 11 build is the last completed and owner-tested APK; v0.1.12 device QA is pending. Prior v0.1.10 and v0.1.9 releases are historical. v0.1.3 / code 4 is superseded after the owner-reported first question-library import failure; the v0.1.4 fix resolved that historical issue.
 - Build profiles: `preview` (installable APK) and `production` (Play Store AAB).
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 
@@ -77,18 +95,20 @@ nvm use 22.23.1
 pnpm install --frozen-lockfile
 ```
 
-Use the latest EAS CLI through pnpm so an old globally installed `eas` binary does not block current project configuration:
+Use the pinned, validated EAS CLI through pnpm so an old globally installed `eas` binary does not block current project configuration:
 
 ```sh
-pnpm dlx eas-cli@latest login
-pnpm dlx eas-cli@latest project:info
+pnpm dlx eas-cli@27.11.0 login
+pnpm dlx eas-cli@27.11.0 project:info
 ```
 
 The project must remain linked to the EAS account above. Do not commit EAS auth tokens, Android keystores, service-account JSON, or other credentials.
 
-## Preview APK — build/install procedure (v0.1.0-preview.1 published)
+## First preview APK — build and published artifact (v0.1.0-preview.1)
 
-Start the cloud build from the project root:
+Historical note: this was the first-preview command, before the non-TTY progress issue was diagnosed. For every new build, use the current ANDROID_BUILD_GUIDE.md procedure with a pseudo-terminal and the pinned EAS CLI.
+
+Start the historical first cloud build from the project root:
 
 ```sh
 pnpm dlx eas-cli@latest build --platform android --profile preview

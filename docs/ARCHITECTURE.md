@@ -1,3 +1,17 @@
+## Question issue reporting, CU localization & Profile shortcuts — 2026-11-22
+
+- **University display metadata:** src/features/catalog/universities.ts includes CU in the existing normalized bilingual-name map. This affects the language-aware catalogue display name; pack institutions, question text, paper titles and source metadata stay canonical and unchanged.
+- **QuestionCard action layout:** src/components/common/QuestionCard.tsx accepts independent onToggleBookmark and onReport callbacks. When rendered, both icon actions share a fixed 44px vertical column at the right of the question stem; Report is the second action immediately below Bookmark. The options list remains in a separate full-width section below the stem. The Report action uses a non-flag alert-circle icon and localized accessibility label.
+- **Report surfaces:** useQuestionReporting wires Browse, Bookmarks, Flash, active Exam and Result. ReportIssueSheet is a native modal/bottom-sheet composer; an active Exam/Flash timer is not paused and the user is told it continues. The existing exam Flag for review state, action row, palette and results remain separate.
+- **Persistence:** additive SQLite migration v13 creates question_issue_reports with one unique row per canonical question_id, issue category JSON, optional details (maximum 1,000 characters), origin surface, first-report question snapshot, created/updated timestamps and exported_at. An index orders by updated_at DESC. Repository methods live in src/repositories/issueReports.ts; validation, snapshot and export contracts live in src/services/issueReports.ts. Content re-import does not own or clear user reports.
+- **Profile management:** app/reports/index.tsx lists/counts reports and supports deleting or sharing one/all; app/reports/[id].tsx shows the saved snapshot, source surface and share state, and supports editing/deleting/re-sharing. Profile opens the report list.
+- **Export/share:** src/services/issueReportShare.ts serializes bd-admission-question-issues schema v1, writes UTF-8 JSON to the app cache using expo-file-system/legacy, then calls expo-sharing.shareAsync. Metadata includes app version, platform, language and DB schema version. Report entries include IDs/timestamps, origin surface, issue types, details and the question snapshot. No profile name, phone, device ID, chosen answers, exam/session history or bookmarks are exported. exported_at means share-sheet hand-off only, not recipient delivery. The JSON stays in cache for receiving apps to read; later exports clean up older matching report files.
+- **Native dependency line:** Expo SDK 57; expo-sharing ~57.0.26, expo-file-system legacy API, direct @expo/metro-runtime ~57.0.18; @expo/cli 57.0.34 resolved by workspace configuration. Expo Doctor 21/21 and expo install --check pass.
+
+**Device boundary:** automated tests do not prove Android visual layout or WhatsApp/Telegram/Files attachment receipt. A new preview APK and physical-device QA are still required; the existing v0.1.11 APK is unchanged.
+
+---
+
 ## CU A Unit Varsity content integration — 2026-11-19
 
 - The existing schema-v1 university pack contract and `data/question-packs/*.json` content-build pipeline ingest CU. The 26 CU A Unit packs are flat files under institution `cu` / `CU`, category `varsity`; they are not LibraryPacks and do not touch the ASPECT/Library tree.
