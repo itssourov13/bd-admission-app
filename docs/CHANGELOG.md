@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 23
+
+- Added 42 new RU Chemistry explanations and replaced 15 garbled explanations in ch_10 (57 explanation-only pack updates across 6 packs). Three underspecified/source-defective questions were deferred; three source images were inspected and original question data and answer keys were preserved.
+
 ## 2026-11-22 — RU explanations, checkpoint 22
 
 - Added 53 new RU Chemistry explanations and replaced 3 garbled explanations in ch_09 (56 explanation-only pack updates across 6 packs). Three non-unique/underspecified questions were deferred; source data and answer keys were preserved.
