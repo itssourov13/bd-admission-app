@@ -1,3 +1,7 @@
+## 2026-11-23 — CU + HSTU verified explanation quality upgrade
+
+- Completed verified explanation review for CU and HSTU. Added explanation-only content to 2,950 of 3,124 verified rows (CU 2,100/2,185; HSTU 850/939). All remaining verified rows are accounted for by 173 unique deferred groups, with original questions and keys preserved. Detailed subject coverage and integrity notes are in docs/implementation/CU_HSTU_EXPLANATION_QUALITY_UPGRADE.md. CU is committed as f1cd865 and HSTU is committed locally. Final validation passed on Node 22.23.1: packs:validate (230 packs / 14,579 questions / 0 errors), content:build/check (231 packs / 16,407 questions / 29.64 MiB seed), TypeScript noEmit, and 318/318 tests. No push or app build was performed.
+
 ## 2026-11-22 — RU explanations, checkpoint 29
 
 - Completed the remaining RU Biology explanation queue and all 23 RU Physics rewrite candidates. Added/replaced explanations for 199 unique verified question records after checkpoint 28. Deferred source/key ambiguities without changing source question text, options or answer keys. Reconciled every unique verified question group: all five subject queues are empty and there are zero unresolved groups. Final validation: content build/check passed (231 packs, 16,407 questions, 28.84 MiB seed); bundled question-pack validation passed (230 packs, 14,579 questions, zero errors); TypeScript passed and all 318 tests passed.
