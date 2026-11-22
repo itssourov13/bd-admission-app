@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 8
+
+- Checkpoint 8: Physics ph_02-ph_06 explanations (explanation field only) plus ICT q006 explanation made precise; 6 questions deferred. No build run.
+
 ## 2026-11-22 — RU explanations, checkpoint 7
 
 - Checkpoint 7: ph_01 Physics explanations added to 4 RU packs (23 rows incl. one propagated duplicate); explanation field only; reviewed; 3 questions deferred. No build run.

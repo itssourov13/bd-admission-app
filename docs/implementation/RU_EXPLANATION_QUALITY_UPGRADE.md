@@ -32,5 +32,8 @@ Higher Mathematics batches hm_16, hm_17, hm_18, hm_19 and ICT batch ict_03: 106 
 ## Checkpoint 7 (2026-11-22)
 ph_01 (22 authored, 23 applied with duplicate propagation). Review: all calculations and conceptual items re-derived; no errors. Only the explanation field changed. Deferred: ru-sci-c-2010-2011-ruh-mcq-q004-108134-ch, q006-108142-ch, q015-108171-ch (see REVIEW_FLAGS.md). Ledger 650 rows / 646 unique IDs. Coverage 1,847/4,249; verified 1,797/4,144.
 
+## Checkpoint 8 (2026-11-22)
+ph_02-ph_06 and fix_03: 168 ledger rows; hand-derived and post-apply verified; only explanation field changed. Deferred: ruc-2011-12 q011-107827, ruh-2011-12 q006-108285, ruf-2012-13 q017-108068, ruh-2012-13 q011-108316, ruf-2013-14 q015-108973, ruh-2013-14 q015-109176 (REVIEW_FLAGS.md). Ledger 818 rows / 813 unique IDs.
+
 ## Remaining
-Verified questions still unexplained: 2,347 (Physics 578, Chemistry 697, Biology 1,032, Higher Mathematics 39 deferred, ICT 1 deferred) plus flagged rewrites. Then CU, HSTU, then one final build and validation cycle.
+Verified questions still unexplained: 2,180 (Physics 411 incl. deferrals, Chemistry 697, Biology 1,032, HM 39 deferred, ICT 1 deferred). Then CU, HSTU, then one final build and validation cycle.
