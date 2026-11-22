@@ -14,5 +14,8 @@ Distinct text+options groups of verified questions are explained once and propag
 ## Checkpoint 1
 ICT (text-only items) and Higher Mathematics 2010-11 … 2011-12 batches: 132 ledger entries (128 added, 4 replaced). Pack validation PASS (230 packs, 0 errors); `content:build` + `content:check` OK; seed SQLite contains 1,383 RU explanations of 4,249; sample explanation row verified.
 
+## Checkpoint 2 (2026-11-22)
+Higher Mathematics batches hm_03–hm_07 (2012-13 … 2017-18) plus one fix batch: 148 more ledger entries (280 total). Re-verified before commit: only `explanation` fields changed (147 questions, 18 packs), all on `verified` questions, every change matches the ledger; 8/8 randomly sampled explanations independently recomputed correctly; round-trip 0 mismatches; `packs:validate` PASS (230 packs, 0 errors); `content:build` + `content:check` exit 0. RU coverage now 1,529/4,249 questions (36.0%); verified 1,479/4,144 (35.7%); 2,665 verified still without explanation; 253 existing explanations still heuristically flagged. Not run: full test suite, typecheck, device test.
+
 ## Remaining
-~2,811 verified without explanation (Physics, Chemistry, Biology, rest of Mathematics, ICT figure questions), 278 flagged rewrites, source-backed text corrections, and CU / HSTU phases. Not complete; do not treat RU as finished.
+Rest of Mathematics, Physics, Chemistry, Biology, ICT figure questions (need images), ~253 flagged rewrites, source-backed text corrections (REVIEW_FLAGS.md, needs original PDF page), then CU / HSTU. Resume with "continue RU". Do not treat RU as finished.

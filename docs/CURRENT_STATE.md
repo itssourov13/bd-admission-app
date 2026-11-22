@@ -1,3 +1,7 @@
+## RU explanation content (in progress)
+
+- RU explanation upgrade — checkpoint 2 (2026-11-22): 280 explanations authored in total; RU coverage 1,529/4,249 (36.0%), verified 1,479/4,144 (35.7%), 2,665 verified still unexplained. Work is unfinished; details and resume steps in docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. Tooling/ledger: bd-admission-app-data/ru-quality-upgrade/. No push, no APK.
+
 ## Android preview v0.1.12 — built, installed and owner-checked — 2026-11-22
 
 **Release metadata:** app / brand / package 0.1.12, Android versionCode 12, application ID `com.admissionbd.app`. EAS target: `preview` / `INTERNAL` Android APK. Existing Expo slug, EAS project ID and EAS-managed Android signing identity are unchanged.

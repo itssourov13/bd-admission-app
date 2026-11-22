@@ -1,3 +1,7 @@
+## RU explanation upgrade — In Progress — 2026-11-22
+
+- RU explanation upgrade — checkpoint 2 (2026-11-22): 280 explanations authored in total; RU coverage 1,529/4,249 (36.0%), verified 1,479/4,144 (35.7%), 2,665 verified still unexplained. Work is unfinished; details and resume steps in docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. Tooling/ledger: bd-admission-app-data/ru-quality-upgrade/. No push, no APK.
+
 ## Android preview v0.1.12 — build and owner device QA complete — 2026-11-22
 
 **Status:** EAS Android `preview` / `INTERNAL` APK is `FINISHED`; the owner installed it and performed device checks. The owner confirms the question-report feature works as expected. The build is not a production AAB or Google Play submission. Current open follow-up is RUNTIME-001, a small perceived delay while WhatsApp prepares a report shared through Android Sharesheet; timing and the responsible stage are not yet measured. No push or merge.

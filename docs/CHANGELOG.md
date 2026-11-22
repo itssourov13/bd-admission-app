@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 2
+
+- Added verified Bangla explanations for 148 more RU Higher Mathematics questions (explanation field only; keys and statuses unchanged). Regenerated bundled manifest/seed. Source-doubtful items listed in the external REVIEW_FLAGS.md, not changed.
+
 ## 2026-11-22 — Complete v0.1.12 Android preview and owner device QA
 
 - EAS Android `preview` / `INTERNAL` build `32339eb3-cef2-45fa-b268-2917fecd82be` completed successfully (**FINISHED**) at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Release metadata: app / brand / package 0.1.12, Android versionCode 12, application ID `com.admissionbd.app`.
