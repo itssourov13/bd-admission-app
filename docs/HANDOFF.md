@@ -1,26 +1,33 @@
-# Latest handoff — Android preview v0.1.12 submitted to EAS — 2026-11-22
+# Latest handoff — v0.1.12 APK completed, installed and owner-checked — 2026-11-22
 
-**Workspace:** /home/kali/gpt-workspace/bd-admission-app
-**Branch:** feat/import-hstu-verified-answers-2026-11-12
-**Release:** app / brand / package 0.1.12, Android versionCode 12, application ID com.admissionbd.app.
-**EAS target:** preview / INTERNAL Android APK; existing Expo slug, EAS project ID and EAS-managed signing identity retained.
-**Toolchain:** Node 22.23.1, pnpm 11.10.0, EAS CLI 27.11.0 via pnpm dlx.
-**Build ID:** 32339eb3-cef2-45fa-b268-2917fecd82be
+**Workspace:** `/home/kali/gpt-workspace/bd-admission-app`
+**Branch:** `feat/import-hstu-verified-answers-2026-11-12`
+**Release:** app / brand / package `0.1.12`, Android versionCode `12`, application ID `com.admissionbd.app`.
+**EAS target:** `preview` / `INTERNAL` Android APK; existing Expo slug, EAS project ID and managed Android signing identity retained.
+**Build ID:** `32339eb3-cef2-45fa-b268-2917fecd82be`
+**Build status:** `FINISHED` — 2026-11-22 05:52:33 UTC / 11:52:33 Asia/Dhaka.
+**APK:** https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk
 **Build page:** https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be
 
-The v0.1.12 source includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reports, SQLite schema v13, Profile report management and privacy-bounded JSON export/native Sharesheet. Source automated verification on Node 22.23.1 passed: 318/318 full tests, 54/54 focused tests, typecheck, lint, Expo install check, git diff --check and Expo Doctor 21/21.
+## Release and device verification
 
-**Confirmed EAS submission:** archive compression completed in 17 seconds; the 36.6 MB archive uploaded successfully in 1 minute 4 seconds. EAS printed the build URL/ID. A separate build:view query matched the project and returned status IN_PROGRESS, platform ANDROID, profile preview, distribution INTERNAL, app version 0.1.12, Android build version 12, and application ID com.admissionbd.app (checked 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka). Submission and queue acceptance are confirmed; cloud build completion and APK availability are not claimed. Monitoring stopped at IN_PROGRESS as requested.
+- EAS build `FINISHED`; the artifact is available at the APK link above. This is an internal preview, not a production AAB or Play Store release.
+- Owner installed the APK on an Android device and checked the app. Owner specifically confirms that question reporting works correctly. Exact device model/Android version and a detailed exhaustive case matrix were not recorded.
+- Source automated gates before build: full test suite 318/318, focused tests 54/54, TypeScript, lint, Expo install check, `git diff --check` and Expo Doctor 21/21 — all passed on Node 22.23.1.
+- Source scope includes CU Bangla localization, Profile shortcut ordering, offline question issue reports, SQLite v13, Profile report management and privacy-bounded JSON export through native Android Sharesheet.
+- **Open follow-up RUNTIME-001:** a short perceived delay occurs while the chosen share target (observed with WhatsApp) prepares the shared report. The flow still works; no elapsed time or phase-level instrumentation is available. Do not assume this is an app defect or change code before determining whether the time is spent serializing/writing the file, launching Android Sharesheet, or preparing inside WhatsApp. See [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md).
 
-**Important diagnostic correction:** the earlier two no-TTY attempts displayed only the initial 0 / 36.6 MB progress marker. EAS disables its progress spinner when stdin is not a TTY, so those logs did not prove that the upload was stuck. The successful submission used script -q -f -e -c to provide a pseudo-terminal and preserve the actual progress output. See docs/ANDROID_BUILD_GUIDE.md for the reproducible command and troubleshooting procedure.
+## Repository state / next agent guidance
 
-No app source/config/dependency changes, no push and no merge. Physical-device installation and v0.1.12 UX QA remain pending after the cloud build produces the APK.
-
+- This follow-up is documentation-only. Do not alter app logic, package versions, question data, assets, SQLite schema or EAS credentials as part of recording this device result.
+- No push or merge has been performed.
+- For RUNTIME-001, first reproduce and capture timestamps around export start, JSON serialization, cache-file write completion, `Sharing.shareAsync` invocation/return and WhatsApp's ready state. Compare a small and larger report set and at least one alternate target (for example Files). Only propose a source change once the slow phase is isolated.
+- The exact repeatable EAS workflow, pinned toolchain and host-specific pseudo-TTY upload behavior are in [ANDROID_BUILD_GUIDE.md](ANDROID_BUILD_GUIDE.md).
 ---
 
----
+# Historical implementation handoff — CU localization, Profile ordering & issue reporting — 2026-11-22
 
-# Latest handoff — CU localization, Profile ordering & issue reporting implemented — 2026-11-22
+*Historical snapshot:* the following handoff predates EAS completion and owner device QA. The current release status is in the handoff above.
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
 **Branch:** feat/import-hstu-verified-answers-2026-11-12

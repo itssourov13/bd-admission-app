@@ -1,17 +1,17 @@
-## Android preview v0.1.12 — EAS accepted / IN_PROGRESS — 2026-11-22
+## Android preview v0.1.12 — built, installed and owner-checked — 2026-11-22
 
 | Check | Result | Evidence |
 |---|---|---|
-| Release metadata | [x] Pass | App / brand / package 0.1.12; Android versionCode 12; com.admissionbd.app; existing Expo slug and EAS project retained. |
-| Feature scope | [x] Included in source | CU Bangla catalogue display, Profile ordering, SQLite v13 question issue reports, Profile list/detail/edit/delete, versioned JSON export and Android Sharesheet. |
-| Automated implementation gates | [x] Pass | Node 22.23.1: full tests 318/318; focused tests 54/54; typecheck; lint; Expo dependency check; Expo Doctor 21/21; diff check. |
-| Resolved Expo config | [x] Pass | Version 0.1.12, Android versionCode 12, package, slug and EAS project ID all match the intended release. |
-| EAS preview submission | [x] Accepted | Build 32339eb3-cef2-45fa-b268-2917fecd82be; 36.6 MB archive uploaded in 1m 4s. https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be |
-| Cloud build status | [x] Verified in progress | build:view returned IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka. Monitoring stopped at acceptance; completion is not claimed. |
-| Physical Android install and run | [ ] Pending | After the APK is available, test responsive layouts, timed report composer, report persistence/edit/delete and JSON attachment sharing. |
+| Release metadata | [x] Pass | App / brand / package 0.1.12; Android versionCode 12; `com.admissionbd.app`; existing Expo slug and EAS project retained. |
+| Feature scope | [x] Included | CU Bangla catalogue display, Profile ordering, SQLite v13 issue reports, Profile list/detail/edit/delete, versioned JSON export and Android Sharesheet. |
+| Automated implementation gates | [x] Pass | Node 22.23.1: full tests 318/318; focused tests 54/54; TypeScript; lint; Expo dependency check; Expo Doctor 21/21; diff check. |
+| EAS preview cloud build | [x] FINISHED | Build `32339eb3-cef2-45fa-b268-2917fecd82be` completed 2026-11-22 05:52:33 UTC / 11:52:33 Asia/Dhaka. [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be). |
+| APK artifact | [x] Available | [Download v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk); internal preview artifact, not Play Store AAB. |
+| Physical Android install | [x] Owner-reported pass | Owner confirms installation and on-device checks. Device model/Android version were not recorded. |
+| Question-report feature | [x] Owner-reported pass | Owner confirms the report feature works correctly on the installed APK. |
+| Share-target preparation latency | [!] Open observation | A short delay is perceived while WhatsApp prepares the shared report after Sharesheet hand-off. Flow works; duration and responsible stage are unmeasured. Track RUNTIME-001 in [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md). |
 | Google Play production release | [ ] Not requested | Internal preview APK only; no production AAB or Play submission. |
-| Android build guide | [x] Added | docs/ANDROID_BUILD_GUIDE.md records the pinned toolchain, pseudo-TTY command, successful upload details and troubleshooting. |
-| Git | [x] Pass | Documentation-only update committed locally after link/consistency checks; no app source/config/dependency changes and no push. |
+| Git | [x] Documentation only | Release/device QA documentation updated. No app source/config/dependency changes, no push or merge. |
 
 ---
 
@@ -224,7 +224,7 @@ Current release metadata remains unchanged: app version 0.1.4, Android versionCo
 
 ## Human runtime issues — owner-reported follow-ups
 
-The three startup UI observations now have targeted source fixes. Automated verification is complete; release-device visual verification remains open.
+The three startup UI observations below have targeted source fixes. The current v0.1.12 share-target preparation observation is tracked separately as RUNTIME-001 in [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md). Automated verification is complete; release-device visual verification remains open.
 
 | Item | Priority | Observation / next step | Status |
 |---|---|---|---|
@@ -232,6 +232,7 @@ The three startup UI observations now have targeted source fixes. Automated veri
 | Five stage checkmarks | Low / visual | Implemented: completed checkmarks use a short staggered native-driver opacity/scale transition; Reduced Motion remains immediate. Five real stage states/progress values are unchanged. | Source/tests pass; verify perceived sequencing and smoothness on the physical phone. |
 | Loading UI → Home transition flash | Low / cosmetic | Implemented: first-run overlay dismissal and returning native-splash dismissal both wait for Home's initial data-backed/error view to lay out. This addresses the identified intermediate Home LoadingView path, but the exact square flash was not recorded/reproduced locally. | Handoff source/export pass; exact visual outcome pending release-build recording on the same phone. |
 | Expo Doctor SDK patch alignment | Maintenance | EAS Expo Doctor reported 20/21 checks: five Expo SDK packages were one patch behind (expo, expo-asset, expo-constants, expo-router, expo-splash-screen). The v0.1.4 Gradle build and APK completed successfully despite this advisory. Align the five packages with the SDK-recommended patches in a separate dependency-maintenance pass and rerun pnpm doctor; no rebuild is requested by this note alone. | Open maintenance note; non-blocking |
+| v0.1.12 WhatsApp share-target preparation delay (RUNTIME-001) | Low / performance observation | Owner reports a short pause after choosing WhatsApp for a JSON report; share flow still works. Measure export, file-write, Sharesheet hand-off and target-ready timestamps before attributing or changing code. | Open; unmeasured and not yet a confirmed app defect |
 
 ## Historical v0.1.3 Android preview — built, then failed on owner's phone
 

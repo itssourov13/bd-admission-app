@@ -1,21 +1,23 @@
-## Android preview v0.1.12 — EAS submission accepted; build in progress — 2026-11-22
+## Android preview v0.1.12 — build and owner device QA complete — 2026-11-22
 
-**Status:** Source implementation and release checks are complete. EAS accepted the Android preview / INTERNAL APK submission and returned build 32339eb3-cef2-45fa-b268-2917fecd82be. A build:view query verified IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka. Monitoring stopped at acceptance per owner instruction. No cloud completion, APK download or physical-device QA is claimed. No push.
+**Status:** EAS Android `preview` / `INTERNAL` APK is `FINISHED`; the owner installed it and performed device checks. The owner confirms the question-report feature works as expected. The build is not a production AAB or Google Play submission. Current open follow-up is RUNTIME-001, a small perceived delay while WhatsApp prepares a report shared through Android Sharesheet; timing and the responsible stage are not yet measured. No push or merge.
 
-- [x] Confirmed clean starting worktree, branch and previous release 0.1.11 / Android code 11.
-- [x] Bumped package.json, brand.config.json and app.config.js to 0.1.12 / versionCode 12.
-- [x] Preserved com.admissionbd.app, Expo slug bd-admission-app, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec, preview profile and EAS-managed Android signing identity.
-- [x] Completed v0.1.12 implementation checks on Node 22.23.1: TypeScript, lint, Expo install check, targeted 54/54, full suite 318/318, diff check and Expo Doctor 21/21.
-- [x] Resolved Expo public config: version 0.1.12, Android versionCode 12, application ID, slug and EAS project ID all match.
-- [x] Submitted using Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0. The 36.6 MB archive uploaded successfully in 1m 4s.
-- [x] Verified EAS acceptance and build identity with build:view: ANDROID / preview / INTERNAL / com.admissionbd.app / 0.1.12 / build version 12.
-- [x] Added docs/ANDROID_BUILD_GUIDE.md with the tested host toolchain, pseudo-TTY upload procedure, acceptance checks and troubleshooting for future agents.
-- [ ] Cloud build completion and APK availability.
-- [ ] Owner physical-device install and QA of v0.1.12. No push or merge.
+- [x] Confirmed release identity: app / brand / package 0.1.12, Android versionCode 12, `com.admissionbd.app`; existing Expo slug, EAS project and managed signing identity preserved.
+- [x] Completed source checks on Node 22.23.1: TypeScript, lint, Expo install check, focused tests 54/54, full suite 318/318, `git diff --check` and Expo Doctor 21/21.
+- [x] Submitted EAS build `32339eb3-cef2-45fa-b268-2917fecd82be` using Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0.
+- [x] Verified cloud build `FINISHED` at 2026-11-22 05:52:33 UTC / 11:52:33 Asia/Dhaka.
+- [x] APK artifact available: https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk
+- [x] Owner installed v0.1.12 and reports on-device checks complete; question-report feature works as expected.
+- [x] Updated release, handoff, current-state, QA, changelog, README and build-guide documentation to record actual completion and manual QA.
+- [x] Added [RUNTIME_ISSUES.md](RUNTIME_ISSUES.md) and QA follow-up RUNTIME-001 for the perceived WhatsApp target-preparation delay.
+- [ ] RUNTIME-001 timing breakdown and reproduction: pending; no code fix approved or made.
+- [ ] Git push / merge: owner-managed; not performed.
 
 ---
 
-## CU localization, Profile ordering & question issue reporting — implementation complete locally — 2026-11-22
+## Historical implementation checkpoint — CU localization, Profile ordering & question issue reporting — 2026-11-22
+
+*Historical snapshot:* this source-implementation checklist predates the completed v0.1.12 cloud build and owner device QA recorded above.
 
 **Status:** Implementation, automated verification, documentation and local commit 1a76488 are complete on the current feature branch. No EAS build or push.
 

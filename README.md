@@ -23,7 +23,7 @@
 
 ## Current Android preview
 
-**v0.1.12 submitted** · Android versionCode 12 · com.admissionbd.app · EAS preview / INTERNAL APK. The source contains CU Bangla catalogue localization, reordered Profile shortcuts, local question issue reports (SQLite v13), Profile report management and privacy-bounded JSON export through the Android Sharesheet. EAS accepted the 36.6 MB archive and created build [32339eb3-cef2-45fa-b268-2917fecd82be](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be); build:view reported IN_PROGRESS at 2026-11-22 05:38 UTC. This confirms submission, not build completion or APK availability. Physical-device QA is pending. This is an internal preview, not a Google Play release.
+**v0.1.12 available** · Android versionCode 12 · `com.admissionbd.app` · EAS preview / INTERNAL APK. [Download the Android APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk) · [EAS build details](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be). EAS reports the build FINISHED on 2026-11-22; the owner installed it and completed device checks, confirming the question-report feature works. This is an internal preview APK, not a Google Play release. A small WhatsApp share-target preparation delay is tracked as an open observation in [RUNTIME_ISSUES.md](docs/RUNTIME_ISSUES.md).
 
 ## License
 
@@ -35,7 +35,7 @@ Original application source code and project-authored materials are licensed und
 - [Current implementation state](docs/CURRENT_STATE.md) · [Architecture](docs/ARCHITECTURE.md)
 - [Question data schema](docs/QUESTION_DATA_SCHEMA.md) · [Import workflow](docs/QUESTION_IMPORT_WORKFLOW.md)
 - [Exam-rule research](docs/EXAM_RULE_RESEARCH.md) · [QA checklist](docs/QA_CHECKLIST.md)
-- [Android build guide](docs/ANDROID_BUILD_GUIDE.md) · [Release history](docs/ANDROID_RELEASE.md) · [Development preview guide](docs/EXPO_LOCAL_PREVIEW.md)
+- [Android build guide](docs/ANDROID_BUILD_GUIDE.md) · [Release history](docs/ANDROID_RELEASE.md) · [Runtime issues](docs/RUNTIME_ISSUES.md) · [Development preview guide](docs/EXPO_LOCAL_PREVIEW.md)
 
 ## Development
 

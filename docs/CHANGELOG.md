@@ -1,11 +1,21 @@
+## 2026-11-22 — Complete v0.1.12 Android preview and owner device QA
+
+- EAS Android `preview` / `INTERNAL` build `32339eb3-cef2-45fa-b268-2917fecd82be` completed successfully (**FINISHED**) at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Release metadata: app / brand / package 0.1.12, Android versionCode 12, application ID `com.admissionbd.app`.
+- [Download the v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk) · [EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be). This is an internal APK, not a production AAB or Google Play submission; artifact expires 2026-12-06 at approximately 11:37 Asia/Dhaka.
+- Owner installed the APK and completed on-device checks; the question-report feature is confirmed working as expected. Device model/Android version and exhaustive per-case matrix were not recorded.
+- Open observation RUNTIME-001: a short delay is perceived while WhatsApp prepares a shared report after Android Sharesheet hand-off. The flow works; elapsed time and responsible stage are unknown. See `docs/RUNTIME_ISSUES.md`.
+- No application source, data, asset, dependency or configuration change was made in this documentation update. No push or merge.
+
+---
+
 ## 2026-11-22 — Submit v0.1.12 Android preview with CU localization and question issue reporting
 
 - App / brand / package version is 0.1.12; Android versionCode is 12. Preserved com.admissionbd.app, Expo slug, EAS project ID, preview / INTERNAL APK profile and the existing EAS-managed signing identity.
 - The release source includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
 - Automated implementation gates passed on Node 22.23.1: full suite 318/318, focused tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
 - Submitted with Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0. EAS accepted the 36.6 MB archive upload (1m 4s) and created build 32339eb3-cef2-45fa-b268-2917fecd82be. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be.
-- build:view verified IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka. Monitoring stopped at acceptance. Build completion, APK availability and physical-device QA are not yet claimed. This is an internal APK preview, not a production AAB or Google Play submission.
-- The previous 0 / 36.6 MB appearance was a non-TTY spinner-visibility issue, not proof that the upload was stuck. The successful invocation used script -q -f -e -c to provide a pseudo-terminal. The complete repeatable procedure and troubleshooting are in docs/ANDROID_BUILD_GUIDE.md. No source/config/dependency change, no push.
+- The build initially reported IN_PROGRESS at 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka; it subsequently completed at 05:52:33 UTC. Final completion and owner QA are recorded above.
+- The previous 0 / 36.6 MB appearance was a non-TTY spinner-visibility issue, not proof that the upload was stuck. The successful invocation used script -q -f -e -c to provide a pseudo-terminal. The repeatable procedure and troubleshooting are in docs/ANDROID_BUILD_GUIDE.md. No source/config/dependency change, no push.
 
 ---
 

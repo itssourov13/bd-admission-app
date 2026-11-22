@@ -1,20 +1,20 @@
-## Current Android preview — 2026-11-22 (v0.1.12; EAS accepted / IN_PROGRESS)
+## Current Android preview — 2026-11-22 (v0.1.12; built, installed and owner-checked)
 
-- Release metadata: Expo app / brand / package 0.1.12, Android versionCode 12; application ID com.admissionbd.app; EAS preview / INTERNAL APK. Existing Expo slug, EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec and EAS-managed Android signing identity are retained.
-- Feature scope: CU Bangla catalogue-name localization, Profile shortcut ordering, offline question issue reports (SQLite v13), Profile list/detail/edit/delete, privacy-bounded versioned JSON export and native Android Sharesheet. Report is directly below Bookmark and remains distinct from the Standard Exam review flag.
-- Automated implementation gates passed on Node 22.23.1: 318/318 full tests, 54/54 focused tests, TypeScript, lint, Expo install check, diff check and Expo Doctor 21/21.
-- EAS accepted the 36.6 MB archive and uploaded it in 1m 4s. Build ID: 32339eb3-cef2-45fa-b268-2917fecd82be. Open EAS build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be.
-- build:view verified status IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka; platform ANDROID, profile preview, distribution INTERNAL, app version 0.1.12, Android build version 12 and application ID com.admissionbd.app. Submission is confirmed; cloud completion and APK availability are not yet claimed.
-- Physical-device install/QA remains pending. This is an internal APK preview, not a production AAB or Google Play submission.
+- Release metadata: Expo app / brand / package `0.1.12`, Android versionCode `12`; application ID `com.admissionbd.app`; EAS `preview` / `INTERNAL` APK. Existing Expo slug, EAS project ID `16ba69b8-96d7-4856-a197-77acddebe1ec` and EAS-managed Android signing identity are retained.
+- Feature scope: CU Bangla catalogue localization, Profile shortcut ordering, local question issue reports (SQLite v13), Profile list/detail/edit/delete, privacy-bounded versioned JSON export and native Android Sharesheet. Report action remains distinct from Standard Exam Flag for review.
+- Automated source gates passed on Node 22.23.1: full tests 318/318, focused tests 54/54, TypeScript, lint, Expo install check, `git diff --check` and Expo Doctor 21/21.
+- EAS build `32339eb3-cef2-45fa-b268-2917fecd82be` reached **FINISHED** on 2026-11-22 at 05:52:33 UTC / 11:52:33 Asia/Dhaka. Platform ANDROID, profile `preview`, distribution `INTERNAL`, app version 0.1.12, build version 12, application ID `com.admissionbd.app`. [Open EAS build page](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be).
+- **[Download the v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk)**. The artifact is an internal preview APK, not a production AAB or Google Play submission. EAS artifact expiry is 2026-12-06 at approximately 11:37 Asia/Dhaka.
+- Owner confirms the APK was installed and the app was checked on-device; the question-report feature works as expected. This is owner-reported manual QA; the exact handset/Android version and exhaustive case matrix were not supplied.
+- Open non-blocking runtime observation: a short delay is noticed while WhatsApp prepares a report passed through Android Sharesheet. The report flow works as checked; the phase and elapsed time are unknown. Track [RUNTIME-001](RUNTIME_ISSUES.md) before attributing the delay to app code.
 
 ---
 
 ## Canonical build procedure
 
-**Canonical repeatable procedure:** [ANDROID_BUILD_GUIDE.md](ANDROID_BUILD_GUIDE.md). Use it for all future EAS Android builds from this workspace. It documents the verified Node/EAS CLI versions, the exact pseudo-TTY submission command, how to distinguish hidden non-TTY progress from a real upload failure, how to verify EAS acceptance and when to stop monitoring.
----
+**Canonical repeatable procedure:** [ANDROID_BUILD_GUIDE.md](ANDROID_BUILD_GUIDE.md). Use it for future EAS Android builds from this workspace. It documents the verified Node/EAS CLI versions, exact pseudo-TTY submission command, how to distinguish hidden non-TTY progress from a real upload failure, how to verify EAS acceptance and when to stop monitoring.
 
-## Historical release details
+---
 
 ## Previous completed preview — 2026-11-19 (v0.1.11; built and owner-tested)
 

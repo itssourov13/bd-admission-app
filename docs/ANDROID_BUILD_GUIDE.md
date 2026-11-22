@@ -13,7 +13,9 @@ This is the canonical, repeatable procedure for preparing and submitting Android
 - EAS CLI used: `27.11.0`; Node: `22.23.1`; pnpm: `11.10.0`
 - Build ID: `32339eb3-cef2-45fa-b268-2917fecd82be`
 - Build page: [v0.1.12 Android preview](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be)
-- EAS accepted the upload and returned the build ID. `build:view` reported `IN_PROGRESS` at 2026-11-22 05:38 UTC (11:38 Asia/Dhaka). This confirms submission/queue acceptance only; it does **not** claim that the cloud build finished or that an APK is ready.
+- Final EAS status: **FINISHED**, completed 2026-11-22 at 05:52:33 UTC / 11:52:33 Asia/Dhaka.
+- APK artifact: [Download v0.1.12 APK](https://expo.dev/artifacts/eas/TMGMPfAQMCOrlZ4hKHmZSx-iDDCLjN57_FwM5zGA66Y.apk) (internal preview; artifact expiry 2026-12-06 at approximately 11:37 Asia/Dhaka).
+- Owner installed the APK and completed on-device checks, confirming the question-report feature works as expected. See [QA_CHECKLIST.md](QA_CHECKLIST.md).
 - The uploaded project archive was 36.6 MB. EAS reported `Uploaded to EAS 1m 4s`.
 
 For the complete release history and owner QA evidence, see [ANDROID_RELEASE.md](ANDROID_RELEASE.md), [HANDOFF.md](HANDOFF.md) and [QA_CHECKLIST.md](QA_CHECKLIST.md).
