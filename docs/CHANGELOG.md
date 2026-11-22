@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 4
+
+- Added verified Bangla explanations for 70 more RU Higher Mathematics questions and rewrote three garbled ones (batches hm_12-hm_14), plus two small precision refinements (fix_02: domain exclusion in a tan-equation, an unstated division step). Explanation field only; keys, option order, statuses and provenance unchanged. Regenerated bundled manifest/seed.
+
 ## 2026-11-22 — RU explanations, checkpoint 3
 
 - Added verified Bangla explanations for 79 more RU Higher Mathematics questions and rewrote two garbled ones (explanation field only; keys/statuses unchanged). Regenerated bundled manifest/seed. Doubtful items listed in the external REVIEW_FLAGS.md, not changed.

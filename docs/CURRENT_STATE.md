@@ -1,3 +1,7 @@
+## RU explanation content — checkpoint 4 (in progress)
+
+- RU explanation upgrade — checkpoint 4 (2026-11-22): 439 ledger rows / 435 unique question IDs (73 explanations authored in hm_12-hm_14 plus 2 precision refinements); coverage 1,678/4,249 (39.5%), verified 1,628/4,144 (39.3%), 2,516 verified still unexplained; Higher Mathematics 662/838 verified explained. Pack validation PASS (0 errors), content:check OK, typecheck clean, 318/318 tests pass. Unfinished; see docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. No push, no APK.
+
 ## RU explanation content — checkpoint 3 (in progress)
 
 - RU explanation upgrade — checkpoint 3 (2026-11-22): 364 explanations authored in total; coverage 1,608/4,249 (37.8%), verified 1,558/4,144 (37.6%), 2,586 verified still unexplained. Unfinished; see docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. No push, no APK.
