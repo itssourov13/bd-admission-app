@@ -1,3 +1,7 @@
+## RU explanation upgrade — checkpoint 3 (In Progress) — 2026-11-22
+
+- RU explanation upgrade — checkpoint 3 (2026-11-22): 364 explanations authored in total; coverage 1,608/4,249 (37.8%), verified 1,558/4,144 (37.6%), 2,586 verified still unexplained. Unfinished; see docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. No push, no APK.
+
 ## RU explanation upgrade — In Progress — 2026-11-22
 
 - RU explanation upgrade — checkpoint 2 (2026-11-22): 280 explanations authored in total; RU coverage 1,529/4,249 (36.0%), verified 1,479/4,144 (35.7%), 2,665 verified still unexplained. Work is unfinished; details and resume steps in docs/implementation/RU_EXPLANATION_QUALITY_UPGRADE.md. Tooling/ledger: bd-admission-app-data/ru-quality-upgrade/. No push, no APK.
