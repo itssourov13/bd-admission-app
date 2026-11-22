@@ -1,3 +1,7 @@
+## Question artwork integration — 2026-11-23
+
+The 43-item artwork campaign is integrated and all automated validation passed. Start with docs/QUESTION_VISUAL_ASSETS.md; the external working set and final question map live under /home/kali/gpt-workspace/bd-admission-app-data/visual-asset-workspace/. Only pending manual QA is representative physical Android QuestionCard viewing. No app runtime/UI logic changed. Do not re-import the old whole-question RU-V crops; the figure-only replacements and 3 false-positive removals are already in the content packs.
+
 ## CU + HSTU explanation upgrade — content complete (2026-11-23)
 
 - Completed verified explanation review for CU and HSTU packs. CU: 2,100/2,185 verified rows explained; HSTU: 850/939. Combined: 2,950/3,124 verified rows explained. Subject-level coverage and deferred-review handling are documented in docs/implementation/CU_HSTU_EXPLANATION_QUALITY_UPGRADE.md.

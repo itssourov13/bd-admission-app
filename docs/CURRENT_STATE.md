@@ -1,3 +1,15 @@
+## Question visual assets — generated and integrated (2026-11-23)
+
+- Generated 43 source-mapped artworks (17 RU-V, 21 selected RU Lokkho replacements, 5 CU placeholders); 43 editable SVG masters and 43 app-compatible PNGs are preserved in the external visual-asset workspace.
+- RU-V now has 17 true diagram-only assets; 3 PDF crops that contained no separate figure (p55/Q3, p89/Q13, p79/Q20) have their misleading asset references removed.
+- 21 selected Lokkho weak/mixed/rough assets were replaced; the 24 remaining clean digital artworks were retained. All five CU image placeholders now have figure-only assets. No HSTU placeholder or asset reference was found; no speculative HSTU drawings were added.
+- 41 replaced source PNGs were removed from the app asset tree only after reference checks. Their original bytes remain in the immutable external snapshot workspace.
+- Mobile exports: 900–1,150 px wide, all under 100 KB; combined PNGs about 1.47 MB. Existing QuestionCard/QuestionFigures UI and app logic were not changed.
+- Semantic question-pack diff: 26 records changed only in assetPaths and seven text fields used to separate image-embedded prompts/remove placeholders. No option, answer, explanation, source, topic or verification field changed. RU-V Library changes were assetPaths-only.
+- Validation: asset check 67 files / 68 refs / 0 missing; packs 230 / 14,579 / 0 errors / 5,536 warnings; content build/check 231 packs / 16,407 questions / 29.64 MiB; TypeScript PASS; tests 318/318 PASS. Original snapshots 65/65 hashes verified.
+- Final external mapping, SVG masters, PNG exports, mobile-preview sheets and source notes are indexed in the external visual-asset workspace. See docs/QUESTION_VISUAL_ASSETS.md.
+- Physical Android QuestionCard screenshot QA remains pending; current 320 dp / 3× previews are simulated, not device screenshots.
+
 ## CU + HSTU explanation upgrade — content complete (2026-11-23)
 
 - Completed verified explanation review for CU and HSTU packs. CU: 2,100/2,185 verified rows explained; HSTU: 850/939. Combined: 2,950/3,124 verified rows explained. Subject-level coverage and deferred-review handling are documented in docs/implementation/CU_HSTU_EXPLANATION_QUALITY_UPGRADE.md.

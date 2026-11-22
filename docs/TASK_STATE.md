@@ -1,3 +1,10 @@
+## Question visual asset reconstruction — complete (2026-11-23)
+
+- Completed and integrated 43 artworks: 17 RU-V, 21 RU Lokkho replacements, 5 CU placeholders; HSTU had no explicit image placeholder/reference in the available packs.
+- Replaced diagram-only references, removed 3 RU-V false-positive image refs, retained 24 clean Lokkho image files and preserved 65 original snapshots externally.
+- Updated asset index/content seed and docs. Asset check, pack validation, content check and TypeScript pass; automated suite 318/318 pass.
+- Remaining manual step: physical Android QuestionCard visual inspection. Full mapping and source provenance: docs/QUESTION_VISUAL_ASSETS.md.
+
 ## CU + HSTU explanation upgrade — content complete (2026-11-23)
 
 - Completed verified explanation review for CU and HSTU packs. CU: 2,100/2,185 verified rows explained; HSTU: 850/939. Combined: 2,950/3,124 verified rows explained. Subject-level coverage and deferred-review handling are documented in docs/implementation/CU_HSTU_EXPLANATION_QUALITY_UPGRADE.md.

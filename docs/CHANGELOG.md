@@ -1,3 +1,10 @@
+## 2026-11-23 — Question artwork reconstruction and integration
+- Generated 43 figure-only vector artworks (17 RU-V, 21 RU Lokkho, 5 CU) and integrated 43 mobile-sized PNGs into the offline question asset tree.
+- Removed 3 RU-V false-positive crop references and separated mixed prompt text from two Lokkho figures; replaced the five CU placeholder descriptions with linked art.
+- Preserved 24 already-clean Lokkho assets and the full original source snapshots in the external visual-asset workspace.
+- No QuestionCard/UI/runtime/scoring logic changes. Asset index, pack validation, content build/check, TypeScript and all 318 automated tests pass. Physical Android visual QA remains outstanding.
+- Details and reproducible mapping: docs/QUESTION_VISUAL_ASSETS.md.
+
 ## 2026-11-23 — CU + HSTU verified explanation quality upgrade
 
 - Completed verified explanation review for CU and HSTU. Added explanation-only content to 2,950 of 3,124 verified rows (CU 2,100/2,185; HSTU 850/939). All remaining verified rows are accounted for by 173 unique deferred groups, with original questions and keys preserved. Detailed subject coverage and integrity notes are in docs/implementation/CU_HSTU_EXPLANATION_QUALITY_UPGRADE.md. CU is committed as f1cd865 and HSTU is committed locally. Final validation passed on Node 22.23.1: packs:validate (230 packs / 14,579 questions / 0 errors), content:build/check (231 packs / 16,407 questions / 29.64 MiB seed), TypeScript noEmit, and 318/318 tests. No push or app build was performed.

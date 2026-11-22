@@ -33,7 +33,7 @@ Original application source code and project-authored materials are licensed und
 
 - [Product overview and content coverage](docs/APP_OVERVIEW.md)
 - [Current implementation state](docs/CURRENT_STATE.md) · [Architecture](docs/ARCHITECTURE.md)
-- [Question data schema](docs/QUESTION_DATA_SCHEMA.md) · [Import workflow](docs/QUESTION_IMPORT_WORKFLOW.md)
+- [Question data schema](docs/QUESTION_DATA_SCHEMA.md) · [Import workflow](docs/QUESTION_IMPORT_WORKFLOW.md) · [Question visual assets](docs/QUESTION_VISUAL_ASSETS.md)
 - [Exam-rule research](docs/EXAM_RULE_RESEARCH.md) · [QA checklist](docs/QA_CHECKLIST.md)
 - [Android build guide](docs/ANDROID_BUILD_GUIDE.md) · [Release history](docs/ANDROID_RELEASE.md) · [Runtime issues](docs/RUNTIME_ISSUES.md) · [Development preview guide](docs/EXPO_LOCAL_PREVIEW.md)
 

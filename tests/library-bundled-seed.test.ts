@@ -43,7 +43,7 @@ test("bundled RU-V ASPECT book syncs from the seed into a fresh database, idempo
     `SELECT COUNT(*) AS q, (SELECT COUNT(*) FROM question_options o JOIN questions x ON x.id=o.question_id WHERE x.batch_id='lib-${BOOK}') AS o,
        (SELECT COUNT(*) FROM question_sources s JOIN questions x ON x.id=s.question_id WHERE x.batch_id='lib-${BOOK}' AND s.page_number IS NOT NULL) AS src,
        SUM(explanation IS NOT NULL) AS e, SUM(asset_paths IS NOT NULL) AS assets FROM questions WHERE batch_id='lib-${BOOK}'`);
-  assert.deepEqual({ ...counts }, { q: 1828, o: 7312, src: 1828, e: 1828, assets: 20 });
+  assert.deepEqual({ ...counts }, { q: 1828, o: 7312, src: 1828, e: 1828, assets: 17 });
   assert.equal((await db.getFirstAsync<{ n: number }>("SELECT COUNT(*) AS n FROM questions WHERE id LIKE 'ru-vq-%' OR id LIKE 'ru-c-%'"))?.n, 0);
 
   // every figure is a real file and is registered in the Metro asset index (the index uses require(), so it is read as text here)
@@ -54,7 +54,17 @@ test("bundled RU-V ASPECT book syncs from the seed into a fresh database, idempo
     assert.ok(existsSync(new URL(`../data/question-packs/${a}`, import.meta.url)), `missing file ${a}`);
     assert.ok(index.includes(`"${a}":`), `not indexed ${a}`);
   }
-  assert.equal(figures, 20);
+  assert.equal(figures, 17);
+  const noFigureIds = [
+    "aspect-ru-vq-2022-2023-c-all-p044-q003-p055-n0127",
+    "aspect-ru-vq-2020-2021-c-all-p089-q013-p089-n0012",
+    "aspect-ru-vq-2021-2022-c-all-p067-q020-p079-n0137",
+  ];
+  for (const id of noFigureIds) {
+    const question = pack.questions.find((q) => q.id === id);
+    assert.ok(question, `missing text-only source question ${id}`);
+    assert.deepEqual(question.assetPaths ?? [], [], `text-only source question should not receive generated artwork: ${id}`);
+  }
   // provenance is surfaced for library questions
   const [view] = await loadQuestions(db, [pack.questions[0]!.id]);
   assert.equal(view?.source?.filename, "RU Question Bank.pdf");

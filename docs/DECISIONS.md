@@ -1,3 +1,11 @@
+## 2026-11-23 — Question artwork replacement policy
+
+- Exact graphs, circuits, logic gates and molecular structures are authored as deterministic SVG masters, then exported to compact PNGs for the current offline image index. SVG sources stay in the external visual-asset workspace; app runtime does not need SVG support.
+- Use figure-only artwork when text/options already exist in the question record. Never embed whole question/page crops below structured question text.
+- Preserve clean existing assets; replace only source-reviewed low-quality, handwritten, mixed-prompt or whole-question crops. Do not infer HSTU artwork from wording-only keyword hits.
+- Physical phone-width QuestionCard QA remains a distinct final display check; simulated previews are not physical-device evidence.
+- The implementation does not change question scoring, options, answer keys, explanations, verification statuses, QuestionCard UI or QuestionFigures logic.
+
 ## ADR-042 — Keep content issue reports separate from personal bookmarks and exam review flags
 
 Status: accepted and implemented locally, 2026-11-22.
