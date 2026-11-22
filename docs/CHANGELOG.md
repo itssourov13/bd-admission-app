@@ -5,7 +5,7 @@
 - This candidate includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, additive SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
 - Automated implementation gates previously passed on Node 22.23.1: full suite 318/318, targeted tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
 - Target is an internal APK preview only; not a production AAB or Google Play submission. Existing v0.1.11 remains the last completed and owner-tested APK. Physical Android QA of v0.1.12 will follow the cloud build.
-- A no-wait EAS upload attempt stalled at the last visible 0 / 36.6 MB marker and did not return a build ID/acceptance response. The upload was stopped after a short check; retry is pending. No push.
+- Two no-wait EAS upload attempts stalled at the last visible 0 / 36.6 MB marker and did not return a build ID/acceptance response. Build list still showed only v0.1.11/v0.1.10. The attempts were stopped after short monitoring; retry is pending. No push.
 
 ---
 

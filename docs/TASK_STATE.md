@@ -1,6 +1,6 @@
 ## Android preview v0.1.12 — versioned; EAS upload did not reach acceptance — 2026-11-22
 
-**Status:** Release metadata and source preflight are complete. A no-wait EAS preview upload attempt stalled at 0 / 36.6 MB for approximately 4m54s with no build ID or service acceptance; the process was stopped rather than monitored for longer. No cloud build is confirmed. No push.
+**Status:** Release metadata and source preflight are complete. Two no-wait EAS preview upload attempts stalled at 0 / 36.6 MB and produced no build ID or service acceptance. The first was stopped after approximately 4m54s; the retry was also stopped after a short monitoring window. A follow-up build-list query showed only v0.1.11 and v0.1.10, so no v0.1.12 cloud job is confirmed. No push.
 
 - [x] Confirmed clean starting worktree, branch and previous release 0.1.11 / Android code 11.
 - [x] Bumped package.json, brand.config.json and app.config.js to 0.1.12 / versionCode 12.
@@ -8,7 +8,7 @@
 - [x] Updated README and Android release/current-state/task/changelog/handoff/QA documentation for the v0.1.12 candidate and the actual feature scope (CU Bangla display, Profile ordering, local reports, SQLite v13, JSON export/Sharesheet).
 - [x] Previously completed implementation verification remains green on Node 22.23.1: TypeScript, lint, Expo install check, targeted 54/54, full suite 318/318, diff check, Expo Doctor 21/21.
 - [x] Resolved Expo public config: version 0.1.12, Android versionCode 12, application ID com.admissionbd.app, slug bd-admission-app and existing EAS project ID all match.
-- [ ] Retry EAS Android preview submission when the archive upload connection is responsive; no build ID/acceptance was obtained in this attempt.
+- [ ] Retry EAS Android preview submission when the archive upload connection is responsive; two attempts did not obtain a build ID/acceptance.
 - [x] Record the unsuccessful short submission attempt in release docs and commit locally. No push and no monitoring of build completion.
 
 ---
