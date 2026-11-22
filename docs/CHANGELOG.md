@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 29
+
+- Completed the remaining RU Biology explanation queue and all 23 RU Physics rewrite candidates. Added/replaced explanations for 199 unique verified question records after checkpoint 28. Deferred source/key ambiguities without changing source question text, options or answer keys. Reconciled every unique verified question group: all five subject queues are empty and there are zero unresolved groups. Final validation: content build/check passed (231 packs, 16,407 questions, 28.84 MiB seed); bundled question-pack validation passed (230 packs, 14,579 questions, zero errors); TypeScript passed and all 318 tests passed.
+
 ## 2026-11-22 — RU explanations, checkpoint 28
 
 - Reviewed and added/replaced RU Biology explanations in batches bio_11–bio_15. 272 authored groups produced 274 unique verified question-record updates after exact-duplicate propagation. Added 27 documented Biology deferrals. No question stems, options, answer keys, verification statuses, source IDs or pack metadata were changed.
