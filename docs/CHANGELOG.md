@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 11
+
+- Added reviewed Bengali explanations for 74 RU Physics questions (ph_13-ph_14) in 4 packs; explanation field only. Six defective/ambiguous items deferred with documented reasons.
+
 ## 2026-11-22 — RU explanations, checkpoint 10
 
 - Added reviewed Bengali explanations for 196 RU Physics questions (ph_08-ph_12) across 12 question packs; explanation field only, no answer-key/option/status changes. Five defective or ambiguous items deferred with documented reasons.

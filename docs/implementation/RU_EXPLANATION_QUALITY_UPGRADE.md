@@ -41,5 +41,8 @@ ph_07 (42 additions across ru-sci-c-2014-2015 ruc/ruf/rug/ruh). Every answer der
 ## Checkpoint 10 (2026-11-22)
 ph_08-ph_12 (196 additions across 12 ru-sci-c packs, 2014-15 to 2017-18). Answers derived independently from stems; the one image-based item (ruc 2015-16 q014-109069 circuit) re-inspected. Post-apply check (verify_final.py 860): 196/196 tree changes match ledger, 0 non-explanation field changes, all still verified. 5 new deferrals documented in REVIEW_FLAGS.md. No full build by design.
 
+## Checkpoint 11 (2026-11-22)
+ph_13-ph_14 (74 additions across 4 ru-sci-c packs, ruh 2017-18 and ruc 2018-19 to 2021-22). Answers derived independently from stems; six images inspected (small figures upscaled). Post-apply check (verify_final.py 860): 74/74 tree changes match ledger, 0 non-explanation changes, all still verified. 6 new deferrals documented. No full build by design.
+
 ## Remaining
-Physics 179 (incl. 14 documented deferrals), Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
+Physics 116 (incl. ~20 documented deferrals), Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
