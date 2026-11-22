@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 5
+
+- Added verified Bangla explanations for 62 more RU Higher Mathematics questions and rewrote 20 garbled ones (batch hm_15, spanning 2021-22 through 2024-25). Explanation field only; keys, option order, statuses and provenance unchanged. All 82 independently re-derived with sympy (inverse-trig domains, integrals, limits, complex numbers, matrices, conics); 0 key disagreements. Three unresolved questions stay deferred with documented reasons; one candidate key correction noted but not applied. Regenerated bundled manifest/seed.
+
 ## 2026-11-22 — RU explanations, checkpoint 4
 
 - Added verified Bangla explanations for 70 more RU Higher Mathematics questions and rewrote three garbled ones (batches hm_12-hm_14), plus two small precision refinements (fix_02: domain exclusion in a tan-equation, an unstated division step). Explanation field only; keys, option order, statuses and provenance unchanged. Regenerated bundled manifest/seed.

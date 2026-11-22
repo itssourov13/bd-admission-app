@@ -2759,7 +2759,7 @@
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 60
       },
-      "explanation": "y = (sin x + cos x)/(1 + sin 2x) = (sin x + cos x)/(sin²x + 2 sinx cos x + cos²x) = (sin x + cos x)/(sin x + cos x) = 1 ∴dy/dx = 0"
+      "explanation": "1 + sin 2x = sin²x + cos²x + 2 sin x cos x = (sin x + cos x)², তাই √(1 + sin 2x) = |sin x + cos x| এবং y = (sin x + cos x)/|sin x + cos x| = ±1, যা ধ্রুবক। ধ্রুবকের অন্তরজ 0, তাই dy/dx = 0 (a)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q061-110649-ch",
@@ -3228,7 +3228,8 @@
       "source": {
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 70
-      }
+      },
+      "explanation": "θ = cos⁻¹√(2/3) ধরলে cos θ = √(2/3), sin θ = √(1 − 2/3) = 1/√3। তাই tan⁻¹(sin θ) = tan⁻¹(1/√3) = 30° (a)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q071-110765-ch",
@@ -3274,7 +3275,8 @@
       "source": {
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 71
-      }
+      },
+      "explanation": "(tan⁻¹2x)/x = 2·(tan⁻¹2x)/(2x)। t = 2x → 0 এ (tan⁻¹t)/t → 1 (প্রমিত সীমা), তাই সীমা = 2 × 1 = 2 (d)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q072-110768-ch",
@@ -3837,7 +3839,7 @@
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 83
       },
-      "explanation": "(i – i⁻¹)/( i + 2i⁻¹) = (i² − 1)/(i² + 2) = (− 1 − 1)/(−1 + 2) = − 2 [ ]"
+      "explanation": "i⁻¹ = 1/i = −i। লব = i − (−i) = 2i; হর = i + 2(−i) = −i। তাই মান = 2i/(−i) = −2 (d)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q084-110601-ch",
@@ -3977,7 +3979,8 @@
       "source": {
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 86
-      }
+      },
+      "explanation": "লব-হরকে cos²x দিয়ে ভাগ করে ∫ dx/(1 + 3cos²x) = ∫ sec²x dx/(sec²x + 3) = ∫ sec²x dx/(tan²x + 4)। t = tan x ধরলে dt = sec²x dx; ∫ dt/(t² + 4) = ½ tan⁻¹(t/2) + c = ½ tan⁻¹(tan x/2) + c (a)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q087-110711-ch",
@@ -4023,7 +4026,8 @@
       "source": {
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 87
-      }
+      },
+      "explanation": "(eˣ − 1)tan²x/x³ = [(eˣ − 1)/x]·[tan x/x]²। x → 0 এ (eˣ − 1)/x → 1 এবং tan x/x → 1, তাই সীমা = 1 × 1² = 1 (b)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q088-110730-ch",
@@ -4164,7 +4168,7 @@
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 90
       },
-      "explanation": "(x + 2)/((x + 1) (x + 3)) dx 1 15 [ ] = (– 1 + 2)/((x + 1) (– 1 + 3)) + (– 3 + 2)/((– 3 + 1) (x + 3)) dx 1 15 15 15 15 = dx/(2 (x + 1)) + dx/(2 (x + 3))= 1/2[ln (x + 1)] + 1/2[ln (x + 3)] 1 1 1 1 = 1/2 ln 16/2 + 1/2 ln 18/4 = 1/2 ln 8 + 1/2 ln 9/2 1 1 2× = 1/2 ln (8 × 9/2) = 1/2 ln 36 = ln (36)2 = ln (6) 2 = ln 6"
+      "explanation": "আংশিক ভগ্নাংশ: (x + 2)/[(x + 1)(x + 3)] = (1/2)/(x + 1) + (1/2)/(x + 3)। ∫₁^{15} = ½[ln((x + 1)(x + 3))]₁^{15} = ½(ln 288 − ln 8) = ½ ln 36 = ln 6 (d)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q091-111293-ch",
@@ -4257,7 +4261,8 @@
       "source": {
         "documentId": "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha-lokkho-capture",
         "questionNumber": 92
-      }
+      },
+      "explanation": "xⁿ − aⁿ = (x − a)(xⁿ⁻¹ + a xⁿ⁻² + … + aⁿ⁻¹), অর্থাৎ নিঃশেষে বিভাজ্য এবং ভাগফল xⁿ⁻¹ + a xⁿ⁻² + … + aⁿ⁻¹। এর সর্বোচ্চ ঘাত n − 1 (c)।"
     },
     {
       "id": "ru-sci-c-2022-2023-ruc-group1-mcq-q093-110567-ch",

@@ -3,7 +3,7 @@ import type { ContentManifest } from "./seedFormat.ts";
 
 export const BUNDLED_MANIFEST: ContentManifest = {
   seedFormat: 1,
-  seedId: "ee4c9c453b6e210f332f",
+  seedId: "de9c2af8c55cfb9a332f",
   packs: [
   { batchId: "cu-a-2006-2007", signature: "2c3b50794878223f21d98", questions: 99 },
   { batchId: "cu-a-2007-2008", signature: "d85e32ea9669bd622151c", questions: 100 },
@@ -225,11 +225,11 @@ export const BUNDLED_MANIFEST: ContentManifest = {
   { batchId: "ru-sci-c-2020-2021-ruc-group1-mcq-chorcha", signature: "a59f359dde0130ad1bbb4", questions: 124 },
   { batchId: "ru-sci-c-2020-2021-ruc-group2-mcq-chorcha", signature: "6ac40458a58ad9da1ec2a", questions: 127 },
   { batchId: "ru-sci-c-2021-2022-ruc-group1-mcq-chorcha", signature: "5c51a6075626efe31c6ec", questions: 129 },
-  { batchId: "ru-sci-c-2021-2022-ruc-group2-mcq-chorcha", signature: "99dde9e4a651a9f220e8e", questions: 129 },
-  { batchId: "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha", signature: "ced7a052e30c13f6220da", questions: 128 },
-  { batchId: "ru-sci-c-2022-2023-ruc-group2-mcq-chorcha", signature: "7359d677117de70b22647", questions: 129 },
-  { batchId: "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha", signature: "92541e7c2efa21461cab0", questions: 129 },
-  { batchId: "ru-sci-c-2024-2025-ruc-group1-mcq-chorcha", signature: "8d2d8b5050c924ac20c77", questions: 127 },
+  { batchId: "ru-sci-c-2021-2022-ruc-group2-mcq-chorcha", signature: "e3fc4169e7f77e332131c", questions: 129 },
+  { batchId: "ru-sci-c-2022-2023-ruc-group1-mcq-chorcha", signature: "efc8e55e268a5aba2234f", questions: 128 },
+  { batchId: "ru-sci-c-2022-2023-ruc-group2-mcq-chorcha", signature: "3eb3cdf8e4266ff0229d0", questions: 129 },
+  { batchId: "ru-sci-c-2023-2024-ruc-group1-mcq-chorcha", signature: "a2bc7778e6fb91381e13b", questions: 129 },
+  { batchId: "ru-sci-c-2024-2025-ruc-group1-mcq-chorcha", signature: "aa15a5e21954ebd02101d", questions: 127 },
   { batchId: "ru-sci-c-2024-2025-ruc-group2-mcq-chorcha", signature: "2b9e72106d58982c215bf", questions: 128 },
   { batchId: "ru-sci-c-2025-2026-ruc-group1-mcq-chorcha", signature: "56624a70c3940c601abd7", questions: 128 },
   { batchId: "ru-sci-c-2025-2026-ruc-group2-mcq-chorcha", signature: "26f988097278a8cf1b449", questions: 129 },
