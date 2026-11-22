@@ -1,3 +1,7 @@
+## RU explanation upgrade — checkpoint 28 (In Progress) — 2026-11-22
+
+- RU explanation upgrade — checkpoint 28 (2026-11-22): RU Biology batches bio_11–bio_15 applied after checkpoint 27. 272 authored groups produced 274 unique verified record updates (incl. exact-duplicate propagation). Biology explanation coverage 1,199/1,416; overall RU verified coverage 3,819/4,144 (92.2%). All changes limited to explanation fields, every updated record remains verified, and source/key ambiguities are documented as deferred. Ledger 2,763 rows / 2,758 unique IDs; deferred list 202. Remaining eligible queue: 193 Biology groups and 23 Physics rewrites. CU/HSTU not started.
+
 ## RU explanation upgrade — checkpoint 27 (In Progress) — 2026-11-22
 
 - RU explanation upgrade — checkpoint 27 (2026-11-22): RU Biology batches bio_06–bio_10 applied after checkpoint 26. 278 authored groups produced 290 unique verified record updates (incl. exact-duplicate propagation). Biology explanation coverage 946/1,416; overall RU verified coverage 3,566/4,144 (86.0%). Only explanation fields changed, all updates remain verified, and answer/source ambiguities were deferred. Ledger 2,489 rows / 2,484 unique IDs; deferred list 175. Remaining queue: 492 Biology groups and 23 Physics rewrites. CU/HSTU not started.

@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 28
+
+- Reviewed and added/replaced RU Biology explanations in batches bio_11–bio_15. 272 authored groups produced 274 unique verified question-record updates after exact-duplicate propagation. Added 27 documented Biology deferrals. No question stems, options, answer keys, verification statuses, source IDs or pack metadata were changed.
+
 ## 2026-11-22 — RU explanations, checkpoint 27
 
 - Reviewed and added/replaced RU Biology explanations in batches bio_06–bio_10. 278 authored question groups produced 290 unique verified question-record updates after exact-duplicate propagation. Added 23 documented Biology deferrals. No question stems, options, answer keys, verification statuses, source IDs or pack metadata were changed.
