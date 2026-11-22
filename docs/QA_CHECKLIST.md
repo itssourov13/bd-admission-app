@@ -1,16 +1,17 @@
-## Android preview candidate v0.1.12 — 2026-11-22
+## Android preview v0.1.12 — EAS accepted / IN_PROGRESS — 2026-11-22
 
 | Check | Result | Evidence |
 |---|---|---|
-| Release metadata | [x] Prepared | App / brand / package 0.1.12; Android versionCode 12; package com.admissionbd.app; Expo slug and EAS project preserved. |
+| Release metadata | [x] Pass | App / brand / package 0.1.12; Android versionCode 12; com.admissionbd.app; existing Expo slug and EAS project retained. |
 | Feature scope | [x] Included in source | CU Bangla catalogue display, Profile ordering, SQLite v13 question issue reports, Profile list/detail/edit/delete, versioned JSON export and Android Sharesheet. |
 | Automated implementation gates | [x] Pass | Node 22.23.1: full tests 318/318; focused tests 54/54; typecheck; lint; Expo dependency check; Expo Doctor 21/21; diff check. |
-| Resolved Expo config | [x] Pass | Resolved Expo config confirms version 0.1.12, Android versionCode 12, package com.admissionbd.app, slug bd-admission-app and existing EAS project ID. |
-| EAS preview submission | [ ] Not accepted | Two no-wait attempts reached the 36.6 MB archive upload step but last visible progress remained 0 MB; no build ID/acceptance acknowledgement. Both were stopped after short monitoring. Build list still showed only v0.1.11/v0.1.10. Retry required. |
-| Cloud build completion | [ ] Not submitted | No EAS job ID was confirmed, so there is no cloud build to monitor. |
-| Physical Android install and run | [ ] Pending | Install v0.1.12 APK and test layout, timed report composer, local persistence and JSON attachment sharing. |
-| Google Play production release | [ ] Not requested | Internal APK only; no production AAB or Play submission. |
-| Git | [x] Pass | Release metadata/docs are committed in 1a81bc8; this submission-status update is committed separately. No push. |
+| Resolved Expo config | [x] Pass | Version 0.1.12, Android versionCode 12, package, slug and EAS project ID all match the intended release. |
+| EAS preview submission | [x] Accepted | Build 32339eb3-cef2-45fa-b268-2917fecd82be; 36.6 MB archive uploaded in 1m 4s. https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be |
+| Cloud build status | [x] Verified in progress | build:view returned IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka. Monitoring stopped at acceptance; completion is not claimed. |
+| Physical Android install and run | [ ] Pending | After the APK is available, test responsive layouts, timed report composer, report persistence/edit/delete and JSON attachment sharing. |
+| Google Play production release | [ ] Not requested | Internal preview APK only; no production AAB or Play submission. |
+| Android build guide | [x] Added | docs/ANDROID_BUILD_GUIDE.md records the pinned toolchain, pseudo-TTY command, successful upload details and troubleshooting. |
+| Git | [x] Pass | Documentation-only update committed locally after link/consistency checks; no app source/config/dependency changes and no push. |
 
 ---
 

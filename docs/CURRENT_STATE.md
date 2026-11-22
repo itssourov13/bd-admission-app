@@ -1,12 +1,14 @@
-## Android preview v0.1.12 — release candidate — 2026-11-22
+## Android preview v0.1.12 — submitted to EAS — 2026-11-22
 
-**Release metadata:** app / brand / package **0.1.12**, Android **versionCode 12**, application ID com.admissionbd.app. Target is the existing EAS preview / INTERNAL Android APK profile. Expo slug, EAS project ID and EAS-managed signing identity remain unchanged.
+**Release metadata:** app / brand / package 0.1.12, Android versionCode 12, application ID com.admissionbd.app. Target: existing EAS preview / INTERNAL Android APK profile. Expo slug, EAS project ID and EAS-managed signing identity are unchanged.
 
-- Includes CU Bangla catalogue-name localization, the requested Profile shortcut order, the complete local question-issue reporting flow (SQLite v13), JSON report export and native Android Sharesheet integration. This is the first preview candidate containing those changes.
-- Source automated gates on Node 22.23.1: typecheck, lint, Expo dependency check, targeted tests **54/54**, full suite **318/318**, git diff check, and Expo Doctor **21/21** pass. Content/pack/asset inputs are unchanged from the already verified implementation commit.
-- The v0.1.11 APK remains the last completed/owner-tested preview and does not include this implementation. The v0.1.12 candidate must receive physical-device checks before broader distribution.
-- EAS preview generates an internal APK, not a production AAB and not a Google Play submission. Preserve the existing app ID, linked EAS project and managed Android signing identity.
-- **Submission status:** a no-wait EAS submission attempt reached archive upload, but the last visible progress remained 0 / 36.6 MB after approximately 4m54s and no build ID/acceptance acknowledgement arrived. A separate build-list query still showed only the previous v0.1.11 build. The upload process was stopped to avoid extended monitoring; no new EAS build is confirmed. Retry the upload when connectivity is responsive. No push.
+- Includes CU Bangla catalogue-name localization, Profile shortcut ordering, the local question-issue reporting flow (SQLite v13), Profile report management, privacy-bounded JSON export and native Android Sharesheet integration.
+- Source automated gates on Node 22.23.1: TypeScript, lint, Expo dependency check, targeted tests 54/54, full suite 318/318, git diff --check and Expo Doctor 21/21 passed. Content/pack/asset inputs are unchanged from the verified implementation.
+- EAS build 32339eb3-cef2-45fa-b268-2917fecd82be was accepted. Archive size 36.6 MB; upload completed in 1m 4s. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be.
+- build:view verified IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka, with platform ANDROID, profile preview, distribution INTERNAL, app version 0.1.12, build version 12 and application ID com.admissionbd.app. Submission is confirmed; cloud build completion and APK availability are not yet claimed.
+- EAS preview generates an internal APK, not a production AAB or Google Play submission. Preserve the existing app ID, linked EAS project and managed Android signing identity.
+- Previous 0 MB-only logs came from a non-TTY spinner that hid progress. The successful retry used a pseudo-terminal via script; see docs/ANDROID_BUILD_GUIDE.md. No application code/config/dependency changes, no push.
+- Physical-device install and v0.1.12 QA remain pending until EAS completes and the APK is available.
 
 ---
 

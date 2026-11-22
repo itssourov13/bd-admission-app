@@ -1,14 +1,22 @@
-# Latest handoff — Android preview v0.1.12 EAS submission — 2026-11-22
+# Latest handoff — Android preview v0.1.12 submitted to EAS — 2026-11-22
 
 **Workspace:** /home/kali/gpt-workspace/bd-admission-app
 **Branch:** feat/import-hstu-verified-answers-2026-11-12
-**Release candidate:** app / brand / package 0.1.12, Android versionCode 12, application ID com.admissionbd.app.
+**Release:** app / brand / package 0.1.12, Android versionCode 12, application ID com.admissionbd.app.
 **EAS target:** preview / INTERNAL Android APK; existing Expo slug, EAS project ID and EAS-managed signing identity retained.
-**Account:** sk_king13 (authenticated owner); linked EAS project ID 16ba69b8-96d7-4856-a197-77acddebe1ec.
+**Toolchain:** Node 22.23.1, pnpm 11.10.0, EAS CLI 27.11.0 via pnpm dlx.
+**Build ID:** 32339eb3-cef2-45fa-b268-2917fecd82be
+**Build page:** https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be
 
-The v0.1.12 source includes the recently committed CU Bangla catalogue localization, Profile shortcut order, local-first question issue reports, SQLite schema v13, Profile report management and privacy-bounded JSON export/native Sharesheet. Previous automated verification on Node 22.23.1 passed: 318/318 full tests, 54/54 focused tests, typecheck, lint, Expo install check, git diff check and Expo Doctor 21/21.
+The v0.1.12 source includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reports, SQLite schema v13, Profile report management and privacy-bounded JSON export/native Sharesheet. Source automated verification on Node 22.23.1 passed: 318/318 full tests, 54/54 focused tests, typecheck, lint, Expo install check, git diff --check and Expo Doctor 21/21.
 
-**Submission attempt outcome:** the no-wait EAS CLI command resolved the preview environment and existing remote Android credentials/keystore, then began archive compression/upload. The first attempt stopped at 0 / 36.6 MB after approximately 4m54s. A second submission retry repeated the same result: EAS resolved remote Android credentials and the existing keystore, compressed the project archive, then showed 0 / 36.6 MB without further progress or a build ID during the short monitoring window. The retry process was stopped per the short-monitoring instruction. A follow-up EAS build-list query showed only the previous v0.1.11 build (8aa4643c-e312-4a0b-af08-9b3f7779b68c) and v0.1.10 build (64584a92-b1c7-4353-86ef-894152c94550); no v0.1.12 job exists in the returned latest two entries. No v0.1.12 cloud build is confirmed after two short upload attempts; retry when connectivity is responsive. Do not wait for a future build to finish. This is an internal APK preview, not Google Play production submission. No push.
+**Confirmed EAS submission:** archive compression completed in 17 seconds; the 36.6 MB archive uploaded successfully in 1 minute 4 seconds. EAS printed the build URL/ID. A separate build:view query matched the project and returned status IN_PROGRESS, platform ANDROID, profile preview, distribution INTERNAL, app version 0.1.12, Android build version 12, and application ID com.admissionbd.app (checked 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka). Submission and queue acceptance are confirmed; cloud build completion and APK availability are not claimed. Monitoring stopped at IN_PROGRESS as requested.
+
+**Important diagnostic correction:** the earlier two no-TTY attempts displayed only the initial 0 / 36.6 MB progress marker. EAS disables its progress spinner when stdin is not a TTY, so those logs did not prove that the upload was stuck. The successful submission used script -q -f -e -c to provide a pseudo-terminal and preserve the actual progress output. See docs/ANDROID_BUILD_GUIDE.md for the reproducible command and troubleshooting procedure.
+
+No app source/config/dependency changes, no push and no merge. Physical-device installation and v0.1.12 UX QA remain pending after the cloud build produces the APK.
+
+---
 
 ---
 

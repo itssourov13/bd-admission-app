@@ -1,11 +1,11 @@
-## 2026-11-22 — Prepare v0.1.12 Android preview with CU localization and question issue reporting
+## 2026-11-22 — Submit v0.1.12 Android preview with CU localization and question issue reporting
 
-- Bumped Expo app / brand / package version from 0.1.11 to 0.1.12 and Android versionCode from 11 to 12.
-- Preserved Android application ID com.admissionbd.app, Expo slug, EAS project ID, preview / INTERNAL APK profile and EAS-managed signing identity.
-- This candidate includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, additive SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
-- Automated implementation gates previously passed on Node 22.23.1: full suite 318/318, targeted tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
-- Target is an internal APK preview only; not a production AAB or Google Play submission. Existing v0.1.11 remains the last completed and owner-tested APK. Physical Android QA of v0.1.12 will follow the cloud build.
-- Two no-wait EAS upload attempts stalled at the last visible 0 / 36.6 MB marker and did not return a build ID/acceptance response. Build list still showed only v0.1.11/v0.1.10. The attempts were stopped after short monitoring; retry is pending. No push.
+- App / brand / package version is 0.1.12; Android versionCode is 12. Preserved com.admissionbd.app, Expo slug, EAS project ID, preview / INTERNAL APK profile and the existing EAS-managed signing identity.
+- The release source includes CU Bangla catalogue localization, Profile shortcut ordering, local-first question issue reporting, SQLite v13, Profile report management, privacy-bounded JSON export and native Android Sharesheet support.
+- Automated implementation gates passed on Node 22.23.1: full suite 318/318, focused tests 54/54, TypeScript, lint, Expo dependency check, diff check and Expo Doctor 21/21.
+- Submitted with Node 22.23.1, pnpm 11.10.0 and EAS CLI 27.11.0. EAS accepted the 36.6 MB archive upload (1m 4s) and created build 32339eb3-cef2-45fa-b268-2917fecd82be. Build page: https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be.
+- build:view verified IN_PROGRESS on 2026-11-22 05:38 UTC / 11:38 Asia/Dhaka. Monitoring stopped at acceptance. Build completion, APK availability and physical-device QA are not yet claimed. This is an internal APK preview, not a production AAB or Google Play submission.
+- The previous 0 / 36.6 MB appearance was a non-TTY spinner-visibility issue, not proof that the upload was stuck. The successful invocation used script -q -f -e -c to provide a pseudo-terminal. The complete repeatable procedure and troubleshooting are in docs/ANDROID_BUILD_GUIDE.md. No source/config/dependency change, no push.
 
 ---
 

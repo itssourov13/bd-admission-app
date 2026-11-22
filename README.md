@@ -1,7 +1,7 @@
 <div align="center">
   <img src="docs/assets/brand/readme-banner.png" alt="BD Admission — Prepare smarter. Move forward." width="100%" />
   <p><strong>Offline-first admission preparation for Bangladesh.</strong><br />Practice university and medical admission questions in Bangla or English, with or without an internet connection.</p>
-  <p><a href="https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/8aa4643c-e312-4a0b-af08-9b3f7779b68c">Android preview APK</a> · <a href="docs/APP_OVERVIEW.md">Product overview</a> · <a href="docs/ANDROID_RELEASE.md">Release details</a></p>
+  <p><a href="https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be">v0.1.12 EAS build</a> · <a href="docs/APP_OVERVIEW.md">Product overview</a> · <a href="docs/ANDROID_RELEASE.md">Release details</a></p>
 </div>
 
 ## App preview
@@ -23,7 +23,7 @@
 
 ## Current Android preview
 
-**v0.1.12 candidate** · Android versionCode 12 · com.admissionbd.app · EAS preview (internal APK). This release candidate contains CU Bangla catalogue localization, the reordered Profile shortcuts, local question issue reporting (SQLite v13), Profile report management and JSON export through the Android Sharesheet. Two EAS upload attempts stalled at 0 / 36.6 MB without acceptance; the latest EAS build list still shows v0.1.11 as the newest build. No v0.1.12 build ID, APK or device test is available yet. The previous v0.1.11 build remains the last completed and owner-tested preview (EAS build 8aa4643c-e312-4a0b-af08-9b3f7779b68c). This is an internal preview candidate, not a Google Play release.
+**v0.1.12 submitted** · Android versionCode 12 · com.admissionbd.app · EAS preview / INTERNAL APK. The source contains CU Bangla catalogue localization, reordered Profile shortcuts, local question issue reports (SQLite v13), Profile report management and privacy-bounded JSON export through the Android Sharesheet. EAS accepted the 36.6 MB archive and created build [32339eb3-cef2-45fa-b268-2917fecd82be](https://expo.dev/accounts/sk_king13/projects/bd-admission-app/builds/32339eb3-cef2-45fa-b268-2917fecd82be); build:view reported IN_PROGRESS at 2026-11-22 05:38 UTC. This confirms submission, not build completion or APK availability. Physical-device QA is pending. This is an internal preview, not a Google Play release.
 
 ## License
 
@@ -35,7 +35,7 @@ Original application source code and project-authored materials are licensed und
 - [Current implementation state](docs/CURRENT_STATE.md) · [Architecture](docs/ARCHITECTURE.md)
 - [Question data schema](docs/QUESTION_DATA_SCHEMA.md) · [Import workflow](docs/QUESTION_IMPORT_WORKFLOW.md)
 - [Exam-rule research](docs/EXAM_RULE_RESEARCH.md) · [QA checklist](docs/QA_CHECKLIST.md)
-- [Android build and release guide](docs/ANDROID_RELEASE.md) · [Development preview guide](docs/EXPO_LOCAL_PREVIEW.md)
+- [Android build guide](docs/ANDROID_BUILD_GUIDE.md) · [Release history](docs/ANDROID_RELEASE.md) · [Development preview guide](docs/EXPO_LOCAL_PREVIEW.md)
 
 ## Development
 
