@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 7
+
+- Checkpoint 7: ph_01 Physics explanations added to 4 RU packs (23 rows incl. one propagated duplicate); explanation field only; reviewed; 3 questions deferred. No build run.
+
 ## 2026-11-22 — RU explanations, checkpoint 6
 
 - RU Science explanations checkpoint 6: Higher Mathematics and ICT queues completed (106 explanation additions/replacements, 627 ledger rows total). Only the `explanation` field of verified questions changed; keys, options, IDs and statuses untouched. Build/validation deferred to the final cycle.
