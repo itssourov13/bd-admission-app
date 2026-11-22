@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 14
+
+- Added reviewed Bengali explanations for 61 RU Chemistry questions (ch_01) in 8 packs; explanation field only. Five questions with stored keys that conflict with the chemistry were deferred with documented reasons; answer keys unchanged.
+
 ## 2026-11-22 — RU explanations, checkpoint 13
 
 - Added reviewed Bengali explanations for 61 RU Physics questions (ph_16) in 7 packs; explanation field only. Four defective/ambiguous items deferred with documented reasons. RU Physics explanation work is complete apart from 26 documented deferrals.
