@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 6
+
+- RU Science explanations checkpoint 6: Higher Mathematics and ICT queues completed (106 explanation additions/replacements, 627 ledger rows total). Only the `explanation` field of verified questions changed; keys, options, IDs and statuses untouched. Build/validation deferred to the final cycle.
+
 ## 2026-11-22 — RU explanations, checkpoint 5
 
 - Added verified Bangla explanations for 62 more RU Higher Mathematics questions and rewrote 20 garbled ones (batch hm_15, spanning 2021-22 through 2024-25). Explanation field only; keys, option order, statuses and provenance unchanged. All 82 independently re-derived with sympy (inverse-trig domains, integrals, limits, complex numbers, matrices, conics); 0 key disagreements. Three unresolved questions stay deferred with documented reasons; one candidate key correction noted but not applied. Regenerated bundled manifest/seed.
