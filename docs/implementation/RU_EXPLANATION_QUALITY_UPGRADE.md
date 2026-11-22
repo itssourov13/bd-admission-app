@@ -47,5 +47,8 @@ ph_13-ph_14 (74 additions across 4 ru-sci-c packs, ruh 2017-18 and ruc 2018-19 t
 ## Checkpoint 12 (2026-11-22)
 ph_15 (37 explanation updates across 4 ru-sci-c packs, ruc 2021-22 g2, 2022-23 g1/g2, 2023-24 g1): 29 additions + 8 replacements. Answers derived from stems during authoring; circuit image checked. Post-apply check (verify_final.py 1130): 37/37 tree changes match ledger, 0 non-explanation changes, all still verified. 3 new deferrals documented. No full build by design.
 
+## Checkpoint 13 (2026-11-22)
+ph_16 (61 additions across 7 packs: rug 2017-18, ruc 2023-24 to 2025-26, one book-pack item). Answers derived independently from stems; two circuit images inspected. Post-apply check (verify_final.py 1167): 61/61 tree changes match ledger, 0 non-explanation changes, all still verified. 4 new deferrals documented. RU Physics complete apart from 26 documented deferrals. No full build by design.
+
 ## Remaining
-Physics 87 (22 documented deferrals, 65 eligible), Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
+Physics 26 (all documented deferrals), Chemistry 697, Biology 1,032, HM 39 (documented deferrals), ICT 1; then CU and HSTU. One final build + full validation at the very end.
