@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 26
+
+- Reviewed and added/replaced RU Biology explanations in batches bio_01–bio_05. 255 directly authored group explanations produced 274 unique verified question-record updates after exact-duplicate propagation. Added 43 documented Biology deferrals across these batches. No question stems, options, keys, verification states, or pack metadata were changed.
+
 ## 2026-11-22 — RU explanations, checkpoint 25
 
 - Completed the remaining eligible RU Chemistry explanation work. Replaced 4 garbled explanations in the 2018-19 D1 VQ book and added 5 updates for the remaining valid unique Chemistry questions (3 authored + 2 exact duplicate propagations). Reconciled all 947 verified Chemistry questions: 905 explained and 42 source/key-issue questions explicitly deferred; no eligible unexplained Chemistry questions remain.
