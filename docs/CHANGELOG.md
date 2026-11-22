@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 17
+
+- Added 67 new reviewed Bengali Chemistry explanations and replaced one garbled explanation in ch_04 (68 question-pack updates including 5 duplicate propagations, across 10 packs); explanation fields only. Three source/key problems were documented and deferred with all stored answer keys preserved.
+
 ## 2026-11-22 — RU explanations, checkpoint 16
 
 - Added reviewed Bengali explanations for 62 new RU Chemistry questions and replaced 3 garbled ones (ch_03, 11 packs); explanation field only. Five defective, ambiguous or key-conflicting questions deferred with documented reasons; answer keys unchanged.
