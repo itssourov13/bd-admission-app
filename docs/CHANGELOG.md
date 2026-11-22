@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 21
+
+- Added 60 RU Chemistry explanation updates in ch_08 (59 authored explanations plus one exact duplicate propagation across 5 packs); explanation fields only. One condition-dependent aldol-temperature question was deferred; source/convention notes were recorded without changing original question data or keys.
+
 ## 2026-11-22 — RU explanations, checkpoint 20
 
 - Added 58 RU Chemistry explanations and replaced 4 garbled explanations in ch_07; five exact-duplicate propagations bring the batch to 62 question-pack updates across 9 packs. Three questions were deferred due to missing/ambiguous standards or a likely wrong stored key; historical/context notes were added without changing source question data.
