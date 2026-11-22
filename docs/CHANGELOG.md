@@ -1,3 +1,7 @@
+## 2026-11-22 — RU explanations, checkpoint 24
+
+- Added 48 new RU Chemistry explanations and replaced 11 garbled explanations in ch_11 (59 explanation-only pack updates across 6 packs). One physically impossible aqueous electrolysis question was deferred; source/OCR and unit caveats were documented without changing original question data or keys.
+
 ## 2026-11-22 — RU explanations, checkpoint 23
 
 - Added 42 new RU Chemistry explanations and replaced 15 garbled explanations in ch_10 (57 explanation-only pack updates across 6 packs). Three underspecified/source-defective questions were deferred; three source images were inspected and original question data and answer keys were preserved.
